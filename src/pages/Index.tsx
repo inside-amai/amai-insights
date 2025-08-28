@@ -11,7 +11,6 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import terminalDemo from '@/assets/terminal-demo.jpg';
 import circuitBoard from '@/assets/circuit-board.jpg';
-import AnimatedRoadmap from '@/components/AnimatedRoadmap';
 import roadmapTimeline from '@/assets/roadmap-timeline.jpg';
 import tokenChart from '@/assets/token-chart.jpg';
 
@@ -172,8 +171,32 @@ const Index = () => {
         <ExplainerSection
           eyebrow="Development Timeline"
           title="2025-2027 Roadmap"
-          content={<AnimatedRoadmap />}
-          imageSrc="/lovable-uploads/60d90140-2890-437e-839f-a7f549342ea7.png"
+          content={
+            <div className="space-y-4">
+              <p>
+                TODO: Strategic development phases and key milestones for the AMAI platform.
+              </p>
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-semibold text-white">Q3 2025</h4>
+                  <p className="text-sm text-gray-300">TODO: Platform beta launch and initial user testing</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-white">Q1 2026</h4>
+                  <p className="text-sm text-gray-300">TODO: Token launch and governance implementation</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-white">Q3 2026</h4>
+                  <p className="text-sm text-gray-300">TODO: Advanced AI features and scaling</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-white">2027</h4>
+                  <p className="text-sm text-gray-300">TODO: Full ecosystem deployment and partnerships</p>
+                </div>
+              </div>
+            </div>
+          }
+          imageSrc={roadmapTimeline}
           imageAlt="AMAI Roadmap Timeline"
           overlayColor="rgba(34, 197, 94, 0.2)"
         />
