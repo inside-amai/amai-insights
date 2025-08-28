@@ -6,10 +6,12 @@ import { ArrowRight } from 'lucide-react';
 import { ExplainerHero } from '@/components/ExplainerHero';
 import { ExplainerSection } from '@/components/ExplainerSection';
 import { ExplainerFAQ } from '@/components/ExplainerFAQ';
+import { WhitepaperCard } from '@/components/WhitepaperCard';
 import terminalDemo from '@/assets/terminal-demo.jpg';
 import circuitBoard from '@/assets/circuit-board.jpg';
 import roadmapTimeline from '@/assets/roadmap-timeline.jpg';
 import tokenChart from '@/assets/token-chart.jpg';
+import '../styles/glass.css';
 
 const whitepaperSections = [
   {
@@ -163,73 +165,44 @@ const Index = () => {
       </div>
 
       {/* Whitepaper Section */}
-      <div className="min-h-screen bg-white">
-        {/* Hero Section */}
-        <section className="relative pt-20 pb-16">
-          <div className="container mx-auto px-6">
+      <section className="w-full bg-gradient-to-br from-[#A6FCFC1A] via-transparent to-[#D6A6FC1A] py-24 shadow-inner">
+        <div className="max-w-7xl mx-auto px-6">
+          {/* Hero Section */}
+          <div className="text-center mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-center max-w-4xl mx-auto"
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+              viewport={{ once: true }}
             >
-              <span className="text-sm font-medium text-gray-600 uppercase tracking-wider">
+              <p className="text-xs tracking-widest uppercase text-[#A6FCFC] mb-4">
                 Technical Documentation
-              </span>
-              <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mt-4 mb-6">
+              </p>
+              <h1 className="text-5xl md:text-6xl font-extrabold font-roboto text-center mb-6 text-[#111]">
                 AMAI Whitepaper
               </h1>
-              <p className="text-xl text-gray-700 leading-relaxed">
+              <p className="text-lg md:text-xl text-center text-[#333] max-w-3xl mx-auto leading-relaxed">
                 Comprehensive technical documentation covering platform architecture, 
                 tokenomics, development roadmap, and implementation details.
               </p>
             </motion.div>
           </div>
-        </section>
 
-        {/* Sections Grid */}
-        <section className="pb-20">
-          <div className="container mx-auto px-6">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
-            >
-              {whitepaperSections.map((section, index) => (
-                <motion.div
-                  key={section.slug}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 * index }}
-                >
-                  <Card className="h-full bg-gray-200 border border-gray-300 hover:bg-gray-300 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-gray-400/20">
-                    <CardHeader>
-                      <span className="text-xs font-medium text-primary uppercase tracking-wider">
-                        {section.eyebrow}
-                      </span>
-                      <CardTitle className="text-xl font-bold text-gray-900">
-                        {section.title}
-                      </CardTitle>
-                      <CardDescription className="text-gray-600">
-                        {section.description}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent className="pt-0">
-                      <Button asChild variant="outline" className="w-full group bg-white border-gray-400 text-gray-900 hover:bg-primary hover:text-gray-900 hover:border-primary transition-all duration-300">
-                        <Link to={`/whitepaper/${section.slug}`}>
-                          Read More
-                          <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                        </Link>
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </motion.div>
+          {/* Cards Grid */}
+          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            {whitepaperSections.map((section, index) => (
+              <WhitepaperCard
+                key={section.slug}
+                slug={section.slug}
+                title={section.title}
+                description={section.description}
+                category={section.eyebrow}
+                index={index}
+              />
+            ))}
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
 
       {/* FAQ Section */}
       <ExplainerFAQ />

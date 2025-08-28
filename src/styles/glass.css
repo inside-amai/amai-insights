@@ -1,0 +1,9 @@
+/* Glassmorphism styles for AMAI Whitepaper section */
+
+.card-glass {
+  @apply rounded-2xl border border-white/20 bg-white/10 backdrop-blur-lg shadow-[0_8px_20px_rgba(0,0,0,0.08)] transition-all duration-300;
+}
+
+.card-glass:hover {
+  @apply bg-white/20 border-white/30 shadow-[0_12px_32px_rgba(0,0,0,0.12)] transform translate-y-[-2px];
+}
