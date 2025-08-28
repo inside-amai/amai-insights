@@ -53,7 +53,7 @@ const Whitepaper = () => {
               Technical Documentation
             </span>
             <h1 className="text-4xl lg:text-6xl font-bold text-hero mt-4 mb-6">
-              AMAI Whitepaper
+              Dive Deeper
             </h1>
             <p className="text-xl text-primary-foreground/90 leading-relaxed">
               Comprehensive technical documentation covering platform architecture, 

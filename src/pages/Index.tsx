@@ -299,7 +299,7 @@ const Index = () => {
                 Technical Documentation
               </p>
               <h1 className="text-center font-roboto text-5xl md:text-6xl font-bold text-[#080808] mb-6">
-                AMAI Whitepaper
+                Dive Deeper
               </h1>
               <p className="mx-auto max-w-3xl text-center text-lg text-[#202020] leading-relaxed">
                 Comprehensive technical documentation covering platform architecture, 
