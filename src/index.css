@@ -131,6 +131,24 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground font-roboto;
   }
+
+  /* Custom scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--purple-accent));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--purple-accent) / 0.8);
+  }
 }
 
 /* Glassmorphism utilities for AMAI Whitepaper section */
