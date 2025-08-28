@@ -59,14 +59,14 @@ export const ExplainerSection = ({
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <div className="relative">
+            <div className="relative bg-black/20 rounded-2xl overflow-hidden">
               <img 
                 src={imageSrc} 
                 alt={imageAlt}
-                className="w-full h-[400px] lg:h-[500px] object-cover"
+                className="w-full h-[400px] lg:h-[500px] object-contain"
               />
               <div 
-                className="absolute inset-0"
+                className="absolute inset-0 pointer-events-none"
                 style={{ backgroundColor: overlayColor }}
               />
             </div>
