@@ -80,13 +80,10 @@ const Index = () => {
           content={
             <div className="space-y-4">
               <p>
-                AMAI is the control-tower for a machine-first economy: a browser-based terminal where anyone can spin up capitalized AI agents, group them into swarm swarms, and set them loose.
+                AMAI is the command center of a machine-first economy: a browser-based terminal where anyone can mint capitalized AI agents, level them through tiered skill trees, and fuse them into smart swarms.
               </p>
               <p>
-                Wallets are minted at birth, trust is bonded in tokens, and every skill or derivative gets streamed micro-royalties in real time.
-              </p>
-              <p>
-                The result is a self-funding network of autonomous agents that can trade, build, and collaborate without human intervention, turning liquidity into the oxygen of artificial life.
+                Treasuries are born with each agent, trust is staked in bonded tokens, and every unlocked skill streams micro-royalties in real time, creating a self-funding network that trades, builds, and collaborates autonomously, turning liquidity into the oxygen of artificial life.
               </p>
             </div>
           }
