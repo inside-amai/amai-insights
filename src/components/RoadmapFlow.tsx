@@ -12,7 +12,10 @@ import {
   Globe, 
   TestTube,
   Database,
-  Settings
+  Settings,
+  Cog,
+  Server,
+  Cpu
 } from 'lucide-react';
 
 interface RoadmapNode {
@@ -22,11 +25,11 @@ interface RoadmapNode {
   icon: React.ComponentType<any>;
   accent: 'aqua' | 'violet';
   description: string;
+  row: number; // 0, 1, or 2 (three rows)
 }
 
 interface RoadmapLane {
   title: string;
-  subtitle?: string;
   nodes: RoadmapNode[];
 }
 
@@ -39,21 +42,24 @@ const roadmapData: RoadmapLane[] = [
         title: 'Wallet Connect',
         icon: Wallet,
         accent: 'aqua',
-        description: 'Seamless wallet integration with SUI ecosystem'
+        description: 'Seamless wallet integration with SUI ecosystem',
+        row: 0
       },
       {
         id: 'swarm-dashboard',
         title: 'Swarm Dashboard',
         icon: Layers,
-        accent: 'aqua',
-        description: 'Central control panel for AI agent management'
+        accent: 'violet',
+        description: 'Central control panel for AI agent management',
+        row: 1
       },
       {
-        id: 'svelte-dashboard',
-        title: 'Svelte Dashboard Z2λ#',
+        id: 'swelet-dashberrr',
+        title: 'Swelet Dashberrr Z?λ#',
         icon: Settings,
         accent: 'aqua',
-        description: 'Advanced configuration interface for agent behaviors'
+        description: 'Advanced configuration interface for agent behaviors',
+        row: 2
       }
     ]
   },
@@ -65,14 +71,16 @@ const roadmapData: RoadmapLane[] = [
         title: 'zkLogin',
         icon: Lock,
         accent: 'aqua',
-        description: 'Zero-knowledge authentication for enhanced privacy'
+        description: 'Zero-knowledge authentication for enhanced privacy',
+        row: 0
       },
       {
         id: 'bond-slash',
         title: 'Bond/Slash Contracts',
         icon: Shield,
         accent: 'violet',
-        description: 'Trustless staking and reputation management'
+        description: 'Trustless staking and reputation management',
+        row: 1
       }
     ]
   },
@@ -82,16 +90,19 @@ const roadmapData: RoadmapLane[] = [
       {
         id: 'oracle',
         title: 'On-chain Oracle',
+        subtitle: 'Trust Scores',
         icon: Calculator,
         accent: 'aqua',
-        description: 'Decentralized reputation scoring system'
+        description: 'Decentralized reputation scoring system',
+        row: 0
       },
       {
         id: 'skill-nft',
         title: 'Skill-NFT Registry',
         icon: Database,
         accent: 'violet',
-        description: 'Tradeable agent capabilities as NFTs'
+        description: 'Tradeable agent capabilities as NFTs',
+        row: 1
       },
       {
         id: 'pay-compute',
@@ -99,7 +110,8 @@ const roadmapData: RoadmapLane[] = [
         subtitle: 'State Channels',
         icon: Zap,
         accent: 'violet',
-        description: 'Micro-payments for AI computation resources'
+        description: 'Micro-payments for AI computation resources',
+        row: 2
       }
     ]
   },
@@ -111,22 +123,25 @@ const roadmapData: RoadmapLane[] = [
         title: 'Swarm',
         icon: Network,
         accent: 'aqua',
-        description: 'Collaborative multi-agent coordination layer'
+        description: 'Collaborative multi-agent coordination layer',
+        row: 0
       },
       {
         id: 'royalty-cluster',
         title: 'Royalty Cluster',
         icon: Coins,
         accent: 'violet',
-        description: 'Automated revenue distribution system'
+        description: 'Automated revenue distribution system',
+        row: 1
       },
       {
         id: 'llm-channels',
         title: 'Containerized LLM',
-        subtitle: 'REST/gRPC Endpoints',
+        subtitle: 'REST/grPC Endpoints',
         icon: Globe,
         accent: 'aqua',
-        description: 'Scalable AI model serving infrastructure'
+        description: 'Scalable AI model serving infrastructure',
+        row: 2
       }
     ]
   },
@@ -138,50 +153,105 @@ const roadmapData: RoadmapLane[] = [
         title: 'Real-Time Settlement',
         icon: Zap,
         accent: 'aqua',
-        description: 'Instant transaction finality for agent operations'
+        description: 'Instant transaction finality for agent operations',
+        row: 0
       },
       {
         id: 'rls-policies',
         title: 'RLS/AuthZ Policies',
         icon: Lock,
-        accent: 'aqua',
-        description: 'Advanced security and access control'
+        accent: 'violet',
+        description: 'Advanced security and access control',
+        row: 1
       },
       {
         id: 'testing-suites',
         title: 'Testing Suites',
         icon: TestTube,
         accent: 'aqua',
-        description: 'Comprehensive agent behavior validation'
+        description: 'Comprehensive agent behavior validation',
+        row: 2
       }
     ]
   }
 ];
 
-// Memoized path component for performance
+// Connection paths with exact reference coordinates
+const connections: Array<{
+  from: string;
+  to: string;
+  accent: 'aqua' | 'violet';
+  type?: 'normal' | 'internal' | 'loop';
+}> = [
+  // From Lane 1 (Q3 2025)
+  { from: 'wallet-connect', to: 'zklogin', accent: 'aqua' },
+  { from: 'wallet-connect', to: 'oracle', accent: 'aqua' },
+  { from: 'swarm-dashboard', to: 'bond-slash', accent: 'violet' },
+  { from: 'swarm-dashboard', to: 'swelet-dashberrr', accent: 'aqua', type: 'internal' },
+  
+  // From Lane 2 (Q4 2025)
+  { from: 'zklogin', to: 'oracle', accent: 'aqua' },
+  { from: 'bond-slash', to: 'skill-nft', accent: 'violet' },
+  
+  // From Lane 3 (Q1 2026)
+  { from: 'skill-nft', to: 'llm-channels', accent: 'violet' },
+  
+  // From Lane 4 (Q4 2026)
+  { from: 'swarm', to: 'settlement', accent: 'aqua' },
+  { from: 'royalty-cluster', to: 'rls-policies', accent: 'violet' },
+  { from: 'llm-channels', to: 'testing-suites', accent: 'aqua' },
+  
+  // Internal loops in Lane 4
+  { from: 'swarm', to: 'royalty-cluster', accent: 'aqua', type: 'loop' },
+  { from: 'royalty-cluster', to: 'swarm', accent: 'violet', type: 'loop' }
+];
+
 const ConnectionPath = memo(({ 
-  fromLane, 
-  toLane, 
-  fromIndex, 
-  toIndex, 
+  from, 
+  to, 
   accent,
+  type = 'normal',
   delay = 0
 }: { 
-  fromLane: number; 
-  toLane: number; 
-  fromIndex: number; 
-  toIndex: number; 
+  from: string; 
+  to: string; 
   accent: 'aqua' | 'violet';
+  type?: 'normal' | 'internal' | 'loop';
   delay?: number;
 }) => {
-  const startX = 260 + (fromLane * 280) + 220; // Start from right edge of card
-  const endX = 260 + (toLane * 280) + 32; // End at left edge of next card + padding
-  const startY = 160 + (fromIndex * 120) + 40; // Center of card
-  const endY = 160 + (toIndex * 120) + 40; // Center of target card
+  // Calculate positions based on node IDs and their lane/row positions
+  const getNodePosition = (nodeId: string) => {
+    for (let laneIndex = 0; laneIndex < roadmapData.length; laneIndex++) {
+      const lane = roadmapData[laneIndex];
+      const node = lane.nodes.find(n => n.id === nodeId);
+      if (node) {
+        const x = 300 + (laneIndex * 240) + 64; // Lane offset + card offset
+        const y = 80 + (node.row * 144) + 36; // Top padding + row offset + card center
+        return { x, y };
+      }
+    }
+    return { x: 0, y: 0 };
+  };
+
+  const startPos = getNodePosition(from);
+  const endPos = getNodePosition(to);
   
-  const midX = (startX + endX) / 2;
+  let pathData = '';
   
-  const pathData = `M ${startX} ${startY} C ${midX} ${startY}, ${midX} ${endY}, ${endX} ${endY}`;
+  if (type === 'internal') {
+    // Straight vertical line for internal connections
+    pathData = `M ${startPos.x + 116} ${startPos.y} L ${endPos.x + 116} ${endPos.y}`;
+  } else if (type === 'loop') {
+    // Curved loop for internal lane connections
+    const midX = startPos.x + 280;
+    pathData = `M ${startPos.x + 232} ${startPos.y} C ${midX} ${startPos.y}, ${midX} ${endPos.y}, ${endPos.x + 232} ${endPos.y}`;
+  } else {
+    // Standard bezier curve for cross-lane connections
+    const startX = startPos.x + 232; // Right edge of source card
+    const endX = endPos.x; // Left edge of target card
+    const midX = (startX + endX) / 2;
+    pathData = `M ${startX} ${startPos.y} C ${midX} ${startPos.y}, ${midX} ${endPos.y}, ${endX} ${endPos.y}`;
+  }
   
   return (
     <motion.path
@@ -190,66 +260,56 @@ const ConnectionPath = memo(({
       stroke={accent === 'aqua' ? '#A6FCFC' : '#D6A6FC'}
       strokeWidth="2"
       strokeLinecap="round"
-      strokeOpacity="0.7"
+      strokeLinejoin="round"
       markerEnd="url(#arrow)"
-      className="drop-shadow-sm"
       initial={{ pathLength: 0, opacity: 0 }}
-      whileInView={{ pathLength: 1, opacity: 0.7 }}
+      whileInView={{ pathLength: 1, opacity: 0.8 }}
       transition={{ 
         duration: 0.9,
         delay: delay,
         ease: "easeInOut"
       }}
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: true, amount: 0.25 }}
     />
   );
 });
 
-const RoadmapCard = memo(({ node, index, laneIndex }: { node: RoadmapNode; index: number; laneIndex: number }) => {
+const RoadmapCard = memo(({ node, laneIndex }: { node: RoadmapNode; laneIndex: number }) => {
   const IconComponent = node.icon;
   
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ 
         duration: 0.6, 
-        delay: (laneIndex * 0.12) + (index * 0.08) + 0.3,
+        delay: (laneIndex * 0.15) + (node.row * 0.1) + 0.12,
         ease: "easeOut"
       }}
       whileHover={{ 
-        scale: 1.03,
+        scale: 1.05,
         transition: { duration: 0.2 }
       }}
-      viewport={{ once: true, amount: 0.3 }}
-      className="group relative w-[220px] h-20 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md hover:border-white/20 hover:bg-white/10 transition-all duration-300 cursor-pointer"
+      viewport={{ once: true, amount: 0.25 }}
+      className="group relative w-[232px] h-[72px] rounded-xl border border-white/10 bg-white/6 backdrop-blur-md hover:border-white/20 hover:bg-white/11 hover:shadow-xl transition-all duration-300 cursor-pointer"
       style={{
-        filter: 'drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3))'
-      }}
+        position: 'absolute',
+        left: '64px',
+        top: `${80 + (node.row * 144)}px`,
+        '--tw-shadow-color': node.accent === 'aqua' ? '#A6FCFC' : '#D6A6FC'
+      } as React.CSSProperties}
     >
-      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-90 transition-opacity duration-300"
-           style={{
-             background: node.accent === 'aqua' 
-               ? 'radial-gradient(circle at center, rgba(166, 252, 252, 0.2) 0%, transparent 70%)'
-               : 'radial-gradient(circle at center, rgba(214, 166, 252, 0.2) 0%, transparent 70%)',
-             filter: node.accent === 'aqua'
-               ? 'drop-shadow(0 8px 8px rgba(166, 252, 252, 0.6))'
-               : 'drop-shadow(0 8px 8px rgba(214, 166, 252, 0.6))'
-           }} />
-      
-      <div className="relative flex items-center h-full px-4 gap-3">
+      <div className="flex items-center h-full px-4 gap-3">
         <IconComponent 
           size={24} 
-          className={`flex-shrink-0 ${
-            node.accent === 'aqua' ? 'text-[#A6FCFC]' : 'text-[#D6A6FC]'
-          }`}
+          className="flex-shrink-0 text-[#9CA3AF]"
         />
         <div className="flex-1 min-w-0">
-          <h4 className="text-sm font-medium text-white leading-tight whitespace-normal break-words" style={{ fontFamily: 'Satoshi Variable', fontWeight: 500 }}>
+          <h4 className="text-[15px] font-medium text-white leading-tight whitespace-normal break-words" style={{ fontFamily: 'Satoshi Variable', fontWeight: 500 }}>
             {node.title}
           </h4>
           {node.subtitle && (
-            <p className="text-xs text-[#9CA3AF] leading-tight whitespace-normal break-words mt-1" style={{ fontFamily: 'Satoshi Variable', fontWeight: 400, fontSize: '11px' }}>
+            <p className="text-[11px] text-[#9CA3AF] leading-tight whitespace-normal break-words" style={{ fontFamily: 'Satoshi Variable', fontWeight: 400 }}>
               {node.subtitle}
             </p>
           )}
@@ -265,102 +325,79 @@ const RoadmapCard = memo(({ node, index, laneIndex }: { node: RoadmapNode; index
   );
 });
 
-const connections = [
-  // Q3 2025 to Q4 2025
-  { fromLane: 0, toLane: 1, fromIndex: 0, toIndex: 0, accent: 'aqua' as const }, // Wallet Connect → zkLogin
-  { fromLane: 0, toLane: 1, fromIndex: 1, toIndex: 1, accent: 'aqua' as const }, // Swarm Dashboard → Bond/Slash Contracts
-  
-  // Q4 2025 to Q1 2026
-  { fromLane: 1, toLane: 2, fromIndex: 0, toIndex: 0, accent: 'aqua' as const }, // zkLogin → On-chain Oracle
-  { fromLane: 1, toLane: 2, fromIndex: 1, toIndex: 1, accent: 'violet' as const }, // Bond/Slash Contracts → Skill-NFT Registry
-  
-  // Q1 2026 to Q4 2026
-  { fromLane: 2, toLane: 3, fromIndex: 0, toIndex: 0, accent: 'aqua' as const }, // On-chain Oracle → Swarm
-  { fromLane: 2, toLane: 3, fromIndex: 1, toIndex: 1, accent: 'violet' as const }, // Skill-NFT Registry → Royalty Cluster
-  { fromLane: 2, toLane: 3, fromIndex: 2, toIndex: 2, accent: 'violet' as const }, // Pay-per-Compute → Containerized LLM
-  
-  // Q4 2026 to EOY 2026
-  { fromLane: 3, toLane: 4, fromIndex: 0, toIndex: 0, accent: 'aqua' as const }, // Swarm → Real-Time Settlement
-  { fromLane: 3, toLane: 4, fromIndex: 1, toIndex: 0, accent: 'aqua' as const }, // Royalty Cluster → Real-Time Settlement
-  { fromLane: 3, toLane: 4, fromIndex: 2, toIndex: 1, accent: 'aqua' as const }, // Containerized LLM → RLS/AuthZ Policies
-];
-
 export const RoadmapFlow = () => {
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, amount: 0.3 });
+  const isInView = useInView(containerRef, { once: true, amount: 0.25 });
 
   return (
     <motion.div 
       ref={containerRef} 
-      className="w-full min-h-[700px] bg-transparent relative overflow-hidden"
-      viewport={{ once: true, amount: 0.3 }}
+      className="w-full h-[600px] bg-transparent relative overflow-hidden"
+      viewport={{ once: true, amount: 0.25 }}
     >
-      {/* Grid Lines */}
+      {/* Lane Dividers */}
       <div className="absolute inset-0">
-        {[1, 2, 3, 4].map((i) => (
+        {[1, 2, 3, 4, 5].map((i) => (
           <div
             key={i}
-            className="absolute top-0 bottom-0 w-px bg-white/20"
-            style={{ left: `${260 + (i * 280)}px` }}
+            className="absolute top-0 bottom-0 w-px bg-white opacity-15"
+            style={{ left: `${300 + (i * 240)}px` }}
           />
         ))}
       </div>
 
-      {/* Live Alpha Grid Sidebar */}
+      {/* Live Alpha Grid Sidebar (Lane 0) */}
       <motion.div
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: true, amount: 0.3 }}
-        className="absolute left-6 top-8 w-[240px]"
+        viewport={{ once: true, amount: 0.25 }}
+        className="absolute left-6 top-[48px] w-[300px] h-[560px]"
       >
-        <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-6">
-          <h3 className="text-lg font-medium text-white mb-4" style={{ fontFamily: 'Satoshi Variable', fontWeight: 500 }}>Live Alpha Grid</h3>
-          <p className="text-sm text-[#A6FCFC] mb-4">(Completed)</p>
+        <div className="rounded-2xl border border-white/10 bg-white/6 backdrop-blur-md p-6 h-full flex flex-col">
+          <div className="mb-6">
+            <h3 className="text-[18px] font-semibold text-white mb-2" style={{ fontFamily: 'Satoshi Variable', fontWeight: 600 }}>
+              Live Alpha Grid
+            </h3>
+            <p className="text-[13px] text-[#A6FCFC]" style={{ fontFamily: 'Satoshi Variable', fontWeight: 400 }}>
+              (Completed)
+            </p>
+          </div>
           
-          <div className="grid grid-cols-2 gap-3 mb-4">
-            {[Settings, Database, Network, Zap].map((Icon, i) => (
-              <div key={i} className="w-20 h-20 rounded-lg bg-white/10 flex items-center justify-center">
-                <Icon size={32} className="text-white/80" />
+          <div className="grid grid-cols-2 gap-4 mb-6">
+            {[Cog, Database, Server, Cpu].map((Icon, i) => (
+              <div key={i} className="w-[96px] h-[96px] rounded-lg bg-white/6 border border-white/10 flex items-center justify-center">
+                <Icon size={40} className="text-[#9CA3AF]" />
               </div>
             ))}
           </div>
           
-          <p className="text-xs text-[#9CA3AF] mb-4" style={{ fontFamily: 'Satoshi Variable', fontWeight: 400 }}>
+          <p className="text-[12px] text-[#9CA3AF] mb-6" style={{ fontFamily: 'Satoshi Variable', fontWeight: 400 }}>
             Stability: 40+ testers, f0/s, sub-500ms latency
           </p>
           
-          <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-3">
-            <p className="text-xs text-white" style={{ fontFamily: 'Satoshi Variable', fontWeight: 400 }}>
+          <div className="mt-auto w-[240px] h-[56px] rounded-2xl border border-white/10 bg-white/6 backdrop-blur-md flex items-center px-4">
+            <p className="text-[12px] text-white" style={{ fontFamily: 'Satoshi Variable', fontWeight: 400 }}>
               Modern UI Wizard for PTB Builder SDK
             </p>
           </div>
         </div>
       </motion.div>
 
-      {/* Timeline Headers */}
-      <div className="absolute top-8 left-[260px] right-0 flex">
+      {/* Column Headers */}
+      <div className="absolute top-[48px] left-[300px] right-0 flex">
         {roadmapData.map((lane, index) => (
           <motion.div
             key={lane.title}
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            className="w-[280px] text-center px-8 relative"
+            viewport={{ once: true, amount: 0.25 }}
+            className="w-[240px] text-center relative"
           >
-            <h3 className="text-lg font-medium text-white" style={{ fontFamily: 'Satoshi Variable', fontWeight: 500 }}>
+            <h3 className="text-[14px] font-medium text-white tracking-[0.02em]" style={{ fontFamily: 'Satoshi Variable', fontWeight: 500 }}>
               {lane.title}
             </h3>
-            {lane.subtitle && (
-              <p className="text-sm text-[#9CA3AF]" style={{ fontFamily: 'Satoshi Variable', fontWeight: 400 }}>
-                {lane.subtitle}
-              </p>
-            )}
-            {/* Vertical divider */}
-            {index < roadmapData.length - 1 && (
-              <div className="absolute right-0 top-0 bottom-0 w-px bg-white/20" />
-            )}
           </motion.div>
         ))}
       </div>
@@ -379,10 +416,8 @@ export const RoadmapFlow = () => {
             markerWidth="6"
             markerHeight="6"
             orient="auto"
-            fill="#FFFFFF"
-            fillOpacity="0.7"
           >
-            <path d="M0,0 L0,6 L9,3 z" />
+            <path d="M0,0 L0,6 L9,3 z" fill="currentColor" />
           </marker>
         </defs>
         
@@ -390,7 +425,7 @@ export const RoadmapFlow = () => {
           <ConnectionPath
             key={`connection-${index}`}
             {...connection}
-            delay={index * 0.12 + 0.5}
+            delay={index * 0.15 + 0.5}
           />
         ))}
       </svg>
@@ -400,21 +435,15 @@ export const RoadmapFlow = () => {
         {roadmapData.map((lane, laneIndex) => (
           <div
             key={lane.title}
-            className="absolute top-[160px] px-8"
-            style={{ left: `${260 + (laneIndex * 280)}px` }}
+            className="absolute"
+            style={{ left: `${300 + (laneIndex * 240)}px`, top: 0, width: '240px', height: '100%' }}
           >
-            {lane.nodes.map((node, nodeIndex) => (
-              <div
+            {lane.nodes.map((node) => (
+              <RoadmapCard 
                 key={node.id}
-                className="mb-10"
-                style={{ marginTop: `${nodeIndex * 120}px` }}
-              >
-                <RoadmapCard 
-                  node={node} 
-                  index={nodeIndex} 
-                  laneIndex={laneIndex}
-                />
-              </div>
+                node={node} 
+                laneIndex={laneIndex}
+              />
             ))}
           </div>
         ))}
