@@ -87,9 +87,9 @@ const Index = () => {
               </p>
             </div>
           }
-          imageSrc={terminalDemo}
-          imageAlt="AMAI Terminal Demo"
-          overlayColor="rgba(37, 99, 235, 0.2)"
+          imageSrc="/lovable-uploads/69bbf2fd-95c9-4fae-8618-3256fa43b181.png"
+          imageAlt="AMAI Agent Creation Wizard"
+          overlayColor="rgba(37, 99, 235, 0.1)"
         />
       </div>
 
