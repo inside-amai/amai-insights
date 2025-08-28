@@ -57,7 +57,13 @@ export const ExplainerSection = ({
         <div className={`grid grid-cols-1 lg:grid-cols-12 gap-12 items-center ${reverse ? 'lg:grid-flow-dense' : ''}`}>
           {/* Image Column */}
           <motion.div 
-            className={`${reverse ? 'lg:col-start-8 lg:col-span-5' : 'lg:col-span-7'} relative overflow-hidden rounded-2xl`}
+            className={`${
+              title === 'Community-Driven Platform' 
+                ? 'lg:col-start-1 lg:col-span-5' // Image left, same size as reverse
+                : reverse 
+                ? 'lg:col-start-8 lg:col-span-5' 
+                : 'lg:col-span-7'
+            } relative overflow-hidden rounded-2xl`}
             initial={{ opacity: 0, x: reverse ? 50 : -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -82,7 +88,13 @@ export const ExplainerSection = ({
 
           {/* Content Column */}
           <motion.div 
-            className={`${reverse ? 'lg:col-start-1 lg:col-span-6' : 'lg:col-start-8 lg:col-span-5'} space-y-6`}
+            className={`${
+              title === 'Community-Driven Platform'
+                ? 'lg:col-start-7 lg:col-span-6' // Text right
+                : reverse 
+                ? 'lg:col-start-1 lg:col-span-6' 
+                : 'lg:col-start-8 lg:col-span-5'
+            } space-y-6`}
             initial={{ opacity: 0, x: reverse ? -50 : 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}

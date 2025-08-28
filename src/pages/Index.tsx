@@ -174,6 +174,7 @@ const Index = () => {
           }
           imageSrc="/lovable-uploads/0d0e27c9-efd2-44ca-995b-4a7949835316.png"
           imageAlt="Token Distribution Chart"
+          reverse={true}
         />
 
       {/* Decorative Comet */}
