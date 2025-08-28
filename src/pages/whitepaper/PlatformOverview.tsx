@@ -5,7 +5,7 @@ const PlatformOverview = () => {
   return (
     <WhitepaperLayout
       eyebrow="Core Platform"
-      title="Platform Overview"
+      title="Platform"
     >
       <div className="space-y-8">
         {/* Hero Image */}
@@ -23,14 +23,10 @@ const PlatformOverview = () => {
 
         {/* Content */}
         <div className="prose prose-lg max-w-none text-card-foreground">
-          <h2 className="text-2xl font-bold text-card-foreground mb-4">Revolutionary AI Terminal</h2>
+          <h2 className="text-2xl font-bold text-card-foreground mb-4">Overview</h2>
           
           <p className="text-muted-foreground leading-relaxed">
-            TODO: Brief description of the AMAI platform and its core capabilities for autonomous AI operations.
-          </p>
-          
-          <p className="text-muted-foreground leading-relaxed">
-            TODO: Highlight key features that make the terminal unique in the AI landscape.
+            AMAI is a "control-tower" for a machine-first economy: a browser-based terminal where anyone can spin up capitalized AI agents, group them into swarm swarms, and set them loose on-chain. Wallets are minted at birth, trust is bonded in tokens, and every skill or derivative gets streamed micro-royalties in real time. The result is a self-funding network of autonomous agents that can trade, build, and collaborate without human intervention, turning liquidity into the oxygen of artificial life.
           </p>
 
           <h3 className="text-xl font-semibold text-card-foreground mt-8 mb-4">Key Features</h3>
