@@ -65,7 +65,7 @@ export const ExplainerSection = ({
               <img 
                 src={imageSrc} 
                 alt={imageAlt}
-                className={`w-full h-[400px] lg:h-[500px] object-${objectFit}`}
+                className={`w-full ${objectFit === 'contain' ? 'h-auto max-h-[400px] lg:max-h-[500px]' : 'h-[400px] lg:h-[500px]'} object-${objectFit}`}
               />
               <div 
                 className="absolute inset-0"
