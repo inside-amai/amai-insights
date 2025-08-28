@@ -65,9 +65,10 @@ export const ExplainerSection = ({
               <img 
                 src={imageSrc} 
                 alt={imageAlt}
-                className={`w-full ${objectFit === 'contain' ? 
-                  (imageAlt === 'SUI Blockchain Technology' ? 'h-auto max-h-[700px] lg:max-h-[875px]' : 'h-auto max-h-[400px] lg:max-h-[500px]') : 
-                  (imageAlt === 'SUI Blockchain Technology' ? 'h-[700px] lg:h-[875px]' : 'h-[400px] lg:h-[500px]')
+                className={`w-full ${
+                  imageAlt === 'SUI Blockchain Technology' 
+                    ? (objectFit === 'contain' ? 'h-auto max-h-[700px] lg:max-h-[875px]' : 'h-[700px] lg:h-[875px]')
+                    : (objectFit === 'contain' ? 'h-auto max-h-[400px] lg:max-h-[500px]' : 'h-[400px] lg:h-[500px]')
                 } object-${objectFit}`}
               />
               <div 
