@@ -9,9 +9,10 @@ export const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img 
-              src="/lovable-uploads/d18eb67b-4fc8-4b9a-83a9-02f777465293.png" 
+              src="https://images.squarespace-cdn.com/content/v1/67609414493d9c7734fa7b83/6149ec74-3433-4754-9ba2-eaf224fa55c7/AMAI+logos+%2880%29.png?format=2500w"
               alt="AMAI Logo" 
               className="h-12 w-auto hover:opacity-80 transition-opacity"
+              loading="eager"
             />
           </Link>
           
