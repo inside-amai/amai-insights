@@ -1,5 +1,5 @@
+import React, { useRef, memo } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
 import { 
   Wallet, 
   Lock, 
@@ -49,8 +49,8 @@ const roadmapData: RoadmapLane[] = [
         description: 'Central control panel for AI agent management'
       },
       {
-        id: 'swelet-dashboard',
-        title: 'Swelet Dashboard',
+        id: 'svelte-dashboard',
+        title: 'Svelte Dashboard Z2λ#',
         icon: Settings,
         accent: 'aqua',
         description: 'Advanced configuration interface for agent behaviors'
@@ -82,7 +82,6 @@ const roadmapData: RoadmapLane[] = [
       {
         id: 'oracle',
         title: 'On-chain Oracle',
-        subtitle: 'Trust Scores',
         icon: Calculator,
         accent: 'aqua',
         description: 'Decentralized reputation scoring system'
@@ -159,7 +158,54 @@ const roadmapData: RoadmapLane[] = [
   }
 ];
 
-const RoadmapCard = ({ node, index, laneIndex }: { node: RoadmapNode; index: number; laneIndex: number }) => {
+// Memoized path component for performance
+const ConnectionPath = memo(({ 
+  fromLane, 
+  toLane, 
+  fromIndex, 
+  toIndex, 
+  accent,
+  delay = 0
+}: { 
+  fromLane: number; 
+  toLane: number; 
+  fromIndex: number; 
+  toIndex: number; 
+  accent: 'aqua' | 'violet';
+  delay?: number;
+}) => {
+  const startX = 260 + (fromLane * 280) + 220; // Start from right edge of card
+  const endX = 260 + (toLane * 280) + 32; // End at left edge of next card + padding
+  const startY = 160 + (fromIndex * 120) + 40; // Center of card
+  const endY = 160 + (toIndex * 120) + 40; // Center of target card
+  
+  const midX = (startX + endX) / 2;
+  
+  const pathData = `M ${startX} ${startY} C ${midX} ${startY}, ${midX} ${endY}, ${endX} ${endY}`;
+  
+  return (
+    <motion.path
+      d={pathData}
+      fill="none"
+      stroke={accent === 'aqua' ? '#A6FCFC' : '#D6A6FC'}
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeOpacity="0.7"
+      markerEnd="url(#arrow)"
+      className="drop-shadow-sm"
+      initial={{ pathLength: 0, opacity: 0 }}
+      whileInView={{ pathLength: 1, opacity: 0.7 }}
+      transition={{ 
+        duration: 0.9,
+        delay: delay,
+        ease: "easeInOut"
+      }}
+      viewport={{ once: true, amount: 0.3 }}
+    />
+  );
+});
+
+const RoadmapCard = memo(({ node, index, laneIndex }: { node: RoadmapNode; index: number; laneIndex: number }) => {
   const IconComponent = node.icon;
   
   return (
@@ -168,27 +214,30 @@ const RoadmapCard = ({ node, index, laneIndex }: { node: RoadmapNode; index: num
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ 
         duration: 0.6, 
-        delay: (laneIndex * 0.15) + (index * 0.1) + 0.3,
+        delay: (laneIndex * 0.12) + (index * 0.08) + 0.3,
         ease: "easeOut"
       }}
       whileHover={{ 
         scale: 1.03,
         transition: { duration: 0.2 }
       }}
-      viewport={{ once: true, margin: "-20% 0%" }}
-      className="group relative w-[180px] h-16 rounded-xl backdrop-blur-md bg-white/5 border border-white/10 hover:bg-white/15 transition-all duration-300 cursor-pointer"
+      viewport={{ once: true, amount: 0.3 }}
+      className="group relative w-[220px] h-20 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md hover:border-white/20 hover:bg-white/10 transition-all duration-300 cursor-pointer"
       style={{
         filter: 'drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3))'
       }}
     >
-      <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"
+      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-90 transition-opacity duration-300"
            style={{
              background: node.accent === 'aqua' 
                ? 'radial-gradient(circle at center, rgba(166, 252, 252, 0.2) 0%, transparent 70%)'
-               : 'radial-gradient(circle at center, rgba(214, 166, 252, 0.2) 0%, transparent 70%)'
+               : 'radial-gradient(circle at center, rgba(214, 166, 252, 0.2) 0%, transparent 70%)',
+             filter: node.accent === 'aqua'
+               ? 'drop-shadow(0 8px 8px rgba(166, 252, 252, 0.6))'
+               : 'drop-shadow(0 8px 8px rgba(214, 166, 252, 0.6))'
            }} />
       
-      <div className="relative flex items-center h-full px-3 space-x-3">
+      <div className="relative flex items-center h-full px-4 gap-3">
         <IconComponent 
           size={24} 
           className={`flex-shrink-0 ${
@@ -196,11 +245,11 @@ const RoadmapCard = ({ node, index, laneIndex }: { node: RoadmapNode; index: num
           }`}
         />
         <div className="flex-1 min-w-0">
-          <h4 className="text-sm font-medium text-white leading-tight truncate">
+          <h4 className="text-sm font-medium text-white leading-tight whitespace-normal break-words" style={{ fontFamily: 'Satoshi Variable', fontWeight: 500 }}>
             {node.title}
           </h4>
           {node.subtitle && (
-            <p className="text-xs text-gray-400 leading-tight truncate">
+            <p className="text-xs text-[#9CA3AF] leading-tight whitespace-normal break-words mt-1" style={{ fontFamily: 'Satoshi Variable', fontWeight: 400, fontSize: '11px' }}>
               {node.subtitle}
             </p>
           )}
@@ -214,63 +263,45 @@ const RoadmapCard = ({ node, index, laneIndex }: { node: RoadmapNode; index: num
       </div>
     </motion.div>
   );
-};
+});
 
-const ConnectionLine = ({ 
-  fromLane, 
-  toLane, 
-  fromIndex, 
-  toIndex, 
-  accent 
-}: { 
-  fromLane: number; 
-  toLane: number; 
-  fromIndex: number; 
-  toIndex: number; 
-  accent: 'aqua' | 'violet';
-}) => {
-  const startX = 260 + (fromLane * 200) + 180; // Start from right edge of card
-  const endX = 260 + (toLane * 200); // End at left edge of next card
-  const startY = 120 + (fromIndex * 100) + 32; // Center of card
-  const endY = 120 + (toIndex * 100) + 32; // Center of target card
+const connections = [
+  // Q3 2025 to Q4 2025
+  { fromLane: 0, toLane: 1, fromIndex: 0, toIndex: 0, accent: 'aqua' as const }, // Wallet Connect → zkLogin
+  { fromLane: 0, toLane: 1, fromIndex: 1, toIndex: 1, accent: 'aqua' as const }, // Swarm Dashboard → Bond/Slash Contracts
   
-  const midX = (startX + endX) / 2;
+  // Q4 2025 to Q1 2026
+  { fromLane: 1, toLane: 2, fromIndex: 0, toIndex: 0, accent: 'aqua' as const }, // zkLogin → On-chain Oracle
+  { fromLane: 1, toLane: 2, fromIndex: 1, toIndex: 1, accent: 'violet' as const }, // Bond/Slash Contracts → Skill-NFT Registry
   
-  const pathData = `M ${startX} ${startY} C ${midX} ${startY}, ${midX} ${endY}, ${endX} ${endY}`;
+  // Q1 2026 to Q4 2026
+  { fromLane: 2, toLane: 3, fromIndex: 0, toIndex: 0, accent: 'aqua' as const }, // On-chain Oracle → Swarm
+  { fromLane: 2, toLane: 3, fromIndex: 1, toIndex: 1, accent: 'violet' as const }, // Skill-NFT Registry → Royalty Cluster
+  { fromLane: 2, toLane: 3, fromIndex: 2, toIndex: 2, accent: 'violet' as const }, // Pay-per-Compute → Containerized LLM
   
-  return (
-    <motion.path
-      d={pathData}
-      fill="none"
-      stroke={accent === 'aqua' ? '#A6FCFC' : '#D6A6FC'}
-      strokeWidth="2"
-      strokeLinecap="round"
-      className="drop-shadow-sm"
-      initial={{ pathLength: 0, opacity: 0 }}
-      whileInView={{ pathLength: 1, opacity: 0.8 }}
-      transition={{ 
-        duration: 1,
-        delay: (fromLane * 0.15) + 0.5,
-        ease: "easeInOut"
-      }}
-      viewport={{ once: true, margin: "-20% 0%" }}
-    />
-  );
-};
+  // Q4 2026 to EOY 2026
+  { fromLane: 3, toLane: 4, fromIndex: 0, toIndex: 0, accent: 'aqua' as const }, // Swarm → Real-Time Settlement
+  { fromLane: 3, toLane: 4, fromIndex: 1, toIndex: 0, accent: 'aqua' as const }, // Royalty Cluster → Real-Time Settlement
+  { fromLane: 3, toLane: 4, fromIndex: 2, toIndex: 1, accent: 'aqua' as const }, // Containerized LLM → RLS/AuthZ Policies
+];
 
 export const RoadmapFlow = () => {
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-20% 0%" });
+  const isInView = useInView(containerRef, { once: true, amount: 0.3 });
 
   return (
-    <div ref={containerRef} className="w-full min-h-[600px] bg-transparent relative overflow-hidden">
+    <motion.div 
+      ref={containerRef} 
+      className="w-full min-h-[700px] bg-transparent relative overflow-hidden"
+      viewport={{ once: true, amount: 0.3 }}
+    >
       {/* Grid Lines */}
       <div className="absolute inset-0">
         {[1, 2, 3, 4].map((i) => (
           <div
             key={i}
             className="absolute top-0 bottom-0 w-px bg-white/20"
-            style={{ left: `${260 + (i * 200)}px` }}
+            style={{ left: `${260 + (i * 280)}px` }}
           />
         ))}
       </div>
@@ -280,11 +311,11 @@ export const RoadmapFlow = () => {
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.3 }}
         className="absolute left-6 top-8 w-[240px]"
       >
-        <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-6">
-          <h3 className="text-lg font-medium text-white mb-4">Live Alpha Grid</h3>
+        <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-6">
+          <h3 className="text-lg font-medium text-white mb-4" style={{ fontFamily: 'Satoshi Variable', fontWeight: 500 }}>Live Alpha Grid</h3>
           <p className="text-sm text-[#A6FCFC] mb-4">(Completed)</p>
           
           <div className="grid grid-cols-2 gap-3 mb-4">
@@ -295,12 +326,12 @@ export const RoadmapFlow = () => {
             ))}
           </div>
           
-          <p className="text-xs text-gray-400 mb-4">
+          <p className="text-xs text-[#9CA3AF] mb-4" style={{ fontFamily: 'Satoshi Variable', fontWeight: 400 }}>
             Stability: 40+ testers, f0/s, sub-500ms latency
           </p>
           
-          <div className="bg-white/5 border border-white/10 rounded-lg p-3">
-            <p className="text-xs text-white">
+          <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-3">
+            <p className="text-xs text-white" style={{ fontFamily: 'Satoshi Variable', fontWeight: 400 }}>
               Modern UI Wizard for PTB Builder SDK
             </p>
           </div>
@@ -315,12 +346,20 @@ export const RoadmapFlow = () => {
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            viewport={{ once: true }}
-            className="w-[200px] text-center"
+            viewport={{ once: true, amount: 0.3 }}
+            className="w-[280px] text-center px-8 relative"
           >
-            <h3 className="text-lg font-medium text-white">{lane.title}</h3>
+            <h3 className="text-lg font-medium text-white" style={{ fontFamily: 'Satoshi Variable', fontWeight: 500 }}>
+              {lane.title}
+            </h3>
             {lane.subtitle && (
-              <p className="text-sm text-gray-400">{lane.subtitle}</p>
+              <p className="text-sm text-[#9CA3AF]" style={{ fontFamily: 'Satoshi Variable', fontWeight: 400 }}>
+                {lane.subtitle}
+              </p>
+            )}
+            {/* Vertical divider */}
+            {index < roadmapData.length - 1 && (
+              <div className="absolute right-0 top-0 bottom-0 w-px bg-white/20" />
             )}
           </motion.div>
         ))}
@@ -331,26 +370,29 @@ export const RoadmapFlow = () => {
         className="absolute inset-0 w-full h-full pointer-events-none"
         style={{ zIndex: 1 }}
       >
-        {roadmapData.map((lane, laneIndex) => 
-          lane.nodes.map((node, nodeIndex) => {
-            if (laneIndex < roadmapData.length - 1) {
-              const nextLane = roadmapData[laneIndex + 1];
-              const targetIndex = Math.min(nodeIndex, nextLane.nodes.length - 1);
-              
-              return (
-                <ConnectionLine
-                  key={`${node.id}-connection`}
-                  fromLane={laneIndex}
-                  toLane={laneIndex + 1}
-                  fromIndex={nodeIndex}
-                  toIndex={targetIndex}
-                  accent={node.accent}
-                />
-              );
-            }
-            return null;
-          })
-        )}
+        <defs>
+          <marker
+            id="arrow"
+            viewBox="0 0 10 10"
+            refX="9"
+            refY="3"
+            markerWidth="6"
+            markerHeight="6"
+            orient="auto"
+            fill="#FFFFFF"
+            fillOpacity="0.7"
+          >
+            <path d="M0,0 L0,6 L9,3 z" />
+          </marker>
+        </defs>
+        
+        {connections.map((connection, index) => (
+          <ConnectionPath
+            key={`connection-${index}`}
+            {...connection}
+            delay={index * 0.12 + 0.5}
+          />
+        ))}
       </svg>
 
       {/* Roadmap Nodes */}
@@ -358,14 +400,14 @@ export const RoadmapFlow = () => {
         {roadmapData.map((lane, laneIndex) => (
           <div
             key={lane.title}
-            className="absolute top-[120px]"
-            style={{ left: `${260 + (laneIndex * 200)}px` }}
+            className="absolute top-[160px] px-8"
+            style={{ left: `${260 + (laneIndex * 280)}px` }}
           >
             {lane.nodes.map((node, nodeIndex) => (
               <div
                 key={node.id}
                 className="mb-10"
-                style={{ marginTop: `${nodeIndex * 100}px` }}
+                style={{ marginTop: `${nodeIndex * 120}px` }}
               >
                 <RoadmapCard 
                   node={node} 
@@ -377,6 +419,6 @@ export const RoadmapFlow = () => {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
