@@ -56,7 +56,7 @@ const Index = () => {
         <ExplainerHero />
       </div>
       {/* Explore Section Header */}
-      <div className="relative py-8 bg-black">
+      <div className="relative py-16 bg-black">
         <div className="text-center">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -73,7 +73,8 @@ const Index = () => {
       </div>
 
       {/* Explainer Sections */}
-      <ExplainerSection
+      <div className="relative -mt-20">
+        <ExplainerSection
           eyebrow="Platform"
           title="Overview"
           content={
@@ -93,6 +94,7 @@ const Index = () => {
           imageAlt="AMAI Terminal Demo"
           overlayColor="rgba(37, 99, 235, 0.2)"
         />
+      </div>
 
         {/* Technical Stack */}
         <ExplainerSection
