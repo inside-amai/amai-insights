@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import amaiHeaderLogo from '@/assets/amai-header-logo.png';
+// import amaiHeaderLogo from '@/assets/amai-header-logo-new.png';
 
 export const Header = () => {
   return (
@@ -9,7 +9,7 @@ export const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img 
-              src={amaiHeaderLogo} 
+              src="/lovable-uploads/d2ba7623-0e30-485a-b0cb-84fedf5c7263.png" 
               alt="AMAI Logo" 
               className="h-12 w-auto hover:opacity-80 transition-opacity"
             />
