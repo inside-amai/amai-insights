@@ -160,7 +160,6 @@ const Index = () => {
           overlayColor="rgba(239, 68, 68, 0.2)"
         />
 
-        <ExplainerFAQ />
       </div>
 
       {/* Whitepaper Section */}
@@ -231,6 +230,9 @@ const Index = () => {
           </div>
         </section>
       </div>
+
+      {/* FAQ Section */}
+      <ExplainerFAQ />
     </div>
   );
 };
