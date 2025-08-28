@@ -189,16 +189,16 @@ All colors MUST be HSL.
   background: linear-gradient(
     90deg,
     #D6A6FC 0%,
-    #A6FCFC 25%,
+    #A6FCFC 35%,
     #ffffff 50%,
-    #A6FCFC 75%,
+    #A6FCFC 65%,
     #D6A6FC 100%
   );
-  background-size: 200% 100%;
+  background-size: 150% 100%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shimmer 6s ease-in-out infinite;
+  animation: shimmer 8s ease-in-out infinite;
 }
 
 /* Shooting star animation */
