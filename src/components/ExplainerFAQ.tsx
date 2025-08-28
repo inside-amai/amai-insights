@@ -60,7 +60,7 @@ export const ExplainerFAQ = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <Accordion type="single" collapsible className="space-y-0">
+            <Accordion type="single" collapsible defaultValue="item-0" className="space-y-0">
               {faqData.map((faq, index) => (
                 <AccordionItem 
                   key={index} 
