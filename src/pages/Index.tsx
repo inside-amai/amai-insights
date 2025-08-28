@@ -55,6 +55,23 @@ const Index = () => {
         <Header />
         <ExplainerHero />
       </div>
+      {/* Explore Section Header */}
+      <div className="relative py-16 bg-black">
+        <div className="text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-4xl lg:text-6xl xl:text-7xl font-bold leading-tight"
+          >
+            <span className="shimmer-text text-transparent">
+              Explore.
+            </span>
+          </motion.h2>
+        </div>
+      </div>
+
       {/* Explainer Sections */}
       <ExplainerSection
           eyebrow="Platform"
