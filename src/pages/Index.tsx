@@ -163,7 +163,7 @@ const Index = () => {
       </div>
 
       {/* Whitepaper Section */}
-      <div className="min-h-screen bg-gradient-primary">
+      <div className="min-h-screen bg-white">
         {/* Hero Section */}
         <section className="relative pt-20 pb-16">
           <div className="container mx-auto px-6">
@@ -173,13 +173,13 @@ const Index = () => {
               transition={{ duration: 0.8 }}
               className="text-center max-w-4xl mx-auto"
             >
-              <span className="text-sm font-medium text-primary-foreground/80 uppercase tracking-wider">
+              <span className="text-sm font-medium text-gray-600 uppercase tracking-wider">
                 Technical Documentation
               </span>
-              <h1 className="text-4xl lg:text-6xl font-bold text-hero mt-4 mb-6">
+              <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mt-4 mb-6">
                 AMAI Whitepaper
               </h1>
-              <p className="text-xl text-primary-foreground/90 leading-relaxed">
+              <p className="text-xl text-gray-700 leading-relaxed">
                 Comprehensive technical documentation covering platform architecture, 
                 tokenomics, development roadmap, and implementation details.
               </p>
@@ -203,20 +203,20 @@ const Index = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.1 * index }}
                 >
-                  <Card className="h-full bg-card/80 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
+                  <Card className="h-full bg-white border-gray-200 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
                     <CardHeader>
                       <span className="text-xs font-medium text-primary uppercase tracking-wider">
                         {section.eyebrow}
                       </span>
-                      <CardTitle className="text-xl font-bold text-card-foreground">
+                      <CardTitle className="text-xl font-bold text-gray-900">
                         {section.title}
                       </CardTitle>
-                      <CardDescription className="text-muted-foreground">
+                      <CardDescription className="text-gray-600">
                         {section.description}
                       </CardDescription>
                     </CardHeader>
                     <CardContent className="pt-0">
-                      <Button asChild variant="outline" className="w-full group">
+                      <Button asChild variant="outline" className="w-full group border-gray-300 text-gray-900 hover:bg-primary hover:text-gray-900 hover:border-primary">
                         <Link to={`/whitepaper/${section.slug}`}>
                           Read More
                           <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
