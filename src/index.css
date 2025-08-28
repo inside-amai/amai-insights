@@ -214,7 +214,7 @@ All colors MUST be HSL.
     opacity: 1;
   }
   100% {
-    transform: translateX(100px) translateY(100px);
+    transform: translateX(var(--end-x)) translateY(var(--end-y));
     opacity: 0;
   }
 }
@@ -256,7 +256,8 @@ All colors MUST be HSL.
   width: 0;
   height: 3px;
   background: linear-gradient(to left, transparent, rgba(166, 252, 252, 0.9), rgba(214, 166, 252, 0.6), transparent);
-  transform: translateY(-50%) rotate(45deg);
+  transform: translateY(-50%) rotate(var(--trail-angle));
+  transform-origin: right center;
   border-radius: 3px;
   animation: shootingTrail 1.5s ease-out;
   animation-iteration-count: 1;

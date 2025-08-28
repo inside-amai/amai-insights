@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import amaiLogo from '@/assets/amai-logo-new.png';
 
 export const ExplainerHero = () => {
-  const [shootingStars, setShootingStars] = useState<Array<{ id: number; x: number; y: number; delay: number }>>([]);
+  const [shootingStars, setShootingStars] = useState<Array<{ id: number; x: number; y: number; delay: number; direction: { x: number; y: number; angle: number } }>>([]);
   
   useEffect(() => {
     const createShootingStar = () => {
@@ -12,7 +12,16 @@ export const ExplainerHero = () => {
       const y = Math.random() * 40 + 10; // Random y position between 10% and 50%
       const delay = Math.random() * 1000; // Random delay up to 1 second
       
-      const newStar = { id, x, y, delay };
+      // Generate random direction
+      const angle = Math.random() * 360; // Random angle in degrees
+      const distance = 120; // Distance to travel
+      const directionX = Math.cos(angle * Math.PI / 180) * distance;
+      const directionY = Math.sin(angle * Math.PI / 180) * distance;
+      const trailAngle = angle + 180; // Trail points opposite to movement direction
+      
+      const direction = { x: directionX, y: directionY, angle: trailAngle };
+      
+      const newStar = { id, x, y, delay, direction };
       setShootingStars(prev => [...prev, newStar]);
       
       // Remove the star after animation completes
@@ -140,7 +149,10 @@ export const ExplainerHero = () => {
               left: `${star.x}%`,
               top: `${star.y}%`,
               animationDelay: `${star.delay}ms`,
-            }}
+              '--end-x': `${star.direction.x}px`,
+              '--end-y': `${star.direction.y}px`,
+              '--trail-angle': `${star.direction.angle}deg`,
+            } as React.CSSProperties}
           />
         ))}
       </div>
