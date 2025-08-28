@@ -252,11 +252,11 @@ All colors MUST be HSL.
   content: '';
   position: absolute;
   top: 50%;
-  right: 8px;
+  left: 50%;
   width: 0;
   height: 3px;
   background: linear-gradient(to left, transparent, rgba(166, 252, 252, 0.9), rgba(214, 166, 252, 0.6), transparent);
-  transform: translateY(-50%) rotate(var(--trail-angle));
+  transform: translateY(-50%) translateX(-50%) rotate(var(--trail-angle));
   transform-origin: right center;
   border-radius: 3px;
   animation: shootingTrail 1.5s ease-out;
