@@ -174,7 +174,7 @@ export const ExplainerHero = () => {
             <img 
               src="https://images.squarespace-cdn.com/content/v1/67609414493d9c7734fa7b83/64396d1f-bdeb-491d-a6d7-cdbf42c57c52/AMAI+logos+%2881%29.png?format=2500w"
               alt="AMAI Logo" 
-              className="h-24 lg:h-32 xl:h-36 w-auto"
+              className="h-20 lg:h-28 xl:h-32 w-auto"
               loading="eager"
             />
           </motion.div>
