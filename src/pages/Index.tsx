@@ -73,7 +73,7 @@ const Index = () => {
       </div>
 
       {/* Explainer Sections */}
-      <div className="relative -mt-12">
+      <div className="relative -mt-4">
         <ExplainerSection
           eyebrow="Platform"
           title="Overview"
