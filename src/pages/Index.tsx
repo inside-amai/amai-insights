@@ -251,7 +251,7 @@ const Index = () => {
               </p>
             </div>
           }
-          imageSrc={tokenChart}
+          imageSrc="/lovable-uploads/75313fe2-9f76-454e-b0f5-249cbe85a1fc.png"
           imageAlt="Token Distribution Chart"
           reverse={true}
           overlayColor="rgba(239, 68, 68, 0.2)"
