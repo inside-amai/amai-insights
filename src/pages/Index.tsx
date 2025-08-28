@@ -254,7 +254,7 @@ const Index = () => {
           imageSrc="/lovable-uploads/75313fe2-9f76-454e-b0f5-249cbe85a1fc.png"
           imageAlt="Token Distribution Chart"
           reverse={true}
-          overlayColor="rgba(239, 68, 68, 0.2)"
+          overlayColor="rgba(0, 0, 0, 0)"
         />
 
       {/* Whitepaper Section */}
