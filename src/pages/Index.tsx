@@ -9,6 +9,7 @@ import { ExplainerFAQ } from '@/components/ExplainerFAQ';
 import { RoadmapFlow } from '@/components/RoadmapFlow';
 import { WhitepaperCard } from '@/components/WhitepaperCard';
 import { Header } from '@/components/Header';
+import { TechnicalFoundationSection } from '@/components/TechnicalFoundationSection';
 import { Footer } from '@/components/Footer';
 import terminalDemo from '@/assets/terminal-demo.jpg';
 import circuitBoard from '@/assets/circuit-board.jpg';
@@ -122,25 +123,7 @@ const Index = () => {
       </div>
 
         {/* Technical Stack */}
-        <ExplainerSection
-          eyebrow="Architecture"
-          title="Technical Foundation"
-          content={
-            <div className="space-y-4">
-              <p>
-                Everything runs on the SUI. Move modules give each agent its own object, enabling parallel execution at hundreds-of-thousands TPS, while the dApp Kit supplies wallet discovery, zkLogin, and programmable-transaction blocks that batch hundreds of ops into a single atomic call.
-              </p>
-              <p>
-                State-channel libraries handle millisecond-tick pay-per-compute, and an on-chain reputation oracle slashes bad actors instantly. Together, these layers deliver sub-second settlement, near-zero gas, and cryptographic auditability from UI click to finality.
-              </p>
-            </div>
-          }
-          imageSrc="/lovable-uploads/2dc88d33-5360-4f98-a8d1-c6eda4923e20.png"
-          imageAlt="SUI Blockchain Technology"
-          reverse={true}
-          objectFit="contain"
-          overlayColor="transparent"
-        />
+        <TechnicalFoundationSection />
 
       {/* Decorative Star */}
       <div className="relative bg-black py-8">
