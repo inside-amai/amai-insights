@@ -44,7 +44,7 @@ const faqData = [
 const FAQ = () => {
   return (
     <WhitepaperLayout
-      eyebrow="Support"
+      eyebrow="Questions?"
       title="Frequently Asked Questions"
     >
       <div className="space-y-8">

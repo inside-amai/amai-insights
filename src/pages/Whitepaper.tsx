@@ -33,7 +33,7 @@ const whitepaperSections = [
     slug: 'faq',
     title: 'Frequently Asked Questions',
     description: 'Common questions about AMAI platform, technology, and implementation details.',
-    eyebrow: 'Support'
+    eyebrow: 'Questions?'
   }
 ];
 

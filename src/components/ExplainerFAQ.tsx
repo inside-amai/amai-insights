@@ -42,11 +42,13 @@ export const ExplainerFAQ = () => {
         >
           {/* Header */}
           <div className="text-center mb-16">
-            <span className="text-sm font-medium text-[#A6FCFC] uppercase tracking-wider">
-              Support
+            <span className="text-sm font-medium text-white uppercase tracking-wider">
+              Questions?
             </span>
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mt-4 mb-6">
-              Frequently Asked Questions
+            <h2 className="text-3xl lg:text-4xl font-bold mt-4 mb-6">
+              <span className="shimmer-text text-transparent">
+                Frequently Asked Questions
+              </span>
             </h2>
             <p className="text-lg text-gray-300 leading-relaxed">
               Everything you need to know about AMAI and our autonomous AI platform
