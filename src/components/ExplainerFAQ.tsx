@@ -36,8 +36,22 @@ export const ExplainerFAQ = () => {
   useEffect(() => {
     const createShootingStar = () => {
       const id = Date.now();
-      const x = Math.random() * 60 + 10; // Random x position between 10% and 70%
-      const y = Math.random() * 40 + 10; // Random y position between 10% and 50%
+      
+      // Create safe zones to avoid text areas
+      // Either top corners (0-20% or 80-100% x, 0-25% y) or bottom corners (0-25% or 75-100% x, 75-100% y)
+      const isTopCorner = Math.random() > 0.5;
+      let x, y;
+      
+      if (isTopCorner) {
+        // Top corners - avoid center where header text is
+        x = Math.random() > 0.5 ? Math.random() * 20 : Math.random() * 20 + 80; // 0-20% or 80-100%
+        y = Math.random() * 25; // 0-25%
+      } else {
+        // Bottom corners - avoid center where FAQ content is
+        x = Math.random() > 0.5 ? Math.random() * 25 : Math.random() * 25 + 75; // 0-25% or 75-100%
+        y = Math.random() * 25 + 75; // 75-100%
+      }
+      
       const delay = Math.random() * 1000; // Random delay up to 1 second
       
       // Generate random direction
