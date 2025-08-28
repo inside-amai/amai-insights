@@ -182,7 +182,7 @@ const Index = () => {
               transition={{ duration: 0.6, ease: 'easeOut' }}
               viewport={{ once: true }}
             >
-              <p className="text-xs uppercase tracking-[0.18em] text-[#D6A6FC] mb-4 text-center">
+              <p className="text-xs uppercase tracking-[0.18em] text-black mb-4 text-center">
                 Technical Documentation
               </p>
               <h1 className="text-center font-roboto text-5xl md:text-6xl font-bold text-[#080808] mb-6">
