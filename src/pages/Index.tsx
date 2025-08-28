@@ -7,6 +7,7 @@ import { ExplainerHero } from '@/components/ExplainerHero';
 import { ExplainerSection } from '@/components/ExplainerSection';
 import { ExplainerFAQ } from '@/components/ExplainerFAQ';
 import { WhitepaperCard } from '@/components/WhitepaperCard';
+import { Header } from '@/components/Header';
 import terminalDemo from '@/assets/terminal-demo.jpg';
 import circuitBoard from '@/assets/circuit-board.jpg';
 import roadmapTimeline from '@/assets/roadmap-timeline.jpg';
@@ -48,6 +49,7 @@ const whitepaperSections = [
 const Index = () => {
   return (
     <div>
+      <Header />
       {/* Explainer Section */}
       <div className="snap-y snap-mandatory h-screen overflow-y-scroll">
         <ExplainerHero />
