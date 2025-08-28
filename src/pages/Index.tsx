@@ -103,7 +103,18 @@ const Index = () => {
               transition={{ duration: 1, ease: "easeOut" }}
               viewport={{ once: true }}
             >
-              <Moon className="w-12 h-12 text-purple-accent" />
+              <motion.div
+                animate={{ 
+                  y: [0, -10, 0],
+                  rotate: [0, 5, 0]
+                }}
+                transition={{ 
+                  y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+                  rotate: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                }}
+              >
+                <Moon className="w-12 h-12 text-purple-accent" />
+              </motion.div>
             </motion.div>
           </div>
         </div>
@@ -139,7 +150,18 @@ const Index = () => {
               transition={{ duration: 1, ease: "easeOut" }}
               viewport={{ once: true }}
             >
-              <Star className="w-12 h-12 text-cyan-accent fill-current" />
+              <motion.div
+                animate={{ 
+                  y: [0, 15, 0],
+                  rotate: [0, -10, 0]
+                }}
+                transition={{ 
+                  y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                  rotate: { duration: 5, repeat: Infinity, ease: "easeInOut" }
+                }}
+              >
+                <Star className="w-12 h-12 text-cyan-accent fill-current" />
+              </motion.div>
             </motion.div>
           </div>
         </div>
