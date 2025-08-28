@@ -163,11 +163,9 @@ const Index = () => {
       </div>
 
       {/* Whitepaper Section */}
-      <div className="min-h-screen bg-gray-100 relative">
-        {/* Background pattern for glassmorphism effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200"></div>
+      <div className="min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="relative pt-20 pb-16 z-10">
+        <section className="relative pt-20 pb-16">
           <div className="container mx-auto px-6">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -190,7 +188,7 @@ const Index = () => {
         </section>
 
         {/* Sections Grid */}
-        <section className="pb-20 relative z-10">
+        <section className="pb-20">
           <div className="container mx-auto px-6">
             <motion.div
               initial={{ opacity: 0 }}
@@ -205,9 +203,9 @@ const Index = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.1 * index }}
                 >
-                  <Card className="h-full bg-white/30 backdrop-blur-md border border-white/20 hover:bg-white/40 hover:border-primary/30 transition-all duration-300 hover:shadow-xl hover:shadow-gray-400/20 hover:-translate-y-1">
+                  <Card className="h-full bg-gray-200 border border-gray-300 hover:bg-gray-300 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-gray-400/20">
                     <CardHeader>
-                      <span className="text-xs font-medium text-primary/80 uppercase tracking-wider backdrop-blur-sm">
+                      <span className="text-xs font-medium text-primary uppercase tracking-wider">
                         {section.eyebrow}
                       </span>
                       <CardTitle className="text-xl font-bold text-gray-900">
@@ -218,7 +216,7 @@ const Index = () => {
                       </CardDescription>
                     </CardHeader>
                     <CardContent className="pt-0">
-                      <Button asChild variant="outline" className="w-full group bg-white/50 backdrop-blur-sm border-gray-300/50 text-gray-900 hover:bg-primary/90 hover:text-white hover:border-primary/50 transition-all duration-300">
+                      <Button asChild variant="outline" className="w-full group bg-white border-gray-400 text-gray-900 hover:bg-primary hover:text-gray-900 hover:border-primary transition-all duration-300">
                         <Link to={`/whitepaper/${section.slug}`}>
                           Read More
                           <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
