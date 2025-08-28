@@ -165,8 +165,11 @@ const Index = () => {
       </div>
 
       {/* Whitepaper Section */}
-      <section className="w-full bg-gradient-to-br from-[#A6FCFC1A] via-transparent to-[#D6A6FC1A] py-24 shadow-inner">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="relative isolate py-28 md:py-36 overflow-hidden bg-[#fafdff]">
+        {/* Radial gradient wash */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_50%_at_0%_0%,#A6FCFC22_0%,transparent_60%),radial-gradient(80%_50%_at_100%_100%,#D6A6FC22_0%,transparent_60%)]" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
           {/* Hero Section */}
           <div className="text-center mb-16">
             <motion.div
@@ -175,13 +178,13 @@ const Index = () => {
               transition={{ duration: 0.6, ease: 'easeOut' }}
               viewport={{ once: true }}
             >
-              <p className="text-xs tracking-widest uppercase text-[#A6FCFC] mb-4">
+              <p className="text-xs uppercase tracking-[0.18em] text-[#A6FCFC] mb-4 text-center">
                 Technical Documentation
               </p>
-              <h1 className="text-5xl md:text-6xl font-extrabold font-roboto text-center mb-6 text-[#111]">
+              <h1 className="text-center font-roboto text-6xl md:text-7xl font-extrabold text-[#080808] mb-6">
                 AMAI Whitepaper
               </h1>
-              <p className="text-lg md:text-xl text-center text-[#333] max-w-3xl mx-auto leading-relaxed">
+              <p className="mx-auto max-w-3xl text-center text-lg text-[#202020] leading-relaxed">
                 Comprehensive technical documentation covering platform architecture, 
                 tokenomics, development roadmap, and implementation details.
               </p>
@@ -189,7 +192,7 @@ const Index = () => {
           </div>
 
           {/* Cards Grid */}
-          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-10 md:gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {whitepaperSections.map((section, index) => (
               <WhitepaperCard
                 key={section.slug}

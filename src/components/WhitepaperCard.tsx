@@ -14,28 +14,32 @@ interface WhitepaperCardProps {
 export const WhitepaperCard = ({ slug, title, description, category, index }: WhitepaperCardProps) => {
   return (
     <motion.article
-      initial={{ opacity: 0, y: 20 }}
+      className="group/card rounded-3xl p-8 h-full backdrop-blur-xl bg-white/10 border border-white/15 shadow-[0_4px_24px_rgba(0,0,0,0.06)] transition-all duration-300 hover:shadow-[0_10px_40px_rgba(0,0,0,0.12)] hover:bg-white/15 hover:-translate-y-1 cursor-pointer"
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.1 }}
       viewport={{ once: true }}
-      className="card-glass p-8 flex flex-col justify-between h-full"
+      transition={{ duration: 0.44, ease: 'easeOut', delay: index * 0.1 }}
     >
-      <header>
-        <span className="text-xs uppercase tracking-widest text-[#A6FCFC] mb-2 font-medium block">
+      <header className="mb-6">
+        <span className="text-xs font-medium uppercase tracking-[0.15em] text-[#A6FCFC] block">
           {category}
         </span>
-        <h3 className="text-2xl font-semibold font-roboto text-[#111] mb-4">
+        <h3 className="mt-3 font-roboto text-3xl text-[#080808] font-semibold leading-tight">
           {title}
         </h3>
-        <p className="text-sm leading-relaxed text-[#444] mb-6">
+        <p className="mt-2 text-sm leading-relaxed text-[#2F2F2F]">
           {description}
         </p>
       </header>
       
-      <Button asChild variant="outline" className="rounded-full border-[#111] hover:bg-[#A6FCFC] hover:text-black transition-all duration-300 w-fit">
+      <Button 
+        asChild 
+        variant="ghost" 
+        className="mt-auto text-sm px-4 py-2 border border-[#080808] rounded-full hover:bg-[#A6FCFC] hover:text-black transition-all duration-300 w-fit"
+      >
         <Link to={`/whitepaper/${slug}`}>
           Read More
-          <ArrowRight className="ml-1 inline" size={14} />
+          <ArrowRight className="inline ml-1" size={14} />
         </Link>
       </Button>
     </motion.article>
