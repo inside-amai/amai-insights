@@ -8,6 +8,7 @@ import { ExplainerSection } from '@/components/ExplainerSection';
 import { ExplainerFAQ } from '@/components/ExplainerFAQ';
 import { WhitepaperCard } from '@/components/WhitepaperCard';
 import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
 import terminalDemo from '@/assets/terminal-demo.jpg';
 import circuitBoard from '@/assets/circuit-board.jpg';
 import roadmapTimeline from '@/assets/roadmap-timeline.jpg';
@@ -213,6 +214,9 @@ const Index = () => {
 
       {/* FAQ Section */}
       <ExplainerFAQ />
+      
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
