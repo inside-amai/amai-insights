@@ -139,6 +139,7 @@ const Index = () => {
           imageAlt="SUI Blockchain Technology"
           reverse={true}
           objectFit="contain"
+          overlayColor="transparent"
         />
 
       {/* Decorative Star */}
