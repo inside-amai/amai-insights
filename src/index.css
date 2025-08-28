@@ -132,3 +132,22 @@ All colors MUST be HSL.
     @apply bg-background text-foreground font-roboto;
   }
 }
+
+/* Glassmorphism utilities for AMAI Whitepaper section */
+@layer utilities {
+  .bg-glass {
+    backdrop-filter: blur(14px);
+    background-color: rgba(255,255,255,0.08);
+  }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .group\/card {
+    transition: none !important;
+  }
+  
+  .group\/card:hover {
+    transform: none !important;
+  }
+}

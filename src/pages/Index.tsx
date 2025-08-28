@@ -11,7 +11,6 @@ import terminalDemo from '@/assets/terminal-demo.jpg';
 import circuitBoard from '@/assets/circuit-board.jpg';
 import roadmapTimeline from '@/assets/roadmap-timeline.jpg';
 import tokenChart from '@/assets/token-chart.jpg';
-import '../styles/glass.css';
 
 const whitepaperSections = [
   {
