@@ -140,7 +140,7 @@ const Index = () => {
           reverse={true}
           objectFit="contain"
           overlayColor="transparent"
-          customImageHeight="h-auto max-h-[700px] lg:max-h-[875px]"
+          customImageHeight="h-auto max-h-[800px] lg:max-h-[1000px]"
         />
 
       {/* Decorative Star */}
