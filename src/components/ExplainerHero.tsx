@@ -53,8 +53,8 @@ export const ExplainerHero = () => {
              style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'drift 9s linear infinite reverse' }} />
         
         {/* Constellation in top right */}
-        <div className="absolute top-16 right-16 w-48 h-32">
-          <svg className="w-full h-full opacity-60" viewBox="0 0 200 120">
+        <div className="absolute top-32 right-16 w-64 h-48">
+          <svg className="w-full h-full opacity-60" viewBox="0 0 280 180">
             {/* Constellation lines */}
             <line x1="20" y1="20" x2="60" y2="40" stroke="#A6FCFC" strokeWidth="0.5" opacity="0.4">
               <animate attributeName="opacity" values="0.2;0.6;0.2" dur="4s" repeatCount="indefinite" />
