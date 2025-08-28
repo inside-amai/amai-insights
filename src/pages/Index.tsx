@@ -135,10 +135,10 @@ const Index = () => {
               </p>
             </div>
           }
-          imageSrc="/lovable-uploads/00f901e3-42d9-42e9-8609-38efa1e2c29c.png"
+          imageSrc="/lovable-uploads/2dc88d33-5360-4f98-a8d1-c6eda4923e20.png"
           imageAlt="SUI Blockchain Technology"
           reverse={true}
-          overlayColor="rgba(147, 51, 234, 0.2)"
+          objectFit="contain"
         />
 
       {/* Decorative Star */}
