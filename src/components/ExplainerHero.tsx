@@ -174,7 +174,7 @@ export const ExplainerHero = () => {
             <img 
               src={amaiLogo} 
               alt="AMAI Logo" 
-              className="h-20 lg:h-24 xl:h-28 w-auto"
+              className="h-16 lg:h-20 w-auto"
             />
           </motion.div>
 
