@@ -130,7 +130,7 @@ export const ExplainerHero = () => {
             className="text-4xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight"
           >
             Bringing A Billion Agents
-            <span className="block bg-gradient-to-r from-[#A6FCFC] to-[#D6A6FC] bg-clip-text text-transparent">
+            <span className="block shimmer-text text-transparent">
               On-Chain
             </span>
           </motion.h1>
