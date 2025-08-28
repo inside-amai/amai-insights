@@ -25,7 +25,8 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-        <Route path="/" element={<Index />} />
+          <Route path="/" element={<Index />} />
+          <Route path="/whitepaper" element={<Whitepaper />} />
           <Route path="/whitepaper/platform-overview" element={
             <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gradient-primary"><div className="text-hero">Loading...</div></div>}>
               <PlatformOverview />
