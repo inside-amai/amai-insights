@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, Moon, Star } from 'lucide-react';
+import { ArrowRight, Moon, Star, Zap } from 'lucide-react';
 import { ExplainerHero } from '@/components/ExplainerHero';
 import { ExplainerSection } from '@/components/ExplainerSection';
 import { ExplainerFAQ } from '@/components/ExplainerFAQ';
@@ -200,6 +200,35 @@ const Index = () => {
           imageAlt="AMAI Roadmap Timeline"
           overlayColor="rgba(34, 197, 94, 0.2)"
         />
+
+      {/* Decorative Comet */}
+      <div className="relative bg-black py-8">
+        <div className="container mx-auto px-6">
+          <div className="flex justify-end pr-24">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
+              <motion.div
+                animate={{ 
+                  y: [0, -12, 0],
+                  x: [0, 8, 0],
+                  rotate: [0, 15, 0]
+                }}
+                transition={{ 
+                  y: { duration: 3.5, repeat: Infinity, ease: "easeInOut" },
+                  x: { duration: 2.5, repeat: Infinity, ease: "easeInOut" },
+                  rotate: { duration: 6, repeat: Infinity, ease: "easeInOut" }
+                }}
+              >
+                <Zap className="w-12 h-12 text-purple-accent fill-current" />
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
 
         {/* Token & Governance */}
         <ExplainerSection
