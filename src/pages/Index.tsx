@@ -165,8 +165,8 @@ const Index = () => {
 
       {/* Whitepaper Section */}
       <section className="relative isolate py-28 md:py-36 overflow-hidden bg-[#fafdff]">
-        {/* Radial gradient wash */}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_50%_at_0%_0%,#A6FCFC22_0%,transparent_60%),radial-gradient(80%_50%_at_100%_100%,#D6A6FC22_0%,transparent_60%)]" />
+        {/* Much stronger radial gradient wash */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_40%_at_0%_0%,#A6FCFC44_0%,transparent_70%),radial-gradient(60%_40%_at_100%_100%,#D6A6FC44_0%,transparent_70%)]" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           {/* Hero Section */}
@@ -180,7 +180,7 @@ const Index = () => {
               <p className="text-xs uppercase tracking-[0.18em] text-[#A6FCFC] mb-4 text-center">
                 Technical Documentation
               </p>
-              <h1 className="text-center font-roboto text-6xl md:text-7xl font-extrabold text-[#080808] mb-6">
+              <h1 className="text-center font-roboto text-6xl md:text-8xl font-black text-[#080808] mb-6 drop-shadow-sm">
                 AMAI Whitepaper
               </h1>
               <p className="mx-auto max-w-3xl text-center text-lg text-[#202020] leading-relaxed">
