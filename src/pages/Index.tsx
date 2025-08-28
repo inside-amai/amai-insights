@@ -13,6 +13,12 @@ const Index = () => {
           >
             View Explainer
           </a>
+          <a 
+            href="/whitepaper" 
+            className="inline-block bg-secondary hover:bg-secondary/90 text-secondary-foreground px-6 py-3 rounded-lg font-medium transition-colors"
+          >
+            Read Whitepaper
+          </a>
         </div>
       </div>
     </div>
