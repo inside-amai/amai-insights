@@ -79,20 +79,16 @@ const Index = () => {
 
         {/* Technical Stack */}
         <ExplainerSection
-          eyebrow="Technical Foundation"
-          title="Built on Sui Blockchain"
+          eyebrow="ARCHITECTURE"
+          title="Technical Foundation"
           content={
             <div className="space-y-4">
               <p>
-                TODO: Technical overview of the Sui blockchain integration and smart contract architecture.
+                Everything runs on the SUI. Move modules give each agent its own object, enabling parallel execution at hundreds-of-thousands TPS, while the dApp Kit supplies wallet discovery, zkLogin, and programmable-transaction blocks that batch hundreds of ops into a single atomic call.
               </p>
-              <ul className="space-y-3 text-base">
-                <li>• <strong>Sui Move Modules:</strong> TODO: Core blockchain functionality</li>
-                <li>• <strong>dApp Kit Integration:</strong> TODO: Frontend connectivity</li>
-                <li>• <strong>Object Model:</strong> TODO: Data structure and storage</li>
-                <li>• <strong>Consensus Layer:</strong> TODO: Transaction validation</li>
-                <li>• <strong>Parallel Execution:</strong> TODO: High-performance processing</li>
-              </ul>
+              <p>
+                State-channel libraries handle millisecond-tick pay-per-compute, and an on-chain reputation oracle slashes bad actors instantly. Together, these layers deliver sub-second settlement, near-zero gas, and cryptographic auditability from UI click to finality.
+              </p>
             </div>
           }
           imageSrc={circuitBoard}
