@@ -99,6 +99,9 @@ export const ExplainerHero = () => {
             </circle>
           </svg>
         </div>
+        
+        {/* Shooting star */}
+        <div className="shooting-star" />
       </div>
       
       <div className="container mx-auto px-6 text-center relative z-10">
