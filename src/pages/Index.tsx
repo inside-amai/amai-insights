@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Moon } from 'lucide-react';
 import { ExplainerHero } from '@/components/ExplainerHero';
 import { ExplainerSection } from '@/components/ExplainerSection';
 import { ExplainerFAQ } from '@/components/ExplainerFAQ';
@@ -91,6 +91,22 @@ const Index = () => {
           imageAlt="AMAI Terminal Demo"
           overlayColor="rgba(37, 99, 235, 0.2)"
         />
+      </div>
+
+      {/* Decorative Moon */}
+      <div className="relative bg-black py-8">
+        <div className="container mx-auto px-6">
+          <div className="flex justify-end pr-12">
+            <motion.div
+              initial={{ opacity: 0, rotate: -20 }}
+              whileInView={{ opacity: 1, rotate: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
+              <Moon className="w-12 h-12 text-purple-accent" />
+            </motion.div>
+          </div>
+        </div>
       </div>
 
         {/* Technical Stack */}
