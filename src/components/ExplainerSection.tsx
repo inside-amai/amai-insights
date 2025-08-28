@@ -84,7 +84,7 @@ export const ExplainerSection = ({
               <span className="text-sm font-medium text-[#A6FCFC] uppercase tracking-wider">
                 {eyebrow}
               </span>
-              <h2 className="text-3xl lg:text-4xl font-bold text-white leading-tight">
+              <h2 className="text-3xl lg:text-4xl font-bold text-purple-accent leading-tight">
                 {title}
               </h2>
             </div>
