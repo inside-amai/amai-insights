@@ -49,12 +49,13 @@ const whitepaperSections = [
 const Index = () => {
   return (
     <div>
-      <Header />
-      {/* Explainer Section */}
-      <div className="snap-y snap-mandatory h-screen overflow-y-scroll">
+      {/* Explainer Section - Hero with header overlay */}
+      <div className="relative">
+        <Header />
         <ExplainerHero />
-        
-        {/* Platform Overview */}
+      </div>
+      {/* Rest of sections */}
+      <div className="snap-y snap-mandatory h-screen overflow-y-scroll">
         <ExplainerSection
           eyebrow="Platform Overview"
           title="Revolutionary AI Terminal"
