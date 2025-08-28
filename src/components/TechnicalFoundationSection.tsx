@@ -29,7 +29,8 @@ export const TechnicalFoundationSection = () => {
               <img 
                 src="/lovable-uploads/2dc88d33-5360-4f98-a8d1-c6eda4923e20.png" 
                 alt="SUI Blockchain Technology"
-                className="w-full h-auto max-h-[800px] lg:max-h-[1000px] object-contain"
+                className="w-full object-contain"
+                style={{ height: '700px', maxHeight: 'none' }}
               />
             </div>
           </motion.div>
