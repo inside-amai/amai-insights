@@ -178,21 +178,19 @@ const Index = () => {
                 TODO: Token distribution model and governance structure for community participation.
               </p>
               <ul className="space-y-2 text-base">
-                <li>• <strong>35%</strong> TODO: Community rewards and staking</li>
-                <li>• <strong>25%</strong> TODO: Development and operations</li>
-                <li>• <strong>20%</strong> TODO: Strategic partnerships</li>
-                <li>• <strong>15%</strong> TODO: Team and advisors</li>
-                <li>• <strong>5%</strong> TODO: Reserve fund</li>
+                <li>• <strong>75%</strong> Community & Ecosystem</li>
+                <li>• <strong>15%</strong> Team & Development</li>
+                <li>• <strong>5%</strong> Strategic Partners</li>
+                <li>• <strong>5%</strong> Liquidity Provision</li>
               </ul>
               <p className="text-sm">
                 TODO: Governance mechanisms and voting procedures for platform decisions.
               </p>
             </div>
           }
-          imageSrc={tokenChart}
+          imageSrc="/lovable-uploads/0d0e27c9-efd2-44ca-995b-4a7949835316.png"
           imageAlt="Token Distribution Chart"
           reverse={true}
-          overlayColor="rgba(239, 68, 68, 0.2)"
         />
 
       {/* Decorative Comet */}
