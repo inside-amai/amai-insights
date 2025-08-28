@@ -68,8 +68,9 @@ export const ExplainerSection = ({
                 src={imageSrc} 
                 alt={imageAlt}
                 className={`w-full ${
-                  customImageHeight || 
-                  (objectFit === 'contain' ? 'h-auto max-h-[400px] lg:max-h-[500px]' : 'h-[400px] lg:h-[500px]')
+                  customImageHeight 
+                    ? 'h-auto max-h-[800px] lg:max-h-[1000px]'
+                    : (objectFit === 'contain' ? 'h-auto max-h-[400px] lg:max-h-[500px]' : 'h-[400px] lg:h-[500px]')
                 } object-${objectFit}`}
               />
               <div 
