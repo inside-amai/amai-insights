@@ -56,7 +56,7 @@ const Index = () => {
         <ExplainerHero />
       </div>
       {/* Explore Section Header */}
-      <div className="relative py-16 bg-black">
+      <div className="relative py-8 bg-black">
         <div className="text-center">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
