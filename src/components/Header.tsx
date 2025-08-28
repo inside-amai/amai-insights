@@ -11,7 +11,7 @@ export const Header = () => {
             <img 
               src={amaiHeaderLogo} 
               alt="AMAI Logo" 
-              className="h-8 w-auto hover:opacity-80 transition-opacity"
+              className="h-12 w-auto hover:opacity-80 transition-opacity"
             />
           </Link>
           
