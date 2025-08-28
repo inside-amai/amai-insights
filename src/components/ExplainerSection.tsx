@@ -83,7 +83,7 @@ export const ExplainerSection = ({
             viewport={{ once: true }}
           >
             <div className="space-y-4">
-              <span className="text-sm font-medium text-[#A6FCFC] uppercase tracking-wider">
+             <span className="text-sm font-medium text-white uppercase tracking-wider">
                 {eyebrow}
               </span>
               <h2 className="text-3xl lg:text-4xl font-bold leading-tight">

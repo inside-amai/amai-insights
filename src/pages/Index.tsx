@@ -123,7 +123,7 @@ const Index = () => {
 
         {/* Technical Stack */}
         <ExplainerSection
-          eyebrow="ARCHITECTURE"
+          eyebrow="Architecture"
           title="Technical Foundation"
           content={
             <div className="space-y-4">
@@ -261,7 +261,7 @@ const Index = () => {
                 viewport={{ once: true }}
                 className="text-center"
               >
-                <span className="text-sm font-medium text-[#A6FCFC] uppercase tracking-wider">
+                <span className="text-sm font-medium text-white uppercase tracking-wider">
                   Development Timeline
                 </span>
                 <h2 className="text-3xl lg:text-4xl font-bold leading-tight mt-4">
