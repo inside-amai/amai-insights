@@ -249,7 +249,7 @@ const Index = () => {
                 </span>
                 <h2 className="text-3xl lg:text-4xl font-bold leading-tight mt-4">
                   <span className="shimmer-text text-transparent">
-                    2025-2027 Roadmap
+                    Roadmap
                   </span>
                 </h2>
               </motion.div>
