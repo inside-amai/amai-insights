@@ -134,8 +134,8 @@ const Index = () => {
               </p>
             </div>
           }
-          imageSrc={circuitBoard}
-          imageAlt="Technical Architecture"
+          imageSrc="/lovable-uploads/00f901e3-42d9-42e9-8609-38efa1e2c29c.png"
+          imageAlt="SUI Blockchain Technology"
           reverse={true}
           overlayColor="rgba(147, 51, 234, 0.2)"
         />
