@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import {
   Accordion,
   AccordionContent,
@@ -30,8 +31,63 @@ const faqData = [
 ];
 
 export const ExplainerFAQ = () => {
+  const [shootingStars, setShootingStars] = useState<Array<{ id: number; x: number; y: number; delay: number; direction: { x: number; y: number; angle: number } }>>([]);
+  
+  useEffect(() => {
+    const createShootingStar = () => {
+      const id = Date.now();
+      const x = Math.random() * 60 + 10; // Random x position between 10% and 70%
+      const y = Math.random() * 40 + 10; // Random y position between 10% and 50%
+      const delay = Math.random() * 1000; // Random delay up to 1 second
+      
+      // Generate random direction
+      const angle = Math.random() * 360; // Random angle in degrees
+      const distance = 120; // Distance to travel
+      const directionX = Math.cos(angle * Math.PI / 180) * distance;
+      const directionY = Math.sin(angle * Math.PI / 180) * distance;
+      const trailAngle = angle + 180; // Trail points opposite to movement direction
+      
+      const direction = { x: directionX, y: directionY, angle: trailAngle };
+      
+      const newStar = { id, x, y, delay, direction };
+      setShootingStars(prev => [...prev, newStar]);
+      
+      // Remove the star after animation completes
+      setTimeout(() => {
+        setShootingStars(prev => prev.filter(star => star.id !== id));
+      }, 2500 + delay);
+    };
+    
+    // Create first star after 5 seconds
+    const firstTimeout = setTimeout(createShootingStar, 5000);
+    
+    // Then create stars every 7 seconds
+    const interval = setInterval(createShootingStar, 7000);
+    
+    return () => {
+      clearTimeout(firstTimeout);
+      clearInterval(interval);
+    };
+  }, []);
+
   return (
-    <section className="min-h-screen flex items-center snap-start bg-gray-900">
+    <section className="min-h-screen flex items-center snap-start bg-gray-900 relative overflow-hidden">
+      {/* Shooting stars */}
+      {shootingStars.map((star) => (
+        <div
+          key={star.id}
+          className="shooting-star"
+          style={{
+            left: `${star.x}%`,
+            top: `${star.y}%`,
+            animationDelay: `${star.delay}ms`,
+            '--end-x': `${star.direction.x}px`,
+            '--end-y': `${star.direction.y}px`,
+            '--trail-angle': `${star.direction.angle}deg`,
+          } as React.CSSProperties}
+        />
+      ))}
+      
       <div className="container mx-auto px-6 py-20">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
