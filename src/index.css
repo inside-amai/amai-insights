@@ -231,18 +231,18 @@ All colors MUST be HSL.
     opacity: 0.8;
   }
   100% {
-    width: 60px;
+    width: 120px;
     opacity: 0;
   }
 }
 
 .shooting-star {
   position: absolute;
-  width: 3px;
-  height: 3px;
+  width: 8px;
+  height: 8px;
   background: radial-gradient(circle, #A6FCFC 0%, #D6A6FC 70%, transparent 100%);
   border-radius: 50%;
-  box-shadow: 0 0 6px #A6FCFC, 0 0 12px #A6FCFC;
+  box-shadow: 0 0 12px #A6FCFC, 0 0 24px #A6FCFC, 0 0 36px #A6FCFC;
   animation: shootingStar 1.5s ease-out;
   animation-iteration-count: 1;
   opacity: 0;
@@ -252,12 +252,12 @@ All colors MUST be HSL.
   content: '';
   position: absolute;
   top: 50%;
-  right: 3px;
+  right: 8px;
   width: 0;
-  height: 1px;
+  height: 3px;
   background: linear-gradient(to left, transparent, rgba(166, 252, 252, 0.9), rgba(214, 166, 252, 0.6), transparent);
   transform: translateY(-50%) rotate(45deg);
-  border-radius: 1px;
+  border-radius: 3px;
   animation: shootingTrail 1.5s ease-out;
   animation-iteration-count: 1;
 }
