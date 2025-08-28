@@ -164,9 +164,14 @@ const Index = () => {
       </div>
 
       {/* Whitepaper Section */}
-      <section className="relative isolate py-28 md:py-36 overflow-hidden bg-[#fafdff]">
-        {/* Much stronger radial gradient wash */}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_40%_at_0%_0%,#A6FCFC44_0%,transparent_70%),radial-gradient(60%_40%_at_100%_100%,#D6A6FC44_0%,transparent_70%)]" />
+      <section className="relative isolate py-28 md:py-36 overflow-hidden" style={{ background: 'linear-gradient(135deg, #A6FCFC33, #fafdff, #D6A6FC33)' }}>
+        {/* Strong visible gradient overlays */}
+        <div className="absolute inset-0 opacity-60" style={{ 
+          background: `
+            radial-gradient(circle at 20% 20%, #A6FCFC66 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, #D6A6FC66 0%, transparent 50%)
+          ` 
+        }} />
         
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           {/* Hero Section */}

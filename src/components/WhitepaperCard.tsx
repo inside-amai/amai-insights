@@ -14,7 +14,21 @@ interface WhitepaperCardProps {
 export const WhitepaperCard = ({ slug, title, description, category, index }: WhitepaperCardProps) => {
   return (
     <motion.article
-      className="group/card rounded-3xl p-8 h-full backdrop-blur-xl bg-white/40 border-2 border-white/30 shadow-[0_8px_32px_rgba(0,0,0,0.12)] transition-all duration-300 hover:shadow-[0_16px_48px_rgba(0,0,0,0.20)] hover:bg-white/60 hover:-translate-y-2 cursor-pointer"
+      className="group/card rounded-3xl p-8 h-full transition-all duration-300 hover:-translate-y-2 cursor-pointer"
+      style={{
+        background: 'rgba(255, 255, 255, 0.25)',
+        backdropFilter: 'blur(20px)',
+        border: '1px solid rgba(255, 255, 255, 0.3)',
+        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)'
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.background = 'rgba(255, 255, 255, 0.4)';
+        e.currentTarget.style.boxShadow = '0 16px 48px rgba(0, 0, 0, 0.15)';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.background = 'rgba(255, 255, 255, 0.25)';
+        e.currentTarget.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.1)';
+      }}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
