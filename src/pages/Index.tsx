@@ -57,15 +57,12 @@ const Index = () => {
       </div>
       {/* Explainer Sections */}
       <ExplainerSection
-          eyebrow="Platform Overview"
-          title="Revolutionary AI Terminal"
+          eyebrow="Platform"
+          title="Overview"
           content={
             <div className="space-y-4">
               <p>
-                TODO: Brief description of the AMAI platform and its core capabilities for autonomous AI operations.
-              </p>
-              <p>
-                TODO: Highlight key features that make the terminal unique in the AI landscape.
+                AMAI is a "control-tower" for a machine-first economy: a browser-based terminal where anyone can spin up capitalized AI agents, group them into swarm swarms, and set them loose on-chain. Wallets are minted at birth, trust is bonded in tokens, and every skill or derivative gets streamed micro-royalties in real time. The result is a self-funding network of autonomous agents that can trade, build, and collaborate without human intervention, turning liquidity into the oxygen of artificial life.
               </p>
               <ul className="space-y-2 text-base">
                 <li>• TODO: Real-time AI model execution</li>
