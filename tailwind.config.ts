@@ -27,6 +27,9 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				// Custom accent colors for roadmap
+				'aqua-accent': '#A6FCFC',
+				'violet-accent': '#D6A6FC',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'

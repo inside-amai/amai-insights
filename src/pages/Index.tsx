@@ -6,12 +6,12 @@ import { ArrowRight, Moon, Star, Zap } from 'lucide-react';
 import { ExplainerHero } from '@/components/ExplainerHero';
 import { ExplainerSection } from '@/components/ExplainerSection';
 import { ExplainerFAQ } from '@/components/ExplainerFAQ';
+import { RoadmapFlow } from '@/components/RoadmapFlow';
 import { WhitepaperCard } from '@/components/WhitepaperCard';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import terminalDemo from '@/assets/terminal-demo.jpg';
 import circuitBoard from '@/assets/circuit-board.jpg';
-import roadmapTimeline from '@/assets/roadmap-timeline.jpg';
 import tokenChart from '@/assets/token-chart.jpg';
 
 const whitepaperSections = [
@@ -168,39 +168,58 @@ const Index = () => {
         </div>
       </div>
 
-        {/* Roadmap */}
-        <ExplainerSection
-          eyebrow="Development Timeline"
-          title="2025-2027 Roadmap"
-          content={
-            <div className="space-y-4">
-              <p>
-                TODO: Strategic development phases and key milestones for the AMAI platform.
-              </p>
-              <div className="space-y-4">
-                <div>
-                  <h4 className="font-semibold text-white">Q3 2025</h4>
-                  <p className="text-sm text-gray-300">TODO: Platform beta launch and initial user testing</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-white">Q1 2026</h4>
-                  <p className="text-sm text-gray-300">TODO: Token launch and governance implementation</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-white">Q3 2026</h4>
-                  <p className="text-sm text-gray-300">TODO: Advanced AI features and scaling</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-white">2027</h4>
-                  <p className="text-sm text-gray-300">TODO: Full ecosystem deployment and partnerships</p>
-                </div>
-              </div>
+        {/* Roadmap - Custom Animated Component */}
+        <section className="min-h-screen flex items-center snap-start bg-black relative overflow-hidden">
+          {/* Animated Stars Background - matching other sections */}
+          <div className="absolute inset-0">
+            {/* Large moving stars */}
+            <div className="absolute top-20 left-20 w-2 h-2 animate-bounce" 
+                 style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '3s', animationDelay: '0s' }} />
+            <div className="absolute top-32 right-32 w-3 h-3 animate-pulse" 
+                 style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '4s', animationDelay: '1s', transform: 'translateY(-10px)', animation: 'float 6s ease-in-out infinite' }} />
+            <div className="absolute bottom-40 left-40 w-2 h-2" 
+                 style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'drift 8s linear infinite' }} />
+            <div className="absolute bottom-20 right-20 w-3 h-3 animate-pulse" 
+                 style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '5s', animationDelay: '2s' }} />
+            
+            {/* Medium moving stars */}
+            <div className="absolute top-60 left-60 w-1.5 h-1.5" 
+                 style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'twinkle 4s ease-in-out infinite' }} />
+            <div className="absolute top-96 right-60 w-1.5 h-1.5 animate-bounce" 
+                 style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '3.5s', animationDelay: '1.5s' }} />
+            
+            {/* Small moving stars */}
+            <div className="absolute top-40 left-96 w-1 h-1 animate-ping" 
+                 style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '3s' }} />
+            <div className="absolute top-80 right-96 w-1 h-1" 
+                 style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'twinkle 3s ease-in-out infinite' }} />
+            <div className="absolute bottom-80 left-20 w-1 h-1" 
+                 style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'drift 12s linear infinite' }} />
+          </div>
+          
+          <div className="container mx-auto px-6 py-20 relative z-10">
+            <div className="mb-12">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <span className="text-sm font-medium text-[#A6FCFC] uppercase tracking-wider">
+                  Development Timeline
+                </span>
+                <h2 className="text-3xl lg:text-4xl font-bold leading-tight mt-4">
+                  <span className="shimmer-text text-transparent">
+                    2025-2027 Roadmap
+                  </span>
+                </h2>
+              </motion.div>
             </div>
-          }
-          imageSrc={roadmapTimeline}
-          imageAlt="AMAI Roadmap Timeline"
-          overlayColor="rgba(34, 197, 94, 0.2)"
-        />
+            
+            <RoadmapFlow />
+          </div>
+        </section>
 
       {/* Decorative Comet */}
       <div className="relative bg-black py-8">
