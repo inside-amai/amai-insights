@@ -24,8 +24,8 @@ export const ExplainerHero = () => {
     // Create first star after 5 seconds
     const firstTimeout = setTimeout(createShootingStar, 5000);
     
-    // Then create stars every 15 seconds
-    const interval = setInterval(createShootingStar, 15000);
+    // Then create stars every 7 seconds
+    const interval = setInterval(createShootingStar, 7000);
     
     return () => {
       clearTimeout(firstTimeout);

@@ -231,7 +231,7 @@ All colors MUST be HSL.
     opacity: 0.8;
   }
   100% {
-    width: 120px;
+    width: 200px;
     opacity: 0;
   }
 }
