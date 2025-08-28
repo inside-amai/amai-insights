@@ -185,7 +185,7 @@ const Index = () => {
               <p className="text-xs uppercase tracking-[0.18em] text-[#A6FCFC] mb-4 text-center">
                 Technical Documentation
               </p>
-              <h1 className="text-center font-roboto text-6xl md:text-8xl font-black text-[#080808] mb-6 drop-shadow-sm">
+              <h1 className="text-center font-roboto text-5xl md:text-6xl font-bold text-[#080808] mb-6">
                 AMAI Whitepaper
               </h1>
               <p className="mx-auto max-w-3xl text-center text-lg text-[#202020] leading-relaxed">
