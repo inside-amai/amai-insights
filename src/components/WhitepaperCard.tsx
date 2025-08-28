@@ -34,7 +34,7 @@ export const WhitepaperCard = ({ slug, title, description, category, index }: Wh
       }}
     >
       <header className="mb-6 flex-grow">
-        <span className="text-xs font-medium uppercase tracking-[0.15em] text-[#A6FCFC] block">
+        <span className="text-xs font-medium uppercase tracking-[0.15em] text-black block">
           {category}
         </span>
         <h3 className="mt-3 font-roboto text-3xl text-[#080808] font-semibold leading-tight">
