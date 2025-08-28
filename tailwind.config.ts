@@ -63,6 +63,18 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				}
 			},
+			backgroundImage: {
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-secondary': 'var(--gradient-secondary)',
+			},
+			backgroundColor: {
+				'hero': 'hsl(var(--hero-background))',
+				'section': 'hsl(var(--section-background))',
+				'section-alt': 'hsl(var(--section-alt-background))',
+			},
+			textColor: {
+				'hero': 'hsl(var(--hero-foreground))',
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
