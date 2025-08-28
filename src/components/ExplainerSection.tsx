@@ -9,6 +9,7 @@ interface ExplainerSectionProps {
   imageAlt: string;
   reverse?: boolean;
   overlayColor?: string;
+  objectFit?: 'cover' | 'contain';
 }
 
 export const ExplainerSection = ({
@@ -18,7 +19,8 @@ export const ExplainerSection = ({
   imageSrc,
   imageAlt,
   reverse = false,
-  overlayColor = 'rgba(0, 0, 0, 0.3)'
+  overlayColor = 'rgba(0, 0, 0, 0.3)',
+  objectFit = 'cover'
 }: ExplainerSectionProps) => {
   return (
     <section className="min-h-screen flex items-center snap-start bg-black relative overflow-hidden">
@@ -63,7 +65,7 @@ export const ExplainerSection = ({
               <img 
                 src={imageSrc} 
                 alt={imageAlt}
-                className="w-full h-[400px] lg:h-[500px] object-cover"
+                className={`w-full h-[400px] lg:h-[500px] object-${objectFit}`}
               />
               <div 
                 className="absolute inset-0"
