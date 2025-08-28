@@ -4,26 +4,35 @@ import amaiLogo from '@/assets/amai-logo-new.png';
 export const ExplainerHero = () => {
   return (
     <section className="min-h-screen flex items-center justify-center snap-start bg-black relative overflow-hidden">
-      {/* Animated Background */}
+      {/* Animated Stars Background */}
       <div className="absolute inset-0">
-        {/* Floating orbs animation */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-20 animate-pulse" 
-             style={{ background: 'radial-gradient(circle, #A6FCFC 0%, transparent 70%)' }} />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full opacity-15 animate-pulse" 
-             style={{ background: 'radial-gradient(circle, #D6A6FC 0%, transparent 70%)', animationDelay: '2s' }} />
+        {/* Large stars */}
+        <div className="absolute top-20 left-20 w-2 h-2 animate-pulse" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '2s' }} />
+        <div className="absolute top-32 right-32 w-3 h-3 animate-pulse" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '3s', animationDelay: '1s' }} />
+        <div className="absolute bottom-40 left-40 w-2 h-2 animate-pulse" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '2.5s', animationDelay: '0.5s' }} />
+        <div className="absolute bottom-20 right-20 w-3 h-3 animate-pulse" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '3.5s', animationDelay: '2s' }} />
         
-        {/* Moving gradient lines */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#A6FCFC] to-transparent animate-pulse" 
-               style={{ animationDuration: '3s' }} />
-          <div className="absolute bottom-0 right-0 w-full h-px bg-gradient-to-l from-transparent via-[#D6A6FC] to-transparent animate-pulse" 
-               style={{ animationDuration: '4s', animationDelay: '1.5s' }} />
-        </div>
+        {/* Medium stars */}
+        <div className="absolute top-60 left-60 w-1.5 h-1.5 animate-pulse" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '2.2s', animationDelay: '1.5s' }} />
+        <div className="absolute top-96 right-60 w-1.5 h-1.5 animate-pulse" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '2.8s', animationDelay: '0.8s' }} />
+        <div className="absolute bottom-60 left-80 w-1.5 h-1.5 animate-pulse" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '3.2s', animationDelay: '1.2s' }} />
         
-        {/* Subtle grid pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(166,252,252,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(166,252,252,0.1)_1px,transparent_1px)] bg-[length:50px_50px]" />
-        </div>
+        {/* Small stars */}
+        <div className="absolute top-40 left-96 w-1 h-1 animate-pulse" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '1.8s', animationDelay: '0.3s' }} />
+        <div className="absolute top-80 right-96 w-1 h-1 animate-pulse" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '2.1s', animationDelay: '1.8s' }} />
+        <div className="absolute bottom-80 left-20 w-1 h-1 animate-pulse" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '2.4s', animationDelay: '0.7s' }} />
+        <div className="absolute bottom-96 right-40 w-1 h-1 animate-pulse" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '3.1s', animationDelay: '1.4s' }} />
       </div>
       
       <div className="container mx-auto px-6 text-center relative z-10">
