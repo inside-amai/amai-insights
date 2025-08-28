@@ -189,10 +189,12 @@ All colors MUST be HSL.
   background: linear-gradient(
     90deg,
     #D6A6FC 0%,
-    #A6FCFC 50%,
+    #A6FCFC 30%,
+    #ffffff 50%,
+    #A6FCFC 70%,
     #D6A6FC 100%
   );
-  background-size: 200% 100%;
+  background-size: 300% 100%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
