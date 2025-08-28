@@ -1,5 +1,4 @@
 import { WhitepaperLayout } from '@/components/WhitepaperLayout';
-import roadmapTimeline from '@/assets/roadmap-timeline.jpg';
 
 const Roadmap = () => {
   return (
@@ -8,17 +7,16 @@ const Roadmap = () => {
       title="Development Roadmap"
     >
       <div className="space-y-8">
-        {/* Hero Image */}
-        <div className="relative overflow-hidden rounded-xl">
-          <img 
-            src={roadmapTimeline} 
-            alt="AMAI Roadmap Timeline"
-            className="w-full h-64 lg:h-80 object-cover"
-          />
-          <div 
-            className="absolute inset-0"
-            style={{ backgroundColor: 'rgba(34, 197, 94, 0.2)' }}
-          />
+        {/* Hero Section - No Image */}
+        <div className="text-center py-8">
+          <h2 className="text-3xl lg:text-4xl font-bold leading-tight">
+            <span className="shimmer-text text-transparent">
+              2025-2027 Development Timeline
+            </span>
+          </h2>
+          <p className="mt-4 text-lg text-gray-300 max-w-3xl mx-auto">
+            Strategic development phases and key milestones for the AMAI platform.
+          </p>
         </div>
 
         {/* Content */}

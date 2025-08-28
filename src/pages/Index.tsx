@@ -168,6 +168,62 @@ const Index = () => {
         </div>
       </div>
 
+        {/* Token & Governance */}
+        <ExplainerSection
+          eyebrow="Tokenomics & Governance"
+          title="Community-Driven Platform"
+          content={
+            <div className="space-y-4">
+              <p>
+                TODO: Token distribution model and governance structure for community participation.
+              </p>
+              <ul className="space-y-2 text-base">
+                <li>• <strong>35%</strong> TODO: Community rewards and staking</li>
+                <li>• <strong>25%</strong> TODO: Development and operations</li>
+                <li>• <strong>20%</strong> TODO: Strategic partnerships</li>
+                <li>• <strong>15%</strong> TODO: Team and advisors</li>
+                <li>• <strong>5%</strong> TODO: Reserve fund</li>
+              </ul>
+              <p className="text-sm">
+                TODO: Governance mechanisms and voting procedures for platform decisions.
+              </p>
+            </div>
+          }
+          imageSrc={tokenChart}
+          imageAlt="Token Distribution Chart"
+          reverse={true}
+          overlayColor="rgba(239, 68, 68, 0.2)"
+        />
+
+      {/* Decorative Comet */}
+      <div className="relative bg-black py-8">
+        <div className="container mx-auto px-6">
+          <div className="flex justify-end pr-24">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
+              <motion.div
+                animate={{ 
+                  y: [0, -12, 0],
+                  x: [0, 8, 0],
+                  rotate: [0, 15, 0]
+                }}
+                transition={{ 
+                  y: { duration: 3.5, repeat: Infinity, ease: "easeInOut" },
+                  x: { duration: 2.5, repeat: Infinity, ease: "easeInOut" },
+                  rotate: { duration: 6, repeat: Infinity, ease: "easeInOut" }
+                }}
+              >
+                <Zap className="w-12 h-12 text-purple-accent fill-current" />
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+
         {/* Roadmap - Custom Animated Component */}
         <section className="min-h-screen flex items-center snap-start bg-black relative overflow-hidden">
           {/* Animated Stars Background - matching other sections */}
@@ -220,62 +276,6 @@ const Index = () => {
             <RoadmapFlow />
           </div>
         </section>
-
-      {/* Decorative Comet */}
-      <div className="relative bg-black py-8">
-        <div className="container mx-auto px-6">
-          <div className="flex justify-end pr-24">
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              viewport={{ once: true }}
-            >
-              <motion.div
-                animate={{ 
-                  y: [0, -12, 0],
-                  x: [0, 8, 0],
-                  rotate: [0, 15, 0]
-                }}
-                transition={{ 
-                  y: { duration: 3.5, repeat: Infinity, ease: "easeInOut" },
-                  x: { duration: 2.5, repeat: Infinity, ease: "easeInOut" },
-                  rotate: { duration: 6, repeat: Infinity, ease: "easeInOut" }
-                }}
-              >
-                <Zap className="w-12 h-12 text-purple-accent fill-current" />
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
-      </div>
-
-        {/* Token & Governance */}
-        <ExplainerSection
-          eyebrow="Tokenomics & Governance"
-          title="Community-Driven Platform"
-          content={
-            <div className="space-y-4">
-              <p>
-                TODO: Token distribution model and governance structure for community participation.
-              </p>
-              <ul className="space-y-2 text-base">
-                <li>• <strong>35%</strong> TODO: Community rewards and staking</li>
-                <li>• <strong>25%</strong> TODO: Development and operations</li>
-                <li>• <strong>20%</strong> TODO: Strategic partnerships</li>
-                <li>• <strong>15%</strong> TODO: Team and advisors</li>
-                <li>• <strong>5%</strong> TODO: Reserve fund</li>
-              </ul>
-              <p className="text-sm">
-                TODO: Governance mechanisms and voting procedures for platform decisions.
-              </p>
-            </div>
-          }
-          imageSrc={tokenChart}
-          imageAlt="Token Distribution Chart"
-          reverse={true}
-          overlayColor="rgba(239, 68, 68, 0.2)"
-        />
 
       {/* Whitepaper Section */}
       <section className="relative isolate py-28 md:py-36 overflow-hidden" style={{ background: 'linear-gradient(135deg, #A6FCFC33, #fafdff, #D6A6FC33)' }}>
