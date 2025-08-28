@@ -54,9 +54,8 @@ const Index = () => {
         <Header />
         <ExplainerHero />
       </div>
-      {/* Rest of sections */}
-      <div className="snap-y snap-mandatory h-screen overflow-y-scroll">
-        <ExplainerSection
+      {/* Explainer Sections */}
+      <ExplainerSection
           eyebrow="Platform Overview"
           title="Revolutionary AI Terminal"
           content={
@@ -163,8 +162,6 @@ const Index = () => {
           reverse={true}
           overlayColor="rgba(239, 68, 68, 0.2)"
         />
-
-      </div>
 
       {/* Whitepaper Section */}
       <section className="relative isolate py-28 md:py-36 overflow-hidden" style={{ background: 'linear-gradient(135deg, #A6FCFC33, #fafdff, #D6A6FC33)' }}>
