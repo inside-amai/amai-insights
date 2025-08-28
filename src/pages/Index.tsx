@@ -111,20 +111,20 @@ const Index = () => {
               </p>
               <div className="space-y-4">
                 <div>
-                  <h4 className="font-semibold text-foreground">Q3 2025</h4>
-                  <p className="text-sm">TODO: Platform beta launch and initial user testing</p>
+                  <h4 className="font-semibold text-white">Q3 2025</h4>
+                  <p className="text-sm text-gray-300">TODO: Platform beta launch and initial user testing</p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground">Q1 2026</h4>
-                  <p className="text-sm">TODO: Token launch and governance implementation</p>
+                  <h4 className="font-semibold text-white">Q1 2026</h4>
+                  <p className="text-sm text-gray-300">TODO: Token launch and governance implementation</p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground">Q3 2026</h4>
-                  <p className="text-sm">TODO: Advanced AI features and scaling</p>
+                  <h4 className="font-semibold text-white">Q3 2026</h4>
+                  <p className="text-sm text-gray-300">TODO: Advanced AI features and scaling</p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground">2027</h4>
-                  <p className="text-sm">TODO: Full ecosystem deployment and partnerships</p>
+                  <h4 className="font-semibold text-white">2027</h4>
+                  <p className="text-sm text-gray-300">TODO: Full ecosystem deployment and partnerships</p>
                 </div>
               </div>
             </div>

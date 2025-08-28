@@ -21,7 +21,7 @@ export const ExplainerSection = ({
   overlayColor = 'rgba(0, 0, 0, 0.3)'
 }: ExplainerSectionProps) => {
   return (
-    <section className="min-h-screen flex items-center snap-start bg-section even:bg-section-alt">
+    <section className="min-h-screen flex items-center snap-start bg-gray-900">
       <div className="container mx-auto px-6 py-20">
         <div className={`grid grid-cols-1 lg:grid-cols-12 gap-12 items-center ${reverse ? 'lg:grid-flow-dense' : ''}`}>
           {/* Image Column */}
@@ -54,14 +54,14 @@ export const ExplainerSection = ({
             viewport={{ once: true }}
           >
             <div className="space-y-4">
-              <span className="text-sm font-medium text-primary uppercase tracking-wider">
+              <span className="text-sm font-medium text-[#A6FCFC] uppercase tracking-wider">
                 {eyebrow}
               </span>
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground leading-tight">
+              <h2 className="text-3xl lg:text-4xl font-bold text-white leading-tight">
                 {title}
               </h2>
             </div>
-            <div className="text-lg text-muted-foreground leading-relaxed">
+            <div className="text-lg text-gray-300 leading-relaxed">
               {content}
             </div>
           </motion.div>
