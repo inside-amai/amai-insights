@@ -51,6 +51,54 @@ export const ExplainerHero = () => {
              style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'twinkle 5s ease-in-out infinite' }} />
         <div className="absolute bottom-16 left-16 w-1 h-1" 
              style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'drift 9s linear infinite reverse' }} />
+        
+        {/* Constellation in top right */}
+        <div className="absolute top-16 right-16 w-48 h-32">
+          <svg className="w-full h-full opacity-60" viewBox="0 0 200 120">
+            {/* Constellation lines */}
+            <line x1="20" y1="20" x2="60" y2="40" stroke="#A6FCFC" strokeWidth="0.5" opacity="0.4">
+              <animate attributeName="opacity" values="0.2;0.6;0.2" dur="4s" repeatCount="indefinite" />
+            </line>
+            <line x1="60" y1="40" x2="100" y2="30" stroke="#D6A6FC" strokeWidth="0.5" opacity="0.4">
+              <animate attributeName="opacity" values="0.2;0.6;0.2" dur="5s" repeatCount="indefinite" begin="1s" />
+            </line>
+            <line x1="100" y1="30" x2="140" y2="60" stroke="#A6FCFC" strokeWidth="0.5" opacity="0.4">
+              <animate attributeName="opacity" values="0.2;0.6;0.2" dur="3s" repeatCount="indefinite" begin="2s" />
+            </line>
+            <line x1="60" y1="40" x2="80" y2="80" stroke="#D6A6FC" strokeWidth="0.5" opacity="0.4">
+              <animate attributeName="opacity" values="0.2;0.6;0.2" dur="4.5s" repeatCount="indefinite" begin="0.5s" />
+            </line>
+            <line x1="80" y1="80" x2="120" y2="90" stroke="#A6FCFC" strokeWidth="0.5" opacity="0.4">
+              <animate attributeName="opacity" values="0.2;0.6;0.2" dur="3.5s" repeatCount="indefinite" begin="1.5s" />
+            </line>
+            <line x1="140" y1="60" x2="160" y2="100" stroke="#D6A6FC" strokeWidth="0.5" opacity="0.4">
+              <animate attributeName="opacity" values="0.2;0.6;0.2" dur="4s" repeatCount="indefinite" begin="2.5s" />
+            </line>
+            
+            {/* Constellation stars */}
+            <circle cx="20" cy="20" r="1.5" fill="#A6FCFC">
+              <animate attributeName="r" values="1.5;2.5;1.5" dur="3s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="60" cy="40" r="2" fill="#D6A6FC">
+              <animate attributeName="r" values="2;3;2" dur="4s" repeatCount="indefinite" begin="1s" />
+            </circle>
+            <circle cx="100" cy="30" r="1.5" fill="#A6FCFC">
+              <animate attributeName="r" values="1.5;2.5;1.5" dur="3.5s" repeatCount="indefinite" begin="0.5s" />
+            </circle>
+            <circle cx="140" cy="60" r="2.5" fill="#D6A6FC">
+              <animate attributeName="r" values="2.5;3.5;2.5" dur="5s" repeatCount="indefinite" begin="2s" />
+            </circle>
+            <circle cx="80" cy="80" r="1.5" fill="#A6FCFC">
+              <animate attributeName="r" values="1.5;2.5;1.5" dur="3s" repeatCount="indefinite" begin="1.5s" />
+            </circle>
+            <circle cx="120" cy="90" r="1.5" fill="#D6A6FC">
+              <animate attributeName="r" values="1.5;2.5;1.5" dur="4s" repeatCount="indefinite" begin="0.8s" />
+            </circle>
+            <circle cx="160" cy="100" r="1.5" fill="#A6FCFC">
+              <animate attributeName="r" values="1.5;2.5;1.5" dur="3.5s" repeatCount="indefinite" begin="2.5s" />
+            </circle>
+          </svg>
+        </div>
       </div>
       
       <div className="container mx-auto px-6 text-center relative z-10">
