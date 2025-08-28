@@ -204,41 +204,60 @@ All colors MUST be HSL.
 /* Shooting star animation */
 @keyframes shootingStar {
   0% {
-    transform: translateX(-100px) translateY(-100px);
+    transform: translateX(0) translateY(0);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100px) translateY(100px);
+    opacity: 0;
+  }
+}
+
+@keyframes shootingTrail {
+  0% {
+    width: 0;
     opacity: 0;
   }
   10% {
     opacity: 1;
   }
   90% {
-    opacity: 1;
+    opacity: 0.8;
   }
   100% {
-    transform: translateX(calc(100vw + 100px)) translateY(calc(100vh + 100px));
+    width: 60px;
     opacity: 0;
   }
 }
 
 .shooting-star {
   position: absolute;
-  width: 4px;
-  height: 4px;
-  background: linear-gradient(45deg, #A6FCFC, #D6A6FC);
+  width: 3px;
+  height: 3px;
+  background: radial-gradient(circle, #A6FCFC 0%, #D6A6FC 70%, transparent 100%);
   border-radius: 50%;
-  box-shadow: 0 0 6px #A6FCFC, 0 0 12px #A6FCFC, 0 0 18px #A6FCFC;
-  animation: shootingStar 2s linear infinite;
-  animation-delay: 10s;
-  animation-iteration-count: infinite;
+  box-shadow: 0 0 6px #A6FCFC, 0 0 12px #A6FCFC;
+  animation: shootingStar 1.5s ease-out;
+  animation-iteration-count: 1;
+  opacity: 0;
 }
 
 .shooting-star::before {
   content: '';
   position: absolute;
   top: 50%;
-  right: 4px;
-  width: 80px;
+  right: 3px;
+  width: 0;
   height: 1px;
-  background: linear-gradient(to left, transparent, rgba(166, 252, 252, 0.8), rgba(214, 166, 252, 0.4));
-  transform: translateY(-50%);
+  background: linear-gradient(to left, transparent, rgba(166, 252, 252, 0.9), rgba(214, 166, 252, 0.6), transparent);
+  transform: translateY(-50%) rotate(45deg);
   border-radius: 1px;
+  animation: shootingTrail 1.5s ease-out;
+  animation-iteration-count: 1;
 }

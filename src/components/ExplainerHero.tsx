@@ -1,7 +1,38 @@
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import amaiLogo from '@/assets/amai-logo-new.png';
 
 export const ExplainerHero = () => {
+  const [shootingStars, setShootingStars] = useState<Array<{ id: number; x: number; y: number; delay: number }>>([]);
+  
+  useEffect(() => {
+    const createShootingStar = () => {
+      const id = Date.now();
+      const x = Math.random() * 60 + 10; // Random x position between 10% and 70%
+      const y = Math.random() * 40 + 10; // Random y position between 10% and 50%
+      const delay = Math.random() * 1000; // Random delay up to 1 second
+      
+      const newStar = { id, x, y, delay };
+      setShootingStars(prev => [...prev, newStar]);
+      
+      // Remove the star after animation completes
+      setTimeout(() => {
+        setShootingStars(prev => prev.filter(star => star.id !== id));
+      }, 2500 + delay);
+    };
+    
+    // Create first star after 5 seconds
+    const firstTimeout = setTimeout(createShootingStar, 5000);
+    
+    // Then create stars every 15 seconds
+    const interval = setInterval(createShootingStar, 15000);
+    
+    return () => {
+      clearTimeout(firstTimeout);
+      clearInterval(interval);
+    };
+  }, []);
+
   return (
     <section className="min-h-screen flex items-center justify-center snap-start bg-black relative overflow-hidden">
       {/* Animated Stars Background */}
@@ -100,8 +131,18 @@ export const ExplainerHero = () => {
           </svg>
         </div>
         
-        {/* Shooting star */}
-        <div className="shooting-star" />
+        {/* Shooting stars */}
+        {shootingStars.map((star) => (
+          <div
+            key={star.id}
+            className="shooting-star"
+            style={{
+              left: `${star.x}%`,
+              top: `${star.y}%`,
+              animationDelay: `${star.delay}ms`,
+            }}
+          />
+        ))}
       </div>
       
       <div className="container mx-auto px-6 text-center relative z-10">
