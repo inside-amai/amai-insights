@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, Moon } from 'lucide-react';
+import { ArrowRight, Moon, Star } from 'lucide-react';
 import { ExplainerHero } from '@/components/ExplainerHero';
 import { ExplainerSection } from '@/components/ExplainerSection';
 import { ExplainerFAQ } from '@/components/ExplainerFAQ';
@@ -128,6 +128,22 @@ const Index = () => {
           reverse={true}
           overlayColor="rgba(147, 51, 234, 0.2)"
         />
+
+      {/* Decorative Star */}
+      <div className="relative bg-black py-8">
+        <div className="container mx-auto px-6">
+          <div className="flex justify-start pl-32">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
+              <Star className="w-12 h-12 text-cyan-accent fill-current" />
+            </motion.div>
+          </div>
+        </div>
+      </div>
 
         {/* Roadmap */}
         <ExplainerSection
