@@ -179,30 +179,6 @@ const Index = () => {
         </div>
       </div>
 
-        {/* Token & Governance */}
-        <ExplainerSection
-          eyebrow="Tokenomics & Governance"
-          title="Community-Driven Platform"
-          content={
-            <div className="space-y-4">
-              <p>
-                TODO: Token distribution model and governance structure for community participation.
-              </p>
-              <ul className="space-y-2 text-base">
-                <li>• <strong>75%</strong> Community & Ecosystem</li>
-                <li>• <strong>15%</strong> Team & Development</li>
-                <li>• <strong>5%</strong> Strategic Partners</li>
-                <li>• <strong>5%</strong> Liquidity Provision</li>
-              </ul>
-              <p className="text-sm">
-                TODO: Governance mechanisms and voting procedures for platform decisions.
-              </p>
-            </div>
-          }
-          imageSrc="/lovable-uploads/0d0e27c9-efd2-44ca-995b-4a7949835316.png"
-          imageAlt="Token Distribution Chart"
-          reverse={true}
-        />
 
       {/* Decorative Comet */}
       <div className="relative bg-black py-8">
