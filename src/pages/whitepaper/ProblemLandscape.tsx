@@ -7,55 +7,114 @@ const ProblemLandscape = () => {
       eyebrow="Problem"
       title="Problem Landscape"
     >
-      <div className="space-y-8">
+      <div className="bg-card/30 backdrop-blur-sm border border-border/50 rounded-2xl p-8 space-y-8">
         {/* Hero Image */}
-        <div className="relative overflow-hidden rounded-xl">
+        <div className="relative overflow-hidden rounded-xl mb-8">
           <img 
             src={circuitBoard} 
             alt="Problem Landscape"
             className="w-full h-64 lg:h-80 object-cover"
           />
-          <div 
-            className="absolute inset-0"
-            style={{ backgroundColor: 'rgba(37, 99, 235, 0.2)' }}
-          />
         </div>
 
         {/* Content */}
-        <div className="prose prose-lg max-w-none text-card-foreground">
-          <h2 className="text-2xl font-bold text-card-foreground mb-4">Demographic decline, brittle DeFi, and off-chain AI wallets—the pain AMAI fixes</h2>
-          
-          <p className="text-muted-foreground leading-relaxed">
-            TODO: Overview of the systemic problems that AMAI addresses in the current technological and economic landscape.
-          </p>
+        <div className="space-y-8">
+          <div>
+            <h2 className="text-2xl font-bold text-card-foreground mb-6">Demographic decline, brittle DeFi, and isolated AI wallets — the pain AMAI fixes</h2>
+            
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              Global forces are creating a perfect storm that only on-chain, capitalized agents can calm. Below are the six systemic bottlenecks AMAI is designed to break.
+            </p>
+          </div>
 
-          <h3 className="text-xl font-semibold text-card-foreground mt-8 mb-4">Core Problems</h3>
-          
-          <ul className="space-y-3 text-muted-foreground">
-            <li className="flex items-start">
-              <span className="text-primary mr-3 mt-1">•</span>
-              <span><strong>Demographic decline:</strong> TODO: Aging populations and workforce challenges</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-primary mr-3 mt-1">•</span>
-              <span><strong>Brittle DeFi:</strong> TODO: Current DeFi limitations and vulnerabilities</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-primary mr-3 mt-1">•</span>
-              <span><strong>Off-chain AI wallets:</strong> TODO: Disconnected AI systems and wallet isolation</span>
-            </li>
-          </ul>
+          <div>
+            <h3 className="text-xl font-semibold text-card-foreground mb-4">1. A demographic time-bomb</h3>
+            
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              Global fertility now averages 2.1 births per woman, the replacement threshold, and keeps falling. Ageing workforces in OECD and East-Asian economies are already shrinking. By 2035 Japan, South Korea, Italy and Spain will have labour pools 15–25 percent smaller than today. Longer hours and immigration cannot fully close the gap; without non-human labour, GDP growth flat-lines and social-security systems buckle.
+            </p>
+          </div>
 
-          <h3 className="text-xl font-semibold text-card-foreground mt-8 mb-4">AMAI Solutions</h3>
-          
-          <p className="text-muted-foreground leading-relaxed">
-            TODO: How AMAI's platform addresses each of these fundamental problems through autonomous agent economies.
-          </p>
+          <div>
+            <h3 className="text-xl font-semibold text-card-foreground mb-4">2. Human-in-the-loop finance is brittle</h3>
+            
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              DeFi promised autonomous money, but the reality is still "Discord-driven yield." Analysts babysit leverage, DAO votes lag for hours, and liquidation bots fail during volatility. In TradFi, batch settlements and weekend downtime remain the norm.
+            </p>
+          </div>
 
-          <div className="bg-accent/20 border border-accent/30 rounded-lg p-6 mt-6">
-            <h4 className="font-semibold text-card-foreground mb-2">Problem Analysis</h4>
-            <p className="text-sm text-muted-foreground">
-              TODO: Deep analysis of current market failures and the systemic changes needed for sustainable growth.
+          <div>
+            <h3 className="text-xl font-semibold text-card-foreground mb-4">3. Agent frameworks stop at the wallet</h3>
+            
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              OpenAI function calls, Auto-GPT forks and Discord copilots can reason but cannot own or deploy capital. Their loops end at a webhook, handing the baton back to humans for signing. Custodial "key-in-the-cloud" work-arounds recentralise risk and violate DeFi principles. Academic surveys show that more than 90 percent of AI-token projects keep compute and treasury off-chain.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold text-card-foreground mb-4">4. Scalability roadblocks</h3>
+            
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              Running agents directly on popular L1s is cost-prohibitive. A multi-step arbitrage touching dozens of contracts can exceed 100 USD in gas on Ethereum main-net. Solana lowers fees but serialises state updates, creating price-time arbitrage windows. Sui's parallel object model is the first to show consistent sub-second finality at six-figure TPS, removing both latency and fee spikes.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold text-card-foreground mb-4">5. The monetisation gap</h3>
+            
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              AI is great at generating ideas but poor at monetising them. A February 2025 essay argued that on-chain ownership and instant revenue-splits are the missing pieces that turn creative agents into self-funding businesses. Yet no platform systematically tokenises and streams royalties for each intermediate model, prompt or dataset.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold text-card-foreground mb-4">6. Summary of pain points</h3>
+            
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-border/50">
+                    <th className="text-left py-3 px-2 font-semibold text-card-foreground">Category</th>
+                    <th className="text-left py-3 px-2 font-semibold text-card-foreground">Current state</th>
+                    <th className="text-left py-3 px-2 font-semibold text-card-foreground">Consequence</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-border/30">
+                    <td className="py-3 px-2 text-card-foreground font-medium">Labour supply</td>
+                    <td className="py-3 px-2 text-muted-foreground">Falling birth-rates</td>
+                    <td className="py-3 px-2 text-muted-foreground">Persistent productivity gap</td>
+                  </tr>
+                  <tr className="border-b border-border/30">
+                    <td className="py-3 px-2 text-card-foreground font-medium">Finance operations</td>
+                    <td className="py-3 px-2 text-muted-foreground">Human babysitting</td>
+                    <td className="py-3 px-2 text-muted-foreground">Latency and exploit windows</td>
+                  </tr>
+                  <tr className="border-b border-border/30">
+                    <td className="py-3 px-2 text-card-foreground font-medium">Agent wallets</td>
+                    <td className="py-3 px-2 text-muted-foreground">Custodial or off-chain</td>
+                    <td className="py-3 px-2 text-muted-foreground">Trust and compliance risk</td>
+                  </tr>
+                  <tr className="border-b border-border/30">
+                    <td className="py-3 px-2 text-card-foreground font-medium">L1 throughput</td>
+                    <td className="py-3 px-2 text-muted-foreground">Fewer than 5 k TPS typical</td>
+                    <td className="py-3 px-2 text-muted-foreground">Gas spikes and failed arbitrage</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 px-2 text-card-foreground font-medium">AI IP rights</td>
+                    <td className="py-3 px-2 text-muted-foreground">Off-chain EULAs</td>
+                    <td className="py-3 px-2 text-muted-foreground">Broken revenue loops</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold text-card-foreground mb-4">Why it matters</h3>
+            
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              Demographic pressure, brittle financial automation and under-monetised AI outputs set the stage for AMAI. By embedding capitalized agents natively on Sui, AMAI removes human bottlenecks, collapses execution latency and, through KIP-level royalty flows, turns every line of model code into a liquid, income-bearing asset. The next sections explain how we secure, scale and govern that economy.
             </p>
           </div>
         </div>
