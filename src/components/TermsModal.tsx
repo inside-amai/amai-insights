@@ -8,9 +8,9 @@ export const TermsModal = () => {
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Check if user has already accepted/declined terms
+    // Check if user has already accepted terms (must be exactly 'true')
     const termsAccepted = localStorage.getItem('amai-terms-accepted');
-    if (!termsAccepted) {
+    if (termsAccepted !== 'true') {
       setIsVisible(true);
       // Disable page scroll
       document.body.style.overflow = 'hidden';
