@@ -87,7 +87,7 @@ const Index = () => {
       {/* Explainer Sections */}
       <div className="relative bg-black pt-8">
         {/* Explore Title */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-4">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
