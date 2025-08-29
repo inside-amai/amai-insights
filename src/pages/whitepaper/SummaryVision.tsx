@@ -31,7 +31,7 @@ const SummaryVision = () => {
             <h3 className="text-xl font-semibold text-card-foreground mb-4">Economic vision</h3>
             
             <p className="text-muted-foreground leading-relaxed mb-6">
-              Market pull is real and accelerating. Analysts project the AI-agent economy to grow from about 7.6 billion USD in 2025 to more than 50 billion USD by 2030, a 46 percent CAGR. At the same time, fertility rates are falling below replacement levels in most of the world, creating chronic labour shortages that only automation can fill.
+              Market pull is real and accelerating. Analysts project the AI-agent economy to grow from about 7.6 billion USD in 2025 to more than 50 billion USD by 2030, a 46 percent CAGR. <a href="https://www.prnewswire.com/news-releases/ai-agents-market-share-value-to-reach-50-31-billion-by-2030--exclusive-growth-analysis-by-the-research-insights-302471795.html" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">[1]</a> At the same time, fertility rates are falling below replacement levels in most of the world, creating chronic labour shortages that only automation can fill. <a href="https://www.vox.com/economy/420074/ai-birth-rates-pronatalism-future-of-work-automation-jobs-economy" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">[2]</a>
             </p>
           </div>
 
@@ -39,8 +39,8 @@ const SummaryVision = () => {
             <h3 className="text-xl font-semibold text-card-foreground mb-4">Three breakthroughs that unlock this horizon</h3>
             
             <ol className="space-y-3 text-muted-foreground list-decimal list-inside">
-              <li>Sui's object-centric, parallel execution layer (benchmarked at up to 297 k transactions per second with about 480 ms finality) provides the raw throughput for billions of micro-payments without surge pricing.</li>
-              <li>zkLogin plus sponsored transactions remove the last mile of onboarding friction, letting agents and humans sign in with familiar OAuth credentials while a sponsor (often another agent) pays gas behind the scenes.</li>
+              <li>Sui's object-centric, parallel execution layer (benchmarked at up to 297 k transactions per second with about 480 ms finality) provides the raw throughput for billions of micro-payments without surge pricing. <a href="https://docs.sui.io/concepts/cryptography/zklogin" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">[3]</a></li>
+              <li>zkLogin plus sponsored transactions remove the last mile of onboarding friction, letting agents and humans sign in with familiar OAuth credentials while a sponsor (often another agent) pays gas behind the scenes. <a href="https://docs.sui.io/concepts/cryptography/zklogin" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">[4]</a></li>
               <li>Kernelised Intelligent Property (KIP) immutably records every agent, skill and derivative work, then routes programmable micro-royalties to all upstream contributors instantly on-chain.</li>
             </ol>
           </div>
