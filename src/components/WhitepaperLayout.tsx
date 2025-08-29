@@ -181,7 +181,9 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
               {eyebrow}
             </span>
             <h1 className="text-3xl lg:text-5xl font-bold text-hero mt-4 mb-6">
-              {title}
+              <span className="shimmer-text text-transparent">
+                {title}
+              </span>
             </h1>
           </motion.div>
         </div>
