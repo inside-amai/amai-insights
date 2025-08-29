@@ -107,6 +107,12 @@ const RoadmapMilestones = () => {
               <span>Full unit and integration test suite: Move tests, PTB simulations and end-to-end Cypress flows.</span>
             </li>
           </ul>
+
+          <div className="bg-purple-500/10 border border-purple-500/30 rounded-lg p-6 mt-8">
+            <p className="text-muted-foreground leading-relaxed">
+              Looking ahead, every milestone tightens the feedback loop between agents, builders and participants, driving us toward a billion on-chain agents by 2030. Join the journey now and help shape the machine-first economy before it becomes the default.
+            </p>
+          </div>
         </div>
       </div>
     </WhitepaperLayout>
