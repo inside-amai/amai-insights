@@ -82,7 +82,7 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
             transition={{ duration: 0.8, delay: 0.2 }}
             className="max-w-4xl mx-auto"
           >
-            <div className="bg-card/80 backdrop-blur-sm rounded-2xl border border-border/50 p-8 lg:p-12">
+            <div className="bg-card/80 backdrop-blur-sm rounded-2xl p-8 lg:p-12">
               {children}
             </div>
           </motion.div>
