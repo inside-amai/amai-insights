@@ -189,7 +189,7 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
             transition={{ duration: 0.8, delay: 0.2 }}
             className="max-w-4xl mx-auto bg-white p-8 lg:p-12"
           >
-            <div className="prose prose-lg max-w-none">{children}</div>
+            {children}
           </motion.div>
         </div>
       </section>
