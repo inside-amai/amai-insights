@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { X } from 'lucide-react';
+import { X, ChevronDown } from 'lucide-react';
 
 export const TermsModal = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -142,12 +142,14 @@ export const TermsModal = () => {
 
           {/* Scroll down button - only show if not scrolled to bottom */}
           {!hasScrolledToBottom && (
-            <button
-              onClick={handleScrollToBottom}
-              className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/10 hover:bg-white/20 text-white text-xs px-3 py-1.5 rounded-full backdrop-blur-sm border border-white/20 animate-bounce transition-colors duration-200"
-            >
-              Scroll down ⬇️
-            </button>
+            <div className="absolute bottom-4 left-0 right-0 flex justify-center">
+              <button
+                onClick={handleScrollToBottom}
+                className="bg-white/10 hover:bg-white/20 text-white text-xs px-3 py-2 rounded-full backdrop-blur-sm border border-white/20 transition-colors duration-200 flex items-center gap-1.5 animate-[float_3s_ease-in-out_infinite]"
+              >
+                Scroll down <ChevronDown className="w-3 h-3" />
+              </button>
+            </div>
           )}
         </div>
       </div>

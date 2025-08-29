@@ -278,6 +278,16 @@ All colors MUST be HSL.
   background: rgba(255, 255, 255, 0.2);
 }
 
+/* Gentle floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
 .shooting-star {
   position: absolute;
   width: 8px;
