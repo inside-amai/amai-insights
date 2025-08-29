@@ -36,7 +36,7 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
       {/* Sticky Back Button */}
       <div className="fixed top-6 left-6 z-50">
         <Button asChild variant="outline" size="sm" className="bg-card/80 backdrop-blur-sm">
-          <Link to="/">
+          <Link to="/#technical-docs">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Overview
           </Link>

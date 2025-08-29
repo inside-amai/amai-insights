@@ -284,7 +284,7 @@ const Index = () => {
         </section>
 
       {/* Whitepaper Section */}
-      <section className="relative isolate py-28 md:py-36 overflow-hidden" style={{ background: 'linear-gradient(135deg, #A6FCFC33, #fafdff, #D6A6FC33)' }}>
+      <section id="technical-docs" className="relative isolate py-28 md:py-36 overflow-hidden" style={{ background: 'linear-gradient(135deg, #A6FCFC33, #fafdff, #D6A6FC33)' }}>
         {/* Strong visible gradient overlays */}
         <div className="absolute inset-0 opacity-60" style={{ 
           background: `
