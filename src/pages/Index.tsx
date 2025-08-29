@@ -83,9 +83,11 @@ const Index = () => {
         <Header />
         <ExplainerHero />
       </div>
-      {/* Explore Section Header */}
-      <div className="relative pt-8 pb-0 bg-black">
-        <div className="text-center">
+
+      {/* Explainer Sections */}
+      <div className="relative bg-black pt-8">
+        {/* Explore Title */}
+        <div className="text-center mb-12">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -98,10 +100,7 @@ const Index = () => {
             </span>
           </motion.h2>
         </div>
-      </div>
-
-      {/* Explainer Sections */}
-      <div className="relative -mt-16">
+        
         <ExplainerSection
           eyebrow="Platform"
           title="Overview"
