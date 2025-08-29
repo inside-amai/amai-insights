@@ -5,11 +5,15 @@ import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const whitepaperSections = [
-  { slug: 'platform-overview', title: 'Platform Overview' },
-  { slug: 'technical-foundation', title: 'Technical Foundation' },
-  { slug: 'roadmap', title: 'Development Roadmap' },
-  { slug: 'tokenomics-governance', title: 'Tokenomics & Governance' },
-  { slug: 'faq', title: 'Frequently Asked Questions' }
+  { slug: 'summary-vision', title: 'Summary & Vision' },
+  { slug: 'platform-overview', title: 'Platform' },
+  { slug: 'problem-landscape', title: 'Problem' },
+  { slug: 'system-architecture', title: 'Architecture' },
+  { slug: 'technical-deep-dive', title: 'Technical' },
+  { slug: 'agent-economy-kips', title: 'Agent Economy' },
+  { slug: 'roadmap-milestones', title: 'Roadmap' },
+  { slug: 'token-governance-risk', title: 'Token' },
+  { slug: 'compliance-assurance', title: 'Compliance' }
 ];
 
 interface WhitepaperLayoutProps {
