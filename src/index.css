@@ -291,7 +291,7 @@ All colors MUST be HSL.
 }
 
 .float-gentle {
-  animation: gentle-float 3.5s ease-in-out infinite;
+  animation: gentle-float 2.5s ease-in-out infinite;
 }
 
 .shooting-star {
