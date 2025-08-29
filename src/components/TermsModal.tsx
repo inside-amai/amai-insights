@@ -45,7 +45,7 @@ export const TermsModal = () => {
       />
       
       {/* Modal window */}
-      <div className="relative w-[90vw] max-w-[480px] h-[80vh] bg-[#101010] rounded-3xl shadow-2xl mb-4 border border-transparent bg-gradient-to-br from-[#A6FCFC]/20 via-transparent to-[#D6A6FC]/20 p-[1px]">
+      <div className="relative w-[90vw] max-w-[480px] h-[80vh] bg-[#101010] rounded-3xl shadow-2xl mb-4 border-2 border-[#A6FCFC]">
         <div className="w-full h-full bg-[#101010] rounded-3xl overflow-hidden">
           {/* Heading strip */}
           <div className="bg-white/5 h-11 flex items-center justify-between px-6 rounded-t-3xl">
