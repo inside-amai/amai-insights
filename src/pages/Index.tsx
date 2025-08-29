@@ -17,34 +17,58 @@ import tokenChart from '@/assets/token-chart.jpg';
 
 const whitepaperSections = [
   {
+    slug: 'summary-vision',
+    title: 'Summary & Vision',
+    description: 'Why a billion capitalised agents = the next GDP engine.',
+    eyebrow: 'Overview'
+  },
+  {
     slug: 'platform-overview',
     title: 'Platform Overview',
     description: 'Revolutionary AI Terminal with autonomous operations and real-time execution capabilities.',
     eyebrow: 'Core Platform'
   },
   {
-    slug: 'technical-foundation',
-    title: 'Technical Foundation',
-    description: 'Built on Sui blockchain with Move modules, dApp kit integration, and parallel execution.',
+    slug: 'problem-landscape',
+    title: 'Problem Landscape',
+    description: 'Demographic decline, brittle DeFi, and off-chain AI wallets—the pain AMAI fixes.',
+    eyebrow: 'Problem'
+  },
+  {
+    slug: 'system-architecture',
+    title: 'System Architecture',
+    description: 'Sui-powered, four-layer stack with PTBs, zkLogin, and sovereign GPU clusters.',
     eyebrow: 'Architecture'
   },
   {
-    slug: 'roadmap',
-    title: 'Development Roadmap',
-    description: 'Strategic development phases and key milestones from 2025 to 2027.',
+    slug: 'technical-deep-dive',
+    title: 'Technical Deep-Dive',
+    description: 'Move modules, PTBs, reputation oracle, security boundaries, and parallel-execution benchmarks.',
+    eyebrow: 'Technical'
+  },
+  {
+    slug: 'agent-economy-kips',
+    title: 'Agent Economy & KIPs',
+    description: 'How capitalised agents earn/spend and how Kernelised IP streams micro-royalties.',
+    eyebrow: 'Economy'
+  },
+  {
+    slug: 'roadmap-milestones',
+    title: 'Roadmap & Milestones',
+    description: 'Phase-by-phase march from 10 k-bot MVP → 1 B-agent economy by 2030.',
     eyebrow: 'Timeline'
   },
   {
-    slug: 'tokenomics-governance',
-    title: 'Tokenomics & Governance',
-    description: 'Community-driven platform with transparent token distribution and governance mechanisms.',
-    eyebrow: 'Economics'
+    slug: 'token-governance-risk',
+    title: 'Token, Governance & Risk',
+    description: 'Utility-only AMAI token, burn mechanics, circuit-breaker governance, key risks.',
+    eyebrow: 'Tokenomics'
   },
   {
-    slug: 'faq',
-    title: 'Frequently Asked Questions',
-    description: 'Common questions about AMAI platform, technology, and implementation details.',
-    eyebrow: 'Questions?'
+    slug: 'compliance-assurance',
+    title: 'Compliance & Assurance',
+    description: 'Regulatory posture, data-protection safeguards, and audit pathways for enterprise adoption.',
+    eyebrow: 'Compliance'
   }
 ];
 

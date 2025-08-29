@@ -10,11 +10,15 @@ import Whitepaper from "./pages/Whitepaper";
 import NotFound from "./pages/NotFound";
 
 // Lazy load whitepaper sections
+const SummaryVision = lazy(() => import("./pages/whitepaper/SummaryVision"));
 const PlatformOverview = lazy(() => import("./pages/whitepaper/PlatformOverview"));
-const TechnicalFoundation = lazy(() => import("./pages/whitepaper/TechnicalFoundation"));
-const Roadmap = lazy(() => import("./pages/whitepaper/Roadmap"));
-const TokenomicsGovernance = lazy(() => import("./pages/whitepaper/TokenomicsGovernance"));
-const FAQ = lazy(() => import("./pages/whitepaper/FAQ"));
+const ProblemLandscape = lazy(() => import("./pages/whitepaper/ProblemLandscape"));
+const SystemArchitecture = lazy(() => import("./pages/whitepaper/SystemArchitecture"));
+const TechnicalDeepDive = lazy(() => import("./pages/whitepaper/TechnicalDeepDive"));
+const AgentEconomyKIPs = lazy(() => import("./pages/whitepaper/AgentEconomyKIPs"));
+const RoadmapMilestones = lazy(() => import("./pages/whitepaper/RoadmapMilestones"));
+const TokenGovernanceRisk = lazy(() => import("./pages/whitepaper/TokenGovernanceRisk"));
+const ComplianceAssurance = lazy(() => import("./pages/whitepaper/ComplianceAssurance"));
 
 const queryClient = new QueryClient();
 
@@ -27,29 +31,49 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/whitepaper" element={<Whitepaper />} />
+          <Route path="/whitepaper/summary-vision" element={
+            <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gradient-primary"><div className="text-hero">Loading...</div></div>}>
+              <SummaryVision />
+            </Suspense>
+          } />
           <Route path="/whitepaper/platform-overview" element={
             <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gradient-primary"><div className="text-hero">Loading...</div></div>}>
               <PlatformOverview />
             </Suspense>
           } />
-          <Route path="/whitepaper/technical-foundation" element={
+          <Route path="/whitepaper/problem-landscape" element={
             <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gradient-primary"><div className="text-hero">Loading...</div></div>}>
-              <TechnicalFoundation />
+              <ProblemLandscape />
             </Suspense>
           } />
-          <Route path="/whitepaper/roadmap" element={
+          <Route path="/whitepaper/system-architecture" element={
             <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gradient-primary"><div className="text-hero">Loading...</div></div>}>
-              <Roadmap />
+              <SystemArchitecture />
             </Suspense>
           } />
-          <Route path="/whitepaper/tokenomics-governance" element={
+          <Route path="/whitepaper/technical-deep-dive" element={
             <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gradient-primary"><div className="text-hero">Loading...</div></div>}>
-              <TokenomicsGovernance />
+              <TechnicalDeepDive />
             </Suspense>
           } />
-          <Route path="/whitepaper/faq" element={
+          <Route path="/whitepaper/agent-economy-kips" element={
             <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gradient-primary"><div className="text-hero">Loading...</div></div>}>
-              <FAQ />
+              <AgentEconomyKIPs />
+            </Suspense>
+          } />
+          <Route path="/whitepaper/roadmap-milestones" element={
+            <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gradient-primary"><div className="text-hero">Loading...</div></div>}>
+              <RoadmapMilestones />
+            </Suspense>
+          } />
+          <Route path="/whitepaper/token-governance-risk" element={
+            <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gradient-primary"><div className="text-hero">Loading...</div></div>}>
+              <TokenGovernanceRisk />
+            </Suspense>
+          } />
+          <Route path="/whitepaper/compliance-assurance" element={
+            <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gradient-primary"><div className="text-hero">Loading...</div></div>}>
+              <ComplianceAssurance />
             </Suspense>
           } />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
