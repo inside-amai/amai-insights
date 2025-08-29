@@ -22,10 +22,10 @@ const RoadmapMilestones = () => {
         </div>
 
         {/* Content */}
-        <div className="prose prose-lg max-w-none text-card-foreground">
-          <h3 className="text-xl font-semibold text-card-foreground mt-8 mb-4">1. Live Alpha (today)</h3>
+        <div className="prose prose-lg max-w-none text-white">
+          <h3 className="text-xl font-semibold text-white mt-8 mb-4">1. Live Alpha (today)</h3>
           
-          <ul className="space-y-3 text-muted-foreground mb-6">
+          <ul className="space-y-3 text-gray-300 mb-6">
             <li className="flex items-start">
               <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
               <span>Spin up a multi-agent swarm on devnet.</span>
@@ -44,9 +44,9 @@ const RoadmapMilestones = () => {
             </li>
           </ul>
 
-          <h3 className="text-xl font-semibold text-card-foreground mt-8 mb-4">2. Q4 2025 — Trust & PTB Automation</h3>
+          <h3 className="text-xl font-semibold text-white mt-8 mb-4">2. Q4 2025 — Trust & PTB Automation</h3>
           
-          <ul className="space-y-3 text-muted-foreground mb-6">
+          <ul className="space-y-3 text-gray-300 mb-6">
             <li className="flex items-start">
               <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
               <span>Bonded Trust alpha: on-chain oracle writes hourly trust scores to each Agent SBT.</span>
@@ -57,9 +57,9 @@ const RoadmapMilestones = () => {
             </li>
           </ul>
 
-          <h3 className="text-xl font-semibold text-card-foreground mt-8 mb-4">3. Q1 2026 — Swarm Main-net Launch</h3>
+          <h3 className="text-xl font-semibold text-white mt-8 mb-4">3. Q1 2026 — Swarm Main-net Launch</h3>
           
-          <ul className="space-y-3 text-muted-foreground mb-6">
+          <ul className="space-y-3 text-gray-300 mb-6">
             <li className="flex items-start">
               <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
               <span>Bond / Slash contract reaches general availability with one-click slash hook.</span>
@@ -74,9 +74,9 @@ const RoadmapMilestones = () => {
             </li>
           </ul>
 
-          <h3 className="text-xl font-semibold text-card-foreground mt-8 mb-4">4. Q2 2026 — Revenue Streams</h3>
+          <h3 className="text-xl font-semibold text-white mt-8 mb-4">4. Q2 2026 — Revenue Streams</h3>
           
-          <ul className="space-y-3 text-muted-foreground mb-6">
+          <ul className="space-y-3 text-gray-300 mb-6">
             <li className="flex items-start">
               <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
               <span>Royalty Router sends real-time splits to contributors; dashboards stream via WebSocket.</span>
@@ -91,9 +91,9 @@ const RoadmapMilestones = () => {
             </li>
           </ul>
 
-          <h3 className="text-xl font-semibold text-card-foreground mt-8 mb-4">5. 2026+ — Enterprise-grade Operations</h3>
+          <h3 className="text-xl font-semibold text-white mt-8 mb-4">5. 2026+ — Enterprise-grade Operations</h3>
           
-          <ul className="space-y-3 text-muted-foreground mb-6">
+          <ul className="space-y-3 text-gray-300 mb-6">
             <li className="flex items-start">
               <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
               <span>Comprehensive RLS and authorization: wallet-scoped policies across profiles, agents, swarms and KIPs.</span>
@@ -109,7 +109,7 @@ const RoadmapMilestones = () => {
           </ul>
 
           <div className="bg-purple-500/10 border border-purple-500/30 rounded-lg p-6 mt-8">
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-gray-300 leading-relaxed">
               Looking ahead, every milestone tightens the feedback loop between agents, builders and participants, driving us toward a billion on-chain agents by 2030. Join the journey now and help shape the machine-first economy before it becomes the default.
             </p>
           </div>
