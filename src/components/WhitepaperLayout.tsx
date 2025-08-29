@@ -32,9 +32,17 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
   }
 
   return (
-    <div className="min-h-screen bg-gradient-primary">
+    <div className="min-h-screen relative isolate overflow-hidden" style={{ background: 'linear-gradient(135deg, #A6FCFC33, #fafdff, #D6A6FC33)' }}>
+      {/* Gradient overlays for space effect */}
+      <div className="absolute inset-0 opacity-60" style={{ 
+        background: `
+          radial-gradient(circle at 20% 20%, #A6FCFC66 0%, transparent 50%),
+          radial-gradient(circle at 80% 80%, #D6A6FC66 0%, transparent 50%)
+        ` 
+      }} />
+      
       {/* Sticky Back Button */}
-      <div className="fixed top-6 left-6 z-50">
+      <div className="fixed top-6 left-6 z-50 relative">
         <Button 
           variant="outline" 
           size="sm" 
@@ -55,7 +63,7 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
       </div>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16">
+      <section className="relative pt-32 pb-16 z-10">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -74,7 +82,7 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
       </section>
 
       {/* Content */}
-      <section className="pb-20">
+      <section className="pb-20 relative z-10">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -88,7 +96,7 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
       </section>
 
       {/* Navigation */}
-      <section className="pb-20">
+      <section className="pb-20 relative z-10">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto flex justify-between items-center">
             {prevSection ? (
