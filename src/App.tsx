@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Index from "./pages/Index";
 import Explainer from "./pages/Explainer";
-import Whitepaper from "./pages/Whitepaper";
+
 import NotFound from "./pages/NotFound";
 
 // Lazy load whitepaper sections
@@ -30,7 +30,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/whitepaper" element={<Whitepaper />} />
+          
           <Route path="/whitepaper/summary-vision" element={
             <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gradient-primary"><div className="text-hero">Loading...</div></div>}>
               <SummaryVision />
