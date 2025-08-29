@@ -207,7 +207,6 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
                 asChild 
                 variant="outline" 
                 className="group bg-cyan-500/20 backdrop-blur-sm border-cyan-400/30 text-white hover:bg-cyan-500/30 hover:text-white"
-                onClick={() => navigate(`/whitepaper/${prevSection.slug}`)}
               >
                 <Link to={`/whitepaper/${prevSection.slug}`}>
                   <ChevronLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
@@ -223,7 +222,6 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
                 asChild 
                 variant="outline" 
                 className="group bg-cyan-500/20 backdrop-blur-sm border-cyan-400/30 text-white hover:bg-cyan-500/30 hover:text-white"
-                onClick={() => navigate(`/whitepaper/${nextSection.slug}`)}
               >
                 <Link to={`/whitepaper/${nextSection.slug}`}>
                   {nextSection.title}
