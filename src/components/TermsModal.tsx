@@ -45,7 +45,7 @@ export const TermsModal = () => {
       />
       
       {/* Modal window */}
-      <div className="relative w-[90vw] max-w-[480px] h-[80vh] bg-[#101010] rounded-3xl shadow-2xl mb-4 border-2 border-[#A6FCFC]">
+      <div className="relative w-[90vw] max-w-[480px] h-[80vh] bg-[#101010] rounded-3xl shadow-2xl mb-4 border-2 border-transparent bg-gradient-to-r from-[#D6A6FC] to-[#A6FCFC] p-[2px]">
         <div className="w-full h-full bg-[#101010] rounded-3xl overflow-hidden">
           {/* Heading strip */}
           <div className="bg-white/5 h-11 flex items-center justify-between px-6 rounded-t-3xl">
@@ -122,7 +122,7 @@ export const TermsModal = () => {
         </Button>
         <Button
           onClick={handleAccept}
-          className="bg-cyan-500 hover:bg-cyan-600 text-white"
+          className="bg-[#A6FCFC] hover:bg-[#A6FCFC]/80 text-black font-semibold"
         >
           I Accept
         </Button>
