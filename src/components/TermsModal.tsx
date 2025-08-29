@@ -45,6 +45,15 @@ export const TermsModal = () => {
     }
   };
 
+  const handleScrollToBottom = () => {
+    if (contentRef.current) {
+      contentRef.current.scrollTo({
+        top: contentRef.current.scrollHeight,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   if (!isVisible) return null;
 
   return (
@@ -130,6 +139,16 @@ export const TermsModal = () => {
               </section>
             </div>
           </div>
+
+          {/* Scroll down button - only show if not scrolled to bottom */}
+          {!hasScrolledToBottom && (
+            <button
+              onClick={handleScrollToBottom}
+              className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/10 hover:bg-white/20 text-white text-xs px-3 py-1.5 rounded-full backdrop-blur-sm border border-white/20 animate-bounce transition-colors duration-200"
+            >
+              Scroll down ⬇️
+            </button>
+          )}
         </div>
       </div>
 
