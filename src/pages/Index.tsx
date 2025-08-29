@@ -9,6 +9,7 @@ import { ExplainerFAQ } from '@/components/ExplainerFAQ';
 import { RoadmapFlow } from '@/components/RoadmapFlow';
 import { WhitepaperCard } from '@/components/WhitepaperCard';
 import { Header } from '@/components/Header';
+import { TermsModal } from '@/components/TermsModal';
 import { TechnicalFoundationSection } from '@/components/TechnicalFoundationSection';
 import { Footer } from '@/components/Footer';
 import terminalDemo from '@/assets/terminal-demo.jpg';
@@ -74,7 +75,9 @@ const whitepaperSections = [
 
 const Index = () => {
   return (
-    <div>
+    <>
+      <TermsModal />
+      <div>
       {/* Explainer Section - Hero with header overlay */}
       <div className="relative">
         <Header />
@@ -336,7 +339,8 @@ const Index = () => {
       
       {/* Footer */}
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 
