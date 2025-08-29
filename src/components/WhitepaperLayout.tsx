@@ -32,7 +32,7 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-primary">
       {/* Sticky Back Button */}
       <div className="fixed top-6 left-6 z-50">
         <Button 
@@ -74,7 +74,7 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
       </section>
 
       {/* Content */}
-      <section className="pb-20">
+      <section className="pb-20 bg-white">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
