@@ -145,7 +145,7 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
         <Button 
           variant="outline" 
           size="sm" 
-          className="bg-cyan-500/20 backdrop-blur-sm border-cyan-400/30 text-white hover:bg-cyan-500/30"
+          className="bg-cyan-500/20 backdrop-blur-sm border-cyan-400/30 text-white hover:bg-cyan-500/30 hover:text-white"
           onClick={() => {
             navigate('/');
             setTimeout(() => {
@@ -202,7 +202,7 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
               <Button 
                 asChild 
                 variant="outline" 
-                className="group bg-cyan-500/20 backdrop-blur-sm border-cyan-400/30 text-white hover:bg-cyan-500/30"
+                className="group bg-cyan-500/20 backdrop-blur-sm border-cyan-400/30 text-white hover:bg-cyan-500/30 hover:text-white"
                 onClick={() => navigate(`/whitepaper/${prevSection.slug}`)}
               >
                 <Link to={`/whitepaper/${prevSection.slug}`}>
@@ -218,7 +218,7 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
               <Button 
                 asChild 
                 variant="outline" 
-                className="group bg-cyan-500/20 backdrop-blur-sm border-cyan-400/30 text-white hover:bg-cyan-500/30"
+                className="group bg-cyan-500/20 backdrop-blur-sm border-cyan-400/30 text-white hover:bg-cyan-500/30 hover:text-white"
                 onClick={() => navigate(`/whitepaper/${nextSection.slug}`)}
               >
                 <Link to={`/whitepaper/${nextSection.slug}`}>
