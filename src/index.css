@@ -215,7 +215,9 @@ All colors MUST be HSL.
   background: linear-gradient(
     90deg,
     #D6A6FC 0%,
-    #A6FCFC 50%,
+    #A6FCFC 25%,
+    #D6A6FC 50%,
+    #A6FCFC 75%,
     #D6A6FC 100%
   );
   background-size: 200% 100%;
