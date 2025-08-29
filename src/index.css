@@ -279,13 +279,17 @@ All colors MUST be HSL.
 }
 
 /* Gentle floating animation */
-@keyframes float {
+@keyframes gentle-float {
   0%, 100% {
     transform: translateY(0px);
   }
   50% {
     transform: translateY(-4px);
   }
+}
+
+.float-gentle {
+  animation: gentle-float 6s ease-in-out infinite;
 }
 
 .shooting-star {
