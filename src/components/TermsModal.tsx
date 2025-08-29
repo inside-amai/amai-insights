@@ -1,9 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { X } from 'lucide-react';
 
 export const TermsModal = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [hasScrolledToBottom, setHasScrolledToBottom] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Check if user has already accepted/declined terms
@@ -16,6 +18,7 @@ export const TermsModal = () => {
   }, []);
 
   const handleAccept = () => {
+    if (!hasScrolledToBottom) return;
     localStorage.setItem('amai-terms-accepted', 'true');
     setIsVisible(false);
     document.body.style.overflow = 'unset';
@@ -32,6 +35,14 @@ export const TermsModal = () => {
   const handleClose = () => {
     setIsVisible(false);
     document.body.style.overflow = 'unset';
+  };
+
+  const handleScroll = () => {
+    if (contentRef.current) {
+      const { scrollTop, scrollHeight, clientHeight } = contentRef.current;
+      const isAtBottom = scrollTop + clientHeight >= scrollHeight - 5; // 5px threshold
+      setHasScrolledToBottom(isAtBottom);
+    }
   };
 
   if (!isVisible) return null;
@@ -59,7 +70,11 @@ export const TermsModal = () => {
           </div>
 
           {/* Scrollable content */}
-          <div className="h-[calc(100%-2.75rem)] overflow-y-auto p-6">
+          <div 
+            ref={contentRef}
+            onScroll={handleScroll}
+            className="h-[calc(100%-2.75rem)] overflow-y-auto p-6 pb-12"
+          >
             <p className="text-gray-300 text-sm leading-relaxed mb-6">
               Welcome to AMAI. Please read the following terms carefully before using this site or interacting with the AMAI token.
             </p>
@@ -122,7 +137,12 @@ export const TermsModal = () => {
         </Button>
         <Button
           onClick={handleAccept}
-          className="bg-[#A6FCFC] hover:bg-[#A6FCFC]/80 text-black font-semibold"
+          disabled={!hasScrolledToBottom}
+          className={`font-semibold transition-all duration-300 ${
+            hasScrolledToBottom 
+              ? 'bg-[#A6FCFC] hover:bg-[#A6FCFC]/80 text-black cursor-pointer' 
+              : 'bg-gray-600 text-gray-400 cursor-not-allowed'
+          }`}
         >
           I Accept
         </Button>
