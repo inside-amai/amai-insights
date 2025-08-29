@@ -272,6 +272,17 @@ const TechnicalDeepDive = () => {
               </table>
             </div>
           </div>
+
+          <div>
+            <h3 className="text-xl font-semibold text-card-foreground mb-4">References</h3>
+            
+            <ol className="space-y-2 text-muted-foreground text-sm">
+              <li>[1] <a href="https://docs.sui.io/concepts/sui-move-concepts" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">https://docs.sui.io/concepts/sui-move-concepts</a></li>
+              <li>[2] <a href="https://blog.sui.io/soulbound-tokens-explained" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">https://blog.sui.io/soulbound-tokens-explained</a></li>
+              <li>[3] <a href="https://docs.sui.io/concepts/transactions/prog-txn-blocks" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">https://docs.sui.io/concepts/transactions/prog-txn-blocks</a></li>
+              <li>[4] <a href="https://docs.sui.io/concepts/transactions/sponsored-transactions" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">https://docs.sui.io/concepts/transactions/sponsored-transactions</a></li>
+            </ol>
+          </div>
         </div>
       </div>
     </WhitepaperLayout>
