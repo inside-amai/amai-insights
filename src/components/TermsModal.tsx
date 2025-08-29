@@ -45,65 +45,68 @@ export const TermsModal = () => {
       />
       
       {/* Modal window */}
-      <div className="relative w-full max-w-[600px] h-[70vh] bg-black/90 backdrop-blur-xl border border-white/30 rounded-2xl shadow-2xl mb-4">
-        {/* Close button */}
-        <button
-          onClick={handleClose}
-          className="absolute top-4 right-4 p-2 text-white/70 hover:text-white transition-colors z-10"
-        >
-          <X className="w-5 h-5" />
-        </button>
+      <div className="relative w-[90vw] max-w-[480px] h-[80vh] bg-[#101010] rounded-3xl shadow-2xl mb-4 border border-transparent bg-gradient-to-br from-[#A6FCFC]/20 via-transparent to-[#D6A6FC]/20 p-[1px]">
+        <div className="w-full h-full bg-[#101010] rounded-3xl overflow-hidden">
+          {/* Heading strip */}
+          <div className="bg-white/5 h-11 flex items-center justify-between px-6 rounded-t-3xl">
+            <h2 className="text-lg font-semibold text-white">Terms & Conditions</h2>
+            <button
+              onClick={handleClose}
+              className="p-1 text-white/70 hover:text-white transition-colors"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
 
-        {/* Scrollable content */}
-        <div className="h-full overflow-y-auto p-8 pr-16">
-          <h2 className="text-2xl font-bold text-white mb-4">Terms & Conditions</h2>
-          
-          <p className="text-gray-300 mb-6">
-            Welcome to AMAI. Please read the following terms carefully before using this site or interacting with the AMAI token.
-          </p>
+          {/* Scrollable content */}
+          <div className="h-[calc(100%-2.75rem)] overflow-y-auto p-6">
+            <p className="text-gray-300 text-sm leading-relaxed mb-6">
+              Welcome to AMAI. Please read the following terms carefully before using this site or interacting with the AMAI token.
+            </p>
 
-          <div className="space-y-6 text-gray-300">
-            <section>
-              <h3 className="text-lg font-semibold text-white mb-3">Purpose of this site</h3>
-              <p className="leading-relaxed">
-                The materials provided here describe a decentralized software platform and its planned features. They are offered for educational and informational purposes only.
-              </p>
-            </section>
+            <div className="space-y-6 text-gray-300 text-sm leading-relaxed">
+              <section>
+                <h3 className="text-lg font-semibold text-white mb-3">Purpose of this site</h3>
+                <p>
+                  The materials provided here describe a decentralized software platform and its planned features. They are offered for educational and informational purposes only.
+                </p>
+              </section>
 
-            <section>
-              <h3 className="text-lg font-semibold text-white mb-3">No investment advice</h3>
-              <p className="leading-relaxed">
-                Nothing on this website, in the white paper, or in any related communication should be interpreted as financial, legal or tax advice. Purchasing digital assets carries substantial risk, and you should consult qualified advisors before making any decisions.
-              </p>
-            </section>
+              <section>
+                <h3 className="text-lg font-semibold text-white mb-3">No investment advice</h3>
+                <p>
+                  Nothing on this website, in the white paper, or in any related communication should be interpreted as financial, legal or tax advice. Purchasing digital assets carries substantial risk, and you should consult qualified advisors before making any decisions.
+                </p>
+              </section>
 
-            <section>
-              <h3 className="text-lg font-semibold text-white mb-3">Utility-only token</h3>
-              <p className="leading-relaxed mb-3">
-                AMAI is designed solely as a utility token that allows users and automated agents to pay for on-chain actions, access platform services and, where applicable, stake collateral to participate. Holding AMAI does not:
-              </p>
-              <ul className="space-y-2 ml-4">
-                <li className="flex items-start">
-                  <span className="text-cyan-400 mr-3 mt-1">•</span>
-                  <span>entitle you to dividends, revenue share or voting rights in any corporate entity,</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-cyan-400 mr-3 mt-1">•</span>
-                  <span>create an expectation of profits from the efforts of the AMAI team or third parties, or</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-cyan-400 mr-3 mt-1">•</span>
-                  <span>represent ownership of any underlying software or intellectual property.</span>
-                </li>
-              </ul>
-            </section>
+              <section>
+                <h3 className="text-lg font-semibold text-white mb-3">Utility-only token</h3>
+                <p className="mb-3">
+                  AMAI is designed solely as a utility token that allows users and automated agents to pay for on-chain actions, access platform services and, where applicable, stake collateral to participate. Holding AMAI does not:
+                </p>
+                <ul className="space-y-2 ml-4 text-sm">
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>entitle you to dividends, revenue share or voting rights in any corporate entity,</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>create an expectation of profits from the efforts of the AMAI team or third parties, or</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>represent ownership of any underlying software or intellectual property.</span>
+                  </li>
+                </ul>
+              </section>
 
-            <section>
-              <h3 className="text-lg font-semibold text-white mb-3">Risks and forward-looking statements</h3>
-              <p className="leading-relaxed mb-8">
-                The roadmap and milestones are goals, not guarantees. Development timelines can slip, regulations can change and technical hurdles may arise. Digital assets are volatile and subject to loss, theft, hacking, regulatory restrictions or total loss of value. By proceeding, you acknowledge these risks and agree that you are solely responsible for any actions you take.
-              </p>
-            </section>
+              <section>
+                <h3 className="text-lg font-semibold text-white mb-3">Risks and forward-looking statements</h3>
+                <p className="mb-8">
+                  The roadmap and milestones are goals, not guarantees. Development timelines can slip, regulations can change and technical hurdles may arise. Digital assets are volatile and subject to loss, theft, hacking, regulatory restrictions or total loss of value. By proceeding, you acknowledge these risks and agree that you are solely responsible for any actions you take.
+                </p>
+              </section>
+            </div>
           </div>
         </div>
       </div>
