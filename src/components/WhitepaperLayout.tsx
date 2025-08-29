@@ -35,11 +35,22 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
     <div className="min-h-screen bg-gradient-primary">
       {/* Sticky Back Button */}
       <div className="fixed top-6 left-6 z-50">
-        <Button asChild variant="outline" size="sm" className="bg-card/80 backdrop-blur-sm">
-          <Link to="/#technical-docs">
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Overview
-          </Link>
+        <Button 
+          variant="outline" 
+          size="sm" 
+          className="bg-card/80 backdrop-blur-sm"
+          onClick={() => {
+            navigate('/');
+            setTimeout(() => {
+              const element = document.getElementById('technical-docs');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+              }
+            }, 100);
+          }}
+        >
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Back to Overview
         </Button>
       </div>
 
