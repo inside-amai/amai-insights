@@ -11,8 +11,8 @@ const ProblemLandscape = () => {
         {/* Hero Image */}
         <div className="relative overflow-hidden rounded-xl mb-8">
           <img 
-            src={circuitBoard} 
-            alt="Problem Landscape"
+            src="/lovable-uploads/6703f94f-f27c-4b27-85ab-084ee4188f6b.png" 
+            alt="Problem Landscape - Digital Systems and Security"
             className="w-full h-64 lg:h-80 object-cover"
           />
         </div>
