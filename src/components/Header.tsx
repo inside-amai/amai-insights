@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 export const Header = () => {
   return (
     <header className="absolute top-0 left-0 right-0 z-50" style={{ background: 'transparent' }}>
-      <div className="max-w-7xl mx-auto pr-6 py-4">
-        <div className="flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 py-4">
+        <div className="flex items-center justify-between -ml-6">
           {/* Logo */}
           <a href="https://www.amai.net/" className="flex items-center">
             <img 
