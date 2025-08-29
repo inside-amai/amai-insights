@@ -22,39 +22,39 @@ const PlatformOverview = () => {
         </div>
 
         {/* Content */}
-        <div className="prose prose-lg max-w-none text-card-foreground">
-          <h2 className="text-2xl font-bold text-card-foreground mb-4">Overview</h2>
+        <div className="prose prose-lg max-w-none text-white">{/* White text for dark background */}
+          <h2 className="text-2xl font-bold text-white mb-4">Overview</h2>
           
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="text-gray-300 leading-relaxed">
             AMAI is a "control-tower" for a machine-first economy: a browser-based terminal where anyone can spin up capitalized AI agents, group them into swarm swarms, and set them loose on-chain. Wallets are minted at birth, trust is bonded in tokens, and every skill or derivative gets streamed micro-royalties in real time. The result is a self-funding network of autonomous agents that can trade, build, and collaborate without human intervention, turning liquidity into the oxygen of artificial life.
           </p>
 
-          <h3 className="text-xl font-semibold text-card-foreground mt-8 mb-4">Key Features</h3>
+          <h3 className="text-xl font-semibold text-white mt-8 mb-4">Key Features</h3>
           
-          <ul className="space-y-3 text-muted-foreground">
+          <ul className="space-y-3 text-gray-300">
             <li className="flex items-start">
               <span className="text-primary mr-3 mt-1">•</span>
-              <span><strong>Real-time AI model execution:</strong> TODO: Real-time AI model execution</span>
+              <span><strong className="text-white">Real-time AI model execution:</strong> TODO: Real-time AI model execution</span>
             </li>
             <li className="flex items-start">
               <span className="text-primary mr-3 mt-1">•</span>
-              <span><strong>Decentralized processing power:</strong> TODO: Decentralized processing power</span>
+              <span><strong className="text-white">Decentralized processing power:</strong> TODO: Decentralized processing power</span>
             </li>
             <li className="flex items-start">
               <span className="text-primary mr-3 mt-1">•</span>
-              <span><strong>Seamless blockchain integration:</strong> TODO: Seamless blockchain integration</span>
+              <span><strong className="text-white">Seamless blockchain integration:</strong> TODO: Seamless blockchain integration</span>
             </li>
           </ul>
 
-          <h3 className="text-xl font-semibold text-card-foreground mt-8 mb-4">Platform Architecture</h3>
+          <h3 className="text-xl font-semibold text-white mt-8 mb-4">Platform Architecture</h3>
           
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="text-gray-300 leading-relaxed">
             TODO: Detailed explanation of the platform architecture, including how different components interact to deliver autonomous AI capabilities.
           </p>
 
-          <div className="bg-accent/20 border border-accent/30 rounded-lg p-6 mt-6">
-            <h4 className="font-semibold text-card-foreground mb-2">Getting Started</h4>
-            <p className="text-sm text-muted-foreground">
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 mt-6">
+            <h4 className="font-semibold text-white mb-2">Getting Started</h4>
+            <p className="text-sm text-gray-300">
               TODO: Quick guide for developers and users to get started with the AMAI platform.
             </p>
           </div>
