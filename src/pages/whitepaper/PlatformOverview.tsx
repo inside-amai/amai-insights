@@ -11,13 +11,9 @@ const PlatformOverview = () => {
         {/* Hero Image */}
         <div className="relative overflow-hidden rounded-xl">
           <img 
-            src={terminalDemo} 
-            alt="AMAI Terminal Demo"
+            src="/lovable-uploads/1c984615-8d43-4a9d-9ffb-346a9113cde3.png" 
+            alt="AMAI Platform Dashboard"
             className="w-full h-64 lg:h-80 object-cover"
-          />
-          <div 
-            className="absolute inset-0"
-            style={{ backgroundColor: 'rgba(37, 99, 235, 0.2)' }}
           />
         </div>
 
