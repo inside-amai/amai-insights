@@ -73,7 +73,7 @@ export const TermsModal = () => {
           <div 
             ref={contentRef}
             onScroll={handleScroll}
-            className="h-[calc(100%-2.75rem)] overflow-y-auto p-6 pb-12 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/10 hover:scrollbar-thumb-white/20"
+            className="h-[calc(100%-2.75rem-1.5rem)] overflow-y-auto p-6 m-6 mt-0 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/10 hover:scrollbar-thumb-white/20"
             style={{
               scrollbarWidth: 'thin',
               scrollbarColor: 'rgba(255,255,255,0.1) transparent'
