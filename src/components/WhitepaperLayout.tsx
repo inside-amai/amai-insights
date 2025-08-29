@@ -32,7 +32,7 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
   }
 
   return (
-    <div className="min-h-screen bg-gradient-primary">
+    <div className="min-h-screen bg-white">
       {/* Sticky Back Button */}
       <div className="fixed top-6 left-6 z-50">
         <Button 
