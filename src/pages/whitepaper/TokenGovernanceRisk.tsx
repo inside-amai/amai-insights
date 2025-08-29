@@ -69,7 +69,7 @@ const TokenGovernanceRisk = () => {
             TODO: Key risks including technical, regulatory, and market risks with mitigation strategies.
           </p>
 
-          <div className="bg-accent/20 border border-accent/30 rounded-lg p-6 mt-6">
+          <div className="bg-purple-500/20 backdrop-blur-sm border border-purple-400/30 rounded-lg p-6 mt-6">
             <h4 className="font-semibold text-card-foreground mb-2">Risk Assessment</h4>
             <p className="text-sm text-muted-foreground">
               TODO: Comprehensive risk analysis and contingency planning for platform sustainability.

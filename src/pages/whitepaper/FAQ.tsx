@@ -72,7 +72,7 @@ const FAQ = () => {
           ))}
         </Accordion>
 
-        <div className="bg-accent/20 border border-accent/30 rounded-lg p-6 mt-8">
+        <div className="bg-purple-500/20 backdrop-blur-sm border border-purple-400/30 rounded-lg p-6 mt-8">
           <h3 className="font-semibold text-card-foreground mb-2">Still Have Questions?</h3>
           <p className="text-sm text-muted-foreground mb-4">
             Can't find the answer you're looking for? Join our community for real-time support and discussions.

@@ -97,7 +97,7 @@ const SummaryVision = () => {
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-accent/20 to-accent/10 border border-accent/30 rounded-lg p-6">
+          <div className="bg-purple-500/20 backdrop-blur-sm border border-purple-400/30 rounded-lg p-6">
             <h4 className="font-semibold text-card-foreground mb-3">Vision 2030 🚀</h4>
             <p className="text-muted-foreground leading-relaxed">
               By 2030 we target one billion on-chain agents, real-time settlement and micro-transaction costs below 5 × 10⁻⁵ USD. Near-term milestones include a 10 k-agent hedge-fund MVP (2025 H2) and a meta-agent marketplace (2026). Builders can publish agents, participants may supply liquidity to streaming channels, and researchers can plug safety modules into the open SDK. Join us as we turn liquidity into the oxygen that powers artificial life.

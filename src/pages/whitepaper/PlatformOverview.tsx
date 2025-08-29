@@ -52,7 +52,7 @@ const PlatformOverview = () => {
             TODO: Detailed explanation of the platform architecture, including how different components interact to deliver autonomous AI capabilities.
           </p>
 
-          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 mt-6">
+          <div className="bg-purple-500/20 backdrop-blur-sm border border-purple-400/30 rounded-lg p-6 mt-6">
             <h4 className="font-semibold text-white mb-2">Getting Started</h4>
             <p className="text-sm text-gray-300">
               TODO: Quick guide for developers and users to get started with the AMAI platform.

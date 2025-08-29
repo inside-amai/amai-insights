@@ -91,7 +91,7 @@ const Roadmap = () => {
             </div>
           </div>
 
-          <div className="bg-accent/20 border border-accent/30 rounded-lg p-6 mt-8">
+          <div className="bg-purple-500/20 backdrop-blur-sm border border-purple-400/30 rounded-lg p-6 mt-8">
             <h4 className="font-semibold text-card-foreground mb-2">Stay Updated</h4>
             <p className="text-sm text-muted-foreground">
               TODO: Information about how to stay updated with roadmap progress and development milestones.

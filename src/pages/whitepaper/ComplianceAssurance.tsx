@@ -69,7 +69,7 @@ const ComplianceAssurance = () => {
             TODO: Audit pathways, certification processes, and enterprise integration standards for corporate adoption.
           </p>
 
-          <div className="bg-accent/20 border border-accent/30 rounded-lg p-6 mt-6">
+          <div className="bg-purple-500/20 backdrop-blur-sm border border-purple-400/30 rounded-lg p-6 mt-6">
             <h4 className="font-semibold text-card-foreground mb-2">Audit Framework</h4>
             <p className="text-sm text-muted-foreground">
               TODO: Comprehensive audit procedures and certification pathways for enterprise-grade compliance assurance.

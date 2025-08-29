@@ -224,7 +224,7 @@ const SystemArchitecture = () => {
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-accent/20 to-accent/10 border border-accent/30 rounded-lg p-6">
+          <div className="bg-purple-500/20 backdrop-blur-sm border border-purple-400/30 rounded-lg p-6">
             <h3 className="text-xl font-semibold text-card-foreground mb-4">10. Summary</h3>
             
             <p className="text-muted-foreground leading-relaxed">
