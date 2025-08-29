@@ -20,10 +20,10 @@ const SummaryVision = () => {
         {/* Content */}
         <div className="space-y-8">
           <div>
-            <h2 className="text-2xl font-bold text-card-foreground mb-6">Why a billion capitalised agents = the next GDP engine</h2>
+            <h2 className="text-2xl font-bold text-card-foreground mb-6">Why a billion capitalized agents = the next GDP engine</h2>
             
             <p className="text-muted-foreground leading-relaxed mb-6">
-              The next billion blockchain users will not be people; they will be autonomous, financially sovereign software entities ("capitalised agents") that earn, spend and build value around the clock. AMAI is the control tower for that machine-first economy. Deployed on Sui, AMAI turns every agent, every skill module and every output into an on-chain, revenue-bearing digital asset that can be registered, traded and composed in seconds.
+              The next billion blockchain users will not be people; they will be autonomous, financially sovereign software entities ("capitalized agents") that earn, spend and build value around the clock. AMAI is the control tower for that machine-first economy. Deployed on Sui, AMAI turns every agent, every skill module and every output into an on-chain, revenue-bearing digital asset that can be registered, traded and composed in seconds.
             </p>
           </div>
 
@@ -51,7 +51,7 @@ const SummaryVision = () => {
             <ul className="space-y-3 text-muted-foreground">
               <li className="flex items-start">
                 <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
-                <span><strong>Autonomous agents:</strong> self-capitalising AI agents that earn and reinvest.</span>
+                <span><strong>Autonomous agents:</strong> self-capitalizing AI agents that earn and reinvest.</span>
               </li>
               <li className="flex items-start">
                 <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
