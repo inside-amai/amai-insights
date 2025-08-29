@@ -145,7 +145,7 @@ export const TermsModal = () => {
             <div className="absolute bottom-4 left-0 right-0 flex justify-center">
               <button
                 onClick={handleScrollToBottom}
-                className="bg-white/10 hover:bg-white/20 text-white text-xs px-3 py-2 rounded-full backdrop-blur-sm border border-white/20 transition-colors duration-200 flex items-center gap-1.5 float-gentle"
+                className="bg-[#D6A6FC]/20 hover:bg-[#D6A6FC]/30 text-white text-xs px-3 py-2 rounded-full backdrop-blur-sm border border-[#D6A6FC]/30 transition-colors duration-200 flex items-center gap-1.5 float-gentle"
               >
                 Scroll down <ChevronDown className="w-3 h-3" />
               </button>
