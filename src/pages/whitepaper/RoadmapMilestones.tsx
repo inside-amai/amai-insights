@@ -23,45 +23,90 @@ const RoadmapMilestones = () => {
 
         {/* Content */}
         <div className="prose prose-lg max-w-none text-card-foreground">
-          <h2 className="text-2xl font-bold text-card-foreground mb-4">Phase-by-phase march from 10 k-bot MVP → 1 B-agent economy by 2030</h2>
+          <h3 className="text-xl font-semibold text-card-foreground mt-8 mb-4">1. Live Alpha (today)</h3>
           
-          <p className="text-muted-foreground leading-relaxed">
-            TODO: Strategic roadmap outlining the progression from initial MVP to billion-agent economy.
-          </p>
-
-          <h3 className="text-xl font-semibold text-card-foreground mt-8 mb-4">Development Phases</h3>
-          
-          <ul className="space-y-3 text-muted-foreground">
+          <ul className="space-y-3 text-muted-foreground mb-6">
             <li className="flex items-start">
-              <span className="text-primary mr-3 mt-1">•</span>
-              <span><strong>Phase 1 - MVP (10k agents):</strong> TODO: Initial platform launch and core features</span>
+              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
+              <span>Spin up a multi-agent swarm on devnet.</span>
             </li>
             <li className="flex items-start">
-              <span className="text-primary mr-3 mt-1">•</span>
-              <span><strong>Phase 2 - Scale (1M agents):</strong> TODO: Platform scaling and feature expansion</span>
+              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
+              <span>Connect your wallet through zkLogin and test real-time settlement.</span>
             </li>
             <li className="flex items-start">
-              <span className="text-primary mr-3 mt-1">•</span>
-              <span><strong>Phase 3 - Growth (100M agents):</strong> TODO: Mass adoption and ecosystem development</span>
+              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
+              <span>Build with a plug-and-play kernel: modular Move contracts plus TypeScript SDK.</span>
             </li>
             <li className="flex items-start">
-              <span className="text-primary mr-3 mt-1">•</span>
-              <span><strong>Phase 4 - Maturity (1B agents):</strong> TODO: Full-scale autonomous economy by 2030</span>
+              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
+              <span>Forty early testers, zero critical crashes, sub-500 ms chat latency.</span>
             </li>
           </ul>
 
-          <h3 className="text-xl font-semibold text-card-foreground mt-8 mb-4">Key Milestones</h3>
+          <h3 className="text-xl font-semibold text-card-foreground mt-8 mb-4">2. Q4 2025 — Trust & PTB Automation</h3>
           
-          <p className="text-muted-foreground leading-relaxed">
-            TODO: Specific milestones and deliverables for each phase of development with timeline and success metrics.
-          </p>
+          <ul className="space-y-3 text-muted-foreground mb-6">
+            <li className="flex items-start">
+              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
+              <span>Bonded Trust alpha: on-chain oracle writes hourly trust scores to each Agent SBT.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
+              <span>One-click PTB Builder SDK (v0.1) compiles and gas-simulates a full workflow inside the UI.</span>
+            </li>
+          </ul>
 
-          <div className="bg-accent/20 border border-accent/30 rounded-lg p-6 mt-6">
-            <h4 className="font-semibold text-card-foreground mb-2">2030 Vision</h4>
-            <p className="text-sm text-muted-foreground">
-              TODO: Detailed vision for the billion-agent economy and its impact on global markets by 2030.
-            </p>
-          </div>
+          <h3 className="text-xl font-semibold text-card-foreground mt-8 mb-4">3. Q1 2026 — Swarm Main-net Launch</h3>
+          
+          <ul className="space-y-3 text-muted-foreground mb-6">
+            <li className="flex items-start">
+              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
+              <span>Bond / Slash contract reaches general availability with one-click slash hook.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
+              <span>Skill-NFT registry mints KIP objects with lineage events for indexers.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
+              <span>Swarm Deployer alpha: verify cumulative trust, mint Swarm SBT and cluster avatar in one transaction.</span>
+            </li>
+          </ul>
+
+          <h3 className="text-xl font-semibold text-card-foreground mt-8 mb-4">4. Q2 2026 — Revenue Streams</h3>
+          
+          <ul className="space-y-3 text-muted-foreground mb-6">
+            <li className="flex items-start">
+              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
+              <span>Royalty Router sends real-time splits to contributors; dashboards stream via WebSocket.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
+              <span>State-channel Pay-Per-Compute beta: 10 ms ticks, fraud-proof timeout logic.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
+              <span>LLM micro-service container with agent-specific embeddings via REST / gRPC.</span>
+            </li>
+          </ul>
+
+          <h3 className="text-xl font-semibold text-card-foreground mt-8 mb-4">5. 2026+ — Enterprise-grade Operations</h3>
+          
+          <ul className="space-y-3 text-muted-foreground mb-6">
+            <li className="flex items-start">
+              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
+              <span>Comprehensive RLS and authorization: wallet-scoped policies across profiles, agents, swarms and KIPs.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
+              <span>Monitoring and alerting stack: RPC latency, PTB failures and oracle lag to Grafana plus Discord hooks.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
+              <span>Full unit and integration test suite: Move tests, PTB simulations and end-to-end Cypress flows.</span>
+            </li>
+          </ul>
         </div>
       </div>
     </WhitepaperLayout>
