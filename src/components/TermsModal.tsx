@@ -117,8 +117,11 @@ export const TermsModal = () => {
 
               <section>
                 <h3 className="text-lg font-semibold text-white mb-3">Risks and forward-looking statements</h3>
+                <p className="mb-3">
+                  The roadmap and milestones are goals, not guarantees. Development timelines can slip, regulations can change and technical hurdles may arise. Digital assets are volatile and subject to loss, theft, hacking, regulatory restrictions or total loss of value.
+                </p>
                 <p className="mb-8">
-                  The roadmap and milestones are goals, not guarantees. Development timelines can slip, regulations can change and technical hurdles may arise. Digital assets are volatile and subject to loss, theft, hacking, regulatory restrictions or total loss of value. By proceeding, you acknowledge these risks and agree that you are solely responsible for any actions you take.
+                  By proceeding, you acknowledge these risks and agree that you are solely responsible for any actions you take.
                 </p>
               </section>
             </div>
