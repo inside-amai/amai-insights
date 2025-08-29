@@ -73,17 +73,17 @@ export const TermsModal = () => {
           <div 
             ref={contentRef}
             onScroll={handleScroll}
-            className="h-[calc(100%-2.75rem-1.5rem)] overflow-y-auto p-6 m-6 mt-0 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/10 hover:scrollbar-thumb-white/20"
+            className="h-[calc(100%-2.75rem-1.5rem)] overflow-y-auto m-6 mt-0 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/10 hover:scrollbar-thumb-white/20"
             style={{
               scrollbarWidth: 'thin',
               scrollbarColor: 'rgba(255,255,255,0.1) transparent'
             }}
           >
-            <p className="text-gray-300 text-sm leading-relaxed mb-6">
+            <p className="text-gray-300 text-sm leading-relaxed mb-6 px-6">
               Welcome to AMAI. Please read the following terms carefully before using this site or interacting with the AMAI token.
             </p>
 
-            <div className="space-y-6 text-gray-300 text-sm leading-relaxed">
+            <div className="space-y-6 text-gray-300 text-sm leading-relaxed px-6">
               <section>
                 <h3 className="text-lg font-semibold text-white mb-3">Purpose of this site</h3>
                 <p>
