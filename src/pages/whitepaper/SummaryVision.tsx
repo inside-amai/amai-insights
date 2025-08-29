@@ -7,7 +7,7 @@ const SummaryVision = () => {
       eyebrow="Overview"
       title="Summary & Vision"
     >
-      <div className="bg-card/30 backdrop-blur-sm border border-border/50 rounded-2xl p-8 space-y-8">
+      <div className="space-y-8">
         {/* Hero Image */}
         <div className="relative overflow-hidden rounded-xl mb-8">
           <img 
