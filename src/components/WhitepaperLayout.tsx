@@ -52,6 +52,14 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
              style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '3.5s', animationDelay: '1.5s' }} />
         <div className="absolute bottom-32 right-60 w-3 h-3" 
              style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'float 6s ease-in-out infinite' }} />
+        <div className="absolute top-16 left-12 w-2.5 h-2.5 animate-pulse" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '4.5s', animationDelay: '0.5s' }} />
+        <div className="absolute bottom-16 right-12 w-2.5 h-2.5" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'drift 7s linear infinite reverse' }} />
+        <div className="absolute top-1/2 left-16 w-2 h-2 animate-bounce" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '3.8s', animationDelay: '2.2s' }} />
+        <div className="absolute top-1/2 right-16 w-2.5 h-2.5" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'sway 5.5s ease-in-out infinite' }} />
         
         {/* Medium moving stars */}
         <div className="absolute top-60 left-60 w-1.5 h-1.5" 
@@ -62,6 +70,24 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
              style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'drift 10s linear infinite reverse' }} />
         <div className="absolute top-1/3 right-1/4 w-1.5 h-1.5" 
              style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'sway 6s ease-in-out infinite reverse' }} />
+        <div className="absolute bottom-1/3 right-1/3 w-1.5 h-1.5" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'float 7s ease-in-out infinite' }} />
+        <div className="absolute top-28 left-80 w-1.5 h-1.5 animate-pulse" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '3.2s', animationDelay: '0.8s' }} />
+        <div className="absolute bottom-28 right-80 w-1.5 h-1.5" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'twinkle 5s ease-in-out infinite' }} />
+        <div className="absolute top-44 right-24 w-1.5 h-1.5" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'drift 8.5s linear infinite' }} />
+        <div className="absolute bottom-44 left-24 w-1.5 h-1.5 animate-bounce" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '4.2s', animationDelay: '1.8s' }} />
+        <div className="absolute top-52 left-32 w-1.5 h-1.5" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'sway 7.5s ease-in-out infinite' }} />
+        <div className="absolute bottom-52 right-32 w-1.5 h-1.5" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'float 6.5s ease-in-out infinite reverse' }} />
+        <div className="absolute top-72 left-48 w-1.5 h-1.5 animate-pulse" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '3.8s', animationDelay: '2.5s' }} />
+        <div className="absolute bottom-72 right-48 w-1.5 h-1.5" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'twinkle 4.5s ease-in-out infinite' }} />
         
         {/* Small moving stars */}
         <div className="absolute top-40 left-96 w-1 h-1 animate-ping" 
@@ -76,6 +102,42 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
              style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'sway 8s ease-in-out infinite' }} />
         <div className="absolute top-3/4 right-1/4 w-1 h-1" 
              style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'float 4.5s ease-in-out infinite reverse' }} />
+        <div className="absolute bottom-1/4 left-1/3 w-1 h-1 animate-ping" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '4s', animationDelay: '1s' }} />
+        <div className="absolute top-16 right-16 w-1 h-1" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'twinkle 5s ease-in-out infinite' }} />
+        <div className="absolute bottom-16 left-16 w-1 h-1" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'drift 9s linear infinite reverse' }} />
+        <div className="absolute top-24 left-28 w-1 h-1 animate-pulse" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '3.2s', animationDelay: '0.5s' }} />
+        <div className="absolute bottom-24 right-28 w-1 h-1" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'sway 6.5s ease-in-out infinite' }} />
+        <div className="absolute top-36 right-36 w-1 h-1 animate-ping" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '2.8s', animationDelay: '1.2s' }} />
+        <div className="absolute bottom-36 left-36 w-1 h-1" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'float 5.5s ease-in-out infinite' }} />
+        <div className="absolute top-48 left-56 w-1 h-1" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'twinkle 4.2s ease-in-out infinite' }} />
+        <div className="absolute bottom-48 right-56 w-1 h-1 animate-pulse" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '3.5s', animationDelay: '1.8s' }} />
+        <div className="absolute top-64 right-64 w-1 h-1" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'drift 7.5s linear infinite' }} />
+        <div className="absolute bottom-64 left-64 w-1 h-1 animate-bounce" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '3.8s', animationDelay: '0.3s' }} />
+        <div className="absolute top-88 left-72 w-1 h-1" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'sway 8.5s ease-in-out infinite reverse' }} />
+        <div className="absolute bottom-88 right-72 w-1 h-1 animate-ping" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '4.5s', animationDelay: '2.1s' }} />
+        
+        {/* Extra tiny stars for density */}
+        <div className="absolute top-12 left-64 w-0.5 h-0.5 animate-pulse" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '2s', animationDelay: '0.2s' }} />
+        <div className="absolute bottom-12 right-64 w-0.5 h-0.5" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'twinkle 3.5s ease-in-out infinite' }} />
+        <div className="absolute top-56 left-44 w-0.5 h-0.5 animate-ping" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '2.5s', animationDelay: '1.5s' }} />
+        <div className="absolute bottom-56 right-44 w-0.5 h-0.5" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'float 4s ease-in-out infinite' }} />
       </div>
       
       {/* Sticky Back Button */}
