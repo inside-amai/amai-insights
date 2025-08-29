@@ -88,11 +88,11 @@ export const TermsModal = () => {
               scrollbarColor: 'rgba(255,255,255,0.1) transparent'
             }}
           >
-            <p className="text-gray-300 text-sm leading-relaxed mb-6 px-4">
+            <p className="text-gray-300 text-sm leading-relaxed mb-6 px-3 pt-4">
               Welcome to AMAI. Please read the following terms carefully before using this site or interacting with the AMAI token.
             </p>
 
-            <div className="space-y-6 text-gray-300 text-sm leading-relaxed px-4">
+            <div className="space-y-6 text-gray-300 text-sm leading-relaxed px-3">
               <section>
                 <h3 className="text-lg font-semibold text-white mb-3">Purpose of this site</h3>
                 <p>
