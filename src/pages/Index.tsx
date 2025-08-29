@@ -84,7 +84,7 @@ const Index = () => {
         <ExplainerHero />
       </div>
       {/* Explore Section Header */}
-      <div className="relative pt-8 pb-4 bg-black">
+      <div className="relative pt-8 pb-0 bg-black">
         <div className="text-center">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -101,7 +101,7 @@ const Index = () => {
       </div>
 
       {/* Explainer Sections */}
-      <div className="relative -mt-4">
+      <div className="relative -mt-8">
         <ExplainerSection
           eyebrow="Platform"
           title="Overview"
