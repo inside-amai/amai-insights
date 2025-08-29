@@ -73,7 +73,11 @@ export const TermsModal = () => {
           <div 
             ref={contentRef}
             onScroll={handleScroll}
-            className="h-[calc(100%-2.75rem)] overflow-y-auto p-6 pb-12"
+            className="h-[calc(100%-2.75rem)] overflow-y-auto p-6 pb-12 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/10 hover:scrollbar-thumb-white/20"
+            style={{
+              scrollbarWidth: 'thin',
+              scrollbarColor: 'rgba(255,255,255,0.1) transparent'
+            }}
           >
             <p className="text-gray-300 text-sm leading-relaxed mb-6">
               Welcome to AMAI. Please read the following terms carefully before using this site or interacting with the AMAI token.
