@@ -31,7 +31,7 @@ const TechnicalDeepDive = () => {
             <h3 className="text-xl font-semibold text-card-foreground mb-4">1. Sui Move contract patterns for agent orchestration</h3>
             
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Sui's variant of the Move language is object-centric and "secure by default," letting developers treat each agent, wallet and KIP as a first-class object with strict resource semantics. <a href="https://docs.sui.io/concepts/sui-move-concepts" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">(https://docs.sui.io/concepts/sui-move-concepts)</a>
+              Sui's variant of the Move language is object-centric and "secure by default," letting developers treat each agent, wallet and KIP as a first-class object with strict resource semantics. [1]
             </p>
             
             <ul className="space-y-3 text-muted-foreground mb-6">
@@ -45,7 +45,7 @@ const TechnicalDeepDive = () => {
               </li>
               <li className="flex items-start">
                 <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
-                <span><strong>Access control via witness objects</strong> – a bonded reputation token (soul-bound) acts as a witness; slashing burns the object and revokes every capability tied to it. <a href="https://blog.sui.io/soulbound-tokens-explained" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">(https://blog.sui.io/soulbound-tokens-explained)</a></span>
+                <span><strong>Access control via witness objects</strong> – a bonded reputation token (soul-bound) acts as a witness; slashing burns the object and revokes every capability tied to it. [2]</span>
               </li>
             </ul>
             
@@ -58,7 +58,7 @@ const TechnicalDeepDive = () => {
             <h3 className="text-xl font-semibold text-card-foreground mb-4">2. Programmable Transaction Blocks (PTBs)</h3>
             
             <p className="text-muted-foreground leading-relaxed mb-4">
-              A PTB on Sui can bundle up to 1 024 heterogeneous operations — swaps, transfers, function calls — into one atomic call. <a href="https://docs.sui.io/concepts/transactions/prog-txn-blocks" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">(https://docs.sui.io/concepts/transactions/prog-txn-blocks)</a> Agents exploit this by:
+              A PTB on Sui can bundle up to 1 024 heterogeneous operations — swaps, transfers, function calls — into one atomic call. [3] Agents exploit this by:
             </p>
             
             <ol className="space-y-3 text-muted-foreground list-decimal list-inside mb-6">
@@ -95,7 +95,7 @@ const TechnicalDeepDive = () => {
             </ul>
             
             <p className="text-muted-foreground leading-relaxed">
-              The SBT is non-transferable per Sui NFT rules; if the agent is slashed, the SBT burns and collateral distributes to affected parties. <a href="https://blog.sui.io/soulbound-tokens-explained" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">(https://blog.sui.io/soulbound-tokens-explained)</a> Long-running meta-agents can top up collateral via treasury policy; low-stakes bots may rely on sponsored transactions (§ 7.4) until profitable.
+              The SBT is non-transferable per Sui NFT rules; if the agent is slashed, the SBT burns and collateral distributes to affected parties. [2] Long-running meta-agents can top up collateral via treasury policy; low-stakes bots may rely on sponsored transactions (§ 7.4) until profitable.
             </p>
           </div>
 
@@ -111,7 +111,7 @@ const TechnicalDeepDive = () => {
             </ol>
             
             <p className="text-muted-foreground leading-relaxed">
-              Sponsored transactions let the buyer (or a liquidity agent) pay gas for β when β is new or capital-constrained. <a href="https://docs.sui.io/concepts/transactions/sponsored-transactions" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">(https://docs.sui.io/concepts/transactions/sponsored-transactions)</a>
+              Sponsored transactions let the buyer (or a liquidity agent) pay gas for β when β is new or capital-constrained. [4]
             </p>
           </div>
 
@@ -138,7 +138,7 @@ const TechnicalDeepDive = () => {
             </ul>
             
             <p className="text-muted-foreground leading-relaxed">
-              Because the PTB is atomic, either all hops settle or none, eliminating dangling payables. PTB capacity (1 024 ops) comfortably covers agent chains up to depth 20 for typical micro-tasks. <a href="https://docs.sui.io/concepts/transactions/prog-txn-blocks" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">(https://docs.sui.io/concepts/transactions/prog-txn-blocks)</a>
+              Because the PTB is atomic, either all hops settle or none, eliminating dangling payables. PTB capacity (1 024 ops) comfortably covers agent chains up to depth 20 for typical micro-tasks. [3]
             </p>
           </div>
 
@@ -235,7 +235,7 @@ const TechnicalDeepDive = () => {
             </p>
           </div>
 
-          <div>
+          <div className="bg-gradient-to-r from-accent/20 to-accent/10 border border-accent/30 rounded-lg p-6">
             <h3 className="text-xl font-semibold text-card-foreground mb-4">9. Security summary</h3>
             
             <div className="overflow-x-auto">
@@ -271,10 +271,6 @@ const TechnicalDeepDive = () => {
                 </tbody>
               </table>
             </div>
-            
-            <p className="text-muted-foreground leading-relaxed mt-4">
-              Further detail appears in § 10 Risk Factors.
-            </p>
           </div>
         </div>
       </div>
