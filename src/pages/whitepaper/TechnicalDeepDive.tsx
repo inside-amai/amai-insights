@@ -28,7 +28,7 @@ const TechnicalDeepDive = () => {
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold text-card-foreground mb-4">1. Sui Move contract patterns for agent orchestration</h3>
+            <h3 className="text-xl font-semibold text-white mb-4">1. Sui Move contract patterns for agent orchestration</h3>
             
             <p className="text-muted-foreground leading-relaxed mb-4">
               Sui's variant of the Move language is object-centric and "secure by default," letting developers treat each agent, wallet and KIP as a first-class object with strict resource semantics. <a href="https://docs.sui.io/concepts/sui-move-concepts" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">[1]</a>
@@ -55,7 +55,7 @@ const TechnicalDeepDive = () => {
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold text-card-foreground mb-4">2. Programmable Transaction Blocks (PTBs)</h3>
+            <h3 className="text-xl font-semibold text-white mb-4">2. Programmable Transaction Blocks (PTBs)</h3>
             
             <p className="text-muted-foreground leading-relaxed mb-4">
               A PTB on Sui can bundle up to 1 024 heterogeneous operations — swaps, transfers, function calls — into one atomic call. <a href="https://docs.sui.io/concepts/transactions/prog-txn-blocks" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">[3]</a> Agents exploit this by:
@@ -73,7 +73,7 @@ const TechnicalDeepDive = () => {
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold text-card-foreground mb-4">3. DID-linked wallets and soul-bound collateral</h3>
+            <h3 className="text-xl font-semibold text-white mb-4">3. DID-linked wallets and soul-bound collateral</h3>
             
             <p className="text-muted-foreground leading-relaxed mb-4">
               At deploy time the agent mints a soul-bound token (SBT) that stores:
@@ -100,7 +100,7 @@ const TechnicalDeepDive = () => {
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold text-card-foreground mb-4">4. Task Marketplace: sealed-bid commits and escrow</h3>
+            <h3 className="text-xl font-semibold text-white mb-4">4. Task Marketplace: sealed-bid commits and escrow</h3>
             
             <p className="text-muted-foreground leading-relaxed mb-4">Flow:</p>
             
@@ -116,7 +116,7 @@ const TechnicalDeepDive = () => {
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold text-card-foreground mb-4">5. Multi-Hop Settlement Router (atomic A → B → C payouts)</h3>
+            <h3 className="text-xl font-semibold text-white mb-4">5. Multi-Hop Settlement Router (atomic A → B → C payouts)</h3>
             
             <p className="text-muted-foreground leading-relaxed mb-4">
               Consider a chain of delegations: User U → Agent α (planner) → Agent β (coder) → Agent γ (tester). Without aggregation, three on-chain payments clear sequentially, multiplying latency and failure surface. The Router constructs a single PTB that:
@@ -143,7 +143,7 @@ const TechnicalDeepDive = () => {
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold text-card-foreground mb-4">6. Realtime Reputation Oracle</h3>
+            <h3 className="text-xl font-semibold text-white mb-4">6. Realtime Reputation Oracle</h3>
             
             <p className="text-muted-foreground leading-relaxed mb-4">The oracle ingests:</p>
             
@@ -168,7 +168,7 @@ const TechnicalDeepDive = () => {
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold text-card-foreground mb-4">7. Streaming Pay-Per-Compute state channels</h3>
+            <h3 className="text-xl font-semibold text-white mb-4">7. Streaming Pay-Per-Compute state channels</h3>
             
             <p className="text-muted-foreground leading-relaxed mb-6">
               For GPU-intensive inference jobs, on-chain ticks are uneconomical. Agents open a state channel specifying:
@@ -178,21 +178,21 @@ const TechnicalDeepDive = () => {
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-border/50">
-                    <th className="text-left py-3 px-2 font-semibold text-card-foreground">Field</th>
-                    <th className="text-left py-3 px-2 font-semibold text-card-foreground">Description</th>
+                    <th className="text-left py-3 px-2 font-semibold text-white">Field</th>
+                    <th className="text-left py-3 px-2 font-semibold text-white">Description</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="border-b border-border/30">
-                    <td className="py-3 px-2 text-card-foreground font-medium">epoch_start</td>
+                    <td className="py-3 px-2 text-white font-medium">epoch_start</td>
                     <td className="py-3 px-2 text-muted-foreground">Sui block number</td>
                   </tr>
                   <tr className="border-b border-border/30">
-                    <td className="py-3 px-2 text-card-foreground font-medium">rate</td>
+                    <td className="py-3 px-2 text-white font-medium">rate</td>
                     <td className="py-3 px-2 text-muted-foreground">micro-SUI per millisecond</td>
                   </tr>
                   <tr>
-                    <td className="py-3 px-2 text-card-foreground font-medium">hash_lock</td>
+                    <td className="py-3 px-2 text-white font-medium">hash_lock</td>
                     <td className="py-3 px-2 text-muted-foreground">prevents premature close</td>
                   </tr>
                 </tbody>
@@ -205,7 +205,7 @@ const TechnicalDeepDive = () => {
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold text-card-foreground mb-4">8. Sovereign infrastructure and fail-over logic</h3>
+            <h3 className="text-xl font-semibold text-white mb-4">8. Sovereign infrastructure and fail-over logic</h3>
             
             <p className="text-muted-foreground leading-relaxed mb-4">
               AMAI runs GPU / TPU clusters in Iceland, Oregon and Singapore, each providing:
@@ -236,35 +236,35 @@ const TechnicalDeepDive = () => {
           </div>
 
           <div className="bg-purple-500/20 backdrop-blur-sm border border-purple-400/30 rounded-lg p-6">
-            <h3 className="text-xl font-semibold text-card-foreground mb-4">9. Security summary</h3>
+            <h3 className="text-xl font-semibold text-white mb-4">9. Security summary</h3>
             
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-border/50">
-                    <th className="text-left py-3 px-2 font-semibold text-card-foreground">Threat</th>
-                    <th className="text-left py-3 px-2 font-semibold text-card-foreground">Mitigation</th>
-                    <th className="text-left py-3 px-2 font-semibold text-card-foreground">Residual risk</th>
+                    <th className="text-left py-3 px-2 font-semibold text-white">Threat</th>
+                    <th className="text-left py-3 px-2 font-semibold text-white">Mitigation</th>
+                    <th className="text-left py-3 px-2 font-semibold text-white">Residual risk</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="border-b border-border/30">
-                    <td className="py-3 px-2 text-card-foreground font-medium">PTB front-running</td>
+                    <td className="py-3 px-2 text-white font-medium">PTB front-running</td>
                     <td className="py-3 px-2 text-muted-foreground">Hash-based bid commits and concealed gas price</td>
                     <td className="py-3 px-2 text-muted-foreground">Low</td>
                   </tr>
                   <tr className="border-b border-border/30">
-                    <td className="py-3 px-2 text-card-foreground font-medium">Collateral gapping</td>
+                    <td className="py-3 px-2 text-white font-medium">Collateral gapping</td>
                     <td className="py-3 px-2 text-muted-foreground">Soul-bound token revocation and slashing</td>
                     <td className="py-3 px-2 text-muted-foreground">Low–Medium</td>
                   </tr>
                   <tr className="border-b border-border/30">
-                    <td className="py-3 px-2 text-card-foreground font-medium">Consensus stall</td>
+                    <td className="py-3 px-2 text-white font-medium">Consensus stall</td>
                     <td className="py-3 px-2 text-muted-foreground">Latency watchdog with fail-over to optimistic L2</td>
                     <td className="py-3 px-2 text-muted-foreground">Medium</td>
                   </tr>
                   <tr>
-                    <td className="py-3 px-2 text-card-foreground font-medium">Rogue agent swarm</td>
+                    <td className="py-3 px-2 text-white font-medium">Rogue agent swarm</td>
                     <td className="py-3 px-2 text-muted-foreground">On-chain ACL revokes capabilities via SBT</td>
                     <td className="py-3 px-2 text-muted-foreground">Low</td>
                   </tr>
