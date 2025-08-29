@@ -25,7 +25,8 @@ export const TermsModal = () => {
     localStorage.setItem('amai-terms-accepted', 'false');
     setIsVisible(false);
     document.body.style.overflow = 'unset';
-    // Optionally redirect away or show a message
+    // Redirect to amai.net
+    window.location.href = 'https://www.amai.net/';
   };
 
   const handleClose = () => {
@@ -36,7 +37,7 @@ export const TermsModal = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center p-4">
       {/* Blurred backdrop */}
       <div 
         className="absolute inset-0 bg-black/20 backdrop-blur-md"
@@ -44,7 +45,7 @@ export const TermsModal = () => {
       />
       
       {/* Modal window */}
-      <div className="relative w-full max-w-[600px] h-[80vh] bg-black/40 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl">
+      <div className="relative w-full max-w-[600px] h-[70vh] bg-black/90 backdrop-blur-xl border border-white/30 rounded-2xl shadow-2xl mb-4">
         {/* Close button */}
         <button
           onClick={handleClose}
@@ -99,31 +100,29 @@ export const TermsModal = () => {
 
             <section>
               <h3 className="text-lg font-semibold text-white mb-3">Risks and forward-looking statements</h3>
-              <p className="leading-relaxed">
+              <p className="leading-relaxed mb-8">
                 The roadmap and milestones are goals, not guarantees. Development timelines can slip, regulations can change and technical hurdles may arise. Digital assets are volatile and subject to loss, theft, hacking, regulatory restrictions or total loss of value. By proceeding, you acknowledge these risks and agree that you are solely responsible for any actions you take.
               </p>
             </section>
           </div>
         </div>
+      </div>
 
-        {/* Bottom buttons */}
-        <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/60 to-transparent">
-          <div className="flex gap-4 justify-end">
-            <Button
-              onClick={handleDecline}
-              variant="outline"
-              className="bg-transparent border-white/30 text-white hover:bg-white/10 hover:text-white"
-            >
-              Decline
-            </Button>
-            <Button
-              onClick={handleAccept}
-              className="bg-cyan-500 hover:bg-cyan-600 text-white"
-            >
-              I Accept
-            </Button>
-          </div>
-        </div>
+      {/* Bottom buttons - outside the modal */}
+      <div className="relative z-10 flex gap-4 justify-center">
+        <Button
+          onClick={handleDecline}
+          variant="outline"
+          className="bg-transparent border-white/30 text-white hover:bg-white/10 hover:text-white"
+        >
+          Decline
+        </Button>
+        <Button
+          onClick={handleAccept}
+          className="bg-cyan-500 hover:bg-cyan-600 text-white"
+        >
+          I Accept
+        </Button>
       </div>
     </div>
   );
