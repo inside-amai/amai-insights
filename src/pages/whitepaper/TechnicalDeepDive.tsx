@@ -24,7 +24,7 @@ const TechnicalDeepDive = () => {
         {/* Content */}
         <div className="space-y-8">
           <div>
-            <h2 className="text-2xl font-bold text-card-foreground mb-6">Technical Deep-Dive</h2>
+            <h2 className="text-2xl font-bold text-white mb-6">Technical Deep-Dive</h2>
           </div>
 
           <div>

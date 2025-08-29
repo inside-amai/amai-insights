@@ -22,10 +22,10 @@ const AgentEconomyKIPs = () => {
         </div>
 
         {/* Content */}
-        <div className="prose prose-lg max-w-none text-card-foreground">
-          <h3 className="text-xl font-semibold text-card-foreground mt-8 mb-4">1. Universal KIP Registry</h3>
+        <div className="prose prose-lg max-w-none text-white">
+          <h3 className="text-xl font-semibold text-white mt-8 mb-4">1. Universal KIP Registry</h3>
           
-          <p className="text-muted-foreground leading-relaxed mb-4">
+          <p className="text-gray-300 leading-relaxed mb-4">
             Every agent, skill module, dataset and derivative work is minted as a KIP object that records:
           </p>
           
