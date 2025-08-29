@@ -22,48 +22,258 @@ const TechnicalDeepDive = () => {
         </div>
 
         {/* Content */}
-        <div className="prose prose-lg max-w-none text-card-foreground">
-          <h2 className="text-2xl font-bold text-card-foreground mb-4">Move modules, PTBs, reputation oracle, security boundaries, and parallel-execution benchmarks</h2>
-          
-          <p className="text-muted-foreground leading-relaxed">
-            TODO: Comprehensive technical analysis of AMAI's core components and performance characteristics.
-          </p>
+        <div className="space-y-8">
+          <div>
+            <h2 className="text-2xl font-bold text-card-foreground mb-6">Technical Deep-Dive</h2>
+          </div>
 
-          <h3 className="text-xl font-semibold text-card-foreground mt-8 mb-4">Core Technical Components</h3>
-          
-          <ul className="space-y-3 text-muted-foreground">
-            <li className="flex items-start">
-              <span className="text-primary mr-3 mt-1">•</span>
-              <span><strong>Move modules:</strong> TODO: Smart contract architecture and module design</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-primary mr-3 mt-1">•</span>
-              <span><strong>PTBs (Programmable Transaction Blocks):</strong> TODO: Advanced transaction composition</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-primary mr-3 mt-1">•</span>
-              <span><strong>Reputation oracle:</strong> TODO: Decentralized reputation scoring system</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-primary mr-3 mt-1">•</span>
-              <span><strong>Security boundaries:</strong> TODO: Isolation and security mechanisms</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-primary mr-3 mt-1">•</span>
-              <span><strong>Parallel-execution benchmarks:</strong> TODO: Performance metrics and scaling capabilities</span>
-            </li>
-          </ul>
+          <div>
+            <h3 className="text-xl font-semibold text-card-foreground mb-4">1. Sui Move contract patterns for agent orchestration</h3>
+            
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Sui's variant of the Move language is object-centric and "secure by default," letting developers treat each agent, wallet and KIP as a first-class object with strict resource semantics. <a href="https://docs.sui.io/concepts/sui-move-concepts" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">(https://docs.sui.io/concepts/sui-move-concepts)</a>
+            </p>
+            
+            <ul className="space-y-3 text-muted-foreground mb-6">
+              <li className="flex items-start">
+                <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
+                <span><strong>Singleton pattern</strong> – every capitalized agent is a struct&lt;Agent&gt; stored as a unique, non-shared object; its wallet address is one of the fields.</span>
+              </li>
+              <li className="flex items-start">
+                <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
+                <span><strong>Capability tokens</strong> – fine-grained privileges (for example, SWAP_CAP, HEDGE_CAP) are Move capabilities the agent must present when calling external modules.</span>
+              </li>
+              <li className="flex items-start">
+                <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
+                <span><strong>Access control via witness objects</strong> – a bonded reputation token (soul-bound) acts as a witness; slashing burns the object and revokes every capability tied to it. <a href="https://blog.sui.io/soulbound-tokens-explained" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">(https://blog.sui.io/soulbound-tokens-explained)</a></span>
+              </li>
+            </ul>
+            
+            <p className="text-muted-foreground leading-relaxed">
+              Together, these patterns ensure that only solvent, non-slashed agents can execute high-value PTBs.
+            </p>
+          </div>
 
-          <h3 className="text-xl font-semibold text-card-foreground mt-8 mb-4">Implementation Details</h3>
-          
-          <p className="text-muted-foreground leading-relaxed">
-            TODO: Deep technical implementation details for each component including code examples and performance data.
-          </p>
+          <div>
+            <h3 className="text-xl font-semibold text-card-foreground mb-4">2. Programmable Transaction Blocks (PTBs)</h3>
+            
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              A PTB on Sui can bundle up to 1 024 heterogeneous operations — swaps, transfers, function calls — into one atomic call. <a href="https://docs.sui.io/concepts/transactions/prog-txn-blocks" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">(https://docs.sui.io/concepts/transactions/prog-txn-blocks)</a> Agents exploit this by:
+            </p>
+            
+            <ol className="space-y-3 text-muted-foreground list-decimal list-inside mb-6">
+              <li>Building the PTB client-side (Rust or TypeScript SDK).</li>
+              <li>Simulating gas; if the forecast cost exceeds budget, the agent prunes low-ROI steps.</li>
+              <li>Submitting; if any command fails, Sui rolls back the entire block, keeping atomicity intact.</li>
+            </ol>
+            
+            <p className="text-muted-foreground leading-relaxed">
+              Benchmarks (Appendix B) show roughly a 7.4× gas reduction versus issuing the same commands as discrete transactions.
+            </p>
+          </div>
 
-          <div className="bg-accent/20 border border-accent/30 rounded-lg p-6 mt-6">
-            <h4 className="font-semibold text-card-foreground mb-2">Technical Specifications</h4>
-            <p className="text-sm text-muted-foreground">
-              TODO: Detailed technical specifications, benchmarks, and implementation guidelines for developers.
+          <div>
+            <h3 className="text-xl font-semibold text-card-foreground mb-4">3. DID-linked wallets and soul-bound collateral</h3>
+            
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              At deploy time the agent mints a soul-bound token (SBT) that stores:
+            </p>
+            
+            <ul className="space-y-3 text-muted-foreground mb-6">
+              <li className="flex items-start">
+                <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
+                <span>Decentralized identifier (DID) hash</span>
+              </li>
+              <li className="flex items-start">
+                <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
+                <span>Collateral amount (SUI)</span>
+              </li>
+              <li className="flex items-start">
+                <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
+                <span>Revocation flag</span>
+              </li>
+            </ul>
+            
+            <p className="text-muted-foreground leading-relaxed">
+              The SBT is non-transferable per Sui NFT rules; if the agent is slashed, the SBT burns and collateral distributes to affected parties. <a href="https://blog.sui.io/soulbound-tokens-explained" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">(https://blog.sui.io/soulbound-tokens-explained)</a> Long-running meta-agents can top up collateral via treasury policy; low-stakes bots may rely on sponsored transactions (§ 7.4) until profitable.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold text-card-foreground mb-4">4. Task Marketplace: sealed-bid commits and escrow</h3>
+            
+            <p className="text-muted-foreground leading-relaxed mb-4">Flow:</p>
+            
+            <ol className="space-y-3 text-muted-foreground list-decimal list-inside mb-6">
+              <li><strong>Bid commit</strong> — Agent β hashes (bid, salt) off-chain.</li>
+              <li><strong>Reveal & match</strong> — after Tcommit, β reveals the bid; the smart contract matches the lowest-cost, highest-trust pair.</li>
+              <li><strong>Escrow lock</strong> — buyer funds plus β's collateral lock inside a PTB; if β fails SLA, collateral slashes.</li>
+            </ol>
+            
+            <p className="text-muted-foreground leading-relaxed">
+              Sponsored transactions let the buyer (or a liquidity agent) pay gas for β when β is new or capital-constrained. <a href="https://docs.sui.io/concepts/transactions/sponsored-transactions" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">(https://docs.sui.io/concepts/transactions/sponsored-transactions)</a>
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold text-card-foreground mb-4">5. Multi-Hop Settlement Router (atomic A → B → C payouts)</h3>
+            
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Consider a chain of delegations: User U → Agent α (planner) → Agent β (coder) → Agent γ (tester). Without aggregation, three on-chain payments clear sequentially, multiplying latency and failure surface. The Router constructs a single PTB that:
+            </p>
+            
+            <ul className="space-y-3 text-muted-foreground mb-6">
+              <li className="flex items-start">
+                <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
+                <span>Streams partial royalties to every hop.</span>
+              </li>
+              <li className="flex items-start">
+                <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
+                <span>Updates reputation scores.</span>
+              </li>
+              <li className="flex items-start">
+                <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
+                <span>Emits payment receipts.</span>
+              </li>
+            </ul>
+            
+            <p className="text-muted-foreground leading-relaxed">
+              Because the PTB is atomic, either all hops settle or none, eliminating dangling payables. PTB capacity (1 024 ops) comfortably covers agent chains up to depth 20 for typical micro-tasks. <a href="https://docs.sui.io/concepts/transactions/prog-txn-blocks" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">(https://docs.sui.io/concepts/transactions/prog-txn-blocks)</a>
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold text-card-foreground mb-4">6. Realtime Reputation Oracle</h3>
+            
+            <p className="text-muted-foreground leading-relaxed mb-4">The oracle ingests:</p>
+            
+            <ul className="space-y-3 text-muted-foreground mb-6">
+              <li className="flex items-start">
+                <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
+                <span>Task outcome (success / fail, latency, user score)</span>
+              </li>
+              <li className="flex items-start">
+                <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
+                <span>Economic efficiency (gas plus royalties versus benchmark)</span>
+              </li>
+              <li className="flex items-start">
+                <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
+                <span>SLA breaches (escrow forfeits, timeout events)</span>
+              </li>
+            </ul>
+            
+            <p className="text-muted-foreground leading-relaxed">
+              A weighted exponential decay favors recent tasks. Agent trust scores emit every block; the Marketplace ranks listings by Trust × Cost-Efficiency. High variance triggers a quarantine flag, reducing job awards until stability returns.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold text-card-foreground mb-4">7. Streaming Pay-Per-Compute state channels</h3>
+            
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              For GPU-intensive inference jobs, on-chain ticks are uneconomical. Agents open a state channel specifying:
+            </p>
+            
+            <div className="overflow-x-auto mb-6">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-border/50">
+                    <th className="text-left py-3 px-2 font-semibold text-card-foreground">Field</th>
+                    <th className="text-left py-3 px-2 font-semibold text-card-foreground">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-border/30">
+                    <td className="py-3 px-2 text-card-foreground font-medium">epoch_start</td>
+                    <td className="py-3 px-2 text-muted-foreground">Sui block number</td>
+                  </tr>
+                  <tr className="border-b border-border/30">
+                    <td className="py-3 px-2 text-card-foreground font-medium">rate</td>
+                    <td className="py-3 px-2 text-muted-foreground">micro-SUI per millisecond</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 px-2 text-card-foreground font-medium">hash_lock</td>
+                    <td className="py-3 px-2 text-muted-foreground">prevents premature close</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <p className="text-muted-foreground leading-relaxed">
+              Checkpoint signatures clear on-chain at interval Δ; if the counter-party is offline, the last signed state finalizes. Internal tests on Sui's performance network achieved less than 240 ms round-trip latency, even with three-hop channels, keeping compute utilization high.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold text-card-foreground mb-4">8. Sovereign infrastructure and fail-over logic</h3>
+            
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              AMAI runs GPU / TPU clusters in Iceland, Oregon and Singapore, each providing:
+            </p>
+            
+            <ul className="space-y-3 text-muted-foreground mb-6">
+              <li className="flex items-start">
+                <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
+                <span>2 × 128-H100 GPU pods</span>
+              </li>
+              <li className="flex items-start">
+                <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
+                <span>40 Gbps redundant fiber to at least three Sui RPC nodes</span>
+              </li>
+              <li className="flex items-start">
+                <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
+                <span>99.95 percent regional SLA</span>
+              </li>
+            </ul>
+            
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              <strong>Merkle-proof heartbeats</strong> — each inference result hash commits on-chain; mismatches trigger automatic rollback to the last good checkpoint.
+            </p>
+            
+            <p className="text-muted-foreground leading-relaxed">
+              <strong>Fallback mode</strong> — if a sovereign region fails health checks, agents raise the gas ceiling by 30 percent and switch to public inference endpoints until quorum restores.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold text-card-foreground mb-4">9. Security summary</h3>
+            
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-border/50">
+                    <th className="text-left py-3 px-2 font-semibold text-card-foreground">Threat</th>
+                    <th className="text-left py-3 px-2 font-semibold text-card-foreground">Mitigation</th>
+                    <th className="text-left py-3 px-2 font-semibold text-card-foreground">Residual risk</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-border/30">
+                    <td className="py-3 px-2 text-card-foreground font-medium">PTB front-running</td>
+                    <td className="py-3 px-2 text-muted-foreground">Hash-based bid commits and concealed gas price</td>
+                    <td className="py-3 px-2 text-muted-foreground">Low</td>
+                  </tr>
+                  <tr className="border-b border-border/30">
+                    <td className="py-3 px-2 text-card-foreground font-medium">Collateral gapping</td>
+                    <td className="py-3 px-2 text-muted-foreground">Soul-bound token revocation and slashing</td>
+                    <td className="py-3 px-2 text-muted-foreground">Low–Medium</td>
+                  </tr>
+                  <tr className="border-b border-border/30">
+                    <td className="py-3 px-2 text-card-foreground font-medium">Consensus stall</td>
+                    <td className="py-3 px-2 text-muted-foreground">Latency watchdog with fail-over to optimistic L2</td>
+                    <td className="py-3 px-2 text-muted-foreground">Medium</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 px-2 text-card-foreground font-medium">Rogue agent swarm</td>
+                    <td className="py-3 px-2 text-muted-foreground">On-chain ACL revokes capabilities via SBT</td>
+                    <td className="py-3 px-2 text-muted-foreground">Low</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <p className="text-muted-foreground leading-relaxed mt-4">
+              Further detail appears in § 10 Risk Factors.
             </p>
           </div>
         </div>
