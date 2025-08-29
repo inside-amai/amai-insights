@@ -32,14 +32,33 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
   }
 
   return (
-    <div className="min-h-screen relative isolate overflow-hidden" style={{ background: 'linear-gradient(135deg, #A6FCFC33, #fafdff, #D6A6FC33)' }}>
-      {/* Gradient overlays for space effect */}
-      <div className="absolute inset-0 opacity-60" style={{ 
-        background: `
-          radial-gradient(circle at 20% 20%, #A6FCFC66 0%, transparent 50%),
-          radial-gradient(circle at 80% 80%, #D6A6FC66 0%, transparent 50%)
-        ` 
-      }} />
+    <div className="min-h-screen bg-black relative overflow-hidden">
+      {/* Animated Stars Background */}
+      <div className="absolute inset-0">
+        {/* Large moving stars */}
+        <div className="absolute top-20 left-20 w-2 h-2 animate-bounce" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '3s', animationDelay: '0s' }} />
+        <div className="absolute top-32 right-32 w-3 h-3 animate-pulse" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '4s', animationDelay: '1s', transform: 'translateY(-10px)', animation: 'float 6s ease-in-out infinite' }} />
+        <div className="absolute bottom-40 left-40 w-2 h-2" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'drift 8s linear infinite' }} />
+        <div className="absolute bottom-20 right-20 w-3 h-3 animate-pulse" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '5s', animationDelay: '2s' }} />
+        
+        {/* Medium moving stars */}
+        <div className="absolute top-60 left-60 w-1.5 h-1.5" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'twinkle 4s ease-in-out infinite' }} />
+        <div className="absolute top-96 right-60 w-1.5 h-1.5 animate-bounce" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '3.5s', animationDelay: '1.5s' }} />
+        
+        {/* Small moving stars */}
+        <div className="absolute top-40 left-96 w-1 h-1 animate-ping" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '3s' }} />
+        <div className="absolute top-80 right-96 w-1 h-1" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'twinkle 3s ease-in-out infinite' }} />
+        <div className="absolute bottom-80 left-20 w-1 h-1" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'drift 12s linear infinite' }} />
+      </div>
       
       {/* Sticky Back Button */}
       <div className="fixed top-6 left-6 z-50 relative">
