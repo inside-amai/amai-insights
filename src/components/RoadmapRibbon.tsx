@@ -10,7 +10,7 @@ const RoadmapRibbon = () => {
       body: "Multi-agent builder, swarm composer & wallet-connected dashboard running on prod infra with real-time devnet settlement."
     },
     {
-      pill: "'25 Q4 → '26 Q1",
+      pill: "'25 Q4 → '26",
       title: "Bonded Trust & Swarm",
       body: "• Real-time oracle logs hourly trust scores to each Agent SBT.\n• Deploy N agents, verify trust ≥ threshold, mint Swarm SBT & avatar."
     },
