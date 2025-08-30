@@ -242,7 +242,7 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
       </section>
 
       {/* Footer */}
-      <Footer />
+      <Footer transparent />
     </div>
   );
 };

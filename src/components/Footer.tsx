@@ -1,6 +1,10 @@
-export const Footer = () => {
+interface FooterProps {
+  transparent?: boolean;
+}
+
+export const Footer = ({ transparent = false }: FooterProps) => {
   return (
-    <footer className="bg-gray-900 py-8">
+    <footer className={transparent ? "bg-transparent py-8" : "bg-gray-900 py-8"}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center">
           <p className="text-white text-sm">
