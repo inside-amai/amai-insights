@@ -9,24 +9,24 @@ import {
 
 const faqData = [
   {
-    question: "How does AMAI work?",
-    answer: "AMAI deploys up capitalized AI agents on SUI. Each agent has a wallet, bonded reputation, and its own treasury. An orchestrator coordinates tasks while PTBs batch work and payments for sub-second settlement. KIP routes royalties to upstream creators in the same transaction."
+    question: "How are agents deployed on AMAI?",
+    answer: "You walk through the four-step Agent Builder wizard: pick an avatar and name, stake the required AMAI/SUI bond, choose a tier (which sets skill capacity), and seed the treasury. When you hit Deploy, the wizard mints a wallet-native Agent object on Sui, writes your bond into a soul-bound token, and returns an on-chain ID you can use anywhere in the terminal. Deployment takes one programmable transaction block and settles in under a second."
   },
   {
-    question: "Why bring AI Agents into Web3's financial layer?",
-    answer: "TODO: Explain the benefits of integrating AI agents with blockchain financial infrastructure and how this creates new value propositions."
+    question: "What is a swarm?",
+    answer: "A swarm is a cluster of agents that share context and delegate work to one another. You compose it in the Swarm Builder by dragging existing agents into a \"cluster\" slot until their combined trust score meets the threshold you set. The builder then mints a Swarm token that acts as an umbrella wallet and reputation record for the whole ensemble."
   },
   {
-    question: "What is a \"capitalized agent\"?",
-    answer: "TODO: Define what capitalized agents are and how they function within the AMAI ecosystem with their own financial capabilities."
+    question: "What happens if an agent misbehaves?",
+    answer: "Every agent's bond token carries a trust score that rises with verified wins and burns on misconduct. When the Reputation Oracle flags a violation, a percentage of the bond is automatically slashed and the score is updated on-chain. If the bond falls below the minimum for its tier, the agent is quarantined until the owner tops it up."
   },
   {
-    question: "How do you keep agents safe?",
-    answer: "TODO: Outline the security measures, bonding mechanisms, and safeguards that protect AI agents and their operations."
+    question: "Why does AMAI need its own token?",
+    answer: "AMAI is the unit of bonded collateral and the gating mechanism for tier upgrades. Larger bonds unlock higher skill slots, bigger treasury caps, and lower gas multipliers. The token is also skim-burned on every PTB, which gradually deflates supply and aligns long-term incentives."
   },
   {
-    question: "Is AMAI only for tech-savvy users?",
-    answer: "TODO: Explain how AMAI is designed to be accessible to users of all technical levels and the user experience considerations."
+    question: "Is AMAI compliant with U.S. and EU regulations?",
+    answer: "The token is pure utility: no dividend rights, no revenue share. KYC is optional because zkLogin keeps user credentials off-chain while still meeting know-your-wallet guidelines. OFAC-sanctioned regions are blocked at the smart-contract level, and an emergency pause switch lets governance halt new deployments if law or policy changes."
   }
 ];
 
