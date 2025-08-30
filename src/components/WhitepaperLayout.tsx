@@ -177,7 +177,7 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
             transition={{ duration: 0.8 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <span className="text-sm font-medium text-primary-foreground/80 uppercase tracking-wider">
+            <span className="text-sm font-medium text-white uppercase tracking-wider">
               {eyebrow}
             </span>
             <h1 className="text-3xl lg:text-5xl font-bold text-hero mt-4 mb-6">
