@@ -238,8 +238,8 @@ const Index = () => {
                 Dive Deeper
               </h1>
               <p className="mx-auto max-w-3xl text-center text-lg text-[#202020] leading-relaxed">
-                Comprehensive technical documentation covering platform architecture, 
-                tokenomics, development roadmap, and implementation details.
+                Comprehensive documentation covering platform architecture, 
+                token, development roadmap, and implementation details.
               </p>
             </motion.div>
           </div>
