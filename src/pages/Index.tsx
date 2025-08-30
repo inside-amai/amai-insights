@@ -115,9 +115,8 @@ const Index = () => {
             </div>
           }
           imageSrc="/lovable-uploads/ccdcacf8-6eae-4872-b7bf-6c8dd8c07a1a.png"
-          imageAlt="AMAI Agent Creation Wizard"
-          overlayColor="rgba(37, 99, 235, 0.1)"
-          objectFit="contain"
+          imageAlt="AMAI Platform Battle Pass Interface"
+          objectFit="cover"
         />
       </div>
 
