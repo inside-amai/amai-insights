@@ -16,7 +16,7 @@ const RoadmapRibbon = () => {
     },
     {
       pill: "2026 +",
-      title: "Royalty Router & Indexer v1",
+      title: "Royalty Router & Indexer",
       body: "Single-hop PTB splitter on-chain; off-chain indexer streams live dashboards via WebSocket."
     }
   ];
