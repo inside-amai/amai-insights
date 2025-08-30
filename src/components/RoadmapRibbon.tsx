@@ -12,7 +12,7 @@ const RoadmapRibbon = () => {
     {
       pill: "2025 Q4 – 2026 Q1",
       title: "Bonded Trust α & Swarm Deployer α",
-      body: "• Oracle writes real-time trust scores to each Agent SBT (logistic curve, hourly cron).\n• Deploy N agents, verify cumulative trust ≥ threshold, mint Swarm SBT & cluster avatar."
+      body: "• Real-time oracle logs hourly trust scores to each Agent SBT.\n• Deploy N agents, verify trust ≥ threshold, mint Swarm SBT & avatar."
     },
     {
       pill: "2026 +",
@@ -59,16 +59,16 @@ const RoadmapRibbon = () => {
         </div>
 
         {/* Ribbon Wrapper */}
-        <div className="relative flex flex-col gap-10 md:flex-row items-start justify-center md:gap-12">
+        <div className="flex flex-col md:flex-row justify-center md:gap-16 gap-10 max-w-7xl mx-auto px-4">
           {/* Connecting line on desktop */}
           <div className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-[#A6FCFC] via-white/30 to-[#D6A6FC] -z-10" />
           
           {stages.map((stage, index) => (
             <div
               key={index}
-              className="ribbon-card relative max-w-sm w-[90%] md:w-80 p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur shadow-[0_0_18px_-4px_rgba(166,252,252,0.45)] transition-all duration-700 opacity-0 translate-y-6 mx-auto md:mx-0"
+              className="ribbon-card relative md:flex-1 md:max-w-none md:min-h-[220px] w-full max-w-[22rem] p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur shadow-[0_0_18px_-4px_rgba(166,252,252,0.35)] md:shadow-[0_0_28px_-6px_rgba(166,252,252,0.45)] transition-all duration-700 opacity-0 translate-y-6 mx-auto md:mx-0"
             >
-              <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 text-[11px] font-medium rounded-full bg-gradient-to-r from-[#A6FCFC] to-[#D6A6FC] text-black">
+              <span className="absolute -top-3 left-1/2 -translate-x-1/2 w-[96px] text-center px-3 py-1 text-xs font-medium rounded-full bg-gradient-to-r from-[#A6FCFC] to-[#D6A6FC] text-black">
                 {stage.pill}
               </span>
               <h3 className="text-lg font-semibold mb-2">
