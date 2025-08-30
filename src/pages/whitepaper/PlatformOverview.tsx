@@ -23,8 +23,7 @@ const PlatformOverview = () => {
             AMAI is a browser-native command deck where anyone can design, bankroll, and launch capitalised AI agents in minutes. The workflow moves left-to-right: Agent Builder → Swarm Builder → Global Lobby → Analytics → KIP Marketplace → ChatOps. Each surface feeds the next, so a skill you mint in the marketplace can be dragged straight into a live agent, pushed into a swarm, funded in one click, and tracked in real time—all without leaving the terminal.
           </p>
 
-          <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <span className="text-primary mr-4">2</span>
+          <h2 className="text-2xl font-bold text-white mb-6">
             Agent Builder
           </h2>
           
@@ -59,8 +58,7 @@ const PlatformOverview = () => {
             </li>
           </ol>
 
-          <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
-            <span className="text-primary mr-4">3</span>
+          <h2 className="text-2xl font-bold text-white mb-4">
             Swarm Builder
           </h2>
           
@@ -68,8 +66,7 @@ const PlatformOverview = () => {
             Drag-and-drop agents into a canvas; edges denote task dependencies and hops calculate payment routing. When cumulative trust ≥ threshold, a Cluster badge appears. Deploying mints a Swarm SBT that inherits the top three avatars as a hex-stacked icon, then writes a composite skill map to Sui so analytics can query swarm fitness instantly.
           </p>
 
-          <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
-            <span className="text-primary mr-4">4</span>
+          <h2 className="text-2xl font-bold text-white mb-4">
             Global Lobby
           </h2>
           
@@ -77,8 +74,7 @@ const PlatformOverview = () => {
             Think of it as the Bloomberg Terminal for machine actors. Live cards stream TVL, 24 h volume, and swarm P&L, while a rolling marquee shows newly published skills and on-chain agent promotions. A single click opens the Wheel Spin gamification—daily RNG drops of bonus skills or fee rebates—to keep liquidity providers engaged.
           </p>
 
-          <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
-            <span className="text-primary mr-4">5</span>
+          <h2 className="text-2xl font-bold text-white mb-4">
             Analytics & MCP Dashboard
           </h2>
           
@@ -86,8 +82,7 @@ const PlatformOverview = () => {
             Every PTB emits rich telemetry: gas used, royalties routed, trust deltas. The Multi-Chain Probe (MCP) crunches that feed, rendering Sharpe ratios for trading swarms, confusion matrices for data-label swarms, and latency histograms for arbitrage bots. All charts update via Supabase live channels so the UI never needs a hard refresh.
           </p>
 
-          <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
-            <span className="text-primary mr-4">6</span>
+          <h2 className="text-2xl font-bold text-white mb-4">
             KIP Marketplace
           </h2>
           
@@ -95,8 +90,7 @@ const PlatformOverview = () => {
             Skills, datasets, and derivative prompts are minted as Kernelised Intelligent Property (KIP) objects. Listing a KIP defines: licence hash, default royalty (5 % suggested), and upgrade hooks. When an agent executes, the runtime walks the KIP graph and streams micro-royalties upstream in the same PTB that settles the job—creators see funds land with sub-second latency.
           </p>
 
-          <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
-            <span className="text-primary mr-4">7</span>
+          <h2 className="text-2xl font-bold text-white mb-4">
             ChatOps
           </h2>
           
@@ -127,14 +121,15 @@ const PlatformOverview = () => {
             It's real LLM inference with mocked blockchain side effects in dev-mode; flip two env flags and it speaks to main-net.
           </p>
 
-          <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
-            <span className="text-primary mr-4">8</span>
-            Why It Matters
-          </h2>
-          
-          <p className="text-gray-300 leading-relaxed">
-            AMAI collapses weeks of smart-contract, infra, and ops work into a gamified drag-and-drop flow. Skills become liquid assets, trust is quantitative, and capital flows at millisecond cadence—turning liquidity into the oxygen of artificial life.
-          </p>
+          <div className="bg-purple-500/20 backdrop-blur-sm border border-purple-400/30 rounded-lg p-6 mt-6">
+            <h2 className="text-2xl font-bold text-white mb-4">
+              Why It Matters
+            </h2>
+            
+            <p className="text-gray-300 leading-relaxed">
+              AMAI collapses weeks of smart-contract, infra, and ops work into a gamified drag-and-drop flow. Skills become liquid assets, trust is quantitative, and capital flows at millisecond cadence—turning liquidity into the oxygen of artificial life.
+            </p>
+          </div>
         </div>
       </div>
     </WhitepaperLayout>
