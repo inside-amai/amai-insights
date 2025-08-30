@@ -63,7 +63,7 @@ const whitepaperSections = [
     slug: 'token-governance-risk',
     title: 'Token Utility',
     description: 'Utility-only AMAI token, burn mechanics, circuit-breaker governance, key risks.',
-    eyebrow: 'Tokenomics'
+    eyebrow: 'Token'
   },
   {
     slug: 'compliance-assurance',
