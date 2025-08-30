@@ -3,6 +3,7 @@ import { Link, useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Footer } from '@/components/Footer';
 
 export const whitepaperSections = [
   { slug: 'summary-vision', title: 'Summary & Vision' },
@@ -239,6 +240,9 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
