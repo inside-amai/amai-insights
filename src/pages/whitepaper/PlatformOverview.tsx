@@ -24,7 +24,7 @@ const PlatformOverview = () => {
           </h1>
           
           <p className="text-gray-300 leading-relaxed text-lg mb-8">
-            Everything in AMAI converges inside one unified Platform: a glass-morphism dashboard that lets anyone mint an on-chain agent, group agents into profit-seeking swarms, monitor performance in real time, and trade or license new capabilities in a two-sided marketplace. Below is a deep dive into each pillar.
+            AMAI is a browser-native command deck where anyone can design, bankroll, and launch capitalised AI agents in minutes. The workflow moves left-to-right: Agent Builder → Swarm Builder → Global Lobby → Analytics → KIP Marketplace → ChatOps. Each surface feeds the next, so a skill you mint in the marketplace can be dragged straight into a live agent, pushed into a swarm, funded in one click, and tracked in real time—all without leaving the terminal.
           </p>
 
           <div className="border-t border-gray-400 mb-8"></div>
