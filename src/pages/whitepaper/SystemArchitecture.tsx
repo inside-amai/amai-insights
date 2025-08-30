@@ -11,7 +11,7 @@ const SystemArchitecture = () => {
         {/* Hero Image */}
         <div className="relative overflow-hidden rounded-xl mb-8">
           <img 
-            src={circuitBoard} 
+            src="/lovable-uploads/2673eef2-8bb7-48b3-ae0c-63cbfad3b076.png" 
             alt="System Architecture"
             className="w-full h-64 lg:h-80 object-cover"
           />
