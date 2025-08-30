@@ -114,7 +114,7 @@ const Index = () => {
               </p>
             </div>
           }
-          imageSrc="/lovable-uploads/cf367191-09ca-4501-a245-72eb6f7fb06a.png"
+          imageSrc="/lovable-uploads/ccdcacf8-6eae-4872-b7bf-6c8dd8c07a1a.png"
           imageAlt="AMAI Agent Creation Wizard"
           overlayColor="rgba(37, 99, 235, 0.1)"
           objectFit="contain"
