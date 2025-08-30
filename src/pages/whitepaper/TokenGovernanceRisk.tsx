@@ -5,7 +5,7 @@ const TokenGovernanceRisk = () => {
   return (
     <WhitepaperLayout
       eyebrow="Tokenomics"
-      title="Token, Governance & Risk"
+      title="Token Utility"
     >
       <div className="space-y-8">
         {/* Hero Image */}
