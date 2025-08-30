@@ -11,7 +11,7 @@ const RoadmapRibbon = () => {
     },
     {
       pill: "'25 Q4 → '26 Q1",
-      title: "Bonded Trust α & Swarm Deployer α",
+      title: "Bonded Trust & Swarm",
       body: "• Real-time oracle logs hourly trust scores to each Agent SBT.\n• Deploy N agents, verify trust ≥ threshold, mint Swarm SBT & avatar."
     },
     {
@@ -50,8 +50,8 @@ const RoadmapRibbon = () => {
       <div className="container mx-auto px-4">
         {/* Centered Headings */}
         <div className="text-center mb-12">
-          <p className="text-xs tracking-[0.2em] text-gray-400 mb-2">
-            DEVELOPMENT TIMELINE
+          <p className="text-xs tracking-[0.2em] text-white mb-2">
+            DEVELOPMENT
           </p>
           <h2 className="text-3xl md:text-4xl font-semibold bg-gradient-to-r from-[#A6FCFC] to-[#D6A6FC] bg-clip-text text-transparent">
             Roadmap
