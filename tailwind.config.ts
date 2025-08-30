@@ -30,6 +30,8 @@ export default {
 				// Custom accent colors for roadmap
 				'aqua-accent': '#A6FCFC',
 				'violet-accent': '#D6A6FC',
+				'accent-aqua': '#A6FCFC',
+				'accent-violet': '#D6A6FC',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
