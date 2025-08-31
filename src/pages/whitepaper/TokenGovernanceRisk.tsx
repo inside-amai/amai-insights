@@ -15,10 +15,6 @@ const TokenGovernanceRisk = () => {
             alt="Token, Governance & Risk"
             className="w-full h-64 lg:h-80 object-cover"
           />
-          <div 
-            className="absolute inset-0"
-            style={{ backgroundColor: 'rgba(37, 99, 235, 0.2)' }}
-          />
         </div>
 
         {/* Content */}
