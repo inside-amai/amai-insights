@@ -32,7 +32,7 @@ const whitepaperSections = [
   {
     slug: 'problem-landscape',
     title: 'Problem Landscape',
-    description: 'Demographic decline, brittle DeFi, and off-chain AI wallets—the pain AMAI fixes.',
+    description: 'Demographic decline, brittle DeFi, and off-chain AI wallets.',
     eyebrow: 'Problem'
   },
   {
