@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { X, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 export const TermsModal = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -32,10 +32,6 @@ export const TermsModal = () => {
     window.location.href = 'https://www.amai.net/';
   };
 
-  const handleClose = () => {
-    setIsVisible(false);
-    document.body.style.overflow = 'unset';
-  };
 
   const handleScroll = () => {
     if (contentRef.current) {
@@ -61,21 +57,14 @@ export const TermsModal = () => {
       {/* Blurred backdrop */}
       <div 
         className="absolute inset-0 bg-black/20 backdrop-blur-md"
-        onClick={handleClose}
       />
       
       {/* Modal window */}
       <div className="relative w-[81vw] max-w-[432px] h-[64vh] bg-[#101010] rounded-3xl shadow-2xl mb-4 border-2 border-transparent bg-gradient-to-r from-[#D6A6FC] to-[#A6FCFC] p-[2px]">
         <div className="w-full h-full bg-[#101010] rounded-3xl overflow-hidden">
           {/* Heading strip */}
-          <div className="bg-white/5 h-11 flex items-center justify-center px-6 rounded-t-3xl relative">
+          <div className="bg-white/5 h-11 flex items-center justify-center px-6 rounded-t-3xl">
             <h2 className="text-lg font-semibold text-white">Terms & Conditions</h2>
-            <button
-              onClick={handleClose}
-              className="absolute right-6 p-1 text-white/70 hover:text-white transition-colors"
-            >
-              <X className="w-4 h-4" />
-            </button>
           </div>
 
           {/* Scrollable content */}
