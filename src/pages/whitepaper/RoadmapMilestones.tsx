@@ -11,7 +11,7 @@ const RoadmapMilestones = () => {
         {/* Hero Image */}
         <div className="relative overflow-hidden rounded-xl">
           <img 
-            src={terminalDemo} 
+            src="/lovable-uploads/9d46be81-0218-437e-b5e6-8c5bfdf67f64.png" 
             alt="Roadmap & Milestones"
             className="w-full h-64 lg:h-80 object-cover"
           />
