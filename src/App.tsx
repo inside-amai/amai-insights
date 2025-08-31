@@ -17,7 +17,7 @@ const SystemArchitecture = lazy(() => import("./pages/whitepaper/SystemArchitect
 const TechnicalDeepDive = lazy(() => import("./pages/whitepaper/TechnicalDeepDive"));
 const AgentEconomyKIPs = lazy(() => import("./pages/whitepaper/AgentEconomyKIPs"));
 const RoadmapMilestones = lazy(() => import("./pages/whitepaper/RoadmapMilestones"));
-const TokenGovernanceRisk = lazy(() => import("./pages/whitepaper/TokenGovernanceRisk"));
+const Token = lazy(() => import("./pages/whitepaper/Token"));
 const ComplianceAssurance = lazy(() => import("./pages/whitepaper/ComplianceAssurance"));
 
 const queryClient = new QueryClient();
@@ -66,9 +66,9 @@ const App = () => (
               <RoadmapMilestones />
             </Suspense>
           } />
-          <Route path="/whitepaper/token-governance-risk" element={
+          <Route path="/whitepaper/token" element={
             <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gradient-primary"><div className="text-hero">Loading...</div></div>}>
-              <TokenGovernanceRisk />
+              <Token />
             </Suspense>
           } />
           <Route path="/whitepaper/compliance-assurance" element={

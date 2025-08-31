@@ -60,7 +60,7 @@ const whitepaperSections = [
     eyebrow: 'Timeline'
   },
   {
-    slug: 'token-governance-risk',
+    slug: 'token',
     title: 'Token Utility',
     description: 'Utility-only AMAI token, burn mechanics, circuit-breaker governance, key risks.',
     eyebrow: 'Token'

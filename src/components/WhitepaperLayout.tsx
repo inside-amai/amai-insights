@@ -13,7 +13,7 @@ export const whitepaperSections = [
   { slug: 'technical-deep-dive', title: 'Technical' },
   { slug: 'agent-economy-kips', title: 'Agent Economy' },
   { slug: 'roadmap-milestones', title: 'Roadmap' },
-  { slug: 'token-governance-risk', title: 'Token' },
+  { slug: 'token', title: 'Token' },
   { slug: 'compliance-assurance', title: 'Compliance' }
 ];
 

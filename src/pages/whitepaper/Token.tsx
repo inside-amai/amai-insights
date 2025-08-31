@@ -1,7 +1,7 @@
 import { WhitepaperLayout } from '@/components/WhitepaperLayout';
 import tokenChart from '@/assets/token-chart.jpg';
 
-const TokenGovernanceRisk = () => {
+const Token = () => {
   return (
     <WhitepaperLayout
       eyebrow="Tokenomics"
@@ -206,4 +206,4 @@ const TokenGovernanceRisk = () => {
   );
 };
 
-export default TokenGovernanceRisk;
+export default Token;
