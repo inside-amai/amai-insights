@@ -11,7 +11,7 @@ const AgentEconomyKIPs = () => {
         {/* Hero Image */}
         <div className="relative overflow-hidden rounded-xl">
           <img 
-            src={tokenChart} 
+            src="/lovable-uploads/70519e16-8ea2-44dc-bcd4-f12b397e103b.png" 
             alt="Agent Economy & KIPs"
             className="w-full h-64 lg:h-80 object-cover"
           />
