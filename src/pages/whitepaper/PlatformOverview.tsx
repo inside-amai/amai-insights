@@ -11,7 +11,7 @@ const PlatformOverview = () => {
         {/* Hero Image */}
         <div className="relative overflow-hidden rounded-xl">
           <img 
-            src="/lovable-uploads/1c984615-8d43-4a9d-9ffb-346a9113cde3.png" 
+            src="/lovable-uploads/caa7c25e-af5b-4816-98d6-e2cd91d9f286.png" 
             alt="AMAI Platform Dashboard"
             className="w-full h-64 lg:h-80 object-cover"
           />
