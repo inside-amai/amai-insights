@@ -11,7 +11,7 @@ const ComplianceAssurance = () => {
         {/* Hero Image */}
         <div className="relative overflow-hidden rounded-xl">
           <img 
-            src={circuitBoard} 
+            src="/lovable-uploads/e5dabd58-b73c-4579-909a-a2c49eba0402.png" 
             alt="Compliance & Assurance"
             className="w-full h-64 lg:h-80 object-cover"
           />
