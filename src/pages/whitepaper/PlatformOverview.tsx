@@ -12,7 +12,7 @@ const PlatformOverview = () => {
         <div className="relative overflow-hidden rounded-xl">
           {/* Desktop Image */}
           <img 
-            src="/lovable-uploads/fd99e4b5-36af-46b2-bd41-eca0f87490e1.png" 
+            src="/lovable-uploads/419618c4-721d-47e6-ab61-71ecd744aa29.png" 
             alt="AMAI Platform Dashboard - Desktop View"
             className="hidden md:block w-full h-64 lg:h-80 object-cover"
           />
