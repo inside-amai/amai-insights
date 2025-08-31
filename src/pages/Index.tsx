@@ -20,7 +20,7 @@ const whitepaperSections = [
   {
     slug: 'summary-vision',
     title: 'Summary & Vision',
-    description: 'Why a billion capitalised agents = the next GDP engine.',
+    description: 'Why a billion capitalized agents = the next GDP engine.',
     eyebrow: 'Overview'
   },
   {
@@ -50,7 +50,7 @@ const whitepaperSections = [
   {
     slug: 'agent-economy-kips',
     title: 'Agent Economy & KIPs',
-    description: 'How capitalised agents earn/spend and how Kernelised IP streams micro-royalties.',
+    description: 'How capitalized agents earn/spend and how Kernelised IP streams micro-royalties.',
     eyebrow: 'Economy'
   },
   {
