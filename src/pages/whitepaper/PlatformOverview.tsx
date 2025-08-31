@@ -18,7 +18,7 @@ const PlatformOverview = () => {
           />
           {/* Mobile Image */}
           <img 
-            src="/lovable-uploads/d256d119-8824-428c-b136-e1708943adaa.png" 
+            src="/lovable-uploads/197606e9-88ac-4da3-bec5-f7617fc6f5c6.png" 
             alt="AMAI Platform Dashboard - Mobile View"
             className="block md:hidden w-full h-48 object-cover"
           />
