@@ -114,8 +114,8 @@ const Index = () => {
               </p>
             </div>
           }
-          imageSrc="/lovable-uploads/ccdcacf8-6eae-4872-b7bf-6c8dd8c07a1a.png"
-          imageAlt="AMAI Platform Battle Pass Interface"
+          imageSrc="/lovable-uploads/fcd7ec01-cb4d-40ee-97b9-c5c397cf8275.png"
+          imageAlt="AMAI Battle Pass Season 1"
           objectFit="cover"
           overlayColor="rgba(0, 0, 0, 0)"
         />
