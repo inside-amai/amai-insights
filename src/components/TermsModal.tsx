@@ -81,7 +81,7 @@ export const TermsModal = () => {
               <section>
                 <h3 className="text-lg font-semibold text-white mb-3">Welcome</h3>
                 <p>
-                  Welcome to AMAI. Please read the following terms carefully before using this site or interacting with the AMAI token.
+                  Welcome to AMAI Labs. Please read the following terms carefully before using this site or interacting with the AMAI token.
                 </p>
               </section>
               <section>
