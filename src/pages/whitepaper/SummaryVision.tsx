@@ -11,7 +11,7 @@ const SummaryVision = () => {
         {/* Hero Image */}
         <div className="relative overflow-hidden rounded-xl mb-8">
           <img 
-            src="/lovable-uploads/32ff25db-7229-4683-83c7-347df8b57143.png" 
+            src="/lovable-uploads/bdc46dc6-efce-4181-9e6d-cb2455ae51df.png" 
             alt="AMAI Vision - Future Agent Economy"
             className="w-full h-64 lg:h-80 object-cover"
           />
