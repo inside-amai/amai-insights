@@ -11,7 +11,7 @@ const TokenGovernanceRisk = () => {
         {/* Hero Image */}
         <div className="relative overflow-hidden rounded-xl">
           <img 
-            src={tokenChart} 
+            src="/lovable-uploads/5ded7f85-a62b-4a83-a75b-848ed5bf0d02.png" 
             alt="Token, Governance & Risk"
             className="w-full h-64 lg:h-80 object-cover"
           />
