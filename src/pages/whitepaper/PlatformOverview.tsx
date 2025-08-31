@@ -8,12 +8,19 @@ const PlatformOverview = () => {
       title="Platform"
     >
       <div className="space-y-8">
-        {/* Hero Image */}
+        {/* Hero Images - Responsive */}
         <div className="relative overflow-hidden rounded-xl">
+          {/* Desktop Image */}
           <img 
             src="/lovable-uploads/f27cffd8-b7bc-4b7a-8cb0-ee14ff0e3c1f.png" 
-            alt="AMAI Platform Dashboard"
-            className="w-full h-64 lg:h-80 object-cover"
+            alt="AMAI Platform Dashboard - Desktop View"
+            className="hidden md:block w-full h-64 lg:h-80 object-cover"
+          />
+          {/* Mobile Image */}
+          <img 
+            src="/lovable-uploads/f27cffd8-b7bc-4b7a-8cb0-ee14ff0e3c1f.png" 
+            alt="AMAI Platform Dashboard - Mobile View"
+            className="block md:hidden w-full h-48 object-cover"
           />
         </div>
 
