@@ -11,7 +11,7 @@ const TechnicalDeepDive = () => {
         {/* Hero Image */}
         <div className="relative overflow-hidden rounded-xl">
           <img 
-            src="/lovable-uploads/113099c3-10f6-4a41-98b5-1057d7fdacf4.png" 
+            src="/lovable-uploads/d2f53fc8-46c5-4e02-8f3e-8c70b5a4aeca.png" 
             alt="Technical Deep-Dive"
             className="w-full h-64 lg:h-80 object-cover"
           />
