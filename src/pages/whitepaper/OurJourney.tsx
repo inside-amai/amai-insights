@@ -17,6 +17,13 @@ const OurJourney = () => {
           />
         </div>
 
+        {/* Title */}
+        <div className="text-center">
+          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-8">
+            AMAI (Autonomous Multi-Agent Intelligence)
+          </h1>
+        </div>
+
         {/* Content */}
         <div className="prose prose-lg max-w-none text-white">
           <p className="text-gray-300 leading-relaxed mb-6">
