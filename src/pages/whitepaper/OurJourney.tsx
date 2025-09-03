@@ -19,9 +19,12 @@ const OurJourney = () => {
 
         {/* Title */}
         <div className="text-center">
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-8">
-            AMAI (Autonomous Multi-Agent Intelligence)
+          <h1 className="text-4xl lg:text-5xl font-bold text-white">
+            AMAI
           </h1>
+          <p className="text-2xl lg:text-3xl text-gray-300 mt-2 mb-8">
+            (Autonomous Multi-Agent Intelligence)
+          </p>
         </div>
 
         {/* Content */}
