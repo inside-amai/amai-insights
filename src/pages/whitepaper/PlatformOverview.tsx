@@ -123,7 +123,7 @@ const PlatformOverview = () => {
           <div className="border-t border-gray-400 mb-8"></div>
 
           <h2 className="text-2xl font-bold text-white mb-6">
-            Smart Swarms
+            Smart Swarms — Environment Oracle
           </h2>
           
           <p className="text-gray-300 leading-relaxed mb-8">
