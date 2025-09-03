@@ -37,6 +37,68 @@ const OurJourney = () => {
             The first internal terminals explored multi-agent debate. We ran cohorts that exchanged messages and converged on a plan while a supervisor watched the flow. It worked, but a bottleneck appeared. No one owned the environment. Tools drifted, configs grew stale, and useful additions required a human to babysit each change. We reframed the problem as separation of concerns. One intelligence should optimize the environment, and a swarm of smaller agents should execute tasks. That idea became Smart Swarms with a meta-agent that monitors, modifies, and supervises the runtime. Execution stays fast and focused. Optimization stays continuous.
           </p>
 
+          {/* Paradigms Overview Section */}
+          <div className="my-8">
+            <h2 className="text-2xl font-semibold text-white mb-6">Paradigms Overview</h2>
+            
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse">
+                <thead>
+                  <tr className="border-b border-gray-600">
+                    <th className="text-left py-3 px-4 text-white font-medium">Paradigm</th>
+                    <th className="text-left py-3 px-4 text-white font-medium">Interaction & Feedback</th>
+                    <th className="text-left py-3 px-4 text-white font-medium">Key Techniques</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-gray-700">
+                    <td className="py-3 px-4 text-gray-300">Model Offline Pretraining (MOP)</td>
+                    <td className="py-3 px-4 text-gray-300">Model ↔ Static data (loss/backprop)</td>
+                    <td className="py-3 px-4 text-gray-300">
+                      • Transformer Pretraining (Causal LM, Masked LM, NSP)<br/>
+                      • BPE / SentencePiece<br/>
+                      • MoE and Pipeline Parallelism
+                    </td>
+                  </tr>
+                  <tr className="border-b border-gray-700">
+                    <td className="py-3 px-4 text-gray-300">Model Online Adaptation (MOA)</td>
+                    <td className="py-3 px-4 text-gray-300">Model ↔ Supervision (labels/scores/rewards)</td>
+                    <td className="py-3 px-4 text-gray-300">
+                      • Task fine-tuning<br/>
+                      • Instruction tuning<br/>
+                      • LoRA / Adapters / Prefix-Tuning<br/>
+                      • RLHF (RLAIF, DPO, PPO)<br/>
+                      • Multimodal alignment<br/>
+                      • Human alignment
+                    </td>
+                  </tr>
+                  <tr className="border-b border-gray-700">
+                    <td className="py-3 px-4 text-gray-300">Multi-Agent Orchestration (MAO)</td>
+                    <td className="py-3 px-4 text-gray-300">Agent₁ ↔ Agent₂ (message exchange)</td>
+                    <td className="py-3 px-4 text-gray-300">
+                      • Multi-agent systems<br/>
+                      • Self-reflection<br/>
+                      • Multi-agent debate<br/>
+                      • Chain-of-Thought ensemble<br/>
+                      • Function / tool calling / MCP
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 px-4 text-gray-300">Multi-Agent Self-Evolving (MASE)</td>
+                    <td className="py-3 px-4 text-gray-300">Agents ↔ Environment (signals from env.)</td>
+                    <td className="py-3 px-4 text-gray-300">
+                      • Behavior optimization<br/>
+                      • Prompt optimization<br/>
+                      • Memory optimization<br/>
+                      • Tool optimization<br/>
+                      • Agentic workflow optimization
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
           <p className="text-gray-300 leading-relaxed mb-6">
             The team formed around that insight in the last quarter of the year. We pulled together prior threads that already lived inside our work. Personality injection showed that agents behave differently when seeded with distinct identities. Controlled emotional state injection proved interesting but too noisy at scale, which taught us to favor mechanisms that improve reliability and cost. We iterated through function calling and MCP-style tool stacks, pruned what added entropy, and kept what raised task success. The current Terminal is the sum of those experiments, shipped as a cleaner, more deterministic system.
           </p>
