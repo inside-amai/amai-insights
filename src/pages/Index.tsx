@@ -216,7 +216,7 @@ const Index = () => {
       <section className="relative w-full">
         <div className="w-full h-[60vh] lg:h-[70vh] overflow-hidden">
           <img 
-            src="/lovable-uploads/d0246621-234b-4a85-8f57-acc3ca0d8858.png"
+            src="/lovable-uploads/1e92cbc3-b553-493b-a333-bea6c2a6d0ae.png"
             alt="Future Vision"
             className="w-full h-full object-cover object-center"
           />
