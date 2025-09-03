@@ -7,14 +7,14 @@ import { Footer } from '@/components/Footer';
 
 export const whitepaperSections = [
   { slug: 'summary-vision', title: 'Summary & Vision' },
+  { slug: 'Our-journey', title: 'Our Journey' },
   { slug: 'platform-overview', title: 'Platform' },
   { slug: 'problem-landscape', title: 'Problem' },
   { slug: 'system-architecture', title: 'Architecture' },
   { slug: 'technical-deep-dive', title: 'Technical' },
   { slug: 'agent-economy-kips', title: 'Agent Economy' },
   { slug: 'roadmap-milestones', title: 'Roadmap' },
-  { slug: 'token', title: 'Token' },
-  { slug: 'compliance-assurance', title: 'Compliance' }
+  { slug: 'token', title: 'Token' }
 ];
 
 interface WhitepaperLayoutProps {

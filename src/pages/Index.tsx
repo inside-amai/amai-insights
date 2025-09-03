@@ -24,6 +24,12 @@ const whitepaperSections = [
     eyebrow: 'Overview'
   },
   {
+    slug: 'Our-journey',
+    title: 'How We Got Here',
+    description: 'Our path from early agent experiments to building the control tower for a machine-first economy.',
+    eyebrow: 'Our Journey'
+  },
+  {
     slug: 'platform-overview',
     title: 'Platform Overview',
     description: 'Revolutionary AI Terminal with autonomous operations and real-time execution capabilities.',
@@ -64,12 +70,6 @@ const whitepaperSections = [
     title: 'Token Utility',
     description: 'Utility-only AMAI token, burn mechanics, circuit-breaker governance, key risks.',
     eyebrow: 'Token'
-  },
-  {
-    slug: 'compliance-assurance',
-    title: 'Compliance & Assurance',
-    description: 'Regulatory posture, data-protection safeguards, and audit pathways for enterprise adoption.',
-    eyebrow: 'Compliance'
   }
 ];
 
