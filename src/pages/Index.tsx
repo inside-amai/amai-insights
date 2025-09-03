@@ -214,19 +214,13 @@ const Index = () => {
 
       {/* Full Width Hero Image Section */}
       <section className="relative w-full">
-        <motion.div
-          initial={{ opacity: 0, scale: 1.1 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="w-full h-[60vh] lg:h-[70vh] overflow-hidden"
-        >
+        <div className="w-full h-[60vh] lg:h-[70vh] overflow-hidden">
           <img 
             src="/lovable-uploads/41b9aea5-c415-4574-a22f-b6a4d08387e9.png"
             alt="Future Vision"
             className="w-full h-full object-cover object-center"
           />
-        </motion.div>
+        </div>
       </section>
 
       {/* Whitepaper Section */}
