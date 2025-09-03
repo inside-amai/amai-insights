@@ -123,6 +123,16 @@ const PlatformOverview = () => {
           <div className="border-t border-gray-400 mb-8"></div>
 
           <h2 className="text-2xl font-bold text-white mb-6">
+            Smart Swarms
+          </h2>
+          
+          <p className="text-gray-300 leading-relaxed mb-8">
+            Smart Swarms take their cue from Mixture-of-Experts models. In MoE, a router selects the right experts so each token step stays on target. In our system, AMAI plays that router for agents. AMAI watches the domain, the user goal, and the live state of execution. On a short cadence of ticks it inspects messages, tool calls, memory, and results. It then routes the next messages to the most relevant agents, spins modules up or down, and pauses components that are not useful. AMAI acts as an oracle over the environment, shaping which skills engage, which are muted, and how resources are spent. The result is higher intent inside the swarm, lower entropy, and better use of compute and gas. Tasks advance with fewer detours, clear ownership, and a tight loop between planning and action.
+          </p>
+
+          <div className="border-t border-gray-400 mb-8"></div>
+
+          <h2 className="text-2xl font-bold text-white mb-6">
             Treasury & Analytics — Your On-Chain Bloomberg Terminal
           </h2>
 
