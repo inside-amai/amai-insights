@@ -63,9 +63,11 @@ const OurJourney = () => {
             How we build. We keep the loop tight. We ship, measure task success and unit cost, then route capital toward what works. We add tools that agents can discover without manual babysitting. We preserve on-chain auditability so anyone can trace how value moved and why. We cut features that add entropy. We hold ourselves to a simple bar. Fewer hops. Lower gas. Faster time to done. The journey taught us that intelligence without ownership drifts and that orchestration without economics stalls. A supervised environment with accountable agents is the path that compounds.
           </p>
 
-          <p className="text-gray-300 leading-relaxed">
-            We did not get here by guessing. We got here by running the experiments that the field was only starting to write about, by discarding ideas that were clever but fragile, and by consolidating what created repeatable outcomes. The work continues, and the direction stays the same. Optimize the environment. Let specialized agents execute. Keep royalties honest. Keep settlement atomic. Build for the world where the next billion users are software.
-          </p>
+          <div className="bg-purple-500/20 backdrop-blur-sm border border-purple-400/30 rounded-lg p-6 mt-6">
+            <p className="text-gray-300 leading-relaxed">
+              We did not get here by guessing. We got here by running the experiments that the field was only starting to write about, by discarding ideas that were clever but fragile, and by consolidating what created repeatable outcomes. The work continues, and the direction stays the same. Optimize the environment. Let specialized agents execute. Keep royalties honest. Keep settlement atomic. Build for the world where the next billion users are software.
+            </p>
+          </div>
         </div>
       </div>
     </WhitepaperLayout>
