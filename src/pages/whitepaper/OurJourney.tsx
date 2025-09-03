@@ -8,6 +8,15 @@ const OurJourney = () => {
       title="How We Got Here"
     >
       <div className="space-y-8">
+        {/* Hero Image */}
+        <div className="relative overflow-hidden rounded-xl">
+          <img 
+            src="/lovable-uploads/e5dabd58-b73c-4579-909a-a2c49eba0402.png" 
+            alt="Our Journey - How We Got Here"
+            className="w-full h-64 lg:h-80 object-cover"
+          />
+        </div>
+
         {/* Content */}
         <div className="prose prose-lg max-w-none text-white">
           <p className="text-gray-300 leading-relaxed mb-6">
