@@ -222,7 +222,7 @@ const Index = () => {
           className="w-full h-[60vh] lg:h-[70vh] overflow-hidden"
         >
           <img 
-            src="/lovable-uploads/69896022-4a85-425a-b8c4-22b633682b5f.png"
+            src="/lovable-uploads/41b9aea5-c415-4574-a22f-b6a4d08387e9.png"
             alt="Future Vision"
             className="w-full h-full object-cover object-center"
           />
