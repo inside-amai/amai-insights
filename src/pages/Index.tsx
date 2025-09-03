@@ -212,6 +212,23 @@ const Index = () => {
         </div>
       </div>
 
+      {/* Full Width Hero Image Section */}
+      <section className="relative w-full">
+        <motion.div
+          initial={{ opacity: 0, scale: 1.1 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="w-full h-[60vh] lg:h-[70vh] overflow-hidden"
+        >
+          <img 
+            src="/lovable-uploads/69896022-4a85-425a-b8c4-22b633682b5f.png"
+            alt="Future Vision"
+            className="w-full h-full object-cover object-center"
+          />
+        </motion.div>
+      </section>
+
       {/* Whitepaper Section */}
       <section id="technical-docs" className="relative isolate py-28 md:py-36 overflow-hidden" style={{ background: 'linear-gradient(135deg, #A6FCFC33, #fafdff, #D6A6FC33)' }}>
         {/* Strong visible gradient overlays */}
