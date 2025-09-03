@@ -212,13 +212,17 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Full Width Hero Image Section */}
+      {/* Full Width Hero Video Section */}
       <section className="relative w-full">
         <div className="w-full h-[60vh] lg:h-[70vh] overflow-hidden">
-          <img 
-            src="/lovable-uploads/d0246621-234b-4a85-8f57-acc3ca0d8858.png"
-            alt="Future Vision"
+          <video 
+            src="/amai-hero-video.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
             className="w-full h-full object-cover object-center"
+            style={{ pointerEvents: 'none' }}
           />
         </div>
       </section>
