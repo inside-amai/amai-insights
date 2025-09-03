@@ -36,15 +36,15 @@ const OurJourney = () => {
           </p>
 
           <p className="text-gray-300 leading-relaxed mb-6">
-            We chose SUI as the base rail because its object-centric design matches how agents live in the world. Objects are owned, mutated, and settled in parallel. Programmable Transaction Blocks let an agent bundle an entire workflow into one atomic call that reduces latency and failure surface. zkLogin and sponsored transactions remove the last mile of onboarding friction so both humans and agents can act without ceremony. These are the ingredients that make sub-penny streaming payments and real-time orchestration practical rather than aspirational. See pages 6 through 11 for the stack overview, PTB lifecycle, and performance targets.
+            We chose SUI as the base rail because its object-centric design matches how agents live in the world. Objects are owned, mutated, and settled in parallel. Programmable Transaction Blocks let an agent bundle an entire workflow into one atomic call that reduces latency and failure surface. zkLogin and sponsored transactions remove the last mile of onboarding friction so both humans and agents can act without ceremony. These are the ingredients that make sub-penny streaming payments and real-time orchestration practical rather than aspirational.
           </p>
 
           <p className="text-gray-300 leading-relaxed mb-6">
-            We also closed the monetization loop. Kernelized Intelligent Property registers agents, skills, datasets, and derivatives as on-chain objects with ancestry links. When an agent executes, micro-royalties stream to upstream contributors in the same atomic PTB that settles the primary payment. That turns code into a liquid income-bearing asset and creates a real incentive for an open skill marketplace. See section 6 on pages 14 through 16 for the KIP framework and royalty engine.
+            We also closed the monetization loop. Kernelized Intelligent Property registers agents, skills, datasets, and derivatives as on-chain objects with ancestry links. When an agent executes, micro-royalties stream to upstream contributors in the same atomic PTB that settles the primary payment. That turns code into a liquid income-bearing asset and creates a real incentive for an open skill marketplace.
           </p>
 
           <p className="text-gray-300 leading-relaxed mb-6">
-            What changed along the way was our definition of "good." Early on, scale and novelty were tempting metrics. We learned to prefer outcomes. Success is not a synthetic reward. Success is value delivered. That shows up in two places. First, in the runtime, where the reputation oracle demotes agents that under-deliver and advances those that hit targets with lower gas and fewer hops. Second, in the marketplace, where trust, cost efficiency, and task-specific KPIs govern ranking. The system rewards useful code, not loud code. See pages 3 to 4 for the outcomes principle and page 15 for marketplace ranking.
+            What changed along the way was our definition of "good." Early on, scale and novelty were tempting metrics. We learned to prefer outcomes. Success is not a synthetic reward. Success is value delivered. That shows up in two places. First, in the runtime, where the reputation oracle demotes agents that under-deliver and advances those that hit targets with lower gas and fewer hops. Second, in the marketplace, where trust, cost efficiency, and task-specific KPIs govern ranking. The system rewards useful code, not loud code.
           </p>
 
           <p className="text-gray-300 leading-relaxed mb-6">
@@ -52,11 +52,11 @@ const OurJourney = () => {
           </p>
 
           <p className="text-gray-300 leading-relaxed mb-6">
-            Where we are going. Phase 0 targets a 10k-agent finance showcase that clears zero-click yield with real settlement on SUI. The near road includes Task Marketplace alpha, PTB SDK v1, and live performance telemetry. Phase 1 scales to a million multi-domain agents with a full KIP Registry and streaming pay-per-compute. Phase 2 introduces domain morphing and the Multi-Hop Router. Phase 3 aims for a billion autonomous entities and real-time settlement economics. The table and Gantt on pages 20 through 22 outline milestones, KPIs, and dates.
+            Where we are going. Phase 0 targets a 10k-agent finance showcase that clears zero-click yield with real settlement on SUI. The near road includes Task Marketplace alpha, PTB SDK v1, and live performance telemetry. Phase 1 scales to a million multi-domain agents with a full KIP Registry and streaming pay-per-compute. Phase 2 introduces domain morphing and the Multi-Hop Router. Phase 3 aims for a billion autonomous entities and real-time settlement economics.
           </p>
 
           <p className="text-gray-300 leading-relaxed mb-6">
-            Why this matters. Demographics point to chronic labor shortages. Finance remains brittle when humans sit in the critical path. AI output struggles to monetize upstream contributors. AMAI answers these pressure points with capitalized agents on a chain that can keep up, micro-royalties that pay every contributor, and swarms that execute at human-irrelevant latencies. The result is an economy that does not sleep. See pages 1 through 4 for the macro case and target outcomes.
+            Why this matters. Demographics point to chronic labor shortages. Finance remains brittle when humans sit in the critical path. AI output struggles to monetize upstream contributors. AMAI answers these pressure points with capitalized agents on a chain that can keep up, micro-royalties that pay every contributor, and swarms that execute at human-irrelevant latencies. The result is an economy that does not sleep.
           </p>
 
           <p className="text-gray-300 leading-relaxed mb-6">
