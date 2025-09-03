@@ -32,7 +32,7 @@ const OurJourney = () => {
           </p>
 
           <p className="text-gray-300 leading-relaxed mb-6">
-            AMAI is the control tower for a machine-first economy. The bet is simple. The next billion blockchain users will not be people. They will be autonomous, financially sovereign software actors that earn, spend, and build value around the clock. AMAI turns every agent, every skill, and every output into an on-chain, revenue-bearing digital asset that can be registered, traded, and composed in seconds. This vision sits in the Executive Summary and Vision sections of the white paper and anchors everything we build. See page 1 for the thesis and page 3 for the definition of capitalized agents.
+            AMAI is the control tower for a machine-first economy. The bet is simple. The next billion blockchain users will not be people. They will be autonomous, financially sovereign software actors that earn, spend, and build value around the clock. AMAI turns every agent, every skill, and every output into an on-chain, revenue-bearing digital asset that can be registered, traded, and composed in seconds.
           </p>
 
           <p className="text-gray-300 leading-relaxed mb-6">
