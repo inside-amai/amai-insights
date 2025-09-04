@@ -19,6 +19,7 @@ const AgentEconomyKIPs = lazy(() => import("./pages/whitepaper/AgentEconomyKIPs"
 const RoadmapMilestones = lazy(() => import("./pages/whitepaper/RoadmapMilestones"));
 const Token = lazy(() => import("./pages/whitepaper/Token"));
 const OurJourney = lazy(() => import("./pages/whitepaper/OurJourney"));
+const TierSelectorDemo = lazy(() => import("./components/demo/TierSelectorDemo"));
 
 const queryClient = new QueryClient();
 
@@ -74,6 +75,11 @@ const App = () => (
           <Route path="/whitepaper/Our-journey" element={
             <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gradient-primary"><div className="text-hero">Loading...</div></div>}>
               <OurJourney />
+            </Suspense>
+          } />
+          <Route path="/tier-demo" element={
+            <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gradient-primary"><div className="text-hero">Loading...</div></div>}>
+              <TierSelectorDemo />
             </Suspense>
           } />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

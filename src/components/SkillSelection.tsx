@@ -1,8 +1,23 @@
 import { motion } from 'framer-motion';
-import { TierDot, STAKE_TIERS } from "@/components/ui/stake-badge";
+import { useState } from 'react';
+import { TierSelector, STAKE_TIERS } from "@/components/ui/tier-selector";
+import { useToast } from "@/hooks/use-toast";
 
 
 export const SkillSelection = () => {
+  const [selectedTier, setSelectedTier] = useState(2); // Start with Legendary
+  const { toast } = useToast();
+
+  const handleTierSelect = (tierIndex: number, tier: typeof STAKE_TIERS[0]) => {
+    setSelectedTier(tierIndex);
+    
+    // Show toast notification
+    toast({
+      title: `${tier.name} Tier Selected`,
+      description: `${tier.min.toLocaleString()} AMAI + ${Math.ceil(tier.min / 100)} SUI`,
+      duration: 2000,
+    });
+  };
   return (
     <div className="relative bg-transparent py-12">
       <div className="container mx-auto px-6">
@@ -23,15 +38,12 @@ export const SkillSelection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="flex justify-center flex-wrap gap-x-12 gap-y-4 mt-6 mb-2"
         >
-          {STAKE_TIERS.map((tier, index) => (
-            <TierDot 
-              key={tier.name}
-              tier={tier}
-              active={index === 2} // This makes Legendary (index 2) active
-            />
-          ))}
+          <TierSelector
+            selectedTier={selectedTier}
+            onTierSelect={handleTierSelect}
+            className="mt-6 mb-2"
+          />
         </motion.div>
       </div>
     </div>
