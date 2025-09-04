@@ -12,6 +12,7 @@ import { Header } from '@/components/Header';
 import { TermsModal } from '@/components/TermsModal';
 import { TechnicalFoundationSection } from '@/components/TechnicalFoundationSection';
 import { Footer } from '@/components/Footer';
+import { SkillSelection } from '@/components/SkillSelection';
 import terminalDemo from '@/assets/terminal-demo.jpg';
 import circuitBoard from '@/assets/circuit-board.jpg';
 import tokenChart from '@/assets/token-chart.jpg';
@@ -100,6 +101,8 @@ const Index = () => {
             </span>
           </motion.h2>
         </div>
+        
+        <SkillSelection />
         
         <ExplainerSection
           eyebrow="Platform"
