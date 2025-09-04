@@ -6,8 +6,8 @@ const RoadmapRibbon = () => {
   const stages = [
     {
       pill: "Today",
-      title: "Live Alpha Grid MVP",
-      body: "Multi-agent builder, swarm composer & wallet-connected dashboard running on prod infra with real-time devnet settlement."
+      title: "Sandbox-proven v2",
+      body: "Agent personality, Smart Swarms, and on-chain oracle, evolving from chat to coordinated action."
     },
     {
       pill: "2025 Q4 → 2026",
