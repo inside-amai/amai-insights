@@ -1,0 +1,90 @@
+import { cn } from "@/lib/utils";
+import { Shield, Gem, Trophy, Zap, Star } from "lucide-react";
+
+export const TIER_ICONS = {
+  Common:    { icon: "Shield",        cls: "text-gray-400",   glow: "" },
+  Rare:      { icon: "Gem",           cls: "text-blue-300",   glow: "shadow-cyan-400" },
+  Legendary: { icon: "Trophy",        cls: "text-amber-300",  glow: "shadow-amber-400" },
+  Mythic:    { icon: "Zap",           cls: "text-violet-300", glow: "shadow-violet-500" },
+  Exotic:    { icon: "Star",          cls: "text-cyan-300",   glow: "shadow-cyan-500" }
+};
+
+export const STAKE_TIERS = [
+  { min: 100,     name: "Common",    color: "text-gray-300",   glow: "",                  icon: "Shield", ring: "ring-gray-500",    skillCap: 2 },
+  { min: 500,     name: "Rare",      color: "text-blue-300",   glow: "shadow-cyan-400",   icon: "Gem",    ring: "ring-blue-500",    skillCap: 4 },
+  { min: 2_500,   name: "Legendary", color: "text-amber-300",  glow: "shadow-amber-400",  icon: "Trophy", ring: "ring-amber-500",   skillCap: 6 },
+  { min: 10_000,  name: "Mythic",    color: "text-violet-300", glow: "shadow-violet-500", icon: "Zap",    ring: "ring-violet-500",  skillCap: 8 },
+  { min: 100_000, name: "Exotic",    color: "text-cyan-300",   glow: "shadow-cyan-500",   icon: "Star",   ring: "ring-cyan-500",    skillCap: Infinity }
+];
+
+const iconMap = { Shield, Gem, Trophy, Zap, Star };
+
+interface TierDotProps {
+  tier: typeof STAKE_TIERS[0];
+  active: boolean;
+}
+
+export function TierDot({ tier, active }: TierDotProps) {
+  const { icon, cls } = TIER_ICONS[tier.name as keyof typeof TIER_ICONS];
+  const IconComponent = iconMap[icon as keyof typeof iconMap];
+  const formattedStake = tier.min >= 1000 ? `${tier.min / 1000}k` : tier.min;
+  const suiAmount = Math.ceil(tier.min / 100);
+
+  const getTierStyling = (tierName: string, isActive: boolean) => {
+    const baseStyles = {
+      background: "bg-gradient-to-b from-gray-800/30 to-gray-900/30 backdrop-blur-sm",
+      border: "border-gray-600/50",
+      iconGlow: "",
+      textShimmer: ""
+    };
+
+    if (!isActive) return baseStyles;
+
+    switch (tierName) {
+      case 'Legendary':
+        return {
+          background: "bg-gradient-to-b from-amber-800/60 to-orange-900/80 backdrop-blur-md",
+          border: "border-amber-400/70 ring-2 ring-amber-400/50",
+          iconGlow: "filter drop-shadow-[0_0_15px_rgba(251,191,36,0.8)]",
+          textShimmer: "bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-300 bg-clip-text text-transparent animate-shimmer bg-[length:200%_100%]"
+        };
+      // Add other cases as needed
+      default:
+        return baseStyles;
+    }
+  };
+
+  const styling = getTierStyling(tier.name, active);
+
+  return (
+    <div 
+      className={cn(
+        "flex flex-col items-center w-24 p-3 rounded-xl border transition-all duration-300",
+        styling.background,
+        styling.border,
+        active && "transform scale-105"
+      )}
+    >
+      <IconComponent
+        className={cn(
+          cls,
+          "text-[28px] transition-all duration-300",
+          active && styling.iconGlow
+        )}
+        size={28}
+      />
+      <span className={cn(
+        "mt-2 text-xs font-bold tracking-wide",
+        active ? styling.textShimmer : "text-gray-300"
+      )}>
+        {tier.name}
+      </span>
+      <span className={cn(
+        "text-[10px] mt-1 whitespace-nowrap font-medium",
+        active ? "text-gray-200" : "text-gray-400"
+      )}>
+        {formattedStake} AMAI<br/>+ {suiAmount} SUI
+      </span>
+    </div>
+  );
+}

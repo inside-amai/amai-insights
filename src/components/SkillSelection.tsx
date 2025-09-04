@@ -1,79 +1,6 @@
 import { motion } from 'framer-motion';
-import { Shield, Diamond, Trophy, Zap, Star } from 'lucide-react';
+import { TierDot, STAKE_TIERS } from "@/components/ui/stake-badge";
 
-interface SkillCategory {
-  name: string;
-  amai: string;
-  sui: string;
-  rarity: 'common' | 'rare' | 'legendary' | 'mythic' | 'exotic';
-  icon: React.ComponentType<any>;
-}
-
-const skillCategories: SkillCategory[] = [
-  {
-    name: 'Common',
-    amai: '100 AMAI',
-    sui: '+ 1 SUI',
-    rarity: 'common',
-    icon: Shield
-  },
-  {
-    name: 'Rare',
-    amai: '500 AMAI',
-    sui: '+ 5 SUI',
-    rarity: 'rare',
-    icon: Diamond
-  },
-  {
-    name: 'Legendary',
-    amai: '2.5k AMAI',
-    sui: '+ 25 SUI',
-    rarity: 'legendary',
-    icon: Trophy
-  },
-  {
-    name: 'Mythic',
-    amai: '10k AMAI',
-    sui: '+ 100 SUI',
-    rarity: 'mythic',
-    icon: Zap
-  },
-  {
-    name: 'Exotic',
-    amai: '100k AMAI',
-    sui: '+ 1000 SUI',
-    rarity: 'exotic',
-    icon: Star
-  }
-];
-
-const rarityStyles = {
-  common: {
-    border: 'border-gray-400/50',
-    text: 'text-gray-300',
-    bg: 'bg-white/5'
-  },
-  rare: {
-    border: 'border-blue-400/50',
-    text: 'text-blue-300',
-    bg: 'bg-blue-500/10'
-  },
-  legendary: {
-    border: 'border-yellow-400/50',
-    text: 'text-yellow-300',
-    bg: 'bg-yellow-500/10'
-  },
-  mythic: {
-    border: 'border-purple-400/50',
-    text: 'text-purple-300',
-    bg: 'bg-purple-500/10'
-  },
-  exotic: {
-    border: 'border-cyan-400/50',
-    text: 'text-cyan-300',
-    bg: 'bg-cyan-500/10'
-  }
-};
 
 export const SkillSelection = () => {
   return (
@@ -96,48 +23,15 @@ export const SkillSelection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto"
+          className="flex justify-center flex-wrap gap-x-12 gap-y-4 mt-6 mb-2"
         >
-          {skillCategories.map((category, index) => {
-            const isLegendary = category.rarity === 'legendary';
-            const styles = rarityStyles[category.rarity];
-            const IconComponent = category.icon;
-            
-            return (
-              <motion.div
-                key={category.name}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
-                className={`
-                  relative rounded-lg p-6 min-w-[140px] cursor-pointer transition-all duration-300
-                  ${styles.bg} ${styles.border} border-2
-                  ${isLegendary ? 'shadow-[0_0_20px_rgba(255,215,0,0.6)] ring-2 ring-yellow-400/80' : ''}
-                  backdrop-blur-md
-                `}
-              >
-                <div className="text-center">
-                  <div className="mb-4 flex justify-center">
-                    <IconComponent 
-                      size={32} 
-                      className={styles.text}
-                    />
-                  </div>
-                  <div className={`text-lg font-semibold mb-2 ${styles.text}`}>
-                    {category.name}
-                  </div>
-                  <div className="text-white text-sm font-medium mb-1">
-                    {category.amai}
-                  </div>
-                  <div className="text-gray-300 text-sm">
-                    {category.sui}
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
+          {STAKE_TIERS.map((tier, index) => (
+            <TierDot 
+              key={tier.name}
+              tier={tier}
+              active={index === 2} // This makes Legendary (index 2) active
+            />
+          ))}
         </motion.div>
       </div>
     </div>
