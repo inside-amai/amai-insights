@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion';
+import { Shield, Diamond, Trophy, Zap, Star } from 'lucide-react';
 
 interface SkillCategory {
   name: string;
   amai: string;
   sui: string;
   rarity: 'common' | 'rare' | 'legendary' | 'mythic' | 'exotic';
+  icon: React.ComponentType<any>;
 }
 
 const skillCategories: SkillCategory[] = [
@@ -12,31 +14,36 @@ const skillCategories: SkillCategory[] = [
     name: 'Common',
     amai: '100 AMAI',
     sui: '+ 1 SUI',
-    rarity: 'common'
+    rarity: 'common',
+    icon: Shield
   },
   {
     name: 'Rare',
     amai: '500 AMAI',
     sui: '+ 5 SUI',
-    rarity: 'rare'
+    rarity: 'rare',
+    icon: Diamond
   },
   {
     name: 'Legendary',
     amai: '2.5k AMAI',
     sui: '+ 25 SUI',
-    rarity: 'legendary'
+    rarity: 'legendary',
+    icon: Trophy
   },
   {
     name: 'Mythic',
     amai: '10k AMAI',
     sui: '+ 100 SUI',
-    rarity: 'mythic'
+    rarity: 'mythic',
+    icon: Zap
   },
   {
     name: 'Exotic',
     amai: '100k AMAI',
     sui: '+ 1000 SUI',
-    rarity: 'exotic'
+    rarity: 'exotic',
+    icon: Star
   }
 ];
 
@@ -94,6 +101,7 @@ export const SkillSelection = () => {
           {skillCategories.map((category, index) => {
             const isLegendary = category.rarity === 'legendary';
             const styles = rarityStyles[category.rarity];
+            const IconComponent = category.icon;
             
             return (
               <motion.div
@@ -106,11 +114,17 @@ export const SkillSelection = () => {
                 className={`
                   relative rounded-lg p-6 min-w-[140px] cursor-pointer transition-all duration-300
                   ${styles.bg} ${styles.border} border-2
-                  ${isLegendary ? 'ring-2 ring-yellow-400/50' : ''}
+                  ${isLegendary ? 'shadow-[0_0_20px_rgba(255,215,0,0.6)] ring-2 ring-yellow-400/80' : ''}
                   backdrop-blur-sm
                 `}
               >
                 <div className="text-center">
+                  <div className="mb-4 flex justify-center">
+                    <IconComponent 
+                      size={32} 
+                      className={styles.text}
+                    />
+                  </div>
                   <div className={`text-lg font-semibold mb-2 ${styles.text}`}>
                     {category.name}
                   </div>
