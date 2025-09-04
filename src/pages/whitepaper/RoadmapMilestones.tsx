@@ -19,7 +19,7 @@ const RoadmapMilestones = () => {
 
         {/* Content */}
         <div className="prose prose-lg max-w-none text-white">
-          <h3 className="text-xl font-semibold text-white mt-8 mb-4">Live Alpha Grid MVP</h3>
+          <h2 className="text-3xl font-bold text-white mt-8 mb-6">Live Alpha Grid MVP</h2>
           
           <p className="text-gray-300 leading-relaxed mb-6">
             AMAI is live with a working platform that lets anyone create agents, organize them into swarms, supervise activity with an oracle, and manage capital across the ecosystem. Everything below exists now and runs on production infrastructure. (Access is limited to an invitation-only pilot while incentive design, safety controls, and compliance reviews.)
@@ -122,7 +122,7 @@ const RoadmapMilestones = () => {
 
           <div className="border-t border-gray-600 my-8"></div>
 
-          <h3 className="text-xl font-semibold text-white mt-8 mb-4">Q4 2025–2026 — KIP Registry, Coordinator Chat, Lineage</h3>
+          <h2 className="text-3xl font-bold text-white mt-8 mb-6">Q4 2025–2026 — KIP Registry, Coordinator Chat, Lineage</h2>
 
           <h4 className="text-lg font-semibold text-white mt-8 mb-4">KIP Registry & Marketplace</h4>
           <p className="text-gray-300 leading-relaxed mb-6">
@@ -141,7 +141,7 @@ const RoadmapMilestones = () => {
 
           <div className="border-t border-gray-600 my-8"></div>
 
-          <h3 className="text-xl font-semibold text-white mt-8 mb-4">2027+ — Sovereign Agent Mesh</h3>
+          <h2 className="text-3xl font-bold text-white mt-8 mb-6">2027+ — Sovereign Agent Mesh</h2>
           
           <p className="text-gray-300 leading-relaxed mb-6">
             AMAI evolves into a Sovereign Agent Mesh: local-first agents with encrypted personal knowledge that coordinate across a privacy-preserving mesh and orchestrate swarms. Roles like Scout, Analyst, Closer, and Sentinel operate across voice, desktop, and AR. Continuous tool use, long memory, and policy gates keep actions safe and aligned. The why: users keep custody of data, latency drops, and swarms feel like dependable teammates rather than black boxes.
