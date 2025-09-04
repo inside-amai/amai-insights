@@ -7,7 +7,7 @@ const RoadmapRibbon = () => {
     {
       pill: "Today",
       title: "Live Alpha Grid MVP",
-      body: "Multi-agent builder, swarm composer & wallet-connected dashboard running on prod infra with real-time devnet settlement."
+      body: "Multi-agent builder, smart swarm composer, wallet-connected dashboard & on-chain oracle."
     },
     {
       pill: "2025 Q4 → 2026",
