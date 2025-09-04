@@ -12,7 +12,7 @@ const RoadmapRibbon = () => {
     {
       pill: "2025 Q4 → 2026",
       title: "Bonded Trust & Swarm",
-      body: "• Real-time oracle logs hourly trust scores to each Agent SBT.\n• Deploy N agents, verify trust ≥ threshold, mint Swarm SBT & avatar."
+      body: "Oracle updates each Agent Soul-Bound Token (SBT) with hourly trust scores. Launch N agents, confirm scores meet threshold, then mint a Swarm SBT and assign its avatar."
     },
     {
       pill: "2026 +",
