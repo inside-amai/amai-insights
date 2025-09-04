@@ -112,6 +112,12 @@ export function TierDot({ tier, active }: TierDotProps) {
       )}>
         {formattedStake} AMAI<br/>+ {suiAmount} SUI
       </span>
+      <span className={cn(
+        "text-[10px] mt-1 font-medium",
+        "text-gray-500"
+      )}>
+        {tier.skillCap === Infinity ? "∞" : tier.skillCap} Skills
+      </span>
     </div>
   );
 }
