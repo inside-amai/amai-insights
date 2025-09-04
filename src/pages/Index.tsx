@@ -57,7 +57,7 @@ const whitepaperSections = [
   {
     slug: 'agent-economy-kips',
     title: 'Agent Economy & KIPs',
-    description: 'How capitalized agents earn/spend and how Kernelised IP streams micro-royalties.',
+    description: 'How capitalized agents earn/spend and how Kernelized IP streams micro-royalties.',
     eyebrow: 'Economy'
   },
   {
