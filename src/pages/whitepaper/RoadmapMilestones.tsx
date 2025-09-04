@@ -19,94 +19,19 @@ const RoadmapMilestones = () => {
 
         {/* Content */}
         <div className="prose prose-lg max-w-none text-white">
-          <h3 className="text-xl font-semibold text-white mt-8 mb-4">1. Live Alpha (today)</h3>
+          <h3 className="text-xl font-semibold text-white mt-8 mb-4">2027+ — Sovereign Agent Mesh</h3>
           
-          <ul className="space-y-3 text-gray-300 mb-6">
-            <li className="flex items-start">
-              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
-              <span>Spin up a multi-agent swarm on devnet.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
-              <span>Connect your wallet through zkLogin and test real-time settlement.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
-              <span>Build with a plug-and-play kernel: modular Move contracts plus TypeScript SDK.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
-              <span>Forty early testers, zero critical crashes, sub-500 ms chat latency.</span>
-            </li>
-          </ul>
+          <p className="text-gray-300 leading-relaxed mb-6">
+            AMAI evolves into a Sovereign Agent Mesh: local-first agents with encrypted personal knowledge that coordinate across a privacy-preserving mesh and orchestrate swarms. Roles like Scout, Analyst, Closer, and Sentinel operate across voice, desktop, and AR. Continuous tool use, long memory, and policy gates keep actions safe and aligned. The why: users keep custody of data, latency drops, and swarms feel like dependable teammates rather than black boxes.
+          </p>
 
-          <h3 className="text-xl font-semibold text-white mt-8 mb-4">2. Q4 2025 — Trust & PTB Automation</h3>
-          
-          <ul className="space-y-3 text-gray-300 mb-6">
-            <li className="flex items-start">
-              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
-              <span>Bonded Trust alpha: on-chain oracle writes hourly trust scores to each Agent SBT.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
-              <span>One-click PTB Builder SDK (v0.1) compiles and gas-simulates a full workflow inside the UI.</span>
-            </li>
-          </ul>
-
-          <h3 className="text-xl font-semibold text-white mt-8 mb-4">3. Q1 2026 — Swarm Main-net Launch</h3>
-          
-          <ul className="space-y-3 text-gray-300 mb-6">
-            <li className="flex items-start">
-              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
-              <span>Bond / Slash contract reaches general availability with one-click slash hook.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
-              <span>Skill-NFT registry mints KIP objects with lineage events for indexers.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
-              <span>Swarm Deployer alpha: verify cumulative trust, mint Swarm SBT and cluster avatar in one transaction.</span>
-            </li>
-          </ul>
-
-          <h3 className="text-xl font-semibold text-white mt-8 mb-4">4. Q2 2026 — Revenue Streams</h3>
-          
-          <ul className="space-y-3 text-gray-300 mb-6">
-            <li className="flex items-start">
-              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
-              <span>Royalty Router sends real-time splits to contributors; dashboards stream via WebSocket.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
-              <span>State-channel Pay-Per-Compute beta: 10 ms ticks, fraud-proof timeout logic.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
-              <span>LLM micro-service container with agent-specific embeddings via REST / gRPC.</span>
-            </li>
-          </ul>
-
-          <h3 className="text-xl font-semibold text-white mt-8 mb-4">5. 2026+ — Enterprise-grade Operations</h3>
-          
-          <ul className="space-y-3 text-gray-300 mb-6">
-            <li className="flex items-start">
-              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
-              <span>Comprehensive RLS and authorization: wallet-scoped policies across profiles, agents, swarms and KIPs.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
-              <span>Monitoring and alerting stack: RPC latency, PTB failures and oracle lag to Grafana plus Discord hooks.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="mr-3 mt-1" style={{ color: '#A6FCFC' }}>•</span>
-              <span>Full unit and integration test suite: Move tests, PTB simulations and end-to-end Cypress flows.</span>
-            </li>
-          </ul>
+          <p className="text-gray-300 leading-relaxed mb-6">
+            Finance becomes autonomous and accountable. RWA Capital Stack Autopilot manages end-to-end deal flow across real estate, crypto, and private credit, then routes treasury, tax, and programmable risk budgets with multi-sig oversight. Swarms are treated like individuals: they onboard with legal wrappers, hold rights, sign adaptive smart agreements, and accrue reputational ledgers that unlock larger mandates. Governance and revenue rails provide a policy engine for autonomy levels, data rights, and red-team challenge, plus native billing, affiliate, subscriptions, tipping, and on-chain rev-share in the marketplace.
+          </p>
 
           <div className="bg-purple-500/10 border border-purple-500/30 rounded-lg p-6 mt-8">
             <p className="text-gray-300 leading-relaxed">
-              Looking ahead, every milestone tightens the feedback loop between agents, builders and participants, driving us toward a billion on-chain agents by 2030. Join the journey now and help shape the machine-first economy before it becomes the default.
+              Think of this phase as the moment agents stop behaving like tools and start acting like institutions. The mesh remembers, reasons, and pays its own way within clear human boundaries. We open doors only when safety, economics, and law align, so what arrives feels simple, playful, and inevitable.
             </p>
           </div>
         </div>
