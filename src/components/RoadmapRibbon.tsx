@@ -66,7 +66,7 @@ const RoadmapRibbon = () => {
           {stages.map((stage, index) => (
             <div
               key={index}
-              className="ribbon-card group relative flex flex-col justify-center gap-4 p-8 lg:p-12 rounded-2xl border border-white/10 bg-white/5 backdrop-blur min-h-[320px] lg:min-h-[340px] w-full flex-1 shadow-[0_0_18px_-4px_rgba(166,252,252,0.35)] lg:shadow-[0_0_28px_-6px_rgba(166,252,252,0.45)] transition-all duration-700 opacity-0 translate-y-6 hover:border-white/30 hover:bg-white/10 hover:shadow-[0_0_40px_-6px_rgba(166,252,252,0.6)] hover:scale-105 hover:-translate-y-2 cursor-pointer"
+              className="ribbon-card group relative flex flex-col justify-start gap-4 p-8 lg:p-12 rounded-2xl border border-white/10 bg-white/5 backdrop-blur min-h-[320px] lg:min-h-[340px] w-full flex-1 shadow-[0_0_18px_-4px_rgba(166,252,252,0.35)] lg:shadow-[0_0_28px_-6px_rgba(166,252,252,0.45)] transition-all duration-700 opacity-0 translate-y-6 hover:border-white/30 hover:bg-white/10 hover:shadow-[0_0_40px_-6px_rgba(166,252,252,0.6)] hover:scale-105 hover:-translate-y-2 cursor-pointer"
             >
               <span className="absolute -top-3 left-1/2 -translate-x-1/2 min-w-[8rem] px-5 py-2.5 text-sm font-bold rounded-full bg-gradient-to-r from-[#A6FCFC] to-[#D6A6FC] text-black text-center group-hover:shadow-lg transition-all duration-300">
                 {stage.pill}
