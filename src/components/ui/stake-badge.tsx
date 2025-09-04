@@ -41,6 +41,20 @@ export function TierDot({ tier, active }: TierDotProps) {
     if (!isActive) return baseStyles;
 
     switch (tierName) {
+      case 'Common':
+        return {
+          background: "bg-gradient-to-b from-gray-700/60 to-gray-800/80 backdrop-blur-md",
+          border: "border-gray-400/70 ring-2 ring-gray-400/50",
+          iconGlow: "filter drop-shadow-[0_0_15px_rgba(156,163,175,0.8)]",
+          textShimmer: "bg-gradient-to-r from-gray-300 via-gray-200 to-gray-300 bg-clip-text text-transparent animate-shimmer bg-[length:200%_100%]"
+        };
+      case 'Rare':
+        return {
+          background: "bg-gradient-to-b from-blue-800/60 to-blue-900/80 backdrop-blur-md",
+          border: "border-blue-400/70 ring-2 ring-blue-400/50",
+          iconGlow: "filter drop-shadow-[0_0_15px_rgba(96,165,250,0.8)]",
+          textShimmer: "bg-gradient-to-r from-blue-300 via-blue-200 to-blue-300 bg-clip-text text-transparent animate-shimmer bg-[length:200%_100%]"
+        };
       case 'Legendary':
         return {
           background: "bg-gradient-to-b from-amber-800/60 to-orange-900/80 backdrop-blur-md",
@@ -48,7 +62,20 @@ export function TierDot({ tier, active }: TierDotProps) {
           iconGlow: "filter drop-shadow-[0_0_15px_rgba(251,191,36,0.8)]",
           textShimmer: "bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-300 bg-clip-text text-transparent animate-shimmer bg-[length:200%_100%]"
         };
-      // Add other cases as needed
+      case 'Mythic':
+        return {
+          background: "bg-gradient-to-b from-violet-800/60 to-purple-900/80 backdrop-blur-md",
+          border: "border-violet-400/70 ring-2 ring-violet-400/50",
+          iconGlow: "filter drop-shadow-[0_0_15px_rgba(167,139,250,0.8)]",
+          textShimmer: "bg-gradient-to-r from-violet-300 via-purple-200 to-violet-300 bg-clip-text text-transparent animate-shimmer bg-[length:200%_100%]"
+        };
+      case 'Exotic':
+        return {
+          background: "bg-gradient-to-b from-cyan-800/60 to-teal-900/80 backdrop-blur-md",
+          border: "border-cyan-400/70 ring-2 ring-cyan-400/50",
+          iconGlow: "filter drop-shadow-[0_0_15px_rgba(34,211,238,0.8)]",
+          textShimmer: "bg-gradient-to-r from-cyan-300 via-teal-200 to-cyan-300 bg-clip-text text-transparent animate-shimmer bg-[length:200%_100%]"
+        };
       default:
         return baseStyles;
     }
