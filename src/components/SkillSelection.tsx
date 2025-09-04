@@ -49,29 +49,29 @@ const skillCategories: SkillCategory[] = [
 
 const rarityStyles = {
   common: {
-    border: 'border-gray-400',
+    border: 'border-gray-400/50',
     text: 'text-gray-300',
-    bg: 'bg-gray-800/50'
+    bg: 'bg-white/5'
   },
   rare: {
-    border: 'border-blue-400',
+    border: 'border-blue-400/50',
     text: 'text-blue-300',
-    bg: 'bg-blue-900/30'
+    bg: 'bg-blue-500/10'
   },
   legendary: {
-    border: 'border-yellow-400',
+    border: 'border-yellow-400/50',
     text: 'text-yellow-300',
-    bg: 'bg-yellow-900/30'
+    bg: 'bg-yellow-500/10'
   },
   mythic: {
-    border: 'border-purple-400',
+    border: 'border-purple-400/50',
     text: 'text-purple-300',
-    bg: 'bg-purple-900/30'
+    bg: 'bg-purple-500/10'
   },
   exotic: {
-    border: 'border-cyan-400',
+    border: 'border-cyan-400/50',
     text: 'text-cyan-300',
-    bg: 'bg-cyan-900/30'
+    bg: 'bg-cyan-500/10'
   }
 };
 
@@ -115,7 +115,7 @@ export const SkillSelection = () => {
                   relative rounded-lg p-6 min-w-[140px] cursor-pointer transition-all duration-300
                   ${styles.bg} ${styles.border} border-2
                   ${isLegendary ? 'shadow-[0_0_20px_rgba(255,215,0,0.6)] ring-2 ring-yellow-400/80' : ''}
-                  backdrop-blur-sm
+                  backdrop-blur-md
                 `}
               >
                 <div className="text-center">
