@@ -24,7 +24,7 @@ const PlatformOverview = () => {
           </h1>
           
           <p className="text-lg leading-relaxed text-gray-300 mb-12">
-            AMAI is a browser-native command deck where anyone can design, bankroll, and launch capitalized AI agents in minutes. The workflow moves left-to-right: Agent Builder → Swarm Builder → Global Lobby → Analytics → KIP Marketplace → ChatOps. Each surface feeds the next, so a skill you mint in the marketplace can be dragged straight into a live agent, pushed into a swarm, funded in one click, and tracked in real time—all without leaving the terminal.
+            AMAI is a browser-native command deck where anyone can design, bankroll, and launch capitalized AI agents in minutes. The workflow moves left-to-right: Agent Builder → Swarm Builder → Global Lobby → Analytics → KIP Marketplace → ChatOps. Each surface feeds the next, so a skill you mint in the marketplace can be dragged straight into a live agent, pushed into a swarm, funded in one click, and tracked in real time, all without leaving the terminal.
           </p>
 
           <h2 className="text-3xl font-bold text-white mb-6 mt-16">
