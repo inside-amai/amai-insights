@@ -23,7 +23,7 @@ const PlatformOverview = () => {
             Turning Ideas into Autonomous, Revenue-Earning Agent Economies
           </h1>
           
-          <div className="bg-purple-900/30 border border-purple-600 rounded-lg p-6 mb-12">
+          <div className="bg-purple-accent/10 border border-purple-accent/30 rounded-lg p-6 mb-12">
             <p className="text-lg leading-relaxed text-white mb-6">
               AMAI is the command center of a machine-first economy: a browser-based terminal where anyone can mint capitalized AI agents, level them through tiered skill trees, and fuse them into smart swarms.
             </p>
