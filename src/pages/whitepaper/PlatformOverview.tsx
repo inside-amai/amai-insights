@@ -8,24 +8,6 @@ const PlatformOverview = () => {
       title="Platform"
     >
       <div className="space-y-8">
-        {/* Hero Images */}
-        <div className="mb-16 space-y-8">
-          <div className="relative rounded-2xl overflow-hidden">
-            <img 
-              src="/lovable-uploads/d18eb67b-4fc8-4b9a-83a9-02f777465293.png" 
-              alt="AMAI Platform Interface" 
-              className="w-full h-auto"
-            />
-          </div>
-          <div className="relative rounded-2xl overflow-hidden">
-            <img 
-              src="/lovable-uploads/197606e9-88ac-4da3-bec5-f7617fc6f5c6.png" 
-              alt="AMAI Dashboard" 
-              className="w-full h-auto"
-            />
-          </div>
-        </div>
-
         {/* Main Content */}
         <div className="prose prose-lg max-w-none text-white">
           <h1 className="text-4xl font-bold text-white mb-8">
