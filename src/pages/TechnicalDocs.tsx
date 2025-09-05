@@ -1,23 +1,20 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import Index from './Index';
 
 const TechnicalDocs = () => {
-  const navigate = useNavigate();
-
   useEffect(() => {
-    // Navigate to home page
-    navigate('/', { replace: true });
-    
-    // Wait for navigation and then scroll to the technical docs section
-    setTimeout(() => {
+    // Scroll to the technical docs section after component mounts
+    const timer = setTimeout(() => {
       const element = document.getElementById('technical-docs');
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     }, 100);
-  }, [navigate]);
 
-  return null;
+    return () => clearTimeout(timer);
+  }, []);
+
+  return <Index />;
 };
 
 export default TechnicalDocs;
