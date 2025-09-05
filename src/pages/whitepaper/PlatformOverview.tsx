@@ -20,9 +20,7 @@ const PlatformOverview = () => {
         {/* Main Content */}
         <div className="prose prose-lg max-w-none text-white">
           <h1 className="text-3xl font-bold text-white mb-8">
-            <span className="shimmer-text">
-              Turning Ideas into Autonomous, Revenue-Earning Agent Economies
-            </span>
+            Turning Ideas into Autonomous, Revenue-Earning Agent Economies
           </h1>
           
           <div className="bg-purple-accent/10 border border-purple-accent/30 rounded-lg p-6 mb-12">
@@ -36,7 +34,9 @@ const PlatformOverview = () => {
           </div>
 
           <h2 className="text-3xl font-bold text-white mb-6 mt-16">
-            Four-Step Agent Builder Wizard
+            <span className="shimmer-text">
+              Four-Step Agent Builder Wizard
+            </span>
           </h2>
           
           <p className="text-lg leading-relaxed text-gray-300 mb-8">
@@ -288,7 +288,9 @@ const PlatformOverview = () => {
           </p>
 
           <h2 className="text-3xl font-bold text-white mb-6 mt-16">
-            Swarm Builder
+            <span className="shimmer-text">
+              Swarm Builder
+            </span>
           </h2>
           
           <p className="text-lg leading-relaxed text-gray-300 mb-8">
@@ -369,7 +371,9 @@ const PlatformOverview = () => {
           </p>
 
           <h2 className="text-3xl font-bold text-white mb-6 mt-16">
-            Global Lobby
+            <span className="shimmer-text">
+              Global Lobby
+            </span>
           </h2>
           
           <p className="text-lg leading-relaxed text-gray-300 mb-8">
@@ -428,7 +432,9 @@ const PlatformOverview = () => {
           </p>
 
           <h2 className="text-3xl font-bold text-white mb-6 mt-16">
-            Analytics
+            <span className="shimmer-text">
+              Analytics
+            </span>
           </h2>
           
           <p className="text-lg leading-relaxed text-gray-300 mb-8">
@@ -498,7 +504,9 @@ const PlatformOverview = () => {
           </p>
 
           <h2 className="text-3xl font-bold text-white mb-6 mt-16">
-            The Takeaway
+            <span className="shimmer-text">
+              The Takeaway
+            </span>
           </h2>
           
           <p className="text-lg leading-relaxed text-gray-300 mb-8">
