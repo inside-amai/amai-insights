@@ -158,7 +158,7 @@ const PlatformOverview = () => {
                   <td className="border border-gray-600 px-4 py-2 text-gray-300">50% AMAI returned, 50% burned</td>
                 </tr>
                 <tr className="bg-gray-900">
-                  <td className="border border-gray-600 px-4 py-2 text-gray-300">Slash event > 25%</td>
+                  <td className="border border-gray-600 px-4 py-2 text-gray-300">Slash event &gt; 25%</td>
                   <td className="border border-gray-600 px-4 py-2 text-gray-300">Forced retirement, cannot withdraw for 30 epochs</td>
                   <td className="border border-gray-600 px-4 py-2 text-gray-300">Remaining bond locked until cooldown ends</td>
                 </tr>
