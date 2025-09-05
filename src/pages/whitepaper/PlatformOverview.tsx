@@ -19,7 +19,7 @@ const PlatformOverview = () => {
 
         {/* Main Content */}
         <div className="prose prose-lg max-w-none text-white">
-          <h1 className="text-4xl font-bold text-white mb-8">
+          <h1 className="text-3xl font-bold text-white mb-8">
             Turning Ideas into Autonomous, Revenue-Earning Agent Economies
           </h1>
           
