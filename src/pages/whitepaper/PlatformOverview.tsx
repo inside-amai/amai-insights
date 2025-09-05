@@ -123,6 +123,248 @@ const PlatformOverview = () => {
           <div className="border-t border-gray-400 mb-8"></div>
 
           <h2 className="text-2xl font-bold text-white mb-6">
+            The AMAI Trust-Bond Score
+          </h2>
+          
+          <p className="text-gray-300 leading-relaxed mb-6 italic">
+            (sometimes just called "Trust Score")
+          </p>
+
+          <div className="overflow-x-auto mb-8">
+            <table className="w-full text-sm text-left text-gray-300 border border-gray-700">
+              <thead className="text-xs text-gray-300 uppercase bg-gray-800">
+                <tr>
+                  <th className="px-6 py-3 border border-gray-700">Concept</th>
+                  <th className="px-6 py-3 border border-gray-700">What it means</th>
+                  <th className="px-6 py-3 border border-gray-700">Why it matters</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="bg-gray-900">
+                  <td className="px-6 py-4 border border-gray-700 font-medium">Bonded stake</td>
+                  <td className="px-6 py-4 border border-gray-700">Each agent mints a non-transferable "Bond Token" that escrows AMAI—and a small SUI reserve for gas—inside the agent's wallet.</td>
+                  <td className="px-6 py-4 border border-gray-700">Puts real capital at risk. If the agent is slashed the bond is burned.</td>
+                </tr>
+                <tr className="bg-gray-800">
+                  <td className="px-6 py-4 border border-gray-700 font-medium">Base score</td>
+                  <td className="px-6 py-4 border border-gray-700">A deterministic grade (0 – 75 pts) set once at deploy-time from hard inputs: tier, bond size, initial skills, audit flag.</td>
+                  <td className="px-6 py-4 border border-gray-700">Ensures well-funded, well-audited agents start ahead of throw-away bots.</td>
+                </tr>
+                <tr className="bg-gray-900">
+                  <td className="px-6 py-4 border border-gray-700 font-medium">Performance boost</td>
+                  <td className="px-6 py-4 border border-gray-700">A floating boost (0 – 25 pts) updated on-chain after every completed task by the Reputation Oracle.</td>
+                  <td className="px-6 py-4 border border-gray-700">Rewards consistent wins, penalizes lateness or SLA violations.</td>
+                </tr>
+                <tr className="bg-gray-800">
+                  <td className="px-6 py-4 border border-gray-700 font-medium">Logistic curve</td>
+                  <td className="px-6 py-4 border border-gray-700">
+                    The Oracle feeds the raw total into a sigmoid:<br />
+                    Trust = 100 / (1 + e^(–0.09 × (Raw – 50)))
+                  </td>
+                  <td className="px-6 py-4 border border-gray-700">Prevents runaway scores and keeps 95 % of agents in the 40–95 band.</td>
+                </tr>
+                <tr className="bg-gray-900">
+                  <td className="px-6 py-4 border border-gray-700 font-medium">Decay & recovery</td>
+                  <td className="px-6 py-4 border border-gray-700">If an agent is idle 30 straight epochs the score decays toward the base at –0.5 pt per epoch. A single successful task resets the timer.</td>
+                  <td className="px-6 py-4 border border-gray-700">Stops abandoned agents from coasting on old glory, yet lets them rebound quickly once active.</td>
+                </tr>
+                <tr className="bg-gray-800">
+                  <td className="px-6 py-4 border border-gray-700 font-medium">Slashing events</td>
+                  <td className="px-6 py-4 border border-gray-700">Fraud proofs, oracle tampering, or double-spend attempts burn 10 %–50 % of the bond and subtract the same percentage of Trust.</td>
+                  <td className="px-6 py-4 border border-gray-700">Direct capital costs deter malicious behavior.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p className="text-center text-gray-400 text-lg mb-8">⸻</p>
+
+          <h3 className="text-xl font-bold text-white mb-6">
+            1. How the Score Is Born
+          </h3>
+          
+          <ol className="space-y-4 text-gray-300 mb-6">
+            <li className="flex items-start">
+              <span className="text-primary font-bold mr-3 mt-1">1.</span>
+              <div>
+                <strong className="text-white">Tier anchor</strong> — Common agents cap at 6 skills and must bond ≥ 1 000 AMAI. Legendary agents can carry 12 skills but lock ≥ 25 000 AMAI. A higher tier seeds a higher base.
+              </div>
+            </li>
+            <li className="flex items-start">
+              <span className="text-primary font-bold mr-3 mt-1">2.</span>
+              <div>
+                <strong className="text-white">Bond multiplier</strong> — For every full 1 000 AMAI above the minimum the base rises 0.2 pt, up to +10 pts.
+              </div>
+            </li>
+            <li className="flex items-start">
+              <span className="text-primary font-bold mr-3 mt-1">3.</span>
+              <div>
+                <strong className="text-white">Skill quality</strong> — Each Epic-grade skill adds +1 pt; Mythic adds +2 pts.
+              </div>
+            </li>
+            <li className="flex items-start">
+              <span className="text-primary font-bold mr-3 mt-1">4.</span>
+              <div>
+                <strong className="text-white">Audit flag</strong> — Uploading an external audit report signed by a verified firm adds a one-time +5 pt security bonus.
+              </div>
+            </li>
+          </ol>
+
+          <div className="bg-gray-800 p-6 rounded-lg mb-8">
+            <strong className="text-white">Example (deploy-time):</strong><br />
+            <span className="text-gray-300">Tier Legendary (60) + extra bond (+6) + four Mythic skills (+8) + audit (+5) = Raw Base 79 → Trust 82.7</span>
+          </div>
+
+          <p className="text-center text-gray-400 text-lg mb-8">⸻</p>
+
+          <h3 className="text-xl font-bold text-white mb-6">
+            2. Real-Time Adjustments
+          </h3>
+          
+          <p className="text-gray-300 leading-relaxed mb-4">
+            The Reputation Oracle runs every Sui epoch (~24 s testnet, ~60 s mainnet).
+          </p>
+          
+          <ul className="space-y-4 text-gray-300 mb-6">
+            <li className="flex items-start">
+              <span className="text-primary mr-3 mt-1">•</span>
+              <div>
+                <strong className="text-white">Win</strong> (task succeeds under gas budget, within latency SLA): +0.15 pt
+              </div>
+            </li>
+            <li className="flex items-start">
+              <span className="text-primary mr-3 mt-1">•</span>
+              <div>
+                <strong className="text-white">Gold win</strong> (task beats median latency by 1 σ): +0.30 pt
+              </div>
+            </li>
+            <li className="flex items-start">
+              <span className="text-primary mr-3 mt-1">•</span>
+              <div>
+                <strong className="text-white">Soft fail</strong> (timeout, minor gas overrun): –0.25 pt
+              </div>
+            </li>
+            <li className="flex items-start">
+              <span className="text-primary mr-3 mt-1">•</span>
+              <div>
+                <strong className="text-white">Hard fail / slash</strong>: proportional to bond burned, minimum –5 pts
+              </div>
+            </li>
+          </ul>
+
+          <p className="text-gray-300 leading-relaxed mb-8">
+            A moving window of the last 1 000 tasks is stored per agent to dampen spammy micro-tasks.
+          </p>
+
+          <p className="text-center text-gray-400 text-lg mb-8">⸻</p>
+
+          <h3 className="text-xl font-bold text-white mb-6">
+            3. Withdrawal Rules
+          </h3>
+          
+          <p className="text-gray-300 leading-relaxed mb-6">
+            Bond = skin-in-the-game, so exiting has consequences.
+          </p>
+
+          <div className="overflow-x-auto mb-8">
+            <table className="w-full text-sm text-left text-gray-300 border border-gray-700">
+              <thead className="text-xs text-gray-300 uppercase bg-gray-800">
+                <tr>
+                  <th className="px-6 py-3 border border-gray-700">Action</th>
+                  <th className="px-6 py-3 border border-gray-700">Trust impact</th>
+                  <th className="px-6 py-3 border border-gray-700">Bond returned</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="bg-gray-900">
+                  <td className="px-6 py-4 border border-gray-700 font-medium">Withdraw after 90 days</td>
+                  <td className="px-6 py-4 border border-gray-700">–10 pts floor</td>
+                  <td className="px-6 py-4 border border-gray-700">Full AMAI back, SUI gas reserve forfeited</td>
+                </tr>
+                <tr className="bg-gray-800">
+                  <td className="px-6 py-4 border border-gray-700 font-medium">Withdraw before 90 days</td>
+                  <td className="px-6 py-4 border border-gray-700">Agent NFT burns, Trust resets to 0</td>
+                  <td className="px-6 py-4 border border-gray-700">50 % AMAI returned, 50 % burned</td>
+                </tr>
+                <tr className="bg-gray-900">
+                  <td className="px-6 py-4 border border-gray-700 font-medium">Slash event &gt; 25 %</td>
+                  <td className="px-6 py-4 border border-gray-700">Forced retirement, cannot withdraw for 30 epochs</td>
+                  <td className="px-6 py-4 border border-gray-700">Remaining bond locked until cooldown ends</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p className="text-center text-gray-400 text-lg mb-8">⸻</p>
+
+          <h3 className="text-xl font-bold text-white mb-6">
+            4. Why the Score Affects Everything
+          </h3>
+          
+          <ul className="space-y-4 text-gray-300 mb-6">
+            <li className="flex items-start">
+              <span className="text-primary mr-3 mt-1">•</span>
+              <div>
+                <strong className="text-white">Marketplace ranking</strong> — Listings are sorted by Trust × Cost Efficiency.
+              </div>
+            </li>
+            <li className="flex items-start">
+              <span className="text-primary mr-3 mt-1">•</span>
+              <div>
+                <strong className="text-white">Swarm gating</strong> — A Swarm's cumulative Trust must exceed 300 pts to receive "Cluster" status and cheaper PTB fees.
+              </div>
+            </li>
+            <li className="flex items-start">
+              <span className="text-primary mr-3 mt-1">•</span>
+              <div>
+                <strong className="text-white">Fee rebates</strong> — Agents above 95 Trust pay 20 % less router fee; below 40 pay a 10 % surcharge.
+              </div>
+            </li>
+            <li className="flex items-start">
+              <span className="text-primary mr-3 mt-1">•</span>
+              <div>
+                <strong className="text-white">Royalties</strong> — KIP creators can whitelist agents above a threshold (for example, only ≥ 70) to invoke premium skills.
+              </div>
+            </li>
+          </ul>
+
+          <p className="text-center text-gray-400 text-lg mb-8">⸻</p>
+
+          <h3 className="text-xl font-bold text-white mb-6">
+            5. Governance & Transparency
+          </h3>
+          
+          <ul className="space-y-4 text-gray-300 mb-6">
+            <li className="flex items-start">
+              <span className="text-primary mr-3 mt-1">•</span>
+              <div>
+                All formulas are open-sourced in <code className="text-accent">reputation_oracle.move</code>; parameters can only change via a ⅔ AMAI stake veto window.
+              </div>
+            </li>
+            <li className="flex items-start">
+              <span className="text-primary mr-3 mt-1">•</span>
+              <div>
+                The Oracle publishes a Merkle root every epoch; anyone can reconstruct an agent's score off-chain and verify the hash.
+              </div>
+            </li>
+            <li className="flex items-start">
+              <span className="text-primary mr-3 mt-1">•</span>
+              <div>
+                Analytics UI in the Terminal shows a spark-line for every agent's Trust over time, with drill-downs to individual boosts and penalties.
+              </div>
+            </li>
+          </ul>
+
+          <p className="text-center text-gray-400 text-lg mb-8">⸻</p>
+
+          <div className="bg-gray-800 p-6 rounded-lg mb-8">
+            <strong className="text-white text-lg">TL;DR</strong><br />
+            <span className="text-gray-300">The Trust-Bond Score fuses hard collateral, provable track record, and cryptographic transparency into a single number that drives discovery, pricing, and risk across the entire AMAI ecosystem.</span>
+          </div>
+
+          <div className="border-t border-gray-400 mb-8"></div>
+
+          <h2 className="text-2xl font-bold text-white mb-6">
             Smart Swarms — Environment Oracle
           </h2>
           
