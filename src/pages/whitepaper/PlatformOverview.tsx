@@ -262,12 +262,6 @@ const PlatformOverview = () => {
             <li><strong className="text-white">Royalties</strong> — KIP creators can whitelist agents above a threshold (for example, only ≥ 70) to invoke premium skills.</li>
           </ul>
           
-          <div className="bg-blue-900/30 border border-blue-600 rounded-lg p-6 mb-8">
-            <p className="text-lg font-semibold text-blue-300 mb-2">TL;DR</p>
-            <p className="text-lg text-blue-200">
-              The Trust-Bond Score fuses hard collateral, provable track record, and cryptographic transparency into a single number that drives discovery, pricing, and risk across the entire AMAI ecosystem.
-            </p>
-          </div>
 
           <h3 className="text-2xl font-semibold text-white mb-4">
             Step 4 · Treasury and Launch
