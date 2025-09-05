@@ -9,14 +9,12 @@ const PlatformOverview = () => {
     >
       <div className="space-y-8">
         {/* Hero Image */}
-        <div className="mb-16">
-          <div className="relative rounded-2xl overflow-hidden aspect-video">
-            <img 
-              src={terminalDemo}
-              alt="AMAI Terminal Demo" 
-              className="w-full h-full object-cover"
-            />
-          </div>
+        <div className="relative overflow-hidden rounded-xl">
+          <img 
+            src="/lovable-uploads/d18eb67b-4fc8-4b9a-83a9-02f777465293.png" 
+            alt="AMAI Platform Overview"
+            className="w-full h-64 lg:h-80 object-cover"
+          />
         </div>
 
         {/* Main Content */}
