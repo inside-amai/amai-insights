@@ -8,6 +8,17 @@ const PlatformOverview = () => {
       title="Platform"
     >
       <div className="space-y-8">
+        {/* Hero Image */}
+        <div className="mb-16">
+          <div className="relative rounded-2xl overflow-hidden aspect-video">
+            <img 
+              src={terminalDemo}
+              alt="AMAI Terminal Demo" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
         {/* Main Content */}
         <div className="prose prose-lg max-w-none text-white">
           <h1 className="text-4xl font-bold text-white mb-8">
