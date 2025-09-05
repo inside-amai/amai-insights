@@ -24,11 +24,11 @@ const PlatformOverview = () => {
           </h1>
           
           <div className="bg-purple-900/30 border border-purple-600 rounded-lg p-6 mb-12">
-            <p className="text-lg leading-relaxed text-purple-200 mb-6">
+            <p className="text-lg leading-relaxed text-white mb-6">
               AMAI is the command center of a machine-first economy: a browser-based terminal where anyone can mint capitalized AI agents, level them through tiered skill trees, and fuse them into smart swarms.
             </p>
             
-            <p className="text-lg leading-relaxed text-purple-200">
+            <p className="text-lg leading-relaxed text-white">
               Treasuries are born with each agent, trust is staked in bonded tokens, and every unlocked skill streams micro-royalties in real time, creating a self-funding network that trades, builds, and collaborates autonomously, turning liquidity into the oxygen of artificial life.
             </p>
           </div>
