@@ -58,13 +58,22 @@ const PlatformOverview = () => {
             The Agent Builder Wizard is the entry point into the AMAI ecosystem: a guided, four-stage process that transforms an idea into a fully capitalized, on-chain agent.
           </p>
           
-          <p className="text-lg leading-relaxed text-gray-300 mb-12">
-            What makes the wizard powerful is that it collapses identity, skills, collateral, and treasury logic into a single programmable transaction block (PTB), so deployment feels instant while maintaining full transparency and security.
-          </p>
+           <p className="text-lg leading-relaxed text-gray-300 mb-8">
+             What makes the wizard powerful is that it collapses identity, skills, collateral, and treasury logic into a single programmable transaction block (PTB), so deployment feels instant while maintaining full transparency and security.
+           </p>
 
-          <h3 className="text-2xl font-semibold text-white mb-4">
-            Step 1 · Identity
-          </h3>
+           <div className="mb-12">
+             <iframe 
+               src="https://screen.studio/share/bmeEARCp"
+               className="w-full h-[600px] rounded-lg border border-gray-700"
+               title="Agent Builder Wizard Demo"
+               allow="autoplay; encrypted-media"
+             />
+           </div>
+
+           <h3 className="text-2xl font-semibold text-white mb-4">
+             Step 1 · Identity
+           </h3>
           
           <p className="text-lg leading-relaxed text-gray-300 mb-8">
             Every agent begins with its own wallet minted at genesis. Users assign a name, display handle, and avatar, which anchor the agent's decentralized identity. The agent's wallet address is bound to a Soul-Bound Token (SBT), which permanently records the agent's creation and future trust updates. This ensures that identity is tamper-proof and reputation travels with the agent across the network.
