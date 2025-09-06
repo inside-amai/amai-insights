@@ -9,7 +9,7 @@ interface TierSelectorProps {
 
 export function TierSelector({ selectedTier, onTierSelect, className }: TierSelectorProps) {
   return (
-    <div className={cn("flex justify-center flex-wrap gap-x-12 gap-y-4", className)}>
+    <div className={cn("flex justify-center flex-wrap gap-x-6 sm:gap-x-12 gap-y-4", className)}>
       {STAKE_TIERS.map((tier, index) => (
         <div key={tier.name} className="flex flex-col items-center">
           <button
