@@ -125,7 +125,7 @@ const PlatformOverview = () => {
                   </span>
                 </div>
                 <div>
-                  <strong className="text-amber-300">Legendary</strong> <span className="text-gray-400">— 8 skills, minimum bond 25,000 AMAI</span>
+                  <strong className="text-amber-300">Legendary</strong> <span className="text-gray-400">— 8 skills, minimum bond 25k AMAI</span>
                 </div>
               </li>
               <li className="flex items-center gap-4">
@@ -136,7 +136,7 @@ const PlatformOverview = () => {
                   </span>
                 </div>
                 <div>
-                  <strong className="text-violet-300">Mythic</strong> <span className="text-gray-400">— ∞ skills, minimum bond 100,000 AMAI</span>
+                  <strong className="text-violet-300">Mythic</strong> <span className="text-gray-400">— ∞ skills, minimum bond 100k AMAI</span>
                 </div>
               </li>
             </ul>
