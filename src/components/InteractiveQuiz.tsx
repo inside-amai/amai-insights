@@ -146,7 +146,7 @@ export const InteractiveQuiz = ({ question, options }: QuizProps) => {
 
         {showResult && (
           <div className={`
-            relative text-center p-8 rounded-2xl border transition-all duration-500 animate-fade-in backdrop-blur-sm
+            relative text-center p-6 sm:p-8 rounded-2xl border transition-all duration-500 animate-fade-in backdrop-blur-sm
             ${isCorrect 
               ? 'border-emerald-400/50 bg-gradient-to-br from-emerald-500/10 via-emerald-400/5 to-emerald-500/10 shadow-xl shadow-emerald-400/20' 
               : 'border-rose-400/50 bg-gradient-to-br from-rose-500/10 via-rose-400/5 to-rose-500/10 shadow-xl shadow-rose-400/20'
@@ -156,21 +156,21 @@ export const InteractiveQuiz = ({ question, options }: QuizProps) => {
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/5 via-transparent to-white/3"></div>
             
             <div className="relative z-10">
-              <div className="flex items-center justify-center gap-4 mb-4">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-4 sm:mb-4">
                 {isCorrect ? (
                   <>
                     <CheckCircle className="text-emerald-400 animate-bounce drop-shadow-lg" size={36} />
-                    <span className="text-3xl font-bold text-emerald-200">Excellent!</span>
+                    <span className="text-2xl sm:text-3xl font-bold text-emerald-200">Excellent!</span>
                   </>
                 ) : (
                   <>
                     <XCircle className="text-rose-400 animate-pulse drop-shadow-lg" size={36} />
-                    <span className="text-3xl font-bold text-rose-200">Not quite!</span>
+                    <span className="text-2xl sm:text-3xl font-bold text-rose-200">Not quite!</span>
                   </>
                 )}
               </div>
               
-              <p className="text-lg text-slate-200 mb-6 leading-relaxed">
+              <p className="text-base sm:text-lg text-slate-200 mb-5 sm:mb-6 leading-relaxed px-2 sm:px-0">
                 {isCorrect 
                   ? "Great job! Soul-Bound Tokens (SBTs) provide tamper-proof identity anchoring for agents."
                   : "Soul-Bound Tokens (SBTs) permanently record an agent's identity and reputation on-chain."
@@ -179,7 +179,7 @@ export const InteractiveQuiz = ({ question, options }: QuizProps) => {
               
               <button
                 onClick={resetQuiz}
-                className="px-8 py-3 rounded-xl bg-gradient-to-r from-purple-500/80 via-indigo-500/80 to-cyan-500/80 text-white font-semibold hover:from-purple-600/90 hover:via-indigo-600/90 hover:to-cyan-600/90 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-purple-500/25 backdrop-blur-sm border border-white/10"
+                className="px-6 sm:px-8 py-2.5 sm:py-3 rounded-xl bg-gradient-to-r from-purple-500/80 via-indigo-500/80 to-cyan-500/80 text-white font-semibold hover:from-purple-600/90 hover:via-indigo-600/90 hover:to-cyan-600/90 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-purple-500/25 backdrop-blur-sm border border-white/10"
               >
                 Try Again
               </button>
