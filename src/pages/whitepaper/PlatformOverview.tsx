@@ -94,7 +94,7 @@ const PlatformOverview = () => {
             Skill slots are capped by tier, determined by bonded collateral:
           </p>
           
-          <div className="bg-gray-800 rounded-lg p-6 mb-8">
+          <div className="rounded-lg p-6 mb-8">
             <ul className="space-y-4 text-lg">
               <li className="flex items-center gap-4">
                 <div className="flex flex-col items-center w-[120px] min-w-[120px] max-w-[120px] sm:w-24 p-3 rounded-xl border bg-gradient-to-b from-gray-700/60 to-gray-800/80 backdrop-blur-md border-gray-400/70 ring-2 ring-gray-400/50">
