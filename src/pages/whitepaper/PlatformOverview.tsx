@@ -55,7 +55,7 @@ const PlatformOverview = () => {
           </h2>
 
           {/* YouTube Video Embed */}
-          <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-8">
+          <div className="relative w-full aspect-video mb-8 -mx-4 md:mx-0 md:rounded-xl overflow-hidden">
             <iframe
               src="https://www.youtube.com/embed/N1RBnriszfQ?autoplay=1&loop=1&controls=0&mute=1&playlist=N1RBnriszfQ&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&fs=0&disablekb=1&cc_load_policy=0&playsinline=1"
               title="Four-Step Agent Builder Wizard Demo"
