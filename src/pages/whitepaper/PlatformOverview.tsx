@@ -360,6 +360,8 @@ const PlatformOverview = () => {
               { id: 'b', text: 'A Soul-Bound Token (SBT)', isCorrect: true },
               { id: 'c', text: 'A random hash generator', isCorrect: false }
             ]}
+            correctFeedback="Great job! Soul-Bound Tokens (SBTs) provide tamper-proof identity anchoring for agents."
+            incorrectFeedback="Soul-Bound Tokens (SBTs) permanently record an agent's identity and reputation on-chain."
           />
 
           <h2 className="text-3xl font-bold text-white mb-6 mt-16">
@@ -452,6 +454,8 @@ const PlatformOverview = () => {
               { id: "b", text: "Task delegation, info flow, or settlement routing", isCorrect: true },
               { id: "c", text: "An avatar merge", isCorrect: false }
             ]}
+            correctFeedback="Excellent! Each connection represents the flow of tasks, information, or settlement routing between agents in the swarm."
+            incorrectFeedback="Canvas connections represent task delegation, information flow, or settlement routing between agents in the swarm."
           />
 
           <h2 className="text-3xl font-bold text-white mb-6 mt-16">

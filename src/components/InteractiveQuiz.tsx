@@ -10,9 +10,11 @@ interface QuizOption {
 interface QuizProps {
   question: string;
   options: QuizOption[];
+  correctFeedback?: string;
+  incorrectFeedback?: string;
 }
 
-export const InteractiveQuiz = ({ question, options }: QuizProps) => {
+export const InteractiveQuiz = ({ question, options, correctFeedback, incorrectFeedback }: QuizProps) => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
   const [hasAnswered, setHasAnswered] = useState(false);
@@ -172,8 +174,8 @@ export const InteractiveQuiz = ({ question, options }: QuizProps) => {
               
               <p className="text-base sm:text-lg text-slate-200 mb-5 sm:mb-6 leading-relaxed px-2 sm:px-0">
                 {isCorrect 
-                  ? "Great job! Soul-Bound Tokens (SBTs) provide tamper-proof identity anchoring for agents."
-                  : "Soul-Bound Tokens (SBTs) permanently record an agent's identity and reputation on-chain."
+                  ? correctFeedback || "Great job! You got it right!"
+                  : incorrectFeedback || "Not quite right, but keep trying!"
                 }
               </p>
               
