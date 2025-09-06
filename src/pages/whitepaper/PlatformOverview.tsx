@@ -57,7 +57,7 @@ const PlatformOverview = () => {
           {/* YouTube Video Embed */}
           <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-8">
             <iframe
-              src="https://www.youtube.com/embed/N1RBnriszfQ?autoplay=1&loop=1&controls=0&mute=1&playlist=N1RBnriszfQ&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&fs=0&disablekb=1&cc_load_policy=0&playsinline=1"
+              src="https://www.youtube.com/embed/N1RBnriszfQ?autoplay=1&loop=1&controls=0&mute=1&playlist=N1RBnriszfQ&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&fs=0&disablekb=1&cc_load_policy=0&playsinline=1&widget_referrer=https%3A%2F%2Flocalhost&origin=https%3A%2F%2Flocalhost&enablejsapi=0&html5=1&autohide=1&theme=dark&color=white"
               title="Four-Step Agent Builder Wizard Demo"
               className="absolute inset-0 w-full h-full pointer-events-none"
               allow="autoplay; encrypted-media"
