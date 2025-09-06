@@ -35,32 +35,43 @@ export const InteractiveQuiz = ({ question, options }: QuizProps) => {
   const isCorrect = selectedOption?.isCorrect;
 
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-[#A6FCFC]/10 border border-[#A6FCFC]/30 backdrop-blur-lg p-8 mb-12">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-4 right-4 animate-bounce">
-          <Sparkles className="text-violet-400" size={20} />
+    <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900/80 via-slate-800/70 to-slate-900/80 border border-slate-700/50 backdrop-blur-xl shadow-2xl p-10 mb-12">
+      {/* Sophisticated glass overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/3 rounded-3xl"></div>
+      
+      {/* Premium accent border */}
+      <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-cyan-400/20 via-purple-400/20 to-blue-400/20 p-[1px]">
+        <div className="rounded-3xl bg-gradient-to-br from-slate-900/95 via-slate-800/90 to-slate-900/95 w-full h-full"></div>
+      </div>
+      
+      {/* Refined floating elements */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-6 right-6 animate-float">
+          <Sparkles className="text-cyan-300" size={18} />
         </div>
-        <div className="absolute bottom-4 left-4 animate-pulse">
-          <Sparkles className="text-blue-400" size={16} />
+        <div className="absolute bottom-6 left-6 animate-pulse">
+          <Sparkles className="text-purple-300" size={14} />
+        </div>
+        <div className="absolute top-1/2 right-8 animate-bounce delay-300">
+          <div className="w-2 h-2 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full"></div>
         </div>
       </div>
 
-      <div className="relative z-10">
-        <div className="text-center mb-6">
-          <h3 className="text-2xl font-bold text-white mb-2 bg-gradient-to-r from-violet-300 via-purple-300 to-blue-300 bg-clip-text text-transparent">
+      <div className="relative z-20">
+        <div className="text-center mb-8">
+          <h3 className="text-3xl font-bold mb-3 bg-gradient-to-r from-cyan-200 via-white to-purple-200 bg-clip-text text-transparent">
             Knowledge Check
           </h3>
-          <div className="w-20 h-1 bg-gradient-to-r from-violet-400 to-blue-400 mx-auto rounded-full"></div>
+          <div className="w-24 h-0.5 bg-gradient-to-r from-cyan-400 via-purple-400 to-blue-400 mx-auto rounded-full shadow-lg shadow-cyan-400/25"></div>
         </div>
 
-        <div className="text-center mb-8">
-          <p className="text-xl font-semibold text-white leading-relaxed">
+        <div className="text-center mb-10">
+          <p className="text-xl font-medium text-slate-100 leading-relaxed tracking-wide">
             {question}
           </p>
         </div>
 
-        <div className="space-y-4 mb-6">
+        <div className="space-y-5 mb-8">
           {options.map((option, index) => {
             const isSelected = selectedAnswer === option.id;
             const showCorrectAnswer = showResult && option.isCorrect;
@@ -72,24 +83,48 @@ export const InteractiveQuiz = ({ question, options }: QuizProps) => {
                 onClick={() => handleAnswerSelect(option.id)}
                 disabled={hasAnswered}
                 className={`
-                  w-full p-4 rounded-xl border-2 text-left transition-all duration-300 transform
-                  ${hasAnswered ? 'cursor-not-allowed' : 'cursor-pointer hover:scale-[1.02]'}
+                  group relative w-full p-5 rounded-2xl border text-left transition-all duration-500 transform
+                  ${hasAnswered ? 'cursor-not-allowed' : 'cursor-pointer hover:scale-[1.01] hover:shadow-xl'}
                   ${showCorrectAnswer 
-                    ? 'border-green-400 bg-gradient-to-r from-green-400/20 via-green-300/30 to-green-400/20 ring-2 ring-green-400/50 quiz-shimmer bg-[length:200%_100%]' 
+                    ? 'border-emerald-400/60 bg-gradient-to-r from-emerald-500/10 via-emerald-400/15 to-emerald-500/10 shadow-lg shadow-emerald-400/20 quiz-shimmer bg-[length:200%_100%]' 
                     : showWrongAnswer
-                    ? 'border-red-400 bg-red-400/20 ring-2 ring-red-400/50'
+                    ? 'border-rose-400/60 bg-gradient-to-r from-rose-500/10 to-rose-400/15 shadow-lg shadow-rose-400/20'
                     : isSelected && !showResult
-                    ? 'border-purple-400 bg-purple-400/20'
-                    : 'border-gray-600 bg-gray-800/50 hover:border-purple-400/50 hover:bg-purple-400/10'
+                    ? 'border-purple-400/60 bg-gradient-to-r from-purple-500/10 to-purple-400/15 shadow-lg shadow-purple-400/20'
+                    : 'border-slate-600/40 bg-gradient-to-r from-slate-800/60 via-slate-700/40 to-slate-800/60 hover:border-cyan-400/50 hover:bg-gradient-to-r hover:from-cyan-500/5 hover:to-purple-500/5 hover:shadow-cyan-400/10'
                   }
+                  backdrop-blur-sm
                 `}
               >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-700 text-white font-bold text-sm">
+                {/* Glass morphism overlay for options */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/5 via-transparent to-white/2"></div>
+                
+                <div className="relative flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <span className={`
+                      flex items-center justify-center w-10 h-10 rounded-xl font-bold text-sm transition-all duration-300
+                      ${showCorrectAnswer 
+                        ? 'bg-gradient-to-br from-emerald-500/80 to-emerald-600/80 text-white shadow-lg shadow-emerald-400/30' 
+                        : showWrongAnswer
+                        ? 'bg-gradient-to-br from-rose-500/80 to-rose-600/80 text-white shadow-lg shadow-rose-400/30'
+                        : isSelected && !showResult
+                        ? 'bg-gradient-to-br from-purple-500/80 to-purple-600/80 text-white shadow-lg shadow-purple-400/30'
+                        : 'bg-gradient-to-br from-slate-700/80 to-slate-800/80 text-slate-200 group-hover:from-cyan-500/20 group-hover:to-purple-500/20'
+                      }
+                    `}>
                       {String.fromCharCode(65 + index)}
                     </span>
-                    <span className={`text-lg ${showCorrectAnswer ? 'text-green-300 font-semibold' : showWrongAnswer ? 'text-red-300' : 'text-white'}`}>
+                    <span className={`
+                      text-lg font-medium transition-all duration-300
+                      ${showCorrectAnswer 
+                        ? 'text-emerald-200 font-semibold' 
+                        : showWrongAnswer 
+                        ? 'text-rose-200' 
+                        : isSelected && !showResult
+                        ? 'text-purple-200'
+                        : 'text-slate-100 group-hover:text-white'
+                      }
+                    `}>
                       {option.text}
                     </span>
                   </div>
@@ -97,9 +132,9 @@ export const InteractiveQuiz = ({ question, options }: QuizProps) => {
                   {showResult && (
                     <div className="flex items-center">
                       {option.isCorrect ? (
-                        <CheckCircle className="text-green-400 animate-bounce" size={24} />
+                        <CheckCircle className="text-emerald-400 animate-bounce drop-shadow-lg" size={26} />
                       ) : isSelected ? (
-                        <XCircle className="text-red-400 animate-pulse" size={24} />
+                        <XCircle className="text-rose-400 animate-pulse drop-shadow-lg" size={26} />
                       ) : null}
                     </div>
                   )}
@@ -110,38 +145,45 @@ export const InteractiveQuiz = ({ question, options }: QuizProps) => {
         </div>
 
         {showResult && (
-          <div className={`text-center p-6 rounded-xl border-2 transition-all duration-500 animate-fade-in ${
-            isCorrect 
-              ? 'border-green-400 bg-green-400/10' 
-              : 'border-red-400 bg-red-400/10'
-          }`}>
-            <div className="flex items-center justify-center gap-3 mb-3">
-              {isCorrect ? (
-                <>
-                  <CheckCircle className="text-green-400 animate-bounce" size={32} />
-                  <span className="text-2xl font-bold text-green-300">Correct!</span>
-                </>
-              ) : (
-                <>
-                  <XCircle className="text-red-400 animate-pulse" size={32} />
-                  <span className="text-2xl font-bold text-red-300">Not quite!</span>
-                </>
-              )}
+          <div className={`
+            relative text-center p-8 rounded-2xl border transition-all duration-500 animate-fade-in backdrop-blur-sm
+            ${isCorrect 
+              ? 'border-emerald-400/50 bg-gradient-to-br from-emerald-500/10 via-emerald-400/5 to-emerald-500/10 shadow-xl shadow-emerald-400/20' 
+              : 'border-rose-400/50 bg-gradient-to-br from-rose-500/10 via-rose-400/5 to-rose-500/10 shadow-xl shadow-rose-400/20'
+            }
+          `}>
+            {/* Result card glass overlay */}
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/5 via-transparent to-white/3"></div>
+            
+            <div className="relative z-10">
+              <div className="flex items-center justify-center gap-4 mb-4">
+                {isCorrect ? (
+                  <>
+                    <CheckCircle className="text-emerald-400 animate-bounce drop-shadow-lg" size={36} />
+                    <span className="text-3xl font-bold text-emerald-200">Excellent!</span>
+                  </>
+                ) : (
+                  <>
+                    <XCircle className="text-rose-400 animate-pulse drop-shadow-lg" size={36} />
+                    <span className="text-3xl font-bold text-rose-200">Not quite!</span>
+                  </>
+                )}
+              </div>
+              
+              <p className="text-lg text-slate-200 mb-6 leading-relaxed">
+                {isCorrect 
+                  ? "Great job! Soul-Bound Tokens (SBTs) provide tamper-proof identity anchoring for agents."
+                  : "Soul-Bound Tokens (SBTs) permanently record an agent's identity and reputation on-chain."
+                }
+              </p>
+              
+              <button
+                onClick={resetQuiz}
+                className="px-8 py-3 rounded-xl bg-gradient-to-r from-purple-500/80 via-indigo-500/80 to-cyan-500/80 text-white font-semibold hover:from-purple-600/90 hover:via-indigo-600/90 hover:to-cyan-600/90 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-purple-500/25 backdrop-blur-sm border border-white/10"
+              >
+                Try Again
+              </button>
             </div>
-            
-            <p className="text-lg text-gray-300 mb-4">
-              {isCorrect 
-                ? "Great job! Soul-Bound Tokens (SBTs) provide tamper-proof identity anchoring for agents."
-                : "Soul-Bound Tokens (SBTs) permanently record an agent's identity and reputation on-chain."
-              }
-            </p>
-            
-            <button
-              onClick={resetQuiz}
-              className="px-6 py-2 rounded-lg bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold hover:from-purple-600 hover:to-blue-600 transition-all duration-200 transform hover:scale-105"
-            >
-              Try Again
-            </button>
           </div>
         )}
       </div>
