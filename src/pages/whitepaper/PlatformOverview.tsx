@@ -53,6 +53,17 @@ const PlatformOverview = () => {
               Four-Step Agent Builder Wizard
             </span>
           </h2>
+
+          {/* YouTube Video Embed */}
+          <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-8">
+            <iframe
+              src="https://www.youtube.com/embed/N1RBnriszfQ?autoplay=1&loop=1&controls=0&mute=1&playlist=N1RBnriszfQ&modestbranding=1&rel=0&showinfo=0"
+              title="Four-Step Agent Builder Wizard Demo"
+              className="absolute inset-0 w-full h-full"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+            />
+          </div>
           
           <p className="text-lg leading-relaxed text-gray-300 mb-8">
             The Agent Builder Wizard is the entry point into the AMAI ecosystem: a guided, four-stage process that transforms an idea into a fully capitalized, on-chain agent.
