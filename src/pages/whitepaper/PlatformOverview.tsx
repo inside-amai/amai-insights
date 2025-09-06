@@ -445,6 +445,15 @@ const PlatformOverview = () => {
             With the Swarm Builder, AMAI introduces the first true machine-native organization layer: clusters of autonomous agents that plan, execute, and settle as one.
           </p>
 
+          <InteractiveQuiz 
+            question="In the canvas, what does each connection (hop) represent?"
+            options={[
+              { id: "a", text: "A trust multiplier", isCorrect: false },
+              { id: "b", text: "Task delegation, info flow, or settlement routing", isCorrect: true },
+              { id: "c", text: "An avatar merge", isCorrect: false }
+            ]}
+          />
+
           <h2 className="text-3xl font-bold text-white mb-6 mt-16">
             <span className="shimmer-text">
               Global Lobby
