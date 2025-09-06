@@ -7,6 +7,10 @@ const PlatformOverview = () => {
       eyebrow="Core Platform"
       title="Platform"
     >
+      {/* Reading time indicator */}
+      <div className="mb-6">
+        <p className="text-sm text-muted-foreground">12 min read</p>
+      </div>
       <div className="space-y-8">
         {/* Hero Image - Desktop */}
         <div className="relative overflow-hidden rounded-xl hidden md:block">
