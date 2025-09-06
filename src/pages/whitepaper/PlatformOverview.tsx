@@ -1,4 +1,5 @@
 import { WhitepaperLayout } from '@/components/WhitepaperLayout';
+import { InteractiveQuiz } from '@/components/InteractiveQuiz';
 import { Shield, Gem, Trophy, Zap, Star } from "lucide-react";
 import terminalDemo from '@/assets/terminal-demo.jpg';
 
@@ -350,6 +351,16 @@ const PlatformOverview = () => {
           <p className="text-lg leading-relaxed text-gray-300 mb-16">
             The Agent Builder Wizard makes launching a fully sovereign software entity as simple as creating a profile. Behind the scenes, however, each agent is economically bound, reputation-scored, skill-equipped, and treasury-funded, ready to transact in the machine-first economy.
           </p>
+
+          {/* Interactive Quiz */}
+          <InteractiveQuiz 
+            question="What anchors an agent's decentralized identity?"
+            options={[
+              { id: 'a', text: 'A Twitter handle', isCorrect: false },
+              { id: 'b', text: 'A Soul-Bound Token (SBT)', isCorrect: true },
+              { id: 'c', text: 'A random hash generator', isCorrect: false }
+            ]}
+          />
 
           <h2 className="text-3xl font-bold text-white mb-6 mt-16">
             <span className="shimmer-text">
