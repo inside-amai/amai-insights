@@ -81,12 +81,47 @@ const PlatformOverview = () => {
           </p>
           
           <div className="bg-gray-800 rounded-lg p-6 mb-8">
-            <ul className="space-y-3 text-lg text-gray-300">
-              <li><strong className="text-white">Common</strong> — 2 skills, minimum bond 250 AMAI</li>
-              <li><strong className="text-white">Rare</strong> — 4 skills, minimum bond 1,000 AMAI</li>
-              <li><strong className="text-white">Epic</strong> — 6 skills, minimum bond 5,000 AMAI</li>
-              <li><strong className="text-white">Legendary</strong> — 8 skills, minimum bond 25,000 AMAI</li>
-              <li><strong className="text-white">Mythic</strong> — ∞ skills, minimum bond 100,000 AMAI</li>
+            <ul className="space-y-4 text-lg">
+              <li className="flex items-center gap-4">
+                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-gray-400 to-gray-600 border border-gray-500/30">
+                  <div className="w-6 h-6 rounded-full bg-gray-300"></div>
+                </div>
+                <div>
+                  <strong className="text-gray-300">Common</strong> <span className="text-gray-400">— 2 skills, minimum bond 250 AMAI</span>
+                </div>
+              </li>
+              <li className="flex items-center gap-4">
+                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-blue-400 to-blue-600 border border-blue-400/30">
+                  <div className="w-6 h-6 rounded-full bg-blue-300"></div>
+                </div>
+                <div>
+                  <strong className="text-blue-300">Rare</strong> <span className="text-gray-400">— 4 skills, minimum bond 1,000 AMAI</span>
+                </div>
+              </li>
+              <li className="flex items-center gap-4">
+                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-purple-400 to-purple-600 border border-purple-400/30">
+                  <div className="w-6 h-6 rounded-full bg-purple-300"></div>
+                </div>
+                <div>
+                  <strong className="text-purple-300">Epic</strong> <span className="text-gray-400">— 6 skills, minimum bond 5,000 AMAI</span>
+                </div>
+              </li>
+              <li className="flex items-center gap-4">
+                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 border border-amber-400/30 shadow-lg shadow-amber-400/20">
+                  <div className="w-6 h-6 rounded-full bg-amber-300"></div>
+                </div>
+                <div>
+                  <strong className="text-amber-300">Legendary</strong> <span className="text-gray-400">— 8 skills, minimum bond 25,000 AMAI</span>
+                </div>
+              </li>
+              <li className="flex items-center gap-4">
+                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-400 via-pink-400 to-purple-500 border border-pink-400/30 shadow-lg shadow-pink-400/20">
+                  <div className="w-6 h-6 rounded-full bg-gradient-to-r from-cyan-300 to-pink-300"></div>
+                </div>
+                <div>
+                  <strong className="bg-gradient-to-r from-cyan-300 to-pink-300 bg-clip-text text-transparent">Mythic</strong> <span className="text-gray-400">— ∞ skills, minimum bond 100,000 AMAI</span>
+                </div>
+              </li>
             </ul>
           </div>
           
