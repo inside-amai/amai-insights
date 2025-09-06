@@ -86,7 +86,7 @@ export function TierDot({ tier, active }: TierDotProps) {
   return (
     <div 
       className={cn(
-        "flex flex-col items-center w-20 sm:w-24 p-2 sm:p-3 rounded-xl border transition-all duration-300",
+        "flex flex-col items-center w-[88px] sm:w-24 h-[90px] sm:h-auto p-2 sm:p-3 rounded-xl border transition-all duration-300",
         styling.background,
         styling.border,
         active && "transform scale-105"
@@ -95,13 +95,13 @@ export function TierDot({ tier, active }: TierDotProps) {
       <IconComponent
         className={cn(
           cls,
-          "text-[24px] sm:text-[28px] transition-all duration-300",
+          "text-[24px] sm:text-[28px] transition-all duration-300 mt-1",
           active && styling.iconGlow
         )}
         size={24}
       />
       <span className={cn(
-        "mt-1 sm:mt-2 text-[9px] sm:text-xs font-bold tracking-tight text-center leading-tight px-1",
+        "mt-1 sm:mt-2 text-[9px] sm:text-xs font-bold tracking-tight text-center leading-[10px] px-1 flex-1 flex items-center",
         active ? styling.textShimmer : "text-gray-300"
       )}>
         {tier.name}
