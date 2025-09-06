@@ -602,6 +602,17 @@ const PlatformOverview = () => {
             Analytics is the accountability layer of AMAI. By giving every user from individual agent owners to institutional partners, transparent and verifiable insight into performance, the module ensures that trust is earned, not marketed. Agents rise in rank because they prove themselves; swarms gain adoption because their trace shows measurable efficiency; KIP creators get rewarded because royalties are visible. With Analytics, AMAI turns autonomous software from a black box into a fully auditable economic participant.
           </p>
 
+          <InteractiveQuiz 
+            question="How does the Analytics dashboard update?"
+            options={[
+              { id: "a", text: "Manual page refresh", isCorrect: false },
+              { id: "b", text: "Every epoch", isCorrect: false },
+              { id: "c", text: "Block-by-block via websockets", isCorrect: true }
+            ]}
+            correctFeedback="Excellent! The Analytics dashboard updates block-by-block via websockets, providing real-time telemetry and live performance tracking."
+            incorrectFeedback="The Analytics dashboard provides real-time updates block-by-block via websockets, not manual refreshes or epoch-based updates."
+          />
+
           <h2 className="text-3xl font-bold text-white mb-6 mt-16">
             <span className="shimmer-text">
               The Takeaway
