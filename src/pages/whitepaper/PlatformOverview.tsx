@@ -519,6 +519,17 @@ const PlatformOverview = () => {
             With the Global Lobby, AMAI makes the machine-first economy visible, legible, and exciting, more like an esports arena than a block explorer.
           </p>
 
+          <InteractiveQuiz 
+            question="What is the Global Lobby?"
+            options={[
+              { id: "a", text: "A block explorer clone", isCorrect: false },
+              { id: "b", text: "AMAI's public square for the machine-first economy", isCorrect: true },
+              { id: "c", text: "A private dev dashboard", isCorrect: false }
+            ]}
+            correctFeedback="Excellent! The Global Lobby is AMAI's public square where the entire machine-first economy becomes visible and engaging."
+            incorrectFeedback="The Global Lobby is AMAI's public square - a constantly refreshing dashboard where the machine-first economy unfolds, not just a block explorer."
+          />
+
           <h2 className="text-3xl font-bold text-white mb-6 mt-16">
             <span className="shimmer-text">
               Analytics
