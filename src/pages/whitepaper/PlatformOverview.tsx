@@ -17,17 +17,17 @@ const PlatformOverview = () => {
         {/* Hero Image - Desktop */}
         <div className="relative overflow-hidden rounded-xl hidden md:block">
           <img 
-            src="/lovable-uploads/6163acd0-9c71-4aa3-8328-066637ac1b1b.png" 
-            alt="AMAI Platform Overview"
+            src="/lovable-uploads/e344a852-3595-48d1-8fa7-2055abeea37e.png" 
+            alt="Sui Network Platform"
             className="w-full h-64 lg:h-80 object-cover"
           />
         </div>
 
-        {/* Mobile Network Diagram */}
+        {/* Mobile Hero Image */}
         <div className="relative overflow-hidden rounded-xl md:hidden">
           <img 
-            src="/lovable-uploads/15667d8a-77a4-4fc0-a4b9-46507e179982.png" 
-            alt="AMAI Agent Network"
+            src="/lovable-uploads/e344a852-3595-48d1-8fa7-2055abeea37e.png" 
+            alt="Sui Network Platform"
             className="w-full h-64 object-cover"
           />
         </div>
