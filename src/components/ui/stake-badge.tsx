@@ -86,7 +86,7 @@ export function TierDot({ tier, active }: TierDotProps) {
   return (
     <div 
       className={cn(
-        "flex flex-col items-center min-w-[90px] sm:w-24 p-3 rounded-xl border transition-all duration-300",
+        "flex flex-col items-center w-20 sm:w-24 p-2 sm:p-3 rounded-xl border transition-all duration-300",
         styling.background,
         styling.border,
         active && "transform scale-105"
@@ -95,19 +95,19 @@ export function TierDot({ tier, active }: TierDotProps) {
       <IconComponent
         className={cn(
           cls,
-          "text-[26px] sm:text-[28px] transition-all duration-300",
+          "text-[24px] sm:text-[28px] transition-all duration-300",
           active && styling.iconGlow
         )}
-        size={26}
+        size={24}
       />
       <span className={cn(
-        "mt-2 text-[10px] sm:text-xs font-bold tracking-tight text-center leading-tight",
+        "mt-1 sm:mt-2 text-[9px] sm:text-xs font-bold tracking-tight text-center leading-tight px-1",
         active ? styling.textShimmer : "text-gray-300"
       )}>
         {tier.name}
       </span>
       <span className={cn(
-        "text-[9px] sm:text-[10px] mt-1 font-medium text-center leading-tight",
+        "text-[8px] sm:text-[10px] mt-0.5 sm:mt-1 font-medium text-center leading-tight",
         active ? "text-gray-200" : "text-gray-400"
       )}>
         {formattedStake} AMAI<br/>+ {suiAmount} SUI
