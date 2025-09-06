@@ -35,7 +35,7 @@ export const InteractiveQuiz = ({ question, options }: QuizProps) => {
   const isCorrect = selectedOption?.isCorrect;
 
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-violet-900/20 border border-purple-500/30 backdrop-blur-lg p-8 mb-12">
+    <div className="relative overflow-hidden rounded-2xl bg-[#A6FCFC]/10 border border-[#A6FCFC]/30 backdrop-blur-lg p-8 mb-12">
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-4 right-4 animate-bounce">
