@@ -320,3 +320,17 @@ All colors MUST be HSL.
   animation: shootingTrail 1.5s ease-out;
   animation-iteration-count: 1;
 }
+
+/* Quiz shimmer animation - slower version for quiz components */
+@keyframes quiz-shimmer {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+.quiz-shimmer {
+  animation: quiz-shimmer 4s ease-in-out infinite;
+}

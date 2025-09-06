@@ -75,7 +75,7 @@ export const InteractiveQuiz = ({ question, options }: QuizProps) => {
                   w-full p-4 rounded-xl border-2 text-left transition-all duration-300 transform
                   ${hasAnswered ? 'cursor-not-allowed' : 'cursor-pointer hover:scale-[1.02]'}
                   ${showCorrectAnswer 
-                    ? 'border-green-400 bg-gradient-to-r from-green-400/20 via-green-300/30 to-green-400/20 ring-2 ring-green-400/50 animate-[shimmer_3s_ease-in-out_infinite] bg-[length:200%_100%]' 
+                    ? 'border-green-400 bg-gradient-to-r from-green-400/20 via-green-300/30 to-green-400/20 ring-2 ring-green-400/50 quiz-shimmer bg-[length:200%_100%]' 
                     : showWrongAnswer
                     ? 'border-red-400 bg-red-400/20 ring-2 ring-red-400/50'
                     : isSelected && !showResult
