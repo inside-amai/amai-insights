@@ -149,7 +149,7 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
       </div>
       
       {/* Sticky Back Button */}
-      <div className="fixed top-6 left-6 z-50 relative">
+      <div className="fixed top-6 left-6 z-50">
         <Button 
           variant="outline" 
           size="sm" 
