@@ -4,17 +4,17 @@ import { Shield, Gem, Trophy, Zap, Star } from "lucide-react";
 export const TIER_ICONS = {
   Common:    { icon: "Shield",        cls: "text-gray-400",   glow: "" },
   Rare:      { icon: "Gem",           cls: "text-blue-300",   glow: "shadow-cyan-400" },
-  Epic:      { icon: "Star",          cls: "text-purple-300", glow: "shadow-purple-400" },
   Legendary: { icon: "Trophy",        cls: "text-amber-300",  glow: "shadow-amber-400" },
-  Mythic:    { icon: "Zap",           cls: "text-violet-300", glow: "shadow-violet-500" }
+  Mythic:    { icon: "Zap",           cls: "text-violet-300", glow: "shadow-violet-500" },
+  Exotic:    { icon: "Star",          cls: "text-cyan-300",   glow: "shadow-cyan-500" }
 };
 
 export const STAKE_TIERS = [
   { min: 100,     name: "Common",    color: "text-gray-300",   glow: "",                  icon: "Shield", ring: "ring-gray-500",    skillCap: 2 },
   { min: 500,     name: "Rare",      color: "text-blue-300",   glow: "shadow-cyan-400",   icon: "Gem",    ring: "ring-blue-500",    skillCap: 4 },
-  { min: 2_500,   name: "Epic",      color: "text-purple-300", glow: "shadow-purple-400", icon: "Star",   ring: "ring-purple-500",  skillCap: 8 },
-  { min: 10_000,  name: "Legendary", color: "text-amber-300",  glow: "shadow-amber-400",  icon: "Trophy", ring: "ring-amber-500",   skillCap: 6 },
-  { min: 100_000, name: "Mythic",    color: "text-violet-300", glow: "shadow-violet-500", icon: "Zap",    ring: "ring-violet-500",  skillCap: Infinity }
+  { min: 2_500,   name: "Legendary", color: "text-amber-300",  glow: "shadow-amber-400",  icon: "Trophy", ring: "ring-amber-500",   skillCap: 6 },
+  { min: 10_000,  name: "Mythic",    color: "text-violet-300", glow: "shadow-violet-500", icon: "Zap",    ring: "ring-violet-500",  skillCap: 8 },
+  { min: 100_000, name: "Exotic",    color: "text-cyan-300",   glow: "shadow-cyan-500",   icon: "Star",   ring: "ring-cyan-500",    skillCap: Infinity }
 ];
 
 const iconMap = { Shield, Gem, Trophy, Zap, Star };
@@ -54,13 +54,6 @@ export function TierDot({ tier, active }: TierDotProps) {
           border: "border-blue-400/70 ring-2 ring-blue-400/50",
           iconGlow: "filter drop-shadow-[0_0_15px_rgba(96,165,250,0.8)]",
           textShimmer: "bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300 bg-clip-text text-transparent animate-shimmer bg-[length:200%_100%] font-bold"
-        };
-      case 'Epic':
-        return {
-          background: "bg-gradient-to-b from-purple-800/60 to-purple-900/80 backdrop-blur-md",
-          border: "border-purple-400/70 ring-2 ring-purple-400/50",
-          iconGlow: "filter drop-shadow-[0_0_15px_rgba(147,51,234,0.8)]",
-          textShimmer: "bg-gradient-to-r from-purple-300 via-purple-100 to-purple-300 bg-clip-text text-transparent animate-shimmer bg-[length:200%_100%] font-bold"
         };
       case 'Legendary':
         return {
