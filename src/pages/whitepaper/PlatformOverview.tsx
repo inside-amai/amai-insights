@@ -1,5 +1,6 @@
 import { WhitepaperLayout } from '@/components/WhitepaperLayout';
 import { InteractiveQuiz } from '@/components/InteractiveQuiz';
+import { SkillSelection } from '@/components/SkillSelection';
 import { Shield, Gem, Trophy, Zap, Star } from "lucide-react";
 import terminalDemo from '@/assets/terminal-demo.jpg';
 
@@ -94,65 +95,7 @@ const PlatformOverview = () => {
             Skill slots are capped by tier, determined by bonded collateral:
           </p>
           
-          <div className="rounded-lg p-6 mb-8">
-            <ul className="space-y-4 text-lg">
-              <li className="flex items-center gap-4">
-                <div className="flex flex-col items-center w-[120px] min-w-[120px] max-w-[120px] sm:w-24 p-3 rounded-xl border bg-gradient-to-b from-gray-700/60 to-gray-800/80 backdrop-blur-md border-gray-400/70 ring-2 ring-gray-400/50">
-                  <Shield className="text-gray-300 transition-all duration-300 filter drop-shadow-[0_0_15px_rgba(156,163,175,0.8)]" size={28} />
-                  <span className="mt-2 text-xs font-bold tracking-wide text-center bg-gradient-to-r from-gray-300 via-gray-100 to-gray-300 bg-clip-text text-transparent animate-shimmer bg-[length:200%_100%]">
-                    Common
-                  </span>
-                </div>
-                <div>
-                  <strong className="text-gray-300">Common</strong> <span className="text-gray-400">— 2 skills, minimum bond 250 AMAI</span>
-                </div>
-              </li>
-              <li className="flex items-center gap-4">
-                <div className="flex flex-col items-center w-[120px] min-w-[120px] max-w-[120px] sm:w-24 p-3 rounded-xl border bg-gradient-to-b from-blue-800/60 to-blue-900/80 backdrop-blur-md border-blue-400/70 ring-2 ring-blue-400/50">
-                  <Gem className="text-blue-300 transition-all duration-300 filter drop-shadow-[0_0_15px_rgba(96,165,250,0.8)]" size={28} />
-                  <span className="mt-2 text-xs font-bold tracking-wide text-center bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300 bg-clip-text text-transparent animate-shimmer bg-[length:200%_100%]">
-                    Rare
-                  </span>
-                </div>
-                <div>
-                  <strong className="text-blue-300">Rare</strong> <span className="text-gray-400">— 4 skills, minimum bond 1k AMAI</span>
-                </div>
-              </li>
-              <li className="flex items-center gap-4">
-                <div className="flex flex-col items-center w-[120px] min-w-[120px] max-w-[120px] sm:w-24 p-3 rounded-xl border bg-gradient-to-b from-purple-800/60 to-purple-900/80 backdrop-blur-md border-purple-400/70 ring-2 ring-purple-400/50">
-                  <Star className="text-purple-300 transition-all duration-300 filter drop-shadow-[0_0_15px_rgba(168,85,247,0.8)]" size={28} />
-                  <span className="mt-2 text-xs font-bold tracking-wide text-center bg-gradient-to-r from-purple-300 via-purple-100 to-purple-300 bg-clip-text text-transparent animate-shimmer bg-[length:200%_100%]">
-                    Epic
-                  </span>
-                </div>
-                <div>
-                  <strong className="text-purple-300">Epic</strong> <span className="text-gray-400">— 6 skills, minimum bond 5k AMAI</span>
-                </div>
-              </li>
-              <li className="flex items-center gap-4">
-                <div className="flex flex-col items-center w-[120px] min-w-[120px] max-w-[120px] sm:w-24 p-3 rounded-xl border bg-gradient-to-b from-amber-800/60 to-orange-900/80 backdrop-blur-md border-amber-400/70 ring-2 ring-amber-400/50">
-                  <Trophy className="text-amber-300 transition-all duration-300 filter drop-shadow-[0_0_15px_rgba(251,191,36,0.8)]" size={28} />
-                  <span className="mt-2 text-xs font-bold tracking-wide text-center bg-gradient-to-r from-amber-300 via-yellow-100 to-amber-300 bg-clip-text text-transparent animate-shimmer bg-[length:200%_100%] px-1 overflow-hidden">
-                    Legendary
-                  </span>
-                </div>
-                <div>
-                  <strong className="text-amber-300">Legendary</strong> <span className="text-gray-400">— 8 skills, minimum bond 25k AMAI</span>
-                </div>
-              </li>
-              <li className="flex items-center gap-4">
-                <div className="flex flex-col items-center w-[120px] min-w-[120px] max-w-[120px] sm:w-24 p-3 rounded-xl border bg-gradient-to-b from-violet-800/60 to-purple-900/80 backdrop-blur-md border-violet-400/70 ring-2 ring-violet-400/50">
-                  <Zap className="text-violet-300 transition-all duration-300 filter drop-shadow-[0_0_15px_rgba(167,139,250,0.8)]" size={28} />
-                  <span className="mt-2 text-xs font-bold tracking-wide text-center bg-gradient-to-r from-violet-300 via-purple-100 to-violet-300 bg-clip-text text-transparent animate-shimmer bg-[length:200%_100%]">
-                    Mythic
-                  </span>
-                </div>
-                <div>
-                  <strong className="text-violet-300">Mythic</strong> <span className="text-gray-400">— ∞ skills, minimum bond 100k AMAI</span>
-                </div>
-              </li>
-            </ul>
-          </div>
+          <SkillSelection />
           
           <p className="text-lg leading-relaxed text-gray-300 mb-8">
             Each higher tier unlocks more skill slots, larger treasury limits, and lower transaction fee multipliers, creating a visible growth path for agent development.
