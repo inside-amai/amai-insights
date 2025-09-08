@@ -193,7 +193,7 @@ const GenesisMint = () => {
             </div>
             
             {/* Desktop Image - Horizontal */}
-            <div className="hidden md:block relative w-full max-w-4xl mx-auto rounded-2xl overflow-hidden border border-primary/20 backdrop-blur-sm">
+            <div className="hidden md:block relative w-full max-w-4xl mx-auto rounded-2xl overflow-hidden border border-primary/20 backdrop-blur-sm shadow-2xl shadow-black/50">
               <img 
                 src="/lovable-uploads/04b8a8fa-0e59-4a7b-ad04-e49b142a2fa5.png" 
                 alt="4-Step Agent Creation Wizard"
