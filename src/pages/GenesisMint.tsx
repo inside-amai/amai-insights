@@ -379,6 +379,7 @@ const GenesisMint = () => {
                 <Button 
                   size="lg"
                   className="bg-gradient-to-r from-amber-400 to-amber-600 text-amber-950 hover:from-amber-300 hover:to-amber-500 px-10 py-5 text-xl font-bold rounded-xl shadow-2xl shadow-amber-400/40 transition-all duration-300 hover:scale-105 border border-amber-300/50"
+                  onClick={() => window.location.href = '/founders-mint'}
                 >
                   <Crown className="mr-3 w-6 h-6" />
                   Discover Founders Mint
@@ -457,6 +458,7 @@ const GenesisMint = () => {
                 size="lg"
                 variant="outline"
                 className="flex-1 border-amber-400/50 text-amber-400 hover:bg-amber-400/10 hover:border-amber-400 px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105"
+                onClick={() => window.location.href = '/founders-mint'}
               >
                 <Crown className="mr-2" />
                 Discover Founders Mint

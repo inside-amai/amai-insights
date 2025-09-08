@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Explainer from "./pages/Explainer";
 import TechnicalDocs from "./pages/TechnicalDocs";
 import GenesisMint from "./pages/GenesisMint";
+import FoundersMint from "./pages/FoundersMint";
 
 import NotFound from "./pages/NotFound";
 
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/technical-docs" element={<TechnicalDocs />} />
           <Route path="/genesis-mint" element={<GenesisMint />} />
+          <Route path="/founders-mint" element={<FoundersMint />} />
           
           <Route path="/whitepaper/summary-vision" element={
             <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gradient-primary"><div className="text-hero">Loading...</div></div>}>
