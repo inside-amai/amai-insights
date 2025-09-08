@@ -205,14 +205,7 @@ const FoundersMint = () => {
               <div className="relative">
                 <div className="w-80 h-80 bg-gradient-to-br from-amber-400/20 via-amber-600/10 to-transparent rounded-full flex items-center justify-center border border-amber-400/30">
                   <div className="w-60 h-60 bg-gradient-to-br from-amber-500/30 to-amber-700/20 rounded-full flex items-center justify-center border border-amber-400/40">
-                    <Trophy className="w-32 h-32 text-amber-400" style={{
-                      background: 'linear-gradient(90deg, #FFD700 0%, #FFFFFF 25%, #FFA500 50%, #FFFFFF 75%, #FFD700 100%)',
-                      backgroundSize: '200% 100%',
-                      WebkitBackgroundClip: 'text',
-                      backgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      animation: 'shimmer 6s ease-in-out infinite'
-                    }} />
+                    <Trophy className="w-32 h-32 text-amber-400 shimmer-text-gold" />
                   </div>
                 </div>
                 <div className="absolute inset-0 bg-amber-400/10 blur-3xl rounded-full" />
