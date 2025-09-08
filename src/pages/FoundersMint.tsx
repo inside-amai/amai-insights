@@ -316,36 +316,20 @@ const FoundersMint = () => {
             transition={{ duration: 1 }}
             className="relative max-w-6xl mx-auto"
           >
-            <div className="relative h-96 bg-gradient-to-br from-gray-900 via-black to-amber-950/20 rounded-3xl overflow-hidden border border-amber-400/20">
-              {/* Golden table */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative w-64 h-64 bg-gradient-to-r from-amber-400/30 to-amber-600/30 rounded-full border-4 border-amber-400/50">
-                  {/* 12 chairs around the table */}
-                  {[...Array(12)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="absolute w-4 h-6 bg-amber-500/60 rounded-sm"
-                      style={{
-                        left: `${50 + 45 * Math.cos((i * 30 * Math.PI) / 180)}%`,
-                        top: `${50 + 45 * Math.sin((i * 30 * Math.PI) / 180)}%`,
-                        transform: `rotate(${i * 30}deg) translateX(-50%) translateY(-50%)`
-                      }}
-                    />
-                  ))}
-                </div>
+            <div className="relative bg-gradient-to-br from-gray-900 via-black to-amber-950/20 rounded-3xl overflow-hidden border border-amber-400/20 p-12 text-center">
+              {/* Badge Image */}
+              <div className="flex justify-center mb-8">
+                <img 
+                  src="/lovable-uploads/96c48a61-1742-4245-9f95-91de86487e29.png" 
+                  alt="Founders Circle Badge" 
+                  className="w-64 h-64 object-contain"
+                />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
               
-              <div className="absolute bottom-8 left-8 right-8 text-center">
-                <div className="mb-4">
-                  <h3 className="text-3xl md:text-4xl font-bold text-amber-400 relative z-10">
-                    The Founders Circle
-                  </h3>
-                </div>
-                <p className="text-lg text-gray-200 max-w-3xl mx-auto">
-                  Where whales, visionaries, & builders align. The Circle is the heartbeat of AMAI's early governance & opportunity flow.
-                </p>
-              </div>
+              {/* Text below image */}
+              <p className="text-lg text-gray-200 max-w-3xl mx-auto">
+                Where whales, visionaries, & builders align. The Circle is the heartbeat of AMAI's early governance & opportunity flow.
+              </p>
             </div>
           </motion.div>
         </div>
