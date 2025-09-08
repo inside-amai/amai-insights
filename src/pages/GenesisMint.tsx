@@ -266,13 +266,32 @@ const GenesisMint = () => {
       {/* Allocation Section */}
       <section className="py-24 px-6 bg-gray-800">{/* Dark section */}
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white relative z-10">
+          <div style={{ 
+            textAlign: 'center', 
+            marginBottom: '4rem',
+            position: 'relative',
+            zIndex: 9999
+          }}>
+            <h2 style={{ 
+              fontSize: '3rem', 
+              fontWeight: 'bold', 
+              marginBottom: '1.5rem', 
+              color: '#ffffff',
+              fontFamily: 'inherit'
+            }}>
               Token Allocation
             </h2>
-            <p className="text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            <div style={{ 
+              fontSize: '1.125rem', 
+              maxWidth: '56rem', 
+              margin: '0 auto', 
+              lineHeight: '1.75',
+              color: '#d1d5db',
+              fontFamily: 'inherit',
+              padding: '0 1rem'
+            }}>
               The AMAI Genesis Mint distributes tokens transparently with a base price of $0.10 and tiered discounts, where the final supply is discovered based on total tokens minted and allocated across community, team, partners, liquidity, and reserve.
-            </p>
+            </div>
           </div>
 
           <div className="max-w-4xl mx-auto">
