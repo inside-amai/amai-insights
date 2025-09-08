@@ -137,20 +137,6 @@ const FoundersMint = () => {
                     imageRendering: 'auto'
                   }}
                 />
-                
-                {/* Orbiting particles */}
-                {[...Array(8)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="absolute w-2 h-2 bg-amber-400 rounded-full opacity-80"
-                    style={{
-                      left: `${50 + 40 * Math.cos((i * 45 * Math.PI) / 180)}%`,
-                      top: `${50 + 40 * Math.sin((i * 45 * Math.PI) / 180)}%`,
-                      animation: `gentle-float ${3 + i * 0.2}s ease-in-out infinite`,
-                      animationDelay: `${i * 0.2}s`
-                    }}
-                  />
-                ))}
               </div>
             </div>
           </motion.div>
