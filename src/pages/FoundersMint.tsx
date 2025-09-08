@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Crown, Shield, Users, Star, Zap, TrendingUp } from "lucide-react";
+import { Crown, Shield, Users, Star, Zap, TrendingUp, Trophy } from "lucide-react";
 import { Header } from "@/components/Header";
 
 const FoundersMint = () => {
@@ -205,7 +205,7 @@ const FoundersMint = () => {
               <div className="relative">
                 <div className="w-80 h-80 bg-gradient-to-br from-amber-400/20 via-amber-600/10 to-transparent rounded-full flex items-center justify-center border border-amber-400/30">
                   <div className="w-60 h-60 bg-gradient-to-br from-amber-500/30 to-amber-700/20 rounded-full flex items-center justify-center border border-amber-400/40">
-                    <Shield className="w-32 h-32 text-amber-400" />
+                    <Trophy className="w-32 h-32 text-amber-400" />
                   </div>
                 </div>
                 <div className="absolute inset-0 bg-amber-400/10 blur-3xl rounded-full" />
