@@ -24,17 +24,17 @@ const GenesisMint = () => {
     {
       icon: TrendingUp,
       title: "Dynamic Supply",
-      description: "Final supply discovered after mint closes."
+      description: "Final supply revealed only when the mint closes."
     },
     {
       icon: Star,
       title: "Tiered Mints",
-      description: "Early minters receive modest discounts."
+      description: "Early minters unlock rare discounts."
     },
     {
       icon: Users,
       title: "Community Driven",
-      description: "70% of supply minted by participants."
+      description: "70% of the supply is minted by you."
     }
   ];
 
@@ -219,17 +219,40 @@ const GenesisMint = () => {
           >
             {mechanics.map((mechanic, index) => (
               <motion.div key={index} variants={fadeInUp}>
-                <Card className="h-full bg-black/40 backdrop-blur-xl border border-cyan-accent/20 hover:border-cyan-accent/40 transition-all duration-500 group relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-accent/5 via-transparent to-purple-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <CardContent className="p-8 text-center relative z-10">
-                    <div className="relative mb-6">
-                      <div className="absolute inset-0 bg-gradient-to-r from-cyan-accent to-purple-accent rounded-full blur-xl opacity-30 group-hover:opacity-60 transition-opacity duration-500" />
-                      <div className="relative w-16 h-16 mx-auto bg-gradient-to-r from-cyan-accent to-purple-accent rounded-full flex items-center justify-center shadow-2xl shadow-cyan-accent/25">
-                        <mechanic.icon className="w-8 h-8 text-black" />
+                <Card className="h-full bg-black/30 backdrop-blur-2xl border-2 border-transparent hover:border-[#A6FCFC]/60 transition-all duration-700 group cursor-pointer relative overflow-hidden shadow-2xl shadow-black/50">
+                  {/* Glassmorphic background layers */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#A6FCFC]/10 via-black/20 to-[#D6A6FC]/10 opacity-60 group-hover:opacity-100 transition-opacity duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                  
+                  {/* Glow border effect */}
+                  <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-[#A6FCFC]/20 to-[#D6A6FC]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm" />
+                  
+                  <CardContent className="p-10 text-center relative z-10">
+                    {/* Icon with aura ring */}
+                    <div className="relative mb-8 flex justify-center">
+                      {/* Outer aura ring */}
+                      <div className="absolute w-24 h-24 rounded-full bg-gradient-to-r from-[#A6FCFC]/30 to-[#D6A6FC]/30 blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110" />
+                      
+                      {/* Inner glow ring */}
+                      <div className="absolute w-20 h-20 rounded-full bg-gradient-to-r from-[#A6FCFC]/50 to-[#D6A6FC]/50 blur-md opacity-40 group-hover:opacity-80 transition-all duration-700" />
+                      
+                      {/* Icon container */}
+                      <div className="relative w-16 h-16 bg-gradient-to-br from-[#A6FCFC]/20 to-[#D6A6FC]/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/10 group-hover:border-[#A6FCFC]/50 transition-all duration-700 group-hover:scale-110">
+                        <mechanic.icon className="w-8 h-8 text-[#A6FCFC] group-hover:text-white transition-all duration-700 drop-shadow-2xl group-hover:animate-pulse" 
+                          style={{ filter: `drop-shadow(0 0 15px #A6FCFC)` }}
+                        />
                       </div>
                     </div>
-                    <h3 className="text-xl font-semibold mb-4 text-white">{mechanic.title}</h3>
-                    <p className="text-gray-300 leading-relaxed">{mechanic.description}</p>
+                    
+                    {/* Title */}
+                    <h3 className="text-xl font-bold mb-4 text-white group-hover:text-[#A6FCFC] transition-colors duration-500 tracking-wide">
+                      {mechanic.title}
+                    </h3>
+                    
+                    {/* Description */}
+                    <p className="text-gray-300 group-hover:text-gray-100 leading-relaxed transition-colors duration-500 font-medium">
+                      {mechanic.description}
+                    </p>
                   </CardContent>
                 </Card>
               </motion.div>
