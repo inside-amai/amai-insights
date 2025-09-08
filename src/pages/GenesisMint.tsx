@@ -74,7 +74,7 @@ const GenesisMint = () => {
     { 
       icon: Shield, 
       headline: "Remaining Supply", 
-      discount: "Full price", 
+      discount: "No discount", 
       iconColor: "text-gray-300", 
       glowColor: "shadow-gray-400/30",
       borderGlow: "border-gray-400/40"
