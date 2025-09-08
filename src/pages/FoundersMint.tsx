@@ -101,7 +101,7 @@ const FoundersMint = () => {
             className="mb-8"
           >
             <div className="relative inline-block">
-              <h1 className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-amber-300 via-amber-400 to-amber-600 bg-clip-text text-transparent mb-8 shimmer-text">
+              <h1 className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-amber-300 via-amber-400 to-amber-600 bg-clip-text text-transparent mb-8 shimmer-text-gold">
                 Founders Mint
               </h1>
               <div className="absolute -inset-8 bg-gradient-to-r from-amber-400/20 to-amber-600/20 blur-3xl rounded-full opacity-40" />

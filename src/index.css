@@ -227,6 +227,23 @@ All colors MUST be HSL.
   animation: shimmer 8s ease-in-out infinite;
 }
 
+/* Gold shimmer for Founders Mint */
+.shimmer-text-gold {
+  background: linear-gradient(
+    90deg,
+    #FFD700 0%,
+    #FFFFFF 25%,
+    #FFA500 50%,
+    #FFFFFF 75%,
+    #FFD700 100%
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 6s ease-in-out infinite;
+}
+
 /* Shooting star animation */
 @keyframes shootingStar {
   0% {
