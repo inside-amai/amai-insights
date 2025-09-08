@@ -94,7 +94,7 @@ const FoundersMint = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-6 pt-32 md:pt-0">
+      <section className="relative min-h-screen flex items-center justify-center px-6 pt-32 md:pt-24">
         <div className="container mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
