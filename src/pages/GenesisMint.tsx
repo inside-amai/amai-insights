@@ -32,11 +32,6 @@ const GenesisMint = () => {
       description: "Early minters receive modest discounts."
     },
     {
-      icon: Shield,
-      title: "Fair Pricing",
-      description: "Weighted average ensures everyone mints at a blended price."
-    },
-    {
       icon: Users,
       title: "Community Driven",
       description: "70% of supply minted by participants."
