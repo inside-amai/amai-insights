@@ -287,7 +287,7 @@ const GenesisMint = () => {
               {/* Pie Chart Representation */}
               <div className="relative">
                 <div className="w-80 h-80 mx-auto relative">
-                  <svg viewBox="0 0 100 100" className="w-full h-full transform -rotate-90">
+                  <svg viewBox="0 0 100 100" className="w-full h-full transform -rotate-90 overflow-visible">
                     {allocation.map((item, index) => {
                       const accumulated = allocation.slice(0, index).reduce((sum, item) => sum + item.percentage, 0);
                       const circumference = 2 * Math.PI * 40;
