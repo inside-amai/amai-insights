@@ -498,17 +498,25 @@ const GenesisMint = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <Accordion type="single" collapsible className="space-y-4">
+            <Accordion type="single" collapsible className="space-y-6">
               {faqData.map((faq, index) => (
                 <AccordionItem
                   key={index}
                   value={`item-${index}`}
-                  className="bg-card/30 border-primary/20 backdrop-blur-sm rounded-lg px-6 data-[state=open]:border-primary/40 transition-all duration-300"
+                  className="bg-black/30 backdrop-blur-2xl border-2 border-transparent hover:border-[#A6FCFC]/60 transition-all duration-700 group cursor-pointer relative overflow-hidden shadow-2xl shadow-black/50 rounded-xl"
                 >
-                  <AccordionTrigger className="text-left hover:text-primary transition-colors py-6">
+                  {/* Glassmorphic background layers */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/20 to-black/40 opacity-60 group-hover:opacity-100 transition-opacity duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                  
+                  {/* Glow effects */}
+                  <div className="absolute -top-20 -right-20 w-40 h-40 opacity-20 group-hover:opacity-40 transition-opacity duration-700 blur-2xl rotate-45 bg-gradient-to-br from-[#A6FCFC]/50 to-transparent" />
+                  <div className="absolute -bottom-20 -left-20 w-40 h-40 opacity-15 group-hover:opacity-30 transition-opacity duration-700 blur-2xl rotate-45 bg-gradient-to-tr from-[#A6FCFC]/50 to-transparent" />
+                  
+                  <AccordionTrigger className="text-left hover:text-[#A6FCFC] transition-colors py-8 text-lg font-semibold px-8 relative z-10 text-white group-hover:text-[#A6FCFC]">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground pb-6">
+                  <AccordionContent className="text-gray-300 group-hover:text-gray-100 pb-8 px-8 text-base leading-relaxed relative z-10 transition-colors duration-500">
                     {typeof faq.answer === 'string' ? faq.answer : faq.answer}
                   </AccordionContent>
                 </AccordionItem>
