@@ -195,15 +195,11 @@ const FoundersMint = () => {
               transition={{ duration: 0.8 }}
               className="space-y-8"
             >
-              <motion.h2 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="text-4xl md:text-5xl font-bold text-amber-400 mb-8"
-              >
-                What Is Founders Mint?
-              </motion.h2>
+              <div className="text-center mb-8">
+                <h2 className="text-4xl md:text-5xl font-bold text-amber-400 relative z-10">
+                  What Is Founders Mint?
+                </h2>
+              </div>
               
               <div className="space-y-6 text-lg text-gray-200 leading-relaxed">
                 <p>Only 12 governance tokens will ever exist, making you one of the most exclusive members of the AMAI ecosystem.</p>
@@ -225,7 +221,7 @@ const FoundersMint = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-center mb-20"
           >
-            <h2 className="text-5xl md:text-6xl font-bold text-amber-400 mb-8">
+            <h2 className="text-5xl md:text-6xl font-bold text-amber-400 mb-8 relative z-10">
               Exclusive Benefits
             </h2>
           </motion.div>
@@ -289,15 +285,11 @@ const FoundersMint = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
               
               <div className="absolute bottom-8 left-8 right-8 text-center">
-                <motion.h3 
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="text-3xl md:text-4xl font-bold text-amber-400 mb-4"
-                >
-                  The Founders Circle
-                </motion.h3>
+                <div className="mb-4">
+                  <h3 className="text-3xl md:text-4xl font-bold text-amber-400 relative z-10">
+                    The Founders Circle
+                  </h3>
+                </div>
                 <p className="text-lg text-gray-200 max-w-3xl mx-auto">
                   Where whales, visionaries, and builders align. The Circle is the heartbeat of AMAI's early governance and opportunity flow.
                 </p>
@@ -321,15 +313,11 @@ const FoundersMint = () => {
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(251,191,36,0.1),transparent_70%)]" />
               <CardContent className="p-16 text-center relative z-10">
                 <div className="space-y-8">
-                  <motion.h3 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-4xl md:text-5xl font-bold text-amber-400"
-                  >
-                    Only 12 Founders Mints Will Ever Exist
-                  </motion.h3>
+                  <div className="mb-8">
+                    <h3 className="text-4xl md:text-5xl font-bold text-amber-400 relative z-10">
+                      Only 12 Founders Mints Will Ever Exist
+                    </h3>
+                  </div>
                   
                   <div className="text-6xl font-bold text-white">
                     $1,000,000
@@ -364,7 +352,7 @@ const FoundersMint = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-center mb-20"
           >
-            <h2 className="text-5xl md:text-6xl font-bold text-amber-400 mb-8">
+            <h2 className="text-5xl md:text-6xl font-bold text-amber-400 mb-8 relative z-10">
               Frequently Asked Questions
             </h2>
           </motion.div>
@@ -399,13 +387,13 @@ const FoundersMint = () => {
       <section className="py-32 px-6 bg-gradient-to-t from-amber-950/20 via-black to-black">
         <div className="container mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="space-y-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-amber-400 max-w-4xl mx-auto leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-amber-400 max-w-4xl mx-auto leading-tight relative z-10">
               Enter the Circle. Shape the Machine-First Economy.
             </h2>
             
