@@ -8,36 +8,41 @@ import {
 
 const faqData = [
   {
-    question: "What is AMAI's core mission?",
-    answer: "TODO: Add mission statement and core values that define AMAI's purpose in the autonomous AI space."
+    question: "How is the final supply calculated?",
+    answer: (
+      <div className="space-y-4">
+        <p>The final supply is discovered once the Genesis Mint ends. The total number of tokens minted across all tiers is used to determine the community's share (70%), with the remaining 30% allocated to team, partners, liquidity, and reserve.</p>
+        
+        <div className="bg-card border border-border rounded-lg p-6 my-6">
+          <div className="text-center">
+            <div className="text-lg font-mono">
+              <span className="text-primary font-semibold">Final Supply</span>
+              <span className="mx-4 text-muted-foreground">=</span>
+              <div className="inline-block">
+                <div className="border-b border-muted-foreground pb-1 mb-1">
+                  <span className="text-accent font-medium">Total Minted Value</span>
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  Weighted Average Price
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
   },
   {
-    question: "How does AMAI leverage the Sui blockchain?",
-    answer: "TODO: Explain the technical integration with Sui blockchain and benefits of this choice for AI infrastructure."
+    question: "What is the base price and how do the discount tiers work?",
+    answer: "The base price for $AMAI is $0.10. Early minters are rewarded with tiered discounts (ranging from 19% off down to 5% off). As each tier is filled, the mint naturally progresses to the next price level until the supply is minted or the time window closes."
   },
   {
-    question: "What makes AMAI different from other AI platforms?",
-    answer: "TODO: Highlight unique value propositions and competitive advantages in the autonomous AI market."
+    question: "How are tokens distributed after the mint?",
+    answer: "When the mint closes, the finalized supply is minted and distributed as follows: 70% to the community and 30% to the ecosystem (team, partners, and liquidity)."
   },
   {
-    question: "When will the platform be fully operational?",
-    answer: "TODO: Provide timeline for platform launch and key milestones users can expect."
-  },
-  {
-    question: "How can developers integrate with AMAI?",
-    answer: "TODO: Outline developer resources, APIs, and integration pathways for the AMAI platform."
-  },
-  {
-    question: "What are the system requirements?",
-    answer: "TODO: Technical requirements for running AMAI platform and participating in the network."
-  },
-  {
-    question: "How does the token staking work?",
-    answer: "TODO: Detailed explanation of staking mechanisms, rewards, and participation requirements."
-  },
-  {
-    question: "Is there a bug bounty program?",
-    answer: "TODO: Information about security programs, bug bounties, and community contributions."
+    question: "What are the vesting terms for team and partners?",
+    answer: "Team tokens vest over 14 months, with a 4-month cliff releasing 25%, followed by linear vesting thereafter."
   }
 ];
 
