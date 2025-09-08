@@ -42,7 +42,7 @@ const GenesisMint = () => {
     { 
       icon: Star, 
       headline: "First 3M Tokens", 
-      discount: "19% off · $0.081 each", 
+      discount: "19% discount", 
       iconColor: "text-cyan-300", 
       glowColor: "shadow-cyan-500/50",
       borderGlow: "border-cyan-400/60"
@@ -50,7 +50,7 @@ const GenesisMint = () => {
     { 
       icon: Zap, 
       headline: "Next 5M Tokens", 
-      discount: "14% off · $0.086 each", 
+      discount: "14% discount", 
       iconColor: "text-violet-300", 
       glowColor: "shadow-violet-500/50",
       borderGlow: "border-violet-400/60"
@@ -58,7 +58,7 @@ const GenesisMint = () => {
     { 
       icon: Trophy, 
       headline: "Next 7M Tokens", 
-      discount: "10% off · $0.090 each", 
+      discount: "10% discount", 
       iconColor: "text-amber-300", 
       glowColor: "shadow-amber-400/50",
       borderGlow: "border-amber-400/60"
@@ -66,7 +66,7 @@ const GenesisMint = () => {
     { 
       icon: Gem, 
       headline: "Next 10M Tokens", 
-      discount: "5% off · $0.095 each", 
+      discount: "5% discount", 
       iconColor: "text-blue-300", 
       glowColor: "shadow-blue-400/50",
       borderGlow: "border-blue-400/60"
@@ -74,7 +74,7 @@ const GenesisMint = () => {
     { 
       icon: Shield, 
       headline: "Remaining Supply", 
-      discount: "Full price · $0.10 each", 
+      discount: "Full price", 
       iconColor: "text-gray-300", 
       glowColor: "shadow-gray-400/30",
       borderGlow: "border-gray-400/40"
@@ -246,7 +246,7 @@ const GenesisMint = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white relative z-10">
-              Token Unlocks
+              Mint Tiers
             </h2>
           </motion.div>
 
