@@ -289,18 +289,40 @@ const GenesisMint = () => {
                 variants={fadeInUp}
                 className="relative"
               >
-                <Card className={`bg-black/60 backdrop-blur-xl border-2 ${unlock.borderGlow} hover:shadow-2xl ${unlock.glowColor} transition-all duration-500 group cursor-pointer relative overflow-hidden`}>
-                  <div className="absolute inset-0 bg-gradient-to-br from-current/5 via-transparent to-current/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg" />
+                <Card className="h-full bg-black/30 backdrop-blur-2xl border-2 border-transparent hover:border-[#A6FCFC]/60 transition-all duration-700 group cursor-pointer relative overflow-hidden shadow-2xl shadow-black/50">
+                  {/* Glassmorphic background layers */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#A6FCFC]/10 via-black/20 to-[#D6A6FC]/10 opacity-60 group-hover:opacity-100 transition-opacity duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                  
+                  {/* Glow border effect */}
+                  <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-[#A6FCFC]/20 to-[#D6A6FC]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm" />
+                  
                   <CardContent className="p-8 text-center min-w-[200px] relative z-10">
-                    <div className="relative mb-6">
-                      <unlock.icon className={`w-12 h-12 mx-auto ${unlock.iconColor} group-hover:scale-110 transition-transform duration-300 drop-shadow-2xl`} 
-                        style={{ filter: `drop-shadow(0 0 20px currentColor)` }}
-                      />
-                      <div className="absolute inset-0 bg-current/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    {/* Icon with aura ring */}
+                    <div className="relative mb-6 flex justify-center">
+                      {/* Outer aura ring */}
+                      <div className="absolute w-20 h-20 rounded-full bg-gradient-to-r from-[#A6FCFC]/30 to-[#D6A6FC]/30 blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110" />
+                      
+                      {/* Inner glow ring */}
+                      <div className="absolute w-16 h-16 rounded-full bg-gradient-to-r from-[#A6FCFC]/50 to-[#D6A6FC]/50 blur-md opacity-40 group-hover:opacity-80 transition-all duration-700" />
+                      
+                      {/* Icon container */}
+                      <div className="relative w-12 h-12 bg-gradient-to-br from-[#A6FCFC]/20 to-[#D6A6FC]/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/10 group-hover:border-[#A6FCFC]/50 transition-all duration-700 group-hover:scale-110">
+                        <unlock.icon className={`w-6 h-6 ${unlock.iconColor} group-hover:text-white transition-all duration-700 drop-shadow-2xl group-hover:animate-pulse`} 
+                          style={{ filter: `drop-shadow(0 0 15px currentColor)` }}
+                        />
+                      </div>
                     </div>
-                    <div className="text-lg font-bold text-white mb-3">{unlock.headline}</div>
-                    <div className="text-base font-medium text-gray-400">{unlock.discount}</div>
+                    
+                    {/* Title */}
+                    <div className="text-lg font-bold text-white mb-3 group-hover:text-[#A6FCFC] transition-colors duration-500 tracking-wide">
+                      {unlock.headline}
+                    </div>
+                    
+                    {/* Description */}
+                    <div className="text-base font-medium text-gray-400 group-hover:text-gray-100 transition-colors duration-500">
+                      {unlock.discount}
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
