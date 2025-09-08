@@ -189,7 +189,7 @@ const FoundersMint = () => {
                 </h2>
               </div>
               
-              <div className="space-y-6 text-lg text-gray-200 leading-relaxed">
+              <div className="space-y-6 text-lg text-white leading-relaxed">
                 <p>Only 12 governance tokens will ever exist, making you one of the most exclusive members of the AMAI ecosystem.</p>
                 <p>First-come, first-serve allocation ensures immediate ownership for committed visionaries.</p>
                 <p>A place inside the Founders Circle grants you direct influence over AMAI's strategic direction and access to the most valuable opportunities.</p>
