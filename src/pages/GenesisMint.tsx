@@ -430,13 +430,13 @@ const GenesisMint = () => {
       <section className="py-24 px-6">
         <div className="container mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="space-y-8"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-foreground">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white relative z-10">
               Ready to be part of the Genesis?
             </h2>
             
