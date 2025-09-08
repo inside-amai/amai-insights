@@ -136,7 +136,7 @@ const FoundersMint = () => {
                 <img 
                   src="/lovable-uploads/7441a38d-6bac-453a-b698-6b26590cc8ea.png"
                   alt="AMAI Golden Wings"
-                  className="w-32 h-32 relative z-10 drop-shadow-2xl animate-float"
+                  className="h-32 w-auto relative z-10 drop-shadow-2xl animate-float"
                 />
                 
                 {/* Orbiting particles */}

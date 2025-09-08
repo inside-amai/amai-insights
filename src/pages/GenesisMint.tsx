@@ -184,11 +184,11 @@ const GenesisMint = () => {
             className="relative mb-12"
           >
             {/* Mobile Image - Vertical */}
-            <div className="block md:hidden relative w-full max-w-sm mx-auto rounded-2xl overflow-hidden border border-primary/20 backdrop-blur-sm">
+            <div className="block md:hidden relative flex justify-center mb-12">
               <img 
                 src="/lovable-uploads/b74c26f1-82a6-4960-827f-c0f680e402ed.png" 
                 alt="Legendary PudgyAgent"
-                className="w-full h-auto object-contain"
+                className="max-w-sm w-auto h-auto rounded-2xl border border-primary/20"
               />
             </div>
             
