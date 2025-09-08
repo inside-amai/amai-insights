@@ -274,7 +274,7 @@ const GenesisMint = () => {
                       <div className="absolute inset-0 bg-current/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
                     <div className="text-lg font-bold text-white mb-3">{unlock.headline}</div>
-                    <div className="text-base font-medium text-cyan-300">{unlock.discount}</div>
+                    <div className="text-base font-medium text-gray-400">{unlock.discount}</div>
                   </CardContent>
                 </Card>
               </motion.div>
