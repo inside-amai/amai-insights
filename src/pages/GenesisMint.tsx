@@ -188,7 +188,7 @@ const GenesisMint = () => {
               <img 
                 src="/lovable-uploads/b74c26f1-82a6-4960-827f-c0f680e402ed.png" 
                 alt="Legendary PudgyAgent"
-                className="w-full h-auto"
+                className="w-full h-auto object-contain"
               />
             </div>
             
