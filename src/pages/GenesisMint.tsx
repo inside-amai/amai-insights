@@ -267,15 +267,15 @@ const GenesisMint = () => {
       <section className="py-24 px-6 bg-gray-800">{/* Dark section */}
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 relative z-10" style={{ color: '#ffffff' }}>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white relative z-10">
               Token Allocation
             </h2>
-            <p className="text-lg max-w-4xl mx-auto leading-relaxed" style={{ color: '#d1d5db' }}>
+            <p className="text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed">
               The AMAI Genesis Mint distributes tokens transparently with a base price of $0.10 and tiered discounts, where the final supply is discovered based on total tokens minted and allocated across community, team, partners, liquidity, and reserve.
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto animate-fade-in">
+          <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               {/* Pie Chart Representation */}
               <div className="relative">
@@ -323,12 +323,8 @@ const GenesisMint = () => {
               {/* Legend */}
               <div className="space-y-4">
                 {allocation.map((item, index) => (
-                  <motion.div
+                  <div
                     key={index}
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
                     className="flex items-center space-x-4 p-4 rounded-lg bg-card/30 border border-primary/10 backdrop-blur-sm hover:border-primary/20 transition-all"
                   >
                     <div className={`w-4 h-4 rounded-full bg-gradient-to-r ${item.color}`} />
@@ -336,7 +332,7 @@ const GenesisMint = () => {
                       <div className="font-semibold text-foreground">{item.label}</div>
                       <div className="text-sm text-muted-foreground">{item.percentage}% of total supply</div>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </div>
