@@ -528,27 +528,35 @@ const GenesisMint = () => {
             className="space-y-8"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white relative z-10">
-              Ready to be part of the Genesis?
+              Stay up to date
             </h2>
             
-            <div className="flex flex-col sm:flex-row gap-6 justify-center max-w-md mx-auto">
-              <Button 
-                size="lg"
-                className="flex-1 bg-gradient-to-r from-primary to-accent text-primary-foreground hover:from-primary/90 hover:to-accent/90 px-8 py-4 text-lg font-semibold rounded-xl shadow-2xl shadow-primary/25 transition-all duration-300 hover:scale-105"
+            <div className="flex flex-row gap-8 justify-center items-center">
+              <a 
+                href="https://t.me/AMAIOfficial" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="transition-all duration-300 hover:scale-105"
               >
-                <Zap className="mr-2" />
-                Join Genesis Mint
-              </Button>
+                <img 
+                  src="/lovable-uploads/d4c656fb-cab7-4f08-a1b6-43822a696732.png" 
+                  alt="Join Telegram" 
+                  className="w-16 h-16 md:w-20 md:h-20"
+                />
+              </a>
               
-              <Button 
-                size="lg"
-                variant="outline"
-                className="flex-1 border-amber-400/50 text-amber-400 hover:bg-amber-400/10 hover:border-amber-400 px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105"
-                onClick={() => window.location.href = '/founders-mint'}
+              <a 
+                href="https://x.com/InsideAMAI" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="transition-all duration-300 hover:scale-105"
               >
-                <Crown className="mr-2" />
-                Discover Founders Mint
-              </Button>
+                <img 
+                  src="/lovable-uploads/53e90b93-7fe0-4c2c-b053-df64d7a767d0.png" 
+                  alt="Follow on X" 
+                  className="w-16 h-16 md:w-20 md:h-20"
+                />
+              </a>
             </div>
           </motion.div>
         </div>
