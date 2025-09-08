@@ -126,14 +126,14 @@ const FoundersMint = () => {
             transition={{ delay: 0.6, duration: 1.5 }}
             className="relative mb-16"
           >
-            <div className="relative w-full max-w-2xl mx-auto h-80 flex items-center justify-center">
+            <div className="relative w-full max-w-2xl mx-auto flex items-center justify-center py-8">
               {/* Floating wings */}
               <div className="relative">
                 <div className="absolute inset-0 bg-amber-400/30 blur-3xl rounded-full animate-pulse" />
                 <img 
                   src="/lovable-uploads/53babf97-ed35-4f80-a9f8-b44b9e66e4ef.png"
                   alt="AMAI Golden Wings"
-                  className="h-96 w-auto relative z-10 drop-shadow-2xl animate-float"
+                  className="h-72 md:h-96 w-auto relative z-10 drop-shadow-2xl animate-float"
                 />
                 
                 {/* Orbiting particles */}
