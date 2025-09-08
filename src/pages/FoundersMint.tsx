@@ -129,7 +129,6 @@ const FoundersMint = () => {
             <div className="relative w-full max-w-2xl mx-auto flex items-center justify-center py-8">
               {/* Floating wings */}
               <div className="relative">
-                <div className="absolute inset-0 bg-amber-400/30 blur-3xl rounded-full animate-pulse" />
                 <img 
                   src="/lovable-uploads/4aff46bf-7135-435e-af82-c37542b446d7.png"
                   alt="AMAI Golden Wings"
