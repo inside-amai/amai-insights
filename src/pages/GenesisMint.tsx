@@ -289,13 +289,26 @@ const GenesisMint = () => {
                 variants={fadeInUp}
                 className="relative"
               >
-                <Card className="h-full bg-black/30 backdrop-blur-2xl border-2 border-transparent hover:border-[#A6FCFC]/60 transition-all duration-700 group cursor-pointer relative overflow-hidden shadow-2xl shadow-black/50">
+                <Card className={`h-full bg-black/30 backdrop-blur-2xl border-2 border-transparent hover:${unlock.borderGlow} transition-all duration-700 group cursor-pointer relative overflow-hidden shadow-2xl ${unlock.glowColor}`}>
                   {/* Glassmorphic background layers */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#A6FCFC]/10 via-black/20 to-[#D6A6FC]/10 opacity-60 group-hover:opacity-100 transition-opacity duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/20 to-black/40 opacity-60 group-hover:opacity-100 transition-opacity duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                   
-                  {/* Glow border effect */}
-                  <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-[#A6FCFC]/20 to-[#D6A6FC]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm" />
+                  {/* Angled glow effect - positioned corners */}
+                  <div className={`absolute -top-20 -right-20 w-40 h-40 opacity-20 group-hover:opacity-40 transition-opacity duration-700 blur-2xl rotate-45 ${
+                    unlock.iconColor.includes('cyan') ? 'bg-gradient-to-br from-cyan-300/50 to-transparent' :
+                    unlock.iconColor.includes('violet') ? 'bg-gradient-to-br from-violet-300/50 to-transparent' :
+                    unlock.iconColor.includes('amber') ? 'bg-gradient-to-br from-amber-300/50 to-transparent' :
+                    unlock.iconColor.includes('blue') ? 'bg-gradient-to-br from-blue-300/50 to-transparent' :
+                    'bg-gradient-to-br from-gray-300/50 to-transparent'
+                  }`} />
+                  <div className={`absolute -bottom-20 -left-20 w-40 h-40 opacity-15 group-hover:opacity-30 transition-opacity duration-700 blur-2xl rotate-45 ${
+                    unlock.iconColor.includes('cyan') ? 'bg-gradient-to-tr from-cyan-300/50 to-transparent' :
+                    unlock.iconColor.includes('violet') ? 'bg-gradient-to-tr from-violet-300/50 to-transparent' :
+                    unlock.iconColor.includes('amber') ? 'bg-gradient-to-tr from-amber-300/50 to-transparent' :
+                    unlock.iconColor.includes('blue') ? 'bg-gradient-to-tr from-blue-300/50 to-transparent' :
+                    'bg-gradient-to-tr from-gray-300/50 to-transparent'
+                  }`} />
                   
                   <CardContent className="p-8 text-center min-w-[200px] relative z-10">
                     {/* Icon with simple glow */}
