@@ -298,20 +298,11 @@ const GenesisMint = () => {
                   <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-[#A6FCFC]/20 to-[#D6A6FC]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm" />
                   
                   <CardContent className="p-8 text-center min-w-[200px] relative z-10">
-                    {/* Icon with aura ring */}
+                    {/* Icon with simple glow */}
                     <div className="relative mb-6 flex justify-center">
-                      {/* Outer aura ring */}
-                      <div className="absolute w-20 h-20 rounded-full bg-gradient-to-r from-[#A6FCFC]/30 to-[#D6A6FC]/30 blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110" />
-                      
-                      {/* Inner glow ring */}
-                      <div className="absolute w-16 h-16 rounded-full bg-gradient-to-r from-[#A6FCFC]/50 to-[#D6A6FC]/50 blur-md opacity-40 group-hover:opacity-80 transition-all duration-700" />
-                      
-                      {/* Icon container */}
-                      <div className="relative w-12 h-12 bg-gradient-to-br from-[#A6FCFC]/20 to-[#D6A6FC]/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/10 group-hover:border-[#A6FCFC]/50 transition-all duration-700 group-hover:scale-110">
-                        <unlock.icon className={`w-6 h-6 ${unlock.iconColor} group-hover:text-white transition-all duration-700 drop-shadow-2xl group-hover:animate-pulse`} 
-                          style={{ filter: `drop-shadow(0 0 15px currentColor)` }}
-                        />
-                      </div>
+                      <unlock.icon className={`w-12 h-12 ${unlock.iconColor} transition-all duration-300 drop-shadow-2xl`} 
+                        style={{ filter: `drop-shadow(0 0 20px currentColor)` }}
+                      />
                     </div>
                     
                     {/* Title */}
