@@ -221,7 +221,7 @@ const FoundersMint = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-center mb-20"
           >
-            <h2 className="text-5xl md:text-6xl font-bold text-amber-400 mb-8 relative z-10">
+            <h2 className="text-5xl md:text-6xl font-bold text-amber-400 mb-8 relative z-10 shimmer-text-gold">
               Exclusive Benefits
             </h2>
           </motion.div>
@@ -352,7 +352,7 @@ const FoundersMint = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-center mb-20"
           >
-            <h2 className="text-5xl md:text-6xl font-bold text-amber-400 mb-8 relative z-10">
+            <h2 className="text-5xl md:text-6xl font-bold text-amber-400 mb-8 relative z-10 shimmer-text-gold">
               Frequently Asked Questions
             </h2>
           </motion.div>
@@ -393,7 +393,7 @@ const FoundersMint = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="space-y-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-amber-400 max-w-4xl mx-auto leading-tight relative z-10">
+            <h2 className="text-4xl md:text-5xl font-bold text-amber-400 max-w-4xl mx-auto leading-tight relative z-10 shimmer-text-gold">
               Enter the Circle. Shape the Machine-First Economy.
             </h2>
             
