@@ -131,7 +131,7 @@ const FoundersMint = () => {
               <div className="relative">
                 <div className="absolute inset-0 bg-amber-400/30 blur-3xl rounded-full animate-pulse" />
                 <img 
-                  src="/lovable-uploads/7441a38d-6bac-453a-b698-6b26590cc8ea.png"
+                  src="/lovable-uploads/53babf97-ed35-4f80-a9f8-b44b9e66e4ef.png"
                   alt="AMAI Golden Wings"
                   className="h-96 w-auto relative z-10 drop-shadow-2xl animate-float"
                 />
