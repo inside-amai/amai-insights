@@ -91,7 +91,7 @@ const GenesisMint = () => {
       question: "How is the final supply calculated?",
       answer: (
         <div className="space-y-4">
-          <p>The final supply is discovered once the Genesis Mint ends. The total number of tokens minted across all tiers is used to determine the community's share (70%), with the remaining 30% allocated to team, partners, liquidity, and reserve.</p>
+          <p>The final supply is discovered once the Genesis Mint ends. The total number of tokens minted across all tiers is used to determine the community's share (70%), with the remaining 30% allocated to team, partners, liquidity, & reserve.</p>
           
           <div className="bg-card/50 border border-primary/20 rounded-lg p-8 my-6">
             <div className="text-center">
@@ -119,7 +119,7 @@ const GenesisMint = () => {
     },
     {
       question: "How are tokens distributed after the mint?",
-      answer: "When the mint closes, the finalized supply is minted and distributed as follows: 70% to the community and 30% to the ecosystem (team, partners, and liquidity)."
+      answer: "When the mint closes, the finalized supply is minted & distributed as follows: 70% to the community & 30% to the ecosystem (team, partners, & liquidity)."
     },
     {
       question: "What are the vesting terms for team and partners?",
@@ -372,7 +372,7 @@ const GenesisMint = () => {
               fontFamily: 'inherit',
               padding: '0 1rem'
             }}>
-              The AMAI Genesis Mint distributes tokens transparently with a base price of $0.10 and tiered discounts, where the final supply is discovered based on total tokens minted and allocated across community, team, partners and liquidity.
+              The AMAI Genesis Mint distributes tokens transparently with a base price of $0.10 & tiered discounts, where the final supply is discovered based on total tokens minted & allocated across community, team, partners & liquidity.
             </div>
           </div>
 
@@ -459,7 +459,7 @@ const GenesisMint = () => {
                 
                 <p className="text-lg text-amber-100/90 mb-10 max-w-3xl mx-auto leading-relaxed">
                   Ultra-rare: only 12 governance tokens. First-come, first-serve. Founders gain Gold Wing badges, 
-                  rare @handles, unlimited Exotic agents, and access to the private Founders Circle.
+                  rare @handles, unlimited Exotic agents, & access to the private Founders Circle.
                 </p>
 
                 <Button 

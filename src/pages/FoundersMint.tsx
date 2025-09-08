@@ -29,7 +29,7 @@ const FoundersMint = () => {
     {
       icon: Users,
       title: "Founders Circle Access",
-      description: "Private VIP Telegram group for OTC deals, early platform access, and direct contact with team."
+      description: "Private VIP Telegram group for OTC deals, early platform access, & direct contact with team."
     },
     {
       icon: Star,
@@ -60,11 +60,11 @@ const FoundersMint = () => {
     },
     {
       question: "How do I claim one?",
-      answer: "Founders Mints are available on a first-come, first-serve basis. Each mint costs $1,000,000 and grants immediate access to all benefits."
+      answer: "Founders Mints are available on a first-come, first-serve basis. Each mint costs $1,000,000 & grants immediate access to all benefits."
     },
     {
       question: "What utilities are permanent?",
-      answer: "All Founders Mint benefits are permanent and non-transferable, including Founders Circle access, Gold Wing badges, and unlimited Exotic agent minting."
+      answer: "All Founders Mint benefits are permanent & non-transferable, including Founders Circle access, Gold Wing badges, & unlimited Exotic agent minting."
     },
     {
       question: "Can I resell my Founders Mint?",
@@ -197,7 +197,7 @@ const FoundersMint = () => {
               }}>
                 <div style={{ color: '#ffffff' }}>Only 12 governance tokens will ever exist, making you one of the most exclusive members of the AMAI ecosystem.</div>
                 <div style={{ color: '#ffffff' }}>First-come, first-serve allocation ensures immediate ownership for committed visionaries.</div>
-                <div style={{ color: '#ffffff' }}>A place inside the Founders Circle grants you direct influence over AMAI's strategic direction and access to the most valuable opportunities.</div>
+                <div style={{ color: '#ffffff' }}>A place inside the Founders Circle grants you direct influence over AMAI's strategic direction & access to the most valuable opportunities.</div>
               </div>
             </div>
           </div>
@@ -284,7 +284,7 @@ const FoundersMint = () => {
                   </h3>
                 </div>
                 <p className="text-lg text-gray-200 max-w-3xl mx-auto">
-                  Where whales, visionaries, and builders align. The Circle is the heartbeat of AMAI's early governance and opportunity flow.
+                  Where whales, visionaries, & builders align. The Circle is the heartbeat of AMAI's early governance & opportunity flow.
                 </p>
               </div>
             </div>
