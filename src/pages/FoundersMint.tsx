@@ -188,13 +188,7 @@ const FoundersMint = () => {
             </motion.div>
 
             {/* Right - Copy */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="space-y-8"
-            >
+            <div className="space-y-8">
               <div className="text-center mb-8">
                 <h2 className="text-4xl md:text-5xl font-bold text-amber-400 relative z-10">
                   What Is Founders Mint?
@@ -206,7 +200,7 @@ const FoundersMint = () => {
                 <p>First-come, first-serve allocation ensures immediate ownership for committed visionaries.</p>
                 <p>A place inside the Founders Circle grants you direct influence over AMAI's strategic direction and access to the most valuable opportunities.</p>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
