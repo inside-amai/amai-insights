@@ -362,7 +362,7 @@ const GenesisMint = () => {
               fontFamily: 'inherit',
               padding: '0 1rem'
             }}>
-              The AMAI Genesis Mint distributes tokens transparently with a base price of $0.10 and tiered discounts, where the final supply is discovered based on total tokens minted and allocated across community, team, partners, liquidity, and reserve.
+              The AMAI Genesis Mint distributes tokens transparently with a base price of $0.10 and tiered discounts, where the final supply is discovered based on total tokens minted and allocated across community, team, partners and liquidity.
             </div>
           </div>
 
