@@ -170,13 +170,7 @@ const FoundersMint = () => {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
             {/* Left - Gold Crest */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="flex justify-center"
-            >
+            <div className="flex justify-center">
               <div className="relative">
                 <div className="w-80 h-80 bg-gradient-to-br from-amber-400/20 via-amber-600/10 to-transparent rounded-full flex items-center justify-center border border-amber-400/30">
                   <div className="w-60 h-60 bg-gradient-to-br from-amber-500/30 to-amber-700/20 rounded-full flex items-center justify-center border border-amber-400/40">
@@ -185,7 +179,7 @@ const FoundersMint = () => {
                 </div>
                 <div className="absolute inset-0 bg-amber-400/10 blur-3xl rounded-full" />
               </div>
-            </motion.div>
+            </div>
 
             {/* Right - Copy */}
             <div className="space-y-8">
