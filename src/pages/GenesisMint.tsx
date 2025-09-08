@@ -281,7 +281,7 @@ const GenesisMint = () => {
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
-            className="flex flex-wrap justify-center gap-6 mb-12"
+            className="grid grid-cols-1 md:flex md:flex-wrap md:justify-center gap-8 md:gap-6 mb-12 max-w-5xl mx-auto md:max-w-none"
           >
             {tokenUnlocks.map((unlock, index) => (
               <motion.div
@@ -310,7 +310,7 @@ const GenesisMint = () => {
                     'bg-gradient-to-tr from-gray-300/50 to-transparent'
                   }`} />
                   
-                  <CardContent className="p-8 text-center min-w-[200px] relative z-10">
+                  <CardContent className="p-10 md:p-8 text-center md:min-w-[200px] relative z-10">
                     {/* Icon with simple glow */}
                     <div className="relative mb-6 flex justify-center">
                       <unlock.icon className={`w-12 h-12 ${unlock.iconColor} transition-all duration-300 drop-shadow-2xl`} 
