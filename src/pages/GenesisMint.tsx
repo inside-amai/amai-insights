@@ -82,7 +82,7 @@ const GenesisMint = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden dark">{/* Force dark theme */}
       {/* Animated Background Elements */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent/5" />
@@ -172,7 +172,7 @@ const GenesisMint = () => {
       </section>
 
       {/* Genesis Mint Mechanics Section */}
-      <section className="py-24 px-6 bg-section-alt-background">
+      <section className="py-24 px-6 bg-gray-800">{/* Dark section */}
         <div className="container mx-auto">
           <motion.div
             {...fadeInUp}
@@ -252,7 +252,7 @@ const GenesisMint = () => {
       </section>
 
       {/* Allocation Section */}
-      <section className="py-24 px-6 bg-section-alt-background">
+      <section className="py-24 px-6 bg-gray-800">{/* Dark section */}
         <div className="container mx-auto">
           <motion.div
             {...fadeInUp}
@@ -377,7 +377,7 @@ const GenesisMint = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 px-6 bg-section-alt-background">
+      <section className="py-24 px-6 bg-gray-800">{/* Dark section */}
         <div className="container mx-auto max-w-4xl">
           <motion.div
             {...fadeInUp}
