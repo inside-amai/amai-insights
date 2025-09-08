@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Shield, Zap, Users, TrendingUp, Star, Crown, Sparkles, CircleDot } from "lucide-react";
+import { Shield, Zap, Users, TrendingUp, Star, Crown, Sparkles, CircleDot, Trophy, Gem } from "lucide-react";
 import { Header } from "@/components/Header";
 
 const GenesisMint = () => {
@@ -44,11 +44,11 @@ const GenesisMint = () => {
   ];
 
   const tiers = [
-    { tier: 1, discount: "19% off", label: "Tier 1" },
-    { tier: 2, discount: "14% off", label: "Tier 2" },
-    { tier: 3, discount: "10% off", label: "Tier 3" },
-    { tier: 4, discount: "5% off", label: "Tier 4" },
-    { tier: 5, discount: "Full price", label: "Tier 5" }
+    { tier: 1, discount: "19% off", label: "Tier 1", icon: Star, iconColor: "text-cyan-300", glowColor: "shadow-cyan-500" },
+    { tier: 2, discount: "14% off", label: "Tier 2", icon: Zap, iconColor: "text-violet-300", glowColor: "shadow-violet-500" },
+    { tier: 3, discount: "10% off", label: "Tier 3", icon: Trophy, iconColor: "text-amber-300", glowColor: "shadow-amber-400" },
+    { tier: 4, discount: "5% off", label: "Tier 4", icon: Gem, iconColor: "text-blue-300", glowColor: "shadow-cyan-400" },
+    { tier: 5, discount: "Full price", label: "Tier 5", icon: Shield, iconColor: "text-gray-400", glowColor: "" }
   ];
 
   const allocation = [
@@ -241,8 +241,8 @@ const GenesisMint = () => {
                   <div className="absolute inset-0 border border-transparent bg-gradient-to-r from-cyan-accent/20 to-purple-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg" />
                   <CardContent className="p-6 text-center min-w-[160px] relative z-10">
                     <div className="relative mb-4">
-                      <CircleDot className="w-10 h-10 mx-auto text-cyan-accent group-hover:text-purple-accent transition-colors duration-300" />
-                      <div className="absolute inset-0 bg-cyan-accent/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <tier.icon className={`w-10 h-10 mx-auto ${tier.iconColor} group-hover:drop-shadow-[0_0_15px_rgba(34,211,238,0.8)] transition-all duration-300`} />
+                      <div className={`absolute inset-0 ${tier.glowColor && 'bg-current'}/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
                     </div>
                     <div className="text-sm font-medium text-gray-400 mb-2">{tier.label}</div>
                     <div className="text-lg font-bold text-white">{tier.discount}</div>
