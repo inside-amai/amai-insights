@@ -125,7 +125,7 @@ const GenesisMint = () => {
             transition={{ delay: 0.3 }}
             className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto"
           >
-            The first moment to mint AMAI into existence.
+            The first moment to mint <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent shimmer-text">AMAI</span> into existence.
           </motion.p>
 
           {/* Agent Creation Wizard Visual */}
