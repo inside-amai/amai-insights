@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Shield, Zap, Users, TrendingUp, Star, Crown, Sparkles, CircleDot } from "lucide-react";
+import { Header } from "@/components/Header";
 
 const GenesisMint = () => {
   const fadeInUp = {
@@ -83,6 +84,7 @@ const GenesisMint = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden dark">{/* Force dark theme */}
+      <Header />
       {/* Animated Background Elements */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent/5" />
