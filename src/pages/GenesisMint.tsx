@@ -248,8 +248,8 @@ const GenesisMint = () => {
                       
                       {/* Icon container */}
                       <div className="relative w-16 h-16 bg-gradient-to-br from-[#A6FCFC]/20 to-[#D6A6FC]/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/10 group-hover:border-[#A6FCFC]/50 transition-all duration-700 group-hover:scale-110">
-                        <mechanic.icon className="w-8 h-8 text-white group-hover:text-[#A6FCFC] transition-all duration-700 drop-shadow-2xl group-hover:animate-pulse" 
-                          style={{ filter: `drop-shadow(0 0 15px rgba(255,255,255,0.5))` }}
+                        <mechanic.icon className="w-8 h-8 text-[#A6FCFC] transition-all duration-700 drop-shadow-2xl" 
+                          style={{ filter: `drop-shadow(0 0 15px rgba(166,252,252,0.5))` }}
                         />
                       </div>
                     </div>
