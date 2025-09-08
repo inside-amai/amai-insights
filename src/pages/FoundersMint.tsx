@@ -264,17 +264,40 @@ const FoundersMint = () => {
           >
             {benefits.map((benefit, index) => (
               <motion.div key={index} variants={fadeInUp}>
-                <Card className="h-full bg-black/60 backdrop-blur-xl border border-amber-400/30 hover:border-amber-400/60 transition-all duration-500 group relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-amber-400/5 via-transparent to-amber-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <CardContent className="p-8 relative z-10">
-                    <div className="relative mb-6">
-                      <div className="absolute inset-0 bg-amber-400/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      <div className="relative w-16 h-16 mx-auto bg-gradient-to-r from-amber-400 to-amber-600 rounded-full flex items-center justify-center shadow-2xl shadow-amber-400/25">
-                        <benefit.icon className="w-8 h-8 text-black" />
+                <Card className="h-full bg-black/30 backdrop-blur-2xl border-2 border-transparent hover:border-amber-400/60 transition-all duration-700 group cursor-pointer relative overflow-hidden shadow-2xl shadow-black/50">
+                  {/* Glassmorphic background layers */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-amber-400/10 via-black/20 to-amber-400/10 opacity-60 group-hover:opacity-100 transition-opacity duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                  
+                  {/* Glow border effect */}
+                  <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-400/20 to-amber-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm" />
+                  
+                  <CardContent className="p-10 text-center relative z-10">
+                    {/* Icon with aura ring */}
+                    <div className="relative mb-8 flex justify-center">
+                      {/* Outer aura ring */}
+                      <div className="absolute w-24 h-24 rounded-full bg-gradient-to-r from-amber-400/30 to-amber-600/30 blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110" />
+                      
+                      {/* Inner glow ring */}
+                      <div className="absolute w-20 h-20 rounded-full bg-gradient-to-r from-amber-400/50 to-amber-600/50 blur-md opacity-40 group-hover:opacity-80 transition-all duration-700" />
+                      
+                      {/* Icon container */}
+                      <div className="relative w-16 h-16 bg-gradient-to-br from-amber-400/20 to-amber-600/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/10 group-hover:border-amber-400/50 transition-all duration-700 group-hover:scale-110">
+                        <benefit.icon className="w-8 h-8 text-white group-hover:text-amber-400 transition-all duration-700 drop-shadow-2xl group-hover:animate-pulse" 
+                          style={{ filter: `drop-shadow(0 0 15px rgba(255,255,255,0.5))` }}
+                        />
                       </div>
                     </div>
-                    <h3 className="text-xl font-bold mb-4 text-amber-400">{benefit.title}</h3>
-                    <p className="text-gray-300 leading-relaxed">{benefit.description}</p>
+                    
+                    {/* Title */}
+                    <h3 className="text-xl font-bold mb-4 text-white group-hover:text-amber-400 transition-colors duration-500 tracking-wide">
+                      {benefit.title}
+                    </h3>
+                    
+                    {/* Description */}
+                    <p className="text-gray-300 group-hover:text-gray-100 leading-relaxed transition-colors duration-500 font-medium">
+                      {benefit.description}
+                    </p>
                   </CardContent>
                 </Card>
               </motion.div>
