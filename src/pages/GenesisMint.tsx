@@ -174,17 +174,11 @@ const GenesisMint = () => {
       {/* Genesis Mint Mechanics Section */}
       <section className="py-24 px-6 bg-gray-800">{/* Dark section */}
         <div className="container mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white opacity-100">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white !opacity-100 relative z-10">
               How It Works
             </h2>
-          </motion.div>
+          </div>
 
           <motion.div
             variants={staggerContainer}
@@ -216,17 +210,11 @@ const GenesisMint = () => {
       {/* Tier Section */}
       <section className="py-24 px-6">
         <div className="container mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white opacity-100">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white !opacity-100 relative z-10">
               Mint Tiers
             </h2>
-          </motion.div>
+          </div>
 
           <motion.div
             variants={staggerContainer}
@@ -260,17 +248,11 @@ const GenesisMint = () => {
       {/* Allocation Section */}
       <section className="py-24 px-6 bg-gray-800">{/* Dark section */}
         <div className="container mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white opacity-100">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white !opacity-100 relative z-10">
               Token Allocation
             </h2>
-          </motion.div>
+          </div>
 
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -388,17 +370,11 @@ const GenesisMint = () => {
       {/* FAQ Section */}
       <section className="py-24 px-6 bg-gray-800">{/* Dark section */}
         <div className="container mx-auto max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white opacity-100">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white !opacity-100 relative z-10">
               Frequently Asked Questions
             </h2>
-          </motion.div>
+          </div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
