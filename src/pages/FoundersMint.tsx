@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Crown, Shield, Users, Star, Zap, TrendingUp } from "lucide-react";
+import { Header } from "@/components/Header";
 
 const FoundersMint = () => {
   const fadeInUp = {
@@ -73,6 +74,7 @@ const FoundersMint = () => {
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
+      <Header />
       {/* Animated Background Elements */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-amber-950/20" />
