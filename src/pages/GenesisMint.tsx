@@ -64,7 +64,7 @@ const GenesisMint = () => {
       question: "How is the final supply calculated?",
       answer: (
         <div className="space-y-4">
-          <p>The final supply is determined dynamically based on total participation during the mint period. This ensures fair distribution and prevents artificial scarcity.</p>
+          <p>The final supply is discovered once the Genesis Mint ends. The total number of tokens minted across all tiers is used to determine the community's share (70%), with the remaining 30% allocated to team, partners, liquidity, and reserve.</p>
           
           <div className="bg-card/50 border border-primary/20 rounded-lg p-6 my-6">
             <div className="text-center">
@@ -86,20 +86,16 @@ const GenesisMint = () => {
       )
     },
     {
-      question: "What is the wallet cap?",
-      answer: "Each wallet is limited to ensure fair distribution among participants. Specific caps will be announced before the mint begins."
+      question: "What is the base price and how do the discount tiers work?",
+      answer: "The base price for $AMAI is $0.10. Early minters are rewarded with tiered discounts (ranging from 19% off down to 5% off). As each tier is filled, the mint naturally progresses to the next price level until the supply is minted or the time window closes."
     },
     {
-      question: "What happens if tiers don't sell out?",
-      answer: "Unsold allocations from higher tiers automatically roll down to lower tiers, ensuring all participants benefit from the best available pricing."
+      question: "How are tokens distributed after the mint?",
+      answer: "When the mint closes, the finalized supply is minted and distributed as follows: 70% to the community and 30% to the ecosystem (team, partners, and liquidity)."
     },
     {
-      question: "How are tokens distributed?",
-      answer: "Tokens are distributed immediately after the mint closes, with all participants receiving their allocation at the weighted average price."
-    },
-    {
-      question: "When does the Genesis Mint begin?",
-      answer: "The exact launch date will be announced across all official channels. Join our community to be among the first to know."
+      question: "What are the vesting terms for team and partners?",
+      answer: "Team tokens vest over 14 months, with a 4-month cliff releasing 25%, followed by linear vesting thereafter."
     }
   ];
 
