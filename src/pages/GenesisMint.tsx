@@ -133,18 +133,21 @@ const GenesisMint = () => {
       {/* Animated Background Elements */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent/5" />
-        {[...Array(50)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-primary rounded-full opacity-20 animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 2}s`
-            }}
-          />
-        ))}
+        {[...Array(50)].map((_, i) => {
+          const isCyan = Math.random() > 0.5;
+          return (
+            <div
+              key={i}
+              className={`absolute w-1 h-1 rounded-full opacity-20 animate-pulse ${isCyan ? 'bg-cyan-400' : 'bg-purple-400'}`}
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 3}s`,
+                animationDuration: `${2 + Math.random() * 2}s`
+              }}
+            />
+          );
+        })}
       </div>
 
       {/* Hero Section */}
