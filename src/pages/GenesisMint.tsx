@@ -175,10 +175,13 @@ const GenesisMint = () => {
       <section className="py-24 px-6 bg-gray-800">{/* Dark section */}
         <div className="container mx-auto">
           <motion.div
-            {...fadeInUp}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
               How It Works
             </h2>
           </motion.div>
@@ -214,10 +217,13 @@ const GenesisMint = () => {
       <section className="py-24 px-6">
         <div className="container mx-auto">
           <motion.div
-            {...fadeInUp}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
               Mint Tiers
             </h2>
           </motion.div>
@@ -255,10 +261,13 @@ const GenesisMint = () => {
       <section className="py-24 px-6 bg-gray-800">{/* Dark section */}
         <div className="container mx-auto">
           <motion.div
-            {...fadeInUp}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
               Token Allocation
             </h2>
           </motion.div>
@@ -380,10 +389,13 @@ const GenesisMint = () => {
       <section className="py-24 px-6 bg-gray-800">{/* Dark section */}
         <div className="container mx-auto max-w-4xl">
           <motion.div
-            {...fadeInUp}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
               Frequently Asked Questions
             </h2>
           </motion.div>
