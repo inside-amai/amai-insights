@@ -38,12 +38,52 @@ const GenesisMint = () => {
     }
   ];
 
-  const tiers = [
-    { tier: 1, discount: "19% off", label: "Tier 1", icon: Star, iconColor: "text-cyan-300", glowColor: "shadow-cyan-500" },
-    { tier: 2, discount: "14% off", label: "Tier 2", icon: Zap, iconColor: "text-violet-300", glowColor: "shadow-violet-500" },
-    { tier: 3, discount: "10% off", label: "Tier 3", icon: Trophy, iconColor: "text-amber-300", glowColor: "shadow-amber-400" },
-    { tier: 4, discount: "5% off", label: "Tier 4", icon: Gem, iconColor: "text-blue-300", glowColor: "shadow-cyan-400" },
-    { tier: 5, discount: "Full price", label: "Tier 5", icon: Shield, iconColor: "text-gray-400", glowColor: "" }
+  const tokenUnlocks = [
+    { 
+      icon: Star, 
+      headline: "First 3M Tokens", 
+      discount: "19% off · $0.081 each", 
+      total: "≈ $243,000 total",
+      iconColor: "text-cyan-300", 
+      glowColor: "shadow-cyan-500/50",
+      borderGlow: "border-cyan-400/60"
+    },
+    { 
+      icon: Zap, 
+      headline: "Next 5M Tokens", 
+      discount: "14% off · $0.086 each", 
+      total: "≈ $430,000 total",
+      iconColor: "text-violet-300", 
+      glowColor: "shadow-violet-500/50",
+      borderGlow: "border-violet-400/60"
+    },
+    { 
+      icon: Trophy, 
+      headline: "Next 7M Tokens", 
+      discount: "10% off · $0.090 each", 
+      total: "≈ $630,000 total",
+      iconColor: "text-amber-300", 
+      glowColor: "shadow-amber-400/50",
+      borderGlow: "border-amber-400/60"
+    },
+    { 
+      icon: Gem, 
+      headline: "Next 10M Tokens", 
+      discount: "5% off · $0.095 each", 
+      total: "≈ $950,000 total",
+      iconColor: "text-blue-300", 
+      glowColor: "shadow-blue-400/50",
+      borderGlow: "border-blue-400/60"
+    },
+    { 
+      icon: Shield, 
+      headline: "Remaining Supply", 
+      discount: "Full price · $0.10 each", 
+      total: "",
+      iconColor: "text-gray-300", 
+      glowColor: "shadow-gray-400/30",
+      borderGlow: "border-gray-400/40"
+    }
   ];
 
   const allocation = [
@@ -211,7 +251,7 @@ const GenesisMint = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white relative z-10">
-              Mint Tiers
+              Token Unlocks
             </h2>
           </motion.div>
 
@@ -222,22 +262,27 @@ const GenesisMint = () => {
             viewport={{ once: true }}
             className="flex flex-wrap justify-center gap-6 mb-12"
           >
-            {tiers.map((tier, index) => (
+            {tokenUnlocks.map((unlock, index) => (
               <motion.div
-                key={tier.tier}
+                key={index}
                 variants={fadeInUp}
                 className="relative"
               >
-                <Card className="bg-black/40 backdrop-blur-xl border border-cyan-accent/20 hover:border-cyan-accent/60 transition-all duration-500 group cursor-pointer relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-accent/10 via-transparent to-purple-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute inset-0 border border-transparent bg-gradient-to-r from-cyan-accent/20 to-purple-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg" />
-                  <CardContent className="p-6 text-center min-w-[160px] relative z-10">
-                    <div className="relative mb-4">
-                      <tier.icon className={`w-10 h-10 mx-auto ${tier.iconColor} group-hover:drop-shadow-[0_0_15px_rgba(34,211,238,0.8)] transition-all duration-300`} />
-                      <div className={`absolute inset-0 ${tier.glowColor && 'bg-current'}/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                <Card className={`bg-black/60 backdrop-blur-xl border-2 ${unlock.borderGlow} hover:shadow-2xl ${unlock.glowColor} transition-all duration-500 group cursor-pointer relative overflow-hidden`}>
+                  <div className="absolute inset-0 bg-gradient-to-br from-current/5 via-transparent to-current/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg" />
+                  <CardContent className="p-8 text-center min-w-[200px] relative z-10">
+                    <div className="relative mb-6">
+                      <unlock.icon className={`w-12 h-12 mx-auto ${unlock.iconColor} group-hover:scale-110 transition-transform duration-300 drop-shadow-2xl`} 
+                        style={{ filter: `drop-shadow(0 0 20px currentColor)` }}
+                      />
+                      <div className="absolute inset-0 bg-current/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
-                    <div className="text-sm font-medium text-gray-400 mb-2">{tier.label}</div>
-                    <div className="text-lg font-bold text-white">{tier.discount}</div>
+                    <div className="text-lg font-bold text-white mb-3">{unlock.headline}</div>
+                    <div className="text-base font-medium text-cyan-300 mb-2">{unlock.discount}</div>
+                    {unlock.total && (
+                      <div className="text-sm text-gray-400">{unlock.total}</div>
+                    )}
                   </CardContent>
                 </Card>
               </motion.div>
