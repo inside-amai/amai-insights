@@ -266,26 +266,28 @@ const GenesisMint = () => {
       {/* Allocation Section */}
       <section className="py-24 px-6 bg-gray-800">{/* Dark section */}
         <div className="container mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-center mb-16"
+          <div 
+            className="text-center mb-16 animate-fade-in"
+            style={{ 
+              opacity: 1, 
+              visibility: 'visible',
+              color: '#ffffff',
+              background: 'rgba(255,0,0,0.1)' // Temporary red background to see if element is there
+            }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white relative z-10">
+            <h2 
+              className="text-4xl md:text-5xl font-bold mb-6 relative z-10"
+              style={{ color: '#ffffff' }}
+            >
               Token Allocation
             </h2>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-              className="text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed"
+            <p 
+              className="text-lg max-w-4xl mx-auto leading-relaxed"
+              style={{ color: '#d1d5db' }}
             >
               The AMAI Genesis Mint distributes tokens transparently with a base price of $0.10 and tiered discounts, where the final supply is discovered based on total tokens minted and allocated across community, team, partners, liquidity, and reserve.
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
 
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
