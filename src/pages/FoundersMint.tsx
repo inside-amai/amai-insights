@@ -133,7 +133,11 @@ const FoundersMint = () => {
               {/* Floating crown */}
               <div className="relative">
                 <div className="absolute inset-0 bg-amber-400/30 blur-3xl rounded-full animate-pulse" />
-                <Crown className="w-32 h-32 text-amber-400 relative z-10 drop-shadow-2xl animate-float" />
+                <img 
+                  src="/lovable-uploads/6f9ebdb8-5c8b-4948-9743-ab11b5c86784.png"
+                  alt="Golden Wings"
+                  className="w-32 h-32 relative z-10 drop-shadow-2xl animate-float"
+                />
                 
                 {/* Orbiting particles */}
                 {[...Array(8)].map((_, i) => (
