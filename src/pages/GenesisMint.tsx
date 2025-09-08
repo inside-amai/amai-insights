@@ -468,7 +468,8 @@ const GenesisMint = () => {
                   onClick={() => window.location.href = '/founders-mint'}
                 >
                   <Crown className="mr-3 w-6 h-6" />
-                  Discover Founders Mint
+                  <span className="block md:hidden">Discover</span>
+                  <span className="hidden md:block">Discover Founders Mint</span>
                 </Button>
               </CardContent>
             </Card>
