@@ -162,19 +162,6 @@ const GenesisMint = () => {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
-          >
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-primary to-accent text-primary-foreground hover:from-primary/90 hover:to-accent/90 px-8 py-4 text-lg font-semibold rounded-xl shadow-2xl shadow-primary/25 transition-all duration-300 hover:scale-105"
-            >
-              <Sparkles className="mr-2" />
-              Enter Mint
-            </Button>
-          </motion.div>
         </div>
       </section>
 
