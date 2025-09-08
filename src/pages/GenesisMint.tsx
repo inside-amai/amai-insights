@@ -66,16 +66,17 @@ const GenesisMint = () => {
         <div className="space-y-4">
           <p>The final supply is discovered once the Genesis Mint ends. The total number of tokens minted across all tiers is used to determine the community's share (70%), with the remaining 30% allocated to team, partners, liquidity, and reserve.</p>
           
-          <div className="bg-card/50 border border-primary/20 rounded-lg p-6 my-6">
+          <div className="bg-card/50 border border-primary/20 rounded-lg p-8 my-6">
             <div className="text-center">
-              <div className="text-lg font-mono">
-                <span className="text-primary font-semibold">Final Supply</span>
-                <span className="mx-4 text-muted-foreground">=</span>
-                <div className="inline-block">
-                  <div className="border-b border-muted-foreground pb-1 mb-1">
-                    <span className="text-accent font-medium">Total Minted Value</span>
+              <div className="text-xl font-mono flex items-center justify-center gap-6">
+                <span className="text-primary font-bold text-2xl">Final Supply</span>
+                <span className="text-muted-foreground text-2xl">=</span>
+                <div className="flex flex-col items-center">
+                  <div className="text-accent font-semibold text-lg mb-1">
+                    Total Minted Value
                   </div>
-                  <div className="text-sm text-muted-foreground">
+                  <div className="w-full h-px bg-muted-foreground/60"></div>
+                  <div className="text-muted-foreground text-base mt-1">
                     Weighted Average Price
                   </div>
                 </div>
