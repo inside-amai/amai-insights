@@ -266,36 +266,16 @@ const GenesisMint = () => {
       {/* Allocation Section */}
       <section className="py-24 px-6 bg-gray-800">{/* Dark section */}
         <div className="container mx-auto">
-          <div 
-            className="text-center mb-16 animate-fade-in"
-            style={{ 
-              opacity: 1, 
-              visibility: 'visible',
-              color: '#ffffff',
-              background: 'rgba(255,0,0,0.1)' // Temporary red background to see if element is there
-            }}
-          >
-            <h2 
-              className="text-4xl md:text-5xl font-bold mb-6 relative z-10"
-              style={{ color: '#ffffff' }}
-            >
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white relative z-10">
               Token Allocation
             </h2>
-            <p 
-              className="text-lg max-w-4xl mx-auto leading-relaxed"
-              style={{ color: '#d1d5db' }}
-            >
+            <p className="text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed">
               The AMAI Genesis Mint distributes tokens transparently with a base price of $0.10 and tiered discounts, where the final supply is discovered based on total tokens minted and allocated across community, team, partners, liquidity, and reserve.
             </p>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto"
-          >
+          <div className="max-w-4xl mx-auto animate-fade-in">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               {/* Pie Chart Representation */}
               <div className="relative">
@@ -360,7 +340,7 @@ const GenesisMint = () => {
                 ))}
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
