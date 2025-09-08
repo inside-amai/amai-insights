@@ -7,14 +7,14 @@ export const Header = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="https://www.amai.net/" className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img 
               src="/lovable-uploads/262e27b2-1bd9-4177-aebe-841d7cce6b6a.png"
               alt="AMAI Logo" 
               className="h-12 w-auto hover:opacity-80 transition-opacity"
               loading="eager"
             />
-          </a>
+          </Link>
           
           {/* Future navigation items can go here */}
           <div className="flex items-center space-x-6">
