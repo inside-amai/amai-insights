@@ -541,7 +541,7 @@ const GenesisMint = () => {
                 <img 
                   src="/lovable-uploads/d4c656fb-cab7-4f08-a1b6-43822a696732.png" 
                   alt="Join Telegram" 
-                  className="w-16 h-16 md:w-20 md:h-20"
+                  className="w-8 h-8 md:w-10 md:h-10 object-contain"
                 />
               </a>
               
@@ -554,7 +554,7 @@ const GenesisMint = () => {
                 <img 
                   src="/lovable-uploads/53e90b93-7fe0-4c2c-b053-df64d7a767d0.png" 
                   alt="Follow on X" 
-                  className="w-16 h-16 md:w-20 md:h-20"
+                  className="w-8 h-8 md:w-10 md:h-10 object-contain"
                 />
               </a>
             </div>
