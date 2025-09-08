@@ -77,21 +77,23 @@ const FoundersMint = () => {
       <style dangerouslySetInnerHTML={{
         __html: `
           .founders-mint-page::-webkit-scrollbar {
-            width: 8px;
+            width: 12px !important;
           }
           .founders-mint-page::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.1);
+            background: hsl(0 0% 8%) !important;
+            border-radius: 6px !important;
           }
           .founders-mint-page::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #fbbf24, #f59e0b);
-            border-radius: 4px;
+            background: #fbbf24 !important;
+            border-radius: 6px !important;
+            border: 2px solid hsl(0 0% 8%) !important;
           }
           .founders-mint-page::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, #f59e0b, #d97706);
+            background: #f59e0b !important;
           }
           .founders-mint-page {
-            scrollbar-width: thin;
-            scrollbar-color: #fbbf24 rgba(0, 0, 0, 0.1);
+            scrollbar-width: thin !important;
+            scrollbar-color: #fbbf24 hsl(0 0% 8%) !important;
           }
         `
       }} />
