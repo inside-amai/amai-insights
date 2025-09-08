@@ -126,7 +126,7 @@ const FoundersMint = () => {
             transition={{ delay: 0.6, duration: 1.5 }}
             className="relative mb-16"
           >
-            <div className="relative w-full max-w-lg md:max-w-xl mx-auto flex items-center justify-center py-8">
+            <div className="relative w-full max-w-sm md:max-w-xs mx-auto flex items-center justify-center py-8">
               {/* Floating wings */}
               <div className="relative">
                 <img 
