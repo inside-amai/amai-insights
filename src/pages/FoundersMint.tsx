@@ -345,7 +345,7 @@ const FoundersMint = () => {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto"
           >
-            <Card className="relative overflow-hidden bg-gradient-to-br from-amber-900/30 via-black/80 to-amber-800/30 border-2 border-amber-400/50 backdrop-blur-xl">
+            <Card className="relative overflow-hidden bg-gradient-to-br from-amber-900/30 via-black/80 to-amber-800/30 border-2 border-amber-400/50 backdrop-blur-xl shadow-2xl shadow-black/50">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(251,191,36,0.1),transparent_70%)]" />
               <CardContent className="p-16 text-center relative z-10">
                 <div className="space-y-8">
