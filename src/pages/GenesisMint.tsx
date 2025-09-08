@@ -42,7 +42,7 @@ const GenesisMint = () => {
     { 
       icon: Star, 
       headline: "First 3M Tokens", 
-      discount: "16% discount", 
+      discount: "19% discount", 
       iconColor: "text-cyan-300", 
       glowColor: "shadow-cyan-500/50",
       borderGlow: "border-cyan-400/60"
@@ -115,7 +115,7 @@ const GenesisMint = () => {
     },
     {
       question: "What is the base price and how do the discount tiers work?",
-      answer: "The base price for $AMAI is $0.10. Early minters are rewarded with tiered discounts (ranging from 16% off down to 5% off). As each tier is filled, the mint naturally progresses to the next price level until the supply is minted or the time window closes."
+      answer: "The base price for $AMAI is $0.10. Early minters are rewarded with tiered discounts (ranging from 19% off down to 5% off). As each tier is filled, the mint naturally progresses to the next price level until the supply is minted or the time window closes."
     },
     {
       question: "How are tokens distributed after the mint?",
