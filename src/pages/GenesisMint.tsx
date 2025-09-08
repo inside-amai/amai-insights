@@ -276,6 +276,9 @@ const GenesisMint = () => {
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white relative z-10">
               Token Allocation
             </h2>
+            <p className="text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed">
+              The AMAI Genesis Mint distributes tokens transparently with a base price of $0.10 and tiered discounts, where the final supply is discovered based on total tokens minted and allocated across community, team, partners, liquidity, and reserve.
+            </p>
           </motion.div>
 
           <motion.div
