@@ -539,7 +539,7 @@ const GenesisMint = () => {
                 className="transition-all duration-300 hover:scale-105"
               >
                 <img 
-                  src="/lovable-uploads/d4c656fb-cab7-4f08-a1b6-43822a696732.png" 
+                  src="/lovable-uploads/f688c83b-1c4d-44c4-bbc4-f9328559a323.png" 
                   alt="Join Telegram" 
                   className="w-10 h-10 md:w-12 md:h-12 object-contain"
                   style={{ width: '40px', height: '40px' }}
