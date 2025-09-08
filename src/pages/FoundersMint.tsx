@@ -108,13 +108,14 @@ const FoundersMint = () => {
             </div>
           </motion.div>
 
-          <motion.p
+          <motion.div
             {...fadeInUp}
             transition={{ delay: 0.3 }}
-            className="text-2xl md:text-3xl text-amber-100/80 mb-16 max-w-3xl mx-auto font-light"
+            className="text-2xl md:text-3xl text-amber-100/80 mb-16 max-w-3xl mx-auto font-light text-center"
           >
-            The rarest mint in AMAI's history — only 12 exist.
-          </motion.p>
+            <p>The rarest mint in AMAI's history.</p>
+            <p>Only 12 exist.</p>
+          </motion.div>
 
           {/* Centerpiece Visual */}
           <motion.div
