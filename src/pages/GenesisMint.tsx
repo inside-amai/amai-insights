@@ -151,41 +151,27 @@ const GenesisMint = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 py-20 md:px-6">
-        <div className="container mx-auto text-center relative z-10 max-w-6xl">
-          {/* Chapter Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mb-8 md:mb-12"
-          >
-            <div className="inline-flex items-center px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-primary/20 to-accent/20 backdrop-blur-sm border border-primary/30 rounded-full">
-              <span className="text-sm md:text-base font-semibold text-primary">Chapter 1</span>
-            </div>
-          </motion.div>
-
-          {/* Main Heading */}
+      <section className="relative min-h-screen flex items-center justify-center px-6">
+        <div className="container mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="mb-8 md:mb-16"
+            transition={{ duration: 1 }}
+            className="mb-8"
           >
             <div className="relative inline-block">
-              <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent shimmer-text leading-tight">
-                Genesis Mint
+              <h1 className="text-5xl md:text-7xl font-bold mb-6">
+                <div className="text-white">Chapter 1:</div>
+                <div className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent shimmer-text">Genesis Mint</div>
               </h1>
-              <div className="absolute -inset-6 md:-inset-8 bg-gradient-to-r from-primary/20 to-accent/20 blur-3xl rounded-full opacity-40" />
+              <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 blur-2xl rounded-full opacity-30" />
             </div>
           </motion.div>
 
-          {/* Subtitle */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-lg md:text-2xl lg:text-3xl text-muted-foreground mb-12 md:mb-20 max-w-3xl mx-auto px-4 leading-relaxed"
+            {...fadeInUp}
+            transition={{ delay: 0.3 }}
+            className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto"
           >
             The first moment to mint <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent shimmer-text font-bold">AMAI</span> into existence.
           </motion.p>
@@ -194,17 +180,15 @@ const GenesisMint = () => {
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 1 }}
-            className="relative"
+            transition={{ delay: 0.6, duration: 1 }}
+            className="relative mb-12"
           >
-            <div className="relative w-full max-w-5xl mx-auto rounded-2xl md:rounded-3xl overflow-hidden border border-primary/20 backdrop-blur-sm shadow-2xl shadow-primary/10">
+            <div className="relative w-full max-w-4xl mx-auto rounded-2xl overflow-hidden border border-primary/20 backdrop-blur-sm">
               <img 
                 src="/lovable-uploads/5021e898-804d-411f-9439-03301fea2c1e.png" 
                 alt="4-Step Agent Creation Wizard"
                 className="w-full h-auto"
               />
-              {/* Overlay gradient for better mobile readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none md:hidden" />
             </div>
           </motion.div>
 
