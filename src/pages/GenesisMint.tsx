@@ -52,11 +52,8 @@ const GenesisMint = () => {
   ];
 
   const allocation = [
-    { label: "Community", percentage: 70, color: "from-primary to-accent" },
-    { label: "Team", percentage: 10, color: "from-accent to-purple-400" },
-    { label: "Partners", percentage: 10, color: "from-purple-400 to-primary" },
-    { label: "Liquidity", percentage: 5, color: "from-primary/80 to-accent/80" },
-    { label: "Reserve", percentage: 5, color: "from-accent/60 to-primary/60" }
+    { label: "Genesis Mint", percentage: 70, color: "from-primary to-accent" },
+    { label: "Team, Partners, Liquidity", percentage: 30, color: "from-accent to-purple-400" }
   ];
 
   const faqData = [
