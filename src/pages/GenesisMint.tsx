@@ -24,7 +24,7 @@ const GenesisMint = () => {
     {
       icon: TrendingUp,
       title: "Dynamic Supply",
-      description: "Final supply revealed only when the mint closes."
+      description: "Final supply discovered after mint closes."
     },
     {
       icon: Star,
