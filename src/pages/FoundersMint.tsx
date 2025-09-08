@@ -133,7 +133,7 @@ const FoundersMint = () => {
                 <img 
                   src="/lovable-uploads/7441a38d-6bac-453a-b698-6b26590cc8ea.png"
                   alt="AMAI Golden Wings"
-                  className="h-32 w-auto relative z-10 drop-shadow-2xl animate-float"
+                  className="h-96 w-auto relative z-10 drop-shadow-2xl animate-float"
                 />
                 
                 {/* Orbiting particles */}
@@ -168,7 +168,6 @@ const FoundersMint = () => {
               <div className="w-6 h-6 border-r-2 border-b-2 border-amber-400 transform rotate-45 animate-pulse" 
                    style={{ animationDelay: '0.6s', animationDuration: '2s' }} />
             </div>
-            <p className="text-amber-200/60 text-sm font-light mt-4">Scroll to discover</p>
           </motion.div>
         </div>
       </section>
