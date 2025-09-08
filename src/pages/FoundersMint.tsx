@@ -76,22 +76,22 @@ const FoundersMint = () => {
     <>
       <style dangerouslySetInnerHTML={{
         __html: `
-          .founders-mint-page::-webkit-scrollbar {
+          html:has(.founders-mint-page)::-webkit-scrollbar {
             width: 12px !important;
           }
-          .founders-mint-page::-webkit-scrollbar-track {
+          html:has(.founders-mint-page)::-webkit-scrollbar-track {
             background: hsl(0 0% 8%) !important;
             border-radius: 6px !important;
           }
-          .founders-mint-page::-webkit-scrollbar-thumb {
+          html:has(.founders-mint-page)::-webkit-scrollbar-thumb {
             background: #fbbf24 !important;
             border-radius: 6px !important;
             border: 2px solid hsl(0 0% 8%) !important;
           }
-          .founders-mint-page::-webkit-scrollbar-thumb:hover {
+          html:has(.founders-mint-page)::-webkit-scrollbar-thumb:hover {
             background: #f59e0b !important;
           }
-          .founders-mint-page {
+          html:has(.founders-mint-page) {
             scrollbar-width: thin !important;
             scrollbar-color: #fbbf24 hsl(0 0% 8%) !important;
           }
