@@ -133,12 +133,9 @@ const FoundersMint = () => {
                 <img 
                   src="/lovable-uploads/4aff46bf-7135-435e-af82-c37542b446d7.png"
                   alt="AMAI Golden Wings"
-                  className="max-w-3xl w-full h-auto relative z-10 drop-shadow-2xl animate-float"
+                  className="max-w-3xl w-full h-auto relative z-10"
                   style={{ 
-                    imageRendering: 'auto',
-                    objectFit: 'contain',
-                    maxHeight: '700px',
-                    filter: 'contrast(1.05) brightness(1.02) saturate(1.1)'
+                    imageRendering: 'auto'
                   }}
                 />
                 
