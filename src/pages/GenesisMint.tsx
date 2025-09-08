@@ -195,16 +195,17 @@ const GenesisMint = () => {
           >
             {mechanics.map((mechanic, index) => (
               <motion.div key={index} variants={fadeInUp}>
-                <Card className="h-full bg-card/50 border-primary/20 backdrop-blur-sm hover:border-primary/40 transition-all duration-300 group">
-                  <CardContent className="p-8 text-center">
+                <Card className="h-full bg-black/40 backdrop-blur-xl border border-cyan-accent/20 hover:border-cyan-accent/40 transition-all duration-500 group relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-accent/5 via-transparent to-purple-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <CardContent className="p-8 text-center relative z-10">
                     <div className="relative mb-6">
-                      <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity" />
-                      <div className="relative w-16 h-16 mx-auto bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center">
-                        <mechanic.icon className="w-8 h-8 text-primary-foreground" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-cyan-accent to-purple-accent rounded-full blur-xl opacity-30 group-hover:opacity-60 transition-opacity duration-500" />
+                      <div className="relative w-16 h-16 mx-auto bg-gradient-to-r from-cyan-accent to-purple-accent rounded-full flex items-center justify-center shadow-2xl shadow-cyan-accent/25">
+                        <mechanic.icon className="w-8 h-8 text-black" />
                       </div>
                     </div>
-                    <h3 className="text-xl font-semibold mb-4 text-foreground">{mechanic.title}</h3>
-                    <p className="text-muted-foreground">{mechanic.description}</p>
+                    <h3 className="text-xl font-semibold mb-4 text-white">{mechanic.title}</h3>
+                    <p className="text-gray-300 leading-relaxed">{mechanic.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -233,7 +234,7 @@ const GenesisMint = () => {
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
-            className="flex flex-wrap justify-center gap-4 mb-12"
+            className="flex flex-wrap justify-center gap-6 mb-12"
           >
             {tiers.map((tier, index) => (
               <motion.div
@@ -241,14 +242,16 @@ const GenesisMint = () => {
                 variants={fadeInUp}
                 className="relative"
               >
-                <Card className="bg-card/30 border-primary/20 backdrop-blur-sm hover:border-primary/40 transition-all duration-300 group cursor-pointer">
-                  <CardContent className="p-6 text-center min-w-[140px]">
+                <Card className="bg-black/40 backdrop-blur-xl border border-cyan-accent/20 hover:border-cyan-accent/60 transition-all duration-500 group cursor-pointer relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-accent/10 via-transparent to-purple-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 border border-transparent bg-gradient-to-r from-cyan-accent/20 to-purple-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg" />
+                  <CardContent className="p-6 text-center min-w-[160px] relative z-10">
                     <div className="relative mb-4">
-                      <CircleDot className="w-8 h-8 mx-auto text-primary group-hover:text-accent transition-colors" />
-                      <div className="absolute inset-0 bg-primary/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <CircleDot className="w-10 h-10 mx-auto text-cyan-accent group-hover:text-purple-accent transition-colors duration-300" />
+                      <div className="absolute inset-0 bg-cyan-accent/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
-                    <div className="text-sm font-medium text-muted-foreground mb-1">{tier.label}</div>
-                    <div className="text-lg font-bold text-foreground">{tier.discount}</div>
+                    <div className="text-sm font-medium text-gray-400 mb-2">{tier.label}</div>
+                    <div className="text-lg font-bold text-white">{tier.discount}</div>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -357,26 +360,27 @@ const GenesisMint = () => {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto"
           >
-            <Card className="relative overflow-hidden bg-gradient-to-br from-amber-500/10 via-card/50 to-amber-600/10 border-amber-400/30 backdrop-blur-sm">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(251,191,36,0.1),transparent_50%)]" />
+            <Card className="relative overflow-hidden bg-gradient-to-br from-amber-900/20 via-black/60 to-amber-800/20 border border-amber-400/30 backdrop-blur-xl">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(251,191,36,0.15),transparent_50%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(217,119,6,0.1),transparent_50%)]" />
               <CardContent className="p-12 text-center relative z-10">
                 <div className="mb-8">
-                  <Crown className="w-16 h-16 mx-auto text-amber-400 mb-4" />
-                  <h3 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-amber-400 to-amber-200 bg-clip-text text-transparent shimmer-text">
+                  <Crown className="w-20 h-20 mx-auto text-amber-400 mb-6 drop-shadow-2xl" />
+                  <h3 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 bg-clip-text text-transparent shimmer-text">
                     Founders Mint
                   </h3>
                 </div>
                 
-                <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
+                <p className="text-lg text-amber-100/90 mb-10 max-w-3xl mx-auto leading-relaxed">
                   Ultra-rare: only 12 governance tokens. First-come, first-serve. Founders gain Gold Wing badges, 
                   rare @handles, unlimited Exotic agents, and access to the private Founders Circle.
                 </p>
 
                 <Button 
                   size="lg"
-                  className="bg-gradient-to-r from-amber-400 to-amber-600 text-amber-950 hover:from-amber-300 hover:to-amber-500 px-8 py-4 text-lg font-semibold rounded-xl shadow-2xl shadow-amber-400/25 transition-all duration-300 hover:scale-105"
+                  className="bg-gradient-to-r from-amber-400 to-amber-600 text-amber-950 hover:from-amber-300 hover:to-amber-500 px-10 py-5 text-xl font-bold rounded-xl shadow-2xl shadow-amber-400/40 transition-all duration-300 hover:scale-105 border border-amber-300/50"
                 >
-                  <Crown className="mr-2" />
+                  <Crown className="mr-3 w-6 h-6" />
                   Discover Founders Mint
                 </Button>
               </CardContent>
