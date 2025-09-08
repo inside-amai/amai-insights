@@ -11,7 +11,7 @@ const faqData = [
     question: "How is the final supply calculated?",
     answer: (
       <div className="space-y-4">
-        <p>The final supply is discovered once the Genesis Mint ends. The total number of tokens minted across all tiers is used to determine the community's share (70%), with the remaining 30% allocated to team, partners, liquidity, and reserve.</p>
+        <p>The final supply is determined dynamically based on total participation during the mint period. This ensures fair distribution and prevents artificial scarcity.</p>
         
         <div className="bg-card border border-border rounded-lg p-6 my-6">
           <div className="text-center">
