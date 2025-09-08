@@ -43,7 +43,6 @@ const GenesisMint = () => {
       icon: Star, 
       headline: "First 3M Tokens", 
       discount: "19% off · $0.081 each", 
-      total: "≈ $243,000 total",
       iconColor: "text-cyan-300", 
       glowColor: "shadow-cyan-500/50",
       borderGlow: "border-cyan-400/60"
@@ -52,7 +51,6 @@ const GenesisMint = () => {
       icon: Zap, 
       headline: "Next 5M Tokens", 
       discount: "14% off · $0.086 each", 
-      total: "≈ $430,000 total",
       iconColor: "text-violet-300", 
       glowColor: "shadow-violet-500/50",
       borderGlow: "border-violet-400/60"
@@ -61,7 +59,6 @@ const GenesisMint = () => {
       icon: Trophy, 
       headline: "Next 7M Tokens", 
       discount: "10% off · $0.090 each", 
-      total: "≈ $630,000 total",
       iconColor: "text-amber-300", 
       glowColor: "shadow-amber-400/50",
       borderGlow: "border-amber-400/60"
@@ -70,7 +67,6 @@ const GenesisMint = () => {
       icon: Gem, 
       headline: "Next 10M Tokens", 
       discount: "5% off · $0.095 each", 
-      total: "≈ $950,000 total",
       iconColor: "text-blue-300", 
       glowColor: "shadow-blue-400/50",
       borderGlow: "border-blue-400/60"
@@ -79,7 +75,6 @@ const GenesisMint = () => {
       icon: Shield, 
       headline: "Remaining Supply", 
       discount: "Full price · $0.10 each", 
-      total: "",
       iconColor: "text-gray-300", 
       glowColor: "shadow-gray-400/30",
       borderGlow: "border-gray-400/40"
@@ -279,10 +274,7 @@ const GenesisMint = () => {
                       <div className="absolute inset-0 bg-current/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
                     <div className="text-lg font-bold text-white mb-3">{unlock.headline}</div>
-                    <div className="text-base font-medium text-cyan-300 mb-2">{unlock.discount}</div>
-                    {unlock.total && (
-                      <div className="text-sm text-gray-400">{unlock.total}</div>
-                    )}
+                    <div className="text-base font-medium text-cyan-300">{unlock.discount}</div>
                   </CardContent>
                 </Card>
               </motion.div>
