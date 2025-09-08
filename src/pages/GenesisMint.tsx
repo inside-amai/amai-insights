@@ -160,7 +160,7 @@ const GenesisMint = () => {
             className="mb-8"
           >
             <div className="relative inline-block">
-              <div className="text-lg md:text-xl text-muted-foreground mb-2 font-medium">Chapter 1:</div>
+              <div className="text-lg md:text-xl text-white mb-2 font-medium">Chapter 1:</div>
               <h1 className="text-5xl md:text-7xl font-bold mb-6">
                 <div className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent shimmer-text">Genesis Mint</div>
               </h1>
