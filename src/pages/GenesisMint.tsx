@@ -128,33 +128,19 @@ const GenesisMint = () => {
             The first moment to mint AMAI into existence.
           </motion.p>
 
-          {/* Cinematic Visual */}
+          {/* Agent Creation Wizard Visual */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 1 }}
             className="relative mb-12"
           >
-            <div className="relative w-full max-w-4xl mx-auto h-64 md:h-96 rounded-2xl overflow-hidden bg-gradient-to-br from-card via-card/50 to-transparent border border-primary/20 backdrop-blur-sm">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative">
-                  <div className="w-32 h-32 md:w-48 md:h-48 bg-gradient-to-br from-primary to-accent rounded-full opacity-20 animate-pulse" />
-                  <div className="absolute inset-4 bg-gradient-to-br from-accent to-primary rounded-full opacity-30 animate-ping" style={{ animationDuration: '3s' }} />
-                  <div className="absolute inset-8 bg-gradient-to-br from-primary to-accent rounded-full opacity-40 blur-sm" />
-                  {[...Array(12)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="absolute w-2 h-2 bg-primary rounded-full opacity-60 float-gentle"
-                      style={{
-                        left: `${50 + 30 * Math.cos((i * 30 * Math.PI) / 180)}%`,
-                        top: `${50 + 30 * Math.sin((i * 30 * Math.PI) / 180)}%`,
-                        animationDelay: `${i * 0.2}s`
-                      }}
-                    />
-                  ))}
-                </div>
-              </div>
+            <div className="relative w-full max-w-4xl mx-auto rounded-2xl overflow-hidden border border-primary/20 backdrop-blur-sm">
+              <img 
+                src="/lovable-uploads/5021e898-804d-411f-9439-03301fea2c1e.png" 
+                alt="4-Step Agent Creation Wizard"
+                className="w-full h-auto"
+              />
             </div>
           </motion.div>
 
