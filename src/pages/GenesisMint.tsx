@@ -176,14 +176,24 @@ const GenesisMint = () => {
             The first moment to mint <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent shimmer-text font-bold">AMAI</span> into existence.
           </motion.p>
 
-          {/* Agent Creation Wizard Visual */}
+          {/* Hero Images - Mobile and Desktop */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 1 }}
             className="relative mb-12"
           >
-            <div className="relative w-full max-w-4xl mx-auto rounded-2xl overflow-hidden border border-primary/20 backdrop-blur-sm">
+            {/* Mobile Image - Vertical */}
+            <div className="block md:hidden relative w-full max-w-sm mx-auto rounded-2xl overflow-hidden border border-primary/20 backdrop-blur-sm">
+              <img 
+                src="/lovable-uploads/4610663b-0362-419f-81f2-109958dd1092.png" 
+                alt="Legendary PudgyAgent"
+                className="w-full h-auto"
+              />
+            </div>
+            
+            {/* Desktop Image - Horizontal */}
+            <div className="hidden md:block relative w-full max-w-4xl mx-auto rounded-2xl overflow-hidden border border-primary/20 backdrop-blur-sm">
               <img 
                 src="/lovable-uploads/5021e898-804d-411f-9439-03301fea2c1e.png" 
                 alt="4-Step Agent Creation Wizard"
