@@ -160,7 +160,7 @@ const FoundersMint = () => {
               className="bg-gradient-to-r from-amber-500 to-amber-700 text-black hover:from-amber-400 hover:to-amber-600 px-12 py-6 text-xl font-bold rounded-2xl shadow-2xl shadow-amber-500/50 transition-all duration-300 hover:scale-105 border border-amber-400/50"
             >
               <Crown className="mr-3 w-6 h-6" />
-              Claim Founders Mint
+              Discover
             </Button>
           </motion.div>
         </div>
@@ -332,7 +332,7 @@ const FoundersMint = () => {
                     className="bg-gradient-to-r from-amber-400 to-amber-600 text-black hover:from-amber-300 hover:to-amber-500 px-12 py-6 text-2xl font-bold rounded-2xl shadow-2xl shadow-amber-400/50 transition-all duration-300 hover:scale-105 border-2 border-amber-300/50 mt-8"
                   >
                     <Crown className="mr-3 w-8 h-8" />
-                    Claim Your Founders Mint
+                    Discover
                   </Button>
                 </div>
               </CardContent>
@@ -401,7 +401,7 @@ const FoundersMint = () => {
               className="bg-gradient-to-r from-amber-500 to-amber-700 text-black hover:from-amber-400 hover:to-amber-600 px-16 py-8 text-2xl font-bold rounded-2xl shadow-2xl shadow-amber-500/50 transition-all duration-300 hover:scale-105 border-2 border-amber-400/50"
             >
               <Crown className="mr-4 w-8 h-8" />
-              Claim Founders Mint
+              Discover
             </Button>
           </motion.div>
         </div>
