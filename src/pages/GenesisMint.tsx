@@ -266,11 +266,46 @@ const GenesisMint = () => {
       {/* Allocation Section */}
       <section className="py-24 px-6 bg-gray-800">{/* Dark section */}
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white relative z-10">
+          <div 
+            className="text-center mb-16"
+            style={{ 
+              position: 'relative',
+              zIndex: 50,
+              background: 'rgba(0,255,0,0.2)', // Green background for debugging
+              border: '2px solid yellow',
+              padding: '20px'
+            }}
+            onScroll={() => console.log('Section scrolling')}
+            ref={(el) => {
+              if (el) {
+                console.log('Token Allocation section mounted');
+                const observer = new IntersectionObserver((entries) => {
+                  entries.forEach(entry => {
+                    console.log('Intersection ratio:', entry.intersectionRatio, 'isIntersecting:', entry.isIntersecting);
+                  });
+                });
+                observer.observe(el);
+              }
+            }}
+          >
+            <h2 
+              className="text-4xl md:text-5xl font-bold mb-6 relative"
+              style={{ 
+                color: '#ffffff !important',
+                zIndex: 51,
+                background: 'rgba(255,0,255,0.3)' // Magenta background for title
+              }}
+            >
               Token Allocation
             </h2>
-            <p className="text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            <p 
+              className="text-lg max-w-4xl mx-auto leading-relaxed"
+              style={{ 
+                color: '#ffffff !important',
+                zIndex: 51,
+                background: 'rgba(0,255,255,0.3)' // Cyan background for text
+              }}
+            >
               The AMAI Genesis Mint distributes tokens transparently with a base price of $0.10 and tiered discounts, where the final supply is discovered based on total tokens minted and allocated across community, team, partners, liquidity, and reserve.
             </p>
           </div>
