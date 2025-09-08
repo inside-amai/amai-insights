@@ -301,22 +301,17 @@ const GenesisMint = () => {
                           cy="50"
                           r="40"
                           fill="transparent"
-                          stroke={`url(#gradient-${index})`}
+                          stroke={index === 0 ? "hsl(var(--primary))" : "hsl(var(--accent))"}
                           strokeWidth="8"
                           strokeDasharray={strokeDasharray}
                           strokeDashoffset={strokeDashoffset}
-                          className="opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
+                          className="opacity-90 hover:opacity-100 transition-opacity cursor-pointer"
+                          style={{
+                            filter: `drop-shadow(0 0 10px ${index === 0 ? 'hsl(var(--primary) / 0.3)' : 'hsl(var(--accent) / 0.3)'})`
+                          }}
                         />
                       );
                     })}
-                    <defs>
-                      {allocation.map((item, index) => (
-                        <linearGradient key={index} id={`gradient-${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="hsl(var(--primary))" />
-                          <stop offset="100%" stopColor="hsl(var(--accent))" />
-                        </linearGradient>
-                      ))}
-                    </defs>
                   </svg>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center">
