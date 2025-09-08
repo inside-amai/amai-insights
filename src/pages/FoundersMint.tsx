@@ -127,10 +127,7 @@ const FoundersMint = () => {
             className="relative mb-16"
           >
             <div className="relative w-full max-w-2xl mx-auto h-80 flex items-center justify-center">
-              {/* Golden pedestal */}
-              <div className="absolute bottom-0 w-40 h-20 bg-gradient-to-t from-amber-600/40 to-amber-400/20 rounded-lg transform perspective-1000 rotate-x-45" />
-              
-              {/* Floating crown */}
+              {/* Floating wings */}
               <div className="relative">
                 <div className="absolute inset-0 bg-amber-400/30 blur-3xl rounded-full animate-pulse" />
                 <img 
@@ -160,14 +157,18 @@ const FoundersMint = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2 }}
+            className="flex flex-col items-center space-y-2"
           >
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-amber-500 to-amber-700 text-black hover:from-amber-400 hover:to-amber-600 px-12 py-6 text-xl font-bold rounded-2xl shadow-2xl shadow-amber-500/50 transition-all duration-300 hover:scale-105 border border-amber-400/50"
-            >
-              <Crown className="mr-3 w-6 h-6" />
-              Discover
-            </Button>
+            {/* Three pulsing arrows pointing down */}
+            <div className="flex flex-col items-center space-y-1">
+              <div className="w-6 h-6 border-r-2 border-b-2 border-amber-400 transform rotate-45 animate-pulse" 
+                   style={{ animationDelay: '0s', animationDuration: '2s' }} />
+              <div className="w-6 h-6 border-r-2 border-b-2 border-amber-400 transform rotate-45 animate-pulse" 
+                   style={{ animationDelay: '0.3s', animationDuration: '2s' }} />
+              <div className="w-6 h-6 border-r-2 border-b-2 border-amber-400 transform rotate-45 animate-pulse" 
+                   style={{ animationDelay: '0.6s', animationDuration: '2s' }} />
+            </div>
+            <p className="text-amber-200/60 text-sm font-light mt-4">Scroll to discover</p>
           </motion.div>
         </div>
       </section>
