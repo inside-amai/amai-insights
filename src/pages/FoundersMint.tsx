@@ -73,7 +73,29 @@ const FoundersMint = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+    <>
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          .founders-mint-page::-webkit-scrollbar {
+            width: 8px;
+          }
+          .founders-mint-page::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+          }
+          .founders-mint-page::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #fbbf24, #f59e0b);
+            border-radius: 4px;
+          }
+          .founders-mint-page::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #f59e0b, #d97706);
+          }
+          .founders-mint-page {
+            scrollbar-width: thin;
+            scrollbar-color: #fbbf24 rgba(0, 0, 0, 0.1);
+          }
+        `
+      }} />
+    <div className="min-h-screen bg-black text-white overflow-x-hidden founders-mint-page">
       <Header />
       {/* Animated Background Elements */}
       <div className="fixed inset-0 pointer-events-none">
@@ -407,7 +429,8 @@ const FoundersMint = () => {
           <p className="text-gray-400 text-sm">© 2025 AMAI Labs. All rights reserved.</p>
         </div>
       </footer>
-    </div>
+     </div>
+    </>
   );
 };
 
