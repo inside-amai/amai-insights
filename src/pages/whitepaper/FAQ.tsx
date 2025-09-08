@@ -71,7 +71,7 @@ const FAQ = () => {
                 {faq.question}
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
-                {faq.answer}
+                {typeof faq.answer === 'string' ? faq.answer : faq.answer}
               </AccordionContent>
             </AccordionItem>
           ))}

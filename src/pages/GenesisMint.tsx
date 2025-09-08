@@ -62,7 +62,28 @@ const GenesisMint = () => {
   const faqData = [
     {
       question: "How is the final supply calculated?",
-      answer: "The final supply is determined dynamically based on total participation during the mint period. This ensures fair distribution and prevents artificial scarcity."
+      answer: (
+        <div className="space-y-4">
+          <p>The final supply is determined dynamically based on total participation during the mint period. This ensures fair distribution and prevents artificial scarcity.</p>
+          
+          <div className="bg-card/50 border border-primary/20 rounded-lg p-6 my-6">
+            <div className="text-center">
+              <div className="text-lg font-mono">
+                <span className="text-primary font-semibold">Final Supply</span>
+                <span className="mx-4 text-muted-foreground">=</span>
+                <div className="inline-block">
+                  <div className="border-b border-muted-foreground pb-1 mb-1">
+                    <span className="text-accent font-medium">Total Minted Value</span>
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    Weighted Average Price
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
     },
     {
       question: "What is the wallet cap?",
@@ -417,7 +438,7 @@ const GenesisMint = () => {
                     {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground pb-6">
-                    {faq.answer}
+                    {typeof faq.answer === 'string' ? faq.answer : faq.answer}
                   </AccordionContent>
                 </AccordionItem>
               ))}
