@@ -327,7 +327,7 @@ const FoundersMint = () => {
               </div>
               
               {/* Text below image */}
-              <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+              <p className="text-lg text-gray-300 max-w-3xl mx-auto">
                 Where whales, visionaries, & builders align. The Circle is the heartbeat of AMAI's early governance & opportunity flow.
               </p>
             </div>
