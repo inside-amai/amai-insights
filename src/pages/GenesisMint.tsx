@@ -369,7 +369,7 @@ const GenesisMint = () => {
               <CardContent className="p-12 text-center relative z-10">
                 <div className="mb-8">
                   <Crown className="w-20 h-20 mx-auto text-amber-400 mb-6 drop-shadow-2xl" />
-                  <h3 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 bg-clip-text text-transparent shimmer-text">
+                  <h3 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 bg-clip-text text-transparent shimmer-text-gold">
                     Founders Mint
                   </h3>
                 </div>
