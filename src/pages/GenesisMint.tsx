@@ -563,6 +563,13 @@ const GenesisMint = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="py-8 px-6 bg-gray-900/50 border-t border-white/10">
+        <div className="container mx-auto text-center">
+          <p className="text-gray-400 text-sm">© 2025 AMAI Labs. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 };
