@@ -68,15 +68,7 @@ const FoundersMint = () => {
     },
     {
       question: "How is my token allocation calculated?",
-      answer: "Each Founders Key represents 0.25% of AMAI's total supply."
-    },
-    {
-      question: "What if fewer tokens are minted?",
-      answer: "Every Founders Key carries a guaranteed floor of 10M tokens (valued at $1M at the $0.10 base price). If 0.25% of supply is less than 10M, you still receive 10M tokens."
-    },
-    {
-      question: "What if more tokens are minted?",
-      answer: "If the Genesis Mint expands supply enough that 0.25% > 10M tokens, you receive the full percentage allocation. This means your token count scales with AMAI's growth."
+      answer: "Each Founders Key represents 0.25% of AMAI's total supply. Every Founders Key carries a guaranteed floor of 10M tokens (valued at $1M at the $0.10 base price). If 0.25% of supply is less than 10M, you still receive 10M tokens. If the Genesis Mint expands supply enough that 0.25% > 10M tokens, you receive the full percentage allocation. This means your token count scales with AMAI's growth."
     },
     {
       question: "What is the OTC Liquidity Hub?",
