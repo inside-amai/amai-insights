@@ -405,12 +405,12 @@ const FoundersMint = () => {
 
       {/* Mobile Back to Genesis Button - Bottom */}
       <div className="md:hidden py-8 px-6 bg-black flex justify-center">
-        <button 
-          className="text-white bg-transparent border-none px-4 py-2 text-sm font-medium"
+        <div 
+          className="text-white cursor-pointer px-4 py-2 text-sm font-medium"
           onClick={() => window.location.href = '/genesis-mint'}
         >
           Back to Genesis
-        </button>
+        </div>
       </div>
 
       {/* Hero Image Section */}
