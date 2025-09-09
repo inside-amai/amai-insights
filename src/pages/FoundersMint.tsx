@@ -315,7 +315,7 @@ const FoundersMint = () => {
               
               {/* Text below image */}
               <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-                Where whales, visionaries, & builders align. The Circle is the heartbeat of AMAI's early governance & opportunity flow.
+                The Founders Circle is the Council of 12, an inner sanctum where influence carries weight, strategy is previewed first, and opportunities are surfaced before they reach the world.
               </p>
             </div>
           </motion.div>
