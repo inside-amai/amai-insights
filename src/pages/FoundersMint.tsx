@@ -24,7 +24,7 @@ const FoundersMint = () => {
     {
       icon: Crown,
       title: "Founders Key",
-      description: "A tradable NFT that unlocks all Founders benefits on the AMAI platform, including Exotic Agent mints and VIP status."
+      description: "A tradable Token that unlocks all Founders benefits on the AMAI platform, including Exotic Agent mints and VIP status."
     },
     {
       icon: Users,
