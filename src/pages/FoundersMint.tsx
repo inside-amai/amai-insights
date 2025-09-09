@@ -199,9 +199,9 @@ const FoundersMint = () => {
       {/* What Is Founders Mint Section */}
       <section className="py-32 px-6">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center max-w-7xl mx-auto">
             {/* Left - Golden Wings Image */}
-            <div className="flex justify-center">
+            <div className="flex justify-center lg:col-span-8">
               <div className="relative overflow-hidden rounded-2xl">
                 <img 
                   src="/lovable-uploads/8155b2f4-c371-4049-aeac-063428e6f3fc.png"
@@ -212,7 +212,7 @@ const FoundersMint = () => {
             </div>
 
             {/* Right - Copy */}
-            <div className="space-y-8">
+            <div className="space-y-8 lg:col-span-4">
               <div className="text-center mb-8">
                 <h2 className="text-4xl md:text-5xl font-bold text-amber-400 relative z-10">
                   What Is Founders Mint?
