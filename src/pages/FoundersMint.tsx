@@ -34,7 +34,7 @@ const FoundersMint = () => {
     {
       icon: Star,
       title: "Rare @Handles",
-      description: "First rights to claim ultra-rare names (e.g., @Vision, @Zero)."
+      description: "First rights to claim ultra-rare names (e.g., @Aura, @Empire)."
     },
     {
       icon: Feather,
