@@ -335,21 +335,21 @@ const FoundersMint = () => {
             <Card className="relative overflow-hidden bg-gradient-to-br from-amber-900/30 via-black/80 to-amber-800/30 border-2 border-amber-400/50 backdrop-blur-xl shadow-2xl shadow-black/50">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(251,191,36,0.1),transparent_70%)]" />
               <CardContent className="p-16 text-center relative z-10">
-                <div className="space-y-8">
-                  <div className="mb-8">
-                    <h3 className="text-4xl md:text-5xl font-bold text-amber-400 relative z-10">
-                      Only 12 Founders Mints Will Ever Exist
-                    </h3>
-                  </div>
-                  
-                  <div className="text-6xl font-bold text-white">
-                    $1,000,000
-                    <div className="text-lg font-normal text-gray-300 mt-2">each</div>
-                  </div>
-                  
-                  <p className="text-2xl text-amber-200 font-semibold">
-                    First-come, first-serve
-                  </p>
+                  <div className="space-y-6 md:space-y-8">
+                    <div className="mb-6 md:mb-8">
+                      <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold text-amber-400 relative z-10 leading-tight">
+                        Only 12 Founders Mints Will Ever Exist
+                      </h3>
+                    </div>
+                    
+                    <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+                      $1,000,000
+                      <div className="text-base md:text-lg font-normal text-gray-300 mt-1 md:mt-2">each</div>
+                    </div>
+                    
+                    <p className="text-lg md:text-xl lg:text-2xl text-amber-200 font-semibold">
+                      First-come, first-serve
+                    </p>
                   
                   <Button 
                     size="lg"
