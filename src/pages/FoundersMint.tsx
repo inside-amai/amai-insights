@@ -422,30 +422,6 @@ const FoundersMint = () => {
       </footer>
      </div>
 
-      {/* Mobile Back to Genesis Button - Bottom - Outside main container */}
-      <div 
-        className="md:hidden w-full py-8 px-6 bg-black flex justify-center relative z-50"
-        style={{ 
-          opacity: 1, 
-          visibility: 'visible',
-          position: 'relative',
-          display: 'flex' 
-        }}
-      >
-        <span 
-          className="cursor-pointer px-4 py-2 text-sm font-medium"
-          style={{ 
-            color: '#ffffff',
-            opacity: 1,
-            visibility: 'visible',
-            textDecoration: 'none',
-            background: 'transparent'
-          }}
-          onClick={() => window.location.href = '/genesis-mint'}
-        >
-          Back to Genesis
-        </span>
-      </div>
     </>
   );
 };
