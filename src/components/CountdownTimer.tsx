@@ -60,10 +60,9 @@ export const CountdownTimer = () => {
         <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent shimmer-text mb-2">
           Genesis Begins In
         </h3>
-        <p className="text-muted-foreground">October 12, 2025 • 1:00 PM PST</p>
       </div>
       
-      <div className="flex justify-center items-center gap-6 md:gap-12 flex-wrap">
+      <div className="flex justify-center items-center gap-6 md:gap-12 flex-wrap mb-6">
         {timeUnits.map((unit, index) => (
           <motion.div
             key={unit.label}
@@ -72,14 +71,18 @@ export const CountdownTimer = () => {
             transition={{ duration: 0.5, delay: 1.1 + index * 0.1 }}
             className={`text-center ${unit.label === 'Milliseconds' ? 'hidden md:block' : ''}`}
           >
-            <div className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent shimmer-text mb-2">
+            <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2">
               {unit.value.toString().padStart(2, '0')}
             </div>
-            <div className="text-sm md:text-base text-muted-foreground font-medium uppercase tracking-wider">
+            <div className="text-sm md:text-base text-white font-medium uppercase tracking-wider">
               {unit.label}
             </div>
           </motion.div>
         ))}
+      </div>
+      
+      <div className="text-center">
+        <p className="text-muted-foreground">October 12, 2025 • 1:00 PM PST</p>
       </div>
     </motion.div>
   );
