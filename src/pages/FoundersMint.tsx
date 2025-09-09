@@ -24,32 +24,32 @@ const FoundersMint = () => {
     {
       icon: Crown,
       title: "Founders Key",
-      description: "A unique NFT carrying influence in the AMAI ecosystem."
+      description: "A tradable NFT that unlocks all Founders benefits on the AMAI platform, including Exotic Agent mints and VIP status."
     },
     {
       icon: Users,
       title: "Founders Circle Access",
-      description: "Private VIP Telegram group for OTC deals, early platform access, & direct contact with team."
+      description: "Private channel with early access to platform features and direct dialogue with the AMAI team."
     },
     {
       icon: Star,
       title: "Rare @Handles",
-      description: "First priority to claim ultra-rare names (e.g., @Vision, @Zero)."
+      description: "First rights to claim ultra-rare names (e.g., @Vision, @Zero)."
     },
     {
       icon: Feather,
       title: "Gold Wing Badge",
-      description: "Only 12 exist, permanently marking your identity across the platform."
+      description: "Only 12 exist, a permanent mark of prestige displayed across the platform."
     },
     {
       icon: Zap,
       title: "Unlimited Exotic Agents",
-      description: "Mint unlimited exotic-tier agents without staking bonds (minus gas)."
+      description: "Mint unlimited Exotic-tier agents without bond staking (minus gas)."
     },
     {
       icon: TrendingUp,
       title: "OTC Liquidity Hub",
-      description: "Access to curated large OTC opportunities within the Founders Circle."
+      description: "Exclusive access to a brokered network for high-value trades, ensuring whales can transact seamlessly without impacting the open market."
     }
   ];
 
