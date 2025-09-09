@@ -212,7 +212,7 @@ const FoundersMint = () => {
             {/* Right - Copy */}
             <div className="space-y-8 lg:col-span-6 relative z-20">
               <div className="mb-8">
-                <h2 className="text-4xl md:text-5xl font-bold text-amber-400">
+                <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-amber-300 via-amber-400 to-amber-600 bg-clip-text text-transparent shimmer-text-gold">
                   What Is Founders Mint?
                 </h2>
               </div>
