@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Crown, Shield, Users, Star, Zap, TrendingUp, Trophy } from "lucide-react";
+import { Crown, Feather, Users, Star, Zap, TrendingUp, Trophy } from "lucide-react";
 import { Header } from "@/components/Header";
 
 const FoundersMint = () => {
@@ -37,7 +37,7 @@ const FoundersMint = () => {
       description: "First priority to claim ultra-rare names (e.g., @Vision, @Zero)."
     },
     {
-      icon: Shield,
+      icon: Feather,
       title: "Gold Wing Badge",
       description: "Only 12 exist, permanently marking your identity across the platform."
     },
