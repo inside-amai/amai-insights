@@ -424,7 +424,7 @@ const FoundersMint = () => {
 
       {/* Mobile Back to Genesis Button - Bottom - Outside main container */}
       <div 
-        className="md:hidden w-full py-8 px-6 bg-black flex justify-center relative z-50" 
+        className="block md:hidden w-full py-8 px-6 bg-black flex justify-center relative z-50"
         style={{ 
           opacity: 1, 
           visibility: 'visible',
