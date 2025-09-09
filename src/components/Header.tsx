@@ -1,7 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 // import amaiHeaderLogo from '@/assets/amai-header-logo-new.png';
 
 export const Header = () => {
+  const location = useLocation();
+  const isFoundersMintPage = location.pathname === '/founders-mint';
+
   return (
     <header className="absolute top-0 left-0 right-0 z-50" style={{ background: 'transparent' }}>
       <div className="container mx-auto px-6 py-4">
@@ -15,6 +18,18 @@ export const Header = () => {
               loading="eager"
             />
           </Link>
+          
+          {/* Back to Genesis button for Founders Mint page */}
+          {isFoundersMintPage && (
+            <div className="flex items-center">
+              <button 
+                className="text-white bg-transparent border-none px-4 py-2 text-sm font-medium"
+                onClick={() => window.location.href = '/genesis-mint'}
+              >
+                Back to Genesis
+              </button>
+            </div>
+          )}
           
           {/* Future navigation items can go here */}
           <div className="flex items-center space-x-6">
