@@ -202,11 +202,11 @@ const FoundersMint = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
             {/* Left - Golden Wings Image */}
             <div className="flex justify-center">
-              <div className="relative">
+              <div className="relative overflow-hidden rounded-2xl">
                 <img 
                   src="/lovable-uploads/8155b2f4-c371-4049-aeac-063428e6f3fc.png"
                   alt="Golden Wings"
-                  className="w-full max-w-2xl h-auto object-contain"
+                  className="w-full h-[400px] lg:h-[500px] object-cover"
                 />
               </div>
             </div>
