@@ -201,7 +201,7 @@ const FoundersMint = () => {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center max-w-7xl mx-auto">
             {/* Left - Golden Wings Image */}
-            <div className="flex justify-center lg:col-span-8">
+            <div className="flex justify-end lg:col-span-6">
               <div className="relative overflow-hidden rounded-2xl">
                 <img 
                   src="/lovable-uploads/8155b2f4-c371-4049-aeac-063428e6f3fc.png"
@@ -212,24 +212,14 @@ const FoundersMint = () => {
             </div>
 
             {/* Right - Copy */}
-            <div className="space-y-8 lg:col-span-4">
+            <div className="space-y-8 lg:col-span-6">
               <div className="text-center mb-8">
                 <h2 className="text-4xl md:text-5xl font-bold text-amber-400 relative z-10">
                   What Is Founders Mint?
                 </h2>
               </div>
               
-              <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '1.5rem',
-                fontSize: '1.125rem',
-                color: '#ffffff',
-                lineHeight: '1.75',
-                fontFamily: 'inherit',
-                position: 'relative',
-                zIndex: 9999
-              }}>
+              <div className="space-y-6">
                 <div className="text-gray-300 mb-6">Only 12 governance tokens will ever exist, making you one of the most exclusive members of the AMAI ecosystem.</div>
                 <div className="text-gray-300 mb-6">First-come, first-serve allocation ensures immediate ownership for committed visionaries.</div>
                 <div className="text-gray-300">A place inside the Founders Circle grants you direct influence over AMAI's strategic direction & access to the most valuable opportunities.</div>
