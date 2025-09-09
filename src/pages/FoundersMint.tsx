@@ -206,7 +206,7 @@ const FoundersMint = () => {
                 <img 
                   src="/lovable-uploads/8155b2f4-c371-4049-aeac-063428e6f3fc.png"
                   alt="Golden Wings"
-                  className="w-full max-w-lg h-auto object-contain"
+                  className="w-full max-w-2xl h-auto object-contain"
                 />
               </div>
             </div>
