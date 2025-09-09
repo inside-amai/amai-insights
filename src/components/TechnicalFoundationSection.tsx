@@ -27,7 +27,7 @@ export const TechnicalFoundationSection = () => {
           >
             <div className="relative">
               <img 
-                src="/lovable-uploads/2dc88d33-5360-4f98-a8d1-c6eda4923e20.png" 
+                src="/lovable-uploads/fcd7ec01-cb4d-40ee-97b9-c5c397cf8275.png" 
                 alt="SUI Blockchain Technology"
                 className="w-full object-contain"
                 style={{ transform: 'scale(1.75)', transformOrigin: 'center' }}
