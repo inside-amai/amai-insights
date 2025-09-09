@@ -17,7 +17,7 @@ export const FoundersCountdownTimer = () => {
     milliseconds: 0
   });
 
-  const targetDate = new Date('2025-10-12T13:00:00-07:00'); // Oct 12, 2025 at 1:00 PM PST
+  const targetDate = new Date('2025-10-12T13:00:00-05:00'); // Oct 12, 2025 at 1:00 PM EST
 
   useEffect(() => {
     const timer = setInterval(() => {
