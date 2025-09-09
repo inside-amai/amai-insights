@@ -283,9 +283,7 @@ const FoundersMint = () => {
                       
                       {/* Icon container */}
                       <div className="relative w-16 h-16 bg-gradient-to-br from-amber-400/20 to-amber-600/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/10 group-hover:border-amber-400/50 transition-all duration-700 group-hover:scale-110">
-                        <benefit.icon className="w-8 h-8 text-white group-hover:text-amber-400 transition-all duration-700 drop-shadow-2xl group-hover:animate-pulse" 
-                          style={{ filter: `drop-shadow(0 0 15px rgba(255,255,255,0.5))` }}
-                        />
+                        <benefit.icon className="w-8 h-8 text-white group-hover:text-amber-400 transition-all duration-700 group-hover:animate-pulse" />
                       </div>
                     </div>
                     
