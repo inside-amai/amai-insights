@@ -108,16 +108,14 @@ const FoundersMint = () => {
     <div className="min-h-screen bg-black text-white overflow-x-hidden founders-mint-page">
       <Header />
       
-      {/* Fixed Back to Genesis Button */}
-      <div className="absolute md:fixed top-20 left-6 z-50">
-        <Button 
-          size="sm"
-          variant="outline"
-          className="md:bg-[#D6A6FC]/10 md:border-[#D6A6FC]/50 md:text-[#D6A6FC] hover:text-white hover:border-[#D6A6FC] px-4 py-2 text-sm font-medium md:rounded-full transition-all duration-300 md:backdrop-blur-sm text-white bg-transparent border-none"
+      {/* Centered Back to Genesis Button */}
+      <div className="absolute top-20 left-1/2 transform -translate-x-1/2 z-50">
+        <button 
+          className="text-white bg-transparent border-none px-4 py-2 text-sm font-medium"
           onClick={() => window.location.href = '/genesis-mint'}
         >
           Back to Genesis
-        </Button>
+        </button>
       </div>
       {/* Animated Background Elements */}
       <div className="fixed inset-0 pointer-events-none">
