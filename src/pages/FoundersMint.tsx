@@ -109,7 +109,7 @@ const FoundersMint = () => {
       <Header />
       
       {/* Fixed Back to Genesis Button */}
-      <div className="fixed top-20 left-6 z-50">
+      <div className="absolute md:fixed top-20 left-6 z-50">
         <Button 
           size="sm"
           variant="outline"
