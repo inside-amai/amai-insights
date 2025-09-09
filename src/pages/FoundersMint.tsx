@@ -150,7 +150,7 @@ const FoundersMint = () => {
             className="text-2xl md:text-3xl text-amber-100/80 mb-16 max-w-3xl mx-auto font-light text-center"
           >
             <p>The rarest mint in AMAI's history.</p>
-            <p>Only 12 exist.</p>
+            <p className="bg-gradient-to-r from-amber-300 via-amber-400 to-amber-600 bg-clip-text text-transparent shimmer-text-gold">Only 12 exist.</p>
           </motion.div>
 
           {/* Centerpiece Visual */}
