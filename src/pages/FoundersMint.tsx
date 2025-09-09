@@ -420,14 +420,13 @@ const FoundersMint = () => {
       </section>
 
       {/* Hero Image Section */}
-      <section className="w-full">
-        <div className="w-full">
-          <img 
-            src="/lovable-uploads/b0b05ea0-271e-4b59-99a1-e39cc7640477.png"
-            alt="Enter the Circle - Golden Wings"
-            className="w-full h-auto object-cover"
-          />
-        </div>
+      <section className="w-full relative z-20 bg-black">
+        <img 
+          src="/lovable-uploads/b0b05ea0-271e-4b59-99a1-e39cc7640477.png"
+          alt="Enter the Circle - Golden Wings"
+          className="w-full h-auto block"
+          style={{ display: 'block' }}
+        />
       </section>
 
       {/* Footer */}
