@@ -60,11 +60,11 @@ const FoundersMint = () => {
     },
     {
       question: "What does a Founders Key give me?",
-      answer: "A Founders Key unlocks the full suite of Founders privileges: A permanent seat in the Council of 12 (advisory influence, not binding governance). Unlimited Exotic Agent mints (normally $10K each). Priority to claim rare @handles. A permanent Gold Wing badge on the platform. Access to the private Founders Circle channel. Entry to the OTC Liquidity Hub for discreet, brokered block trades."
+      answer: "A Founders Key unlocks the full suite of Founders privileges: A permanent seat in the Council of 12. Unlimited Exotic Agent mints (normally $10K each). Priority to claim rare @handles. A permanent Gold Wing badge on the platform. Access to the private Founders Circle channel. Entry to the OTC Liquidity Hub for discreet, brokered block trades."
     },
     {
       question: "Are Founders Keys tradable?",
-      answer: "Yes. A Founders Key is a token that can be transferred or traded. All privileges - Exotic Agent mints, badges, Council seat, and Circle access - follow the token itself. When you log into the platform, the system verifies your wallet and unlocks benefits automatically."
+      answer: "Yes. A Founders Key is a token that can be transferred or traded. All privileges, Exotic Agent mints, badges, Council seat, and Circle access follow the token itself. When you log into the platform, the system verifies your wallet and unlocks benefits automatically."
     },
     {
       question: "How is my token allocation calculated?",
@@ -79,12 +79,8 @@ const FoundersMint = () => {
       answer: "If the Genesis Mint expands supply enough that 0.25% > 10M tokens, you receive the full percentage allocation. This means your token count scales with AMAI's growth."
     },
     {
-      question: "How much influence does a Founders Key give me?",
-      answer: "A Founders Key does not grant corporate control. Instead, holders form the Council of 12 - an advisory body whose voices are formally gathered before major strategic shifts. Influence is real, but final execution rests with the AMAI team."
-    },
-    {
       question: "What is the OTC Liquidity Hub?",
-      answer: "A private channel where large trades can be discreetly matched among Founders, protecting open-market stability. Think of it as a private block desk - connecting major holders without impacting the broader market."
+      answer: "A private channel where large trades can be discreetly matched among Founders, protecting open-market stability. Think of it as a private block desk, connecting major holders without impacting the broader market."
     },
     {
       question: "How else are Founders recognized?",
