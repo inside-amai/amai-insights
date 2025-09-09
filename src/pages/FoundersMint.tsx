@@ -200,19 +200,14 @@ const FoundersMint = () => {
       <section className="py-32 px-6">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
-            {/* Left - Gold Crest */}
+            {/* Left - Golden Wings Image */}
             <div className="flex justify-center">
               <div className="relative">
-                <div className="w-80 h-80 bg-gradient-to-br from-amber-400/20 via-amber-600/10 to-transparent rounded-full flex items-center justify-center border border-amber-400/30">
-                  <div className="w-60 h-60 bg-gradient-to-br from-amber-500/30 to-amber-700/20 rounded-full flex items-center justify-center border border-amber-400/40">
-                    <img 
-                      src="/lovable-uploads/1345f4f8-b179-4b3c-9661-4d353c3d39ef.png"
-                      alt="Golden Wings"
-                      className="w-32 h-32 object-contain"
-                    />
-                  </div>
-                </div>
-                <div className="absolute inset-0 bg-amber-400/10 blur-3xl rounded-full" />
+                <img 
+                  src="/lovable-uploads/1345f4f8-b179-4b3c-9661-4d353c3d39ef.png"
+                  alt="Golden Wings"
+                  className="w-80 h-80 object-contain"
+                />
               </div>
             </div>
 
