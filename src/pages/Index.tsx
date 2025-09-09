@@ -117,9 +117,8 @@ const Index = () => {
               </p>
             </div>
           }
-          imageSrc="/lovable-uploads/2dc88d33-5360-4f98-a8d1-c6eda4923e20.png"
-          imageAlt="AMAI Battle Pass Season 1"
-          objectFit="cover"
+          videoUrl="https://www.youtube.com/embed/N1RBnriszfQ?autoplay=1&loop=1&controls=0&mute=1&playlist=N1RBnriszfQ&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&fs=0&disablekb=1&cc_load_policy=0&playsinline=1&widget_referrer=https%3A%2F%2Flocalhost&origin=https%3A%2F%2Flocalhost&enablejsapi=0&html5=1&autohide=1&theme=dark&color=white"
+          imageAlt="Four-Step Agent Builder Wizard Demo"
           overlayColor="rgba(0, 0, 0, 0)"
         />
       </div>

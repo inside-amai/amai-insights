@@ -5,8 +5,9 @@ interface ExplainerSectionProps {
   eyebrow: string;
   title: string;
   content: ReactNode;
-  imageSrc: string;
-  imageAlt: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  videoUrl?: string;
   reverse?: boolean;
   overlayColor?: string;
   objectFit?: 'cover' | 'contain';
@@ -19,6 +20,7 @@ export const ExplainerSection = ({
   content,
   imageSrc,
   imageAlt,
+  videoUrl,
   reverse = false,
   overlayColor = 'rgba(0, 0, 0, 0.3)',
   objectFit = 'cover',
@@ -70,19 +72,34 @@ export const ExplainerSection = ({
             viewport={{ once: true }}
           >
             <div className="relative">
-              <img 
-                src={imageSrc} 
-                alt={imageAlt}
-                className={`w-full ${
-                  title === 'Technical Foundation'
-                    ? 'h-auto max-h-[800px] lg:max-h-[1000px]'
-                    : (objectFit === 'contain' ? 'h-auto max-h-[400px] lg:max-h-[500px]' : 'h-[400px] lg:h-[500px]')
-                } object-${objectFit}`}
-              />
-              <div 
-                className="absolute inset-0"
-                style={{ backgroundColor: overlayColor }}
-              />
+              {videoUrl ? (
+                <div className="relative w-full aspect-video rounded-xl overflow-hidden">
+                  <iframe
+                    src={videoUrl}
+                    title={imageAlt || "Video content"}
+                    className="absolute inset-0 w-full h-full pointer-events-none"
+                    allow="autoplay; encrypted-media"
+                    allowFullScreen
+                  />
+                  <div className="absolute inset-0 pointer-events-none"></div>
+                </div>
+              ) : imageSrc ? (
+                <>
+                  <img 
+                    src={imageSrc} 
+                    alt={imageAlt || "Content image"}
+                    className={`w-full ${
+                      title === 'Technical Foundation'
+                        ? 'h-auto max-h-[800px] lg:max-h-[1000px]'
+                        : (objectFit === 'contain' ? 'h-auto max-h-[400px] lg:max-h-[500px]' : 'h-[400px] lg:h-[500px]')
+                    } object-${objectFit}`}
+                  />
+                  <div 
+                    className="absolute inset-0"
+                    style={{ backgroundColor: overlayColor }}
+                  />
+                </>
+              ) : null}
             </div>
           </motion.div>
 
