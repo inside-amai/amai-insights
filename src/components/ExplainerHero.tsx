@@ -213,12 +213,12 @@ export const ExplainerHero = () => {
               href="https://t.me/AMAIOfficial" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="transition-all duration-300 hover:scale-105 opacity-60 hover:opacity-100"
+              className="transition-all duration-300 hover:scale-105"
             >
               <img 
                 src="/lovable-uploads/f688c83b-1c4d-44c4-bbc4-f9328559a323.png" 
                 alt="Join Telegram" 
-                className="w-10 h-10 md:w-12 md:h-12 object-contain filter brightness-100 hover:brightness-50 transition-all duration-300"
+                className="w-10 h-10 md:w-12 md:h-12 object-contain brightness-100 hover:brightness-75 transition-all duration-300"
                 style={{ width: '40px', height: '40px' }}
               />
             </a>
@@ -227,12 +227,12 @@ export const ExplainerHero = () => {
               href="https://x.com/InsideAMAI" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="transition-all duration-300 hover:scale-105 opacity-60 hover:opacity-100"
+              className="transition-all duration-300 hover:scale-105"
             >
               <img 
                 src="/lovable-uploads/53e90b93-7fe0-4c2c-b053-df64d7a767d0.png" 
                 alt="Follow on X" 
-                className="w-10 h-10 md:w-12 md:h-12 object-contain filter brightness-100 hover:brightness-50 transition-all duration-300"
+                className="w-10 h-10 md:w-12 md:h-12 object-contain brightness-100 hover:brightness-75 transition-all duration-300"
                 style={{ width: '40px', height: '40px' }}
               />
             </a>
