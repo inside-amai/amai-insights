@@ -124,47 +124,6 @@ const Index = () => {
         />
       </div>
 
-      {/* Social Links */}
-      <div className="relative bg-black py-12">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="flex flex-row gap-8 justify-center items-center"
-          >
-            <a 
-              href="https://t.me/AMAIOfficial" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="transition-all duration-300 hover:scale-105 opacity-60 hover:opacity-100"
-            >
-              <img 
-                src="/lovable-uploads/f688c83b-1c4d-44c4-bbc4-f9328559a323.png" 
-                alt="Join Telegram" 
-                className="w-10 h-10 md:w-12 md:h-12 object-contain filter brightness-50 hover:brightness-100 transition-all duration-300"
-                style={{ width: '40px', height: '40px' }}
-              />
-            </a>
-            
-            <a 
-              href="https://x.com/InsideAMAI" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="transition-all duration-300 hover:scale-105 opacity-60 hover:opacity-100"
-            >
-              <img 
-                src="/lovable-uploads/53e90b93-7fe0-4c2c-b053-df64d7a767d0.png" 
-                alt="Follow on X" 
-                className="w-10 h-10 md:w-12 md:h-12 object-contain filter brightness-50 hover:brightness-100 transition-all duration-300"
-                style={{ width: '40px', height: '40px' }}
-              />
-            </a>
-          </motion.div>
-        </div>
-      </div>
-
       {/* Decorative Moon */}
       <div className="relative bg-black py-8">
         <div className="container mx-auto px-6">
