@@ -73,14 +73,17 @@ export const ExplainerSection = ({
           >
             <div className="relative">
               {videoUrl ? (
-                <div className="relative w-full aspect-video rounded-xl overflow-hidden">
+                <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-black">
                   <iframe
                     src={videoUrl}
                     title={imageAlt || "Video content"}
-                    className="absolute inset-0 w-full h-full pointer-events-none"
+                    className="absolute inset-0 w-full h-full pointer-events-none opacity-0 animate-fade-in"
                     allow="autoplay; encrypted-media"
                     allowFullScreen
+                    style={{ animationDelay: '2s', animationFillMode: 'forwards' }}
                   />
+                  {/* Loading overlay to hide YouTube branding */}
+                  <div className="absolute inset-0 bg-black animate-fade-out" style={{ animationDelay: '2s', animationFillMode: 'forwards' }}></div>
                   <div className="absolute inset-0 pointer-events-none"></div>
                 </div>
               ) : imageSrc ? (
