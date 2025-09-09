@@ -21,7 +21,7 @@ export const Header = () => {
           
           {/* Back to Genesis button for Founders Mint page */}
           {isFoundersMintPage && (
-            <div className="flex items-center">
+            <div className="absolute left-1/2 transform -translate-x-1/2 md:relative md:left-auto md:transform-none flex items-center">
               <button 
                 className="text-white bg-transparent border-none px-4 py-2 text-sm font-medium"
                 onClick={() => window.location.href = '/genesis-mint'}
@@ -32,9 +32,11 @@ export const Header = () => {
           )}
           
           {/* Future navigation items can go here */}
-          <div className="flex items-center space-x-6">
-            {/* Navigation items will be added later */}
-          </div>
+          {!isFoundersMintPage && (
+            <div className="flex items-center space-x-6">
+              {/* Navigation items will be added later */}
+            </div>
+          )}
         </div>
       </div>
     </header>
