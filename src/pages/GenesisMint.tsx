@@ -577,6 +577,15 @@ const GenesisMint = () => {
         </div>
       </section>
 
+      {/* Full Width Image Section */}
+      <section className="w-full">
+        <img 
+          src="/lovable-uploads/4a69233f-cbaa-4325-8428-b1a6a904dc87.png" 
+          alt="Hero image"
+          className="w-full h-auto object-cover"
+        />
+      </section>
+
       {/* Footer */}
       <footer className="py-8 px-6 bg-gray-900/50 border-t border-white/10">
         <div className="container mx-auto text-center">
