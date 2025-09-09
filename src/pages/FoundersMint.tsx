@@ -204,9 +204,9 @@ const FoundersMint = () => {
             <div className="flex justify-center">
               <div className="relative">
                 <img 
-                  src="/lovable-uploads/1345f4f8-b179-4b3c-9661-4d353c3d39ef.png"
+                  src="/lovable-uploads/8155b2f4-c371-4049-aeac-063428e6f3fc.png"
                   alt="Golden Wings"
-                  className="w-80 h-80 object-contain"
+                  className="w-96 h-96 object-contain"
                 />
               </div>
             </div>
