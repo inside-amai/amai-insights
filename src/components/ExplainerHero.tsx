@@ -207,7 +207,7 @@ export const ExplainerHero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex flex-row gap-8 justify-center items-center pt-8"
+            className="flex flex-row gap-8 justify-center items-center pt-4"
           >
             <a 
               href="https://t.me/AMAIOfficial" 
