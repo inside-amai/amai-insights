@@ -113,7 +113,7 @@ const FoundersMint = () => {
         <Button 
           size="sm"
           variant="outline"
-          className="bg-[#D6A6FC]/10 border-[#D6A6FC]/50 text-[#D6A6FC] hover:text-white hover:border-[#D6A6FC] px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 backdrop-blur-sm md:opacity-100 opacity-40 md:bg-[#D6A6FC]/10 bg-transparent md:border-[#D6A6FC]/50 border-[#D6A6FC]/20 md:backdrop-blur-sm backdrop-blur-none"
+          className="md:bg-[#D6A6FC]/10 md:border-[#D6A6FC]/50 md:text-[#D6A6FC] hover:text-white hover:border-[#D6A6FC] px-4 py-2 text-sm font-medium md:rounded-full transition-all duration-300 md:backdrop-blur-sm text-white bg-transparent border-none"
           onClick={() => window.location.href = '/genesis-mint'}
         >
           Back to Genesis
