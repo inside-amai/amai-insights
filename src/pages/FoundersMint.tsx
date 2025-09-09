@@ -55,20 +55,40 @@ const FoundersMint = () => {
 
   const faqData = [
     {
-      question: "How many Founders Mints exist?",
-      answer: "Only 12 Founders Mints will ever exist, making them ultra-rare governance tokens in the AMAI ecosystem."
+      question: "How many Founders Keys exist?",
+      answer: "Only 12 Founders Keys will ever exist. They are the rarest, most prestigious tokens in the AMAI ecosystem, enshrining holders as members of the Council of 12. No more will ever be minted."
     },
     {
-      question: "How do I claim one?",
-      answer: "Founders Mints are available on a first-come, first-serve basis. Each mint costs $1,000,000 & grants immediate access to all benefits."
+      question: "What does a Founders Key give me?",
+      answer: "A Founders Key unlocks the full suite of Founders privileges: A permanent seat in the Council of 12 (advisory influence, not binding governance). Unlimited Exotic Agent mints (normally $10K each). Priority to claim rare @handles. A permanent Gold Wing badge on the platform. Access to the private Founders Circle channel. Entry to the OTC Liquidity Hub for discreet, brokered block trades."
     },
     {
-      question: "What utilities are permanent?",
-      answer: "All Founders Mint benefits are permanent & non-transferable, including Founders Circle access, Gold Wing badges, & unlimited Exotic agent minting."
+      question: "Are Founders Keys tradable?",
+      answer: "Yes. A Founders Key is a token that can be transferred or traded. All privileges - Exotic Agent mints, badges, Council seat, and Circle access - follow the token itself. When you log into the platform, the system verifies your wallet and unlocks benefits automatically."
     },
     {
-      question: "Can I resell my Founders Mint?",
-      answer: "Founders Mints are governance tokens that can be traded, but certain benefits like Circle access are tied to the original holder."
+      question: "How is my token allocation calculated?",
+      answer: "Each Founders Key represents 0.25% of AMAI's total supply."
+    },
+    {
+      question: "What if fewer tokens are minted?",
+      answer: "Every Founders Key carries a guaranteed floor of 10M tokens (valued at $1M at the $0.10 base price). If 0.25% of supply is less than 10M, you still receive 10M tokens."
+    },
+    {
+      question: "What if more tokens are minted?",
+      answer: "If the Genesis Mint expands supply enough that 0.25% > 10M tokens, you receive the full percentage allocation. This means your token count scales with AMAI's growth."
+    },
+    {
+      question: "How much influence does a Founders Key give me?",
+      answer: "A Founders Key does not grant corporate control. Instead, holders form the Council of 12 - an advisory body whose voices are formally gathered before major strategic shifts. Influence is real, but final execution rests with the AMAI team."
+    },
+    {
+      question: "What is the OTC Liquidity Hub?",
+      answer: "A private channel where large trades can be discreetly matched among Founders, protecting open-market stability. Think of it as a private block desk - connecting major holders without impacting the broader market."
+    },
+    {
+      question: "How else are Founders recognized?",
+      answer: "Each holder is permanently enshrined on-chain in the Genesis Contract. The Council of 12 is featured on the Founders Circle page and platform leaderboards. The Gold Wing badge marks your identity across all of AMAI."
     }
   ];
 
