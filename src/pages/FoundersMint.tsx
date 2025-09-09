@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Crown, Feather, Users, Star, Zap, TrendingUp, Trophy } from "lucide-react";
 import { Header } from "@/components/Header";
+import { FoundersCountdownTimer } from "@/components/FoundersCountdownTimer";
 
 const FoundersMint = () => {
   const fadeInUp = {
@@ -348,13 +349,8 @@ const FoundersMint = () => {
                       First-come, first-serve
                     </p>
                   
-                  <Button 
-                    size="lg"
-                    className="bg-gradient-to-r from-amber-400 to-amber-600 text-black hover:from-amber-300 hover:to-amber-500 px-12 py-6 text-2xl font-bold rounded-2xl shadow-2xl shadow-amber-400/50 transition-all duration-300 hover:scale-105 border-2 border-amber-300/50 mt-8"
-                  >
-                    <Crown className="mr-3 w-8 h-8" />
-                    Discover
-                  </Button>
+                  
+                  <FoundersCountdownTimer />
                 </div>
               </CardContent>
             </Card>
