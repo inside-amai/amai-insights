@@ -23,7 +23,7 @@ const FoundersMint = () => {
   const benefits = [
     {
       icon: Crown,
-      title: "Governance Token",
+      title: "Founders Key",
       description: "A unique NFT carrying influence in the AMAI ecosystem."
     },
     {
