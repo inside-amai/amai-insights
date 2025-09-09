@@ -452,12 +452,12 @@ const GenesisMint = () => {
               <CardContent className="p-12 text-center relative z-10">
                 <div className="mb-8">
                   <Crown className="w-20 h-20 mx-auto text-amber-400 mb-6 drop-shadow-2xl" />
-                  <h3 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 bg-clip-text text-transparent shimmer-text-gold" style={{ textShadow: '0 4px 8px rgba(0,0,0,0.8), 0 2px 4px rgba(0,0,0,0.6)' }}>
+                  <h3 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 bg-clip-text text-transparent shimmer-text-gold">
                     Founders Mint
                   </h3>
                 </div>
                 
-                <p className="text-lg text-amber-100/90 mb-10 max-w-3xl mx-auto leading-relaxed" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.8), 0 1px 2px rgba(0,0,0,0.6)' }}>
+                <p className="text-lg text-amber-100/90 mb-10 max-w-3xl mx-auto leading-relaxed">
                   Ultra-rare: only 12 governance tokens. First-come, first-serve. Founders gain Gold Wing badges, 
                   rare @handles, unlimited Exotic agents, & access to the private Founders Circle.
                 </p>
@@ -466,11 +466,10 @@ const GenesisMint = () => {
                   size="lg"
                   className="bg-gradient-to-r from-amber-400 to-amber-600 text-amber-950 hover:from-amber-300 hover:to-amber-500 px-10 py-5 text-xl font-bold rounded-xl shadow-2xl shadow-amber-400/40 transition-all duration-300 hover:scale-105 border border-amber-300/50"
                   onClick={() => window.location.href = '/founders-mint'}
-                  style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2)' }}
                 >
                   <Crown className="mr-3 w-6 h-6" />
-                  <span className="block md:hidden" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2)' }}>Discover</span>
-                  <span className="hidden md:block" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2)' }}>Discover Founders Mint</span>
+                  <span className="block md:hidden">Discover</span>
+                  <span className="hidden md:block">Discover Founders Mint</span>
                 </Button>
               </CardContent>
             </Card>
