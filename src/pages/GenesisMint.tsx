@@ -578,11 +578,11 @@ const GenesisMint = () => {
       </section>
 
       {/* Full Width Image Section */}
-      <section className="w-full">
+      <section className="w-full relative z-50">
         <img 
           src="/lovable-uploads/4a69233f-cbaa-4325-8428-b1a6a904dc87.png" 
           alt="Hero image"
-          className="w-full h-auto object-cover"
+          className="w-full h-auto object-cover block"
         />
       </section>
 
