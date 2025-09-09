@@ -422,7 +422,7 @@ const FoundersMint = () => {
       {/* Hero Image Section */}
       <section className="w-full relative z-20 bg-black">
         <img 
-          src="/lovable-uploads/b0b05ea0-271e-4b59-99a1-e39cc7640477.png"
+          src="/lovable-uploads/0db2b495-15e0-45cc-889f-aa5d65af0514.png"
           alt="Enter the Circle - Golden Wings"
           className="w-full h-auto block"
           style={{ display: 'block' }}
