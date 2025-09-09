@@ -57,7 +57,7 @@ export const CountdownTimer = () => {
       className="relative mb-16"
     >
       <div className="text-center mb-8">
-        <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent shimmer-text mb-2">
+        <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
           Genesis Begins In
         </h3>
       </div>
@@ -71,7 +71,7 @@ export const CountdownTimer = () => {
             transition={{ duration: 0.5, delay: 1.1 + index * 0.1 }}
             className={`text-center ${unit.label === 'Milliseconds' ? 'hidden md:block' : ''}`}
           >
-            <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2">
+            <div className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent shimmer-text mb-2">
               {unit.value.toString().padStart(2, '0')}
             </div>
             <div className="text-sm md:text-base text-white font-medium uppercase tracking-wider">
