@@ -458,7 +458,7 @@ const GenesisMint = () => {
                 </div>
                 
                 <p className="text-lg text-amber-100/90 mb-10 max-w-3xl mx-auto leading-relaxed">
-                  Ultra-rare: only 12 governance tokens. First-come, first-serve. Founders gain Gold Wing badges, 
+                  Ultra-rare: only 12 Founders Key tokens. First-come, first-serve. Founders gain Gold Wing badges, 
                   rare @handles, unlimited Exotic agents, & access to the private Founders Circle.
                 </p>
 
