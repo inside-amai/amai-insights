@@ -335,7 +335,7 @@ const FoundersMint = () => {
               <CardContent className="p-16 text-center relative z-10">
                   <div className="space-y-6 md:space-y-8">
                     <div className="mb-6 md:mb-8">
-                      <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold text-amber-400 relative z-10 leading-tight">
+                      <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-amber-300 via-amber-400 to-amber-600 bg-clip-text text-transparent shimmer-text-gold relative z-10 leading-tight">
                         Only 12 Founders Mints Will Ever Exist
                       </h3>
                     </div>
