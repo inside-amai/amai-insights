@@ -120,6 +120,27 @@ export const TermsModal = () => {
               </section>
 
               <section>
+                <h3 className="text-lg font-semibold text-white mb-3">Founders Mint</h3>
+                <p className="mb-3">
+                  Founders Keys are special-edition tokens that unlock platform privileges such as unlimited Exotic Agent mints, Gold Wing badges, rare handles, and participation in the Council of 12. They are transferable like any other token. Founders Keys:
+                </p>
+                <ul className="space-y-2 ml-4 text-sm">
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>do not confer ownership, dividends, or voting rights in AMAI Labs,</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>do not guarantee profits or appreciation in value,</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>and are intended solely as symbolic and functional access tools within the AMAI ecosystem.</span>
+                  </li>
+                </ul>
+              </section>
+
+              <section>
                 <h3 className="text-lg font-semibold text-white mb-3">Risks and forward-looking statements</h3>
                 <p className="mb-3">
                   The roadmap and milestones are goals, not guarantees. Development timelines can slip, regulations can change and technical hurdles may arise. Digital assets are volatile and subject to loss, theft, hacking, regulatory restrictions or total loss of value.
