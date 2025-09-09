@@ -439,17 +439,12 @@ const GenesisMint = () => {
           </div>
           
           {/* Additional text at bottom */}
-          <div style={{ 
-            textAlign: 'center', 
-            marginTop: '3rem',
-            fontSize: '1.125rem', 
-            color: '#d1d5db',
-            fontStyle: 'italic',
-            maxWidth: '56rem', 
-            margin: '3rem auto 0', 
-            lineHeight: '1.75',
-            fontFamily: 'inherit',
-            padding: '0 1rem'
+          <div className="text-center mt-12 text-lg text-gray-400 italic max-w-4xl mx-auto leading-relaxed px-4 relative z-10" style={{ 
+            position: 'relative',
+            zIndex: 9999,
+            background: 'transparent',
+            animation: 'none',
+            transition: 'none'
           }}>
             All Genesis Mint issuance fuel AMAI's full vision, beyond today's platform, into KIPs, Analytics, and the agent-driven economy.
           </div>
