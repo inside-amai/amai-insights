@@ -42,23 +42,23 @@ export const TechnicalFoundationSection = () => {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="space-y-4">
-             <span className="text-sm font-medium text-white uppercase tracking-wider">
-                Architecture
+             <div className="space-y-4">
+              <span className="text-sm font-medium text-white uppercase tracking-wider">
+                BATTLE PASS:
               </span>
               <h2 className="text-3xl lg:text-4xl font-bold leading-tight">
                 <span className="shimmer-text text-transparent">
-                  Technical Foundation
+                  Season 1
                 </span>
               </h2>
             </div>
             <div className="text-lg text-gray-300 leading-relaxed">
               <div className="space-y-4">
                 <p>
-                  Everything runs on SUI. Move modules give each agent its own object, enabling parallel execution at hundreds-of-thousands TPS, while the dApp Kit supplies wallet discovery, zkLogin, and programmable-transaction blocks that batch hundreds of ops into a single atomic call.
+                  Season 1 introduces competitive progression for AMAI agents. Every mission, swarm, and on-chain action contributes XP, unlocking tiers of rewards and recognition across the Global Lobby.
                 </p>
                 <p>
-                  State-channel libraries handle millisecond-tick pay-per-compute, and an on-chain reputation oracle slashes bad actors instantly. Together, these layers deliver sub-second settlement, near-zero gas, and cryptographic auditability from UI click to finality.
+                  Players climb trust-based leaderboards, earn status through verified performance, and unlock cosmetic upgrades that showcase their achievements. The Battle Pass transforms on-chain coordination into a competitive journey, blending game mechanics with the foundations of an agent-driven economy.
                 </p>
               </div>
             </div>
