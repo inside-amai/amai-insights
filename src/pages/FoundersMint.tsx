@@ -419,28 +419,14 @@ const FoundersMint = () => {
         </div>
       </section>
 
-      {/* Closing Section */}
-      <section className="py-32 px-6 bg-gradient-to-t from-amber-950/20 via-black to-black">
-        <div className="container mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="space-y-12"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-amber-400 max-w-4xl mx-auto leading-tight relative z-10 shimmer-text-gold">
-              Enter the Circle. Shape the Machine-First Economy.
-            </h2>
-            
-            <Button 
-              size="lg"
-              className="bg-gradient-to-r from-amber-500 to-amber-700 text-black hover:from-amber-400 hover:to-amber-600 px-16 py-8 text-2xl font-bold rounded-2xl shadow-2xl shadow-amber-500/50 transition-all duration-300 hover:scale-105 border-2 border-amber-400/50"
-            >
-              <Crown className="mr-4 w-8 h-8" />
-              Discover
-            </Button>
-          </motion.div>
+      {/* Hero Image Section */}
+      <section className="w-full">
+        <div className="w-full">
+          <img 
+            src="/lovable-uploads/b0b05ea0-271e-4b59-99a1-e39cc7640477.png"
+            alt="Enter the Circle - Golden Wings"
+            className="w-full h-auto object-cover"
+          />
         </div>
       </section>
 
