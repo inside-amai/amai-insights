@@ -220,9 +220,9 @@ const FoundersMint = () => {
               </div>
               
               <div className="space-y-6 relative z-20">
-                <div className="text-lg text-white mb-6 relative z-20">Only 12 governance tokens will ever exist, making you one of the most exclusive members of the AMAI ecosystem.</div>
-                <div className="text-lg text-white mb-6 relative z-20">First-come, first-serve allocation ensures immediate ownership for committed visionaries.</div>
-                <div className="text-lg text-white relative z-20">A place inside the Founders Circle grants you direct influence over AMAI's strategic direction & access to the most valuable opportunities.</div>
+                <div className="text-lg text-gray-300 mb-6 relative z-20">Only 12 governance tokens will ever exist, making you one of the most exclusive members of the AMAI ecosystem.</div>
+                <div className="text-lg text-gray-300 mb-6 relative z-20">First-come, first-serve allocation ensures immediate ownership for committed visionaries.</div>
+                <div className="text-lg text-gray-300 relative z-20">A place inside the Founders Circle grants you direct influence over AMAI's strategic direction & access to the most valuable opportunities.</div>
               </div>
             </div>
           </div>
