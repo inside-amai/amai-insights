@@ -30,7 +30,6 @@ export const TechnicalFoundationSection = () => {
                 src="/lovable-uploads/fcd7ec01-cb4d-40ee-97b9-c5c397cf8275.png" 
                 alt="SUI Blockchain Technology"
                 className="w-full object-contain"
-                style={{ transform: 'scale(1.75)', transformOrigin: 'center' }}
               />
             </div>
           </motion.div>
