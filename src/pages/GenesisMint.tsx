@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Shield, Zap, Users, TrendingUp, Star, Crown, Sparkles, CircleDot, Trophy, Gem } from "lucide-react";
 import { Header } from "@/components/Header";
+import { CountdownTimer } from "@/components/CountdownTimer";
 
 const GenesisMint = () => {
   const fadeInUp = {
@@ -201,6 +202,9 @@ const GenesisMint = () => {
               />
             </div>
           </motion.div>
+
+          {/* Countdown Timer */}
+          <CountdownTimer />
 
         </div>
       </section>
