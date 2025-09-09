@@ -17,9 +17,9 @@ export const TechnicalFoundationSection = () => {
       
       <div className="container mx-auto px-6 py-20 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center lg:grid-flow-dense">
-          {/* Large Image Column - 75% bigger */}
+          {/* Large Image Column - Made bigger */}
           <motion.div 
-            className="lg:col-start-8 lg:col-span-5 relative overflow-hidden rounded-2xl"
+            className="lg:col-start-7 lg:col-span-6 relative overflow-hidden rounded-2xl"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -30,13 +30,14 @@ export const TechnicalFoundationSection = () => {
                 src="/lovable-uploads/fcd7ec01-cb4d-40ee-97b9-c5c397cf8275.png" 
                 alt="SUI Blockchain Technology"
                 className="w-full object-contain"
+                style={{ transform: 'scale(1.2)', transformOrigin: 'center' }}
               />
             </div>
           </motion.div>
 
-          {/* Content Column */}
+          {/* Content Column - Made smaller to accommodate larger image */}
           <motion.div 
-            className="lg:col-start-1 lg:col-span-6 space-y-6"
+            className="lg:col-start-1 lg:col-span-5 space-y-6"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
