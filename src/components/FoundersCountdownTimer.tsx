@@ -5,6 +5,7 @@ interface TimeLeft {
   hours: number;
   minutes: number;
   seconds: number;
+  milliseconds: number;
 }
 
 export const FoundersCountdownTimer = () => {
@@ -12,7 +13,8 @@ export const FoundersCountdownTimer = () => {
     days: 0,
     hours: 0,
     minutes: 0,
-    seconds: 0
+    seconds: 0,
+    milliseconds: 0
   });
 
   const targetDate = new Date('2025-10-12T13:00:00-07:00'); // Oct 12, 2025 at 1:00 PM PST
@@ -27,12 +29,13 @@ export const FoundersCountdownTimer = () => {
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        const milliseconds = Math.floor((distance % 1000) / 10); // Show as centiseconds (0-99)
 
-        setTimeLeft({ days, hours, minutes, seconds });
+        setTimeLeft({ days, hours, minutes, seconds, milliseconds });
       } else {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 0 });
       }
-    }, 1000);
+    }, 10); // Update every 10ms for smooth milliseconds
 
     return () => clearInterval(timer);
   }, [targetDate]);
@@ -41,7 +44,8 @@ export const FoundersCountdownTimer = () => {
     { label: 'Days', value: timeLeft.days },
     { label: 'Hours', value: timeLeft.hours },
     { label: 'Minutes', value: timeLeft.minutes },
-    { label: 'Seconds', value: timeLeft.seconds }
+    { label: 'Seconds', value: timeLeft.seconds },
+    { label: 'Milliseconds', value: timeLeft.milliseconds }
   ];
 
   return (
