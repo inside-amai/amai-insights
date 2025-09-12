@@ -203,6 +203,7 @@ const GenesisMint = () => {
                 src="/lovable-uploads/b74c26f1-82a6-4960-827f-c0f680e402ed.png" 
                 alt="Legendary PudgyAgent"
                 className="max-w-sm w-auto h-auto rounded-2xl border border-primary/20"
+                loading="lazy"
               />
             </div>
             
@@ -212,6 +213,7 @@ const GenesisMint = () => {
                 src="/lovable-uploads/be436350-f096-489a-9ec9-09cc71d0d068.png" 
                 alt="4-Step Agent Creation Wizard"
                 className="w-full h-auto"
+                loading="lazy"
               />
             </div>
           </motion.div>

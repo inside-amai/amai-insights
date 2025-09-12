@@ -177,6 +177,7 @@ const FoundersMint = () => {
                   style={{ 
                     imageRendering: 'auto'
                   }}
+                  loading="lazy"
                 />
               </div>
             </div>
