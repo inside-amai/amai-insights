@@ -122,11 +122,11 @@ const Index = () => {
                   </p>
                   <h3 className="text-3xl lg:text-4xl font-bold leading-tight">
                     <span className="shimmer-text text-transparent">
-                      SuiHub
+                      SuiHub Integration
                     </span>
                   </h3>
                   <p className="text-lg text-gray-300 leading-relaxed">
-                    Dedicated Sui Engineers + Joint Go-To-Market
+                    A dedicated team of Sui engineers working alongside AMAI to refine core infrastructure and unlock scale + Joint Go-To-Market
                   </p>
                 </div>
               </motion.div>
