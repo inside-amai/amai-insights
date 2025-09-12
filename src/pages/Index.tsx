@@ -141,7 +141,7 @@ const Index = () => {
               >
                 <div className="relative">
                   <img 
-                    src="/lovable-uploads/4a69233f-cbaa-4325-8428-b1a6a904dc87.png"
+                    src="/lovable-uploads/2001a109-342f-4ca5-8099-ddeedd693328.png"
                     alt="SuiHub Partnership"
                     className="w-full object-contain"
                     style={{ transform: 'scale(1.2)', transformOrigin: 'center' }}
