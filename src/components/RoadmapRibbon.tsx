@@ -63,15 +63,11 @@ const RoadmapRibbon = () => {
           {/* Connecting line on desktop */}
           <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-[#A6FCFC] via-white/30 to-[#D6A6FC] -z-10" />
           
-          {stages.map((stage, index) => (
-            <div
-              key={index}
-              className={`ribbon-card group relative flex flex-col justify-start gap-4 p-6 lg:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur min-h-[260px] lg:min-h-[280px] w-full flex-1 shadow-[0_0_18px_-4px_rgba(166,252,252,0.35)] lg:shadow-[0_0_28px_-6px_rgba(166,252,252,0.45)] transition-all duration-700 opacity-0 hover:border-white/30 hover:bg-white/10 hover:shadow-[0_0_40px_-6px_rgba(166,252,252,0.6)] hover:scale-105 hover:-translate-y-2 cursor-pointer
-                ${index % 2 === 0 
-                  ? 'translate-x-full lg:translate-x-0 lg:translate-y-6' 
-                  : '-translate-x-full lg:translate-x-0 lg:translate-y-6'
-                }`}
-            >
+           {stages.map((stage, index) => (
+             <div
+               key={index}
+               className={`ribbon-card group relative flex flex-col justify-start gap-4 p-6 lg:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur min-h-[260px] lg:min-h-[280px] w-full flex-1 shadow-[0_0_18px_-4px_rgba(166,252,252,0.35)] lg:shadow-[0_0_28px_-6px_rgba(166,252,252,0.45)] transition-all duration-700 opacity-0 hover:border-white/30 hover:bg-white/10 hover:shadow-[0_0_40px_-6px_rgba(166,252,252,0.6)] hover:scale-105 hover:-translate-y-2 cursor-pointer slide-card-${index}`}
+             >
               <span className="absolute -top-3 left-1/2 -translate-x-1/2 min-w-[8rem] px-5 py-2.5 text-sm font-bold rounded-full bg-gradient-to-r from-[#A6FCFC] to-[#D6A6FC] text-black text-center group-hover:shadow-lg transition-all duration-300">
                 {stage.pill}
               </span>
@@ -88,9 +84,31 @@ const RoadmapRibbon = () => {
 
       <style dangerouslySetInnerHTML={{
         __html: `
+          /* Initial states for mobile alternating slide animation */
+          @media (max-width: 1023px) {
+            .slide-card-0 {
+              transform: translateX(100%) translateY(20px);
+            }
+            .slide-card-1 {
+              transform: translateX(-100%) translateY(20px);
+            }
+            .slide-card-2 {
+              transform: translateX(100%) translateY(20px);
+            }
+          }
+          
+          /* Desktop initial state */
+          @media (min-width: 1024px) {
+            .ribbon-card {
+              transform: translateY(20px);
+            }
+          }
+          
+          /* Animate in state for all devices */
           .animate-in {
             opacity: 1 !important;
-            transform: translateY(0) translateX(0) !important;
+            transform: translateX(0) translateY(0) !important;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
           }
         `
       }} />
