@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -7,6 +8,10 @@ import { Header } from "@/components/Header";
 import { FoundersCountdownTimer } from "@/components/FoundersCountdownTimer";
 
 const FoundersMint = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const fadeInUp = {
     initial: { opacity: 0, y: 30 },
     animate: { opacity: 1, y: 0 },
