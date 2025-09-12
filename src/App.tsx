@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { lazy, Suspense } from "react";
+
 import Index from "./pages/Index";
 import Explainer from "./pages/Explainer";
 import TechnicalDocs from "./pages/TechnicalDocs";
@@ -12,17 +12,17 @@ import FoundersMint from "./pages/FoundersMint";
 
 import NotFound from "./pages/NotFound";
 
-// Lazy load whitepaper sections
-const SummaryVision = lazy(() => import("./pages/whitepaper/SummaryVision"));
-const PlatformOverview = lazy(() => import("./pages/whitepaper/PlatformOverview"));
-const ProblemLandscape = lazy(() => import("./pages/whitepaper/ProblemLandscape"));
-const SystemArchitecture = lazy(() => import("./pages/whitepaper/SystemArchitecture"));
-const TechnicalDeepDive = lazy(() => import("./pages/whitepaper/TechnicalDeepDive"));
-const AgentEconomyKIPs = lazy(() => import("./pages/whitepaper/AgentEconomyKIPs"));
-const RoadmapMilestones = lazy(() => import("./pages/whitepaper/RoadmapMilestones"));
-const Token = lazy(() => import("./pages/whitepaper/Token"));
-const OurJourney = lazy(() => import("./pages/whitepaper/OurJourney"));
-const TierSelectorDemo = lazy(() => import("./components/demo/TierSelectorDemo"));
+// Whitepaper sections (eagerly loaded to avoid Suspense loading screen)
+import SummaryVision from "./pages/whitepaper/SummaryVision";
+import PlatformOverview from "./pages/whitepaper/PlatformOverview";
+import ProblemLandscape from "./pages/whitepaper/ProblemLandscape";
+import SystemArchitecture from "./pages/whitepaper/SystemArchitecture";
+import TechnicalDeepDive from "./pages/whitepaper/TechnicalDeepDive";
+import AgentEconomyKIPs from "./pages/whitepaper/AgentEconomyKIPs";
+import RoadmapMilestones from "./pages/whitepaper/RoadmapMilestones";
+import Token from "./pages/whitepaper/Token";
+import OurJourney from "./pages/whitepaper/OurJourney";
+import TierSelectorDemo from "./components/demo/TierSelectorDemo";
 
 const queryClient = new QueryClient();
 
@@ -38,56 +38,16 @@ const App = () => (
           <Route path="/genesis-mint" element={<GenesisMint />} />
           <Route path="/founders-mint" element={<FoundersMint />} />
           
-          <Route path="/whitepaper/summary-vision" element={
-            <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gradient-primary"><div className="text-hero">Loading...</div></div>}>
-              <SummaryVision />
-            </Suspense>
-          } />
-          <Route path="/whitepaper/platform-overview" element={
-            <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gradient-primary"><div className="text-hero">Loading...</div></div>}>
-              <PlatformOverview />
-            </Suspense>
-          } />
-          <Route path="/whitepaper/problem-landscape" element={
-            <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gradient-primary"><div className="text-hero">Loading...</div></div>}>
-              <ProblemLandscape />
-            </Suspense>
-          } />
-          <Route path="/whitepaper/system-architecture" element={
-            <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gradient-primary"><div className="text-hero">Loading...</div></div>}>
-              <SystemArchitecture />
-            </Suspense>
-          } />
-          <Route path="/whitepaper/technical-deep-dive" element={
-            <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gradient-primary"><div className="text-hero">Loading...</div></div>}>
-              <TechnicalDeepDive />
-            </Suspense>
-          } />
-          <Route path="/whitepaper/agent-economy-kips" element={
-            <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gradient-primary"><div className="text-hero">Loading...</div></div>}>
-              <AgentEconomyKIPs />
-            </Suspense>
-          } />
-          <Route path="/whitepaper/roadmap-milestones" element={
-            <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gradient-primary"><div className="text-hero">Loading...</div></div>}>
-              <RoadmapMilestones />
-            </Suspense>
-          } />
-          <Route path="/whitepaper/token" element={
-            <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gradient-primary"><div className="text-hero">Loading...</div></div>}>
-              <Token />
-            </Suspense>
-          } />
-          <Route path="/whitepaper/Our-journey" element={
-            <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gradient-primary"><div className="text-hero">Loading...</div></div>}>
-              <OurJourney />
-            </Suspense>
-          } />
-          <Route path="/tier-demo" element={
-            <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gradient-primary"><div className="text-hero">Loading...</div></div>}>
-              <TierSelectorDemo />
-            </Suspense>
-          } />
+          <Route path="/whitepaper/summary-vision" element={<SummaryVision />} />
+          <Route path="/whitepaper/platform-overview" element={<PlatformOverview />} />
+          <Route path="/whitepaper/problem-landscape" element={<ProblemLandscape />} />
+          <Route path="/whitepaper/system-architecture" element={<SystemArchitecture />} />
+          <Route path="/whitepaper/technical-deep-dive" element={<TechnicalDeepDive />} />
+          <Route path="/whitepaper/agent-economy-kips" element={<AgentEconomyKIPs />} />
+          <Route path="/whitepaper/roadmap-milestones" element={<RoadmapMilestones />} />
+          <Route path="/whitepaper/token" element={<Token />} />
+          <Route path="/whitepaper/Our-journey" element={<OurJourney />} />
+          <Route path="/tier-demo" element={<TierSelectorDemo />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
