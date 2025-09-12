@@ -220,7 +220,6 @@ export const ExplainerHero = () => {
                 alt="Join Telegram" 
                 className="w-10 h-10 md:w-12 md:h-12 object-contain brightness-100 hover:brightness-75 transition-all duration-300"
                 style={{ width: '40px', height: '40px' }}
-                loading="lazy"
               />
             </a>
             

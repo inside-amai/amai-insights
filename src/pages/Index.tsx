@@ -144,7 +144,6 @@ const Index = () => {
                     src="/lovable-uploads/2001a109-342f-4ca5-8099-ddeedd693328.png"
                     alt="SuiHub Partnership"
                     className="w-full object-contain"
-                    loading="lazy"
                   />
                 </div>
               </motion.div>
@@ -269,7 +268,6 @@ const Index = () => {
             src="/lovable-uploads/1e92cbc3-b553-493b-a333-bea6c2a6d0ae.png"
             alt="Future Vision"
             className="w-full h-full object-cover object-center"
-            loading="lazy"
           />
         </div>
       </section>

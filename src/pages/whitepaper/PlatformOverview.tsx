@@ -21,7 +21,6 @@ const PlatformOverview = () => {
             src="/lovable-uploads/e344a852-3595-48d1-8fa7-2055abeea37e.png" 
             alt="Sui Network Platform"
             className="w-full h-64 lg:h-80 object-cover"
-            loading="lazy"
           />
         </div>
 
@@ -31,7 +30,6 @@ const PlatformOverview = () => {
             src="/lovable-uploads/e344a852-3595-48d1-8fa7-2055abeea37e.png" 
             alt="Sui Network Platform"
             className="w-full h-64 object-cover"
-            loading="lazy"
           />
         </div>
 

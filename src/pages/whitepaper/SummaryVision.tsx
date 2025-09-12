@@ -14,7 +14,6 @@ const SummaryVision = () => {
             src="/lovable-uploads/bdc46dc6-efce-4181-9e6d-cb2455ae51df.png" 
             alt="AMAI Vision - Future Agent Economy"
             className="w-full h-64 lg:h-80 object-cover"
-            loading="lazy"
           />
         </div>
 
