@@ -79,7 +79,7 @@ const Index = () => {
   return (
     <>
       <TermsModal />
-      <div>
+      <div className="overflow-x-hidden">
       {/* Explainer Section - Hero with header overlay */}
       <div className="relative">
         <Header />
@@ -172,9 +172,9 @@ const Index = () => {
       </div>
 
       {/* Decorative Moon */}
-      <div className="relative bg-black py-8">
+      <div className="relative bg-black py-8 overflow-hidden">
         <div className="container mx-auto px-6">
-          <div className="flex justify-end pr-12">
+          <div className="flex justify-end pr-4 md:pr-12">
             <motion.div
               initial={{ opacity: 0, rotate: -20 }}
               whileInView={{ opacity: 1, rotate: 0 }}
@@ -202,9 +202,9 @@ const Index = () => {
         <TechnicalFoundationSection />
 
       {/* Decorative Star */}
-      <div className="relative bg-black py-8">
+      <div className="relative bg-black py-8 overflow-hidden">
         <div className="container mx-auto px-6">
-          <div className="flex justify-start pl-32">
+          <div className="flex justify-start pl-4 md:pl-32">
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -234,9 +234,9 @@ const Index = () => {
         <RoadmapRibbon />
 
       {/* Decorative Zapier Icon - positioned after roadmap */}
-      <div className="relative bg-black py-8">
+      <div className="relative bg-black py-8 overflow-hidden">
         <div className="container mx-auto px-6">
-          <div className="flex justify-end pr-24">
+          <div className="flex justify-end pr-4 md:pr-24">
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
