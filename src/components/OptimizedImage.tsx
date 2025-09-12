@@ -4,7 +4,8 @@ import { cn } from '@/lib/utils';
 interface OptimizedImageProps {
   src: string;
   alt: string;
-  className?: string;
+  className?: string; // container classes
+  imgClassName?: string; // image-specific classes
   loading?: 'lazy' | 'eager';
   style?: React.CSSProperties;
   onClick?: () => void;
@@ -14,6 +15,7 @@ export const OptimizedImage = ({
   src,
   alt,
   className,
+  imgClassName,
   loading = 'lazy',
   style,
   onClick
@@ -48,7 +50,7 @@ export const OptimizedImage = ({
           "transition-opacity duration-500",
           isLoaded ? "opacity-100" : "opacity-0",
           hasError && "opacity-50",
-          className
+          imgClassName ?? className
         )}
       />
       
