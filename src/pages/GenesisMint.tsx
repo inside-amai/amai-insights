@@ -47,31 +47,39 @@ const GenesisMint = () => {
       discount: "19% discount", 
       iconColor: "text-cyan-300", 
       glowColor: "shadow-cyan-500/50",
-      borderGlow: "border-cyan-400/60"
+      borderGlow: "border-cyan-400/60",
+      subtext: "Maximum discount for earliest supporters.",
+      emphasis: "highest"
     },
     { 
       icon: Zap, 
-      headline: "Next 5M Tokens", 
+      headline: "Next 2M Tokens", 
       discount: "12% discount", 
       iconColor: "text-violet-300", 
       glowColor: "shadow-violet-500/50",
-      borderGlow: "border-violet-400/60"
+      borderGlow: "border-violet-400/60",
+      subtext: "Strong early entry with major discount.",
+      emphasis: "high"
     },
     { 
       icon: Trophy, 
-      headline: "Next 7M Tokens", 
+      headline: "Next 2M Tokens", 
       discount: "8% discount", 
       iconColor: "text-amber-300", 
       glowColor: "shadow-amber-400/50",
-      borderGlow: "border-amber-400/60"
+      borderGlow: "border-amber-400/60",
+      subtext: "Mid-stage allocation for steady growth.",
+      emphasis: "medium"
     },
     { 
       icon: Gem, 
-      headline: "Next 10M Tokens", 
+      headline: "Next 1M Tokens", 
       discount: "5% discount", 
       iconColor: "text-blue-300", 
       glowColor: "shadow-blue-400/50",
-      borderGlow: "border-blue-400/60"
+      borderGlow: "border-blue-400/60",
+      subtext: "Final discounted tier before full supply.",
+      emphasis: "low"
     },
     { 
       icon: Shield, 
@@ -79,7 +87,9 @@ const GenesisMint = () => {
       discount: "No discount", 
       iconColor: "text-gray-300", 
       glowColor: "shadow-gray-400/30",
-      borderGlow: "border-gray-400/40"
+      borderGlow: "border-gray-400/40",
+      subtext: "Standard allocation at base price.",
+      emphasis: "none"
     }
   ];
 
@@ -230,7 +240,7 @@ const GenesisMint = () => {
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16"
           >
             {mechanics.map((mechanic, index) => (
               <motion.div key={index} variants={fadeInUp}>
@@ -273,11 +283,17 @@ const GenesisMint = () => {
               </motion.div>
             ))}
           </motion.div>
+          
+          {/* Gradient Divider */}
+          <div className="relative flex items-center justify-center py-8">
+            <div className="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent"></div>
+            <div className="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent blur-sm"></div>
+          </div>
         </div>
       </section>
 
       {/* Tier Section */}
-      <section className="py-24 px-6">
+      <section className="py-20 px-6 bg-gray-800">
         <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -291,62 +307,111 @@ const GenesisMint = () => {
             </h2>
           </motion.div>
 
-          <motion.div
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:flex md:flex-wrap md:justify-center gap-8 md:gap-6 mb-12 max-w-5xl mx-auto md:max-w-none"
-          >
-            {tokenUnlocks.map((unlock, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-                className="relative"
-              >
-                <Card className={`h-full bg-black/30 backdrop-blur-2xl border-2 border-transparent hover:${unlock.borderGlow} transition-all duration-700 group cursor-pointer relative overflow-hidden shadow-2xl ${unlock.glowColor}`}>
-                  {/* Glassmorphic background layers */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/20 to-black/40 opacity-60 group-hover:opacity-100 transition-opacity duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+          {/* Tier progression container */}
+          <div className="relative max-w-7xl mx-auto mb-12">
+            {/* Progress bar background */}
+            <div className="hidden md:block absolute top-1/2 left-8 right-8 h-0.5 bg-gradient-to-r from-cyan-400/30 via-violet-400/30 via-amber-400/30 via-blue-400/30 to-gray-400/30 transform -translate-y-1/2 z-0"></div>
+            
+            {/* Tier cards container */}
+            <motion.div
+              variants={staggerContainer}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              className="grid grid-cols-1 md:grid-cols-5 gap-6 relative z-10"
+            >
+              {tokenUnlocks.map((unlock, index) => (
+                <motion.div
+                  key={index}
+                  variants={fadeInUp}
+                  className="relative"
+                >
+                  {/* Progress connector arrows (desktop only) */}
+                  {index < tokenUnlocks.length - 1 && (
+                    <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 z-20">
+                      <div className={`w-6 h-0.5 bg-gradient-to-r ${
+                        unlock.emphasis === 'highest' ? 'from-cyan-400/80 to-violet-400/60' :
+                        unlock.emphasis === 'high' ? 'from-violet-400/70 to-amber-400/50' :
+                        unlock.emphasis === 'medium' ? 'from-amber-400/60 to-blue-400/40' :
+                        unlock.emphasis === 'low' ? 'from-blue-400/50 to-gray-400/30' :
+                        'from-gray-400/30 to-gray-400/20'
+                      }`}></div>
+                      <div className={`absolute right-0 top-1/2 transform -translate-y-1/2 w-2 h-2 rotate-45 ${
+                        unlock.emphasis === 'highest' ? 'bg-cyan-400/60' :
+                        unlock.emphasis === 'high' ? 'bg-violet-400/50' :
+                        unlock.emphasis === 'medium' ? 'bg-amber-400/40' :
+                        unlock.emphasis === 'low' ? 'bg-blue-400/30' :
+                        'bg-gray-400/20'
+                      }`}></div>
+                    </div>
+                  )}
                   
-                  {/* Angled glow effect - positioned corners */}
-                  <div className={`absolute -top-20 -right-20 w-40 h-40 opacity-20 group-hover:opacity-40 transition-opacity duration-700 blur-2xl rotate-45 ${
-                    unlock.iconColor.includes('cyan') ? 'bg-gradient-to-br from-cyan-300/50 to-transparent' :
-                    unlock.iconColor.includes('violet') ? 'bg-gradient-to-br from-violet-300/50 to-transparent' :
-                    unlock.iconColor.includes('amber') ? 'bg-gradient-to-br from-amber-300/50 to-transparent' :
-                    unlock.iconColor.includes('blue') ? 'bg-gradient-to-br from-blue-300/50 to-transparent' :
-                    'bg-gradient-to-br from-gray-300/50 to-transparent'
-                  }`} />
-                  <div className={`absolute -bottom-20 -left-20 w-40 h-40 opacity-15 group-hover:opacity-30 transition-opacity duration-700 blur-2xl rotate-45 ${
-                    unlock.iconColor.includes('cyan') ? 'bg-gradient-to-tr from-cyan-300/50 to-transparent' :
-                    unlock.iconColor.includes('violet') ? 'bg-gradient-to-tr from-violet-300/50 to-transparent' :
-                    unlock.iconColor.includes('amber') ? 'bg-gradient-to-tr from-amber-300/50 to-transparent' :
-                    unlock.iconColor.includes('blue') ? 'bg-gradient-to-tr from-blue-300/50 to-transparent' :
-                    'bg-gradient-to-tr from-gray-300/50 to-transparent'
-                  }`} />
-                  
-                  <CardContent className="p-10 md:p-8 text-center md:min-w-[200px] relative z-10">
-                    {/* Icon with simple glow */}
-                    <div className="relative mb-6 flex justify-center">
-                      <unlock.icon className={`w-12 h-12 ${unlock.iconColor} transition-all duration-300 drop-shadow-2xl`} 
-                        style={{ filter: `drop-shadow(0 0 20px currentColor)` }}
-                      />
-                    </div>
+                  <Card className={`h-full bg-black/30 backdrop-blur-2xl border-2 transition-all duration-700 group cursor-pointer relative overflow-hidden shadow-2xl ${
+                    unlock.emphasis === 'highest' ? 'border-cyan-400/80 shadow-cyan-500/60' :
+                    unlock.emphasis === 'high' ? 'border-violet-400/70 shadow-violet-500/50' :
+                    unlock.emphasis === 'medium' ? 'border-amber-400/60 shadow-amber-400/40' :
+                    unlock.emphasis === 'low' ? 'border-blue-400/50 shadow-blue-400/30' :
+                    'border-gray-400/40 shadow-gray-400/20'
+                  } hover:${unlock.borderGlow} ${unlock.glowColor}`}>
                     
-                    {/* Title */}
-                    <div className="text-lg font-bold text-white mb-3 group-hover:text-[#A6FCFC] transition-colors duration-500 tracking-wide">
-                      {unlock.headline}
-                    </div>
+                    {/* Enhanced background layers with stronger emphasis for earlier tiers */}
+                    <div className={`absolute inset-0 bg-gradient-to-br from-black/40 via-black/20 to-black/40 opacity-60 group-hover:opacity-100 transition-opacity duration-700 ${
+                      unlock.emphasis === 'highest' ? 'group-hover:from-cyan-400/10' :
+                      unlock.emphasis === 'high' ? 'group-hover:from-violet-400/8' :
+                      unlock.emphasis === 'medium' ? 'group-hover:from-amber-400/6' :
+                      unlock.emphasis === 'low' ? 'group-hover:from-blue-400/4' :
+                      'group-hover:from-gray-400/2'
+                    }`} />
                     
-                    {/* Description */}
-                    <div className="text-base font-medium text-gray-400 group-hover:text-gray-100 transition-colors duration-500">
-                      {unlock.discount}
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
+                    {/* Enhanced angled glow effects with tier-based intensity */}
+                    <div className={`absolute -top-20 -right-20 w-40 h-40 transition-opacity duration-700 blur-2xl rotate-45 ${
+                      unlock.iconColor.includes('cyan') ? `bg-gradient-to-br from-cyan-300/50 to-transparent ${unlock.emphasis === 'highest' ? 'opacity-30 group-hover:opacity-60' : 'opacity-20 group-hover:opacity-40'}` :
+                      unlock.iconColor.includes('violet') ? `bg-gradient-to-br from-violet-300/50 to-transparent ${unlock.emphasis === 'high' ? 'opacity-25 group-hover:opacity-50' : 'opacity-20 group-hover:opacity-40'}` :
+                      unlock.iconColor.includes('amber') ? `bg-gradient-to-br from-amber-300/50 to-transparent ${unlock.emphasis === 'medium' ? 'opacity-20 group-hover:opacity-40' : 'opacity-20 group-hover:opacity-40'}` :
+                      unlock.iconColor.includes('blue') ? `bg-gradient-to-br from-blue-300/50 to-transparent ${unlock.emphasis === 'low' ? 'opacity-15 group-hover:opacity-30' : 'opacity-20 group-hover:opacity-40'}` :
+                      'bg-gradient-to-br from-gray-300/50 to-transparent opacity-10 group-hover:opacity-20'
+                    }`} />
+                    
+                    <CardContent className="p-8 text-center relative z-10">
+                      {/* Icon with enhanced glow for earlier tiers */}
+                      <div className="relative mb-6 flex justify-center">
+                        <unlock.icon className={`w-12 h-12 ${unlock.iconColor} transition-all duration-300 drop-shadow-2xl ${
+                          unlock.emphasis === 'highest' ? 'group-hover:scale-110' :
+                          unlock.emphasis === 'high' ? 'group-hover:scale-105' :
+                          'group-hover:scale-105'
+                        }`} 
+                          style={{ 
+                            filter: `drop-shadow(0 0 ${unlock.emphasis === 'highest' ? '25px' : unlock.emphasis === 'high' ? '22px' : '20px'} currentColor)` 
+                          }}
+                        />
+                      </div>
+                      
+                      {/* Title */}
+                      <div className="text-lg font-bold text-white mb-3 group-hover:text-[#A6FCFC] transition-colors duration-500 tracking-wide">
+                        {unlock.headline}
+                      </div>
+                      
+                      {/* Discount */}
+                      <div className="text-base font-medium text-gray-400 group-hover:text-gray-100 transition-colors duration-500 mb-3">
+                        {unlock.discount}
+                      </div>
+                      
+                      {/* Contextual subtext */}
+                      <div className={`text-sm font-medium transition-colors duration-500 ${
+                        unlock.emphasis === 'highest' ? 'text-cyan-300/80 group-hover:text-cyan-200' :
+                        unlock.emphasis === 'high' ? 'text-violet-300/80 group-hover:text-violet-200' :
+                        unlock.emphasis === 'medium' ? 'text-amber-300/80 group-hover:text-amber-200' :
+                        unlock.emphasis === 'low' ? 'text-blue-300/80 group-hover:text-blue-200' :
+                        'text-gray-400/80 group-hover:text-gray-300'
+                      }`}>
+                        {unlock.subtext}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </section>
 
