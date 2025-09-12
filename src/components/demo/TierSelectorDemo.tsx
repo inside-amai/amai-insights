@@ -10,9 +10,10 @@ export default function TierSelectorDemo() {
   const handleTierSelect = (tierIndex: number, tier: typeof STAKE_TIERS[0]) => {
     setSelectedTier(tierIndex);
     
+    const skillsText = tier.skillCap === Infinity ? "∞" : `+${tier.skillCap}`;
     toast({
-      title: `${tier.name} Tier Selected`,
-      description: `${tier.min.toLocaleString()} AMAI + ${Math.ceil(tier.min / 100)} SUI`,
+      title: `⚡ ${tier.name} Unlocked! ${skillsText} Skills added.`,
+      description: "Your agent just leveled up.",
       duration: 2000,
     });
   };

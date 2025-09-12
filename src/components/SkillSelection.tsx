@@ -12,9 +12,10 @@ export const SkillSelection = () => {
     setSelectedTier(tierIndex);
     
     // Show toast notification
+    const skillsText = tier.skillCap === Infinity ? "∞" : `+${tier.skillCap}`;
     toast({
-      title: `${tier.name} Tier Selected`,
-      description: `${tier.min.toLocaleString()} AMAI + ${Math.ceil(tier.min / 100)} SUI`,
+      title: `⚡ ${tier.name} Unlocked! ${skillsText} Skills added.`,
+      description: "Your agent just leveled up.",
       duration: 2000,
     });
   };
