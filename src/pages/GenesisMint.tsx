@@ -300,15 +300,17 @@ const GenesisMint = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-center mb-16"
+            className="text-center mb-8"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white relative z-10">
               Mint Tiers
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
+          </motion.div>
+          <div className="text-center mb-8">
+            <p className="text-lg text-muted-foreground">
               Exclusive to Genesis Mint.
             </p>
-          </motion.div>
+          </div>
 
           {/* Tier progression container */}
           <div className="relative max-w-7xl mx-auto mb-12">
