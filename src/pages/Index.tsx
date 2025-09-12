@@ -107,20 +107,20 @@ const Index = () => {
         {/* SuiHub Section */}
         <section className="relative bg-black py-16">
           <div className="container mx-auto px-6">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               {/* Text Content - Left Side */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="space-y-6"
+                className="lg:col-start-1 lg:col-span-5 space-y-6"
               >
                 <div className="space-y-4">
-                  <p className="text-xs uppercase tracking-[0.18em] text-gray-400 mb-4">
+                  <p className="text-sm font-medium text-white uppercase tracking-wider">
                     Official
                   </p>
-                  <h3 className="text-4xl lg:text-5xl font-bold leading-tight">
+                  <h3 className="text-3xl lg:text-4xl font-bold leading-tight">
                     <span className="shimmer-text text-transparent">
                       SuiHub
                     </span>
@@ -137,13 +137,16 @@ const Index = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="relative"
+                className="lg:col-start-7 lg:col-span-6 relative overflow-hidden rounded-2xl"
               >
-                <img 
-                  src="/lovable-uploads/4a69233f-cbaa-4325-8428-b1a6a904dc87.png"
-                  alt="SuiHub Partnership"
-                  className="w-full h-auto object-contain"
-                />
+                <div className="relative">
+                  <img 
+                    src="/lovable-uploads/4a69233f-cbaa-4325-8428-b1a6a904dc87.png"
+                    alt="SuiHub Partnership"
+                    className="w-full object-contain"
+                    style={{ transform: 'scale(1.2)', transformOrigin: 'center' }}
+                  />
+                </div>
               </motion.div>
             </div>
           </div>
