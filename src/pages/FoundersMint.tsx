@@ -6,6 +6,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Crown, Feather, Users, Star, Zap, TrendingUp, Trophy } from "lucide-react";
 import { Header } from "@/components/Header";
 import { FoundersCountdownTimer } from "@/components/FoundersCountdownTimer";
+import { TermsModal } from "@/components/TermsModal";
 
 const FoundersMint = () => {
   useEffect(() => {
@@ -113,6 +114,7 @@ const FoundersMint = () => {
       }} />
     <div className="min-h-screen bg-black text-white overflow-x-hidden founders-mint-page">
       <Header />
+      <TermsModal />
       
       {/* Animated Background Elements */}
       <div className="fixed inset-0 pointer-events-none">

@@ -6,6 +6,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Shield, Zap, Users, TrendingUp, Star, Crown, Sparkles, CircleDot, Trophy, Gem } from "lucide-react";
 import { Header } from "@/components/Header";
 import { CountdownTimer } from "@/components/CountdownTimer";
+import { TermsModal } from "@/components/TermsModal";
 
 const GenesisMint = () => {
   const fadeInUp = {
@@ -142,6 +143,7 @@ const GenesisMint = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden dark">{/* Force dark theme */}
       <Header />
+      <TermsModal />
       {/* Animated Background Elements */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent/5" />
