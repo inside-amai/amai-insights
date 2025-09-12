@@ -144,7 +144,6 @@ const Index = () => {
                     src="/lovable-uploads/2001a109-342f-4ca5-8099-ddeedd693328.png"
                     alt="SuiHub Partnership"
                     className="w-full object-contain"
-                    style={{ transform: 'scale(1.2)', transformOrigin: 'center' }}
                   />
                 </div>
               </motion.div>
