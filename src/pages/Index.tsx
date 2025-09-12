@@ -13,6 +13,7 @@ import { TermsModal } from '@/components/TermsModal';
 import { TechnicalFoundationSection } from '@/components/TechnicalFoundationSection';
 import { Footer } from '@/components/Footer';
 import { SkillSelection } from '@/components/SkillSelection';
+import { OptimizedImage } from '@/components/OptimizedImage';
 import terminalDemo from '@/assets/terminal-demo.jpg';
 import circuitBoard from '@/assets/circuit-board.jpg';
 import tokenChart from '@/assets/token-chart.jpg';
@@ -140,7 +141,7 @@ const Index = () => {
                 className="lg:col-start-7 lg:col-span-6 relative overflow-hidden rounded-2xl"
               >
                 <div className="relative">
-                  <img 
+                  <OptimizedImage 
                     src="/lovable-uploads/2001a109-342f-4ca5-8099-ddeedd693328.png"
                     alt="SuiHub Partnership"
                     className="w-full object-contain"
@@ -264,10 +265,11 @@ const Index = () => {
       {/* Full Width Hero Image Section */}
       <section className="relative w-full">
         <div className="w-full h-[60vh] lg:h-[70vh] overflow-hidden">
-          <img 
+          <OptimizedImage 
             src="/lovable-uploads/1e92cbc3-b553-493b-a333-bea6c2a6d0ae.png"
             alt="Future Vision"
             className="w-full h-full object-cover object-center"
+            loading="eager"
           />
         </div>
       </section>

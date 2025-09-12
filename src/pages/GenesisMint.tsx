@@ -7,6 +7,7 @@ import { Shield, Zap, Users, TrendingUp, Star, Crown, Sparkles, CircleDot, Troph
 import { Header } from "@/components/Header";
 import { CountdownTimer } from "@/components/CountdownTimer";
 import { TermsModal } from "@/components/TermsModal";
+import { OptimizedImage } from "@/components/OptimizedImage";
 
 const GenesisMint = () => {
   const fadeInUp = {
@@ -199,7 +200,7 @@ const GenesisMint = () => {
           >
             {/* Mobile Image - Vertical */}
             <div className="block md:hidden relative flex justify-center mb-12">
-              <img 
+              <OptimizedImage 
                 src="/lovable-uploads/b74c26f1-82a6-4960-827f-c0f680e402ed.png" 
                 alt="Legendary PudgyAgent"
                 className="max-w-sm w-auto h-auto rounded-2xl border border-primary/20"
@@ -208,7 +209,7 @@ const GenesisMint = () => {
             
             {/* Desktop Image - Horizontal */}
             <div className="hidden md:block relative w-full max-w-4xl mx-auto rounded-2xl overflow-hidden border border-primary/20 backdrop-blur-sm shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)]">
-              <img 
+              <OptimizedImage 
                 src="/lovable-uploads/be436350-f096-489a-9ec9-09cc71d0d068.png" 
                 alt="4-Step Agent Creation Wizard"
                 className="w-full h-auto"

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { OptimizedImage } from '@/components/OptimizedImage';
 // import amaiLogo from '@/assets/amai-logo-new.png';
 
 export const ExplainerHero = () => {
@@ -171,7 +172,7 @@ export const ExplainerHero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex justify-center"
           >
-            <img 
+            <OptimizedImage 
               src="https://images.squarespace-cdn.com/content/v1/67609414493d9c7734fa7b83/64396d1f-bdeb-491d-a6d7-cdbf42c57c52/AMAI+logos+%2881%29.png?format=2500w"
               alt="AMAI Logo" 
               className="h-20 lg:h-28 xl:h-32 w-auto"
@@ -215,7 +216,7 @@ export const ExplainerHero = () => {
               rel="noopener noreferrer"
               className="transition-all duration-300 hover:scale-105"
             >
-              <img 
+              <OptimizedImage 
                 src="/lovable-uploads/f688c83b-1c4d-44c4-bbc4-f9328559a323.png" 
                 alt="Join Telegram" 
                 className="w-10 h-10 md:w-12 md:h-12 object-contain brightness-100 hover:brightness-75 transition-all duration-300"
@@ -229,7 +230,7 @@ export const ExplainerHero = () => {
               rel="noopener noreferrer"
               className="transition-all duration-300 hover:scale-105"
             >
-              <img 
+              <OptimizedImage 
                 src="/lovable-uploads/53e90b93-7fe0-4c2c-b053-df64d7a767d0.png" 
                 alt="Follow on X" 
                 className="w-10 h-10 md:w-12 md:h-12 object-contain brightness-100 hover:brightness-75 transition-all duration-300"
