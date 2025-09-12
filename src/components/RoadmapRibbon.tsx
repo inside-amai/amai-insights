@@ -5,7 +5,7 @@ const RoadmapRibbon = () => {
 
   const stages = [
     {
-      pill: "Today",
+      pill: "Upcoming",
       title: "Agents & Lobby",
       body: "Twitter + Platform flows to mint agents, Global Lobby grid, Quick Tasks, trust ticks & badges."
     },
