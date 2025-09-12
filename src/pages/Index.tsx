@@ -104,6 +104,51 @@ const Index = () => {
         
         <SkillSelection />
         
+        {/* SuiHub Section */}
+        <section className="relative bg-black py-16">
+          <div className="container mx-auto px-6">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Text Content - Left Side */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="space-y-6"
+              >
+                <div className="space-y-4">
+                  <p className="text-xs uppercase tracking-[0.18em] text-gray-400 mb-4">
+                    Official
+                  </p>
+                  <h3 className="text-4xl lg:text-5xl font-bold leading-tight">
+                    <span className="shimmer-text text-transparent">
+                      SuiHub
+                    </span>
+                  </h3>
+                  <p className="text-lg text-gray-300 leading-relaxed">
+                    Dedicated Sui Engineers + Joint Go-To-Market
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Image - Right Side */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="relative"
+              >
+                <img 
+                  src="/lovable-uploads/4a69233f-cbaa-4325-8428-b1a6a904dc87.png"
+                  alt="SuiHub Partnership"
+                  className="w-full h-auto object-contain"
+                />
+              </motion.div>
+            </div>
+          </div>
+        </section>
+        
         <ExplainerSection
           eyebrow="Platform"
           title="Overview"
