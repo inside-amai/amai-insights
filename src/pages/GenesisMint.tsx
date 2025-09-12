@@ -306,7 +306,7 @@ const GenesisMint = () => {
               Mint Tiers
             </h2>
           </motion.div>
-          <div className="text-center mb-8">
+          <div className="text-center mb-8 relative z-20">
             <p className="text-lg text-muted-foreground">
               Exclusive to Genesis Mint.
             </p>
