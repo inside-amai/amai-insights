@@ -46,7 +46,7 @@ const RoadmapRibbon = () => {
   }, []);
 
   return (
-    <section className="bg-black py-20 text-white font-[Satoshi]" ref={ribbonRef}>
+    <section className="bg-black py-20 text-white font-[Satoshi] overflow-x-hidden" ref={ribbonRef}>
       <div className="container mx-auto px-6">
         {/* Centered Headings */}
         <div className="text-center mb-16">
@@ -59,7 +59,7 @@ const RoadmapRibbon = () => {
         </div>
 
         {/* Ribbon Wrapper */}
-        <div className="flex flex-col lg:flex-row justify-center lg:gap-8 gap-12 relative">
+        <div className="flex flex-col lg:flex-row justify-center lg:gap-8 gap-12 relative overflow-x-hidden">
           {/* Connecting line on desktop */}
           <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-[#A6FCFC] via-white/30 to-[#D6A6FC] -z-10" />
           
@@ -84,16 +84,19 @@ const RoadmapRibbon = () => {
 
       <style dangerouslySetInnerHTML={{
         __html: `
+          /* Performance hint */
+          .ribbon-card { will-change: transform, opacity; }
+
           /* Initial states for mobile alternating slide animation */
           @media (max-width: 1023px) {
             .slide-card-0 {
-              transform: translateX(100%) translateY(20px);
+              transform: translateX(24px) translateY(20px);
             }
             .slide-card-1 {
-              transform: translateX(-100%) translateY(20px);
+              transform: translateX(-24px) translateY(20px);
             }
             .slide-card-2 {
-              transform: translateX(100%) translateY(20px);
+              transform: translateX(24px) translateY(20px);
             }
           }
           
@@ -108,7 +111,6 @@ const RoadmapRibbon = () => {
           .animate-in {
             opacity: 1 !important;
             transform: translateX(0) translateY(0) !important;
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
           }
         `
       }} />
