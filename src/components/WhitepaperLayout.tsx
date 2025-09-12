@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -29,6 +29,11 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
   
   // Extract slug from current pathname since useParams might not work correctly
   const currentSlug = useParams().slug;
+  
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentSlug]);
   
   const currentIndex = whitepaperSections.findIndex(section => section.slug === currentSlug);
   const prevSection = currentIndex > 0 ? whitepaperSections[currentIndex - 1] : null;
