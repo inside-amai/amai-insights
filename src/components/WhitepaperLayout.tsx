@@ -28,7 +28,7 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
   const navigate = useNavigate();
   
   // Extract slug from current pathname since useParams might not work correctly
-  const currentSlug = window.location.pathname.split('/').pop();
+  const currentSlug = useParams().slug;
   
   const currentIndex = whitepaperSections.findIndex(section => section.slug === currentSlug);
   const prevSection = currentIndex > 0 ? whitepaperSections[currentIndex - 1] : null;

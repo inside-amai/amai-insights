@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -480,11 +481,13 @@ const GenesisMint = () => {
                 <Button 
                   size="lg"
                   className="bg-gradient-to-r from-amber-400 to-amber-600 text-amber-950 hover:from-amber-300 hover:to-amber-500 px-10 py-5 text-xl font-bold rounded-xl shadow-2xl shadow-amber-400/40 transition-all duration-300 hover:scale-105 border border-amber-300/50"
-                  onClick={() => window.location.href = '/founders-mint'}
+                  asChild
                 >
-                  <Crown className="mr-3 w-6 h-6" />
-                  <span className="block md:hidden">Discover</span>
-                  <span className="hidden md:block">Discover Founders Mint</span>
+                  <Link to="/founders-mint">
+                    <Crown className="mr-3 w-6 h-6" />
+                    <span className="block md:hidden">Discover</span>
+                    <span className="hidden md:block">Discover Founders Mint</span>
+                  </Link>
                 </Button>
               </CardContent>
             </Card>

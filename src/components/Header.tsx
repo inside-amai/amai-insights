@@ -77,12 +77,12 @@ export const Header = () => {
           {/* Back to Genesis button for Founders Mint page */}
           {isFoundersMintPage && (
             <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center">
-              <button 
-                className="text-white bg-transparent border-none px-4 py-2 text-sm font-medium"
-                onClick={() => window.location.href = '/genesis-mint'}
+              <Link 
+                to="/genesis-mint"
+                className="text-white bg-transparent border-none px-4 py-2 text-sm font-medium hover:opacity-80 transition-opacity"
               >
                 Back to Genesis
-              </button>
+              </Link>
             </div>
           )}
           
