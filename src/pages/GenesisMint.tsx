@@ -199,12 +199,12 @@ const GenesisMint = () => {
             className="relative mb-12"
           >
             {/* Mobile Image - Vertical */}
-            <div className="block md:hidden relative mb-12">
-              <div className="flex justify-center">
+            <div className="block md:hidden relative mb-12 w-full">
+              <div className="flex justify-center items-center w-full">
                 <OptimizedImage 
                   src="/lovable-uploads/b74c26f1-82a6-4960-827f-c0f680e402ed.png" 
                   alt="Legendary PudgyAgent"
-                  className="max-w-sm w-auto h-auto rounded-2xl border border-primary/20"
+                  className="max-w-sm w-auto h-auto rounded-2xl border border-primary/20 mx-auto"
                 />
               </div>
             </div>
