@@ -1,5 +1,5 @@
 import { ReactNode, useEffect } from 'react';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { Link, useParams, useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -24,11 +24,11 @@ interface WhitepaperLayoutProps {
 }
 
 export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutProps) => {
-  const { slug } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
   
-  // Extract slug from current pathname since useParams might not work correctly
-  const currentSlug = useParams().slug;
+  // Extract slug from current pathname
+  const currentSlug = location.pathname.split('/').pop();
   
   // Scroll to top when component mounts
   useEffect(() => {
@@ -40,8 +40,8 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
   const nextSection = currentIndex < whitepaperSections.length - 1 ? whitepaperSections[currentIndex + 1] : null;
 
   // Analytics hook
-  if (typeof window !== 'undefined' && (window as any).gtag && slug) {
-    (window as any).gtag('event', 'whitepaper_view', { section: slug });
+  if (typeof window !== 'undefined' && (window as any).gtag && currentSlug) {
+    (window as any).gtag('event', 'whitepaper_view', { section: currentSlug });
   }
 
   return (
