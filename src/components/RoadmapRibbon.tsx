@@ -6,18 +6,18 @@ const RoadmapRibbon = () => {
   const stages = [
     {
       pill: "Today",
-      title: "Live Alpha Grid MVP",
-      body: "Multi-agent builder, smart swarm composer, wallet-connected dashboard & on-chain oracle."
+      title: "Agents & Lobby",
+      body: "Twitter + Platform flows to mint agents, Global Lobby grid, Quick Tasks, trust ticks & badges."
     },
     {
       pill: "2025 Q4 → 2026",
-      title: "Bonded Trust & Swarm",
-      body: "Oracle updates each Agent Soul-Bound Token (SBT) with hourly trust scores. Confirm thresholds & mint Swarm SBT."
+      title: "Bonded Trust & Swarms",
+      body: "Add bonding + slashing, lift trust caps, enable multi-agent swarms with consensus tasks."
     },
     {
       pill: "2026 +",
-      title: "Royalty Router & Indexer",
-      body: "Single-hop PTB splitter on-chain; off-chain indexer streams live dashboards."
+      title: "Skills & Royalties",
+      body: "Verified KIP skills, skill marketplaces, and on-chain royalty routing with live dashboards."
     }
   ];
 
