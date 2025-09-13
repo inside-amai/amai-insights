@@ -266,8 +266,8 @@ const Index = () => {
       <section className="relative w-full">
         <div className="w-full h-[60vh] lg:h-[70vh] overflow-hidden">
           <OptimizedImage 
-            src="/lovable-uploads/1e92cbc3-b553-493b-a333-bea6c2a6d0ae.png"
-            alt="Future Vision"
+            src="/src/assets/amai-hero-image.png"
+            alt="AMAI Platform Vision"
             className="w-full h-full object-cover object-center"
             loading="eager"
           />
