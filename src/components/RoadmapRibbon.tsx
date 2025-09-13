@@ -56,6 +56,9 @@ const RoadmapRibbon = () => {
           <h2 className="text-3xl md:text-4xl font-semibold bg-gradient-to-r from-[#A6FCFC] to-[#D6A6FC] bg-clip-text text-transparent">
             Roadmap
           </h2>
+          <p className="text-lg text-gray-300 mt-4 max-w-2xl mx-auto">
+            The platform will be released in phases, with each milestone building on the last.
+          </p>
         </div>
 
         {/* Ribbon Wrapper */}
