@@ -315,7 +315,7 @@ const GenesisMint = () => {
           </motion.div>
           <div className="text-center mb-8 relative z-20">
             <p className="text-lg text-muted-foreground">
-              Exclusive to Genesis Mint.
+              Exclusive to Genesis Mint + first access to claim your @handle.
             </p>
           </div>
 
