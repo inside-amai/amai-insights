@@ -109,13 +109,30 @@ const Index = () => {
         <section className="relative bg-black py-16">
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-              {/* Text Content - Left Side */}
+              {/* Image - Right Side on Desktop, First on Mobile */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="order-1 lg:order-2 lg:col-start-7 lg:col-span-6 relative overflow-hidden rounded-2xl"
+              >
+                <div className="relative">
+                  <OptimizedImage 
+                    src="/lovable-uploads/2001a109-342f-4ca5-8099-ddeedd693328.png"
+                    alt="SuiHub Partnership"
+                    className="w-full object-contain"
+                  />
+                </div>
+              </motion.div>
+
+              {/* Text Content - Left Side on Desktop, Second on Mobile */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="lg:col-start-1 lg:col-span-5 space-y-6"
+                className="order-2 lg:order-1 lg:col-start-1 lg:col-span-5 space-y-6"
               >
                 <div className="space-y-4">
                   <p className="text-sm font-medium text-white uppercase tracking-wider">
@@ -129,23 +146,6 @@ const Index = () => {
                   <p className="text-lg text-gray-300 leading-relaxed">
                     A dedicated team of Sui engineers working alongside AMAI to refine core infrastructure and unlock scale + Joint Go-To-Market
                   </p>
-                </div>
-              </motion.div>
-
-              {/* Image - Right Side */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="lg:col-start-7 lg:col-span-6 relative overflow-hidden rounded-2xl"
-              >
-                <div className="relative">
-                  <OptimizedImage 
-                    src="/lovable-uploads/2001a109-342f-4ca5-8099-ddeedd693328.png"
-                    alt="SuiHub Partnership"
-                    className="w-full object-contain"
-                  />
                 </div>
               </motion.div>
             </div>
