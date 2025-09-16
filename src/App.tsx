@@ -12,6 +12,7 @@ import FoundersMint from "./pages/FoundersMint";
 
 import NotFound from "./pages/NotFound";
 import OKX from "./pages/OKX";
+import OKXAdmin from "./pages/OKXAdmin";
 
 // Whitepaper sections (eagerly loaded to avoid Suspense loading screen)
 import SummaryVision from "./pages/whitepaper/SummaryVision";
@@ -50,6 +51,7 @@ const App = () => (
           <Route path="/whitepaper/Our-journey" element={<OurJourney />} />
           <Route path="/tier-demo" element={<TierSelectorDemo />} />
           <Route path="/okx" element={<OKX />} />
+          <Route path="/okx-admin" element={<OKXAdmin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

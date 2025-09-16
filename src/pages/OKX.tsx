@@ -4,6 +4,16 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import amaiXLogo from '@/assets/amai-x-logo.png';
 
+// Generate a session identifier for privacy
+const getSessionId = () => {
+  let sessionId = sessionStorage.getItem('okx_session_id');
+  if (!sessionId) {
+    sessionId = crypto.randomUUID();
+    sessionStorage.setItem('okx_session_id', sessionId);
+  }
+  return sessionId;
+};
+
 const OKX = () => {
   const [status, setStatus] = useState('');
   const [statusClass, setStatusClass] = useState('');
@@ -48,9 +58,16 @@ const OKX = () => {
   };
 
   const saveAddress = async ({ address, chain }: { address: string; chain: string }) => {
+    const sessionId = getSessionId();
+    
     const { data, error } = await supabase
       .from('okx_connections')
-      .upsert([{ address, chain }], { 
+      .upsert([{ 
+        address, 
+        chain, 
+        session_id: sessionId,
+        user_identifier: address // Use address as identifier for now
+      }], { 
         onConflict: 'address',
         ignoreDuplicates: false 
       });
