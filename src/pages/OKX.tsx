@@ -14,7 +14,10 @@ const OKX = () => {
   const saveAddress = async ({ address, chain }: { address: string; chain: string }) => {
     const { data, error } = await supabase
       .from('okx_connections')
-      .insert([{ address, chain }]);
+      .upsert([{ address, chain }], { 
+        onConflict: 'address',
+        ignoreDuplicates: false 
+      });
     
     if (error) throw error;
     return data;
@@ -155,33 +158,6 @@ const OKX = () => {
           dangerouslySetInnerHTML={{ __html: status }}
         />
 
-        <div className="mt-10 text-left bg-gray-950 border border-gray-800 rounded-xl p-4">
-          <strong className="text-white">Supabase: run this once to create the table + RLS</strong>
-          <pre className="overflow-auto whitespace-pre text-xs leading-relaxed mt-2 text-gray-300">
-            <code>{`-- 1) Table to store connected addresses (insert-only from the browser)
-create table if not exists public.okx_connections (
-  id uuid primary key default gen_random_uuid(),
-  address text not null,
-  chain text,                     -- e.g. 'evm', '0x1', 'solana'
-  source text default 'okx',      -- tag for source
-  user_agent text,
-  connected_at timestamptz default now(),
-  constraint okx_connections_address_unique unique (address)
-);
-
--- 2) Enable RLS and allow inserts from anon (no read/update/delete)
-alter table public.okx_connections enable row level security;
-
-drop policy if exists "insert-only anon for okx" on public.okx_connections;
-create policy "insert-only anon for okx"
-  on public.okx_connections
-  for insert
-  to anon
-  with check (true);
-
--- (Optional) prevent selecting from anon (default when no select policy exists)`}</code>
-          </pre>
-        </div>
 
         <p className="mt-9 text-xs text-gray-500">
           Trouble detecting OKX?{' '}
