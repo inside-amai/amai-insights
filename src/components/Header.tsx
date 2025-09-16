@@ -1,9 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
-import { Menu, X, LogOut, User } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useAuth } from '@/hooks/useAuth';
-import { Button } from '@/components/ui/button';
 
 const whitepaperSections = [
   {
@@ -55,7 +53,6 @@ const whitepaperSections = [
 
 export const Header = () => {
   const location = useLocation();
-  const { user, signOut } = useAuth();
   const isFoundersMintPage = location.pathname === '/founders-mint';
   const isOKXPage = location.pathname === '/okx';
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -125,32 +122,10 @@ export const Header = () => {
             </Link>
           </div>
           
-          {/* Auth Section - Desktop */}
+          {/* Future navigation items can go here for desktop */}
           {!isFoundersMintPage && (
-            <div className="hidden md:flex items-center space-x-4">
-              {user ? (
-                <div className="flex items-center space-x-2">
-                  <span className="text-white text-sm">
-                    <User className="w-4 h-4 inline mr-1" />
-                    {user.email}
-                  </span>
-                  <Button
-                    onClick={signOut}
-                    variant="outline"
-                    size="sm"
-                    className="bg-transparent border-white/20 text-white hover:bg-white/10"
-                  >
-                    <LogOut className="w-4 h-4 mr-2" />
-                    Sign Out
-                  </Button>
-                </div>
-              ) : (
-                <Link to="/auth">
-                  <Button variant="outline" size="sm" className="bg-transparent border-white/20 text-white hover:bg-white/10">
-                    Sign In
-                  </Button>
-                </Link>
-              )}
+            <div className="hidden md:flex items-center space-x-6">
+              {/* Navigation items will be added later */}
             </div>
           )}
         </div>
@@ -202,43 +177,6 @@ export const Header = () => {
                     </div>
                   </Link>
                 ))}
-                
-                {/* Mobile Auth Section */}
-                <div className="border-t border-gray-700 pt-4 mt-4">
-                  {user ? (
-                    <div className="space-y-2">
-                      <div className="py-3 text-gray-300 text-sm border-b border-gray-800">
-                        <User className="w-4 h-4 inline mr-2" />
-                        {user.email}
-                      </div>
-                      <button
-                        onClick={() => {
-                          signOut();
-                          setIsMobileMenuOpen(false);
-                        }}
-                        className="flex items-center w-full py-3 text-white hover:text-purple-accent transition-colors"
-                      >
-                        <LogOut className="w-4 h-4 mr-2" />
-                        Sign Out
-                      </button>
-                    </div>
-                  ) : (
-                    <Link 
-                      to="/auth" 
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="block py-3"
-                    >
-                      <div className="space-y-1">
-                        <div className="text-xs uppercase tracking-wider text-gray-500">
-                          Account
-                        </div>
-                        <div className="text-white font-medium hover:text-purple-accent transition-colors">
-                          Sign In
-                        </div>
-                      </div>
-                    </Link>
-                  )}
-                </div>
               </div>
             </div>
           </motion.div>
