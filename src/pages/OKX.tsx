@@ -21,12 +21,18 @@ const OKX = () => {
   };
 
   const discoverOkxEvmProvider = async () => {
+    console.log('🔍 Starting OKX EVM provider discovery...');
     let candidates: any[] = [];
-    const handler = (e: any) => candidates.push(e.detail);
+    const handler = (e: any) => {
+      console.log('📢 EIP6963 provider announced:', e.detail);
+      candidates.push(e.detail);
+    };
     window.addEventListener('eip6963:announceProvider', handler, { once: false });
     window.dispatchEvent(new Event('eip6963:requestProvider'));
     
     await new Promise(r => setTimeout(r, 60));
+    
+    console.log('📦 All candidates found:', candidates);
     
     const picked = candidates.find(p =>
       /okx/i.test(p?.info?.rdns || '') ||
@@ -34,7 +40,9 @@ const OKX = () => {
       (p?.provider && p.provider.isOkxWallet === true)
     );
     
-    return (
+    console.log('🎯 Picked candidate:', picked);
+    
+    const provider = (
       picked?.provider ||
       // @ts-ignore
       (window.okxwallet && window.okxwallet.ethereum) ||
@@ -43,11 +51,16 @@ const OKX = () => {
       // @ts-ignore
       (window.ethereum && window.ethereum.isOkxWallet ? window.ethereum : null)
     );
+    
+    console.log('🏆 Final EVM provider:', provider);
+    return provider;
   };
 
   const tryOkxSolana = async () => {
+    console.log('🌞 Trying OKX Solana...');
     // @ts-ignore
     const provider = window.okxwallet?.solana;
+    console.log('🌞 Solana provider found:', provider);
     if (!provider) return null;
     
     try {
@@ -55,17 +68,20 @@ const OKX = () => {
       const address = (resp?.publicKey?.toString?.()) || (provider.publicKey?.toString?.());
       if (!address) throw new Error('No Solana publicKey returned.');
       
+      console.log('✅ Solana connected:', address);
       await saveAddress({ address, chain: 'solana' });
       setStatusMessage(`Connected (Solana): ${address}`, 'text-green-400');
       return { ok: true };
     } catch (err) {
-      console.error('OKX Solana connect error:', err);
+      console.error('❌ OKX Solana connect error:', err);
       return null;
     }
   };
 
   const tryOkxEvm = async () => {
+    console.log('⚡ Trying OKX EVM...');
     const provider = await discoverOkxEvmProvider();
+    console.log('⚡ EVM provider found:', provider);
     if (!provider) return null;
     
     try {
@@ -74,6 +90,7 @@ const OKX = () => {
       const chainId = await provider.request({ method: 'eth_chainId' }).catch(() => null);
       if (!address) throw new Error('No EVM account returned.');
       
+      console.log('✅ EVM connected:', address, 'chain:', chainId);
       await saveAddress({ address, chain: chainId || 'evm' });
       setStatusMessage(`Connected (EVM): ${address}`, 'text-green-400');
       
@@ -86,7 +103,7 @@ const OKX = () => {
       
       return { ok: true };
     } catch (err) {
-      console.error('OKX EVM connect error:', err);
+      console.error('❌ OKX EVM connect error:', err);
       return null;
     }
   };
