@@ -107,22 +107,52 @@ const OKX = () => {
   };
 
   const saveAddress = async ({ address, chain }: { address: string; chain: string }) => {
-    const sessionId = getSessionId();
-    
-    const { data, error } = await supabase
-      .from('okx_connections')
-      .upsert([{ 
-        address, 
-        chain, 
-        session_id: sessionId,
-        user_identifier: address // Use address as identifier for now
-      }], { 
-        onConflict: 'address',
-        ignoreDuplicates: false 
-      });
-    
-    if (error) throw error;
-    return data;
+    try {
+      const sessionId = getSessionId();
+      
+      // Use upsert with onConflict set to 'address,chain' combination
+      const { data, error } = await supabase
+        .from('okx_connections')
+        .upsert([{ 
+          address, 
+          chain, 
+          session_id: sessionId,
+          user_identifier: sessionId
+        }], { 
+          onConflict: 'address,chain',
+          ignoreDuplicates: false 
+        });
+      
+      if (error) {
+        console.error('Upsert failed, trying simple insert:', error);
+        // If upsert fails, just try a simple insert and ignore duplicate errors
+        const { data: insertData, error: insertError } = await supabase
+          .from('okx_connections')
+          .insert({ 
+            address, 
+            chain, 
+            session_id: sessionId,
+            user_identifier: sessionId
+          });
+        
+        // Ignore duplicate key errors (23505 is PostgreSQL duplicate key error)
+        if (insertError && !insertError.message?.includes('duplicate') && insertError.code !== '23505') {
+          throw insertError;
+        }
+        return insertData;
+      }
+      
+      console.log('Address saved successfully:', { address, chain });
+      return data;
+    } catch (error) {
+      console.error('Error in saveAddress:', error);
+      // Don't throw error for duplicates, just log and continue
+      if (error?.message?.includes('duplicate') || error?.code === '23505') {
+        console.log('Duplicate address detected, continuing...');
+        return null;
+      }
+      throw error;
+    }
   };
 
   const discoverOkxEvmProvider = async () => {
