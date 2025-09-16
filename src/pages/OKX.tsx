@@ -159,7 +159,7 @@ const OKX = () => {
       if (e?.ok) return;
 
       setStatusMessage(
-        'OKX Wallet not detected. <a class="text-cyan-300 underline" target="_blank" rel="noreferrer" href="https://chromewebstore.google.com/detail/okx-wallet/mcohilncbfahbmgdjkbpemcciiolgcge">Install the OKX Wallet extension</a> and refresh.',
+        'OKX Wallet not detected. <a class="text-cyan-300 underline" target="_blank" rel="noreferrer" href="https://web3.okx.com/">Install the OKX Wallet extension</a> and refresh.',
         'text-red-400'
       );
     } catch (err) {
@@ -274,7 +274,7 @@ const OKX = () => {
               className="text-cyan-300 no-underline border-b border-dotted border-cyan-300" 
               target="_blank" 
               rel="noreferrer" 
-              href="https://chromewebstore.google.com/detail/okx-wallet/mcohilncbfahbmgdjkbpemcciiolgcge"
+              href="https://web3.okx.com/"
             >
               Install the OKX Wallet extension
             </a>
