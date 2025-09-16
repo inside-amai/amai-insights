@@ -103,7 +103,7 @@ export const Header = () => {
           <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex items-center">
             <Link 
               to="/okx"
-              className="text-white bg-transparent border border-purple-500 px-4 py-2 rounded-lg text-sm font-medium hover:bg-purple-600 hover:border-purple-400 transition-all duration-200"
+              className="text-white bg-transparent px-4 py-2 rounded-lg text-sm font-medium hover:bg-purple-600 transition-all duration-200"
             >
               OKX Giveaway
             </Link>
