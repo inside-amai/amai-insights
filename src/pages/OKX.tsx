@@ -251,13 +251,13 @@ const OKX = () => {
             />
           </div>
           <p className="text-gray-400 mb-7">
-            connect your OKX wallet — addresses are logged for future giveaways
+            Connect your OKX wallet for future giveaways & airdrops
           </p>
           
           <button
             onClick={connectOkx}
             disabled={isConnecting}
-            className="appearance-none border border-gray-700 bg-gray-900 text-white px-6 py-3 rounded-xl font-semibold cursor-pointer transition-all duration-200 hover:border-gray-600 hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed"
+            className="appearance-none border border-purple-500 bg-purple-600 text-white px-6 py-3 rounded-xl font-semibold cursor-pointer transition-all duration-200 hover:bg-purple-700 hover:border-purple-400 hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed"
             aria-live="polite"
           >
             Connect OKX Wallet
