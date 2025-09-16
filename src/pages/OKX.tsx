@@ -278,7 +278,7 @@ const OKX = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden">
+    <div className="h-screen bg-black relative overflow-hidden flex flex-col">
       {/* Header */}
       <Header />
 
@@ -348,8 +348,8 @@ const OKX = () => {
       </div>
 
       {/* Main Content */}
-      <main className="relative z-10 min-h-screen flex items-center justify-center font-sans pt-20">
-        <div className="w-full max-w-4xl mx-auto text-center px-6 py-12">
+      <main className="relative z-10 flex-1 flex items-center justify-center font-sans">
+        <div className="w-full max-w-4xl mx-auto text-center px-6">
           <div className="mb-4 flex justify-center">
             <img 
               src={amaiXLogo} 
