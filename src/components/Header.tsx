@@ -54,6 +54,7 @@ const whitepaperSections = [
 export const Header = () => {
   const location = useLocation();
   const isFoundersMintPage = location.pathname === '/founders-mint';
+  const isOKXPage = location.pathname === '/okx';
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -102,10 +103,10 @@ export const Header = () => {
           {/* Center Navigation */}
           <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex items-center">
             <Link 
-              to="/okx"
+              to={isOKXPage ? "/" : "/okx"}
               className="text-white bg-transparent px-4 py-2 rounded-lg text-sm font-medium hover:bg-purple-600 transition-all duration-200"
             >
-              OKX Giveaway
+              {isOKXPage ? "Platform" : "OKX Giveaway"}
             </Link>
           </div>
           
