@@ -17,6 +17,7 @@ const getSessionId = () => {
 const OKX = () => {
   const [status, setStatus] = useState('');
   const [statusClass, setStatusClass] = useState('');
+  const [statusJsx, setStatusJsx] = useState<React.ReactNode>(null);
   const [isConnecting, setIsConnecting] = useState(false);
   const [isConnected, setIsConnected] = useState(false);
   const [shootingStars, setShootingStars] = useState<Array<{ id: number; x: number; y: number; delay: number; direction: { x: number; y: number; angle: number } }>>([]);
@@ -101,8 +102,14 @@ const OKX = () => {
     };
   }, []);
 
-  const setStatusMessage = (message: string, cls = '') => {
-    setStatus(message);
+  const setStatusMessage = (message: string | React.ReactNode, cls = '') => {
+    if (typeof message === 'string') {
+      setStatus(message);
+      setStatusJsx(null);
+    } else {
+      setStatus('');
+      setStatusJsx(message);
+    }
     setStatusClass(cls);
   };
 
@@ -205,7 +212,12 @@ const OKX = () => {
       
       console.log('✅ Solana connected:', address);
       await saveAddress({ address, chain: 'solana' });
-      setStatusMessage(`Connected (Solana): ${address}\nYou are signed up for future giveaways & airdrops`, 'text-green-400');
+      setStatusMessage(
+        <div>
+          <div className="text-green-400">Connected (Solana): {address}</div>
+          <div className="text-white">You are signed up for future giveaways & airdrops</div>
+        </div>
+      );
       setIsConnected(true);
       return { ok: true };
     } catch (err) {
@@ -228,13 +240,23 @@ const OKX = () => {
       
       console.log('✅ EVM connected:', address, 'chain:', chainId);
       await saveAddress({ address, chain: chainId || 'evm' });
-      setStatusMessage(`Connected (EVM): ${address}\nYou are signed up for future giveaways & airdrops`, 'text-green-400');
+      setStatusMessage(
+        <div>
+          <div className="text-green-400">Connected (EVM): {address}</div>
+          <div className="text-white">You are signed up for future giveaways & airdrops</div>
+        </div>
+      );
       setIsConnected(true);
       
       provider.on?.('accountsChanged', async (accs: string[]) => {
         if (accs?.[0]) {
           await saveAddress({ address: accs[0], chain: chainId || 'evm' });
-          setStatusMessage(`Connected (EVM): ${accs[0]}\nYou are signed up for future giveaways & airdrops`, 'text-green-400');
+          setStatusMessage(
+            <div>
+              <div className="text-green-400">Connected (EVM): {accs[0]}</div>
+              <div className="text-white">You are signed up for future giveaways & airdrops</div>
+            </div>
+          );
           setIsConnected(true);
         } else {
           setIsConnected(false);
@@ -374,8 +396,8 @@ const OKX = () => {
             {isConnected ? '✓ Wallet Connected' : 'Connect OKX Wallet'}
           </button>
           
-          <div className={`mt-5 min-h-6 text-sm text-gray-400 ${statusClass} whitespace-pre-line`}>
-            {status}
+          <div className={`mt-5 min-h-6 text-sm text-gray-400 ${statusClass} ${statusJsx ? '' : 'whitespace-pre-line'}`}>
+            {statusJsx || status}
           </div>
 
           <p className="mt-9 text-xs text-gray-500">
