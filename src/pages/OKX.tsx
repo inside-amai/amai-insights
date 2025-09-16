@@ -1,10 +1,45 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
+import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
 
 const OKX = () => {
   const [status, setStatus] = useState('');
   const [statusClass, setStatusClass] = useState('');
   const [isConnecting, setIsConnecting] = useState(false);
+  const [shootingStars, setShootingStars] = useState<Array<{ id: number; x: number; y: number; delay: number; direction: { x: number; y: number; angle: number } }>>([]);
+
+  // Shooting stars effect (from ExplainerHero)
+  useEffect(() => {
+    const createShootingStar = () => {
+      const id = Date.now();
+      const x = Math.random() * 60 + 10;
+      const y = Math.random() * 40 + 10;
+      const delay = Math.random() * 1000;
+      
+      const angle = Math.random() * 360;
+      const distance = 120;
+      const directionX = Math.cos(angle * Math.PI / 180) * distance;
+      const directionY = Math.sin(angle * Math.PI / 180) * distance;
+      const trailAngle = angle + 180;
+      
+      const direction = { x: directionX, y: directionY, angle: trailAngle };
+      const newStar = { id, x, y, delay, direction };
+      setShootingStars(prev => [...prev, newStar]);
+      
+      setTimeout(() => {
+        setShootingStars(prev => prev.filter(star => star.id !== id));
+      }, 2500 + delay);
+    };
+    
+    const firstTimeout = setTimeout(createShootingStar, 5000);
+    const interval = setInterval(createShootingStar, 7000);
+    
+    return () => {
+      clearTimeout(firstTimeout);
+      clearInterval(interval);
+    };
+  }, []);
 
   const setStatusMessage = (html: string, cls = '') => {
     setStatus(html);
@@ -135,43 +170,116 @@ const OKX = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white flex items-center justify-center font-sans">
-      <main className="w-full max-w-4xl mx-auto text-center px-6 py-12">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal tracking-wide mb-4">
-          AMAI x OKX
-        </h1>
-        <p className="text-gray-400 mb-7">
-          connect your OKX wallet — addresses are logged for future giveaways
-        </p>
-        
-        <button
-          onClick={connectOkx}
-          disabled={isConnecting}
-          className="appearance-none border border-gray-700 bg-gray-900 text-white px-6 py-3 rounded-xl font-semibold cursor-pointer transition-all duration-200 hover:border-gray-600 hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed"
-          aria-live="polite"
-        >
-          Connect OKX Wallet
-        </button>
-        
-        <div 
-          className={`mt-5 min-h-6 text-sm text-gray-400 ${statusClass}`}
-          dangerouslySetInnerHTML={{ __html: status }}
-        />
+    <div className="min-h-screen bg-black relative overflow-hidden">
+      {/* Header */}
+      <Header />
 
+      {/* Star Background (from ExplainerHero) */}
+      <div className="absolute inset-0">
+        {/* Large moving stars */}
+        <div className="absolute top-20 left-20 w-2 h-2 animate-bounce" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '3s', animationDelay: '0s' }} />
+        <div className="absolute top-32 right-32 w-3 h-3 animate-pulse" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '4s', animationDelay: '1s', transform: 'translateY(-10px)', animation: 'float 6s ease-in-out infinite' }} />
+        <div className="absolute bottom-40 left-40 w-2 h-2" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'drift 8s linear infinite' }} />
+        <div className="absolute bottom-20 right-20 w-3 h-3 animate-pulse" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '5s', animationDelay: '2s' }} />
+        <div className="absolute top-10 left-1/2 w-2 h-2" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'sway 7s ease-in-out infinite' }} />
+        <div className="absolute bottom-10 left-1/3 w-3 h-3" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'float 5s ease-in-out infinite reverse' }} />
+        
+        {/* Medium moving stars */}
+        <div className="absolute top-60 left-60 w-1.5 h-1.5" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'twinkle 4s ease-in-out infinite' }} />
+        <div className="absolute top-96 right-60 w-1.5 h-1.5 animate-bounce" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '3.5s', animationDelay: '1.5s' }} />
+        <div className="absolute bottom-60 left-80 w-1.5 h-1.5" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'drift 10s linear infinite reverse' }} />
+        <div className="absolute top-1/3 right-1/4 w-1.5 h-1.5" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'sway 6s ease-in-out infinite reverse' }} />
+        <div className="absolute bottom-1/3 right-1/3 w-1.5 h-1.5" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'float 7s ease-in-out infinite' }} />
+        
+        {/* Small moving stars */}
+        <div className="absolute top-40 left-96 w-1 h-1 animate-ping" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '3s' }} />
+        <div className="absolute top-80 right-96 w-1 h-1" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'twinkle 3s ease-in-out infinite' }} />
+        <div className="absolute bottom-80 left-20 w-1 h-1" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'drift 12s linear infinite' }} />
+        <div className="absolute bottom-96 right-40 w-1 h-1 animate-pulse" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '2.5s' }} />
+        <div className="absolute top-1/4 left-1/4 w-1 h-1" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'sway 8s ease-in-out infinite' }} />
+        <div className="absolute top-3/4 right-1/4 w-1 h-1" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'float 4.5s ease-in-out infinite reverse' }} />
+        <div className="absolute bottom-1/4 left-1/3 w-1 h-1 animate-ping" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '4s', animationDelay: '1s' }} />
+        <div className="absolute top-16 right-16 w-1 h-1" 
+             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'twinkle 5s ease-in-out infinite' }} />
+        <div className="absolute bottom-16 left-16 w-1 h-1" 
+             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'drift 9s linear infinite reverse' }} />
+        
+        {/* Shooting stars */}
+        {shootingStars.map((star) => (
+          <div
+            key={star.id}
+            className="shooting-star"
+            style={{
+              left: `${star.x}%`,
+              top: `${star.y}%`,
+              animationDelay: `${star.delay}ms`,
+              '--end-x': `${star.direction.x}px`,
+              '--end-y': `${star.direction.y}px`,
+              '--trail-angle': `${star.direction.angle}deg`,
+            } as React.CSSProperties}
+          />
+        ))}
+      </div>
 
-        <p className="mt-9 text-xs text-gray-500">
-          Trouble detecting OKX?{' '}
-          <a 
-            className="text-cyan-300 no-underline border-b border-dotted border-cyan-300" 
-            target="_blank" 
-            rel="noreferrer" 
-            href="https://chromewebstore.google.com/detail/okx-wallet/mcohilncbfahbmgdjkbpemcciiolgcge"
+      {/* Main Content */}
+      <main className="relative z-10 min-h-screen flex items-center justify-center font-sans pt-20">
+        <div className="w-full max-w-4xl mx-auto text-center px-6 py-12">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal tracking-wide mb-4 text-white">
+            AMAI x OKX
+          </h1>
+          <p className="text-gray-400 mb-7">
+            connect your OKX wallet — addresses are logged for future giveaways
+          </p>
+          
+          <button
+            onClick={connectOkx}
+            disabled={isConnecting}
+            className="appearance-none border border-gray-700 bg-gray-900 text-white px-6 py-3 rounded-xl font-semibold cursor-pointer transition-all duration-200 hover:border-gray-600 hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed"
+            aria-live="polite"
           >
-            Install the OKX Wallet extension
-          </a>
-          .
-        </p>
+            Connect OKX Wallet
+          </button>
+          
+          <div 
+            className={`mt-5 min-h-6 text-sm text-gray-400 ${statusClass}`}
+            dangerouslySetInnerHTML={{ __html: status }}
+          />
+
+          <p className="mt-9 text-xs text-gray-500">
+            Trouble detecting OKX?{' '}
+            <a 
+              className="text-cyan-300 no-underline border-b border-dotted border-cyan-300" 
+              target="_blank" 
+              rel="noreferrer" 
+              href="https://chromewebstore.google.com/detail/okx-wallet/mcohilncbfahbmgdjkbpemcciiolgcge"
+            >
+              Install the OKX Wallet extension
+            </a>
+            .
+          </p>
+        </div>
       </main>
+
+      {/* Footer */}
+      <Footer transparent={true} />
     </div>
   );
 };
