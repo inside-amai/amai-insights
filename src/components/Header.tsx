@@ -99,6 +99,16 @@ export const Header = () => {
             </div>
           )}
           
+          {/* Center Navigation */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex items-center">
+            <Link 
+              to="/okx"
+              className="text-white bg-transparent border border-purple-500 px-4 py-2 rounded-lg text-sm font-medium hover:bg-purple-600 hover:border-purple-400 transition-all duration-200"
+            >
+              OKX Giveaway
+            </Link>
+          </div>
+          
           {/* Future navigation items can go here for desktop */}
           {!isFoundersMintPage && (
             <div className="hidden md:flex items-center space-x-6">
@@ -120,6 +130,20 @@ export const Header = () => {
           >
             <div className="container mx-auto px-6 py-6">
               <div className="space-y-4">
+                <Link
+                  to="/okx"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block py-3 border-b border-gray-800"
+                >
+                  <div className="space-y-1">
+                    <div className="text-xs uppercase tracking-wider text-gray-500">
+                      Giveaway
+                    </div>
+                    <div className="text-white font-medium hover:text-purple-accent transition-colors">
+                      OKX Wallet Connect
+                    </div>
+                  </div>
+                </Link>
                 <div className="text-xs uppercase tracking-wider text-gray-400 mb-4">
                   Documentation
                 </div>
