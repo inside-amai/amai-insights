@@ -18,7 +18,56 @@ const OKX = () => {
   const [status, setStatus] = useState('');
   const [statusClass, setStatusClass] = useState('');
   const [isConnecting, setIsConnecting] = useState(false);
+  const [isConnected, setIsConnected] = useState(false);
   const [shootingStars, setShootingStars] = useState<Array<{ id: number; x: number; y: number; delay: number; direction: { x: number; y: number; angle: number } }>>([]);
+
+  // Check for existing wallet connections on page load
+  useEffect(() => {
+    const checkExistingConnections = async () => {
+      try {
+        // Check for Solana connection
+        // @ts-ignore
+        const solanaProvider = window.okxwallet?.solana;
+        if (solanaProvider?.isConnected) {
+          const address = solanaProvider.publicKey?.toString?.();
+          if (address) {
+            await saveAddress({ address, chain: 'solana' });
+            setStatusMessage(`Connected (Solana): ${address}`, 'text-green-400');
+            setIsConnected(true);
+            return;
+          }
+        }
+
+        // Check for EVM connection
+        const evmProvider = await discoverOkxEvmProvider();
+        if (evmProvider) {
+          try {
+            const accounts = await evmProvider.request({ method: 'eth_accounts' });
+            if (accounts?.length > 0) {
+              const address = accounts[0];
+              const chainId = await evmProvider.request({ method: 'eth_chainId' }).catch(() => null);
+              await saveAddress({ address, chain: chainId || 'evm' });
+              setStatusMessage(`Connected (EVM): ${address}`, 'text-green-400');
+              setIsConnected(true);
+              return;
+            }
+          } catch (err) {
+            console.log('No existing EVM connection');
+          }
+        }
+
+        // If no connections found, show default message
+        if (!isConnected) {
+          setStatusMessage('Click the button above to connect your OKX wallet', 'text-gray-400');
+        }
+      } catch (err) {
+        console.error('Error checking existing connections:', err);
+        setStatusMessage('Click the button above to connect your OKX wallet', 'text-gray-400');
+      }
+    };
+
+    checkExistingConnections();
+  }, []);
 
   // Shooting stars effect (from ExplainerHero)
   useEffect(() => {
@@ -127,6 +176,7 @@ const OKX = () => {
       console.log('✅ Solana connected:', address);
       await saveAddress({ address, chain: 'solana' });
       setStatusMessage(`Connected (Solana): ${address}`, 'text-green-400');
+      setIsConnected(true);
       return { ok: true };
     } catch (err) {
       console.error('❌ OKX Solana connect error:', err);
@@ -149,11 +199,16 @@ const OKX = () => {
       console.log('✅ EVM connected:', address, 'chain:', chainId);
       await saveAddress({ address, chain: chainId || 'evm' });
       setStatusMessage(`Connected (EVM): ${address}`, 'text-green-400');
+      setIsConnected(true);
       
       provider.on?.('accountsChanged', async (accs: string[]) => {
         if (accs?.[0]) {
           await saveAddress({ address: accs[0], chain: chainId || 'evm' });
           setStatusMessage(`Connected (EVM): ${accs[0]}`, 'text-green-400');
+          setIsConnected(true);
+        } else {
+          setIsConnected(false);
+          setStatusMessage('Wallet disconnected', 'text-yellow-400');
         }
       });
       
@@ -165,6 +220,11 @@ const OKX = () => {
   };
 
   const connectOkx = async () => {
+    if (isConnected) {
+      setStatusMessage('Wallet already connected!', 'text-green-400');
+      return;
+    }
+    
     setIsConnecting(true);
     setStatusMessage('Connecting to OKX…');
     
@@ -274,10 +334,14 @@ const OKX = () => {
           <button
             onClick={connectOkx}
             disabled={isConnecting}
-            className="appearance-none border border-purple-500 bg-purple-600 text-white px-6 py-3 rounded-xl font-semibold cursor-pointer transition-all duration-200 hover:bg-purple-700 hover:border-purple-400 hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed"
+            className={`appearance-none border px-6 py-3 rounded-xl font-semibold cursor-pointer transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed ${
+              isConnected 
+                ? 'border-green-500 bg-green-600 text-white hover:bg-green-700 hover:border-green-400' 
+                : 'border-purple-500 bg-purple-600 text-white hover:bg-purple-700 hover:border-purple-400 hover:-translate-y-0.5'
+            }`}
             aria-live="polite"
           >
-            Connect OKX Wallet
+            {isConnected ? '✓ Wallet Connected' : 'Connect OKX Wallet'}
           </button>
           
           <div 
