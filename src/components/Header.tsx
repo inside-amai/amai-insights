@@ -87,6 +87,18 @@ export const Header = () => {
             </div>
           )}
           
+          {/* Mobile Center Navigation for OKX page */}
+          {isOKXPage && (
+            <div className="absolute left-1/2 transform -translate-x-1/2 md:hidden">
+              <Link 
+                to="/"
+                className="text-white bg-transparent px-4 py-2 rounded-lg text-sm font-medium hover:bg-purple-600 transition-all duration-200"
+              >
+                Platform
+              </Link>
+            </div>
+          )}
+          
           {/* Mobile Hamburger Menu - Only show when not on Founders Mint page */}
           {!isFoundersMintPage && (
             <div className="md:hidden">
