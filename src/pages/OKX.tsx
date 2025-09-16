@@ -1,25 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { supabase } from '@/integrations/supabase/client';
 
 const OKX = () => {
   const [status, setStatus] = useState('');
   const [statusClass, setStatusClass] = useState('');
   const [isConnecting, setIsConnecting] = useState(false);
-
-  // Supabase configuration - these should be replaced with actual values
-  const SUPABASE_URL = "https://YOUR_SUPABASE_URL.supabase.co";
-  const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
-
-  useEffect(() => {
-    // Load Supabase script
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
-    script.async = true;
-    document.head.appendChild(script);
-
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, []);
 
   const setStatusMessage = (html: string, cls = '') => {
     setStatus(html);
@@ -27,16 +12,10 @@ const OKX = () => {
   };
 
   const saveAddress = async ({ address, chain }: { address: string; chain: string }) => {
-    // @ts-ignore - Supabase will be loaded via script
-    const { createClient } = window.supabase;
-    const db = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-    
-    const { data, error } = await db
+    const { data, error } = await supabase
       .from('okx_connections')
-      .upsert(
-        [{ address, chain, user_agent: navigator.userAgent, source: 'okx' }],
-        { onConflict: 'address' }
-      );
+      .insert([{ address, chain }]);
+    
     if (error) throw error;
     return data;
   };

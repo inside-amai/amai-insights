@@ -266,6 +266,27 @@ export type Database = {
           },
         ]
       }
+      okx_connections: {
+        Row: {
+          address: string
+          chain: string
+          created_at: string
+          id: string
+        }
+        Insert: {
+          address: string
+          chain: string
+          created_at?: string
+          id?: string
+        }
+        Update: {
+          address?: string
+          chain?: string
+          created_at?: string
+          id?: string
+        }
+        Relationships: []
+      }
       post_likes: {
         Row: {
           created_at: string
