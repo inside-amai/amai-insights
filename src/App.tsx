@@ -3,8 +3,11 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "@/hooks/useAuth";
+import { AuthGuard } from "@/components/AuthGuard";
 
 import Index from "./pages/Index";
+import Auth from "./pages/Auth";
 import Explainer from "./pages/Explainer";
 import TechnicalDocs from "./pages/TechnicalDocs";
 import GenesisMint from "./pages/GenesisMint";
@@ -30,15 +33,21 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/technical-docs" element={<TechnicalDocs />} />
-          <Route path="/genesis-mint" element={<GenesisMint />} />
-          <Route path="/founders-mint" element={<FoundersMint />} />
+    <AuthProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/auth" element={
+              <AuthGuard requireAuth={false}>
+                <Auth />
+              </AuthGuard>
+            } />
+            <Route path="/technical-docs" element={<TechnicalDocs />} />
+            <Route path="/genesis-mint" element={<GenesisMint />} />
+            <Route path="/founders-mint" element={<FoundersMint />} />
           
           <Route path="/whitepaper/summary-vision" element={<SummaryVision />} />
           <Route path="/whitepaper/platform-overview" element={<PlatformOverview />} />
@@ -57,7 +66,8 @@ const App = () => (
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
-  </QueryClientProvider>
+  </AuthProvider>
+</QueryClientProvider>
 );
 
 export default App;

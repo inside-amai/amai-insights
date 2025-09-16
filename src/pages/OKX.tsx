@@ -101,8 +101,8 @@ const OKX = () => {
     };
   }, []);
 
-  const setStatusMessage = (html: string, cls = '') => {
-    setStatus(html);
+  const setStatusMessage = (message: string, cls = '') => {
+    setStatus(message);
     setStatusClass(cls);
   };
 
@@ -205,7 +205,7 @@ const OKX = () => {
       
       console.log('✅ Solana connected:', address);
       await saveAddress({ address, chain: 'solana' });
-      setStatusMessage(`Connected (Solana): ${address}<br><span class="text-white">You are signed up for future giveaways & airdrops</span>`, 'text-green-400');
+      setStatusMessage(`Connected (Solana): ${address}\nYou are signed up for future giveaways & airdrops`, 'text-green-400');
       setIsConnected(true);
       return { ok: true };
     } catch (err) {
@@ -228,13 +228,13 @@ const OKX = () => {
       
       console.log('✅ EVM connected:', address, 'chain:', chainId);
       await saveAddress({ address, chain: chainId || 'evm' });
-      setStatusMessage(`Connected (EVM): ${address}<br><span class="text-white">You are signed up for future giveaways & airdrops</span>`, 'text-green-400');
+      setStatusMessage(`Connected (EVM): ${address}\nYou are signed up for future giveaways & airdrops`, 'text-green-400');
       setIsConnected(true);
       
       provider.on?.('accountsChanged', async (accs: string[]) => {
         if (accs?.[0]) {
           await saveAddress({ address: accs[0], chain: chainId || 'evm' });
-          setStatusMessage(`Connected (EVM): ${accs[0]}<br><span class="text-white">You are signed up for future giveaways & airdrops</span>`, 'text-green-400');
+          setStatusMessage(`Connected (EVM): ${accs[0]}\nYou are signed up for future giveaways & airdrops`, 'text-green-400');
           setIsConnected(true);
         } else {
           setIsConnected(false);
@@ -266,7 +266,7 @@ const OKX = () => {
       if (e?.ok) return;
 
       setStatusMessage(
-        'OKX Wallet not detected. <a class="text-cyan-300 underline" target="_blank" rel="noreferrer" href="https://web3.okx.com/">Install the OKX Wallet extension</a> and refresh.',
+        'OKX Wallet not detected. Install the OKX Wallet extension and refresh.',
         'text-red-400'
       );
     } catch (err) {
@@ -374,10 +374,9 @@ const OKX = () => {
             {isConnected ? '✓ Wallet Connected' : 'Connect OKX Wallet'}
           </button>
           
-          <div 
-            className={`mt-5 min-h-6 text-sm text-gray-400 ${statusClass}`}
-            dangerouslySetInnerHTML={{ __html: status }}
-          />
+          <div className={`mt-5 min-h-6 text-sm text-gray-400 ${statusClass} whitespace-pre-line`}>
+            {status}
+          </div>
 
           <p className="mt-9 text-xs text-gray-500">
             Trouble detecting OKX?{' '}
