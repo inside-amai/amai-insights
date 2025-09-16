@@ -205,7 +205,7 @@ const OKX = () => {
       
       console.log('✅ Solana connected:', address);
       await saveAddress({ address, chain: 'solana' });
-      setStatusMessage(`Connected (Solana): ${address}`, 'text-green-400');
+      setStatusMessage(`Connected (Solana): ${address}<br><span class="text-white">You are signed up for future giveaways & airdrops</span>`, 'text-green-400');
       setIsConnected(true);
       return { ok: true };
     } catch (err) {
@@ -228,13 +228,13 @@ const OKX = () => {
       
       console.log('✅ EVM connected:', address, 'chain:', chainId);
       await saveAddress({ address, chain: chainId || 'evm' });
-      setStatusMessage(`Connected (EVM): ${address}`, 'text-green-400');
+      setStatusMessage(`Connected (EVM): ${address}<br><span class="text-white">You are signed up for future giveaways & airdrops</span>`, 'text-green-400');
       setIsConnected(true);
       
       provider.on?.('accountsChanged', async (accs: string[]) => {
         if (accs?.[0]) {
           await saveAddress({ address: accs[0], chain: chainId || 'evm' });
-          setStatusMessage(`Connected (EVM): ${accs[0]}`, 'text-green-400');
+          setStatusMessage(`Connected (EVM): ${accs[0]}<br><span class="text-white">You are signed up for future giveaways & airdrops</span>`, 'text-green-400');
           setIsConnected(true);
         } else {
           setIsConnected(false);
