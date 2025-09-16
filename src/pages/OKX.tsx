@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import amaiXLogo from '@/assets/amai-x-logo.png';
 
 const OKX = () => {
   const [status, setStatus] = useState('');
@@ -242,9 +243,13 @@ const OKX = () => {
       {/* Main Content */}
       <main className="relative z-10 min-h-screen flex items-center justify-center font-sans pt-20">
         <div className="w-full max-w-4xl mx-auto text-center px-6 py-12">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal tracking-wide mb-4 text-white">
-            AMAI x OKX
-          </h1>
+          <div className="mb-4 flex justify-center">
+            <img 
+              src={amaiXLogo} 
+              alt="AMAI x OKX" 
+              className="h-16 md:h-20 lg:h-24 w-auto"
+            />
+          </div>
           <p className="text-gray-400 mb-7">
             connect your OKX wallet — addresses are logged for future giveaways
           </p>
