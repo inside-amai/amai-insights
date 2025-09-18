@@ -64,7 +64,7 @@ const whitepaperSections = [
   {
     slug: 'roadmap-milestones',
     title: 'Roadmap & Milestones',
-    description: 'Phase-by-phase march from 10 k-bot MVP → 1 B-agent economy by 2030.',
+    description: 'Phase-by-phase march from today → 1 B-agent economy by 2030.',
     eyebrow: 'Timeline'
   },
   {
