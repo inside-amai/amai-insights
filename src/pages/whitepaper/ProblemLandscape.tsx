@@ -20,7 +20,7 @@ const ProblemLandscape = () => {
         {/* Content */}
          <div className="space-y-8">
           <div>
-            <h2 className="text-2xl font-bold text-white mb-6">Demographic decline, brittle DeFi, and isolated AI wallets — the pain AMAI fixes</h2>
+            <h2 className="text-2xl font-bold text-white mb-6">Demographic decline, brittle DeFi, and isolated AI wallets: the pain AMAI fixes</h2>
             
             <p className="text-gray-300 leading-relaxed mb-6">
               Global forces are creating a perfect storm that only on-chain, capitalized agents can calm. Below are the six systemic bottlenecks AMAI is designed to break.
