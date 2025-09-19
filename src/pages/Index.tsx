@@ -38,16 +38,16 @@ const whitepaperSections = [
     eyebrow: 'Core Platform'
   },
   {
-    slug: 'token',
-    title: 'The Token',
-    description: 'AMAI utility token, bonded collateral',
-    eyebrow: 'Token'
-  },
-  {
     slug: 'problem-landscape',
     title: 'Problem & Opportunity',
     description: 'Demographic decline, brittle DeFi, and isolated AI wallets: the pain AMAI fixes',
     eyebrow: 'Problem'
+  },
+  {
+    slug: 'token',
+    title: 'The Token',
+    description: 'AMAI utility token, bonded collateral',
+    eyebrow: 'Token'
   },
   {
     slug: 'system-architecture',
@@ -72,19 +72,7 @@ const whitepaperSections = [
     title: 'Roadmap & Milestones',
     description: 'Phase-by-phase march from today → 1 B-agent economy by 2030.',
     eyebrow: 'Timeline'
-  },
-  {
-    slug: 'token',
-    title: 'The Token',
-    description: 'AMAI utility token, bonded collateral',
-    eyebrow: 'Token'
-  },
-  {
-    slug: 'problem-landscape',
-    title: 'Problem & Opportunity',
-    description: 'Demographic decline, brittle DeFi, and isolated AI wallets: the pain AMAI fixes',
-    eyebrow: 'Problem'
-  },
+  }
 ];
 
 const Index = () => {
