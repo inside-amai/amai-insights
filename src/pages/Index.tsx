@@ -38,6 +38,12 @@ const whitepaperSections = [
     eyebrow: 'Core Platform'
   },
   {
+    slug: 'token',
+    title: 'The Token',
+    description: 'AMAI utility token, bonded collateral',
+    eyebrow: 'Token'
+  },
+  {
     slug: 'problem-landscape',
     title: 'Problem & Opportunity',
     description: 'Demographic decline, brittle DeFi, and isolated AI wallets: the pain AMAI fixes',
@@ -69,10 +75,16 @@ const whitepaperSections = [
   },
   {
     slug: 'token',
-    title: 'Token Utility',
-    description: 'Utility-only AMAI token, burn mechanics, circuit-breaker governance, key risks.',
+    title: 'The Token',
+    description: 'AMAI utility token, bonded collateral',
     eyebrow: 'Token'
-  }
+  },
+  {
+    slug: 'problem-landscape',
+    title: 'Problem & Opportunity',
+    description: 'Demographic decline, brittle DeFi, and isolated AI wallets: the pain AMAI fixes',
+    eyebrow: 'Problem'
+  },
 ];
 
 const Index = () => {
