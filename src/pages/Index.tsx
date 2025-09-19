@@ -39,8 +39,8 @@ const whitepaperSections = [
   },
   {
     slug: 'problem-landscape',
-    title: 'Problem Landscape',
-    description: 'Demographic decline, brittle DeFi, and off-chain AI wallets.',
+    title: 'Problem & Opportunity',
+    description: 'Demographic decline, brittle DeFi, and isolated AI wallets: the pain AMAI fixes',
     eyebrow: 'Problem'
   },
   {
