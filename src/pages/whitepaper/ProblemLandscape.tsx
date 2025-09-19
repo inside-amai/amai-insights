@@ -5,7 +5,7 @@ const ProblemLandscape = () => {
   return (
     <WhitepaperLayout
       eyebrow="Problem"
-      title="Problem Landscape"
+      title="Problem & Opportunity"
     >
       <div className="space-y-8">
         {/* Hero Image */}
