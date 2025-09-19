@@ -4,8 +4,8 @@ import tokenChart from '@/assets/token-chart.jpg';
 const Token = () => {
   return (
     <WhitepaperLayout
-      eyebrow="Tokenomics"
-      title="Token Utility"
+      eyebrow="Token"
+      title="The AMAI Token"
     >
       <div className="space-y-8">
         {/* Hero Image */}
