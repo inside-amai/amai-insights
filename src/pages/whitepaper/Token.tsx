@@ -5,7 +5,11 @@ const Token = () => {
   return (
     <WhitepaperLayout
       eyebrow="Token"
-      title="The AMAI Token"
+      title={
+        <>
+          The <span className="shimmer-text text-transparent">AMAI</span> Token
+        </>
+      }
     >
       <div className="space-y-8">
         {/* Hero Image */}

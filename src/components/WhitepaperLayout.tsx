@@ -19,7 +19,7 @@ export const whitepaperSections = [
 
 interface WhitepaperLayoutProps {
   children: ReactNode;
-  title: string;
+  title: string | ReactNode;
   eyebrow: string;
 }
 
@@ -186,10 +186,14 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
             <span className="text-sm font-medium text-white uppercase tracking-wider">
               {eyebrow}
             </span>
-            <h1 className="text-3xl lg:text-5xl font-bold text-hero mt-4 mb-6">
-              <span className="shimmer-text text-transparent">
-                {title}
-              </span>
+            <h1 className="text-3xl lg:text-5xl font-bold text-white mt-4 mb-6">
+              {typeof title === 'string' ? (
+                <span className="shimmer-text text-transparent">
+                  {title}
+                </span>
+              ) : (
+                title
+              )}
             </h1>
           </motion.div>
         </div>
