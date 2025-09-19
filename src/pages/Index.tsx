@@ -39,7 +39,7 @@ const whitepaperSections = [
   },
   {
     slug: 'problem-landscape',
-    title: 'Problem & Opportunity',
+    title: 'The Problem',
     description: 'Demographic decline, brittle DeFi, and isolated AI wallets: the pain AMAI fixes',
     eyebrow: 'Problem'
   },
