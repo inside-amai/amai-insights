@@ -7,7 +7,7 @@ import terminalDemo from '@/assets/terminal-demo.jpg';
 const PlatformOverview = () => {
   return (
     <WhitepaperLayout
-      eyebrow="Core Platform"
+      eyebrow="Core"
       title="Platform"
     >
       {/* Reading time indicator */}

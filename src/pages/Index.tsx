@@ -33,7 +33,7 @@ const whitepaperSections = [
   },
   {
     slug: 'platform-overview',
-    title: 'Platform Overview',
+    title: 'The Platform',
     description: 'AI Terminal with autonomous operations and real-time execution capabilities.',
     eyebrow: 'Core Platform'
   },
