@@ -21,7 +21,7 @@ import tokenChart from '@/assets/token-chart.jpg';
 const whitepaperSections = [
   {
     slug: 'summary-vision',
-    title: 'Summary & Vision',
+    title: 'The Vision',
     description: 'Why a billion capitalized agents = the next GDP engine.',
     eyebrow: 'Overview'
   },
