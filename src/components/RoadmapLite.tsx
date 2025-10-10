@@ -37,7 +37,7 @@ const RoadmapLite = () => {
   }, []);
 
   return (
-    <section className="bg-black py-16 text-white font-[Satoshi]" ref={roadmapRef}>
+    <section className="bg-black py-16 text-white" ref={roadmapRef}>
       <div className="container mx-auto px-4">
         {/* Heading Block */}
         <div className="text-center mb-12">

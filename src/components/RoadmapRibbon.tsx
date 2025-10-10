@@ -46,7 +46,7 @@ const RoadmapRibbon = () => {
   }, []);
 
   return (
-    <section className="bg-black py-20 text-white font-[Satoshi]" ref={ribbonRef}>
+    <section className="bg-black py-20 text-white" ref={ribbonRef}>
       <div className="container mx-auto px-6">
         {/* Centered Headings */}
         <div className="text-center mb-16">
