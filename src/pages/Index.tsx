@@ -6,7 +6,6 @@ import { ArrowRight, Moon, Star, Zap } from 'lucide-react';
 import { ExplainerHero } from '@/components/ExplainerHero';
 import { ExplainerSection } from '@/components/ExplainerSection';
 import { ExplainerFAQ } from '@/components/ExplainerFAQ';
-import RoadmapRibbon from '@/components/RoadmapRibbon';
 import { WhitepaperCard } from '@/components/WhitepaperCard';
 import { Header } from '@/components/Header';
 import { TermsModal } from '@/components/TermsModal';
@@ -230,10 +229,7 @@ const Index = () => {
 
 
 
-        {/* Roadmap - Sleek 3-stage Ribbon */}
-        <RoadmapRibbon />
-
-      {/* Decorative Zapier Icon - positioned after roadmap */}
+      {/* Decorative Zapier Icon */}
       <div className="relative bg-black py-8 overflow-hidden">
         <div className="container mx-auto px-6">
           <div className="flex justify-end pr-4 md:pr-24">
