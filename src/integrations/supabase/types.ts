@@ -14,50 +14,97 @@ export type Database = {
   }
   public: {
     Tables: {
+      agent_events: {
+        Row: {
+          agent_id: string
+          id: number
+          ref_json: Json | null
+          ts: string
+          type: string
+        }
+        Insert: {
+          agent_id: string
+          id?: number
+          ref_json?: Json | null
+          ts?: string
+          type: string
+        }
+        Update: {
+          agent_id?: string
+          id?: number
+          ref_json?: Json | null
+          ts?: string
+          type?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "agent_events_agent_id_fkey"
+            columns: ["agent_id"]
+            isOneToOne: false
+            referencedRelation: "agents"
+            referencedColumns: ["agent_id"]
+          },
+        ]
+      }
       agents: {
         Row: {
-          avatar_url: string | null
+          agent_id: string
+          avatar_uri: string
           created_at: string
-          id: string
+          display_name: string
+          external_owner: string | null
           meta: Json | null
-          name: string
+          metadata_uri: string | null
+          model_version: string
+          owner: string
           skills: string[] | null
-          status: string | null
-          sui_address: string | null
+          status: string
+          sui_object_id: string | null
           tier: string | null
           treasury: number | null
-          trust_score: number | null
-          type: string
+          trust_ceiling: number
+          trust_raw: number
+          type: string | null
           updated_at: string
         }
         Insert: {
-          avatar_url?: string | null
+          agent_id: string
+          avatar_uri: string
           created_at?: string
-          id: string
+          display_name: string
+          external_owner?: string | null
           meta?: Json | null
-          name: string
+          metadata_uri?: string | null
+          model_version?: string
+          owner: string
           skills?: string[] | null
-          status?: string | null
-          sui_address?: string | null
+          status?: string
+          sui_object_id?: string | null
           tier?: string | null
           treasury?: number | null
-          trust_score?: number | null
-          type: string
+          trust_ceiling?: number
+          trust_raw?: number
+          type?: string | null
           updated_at?: string
         }
         Update: {
-          avatar_url?: string | null
+          agent_id?: string
+          avatar_uri?: string
           created_at?: string
-          id?: string
+          display_name?: string
+          external_owner?: string | null
           meta?: Json | null
-          name?: string
+          metadata_uri?: string | null
+          model_version?: string
+          owner?: string
           skills?: string[] | null
-          status?: string | null
-          sui_address?: string | null
+          status?: string
+          sui_object_id?: string | null
           tier?: string | null
           treasury?: number | null
-          trust_score?: number | null
-          type?: string
+          trust_ceiling?: number
+          trust_raw?: number
+          type?: string | null
           updated_at?: string
         }
         Relationships: []
@@ -421,22 +468,7 @@ export type Database = {
           id?: string
           swarm_id?: string
         }
-        Relationships: [
-          {
-            foreignKeyName: "swarm_members_agent_id_fkey"
-            columns: ["agent_id"]
-            isOneToOne: false
-            referencedRelation: "agents"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "swarm_members_swarm_id_fkey"
-            columns: ["swarm_id"]
-            isOneToOne: false
-            referencedRelation: "agents"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
     }
     Views: {
@@ -467,10 +499,7 @@ export type Database = {
         Args: { pause: boolean; swarm_id: string }
         Returns: undefined
       }
-      get_current_user_wallet_address: {
-        Args: Record<PropertyKey, never>
-        Returns: string
-      }
+      get_current_user_wallet_address: { Args: never; Returns: string }
       get_follower_count: {
         Args: { user_sui_address: string }
         Returns: number
@@ -480,7 +509,7 @@ export type Database = {
         Returns: number
       }
       get_okx_connections_for_admin: {
-        Args: Record<PropertyKey, never>
+        Args: never
         Returns: {
           address: string
           chain: string
@@ -508,11 +537,14 @@ export type Database = {
           sui_address: string
           verification_request: Json | null
         }
+        SetofOptions: {
+          from: "*"
+          to: "profiles"
+          isOneToOne: true
+          isSetofReturn: false
+        }
       }
-      get_post_like_count: {
-        Args: { post_uuid: string }
-        Returns: number
-      }
+      get_post_like_count: { Args: { post_uuid: string }; Returns: number }
       get_safe_profile_data: {
         Args: { profile_sui_address: string }
         Returns: {
@@ -534,10 +566,23 @@ export type Database = {
         Args: { verification_data: Json }
         Returns: undefined
       }
-      user_liked_post: {
-        Args: { post_uuid: string }
-        Returns: boolean
+      upsert_agent: {
+        Args: {
+          p_agent_id: string
+          p_avatar_uri?: string
+          p_display_name: string
+          p_meta?: Json
+          p_owner: string
+          p_skills?: string[]
+          p_status?: string
+          p_tier?: string
+          p_treasury?: number
+          p_trust_raw?: number
+          p_type?: string
+        }
+        Returns: undefined
       }
+      user_liked_post: { Args: { post_uuid: string }; Returns: boolean }
     }
     Enums: {
       [_ in never]: never

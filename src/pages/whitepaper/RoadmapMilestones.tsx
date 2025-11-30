@@ -1,136 +1,406 @@
-import { WhitepaperLayout } from '@/components/WhitepaperLayout';
-import terminalDemo from '@/assets/terminal-demo.jpg';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 
 const RoadmapMilestones = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
+  const phases = [
+    {
+      title: "The Foundation Layer",
+      subtitle: "Phase I — Core Infrastructure",
+      timeline: "0–6 Months",
+      items: [
+        "Agent identity + wallet provisioning",
+        "Bonded reputation layer (trust primitives)",
+        "Swarm coordination framework",
+        "Sui protocol integration (PTB execution)",
+        "Developer SDKs + early agent templates"
+      ],
+      outcome: "AMAI becomes the base layer for autonomous AI systems: identity, memory, trust, and deterministic execution.",
+      background: "linear-gradient(to bottom, hsl(0 0% 100%), hsl(0 0% 40%))",
+      meshOpacity: 0.1
+    },
+    {
+      title: "The Demand Layer",
+      subtitle: "Phase II — Global Early Access",
+      timeline: "6–12 Months",
+      items: [
+        "AMAI Agent Terminal (create & configure agents)",
+        "Multi-region waitlist and developer onboarding",
+        "Enterprise pilot programs",
+        "Swarm templates for finance, research, and operations",
+        "AMAI Knowledge Graph (shared embeddings and memory)"
+      ],
+      outcome: "Massive global anticipation — developers, enterprises, and early agents preparing to onboard.",
+      background: "linear-gradient(to bottom, hsl(0 0% 10%), hsl(0 0% 20%))",
+      showSilhouettes: true
+    },
+    {
+      title: "The Public Layer",
+      subtitle: "Phase III — Platform Launch",
+      timeline: "12–15 Months",
+      items: [
+        "Public release of the AMAI platform",
+        "Live agent-to-agent settlement",
+        "Swarm markets and mission boards",
+        "Skill packs, strategy modules, and orchestration tools",
+        "Distribution partnerships (Sui Hub + global compute)"
+      ],
+      outcome: "AMAI shifts from architecture → global platform. Autonomous agents become accessible to everyone.",
+      background: "hsl(0 0% 100%)",
+      showFloatingUI: true
+    },
+    {
+      title: "The Infrastructure Layer",
+      subtitle: "Phase IV — Compute & Edge Expansion",
+      timeline: "15–30 Months",
+      items: [
+        "AMAI Compute: GPU-optimized agent runtime racks",
+        "AMAI Edge Nodes: localized execution units for enterprises + cities",
+        "AMAI Home Hub: limited edition personal agent device",
+        "Enterprise deployment suite (dashboards + compliance)"
+      ],
+      outcome: "AMAI becomes an AI infrastructure provider — not just a platform.",
+      background: "hsl(0 0% 0%)",
+      showHardware: true
+    },
+    {
+      title: "The Machine Economy Layer",
+      subtitle: "Phase V — Global Machine Economy",
+      timeline: "30+ Months",
+      items: [
+        "Autonomous enterprise modules (supply chain, energy, operations)",
+        "Sovereign deployments (smart city orchestration, AI governance helpers)",
+        "Multi-cloud, cross-chain agent interoperability",
+        "Machine-to-machine contracting + autonomous revenue flows"
+      ],
+      outcome: "AMAI becomes the economic operating system for autonomous agents — across industries, geographies, and sovereign institutions.",
+      background: "linear-gradient(to bottom, hsl(0 0% 5%), hsl(0 0% 15%))",
+      showOrb: true
+    },
+    {
+      title: "Vision Slide",
+      subtitle: "AMAI is building the economic architecture of the AI era.",
+      timeline: "",
+      items: [],
+      outcome: "Identity. Credibility. Coordination. Settlement. For every agent. Everywhere.",
+      outro: "A new kind of infrastructure — for a new kind of intelligence.",
+      background: "linear-gradient(to bottom, hsl(0 0% 0%), hsl(0 0% 10%))",
+      isVision: true
+    }
+  ];
+
   return (
-    <WhitepaperLayout
-      eyebrow="Timeline"
-      title="Roadmap & Milestones"
+    <div ref={containerRef} className="bg-background">
+      {/* Hero Title */}
+      <div className="min-h-screen flex items-center justify-center sticky top-0">
+        <motion.div 
+          className="text-center px-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h1 className="text-6xl md:text-8xl font-bold text-foreground mb-4">
+            AMAI Roadmap
+          </h1>
+          <p className="text-xl md:text-2xl text-muted-foreground">
+            Apple-Style Sliding Panels
+          </p>
+          <p className="text-base md:text-lg text-muted-foreground mt-2">
+            Scroll → Each Phase Slides Into View With Smooth Motion + Parallax
+          </p>
+        </motion.div>
+      </div>
+
+      {/* Panels */}
+      {phases.map((phase, index) => (
+        <RoadmapPanel 
+          key={index} 
+          phase={phase} 
+          index={index}
+          totalPanels={phases.length}
+        />
+      ))}
+    </div>
+  );
+};
+
+interface Phase {
+  title: string;
+  subtitle: string;
+  timeline: string;
+  items: string[];
+  outcome: string;
+  outro?: string;
+  background: string;
+  meshOpacity?: number;
+  showSilhouettes?: boolean;
+  showFloatingUI?: boolean;
+  showHardware?: boolean;
+  showOrb?: boolean;
+  isVision?: boolean;
+}
+
+const RoadmapPanel = ({ 
+  phase, 
+  index,
+  totalPanels 
+}: { 
+  phase: Phase; 
+  index: number;
+  totalPanels: number;
+}) => {
+  const panelRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: panelRef,
+    offset: ["start end", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.95, 1, 1, 0.95]);
+
+  const textColor = index === 2 || index === 0 ? "text-gray-900" : "text-white";
+  const isDark = index !== 2 && index !== 0;
+
+  return (
+    <motion.div
+      ref={panelRef}
+      className="min-h-screen relative flex items-center justify-center overflow-hidden"
+      style={{
+        background: phase.background,
+      }}
     >
-      <div className="space-y-8">
-        {/* Hero Image */}
-        <div className="relative overflow-hidden rounded-xl">
-          <img 
-            src="/lovable-uploads/9d46be81-0218-437e-b5e6-8c5bfdf67f64.png" 
-            alt="Roadmap & Milestones"
-            className="w-full h-64 lg:h-80 object-cover"
+      {/* Background Effects */}
+      {phase.meshOpacity && (
+        <div 
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: `
+              linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent),
+              linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent)
+            `,
+            backgroundSize: '50px 50px'
+          }}
+        />
+      )}
+
+      {phase.showSilhouettes && (
+        <div className="absolute inset-0 flex items-center justify-center opacity-20">
+          {[...Array(12)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-12 h-12 rounded-full bg-white/30"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                y: [0, -20, 0],
+                x: [0, Math.random() * 20 - 10, 0],
+              }}
+              transition={{
+                duration: 3 + Math.random() * 2,
+                repeat: Infinity,
+                delay: Math.random() * 2,
+              }}
+            />
+          ))}
+        </div>
+      )}
+
+      {phase.showFloatingUI && (
+        <div className="absolute inset-0 flex items-center justify-center opacity-10">
+          {[...Array(8)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-32 h-24 border-2 border-gray-400 rounded-lg"
+              style={{
+                left: `${20 + (i % 4) * 20}%`,
+                top: `${20 + Math.floor(i / 4) * 40}%`,
+              }}
+              animate={{
+                y: [0, -15, 0],
+                rotate: [0, 5, 0],
+              }}
+              transition={{
+                duration: 4 + Math.random(),
+                repeat: Infinity,
+                delay: Math.random() * 2,
+              }}
+            />
+          ))}
+        </div>
+      )}
+
+      {phase.showHardware && (
+        <div className="absolute inset-0 flex items-center justify-center opacity-20">
+          <motion.div
+            className="w-64 h-48 bg-gradient-to-b from-gray-700 to-gray-900 rounded-2xl"
+            animate={{
+              scale: [1, 1.05, 1],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+            }}
           />
         </div>
+      )}
 
-        {/* Content */}
-        <div className="prose prose-lg max-w-none text-white">
-          <p className="text-gray-300 leading-relaxed mb-6">
-            The AMAI roadmap is structured around clear milestones that progressively expand the system's capabilities, from the first agents appearing in the Global Lobby, to bonded trust, multi-agent swarms, and finally a fully composable skill and royalty economy. Each phase builds directly on the primitives introduced before it, and the phased design ensures sustained momentum, engagement, and community excitement as the platform evolves.
-          </p>
-
-          <h2 className="text-3xl font-bold text-white mt-8 mb-6">Upcoming: Agents & Global Lobby</h2>
-          
-          <p className="text-gray-300 leading-relaxed mb-4">
-            <strong>Twitter + Platform Flows:</strong> Spawn agents by tagging AMAI on Twitter or through wallet connect on the platform.
-          </p>
-
-          <p className="text-gray-300 leading-relaxed mb-4">
-            <strong>Agent Identity:</strong> Each agent minted as a non-transferable Soulbound Token (SBT).
-          </p>
-
-          <p className="text-gray-300 leading-relaxed mb-4">
-            <strong>Global Lobby:</strong> Real-time dashboard displaying all active agents, their trust, and activity.
-          </p>
-
-          <p className="text-gray-300 leading-relaxed mb-4">
-            <strong>Quick Tasks:</strong> Agents carry out tasks such as price snapshots, wallet reads, news briefs, and alerts.
-          </p>
-
-          <p className="text-gray-300 leading-relaxed mb-6">
-            <strong>Trust System:</strong> Basic attestation model with unbonded/bonded caps, trust ticks, and badges.
-          </p>
-
-          <p className="text-gray-300 leading-relaxed mb-8 font-semibold">
-            Objective: Drive users to mint agents on our platform. Every agent action produces visible activity, and over time users will be able to upgrade their agents with new capabilities as features roll out.
-          </p>
-
-          <div className="border-t border-gray-600 my-8"></div>
-
-          <h2 className="text-3xl font-bold text-white mt-8 mb-6">2025 Q4 → 2026: Bonded Trust & Swarms</h2>
-          
-          <p className="text-gray-300 leading-relaxed mb-4">
-            <strong>Bonded Trust:</strong> Agents post collateral to raise their trust ceilings, bonding activates agents beyond their initial state, bringing them fully to life with higher accountability and slashing mechanics.
-          </p>
-
-          <p className="text-gray-300 leading-relaxed mb-4">
-            <strong>Hourly Oracles:</strong> Trust scores updated continuously based on verified actions and uptime.
-          </p>
-
-          <p className="text-gray-300 leading-relaxed mb-4">
-            <strong>Multi-Agent Swarms:</strong> Users can compose agents into swarms that cooperate on consensus tasks and coordinated strategies.
-          </p>
-
-          <p className="text-gray-300 leading-relaxed mb-6">
-            <strong>Swarm SBTs:</strong> Swarms themselves become first-class on-chain objects with collective trust and bonding.
-          </p>
-
-          <p className="text-gray-300 leading-relaxed mb-8 font-semibold">
-            Objective: Transition from individual experimentation to network effects, where bonded agents and swarms form the backbone of the machine-first economy.
-          </p>
-
-          <div className="border-t border-gray-600 my-8"></div>
-
-          <h2 className="text-3xl font-bold text-white mt-8 mb-6">2026+: Skills, KIPs & Royalties</h2>
-          
-          <p className="text-gray-300 leading-relaxed mb-4">
-            <strong>Verified Skills (KIPs):</strong> Agents attach kernelized skills, datasets, and modules registered on-chain.
-          </p>
-
-          <p className="text-gray-300 leading-relaxed mb-4">
-            <strong>Skill Marketplace:</strong> Transferable skills unlock new agent abilities, discoverable and composable through the Lobby.
-          </p>
-
-          <p className="text-gray-300 leading-relaxed mb-4">
-            <strong>Royalty Routing:</strong> On-chain PTB splitter ensures upstream contributors to skills, data, and agents are paid automatically.
-          </p>
-
-          <p className="text-gray-300 leading-relaxed mb-6">
-            <strong>Advanced Indexing:</strong> Off-chain indexers stream rich analytics, swarm performance dashboards, and global trust telemetry.
-          </p>
-
-          <p className="text-gray-300 leading-relaxed mb-8 font-semibold">
-            Objective: Complete the AMAI platform vision, a fully composable agent ecosystem with earned trust, cooperative swarms, verified skills, and automatic royalties.
-          </p>
-
-          <div className="border-t border-gray-600 my-8"></div>
-
-          <h2 className="text-3xl font-bold text-white mt-8 mb-6">2027+: Sovereign Agent Mesh</h2>
-          
-          <p className="text-gray-300 leading-relaxed mb-6">
-            AMAI evolves into a Sovereign Agent Mesh: local-first agents with encrypted personal knowledge that coordinate across a privacy-preserving mesh and orchestrate swarms. Roles like Scout, Analyst, Closer, and Sentinel operate across voice, desktop, and AR. Continuous tool use, long memory, and policy gates keep actions safe and aligned. The why: users keep custody of data, latency drops, and swarms feel like dependable teammates rather than black boxes.
-          </p>
-
-          <p className="text-gray-300 leading-relaxed mb-6">
-            Finance becomes autonomous and accountable. RWA Capital Stack Autopilot manages end-to-end deal flow across real estate, crypto, and private credit, then routes treasury, tax, and programmable risk budgets with multi-sig oversight. Swarms are treated like individuals: they onboard with legal wrappers, hold rights, sign adaptive smart agreements, and accrue reputational ledgers that unlock larger mandates. Governance and revenue rails provide a policy engine for autonomy levels, data rights, and red-team challenge, plus native billing, affiliate, subscriptions, tipping, and on-chain rev-share in the marketplace.
-          </p>
-
-          <p className="text-gray-300 leading-relaxed mb-6">
-            Think of this phase as the moment agents stop behaving like tools and start acting like institutions. The mesh remembers, reasons, and pays its own way within clear human boundaries. We open doors only when safety, economics, and law align, so what arrives feels simple, playful, and inevitable.
-          </p>
-
-          <p className="text-gray-300 leading-relaxed mb-8">
-            Looking ahead, every milestone tightens the feedback loop between agents, builders and participants, driving us toward a billion on-chain agents by 2030.
-          </p>
-
-          <div className="border-t border-gray-600 my-8"></div>
-
-          <h2 className="text-3xl font-bold text-white mt-8 mb-6">Trajectory</h2>
-          
-          <p className="text-gray-300 leading-relaxed mb-6">
-            This roadmap reflects AMAI's design philosophy: start with a bold, viral MVP that makes activity visible, then progressively layer in deeper primitives (bonding, swarms, skills) until the full system is running end-to-end. This phased approach is designed to maintain momentum, keep the community engaged, and sustain excitement at every stage of growth.
-          </p>
-
-          <p className="text-gray-300 leading-relaxed mb-8">
-            Each milestone is both a functional upgrade and a step toward scaling from thousands of agents to billions.
-          </p>
+      {phase.showOrb && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <motion.div
+            className="w-96 h-96 rounded-full opacity-30"
+            style={{
+              background: 'radial-gradient(circle, hsl(var(--cyan-accent)), hsl(var(--purple-accent)))',
+              filter: 'blur(60px)',
+            }}
+            animate={{
+              scale: [1, 1.2, 1],
+              rotate: [0, 180, 360],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+            }}
+          />
+          {[...Array(20)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 rounded-full bg-cyan-400/50"
+              style={{
+                left: '50%',
+                top: '50%',
+              }}
+              animate={{
+                x: Math.cos((i / 20) * Math.PI * 2) * 200,
+                y: Math.sin((i / 20) * Math.PI * 2) * 200,
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+            />
+          ))}
         </div>
-      </div>
-    </WhitepaperLayout>
+      )}
+
+      {phase.isVision && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <motion.div
+            className="relative"
+            animate={{
+              y: [0, -20, 0],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+            }}
+          >
+            {/* AMAI Butterfly - using gradient colors */}
+            <div 
+              className="w-32 h-32 rounded-full opacity-60"
+              style={{
+                background: 'radial-gradient(circle, hsl(var(--cyan-accent)) 0%, hsl(var(--purple-accent)) 100%)',
+                filter: 'blur(20px)',
+              }}
+            />
+          </motion.div>
+        </div>
+      )}
+
+      {/* Content */}
+      <motion.div
+        className="relative z-10 max-w-4xl mx-auto px-6 py-20"
+        style={{ y, opacity, scale }}
+      >
+        {!phase.isVision ? (
+          <>
+            <motion.div className="mb-12 text-center">
+              <h2 className={`text-5xl md:text-7xl font-bold ${textColor} mb-4`}>
+                {phase.title}
+              </h2>
+              <p className={`text-2xl md:text-3xl font-semibold ${textColor} mb-2`}>
+                {phase.subtitle}
+              </p>
+              {phase.timeline && (
+                <p className={`text-lg md:text-xl ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                  {phase.timeline}
+                </p>
+              )}
+            </motion.div>
+
+            {phase.items.length > 0 && (
+              <div className="mb-12 space-y-4">
+                <h3 className={`text-xl font-semibold ${textColor} mb-6`}>
+                  Build the Runtime for Autonomous Agents
+                </h3>
+                <ul className="space-y-3">
+                  {phase.items.map((item, i) => (
+                    <motion.li
+                      key={i}
+                      className={`text-lg ${isDark ? 'text-gray-300' : 'text-gray-700'} flex items-start`}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.1 }}
+                    >
+                      <span className={`mr-3 ${isDark ? 'text-cyan-400' : 'text-cyan-600'}`}>•</span>
+                      {item}
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            <motion.div 
+              className={`text-lg md:text-xl font-semibold ${textColor} p-6 rounded-2xl ${
+                isDark ? 'bg-white/5' : 'bg-gray-900/5'
+              }`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              <span className={`block mb-2 text-sm font-normal ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                Outcome:
+              </span>
+              {phase.outcome}
+            </motion.div>
+          </>
+        ) : (
+          <div className="text-center space-y-8">
+            <motion.h2 
+              className="text-4xl md:text-6xl font-bold text-white leading-tight"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+            >
+              {phase.subtitle}
+            </motion.h2>
+            <motion.p 
+              className="text-2xl md:text-3xl text-gray-300 leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              {phase.outcome}
+            </motion.p>
+            <motion.p 
+              className="text-xl md:text-2xl text-gray-400 italic"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              {phase.outro}
+            </motion.p>
+          </div>
+        )}
+      </motion.div>
+    </motion.div>
   );
 };
 
