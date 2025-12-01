@@ -41,7 +41,9 @@ const Background = () => {
           height: 100%;
           overflow: hidden;
           background: #0d0d0d;
-          z-index: -1;
+          z-index: 0;
+          perspective: 1000px;
+          perspective-origin: 50% 50%;
         }
 
         .tiles {
@@ -50,12 +52,17 @@ const Background = () => {
           grid-template-rows: repeat(12, 1fr);
           width: 120%;
           height: 120%;
+          transform-style: preserve-3d;
           transform: rotateX(55deg) rotateZ(45deg) translate(-10%, -10%);
+          position: absolute;
+          top: 0;
+          left: 0;
         }
 
         .tile-item {
           background: #111;
           border: 1px solid #1c1c1c;
+          transform-style: preserve-3d;
           animation: pulse 6s ease-in-out infinite;
           animation-delay: calc(var(--i) * -0.15s);
         }
