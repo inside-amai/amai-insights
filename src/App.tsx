@@ -28,6 +28,7 @@ import RoadmapMilestones from "./pages/whitepaper/RoadmapMilestones";
 import Token from "./pages/whitepaper/Token";
 import OurJourney from "./pages/whitepaper/OurJourney";
 import TierSelectorDemo from "./components/demo/TierSelectorDemo";
+import Background from "./pages/Background";
 
 const queryClient = new QueryClient();
 
@@ -59,6 +60,7 @@ const App = () => (
           <Route path="/whitepaper/token" element={<Token />} />
           <Route path="/whitepaper/Our-journey" element={<OurJourney />} />
           <Route path="/tier-demo" element={<TierSelectorDemo />} />
+          <Route path="/background" element={<Background />} />
           <Route path="/okx" element={<OKX />} />
           <Route path="/okx-admin" element={<OKXAdmin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
