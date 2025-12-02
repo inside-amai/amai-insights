@@ -9,6 +9,7 @@ import { AuthGuard } from "@/components/AuthGuard";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import Explainer from "./pages/Explainer";
+import Diagram from "./pages/Diagram";
 import TechnicalDocs from "./pages/TechnicalDocs";
 import GenesisMint from "./pages/GenesisMint";
 import FoundersMint from "./pages/FoundersMint";
@@ -59,6 +60,7 @@ const App = () => (
           <Route path="/whitepaper/token" element={<Token />} />
           <Route path="/whitepaper/Our-journey" element={<OurJourney />} />
           <Route path="/tier-demo" element={<TierSelectorDemo />} />
+          <Route path="/diagram" element={<Diagram />} />
           <Route path="/okx" element={<OKX />} />
           <Route path="/okx-admin" element={<OKXAdmin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
