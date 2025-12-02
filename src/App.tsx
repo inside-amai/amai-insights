@@ -29,7 +29,7 @@ import AgentEconomyKIPs from "./pages/whitepaper/AgentEconomyKIPs";
 import RoadmapMilestones from "./pages/whitepaper/RoadmapMilestones";
 import Token from "./pages/whitepaper/Token";
 import OurJourney from "./pages/whitepaper/OurJourney";
-import TierSelectorDemo from "./components/demo/TierSelectorDemo";
+
 
 const queryClient = new QueryClient();
 
@@ -60,7 +60,7 @@ const App = () => (
           <Route path="/whitepaper/roadmap-milestones" element={<RoadmapMilestones />} />
           <Route path="/whitepaper/token" element={<Token />} />
           <Route path="/whitepaper/Our-journey" element={<OurJourney />} />
-          <Route path="/tier-demo" element={<TierSelectorDemo />} />
+          
           <Route path="/diagram" element={<Diagram />} />
           <Route path="/ui" element={<UI />} />
           <Route path="/okx" element={<OKX />} />
