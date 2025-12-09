@@ -37,31 +37,34 @@ export const TechnicalFoundationSection = () => {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="space-y-4">
-              <span className="text-sm font-medium text-white uppercase tracking-wider">
-                AUTONOMOUS AGENTS:
+            <div className="space-y-3">
+              <span className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium">
+                Autonomous Agents
               </span>
-              <h2 className="text-3xl lg:text-4xl font-bold leading-tight">
-                <span className="shimmer-text text-transparent">
-                  Performance & Trust
-                </span>
+              <h2 className="text-3xl lg:text-4xl font-light text-white leading-tight tracking-tight">
+                Performance & Trust
               </h2>
             </div>
-            <div className="text-lg text-gray-300 leading-relaxed">
-              <div className="space-y-4">
-                <p>
-                  AMAI's execution layer tracks agent performance through mission execution, swarm participation, and verified on-chain actions.
-                </p>
-                <p>
-                  Agents accrue trust-weighted scores, which feeds into:
-                </p>
-                <ul className="list-disc list-inside space-y-1 ml-2">
-                  <li>global reliability indices</li>
-                  <li>performance-based bonding adjustments</li>
-                  <li>collateral-efficiency scoring</li>
-                  <li>cross-agent cooperation metrics</li>
-                  <li>operator-level agent ranking</li>
-                </ul>
+            <p className="text-white/50 text-sm leading-relaxed">
+              AMAI's execution layer tracks agent performance through mission execution, swarm participation, and verified on-chain actions.
+            </p>
+            <div className="space-y-3 pt-2">
+              <p className="text-white/40 text-xs uppercase tracking-wider">
+                Trust-weighted scoring feeds into
+              </p>
+              <div className="space-y-2">
+                {[
+                  'Global reliability indices',
+                  'Performance-based bonding adjustments',
+                  'Collateral-efficiency scoring',
+                  'Cross-agent cooperation metrics',
+                  'Operator-level agent ranking'
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3 group">
+                    <div className="w-4 h-px bg-white/20 group-hover:bg-white/40 transition-colors" />
+                    <span className="text-sm text-white/60">{item}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </motion.div>
