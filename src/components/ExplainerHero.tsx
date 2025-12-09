@@ -30,19 +30,62 @@ export const ExplainerHero = () => {
         {/* Faint vertical line */}
         <div className="absolute left-6 top-[15%] bottom-[15%] w-px bg-gradient-to-b from-transparent via-white/[0.04] to-transparent" />
         
-        {/* Subtle node points */}
-        <div className="absolute right-[15%] top-[30%] w-1 h-1 rounded-full bg-white/[0.05]" />
-        <div className="absolute right-[20%] top-[45%] w-1.5 h-1.5 rounded-full bg-white/[0.04]" />
-        <div className="absolute right-[12%] top-[60%] w-1 h-1 rounded-full bg-white/[0.05]" />
-        
-        {/* Connecting lines between nodes */}
-        <svg className="absolute right-[10%] top-[25%] w-[200px] h-[200px] opacity-[0.03]" viewBox="0 0 200 200">
-          <path d="M50,30 L100,80 L150,60 L120,140" stroke="white" strokeWidth="0.5" fill="none" />
-          <circle cx="50" cy="30" r="2" fill="white" />
-          <circle cx="100" cy="80" r="2" fill="white" />
-          <circle cx="150" cy="60" r="2" fill="white" />
-          <circle cx="120" cy="140" r="2" fill="white" />
+        {/* Constellation / Node cluster - agent network visualization */}
+        <svg className="absolute right-[5%] top-[10%] w-[400px] h-[400px] opacity-[0.04]" viewBox="0 0 400 400">
+          {/* Primary nodes */}
+          <circle cx="200" cy="180" r="3" fill="white" />
+          <circle cx="280" cy="120" r="2" fill="white" />
+          <circle cx="320" cy="200" r="2.5" fill="white" />
+          <circle cx="260" cy="280" r="2" fill="white" />
+          <circle cx="140" cy="240" r="2.5" fill="white" />
+          <circle cx="100" cy="140" r="2" fill="white" />
+          <circle cx="180" cy="320" r="1.5" fill="white" />
+          <circle cx="340" cy="300" r="1.5" fill="white" />
+          <circle cx="80" cy="280" r="1.5" fill="white" />
+          <circle cx="220" cy="80" r="1.5" fill="white" />
+          
+          {/* Secondary smaller nodes */}
+          <circle cx="240" cy="150" r="1" fill="white" />
+          <circle cx="300" cy="160" r="1" fill="white" />
+          <circle cx="160" cy="180" r="1" fill="white" />
+          <circle cx="290" cy="240" r="1" fill="white" />
+          <circle cx="120" cy="200" r="1" fill="white" />
+          
+          {/* Connection lines - distributed graph */}
+          <path d="M200,180 L280,120" stroke="white" strokeWidth="0.5" fill="none" />
+          <path d="M200,180 L320,200" stroke="white" strokeWidth="0.5" fill="none" />
+          <path d="M200,180 L260,280" stroke="white" strokeWidth="0.5" fill="none" />
+          <path d="M200,180 L140,240" stroke="white" strokeWidth="0.5" fill="none" />
+          <path d="M200,180 L100,140" stroke="white" strokeWidth="0.5" fill="none" />
+          <path d="M280,120 L320,200" stroke="white" strokeWidth="0.3" fill="none" />
+          <path d="M320,200 L260,280" stroke="white" strokeWidth="0.3" fill="none" />
+          <path d="M260,280 L180,320" stroke="white" strokeWidth="0.3" fill="none" />
+          <path d="M140,240 L80,280" stroke="white" strokeWidth="0.3" fill="none" />
+          <path d="M100,140 L220,80" stroke="white" strokeWidth="0.3" fill="none" />
+          <path d="M280,120 L220,80" stroke="white" strokeWidth="0.3" fill="none" />
+          <path d="M320,200 L340,300" stroke="white" strokeWidth="0.3" fill="none" />
+          <path d="M260,280 L340,300" stroke="white" strokeWidth="0.3" fill="none" />
         </svg>
+        
+        {/* Secondary smaller constellation - bottom left */}
+        <svg className="absolute left-[10%] bottom-[15%] w-[200px] h-[200px] opacity-[0.025]" viewBox="0 0 200 200">
+          <circle cx="100" cy="100" r="2" fill="white" />
+          <circle cx="60" cy="70" r="1.5" fill="white" />
+          <circle cx="140" cy="80" r="1.5" fill="white" />
+          <circle cx="80" cy="140" r="1.5" fill="white" />
+          <circle cx="130" cy="130" r="1" fill="white" />
+          <path d="M100,100 L60,70" stroke="white" strokeWidth="0.4" fill="none" />
+          <path d="M100,100 L140,80" stroke="white" strokeWidth="0.4" fill="none" />
+          <path d="M100,100 L80,140" stroke="white" strokeWidth="0.4" fill="none" />
+          <path d="M100,100 L130,130" stroke="white" strokeWidth="0.4" fill="none" />
+        </svg>
+        
+        {/* Micro-grid coordinate label - lower left */}
+        <div className="absolute left-6 bottom-8 font-mono text-[9px] tracking-[0.15em] text-white/[0.12]">
+          <span>X: 0007</span>
+          <span className="mx-2 text-white/[0.08]">/</span>
+          <span>Y: 0013</span>
+        </div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -52,10 +95,10 @@ export const ExplainerHero = () => {
           transition={{ duration: 1, ease: "easeOut" }}
           className="space-y-3 max-w-3xl"
         >
-          {/* Logo - reduced by additional ~20% */}
+          {/* Logo - 95% opacity for infra atmosphere */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
+            animate={{ opacity: 0.95, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <OptimizedImage 
