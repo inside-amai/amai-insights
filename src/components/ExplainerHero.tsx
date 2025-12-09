@@ -188,8 +188,8 @@ export const ExplainerHero = () => {
             className="text-4xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight"
           >
             Bringing A Billion Agents
-            <span className="block shimmer-text text-transparent">
-              On-Chain
+            <span className="block">
+              Into the <span className="shimmer-text text-transparent">Machine-First Economy</span>
             </span>
           </motion.h1>
 
