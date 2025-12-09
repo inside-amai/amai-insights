@@ -13,6 +13,7 @@ import { TechnicalFoundationSection } from '@/components/TechnicalFoundationSect
 import { Footer } from '@/components/Footer';
 import { AgentLayersSection } from '@/components/AgentLayersSection';
 import { OptimizedImage } from '@/components/OptimizedImage';
+import ArchitectureDiagram from '@/components/ArchitectureDiagram';
 import terminalDemo from '@/assets/terminal-demo.jpg';
 import circuitBoard from '@/assets/circuit-board.jpg';
 import tokenChart from '@/assets/token-chart.jpg';
@@ -89,50 +90,8 @@ const Index = () => {
       <div className="relative bg-black pt-8">
         <AgentLayersSection />
         
-        {/* SuiHub Section */}
-        <section className="relative bg-black py-16">
-          <div className="container mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-              {/* Image - Right Side on Desktop, First on Mobile */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="order-1 lg:order-2 lg:col-start-7 lg:col-span-6 relative overflow-hidden rounded-2xl"
-              >
-                <div className="relative">
-                  <OptimizedImage 
-                    src="/lovable-uploads/2001a109-342f-4ca5-8099-ddeedd693328.png"
-                    alt="SuiHub Partnership"
-                    className="w-full object-contain"
-                  />
-                </div>
-              </motion.div>
-
-              {/* Text Content - Left Side on Desktop, Second on Mobile */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-                className="order-2 lg:order-1 lg:col-start-1 lg:col-span-5 space-y-6"
-              >
-                <div className="space-y-3">
-                  <span className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium">
-                    Official
-                  </span>
-                  <h3 className="text-3xl lg:text-4xl font-light text-white leading-tight tracking-tight">
-                    SuiHub Integration
-                  </h3>
-                  <p className="text-sm text-white/50 leading-relaxed">
-                    A dedicated team of Sui engineers working alongside AMAI to refine core infrastructure and unlock scale + Joint Go-To-Market
-                  </p>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
+        {/* Architecture Diagram Section */}
+        <ArchitectureDiagram />
         
         <ExplainerSection
           eyebrow="Platform"
