@@ -3,18 +3,7 @@ import AgentArchitectureDiagram from './AgentArchitectureDiagram';
 
 export const TechnicalFoundationSection = () => {
   return (
-    <section className="min-h-screen flex items-center snap-start bg-black relative overflow-hidden">
-      {/* Animated Stars Background */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-2 h-2 animate-bounce" 
-             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '3s', animationDelay: '0s' }} />
-        <div className="absolute top-32 right-32 w-3 h-3 animate-pulse" 
-             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '4s', animationDelay: '1s' }} />
-        <div className="absolute bottom-40 left-40 w-2 h-2" 
-             style={{ background: '#A6FCFC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animation: 'drift 8s linear infinite' }} />
-        <div className="absolute bottom-20 right-20 w-3 h-3 animate-pulse" 
-             style={{ background: '#D6A6FC', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', animationDuration: '5s', animationDelay: '2s' }} />
-      </div>
+    <section className="min-h-screen flex items-center snap-start relative overflow-hidden">
       
       <div className="container mx-auto px-6 py-20 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center lg:grid-flow-dense">
