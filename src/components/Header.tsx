@@ -54,7 +54,6 @@ const whitepaperSections = [
 export const Header = () => {
   const location = useLocation();
   const isFoundersMintPage = location.pathname === '/founders-mint';
-  const isOKXPage = location.pathname === '/okx';
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -87,17 +86,6 @@ export const Header = () => {
             </div>
           )}
           
-          {/* Mobile Center Navigation for OKX page */}
-          {isOKXPage && (
-            <div className="absolute left-1/2 transform -translate-x-1/2 md:hidden">
-              <Link 
-                to="/"
-                className="text-white bg-transparent px-4 py-2 rounded-lg text-sm font-medium hover:bg-purple-600 transition-all duration-200"
-              >
-                Platform
-              </Link>
-            </div>
-          )}
           
           {/* Mobile Hamburger Menu - Only show when not on Founders Mint page */}
           {!isFoundersMintPage && (
@@ -111,16 +99,6 @@ export const Header = () => {
               </button>
             </div>
           )}
-          
-          {/* Center Navigation */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex items-center">
-            <Link 
-              to={isOKXPage ? "/" : "/okx"}
-              className="text-white bg-transparent px-4 py-2 rounded-lg text-sm font-medium hover:bg-purple-600 transition-all duration-200"
-            >
-              {isOKXPage ? "Platform" : "OKX Giveaway"}
-            </Link>
-          </div>
           
           {/* Future navigation items can go here for desktop */}
           {!isFoundersMintPage && (
@@ -143,20 +121,6 @@ export const Header = () => {
           >
             <div className="container mx-auto px-6 py-6">
               <div className="space-y-4">
-                <Link
-                  to="/okx"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block py-3 border-b border-gray-800"
-                >
-                  <div className="space-y-1">
-                    <div className="text-xs uppercase tracking-wider text-gray-500">
-                      Giveaway
-                    </div>
-                    <div className="text-white font-medium hover:text-purple-accent transition-colors">
-                      OKX Wallet Connect
-                    </div>
-                  </div>
-                </Link>
                 <div className="text-xs uppercase tracking-wider text-gray-400 mb-4">
                   Documentation
                 </div>
