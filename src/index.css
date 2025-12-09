@@ -415,9 +415,12 @@ All colors MUST be HSL.
   background-position: center center;
 }
 
-/* Perspective grid variant with depth */
-/* Simple black background for grid container */
+/* Perspective grid with isometric diamond pattern */
 .bg-perspective-grid {
   background-color: #000;
-  position: relative;
+  background-image: 
+    linear-gradient(45deg, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, transparent 0%, transparent 50%, rgba(0,0,0,0.8) 75%, #000 100%);
+  background-size: 50px 50px, 50px 50px, 100% 100%;
 }
