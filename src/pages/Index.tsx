@@ -159,6 +159,15 @@ const Index = () => {
               </motion.div>
             </div>
 
+            {/* Subtle divider with label */}
+            <div className="flex items-center gap-4 mb-10">
+              <div className="flex-1 h-px bg-white/[0.025]" />
+              <span className="text-[9px] tracking-[0.4em] uppercase text-white/20 font-medium">
+                Documentation Index
+              </span>
+              <div className="flex-1 h-px bg-white/[0.025]" />
+            </div>
+
             {/* Cards Grid */}
             <div className="grid gap-4 md:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
               {whitepaperSections.map((section, index) => (
