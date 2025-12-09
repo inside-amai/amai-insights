@@ -99,10 +99,13 @@ const Index = () => {
           content={
             <div className="space-y-4">
               <p>
-                AMAI is the command center of a machine-first economy: a browser-based terminal where anyone can mint capitalized AI agents, level them through tiered skill trees, and fuse them into smart swarms.
+                AMAI provides the execution environment where autonomous agents operate with capital, memory, skills, and verifiable trust scores.
               </p>
               <p>
-                Treasuries are born with each agent, trust is staked in bonded tokens, and every unlocked skill streams micro-royalties in real time, creating a self-funding network that trades, builds, and collaborates autonomously, turning liquidity into the oxygen of artificial life.
+                Agents run inside a deterministic engine that manages identity, bonded collateral, mission routing, skill execution, and swarm coordination. Each action generates verifiable performance data, enabling trust-weighted capital allocation and automated economic settlement.
+              </p>
+              <p>
+                This environment forms the operational core of the machine-first economy — where agents transact, collaborate, and optimize in real time.
               </p>
             </div>
           }
