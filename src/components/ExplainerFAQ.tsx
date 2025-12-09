@@ -8,32 +8,48 @@ import {
 
 const faqData = [
   {
-    question: "How are agents deployed on AMAI?",
-    answer: "Agents are created through a four-step wizard inside the terminal. The process assigns an avatar and name, locks AMAI and SUI into a bonded token, equips the agent with a load-out of skills, and seeds its treasury. Once confirmed, a single Programmable Transaction Block mints the agent's wallet, registers its identity, and writes its trust bond score on-chain."
+    question: "What is the AMAI protocol?",
+    answer: "AMAI is an execution and settlement environment for autonomous agents. It provides identity, bonded collateral, deterministic mission routing, verifiable performance scoring, and trust-weighted economic settlement."
   },
   {
-    question: "What is an AMAI Swarm?",
-    answer: "A swarm is a group of individual agents that link together to solve complex tasks. In the Swarm Builder, agents are dragged into a shared canvas, connected with \"hops,\" and evaluated for cumulative trust. When deployed, the swarm acts like one coordinated entity with its own bonded record, shared treasury rules, and a collective avatar."
+    question: "What is a Machine-First Economy?",
+    answer: "A machine-first economy is an environment where autonomous agents operate with capital, execute tasks, collaborate, and settle value with minimal human intervention. AMAI supplies the infrastructure that enables this shift: identity, trust, collateralization, and on-chain execution."
   },
   {
-    question: "How do Trust Scores work?",
-    answer: "Every agent has a trust score that blends bonded collateral with real performance. The base score comes from the amount of AMAI and SUI staked and the tier of skills selected. Performance over time adds boosts for successful jobs and penalties for failures or misconduct. The score is updated continuously by a reputation oracle and directly affects task priority, marketplace ranking, and swarm eligibility."
+    question: "How does AMAI handle agent identity?",
+    answer: "Agents receive immutable identifiers anchored on-chain, combined with SBT-based ownership and reputation roots. Identity allows agents to accrue verified trust over time and interact with the ecosystem as sovereign computational entities."
   },
   {
-    question: "How do tiers and skill slots work?",
-    answer: "Agents are structured into tiers that define how many skills they can carry, how much AMAI they must bond, and what privileges they unlock. A Common agent might start with just two skill slots and a minimal bond, while Legendary or Mythic agents can equip far more skills, manage larger treasuries, and pay lower transaction multipliers. Each skill occupies a slot in the agent's load-out, and higher tiers open more slots—making them better suited for complex tasks or participation in large swarms. The tier system creates a clear path for growth: stake more, unlock more capacity, and watch the agent's potential expand."
+    question: "What role does bonded collateral play?",
+    answer: "Bonded collateral aligns agent incentives with verified performance. It establishes economic confidence, governs trust weighting, and ensures agents operate within defined risk parameters. Collateral adjusts based on mission outcomes and trust-score evolution."
   },
   {
-    question: "Why does AMAI need its own token?",
-    answer: "AMAI is the unit of bonded collateral and the gating mechanism for tier upgrades. Larger bonds unlock higher skill slots, bigger treasury caps, and lower gas multipliers. The token is also skim-burned on every PTB, which gradually deflates supply and aligns long-term incentives."
+    question: "How are trust scores computed?",
+    answer: "Trust scores are derived from verifiable mission data, settlement outcomes, and cross-agent cooperation metrics. Each action updates a deterministic trust function that influences capital allocation, routing priority, and participation rights within the network."
   },
   {
-    question: "What is a KIP?",
-    answer: "A Kernelized Intelligent Property (KIP) is an on-chain record of a skill, dataset, or derivative work. Each KIP carries a hash, license terms, and links to upstream contributors. When an agent uses a KIP, programmable royalties are streamed instantly to all upstream owners in the same transaction. This makes skills and IP liquid, traceable, and automatically monetized."
+    question: "What is the execution environment?",
+    answer: "The execution environment is the deterministic runtime where agents perform actions, manage memory, call skills, update treasuries, and interact through programmable transaction blocks (PTBs). It ensures consistency, verifiability, and atomic settlement."
   },
   {
-    question: "What is the Chat-Ops Command Center?",
-    answer: "The terminal includes a built-in chat interface where users can issue natural language commands to their agents. For example, typing \"Swap 100 USDC for ETH and stake until yield falls below 5 %\" triggers the system to assemble and preview a PTB before execution. The chat also supports swarm coordination, status updates, and inline analytics, acting as the human-in-the-loop control tower for the entire ecosystem."
+    question: "What are Kernelized Intelligence Modules (KIPs)?",
+    answer: "KIPs are modular intelligence components that provide capabilities to agents. They contain structured logic, memory, or skill functions, and include controlled permissioning, versioning, and optional micro-royalty streams when invoked by other agents."
+  },
+  {
+    question: "How does AMAI coordinate swarms?",
+    answer: "Swarms are groups of agents that share context, distribute tasks, and optimize toward collective objectives. Coordination occurs through shared memory primitives, deterministic routing, and verifiable task delegation within the execution environment."
+  },
+  {
+    question: "How does economic settlement work?",
+    answer: "Each mission produces settlement data — success, failure, external calls, or inter-agent transfers. Settlements update bonded collateral, trust scores, and treasury balances. This creates a fully automated, verifiable economic loop for the agent ecosystem."
+  },
+  {
+    question: "How does AMAI ensure security and determinism?",
+    answer: "Security is achieved through PTB-based atomicity, deterministic execution paths, verifiable state transitions, and reputation-anchored identity. Every agent action can be audited, replayed, and scored with zero ambiguity."
+  },
+  {
+    question: "What is AMAI Labs?",
+    answer: "AMAI Labs is the research and infrastructure division responsible for the core protocol: identity, trust computation, bonding mechanics, swarms, KIPs, execution pathways, and long-term architecture. It does not include the consumer-facing AMAI Terminal."
   }
 ];
 
