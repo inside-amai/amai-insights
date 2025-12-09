@@ -254,17 +254,23 @@ const Index = () => {
       </section>
 
       {/* Whitepaper Section */}
-      <section id="technical-docs" className="relative isolate py-28 md:py-36 overflow-hidden" style={{ background: 'linear-gradient(135deg, #A6FCFC33, #fafdff, #D6A6FC33)' }}>
-        {/* Strong visible gradient overlays */}
-        <div className="absolute inset-0 opacity-60" style={{ 
-          background: `
-            radial-gradient(circle at 20% 20%, #A6FCFC66 0%, transparent 50%),
-            radial-gradient(circle at 80% 80%, #D6A6FC66 0%, transparent 50%)
-          ` 
-        }} />
+      <section id="technical-docs" className="relative isolate py-28 md:py-36 overflow-hidden bg-[#fafafa]">
+        {/* Subtle grid background */}
+        <div className="absolute inset-0 opacity-[0.4]">
+          <div 
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `
+                linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px)
+              `,
+              backgroundSize: '60px 60px',
+            }}
+          />
+        </div>
         
-        <div className="relative z-10 max-w-7xl mx-auto px-6">
-          {/* Hero Section */}
+        <div className="relative z-10 max-w-6xl mx-auto px-6">
+          {/* Section Header */}
           <div className="text-center mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -272,21 +278,20 @@ const Index = () => {
               transition={{ duration: 0.6, ease: 'easeOut' }}
               viewport={{ once: true }}
             >
-              <p className="text-xs uppercase tracking-[0.18em] text-black mb-4 text-center">
-                DOCUMENTATION
-              </p>
-              <h1 className="text-center font-roboto text-5xl md:text-6xl font-bold text-[#080808] mb-6">
-                Dive Deeper
-              </h1>
-              <p className="mx-auto max-w-3xl text-center text-lg text-[#202020] leading-relaxed">
-                Comprehensive documentation covering platform architecture, 
-                token, development roadmap, and implementation details.
+              <span className="text-[11px] tracking-[0.3em] uppercase text-black/40 font-medium">
+                Documentation
+              </span>
+              <h2 className="mt-4 text-3xl md:text-4xl font-light text-black tracking-tight">
+                Technical Resources
+              </h2>
+              <p className="mt-4 text-black/50 text-sm max-w-xl mx-auto leading-relaxed">
+                Comprehensive documentation covering platform architecture, token mechanics, and implementation details.
               </p>
             </motion.div>
           </div>
 
           {/* Cards Grid */}
-          <div className="grid gap-10 md:gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {whitepaperSections.map((section, index) => (
               <WhitepaperCard
                 key={section.slug}
