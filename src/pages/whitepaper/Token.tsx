@@ -7,15 +7,6 @@ const Token = () => {
       title="The AMAI Token"
     >
       <div className="space-y-12">
-        {/* Hero Image */}
-        <div className="relative overflow-hidden rounded-lg border border-white/10">
-          <img 
-            src="/lovable-uploads/5ded7f85-a62b-4a83-a75b-848ed5bf0d02.png" 
-            alt="Token, Governance & Risk"
-            className="w-full h-64 lg:h-80 object-cover opacity-80"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-        </div>
 
         {/* Content */}
         <div className="space-y-10">

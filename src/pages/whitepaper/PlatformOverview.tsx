@@ -14,16 +14,6 @@ const PlatformOverview = () => {
         <p className="text-sm text-white/40">12 min read</p>
       </div>
       <div className="space-y-12">
-        {/* Hero Image */}
-        <div className="relative overflow-hidden rounded-lg border border-white/10">
-          <img 
-            src="/lovable-uploads/e344a852-3595-48d1-8fa7-2055abeea37e.png" 
-            alt="Sui Network Platform"
-            className="w-full h-64 lg:h-80 object-cover opacity-80"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-        </div>
-
         {/* Main Content */}
         <div className="space-y-10">
           <h1 className="text-2xl font-light text-white tracking-tight">

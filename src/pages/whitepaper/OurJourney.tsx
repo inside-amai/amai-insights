@@ -7,15 +7,6 @@ const OurJourney = () => {
       title="How We Got Here"
     >
       <div className="space-y-12">
-        {/* Hero Image */}
-        <div className="relative overflow-hidden rounded-lg border border-white/10">
-          <img 
-            src="/lovable-uploads/e5dabd58-b73c-4579-909a-a2c49eba0402.png" 
-            alt="Our Journey - How We Got Here"
-            className="w-full h-64 lg:h-80 object-cover opacity-80"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-        </div>
 
         {/* Title */}
         <div className="text-center">

@@ -7,15 +7,6 @@ const ProblemLandscape = () => {
       title="Problem & Opportunity"
     >
       <div className="space-y-12">
-        {/* Hero Image */}
-        <div className="relative overflow-hidden rounded-lg border border-white/10">
-          <img 
-            src="/lovable-uploads/6600e6bf-b1b6-446b-a56a-9083a646e724.png" 
-            alt="Problem Landscape - Digital Systems and Security"
-            className="w-full h-64 lg:h-80 object-cover opacity-80"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-        </div>
 
         {/* Content */}
         <div className="space-y-10">

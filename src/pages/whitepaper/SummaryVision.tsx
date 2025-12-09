@@ -7,15 +7,6 @@ const SummaryVision = () => {
       title="Summary & Vision"
     >
       <div className="space-y-12">
-        {/* Hero Image */}
-        <div className="relative overflow-hidden rounded-lg border border-white/10">
-          <img 
-            src="/lovable-uploads/bdc46dc6-efce-4181-9e6d-cb2455ae51df.png" 
-            alt="AMAI Vision - Future Agent Economy"
-            className="w-full h-64 lg:h-80 object-cover opacity-80"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-        </div>
 
         {/* Content */}
         <div className="space-y-10">

@@ -1,5 +1,4 @@
 import { WhitepaperLayout } from '@/components/WhitepaperLayout';
-import circuitBoard from '@/assets/circuit-board.jpg';
 
 const TechnicalFoundation = () => {
   return (
@@ -8,18 +7,6 @@ const TechnicalFoundation = () => {
       title="Technical Foundation"
     >
       <div className="space-y-8">
-        {/* Hero Image */}
-        <div className="relative overflow-hidden rounded-xl">
-          <img 
-            src={circuitBoard} 
-            alt="Technical Architecture"
-            className="w-full h-64 lg:h-80 object-cover"
-          />
-          <div 
-            className="absolute inset-0"
-            style={{ backgroundColor: 'rgba(147, 51, 234, 0.2)' }}
-          />
-        </div>
 
         {/* Content */}
         <div className="prose prose-lg max-w-none text-card-foreground">
