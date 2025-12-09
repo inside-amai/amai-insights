@@ -313,33 +313,6 @@ export type Database = {
           },
         ]
       }
-      okx_connections: {
-        Row: {
-          address: string
-          chain: string
-          created_at: string
-          id: string
-          session_id: string | null
-          user_identifier: string | null
-        }
-        Insert: {
-          address: string
-          chain: string
-          created_at?: string
-          id?: string
-          session_id?: string | null
-          user_identifier?: string | null
-        }
-        Update: {
-          address?: string
-          chain?: string
-          created_at?: string
-          id?: string
-          session_id?: string | null
-          user_identifier?: string | null
-        }
-        Relationships: []
-      }
       post_likes: {
         Row: {
           created_at: string
@@ -507,16 +480,6 @@ export type Database = {
       get_following_count: {
         Args: { user_sui_address: string }
         Returns: number
-      }
-      get_okx_connections_for_admin: {
-        Args: never
-        Returns: {
-          address: string
-          chain: string
-          connection_count: number
-          created_at: string
-          id: string
-        }[]
       }
       get_or_create_conversation: {
         Args: { other_user_address: string }
