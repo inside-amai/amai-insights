@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import agentArchitectureDiagram from '@/assets/agent-architecture-diagram.png';
 
 export const TechnicalFoundationSection = () => {
   return (
@@ -27,10 +28,9 @@ export const TechnicalFoundationSection = () => {
           >
             <div className="relative">
               <img 
-                src="/lovable-uploads/fcd7ec01-cb4d-40ee-97b9-c5c397cf8275.png" 
-                alt="SUI Blockchain Technology"
+                src={agentArchitectureDiagram} 
+                alt="AMAI Agent Architecture Diagram"
                 className="w-full object-contain"
-                style={{ transform: 'scale(1.2)', transformOrigin: 'center' }}
               />
             </div>
           </motion.div>
