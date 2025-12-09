@@ -55,19 +55,8 @@ const faqData = [
 
 export const ExplainerFAQ = () => {
   return (
-    <section className="min-h-screen flex items-center snap-start relative overflow-hidden bg-black">
-      {/* Subtle blueprint grid - reduced opacity for section variety */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 opacity-[0.02]" style={{
-          backgroundImage: `
-            linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px),
-            linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px)
-          `,
-          backgroundSize: '48px 48px'
-        }} />
-      </div>
-
-      <div className="container mx-auto px-6 py-20 relative z-10">
+    <section className="min-h-screen flex items-center snap-start bg-perspective-grid relative overflow-hidden">
+      <div className="container mx-auto px-6 py-20">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -76,35 +65,34 @@ export const ExplainerFAQ = () => {
           className="max-w-4xl mx-auto"
         >
           {/* Header */}
-          <div className="text-center mb-12">
-            <span className="text-[10px] font-mono text-white/30 uppercase tracking-[0.3em]">
-              Reference
+          <div className="text-center mb-16">
+            <span className="text-xs font-medium text-muted-foreground uppercase tracking-[0.2em]">
+              Questions?
             </span>
-            <h2 className="text-2xl lg:text-3xl font-light tracking-tight mt-3 mb-4 text-white">
+            <h2 className="text-3xl lg:text-4xl font-light tracking-tight mt-4 mb-6 text-foreground">
               Frequently Asked Questions
             </h2>
-            <p className="text-sm text-white/40 leading-relaxed max-w-xl mx-auto">
-              Technical overview of the AMAI protocol and infrastructure
+            <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+              Everything you need to know about AMAI and our autonomous AI platform
             </p>
           </div>
-          
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <Accordion type="single" collapsible defaultValue="item-0" className="space-y-2">
+            <Accordion type="single" collapsible defaultValue="item-0" className="space-y-0">
               {faqData.map((faq, index) => (
                 <AccordionItem 
                   key={index} 
                   value={`item-${index}`}
-                  className="border border-white/[0.08] rounded-[2px] bg-white/[0.02] backdrop-blur-sm data-[state=open]:bg-white/[0.03] transition-colors"
+                  className="border-0 border-b border-border/30 last:border-b-0"
                 >
-                  <AccordionTrigger className="text-left font-light text-sm px-5 py-4 text-white/80 hover:no-underline hover:text-white transition-colors [&>svg]:text-white/30 [&>svg]:h-3 [&>svg]:w-3">
+                  <AccordionTrigger className="text-left font-light text-base py-5 text-foreground hover:no-underline hover:text-foreground/80 transition-colors [&>svg]:text-muted-foreground">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-white/50 pb-5 px-5 pt-0 leading-snug text-sm font-light">
+                  <AccordionContent className="text-muted-foreground pb-5 pt-0 leading-snug text-sm font-light">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
