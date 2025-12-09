@@ -23,56 +23,56 @@ const TechnicalFoundation = () => {
 
         {/* Content */}
         <div className="prose prose-lg max-w-none text-card-foreground">
-          <h2 className="text-2xl font-bold text-card-foreground mb-4">Built on Sui Blockchain</h2>
+          <h2 className="text-2xl font-light text-white mb-4">Built on Sui Blockchain</h2>
           
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="text-white/50 leading-relaxed text-sm">
             TODO: Technical overview of the Sui blockchain integration and smart contract architecture.
           </p>
 
-          <h3 className="text-xl font-semibold text-card-foreground mt-8 mb-4">Core Technologies</h3>
+          <h3 className="text-xl font-normal text-white mt-8 mb-4">Core Technologies</h3>
           
-          <ul className="space-y-4 text-muted-foreground">
+          <ul className="space-y-4 text-white/50 text-sm">
             <li className="flex items-start">
-              <span className="text-primary mr-3 mt-1">•</span>
+              <span className="text-white/30 mr-3 mt-1">•</span>
               <div>
-                <strong className="text-card-foreground">Sui Move Modules:</strong>
+                <strong className="text-white/60 font-normal">Sui Move Modules:</strong>
                 <p className="text-sm mt-1">TODO: Core blockchain functionality</p>
               </div>
             </li>
             <li className="flex items-start">
-              <span className="text-primary mr-3 mt-1">•</span>
+              <span className="text-white/30 mr-3 mt-1">•</span>
               <div>
-                <strong className="text-card-foreground">dApp Kit Integration:</strong>
+                <strong className="text-white/60 font-normal">dApp Kit Integration:</strong>
                 <p className="text-sm mt-1">TODO: Frontend connectivity</p>
               </div>
             </li>
             <li className="flex items-start">
-              <span className="text-primary mr-3 mt-1">•</span>
+              <span className="text-white/30 mr-3 mt-1">•</span>
               <div>
-                <strong className="text-card-foreground">Object Model:</strong>
+                <strong className="text-white/60 font-normal">Object Model:</strong>
                 <p className="text-sm mt-1">TODO: Data structure and storage</p>
               </div>
             </li>
             <li className="flex items-start">
-              <span className="text-primary mr-3 mt-1">•</span>
+              <span className="text-white/30 mr-3 mt-1">•</span>
               <div>
-                <strong className="text-card-foreground">Consensus Layer:</strong>
+                <strong className="text-white/60 font-normal">Consensus Layer:</strong>
                 <p className="text-sm mt-1">TODO: Transaction validation</p>
               </div>
             </li>
             <li className="flex items-start">
-              <span className="text-primary mr-3 mt-1">•</span>
+              <span className="text-white/30 mr-3 mt-1">•</span>
               <div>
-                <strong className="text-card-foreground">Parallel Execution:</strong>
+                <strong className="text-white/60 font-normal">Parallel Execution:</strong>
                 <p className="text-sm mt-1">TODO: High-performance processing</p>
               </div>
             </li>
           </ul>
 
-          <h3 className="text-xl font-semibold text-card-foreground mt-8 mb-4">Smart Contract Architecture</h3>
+          <h3 className="text-xl font-normal text-white mt-8 mb-4">Smart Contract Architecture</h3>
           
-          <div className="bg-muted/20 border border-muted/30 rounded-lg p-6">
-            <pre className="text-sm text-muted-foreground overflow-x-auto">
+          <div className="bg-white/5 border border-white/10 rounded-lg p-6">
+            <pre className="text-sm text-white/50 overflow-x-auto">
               <code>{`// TODO: Sample Move code structure
 module amai::platform {
     // Core platform functionality
@@ -81,9 +81,9 @@ module amai::platform {
             </pre>
           </div>
 
-          <h3 className="text-xl font-semibold text-card-foreground mt-8 mb-4">Performance & Scalability</h3>
+          <h3 className="text-xl font-normal text-white mt-8 mb-4">Performance & Scalability</h3>
           
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="text-white/50 leading-relaxed text-sm">
             TODO: Details about the platform's performance characteristics, scalability solutions, and optimization strategies.
           </p>
         </div>

@@ -54,7 +54,7 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
         <Button 
           variant="outline" 
           size="sm" 
-          className="bg-gray-900/80 backdrop-blur-sm border-gray-700 text-gray-300 hover:bg-gray-800 hover:text-white hover:border-gray-600 rounded-md font-roboto text-sm"
+          className="bg-gray-900/80 backdrop-blur-sm border-gray-700 text-white/50 hover:bg-gray-800 hover:text-white hover:border-gray-600 rounded-md font-roboto text-sm"
           onClick={() => {
             navigate('/');
             setTimeout(() => {
@@ -80,11 +80,11 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
             className="text-center max-w-4xl mx-auto"
           >
             {eyebrow && (
-              <span className="text-xs font-medium text-gray-500 uppercase tracking-[0.2em] font-roboto">
+              <span className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium font-roboto">
                 {eyebrow}
               </span>
             )}
-            <h1 className="text-3xl lg:text-5xl font-bold text-white mt-4 mb-6 font-roboto tracking-tight">
+            <h1 className="text-3xl lg:text-5xl font-light text-white mt-4 mb-6 font-roboto tracking-tight">
               {typeof title === 'string' ? (
                 <span className="text-white">
                   {title}
@@ -121,7 +121,7 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
               <Button 
                 asChild 
                 variant="outline" 
-                className="group bg-gray-900/80 backdrop-blur-sm border-gray-700 text-gray-300 hover:bg-gray-800 hover:text-white hover:border-gray-600 rounded-md font-roboto"
+                className="group bg-gray-900/80 backdrop-blur-sm border-gray-700 text-white/50 hover:bg-gray-800 hover:text-white hover:border-gray-600 rounded-md font-roboto"
               >
                 <Link to={`/whitepaper/${prevSection.slug}`}>
                   <ChevronLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
@@ -136,7 +136,7 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
               <Button 
                 asChild 
                 variant="outline" 
-                className="group bg-gray-900/80 backdrop-blur-sm border-gray-700 text-gray-300 hover:bg-gray-800 hover:text-white hover:border-gray-600 rounded-md font-roboto"
+                className="group bg-gray-900/80 backdrop-blur-sm border-gray-700 text-white/50 hover:bg-gray-800 hover:text-white hover:border-gray-600 rounded-md font-roboto"
               >
                 <Link to={`/whitepaper/${nextSection.slug}`}>
                   {nextSection.title}
