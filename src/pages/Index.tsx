@@ -123,15 +123,15 @@ const Index = () => {
         </div>
 
         {/* Whitepaper Section */}
-        <section id="technical-docs" className="relative isolate py-28 md:py-36 overflow-hidden bg-[#fafafa]">
-          {/* Subtle grid background */}
-          <div className="absolute inset-0 opacity-[0.4]">
+        <section id="technical-docs" className="relative isolate py-28 md:py-36 overflow-hidden bg-black">
+          {/* Subtle grid background - reduced opacity */}
+          <div className="absolute inset-0 opacity-[0.25]">
             <div 
               className="absolute inset-0"
               style={{
                 backgroundImage: `
-                  linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-                  linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px)
+                  linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+                  linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)
                 `,
                 backgroundSize: '60px 60px',
               }}
@@ -147,20 +147,20 @@ const Index = () => {
                 transition={{ duration: 0.6, ease: 'easeOut' }}
                 viewport={{ once: true }}
               >
-                <span className="text-[11px] tracking-[0.3em] uppercase text-black/40 font-medium">
+                <span className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium">
                   Documentation
                 </span>
-                <h2 className="mt-4 text-3xl md:text-4xl font-light text-black tracking-tight">
+                <h2 className="mt-4 text-3xl md:text-4xl font-light text-white tracking-tight">
                   Technical Resources
                 </h2>
-                <p className="mt-4 text-black/50 text-sm max-w-xl mx-auto leading-relaxed">
+                <p className="mt-4 text-white/50 text-sm max-w-xl mx-auto leading-relaxed">
                   Comprehensive documentation covering platform architecture, token mechanics, and implementation details.
                 </p>
               </motion.div>
             </div>
 
             {/* Cards Grid */}
-            <div className="grid gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-4 md:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
               {whitepaperSections.map((section, index) => (
                 <WhitepaperCard
                   key={section.slug}
