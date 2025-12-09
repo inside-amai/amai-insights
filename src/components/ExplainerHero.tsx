@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { OptimizedImage } from '@/components/OptimizedImage';
-// import amaiLogo from '@/assets/amai-logo-new.png';
+import amaiLabsLogo from '@/assets/amai-labs-logo.png';
 
 export const ExplainerHero = () => {
   const [shootingStars, setShootingStars] = useState<Array<{ id: number; x: number; y: number; delay: number; direction: { x: number; y: number; angle: number } }>>([]);
@@ -173,9 +173,9 @@ export const ExplainerHero = () => {
             className="flex justify-center"
           >
             <OptimizedImage 
-              src="https://images.squarespace-cdn.com/content/v1/67609414493d9c7734fa7b83/64396d1f-bdeb-491d-a6d7-cdbf42c57c52/AMAI+logos+%2881%29.png?format=2500w"
-              alt="AMAI Logo" 
-              className="h-20 lg:h-28 xl:h-32 w-auto"
+              src={amaiLabsLogo}
+              alt="AMAI Labs Logo" 
+              className="h-16 lg:h-20 xl:h-24 w-auto"
               loading="eager"
             />
           </motion.div>
