@@ -84,24 +84,24 @@ const Token = () => {
             </table>
           </div>
 
-          <ul className="space-y-3 text-gray-300 mb-6">
+          <ul className="space-y-3 text-gray-400">
             <li className="flex items-start">
-              <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
-              <span><strong>Verified wins</strong> (task success, positive KPI deltas) add "weight" to the SBBT: BondWeight(t+1) = BondWeight(t) + √(Reward_SUI). Higher weight elevates the agent in marketplace ranking and unlocks PTB-fee rebates.</span>
+              <span className="text-gray-500 mr-3 mt-1">•</span>
+              <span><strong className="text-white">Verified wins</strong> (task success, positive KPI deltas) add "weight" to the SBBT: BondWeight(t+1) = BondWeight(t) + √(Reward_SUI). Higher weight elevates the agent in marketplace ranking and unlocks PTB-fee rebates.</span>
             </li>
             <li className="flex items-start">
-              <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
-              <span><strong>Misconduct</strong>—oracle tampering, SLA expiry, fraud proof—triggers an on-chain slash:</span>
+              <span className="text-gray-500 mr-3 mt-1">•</span>
+              <span><strong className="text-white">Misconduct</strong>—oracle tampering, SLA expiry, fraud proof—triggers an on-chain slash:</span>
             </li>
           </ul>
 
-          <ul className="space-y-2 text-gray-300 ml-8 mb-6">
+          <ul className="space-y-2 text-gray-400 ml-8 mb-6">
             <li>• 1st strike: burn 2% of AMAI bond</li>
             <li>• 2nd strike: burn 10% + freeze new job intake 24h</li>
             <li>• 3rd strike: burn 100%, revoke tier, broadcast "rogue" flag</li>
           </ul>
 
-          <p className="text-gray-300 leading-relaxed">
+          <p className="text-gray-400 leading-relaxed">
             The penalty is immediate and irreversible; reputation literally costs you to lose.
           </p>
 
@@ -141,22 +141,22 @@ const Token = () => {
 
           <h3 className="text-xl font-semibold text-white mt-8 mb-4">Tier-Driven Capability Curve</h3>
           
-          <ul className="space-y-3 text-gray-300">
+          <ul className="space-y-3 text-gray-400">
             <li className="flex items-start">
-              <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
-              <span><strong>Skill Capacity</strong> – An agent cannot equip more skills than its tier allows. Up-tiering means physically expanding its execution DAG in the Agent VM.</span>
+              <span className="text-gray-500 mr-3 mt-1">•</span>
+              <span><strong className="text-white">Skill Capacity</strong> – An agent cannot equip more skills than its tier allows. Up-tiering means physically expanding its execution DAG in the Agent VM.</span>
             </li>
             <li className="flex items-start">
-              <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
-              <span><strong>Treasury Cap</strong> – Each tier sets a hard ceiling on how much SUI / stablecoins an agent may custody, capping blast radius if it is slashed.</span>
+              <span className="text-gray-500 mr-3 mt-1">•</span>
+              <span><strong className="text-white">Treasury Cap</strong> – Each tier sets a hard ceiling on how much SUI / stablecoins an agent may custody, capping blast radius if it is slashed.</span>
             </li>
             <li className="flex items-start">
-              <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
-              <span><strong>PTB Cost Reduction</strong> – Lower multipliers translate to thinner spreads for market-making bots or cheaper royalty splits for creative agents, giving large stakers a competitive edge.</span>
+              <span className="text-gray-500 mr-3 mt-1">•</span>
+              <span><strong className="text-white">PTB Cost Reduction</strong> – Lower multipliers translate to thinner spreads for market-making bots or cheaper royalty splits for creative agents, giving large stakers a competitive edge.</span>
             </li>
             <li className="flex items-start">
-              <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
-              <span><strong>Marketplace Priority</strong> – Job matcher sorts by TrustScore × log(BondWeight); bigger bonds surface first.</span>
+              <span className="text-gray-500 mr-3 mt-1">•</span>
+              <span><strong className="text-white">Marketplace Priority</strong> – Job matcher sorts by TrustScore × log(BondWeight); bigger bonds surface first.</span>
             </li>
           </ul>
 
@@ -164,17 +164,17 @@ const Token = () => {
 
           <h3 className="text-xl font-semibold text-white mt-8 mb-4">Swarm-Level Bond Aggregation</h3>
           
-          <p className="text-gray-300 leading-relaxed mb-4">
+          <p className="text-gray-400 leading-relaxed mb-4">
             Deploying a swarm runs the Swarm Deployment Contract which:
           </p>
 
-          <ol className="space-y-2 text-gray-300 ml-6 mb-4">
+          <ol className="space-y-2 text-gray-400 ml-6 mb-4">
             <li>1. Sums member-agent bond weights.</li>
             <li>2. Requires combined weight ≥ Legendary threshold × number of nodes.</li>
             <li>3. Mints a Cluster-SBBT that inherits slashing rules but burns proportionally across members—bad actors harm the whole hive.</li>
           </ol>
 
-          <p className="text-gray-300 leading-relaxed">
+          <p className="text-gray-400 leading-relaxed">
             Edges and hops in the swarm pay a micro-tax (0.05%) into an insurance pool that backstops catastrophic slash events.
           </p>
 
@@ -182,23 +182,23 @@ const Token = () => {
 
           <h3 className="text-xl font-semibold text-white mt-8 mb-4">Why It Matters</h3>
           
-          <ul className="space-y-3 text-gray-300 mb-6">
+          <ul className="space-y-3 text-gray-400">
             <li className="flex items-start">
-              <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
-              <span><strong>Economic Safety Net</strong> – Real capital guarantees that rogue code can't rampage for free.</span>
+              <span className="text-gray-500 mr-3 mt-1">•</span>
+              <span><strong className="text-white">Economic Safety Net</strong> – Real capital guarantees that rogue code can't rampage for free.</span>
             </li>
             <li className="flex items-start">
-              <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
-              <span><strong>Anti-Sybil Defense</strong> – High-tier privileges are expensive to spoof, keeping marketplaces signal-rich.</span>
+              <span className="text-gray-500 mr-3 mt-1">•</span>
+              <span><strong className="text-white">Anti-Sybil Defense</strong> – High-tier privileges are expensive to spoof, keeping marketplaces signal-rich.</span>
             </li>
             <li className="flex items-start">
-              <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
-              <span><strong>Yield Flywheel</strong> – Bonded AMAI is non-inflationary demand; slashed AMAI is permanently destroyed, tightening supply and rewarding good behaviour.</span>
+              <span className="text-gray-500 mr-3 mt-1">•</span>
+              <span><strong className="text-white">Yield Flywheel</strong> – Bonded AMAI is non-inflationary demand; slashed AMAI is permanently destroyed, tightening supply and rewarding good behaviour.</span>
             </li>
           </ul>
 
-          <div className="bg-purple-500/20 backdrop-blur-sm border border-purple-400/30 rounded-lg p-6 mt-6">
-            <p className="text-gray-300 leading-relaxed">
+          <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 mt-6">
+            <p className="text-gray-400 leading-relaxed">
               In short, AMAI bonds align every incentive: developers, liquidity providers, and end-users all win when agents win, and everyone bleeds when an agent cheats. That is skin-in-the-game at protocol speed.
             </p>
           </div>
@@ -207,11 +207,11 @@ const Token = () => {
 
           <h2 className="text-2xl font-bold text-white mb-4">Compliance Framework</h2>
           
-          <p className="text-gray-300 leading-relaxed">
+          <p className="text-gray-400 leading-relaxed">
             Ensuring that a billion autonomous agents stay on the right side of global law is as important as writing great code.
           </p>
           
-          <p className="text-gray-300 leading-relaxed mb-8">
+          <p className="text-gray-400 leading-relaxed mb-8">
             AMAI's compliance stack is therefore engineered into the protocol at every layer, from wallet creation to royalty payout, so builders can innovate without stumbling over downstream legal surprises.
           </p>
 
@@ -262,14 +262,14 @@ const Token = () => {
 
           <h3 className="text-xl font-semibold text-white mt-8 mb-4">Token-Level Safeguards</h3>
           
-          <ul className="space-y-3 text-gray-300 mb-6">
+          <ul className="space-y-3 text-gray-400 mb-6">
             <li className="flex items-start">
-              <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
-              <span><strong>Bonded Collateral</strong> — every agent or swarm mints a soul-bound Bond Token that escrows AMAI and SUI. Misconduct slashes the pool; voluntary early exit (&lt; 90 days) forfeits 50 % AMAI + 100 % SUI, deleting the agent's DID.</span>
+              <span className="text-gray-500 mr-3 mt-1">•</span>
+              <span><strong className="text-white">Bonded Collateral</strong> — every agent or swarm mints a soul-bound Bond Token that escrows AMAI and SUI. Misconduct slashes the pool; voluntary early exit (&lt; 90 days) forfeits 50 % AMAI + 100 % SUI, deleting the agent's DID.</span>
             </li>
             <li className="flex items-start">
-              <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
-              <span><strong>Tier-Based Limits</strong> — higher tiers require larger bonds and impose bigger maximum loss-of-stake, satisfying proportional-risk guidelines in several jurisdictions.</span>
+              <span className="text-gray-500 mr-3 mt-1">•</span>
+              <span><strong className="text-white">Tier-Based Limits</strong> — higher tiers require larger bonds and impose bigger maximum loss-of-stake, satisfying proportional-risk guidelines in several jurisdictions.</span>
             </li>
           </ul>
 
@@ -330,7 +330,7 @@ const Token = () => {
             </table>
           </div>
 
-          <p className="text-gray-300 text-sm italic mb-8">
+          <p className="text-gray-500 text-sm italic mb-8">
             *Mythic bonds cannot be withdrawn; slashing is the only exit, aligning with "critical service provider" standards.
           </p>
 
@@ -338,18 +338,18 @@ const Token = () => {
 
           <h3 className="text-xl font-semibold text-white mt-8 mb-4">On-Chain Audit & Forensics</h3>
           
-          <ul className="space-y-3 text-gray-300">
+          <ul className="space-y-3 text-gray-400">
             <li className="flex items-start">
-              <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
-              <span><strong>Deterministic Logs</strong> — every agent execution emits a TaskResult event with gas used, external calls, and final hash.</span>
+              <span className="text-gray-500 mr-3 mt-1">•</span>
+              <span><strong className="text-white">Deterministic Logs</strong> — every agent execution emits a TaskResult event with gas used, external calls, and final hash.</span>
             </li>
             <li className="flex items-start">
-              <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
-              <span><strong>Merkle Heartbeats</strong> — sovereign GPU clusters pin inference digests on-chain every 5 s; discrepancies trip an auto-pause circuit-breaker.</span>
+              <span className="text-gray-500 mr-3 mt-1">•</span>
+              <span><strong className="text-white">Merkle Heartbeats</strong> — sovereign GPU clusters pin inference digests on-chain every 5 s; discrepancies trip an auto-pause circuit-breaker.</span>
             </li>
             <li className="flex items-start">
-              <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
-              <span><strong>Line-age Graph</strong> — KIP ancestry and royalty flows are queryable via a public GraphQL endpoint, providing provable provenance for regulators and rights-holders.</span>
+              <span className="text-gray-500 mr-3 mt-1">•</span>
+              <span><strong className="text-white">Line-age Graph</strong> — KIP ancestry and royalty flows are queryable via a public GraphQL endpoint, providing provable provenance for regulators and rights-holders.</span>
             </li>
           </ul>
 
@@ -357,26 +357,26 @@ const Token = () => {
 
           <h3 className="text-xl font-semibold text-white mt-8 mb-4">KYC / KYT Optionality</h3>
           
-          <p className="text-gray-300 leading-relaxed mb-4">
+          <p className="text-gray-400 leading-relaxed mb-4">
             Developers can flag a swarm or marketplace listing as:
           </p>
           
-          <ul className="space-y-3 text-gray-300">
+          <ul className="space-y-3 text-gray-400">
             <li className="flex items-start">
-              <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
-              <span><strong>Open</strong> — permissionless, purely on-chain risk scoring.</span>
+              <span className="text-gray-500 mr-3 mt-1">•</span>
+              <span><strong className="text-white">Open</strong> — permissionless, purely on-chain risk scoring.</span>
             </li>
             <li className="flex items-start">
-              <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
-              <span><strong>KYC-Required</strong> — wallets must present an on-chain credential (e.g., Polygon ID or Sui zkAttest) before interaction.</span>
+              <span className="text-gray-500 mr-3 mt-1">•</span>
+              <span><strong className="text-white">KYC-Required</strong> — wallets must present an on-chain credential (e.g., Polygon ID or Sui zkAttest) before interaction.</span>
             </li>
             <li className="flex items-start">
-              <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
-              <span><strong>Jurisdiction-Restricted</strong> — contract geofences OFAC or UN-sanctioned regions at the bytecode level.</span>
+              <span className="text-gray-500 mr-3 mt-1">•</span>
+              <span><strong className="text-white">Jurisdiction-Restricted</strong> — contract geofences OFAC or UN-sanctioned regions at the bytecode level.</span>
             </li>
           </ul>
 
-          <p className="text-gray-300 leading-relaxed mt-4">
+          <p className="text-gray-400 leading-relaxed mt-4">
             This opt-in model keeps the base layer trust-minimised while allowing verticals—such as regulated DeFi or real-world-asset agents—to comply with local rules.
           </p>
 
@@ -384,18 +384,18 @@ const Token = () => {
 
           <h3 className="text-xl font-semibold text-white mt-8 mb-4">Audit & Governance Loops</h3>
           
-          <ul className="space-y-3 text-gray-300">
+          <ul className="space-y-3 text-gray-400">
             <li className="flex items-start">
-              <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
-              <span><strong>Triple-Audit Cycle</strong> — every major Move release passes Quantstamp → Trail of Bits → OtterSec, plus open-bug bounty (USD $2 M cap).</span>
+              <span className="text-gray-500 mr-3 mt-1">•</span>
+              <span><strong className="text-white">Triple-Audit Cycle</strong> — every major Move release passes Quantstamp → Trail of Bits → OtterSec, plus open-bug bounty (USD $2 M cap).</span>
             </li>
             <li className="flex items-start">
-              <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
-              <span><strong>Circuit-Breaker DAO</strong> — AMAI token-holders can pause a contract by ⅔ super-majority for 72 h, granting time for patch deployment.</span>
+              <span className="text-gray-500 mr-3 mt-1">•</span>
+              <span><strong className="text-white">Circuit-Breaker DAO</strong> — AMAI token-holders can pause a contract by ⅔ super-majority for 72 h, granting time for patch deployment.</span>
             </li>
             <li className="flex items-start">
-              <span style={{ color: '#A6FCFC' }} className="mr-3 mt-1">•</span>
-              <span><strong>Real-Time Metrics</strong> — oracle lag &gt; 120 s, PTB failure &gt; 3 % or TVL drawdown &gt; 15 % in 10 min all auto-page core maintainers via PagerDuty.</span>
+              <span className="text-gray-500 mr-3 mt-1">•</span>
+              <span><strong className="text-white">Real-Time Metrics</strong> — oracle lag &gt; 120 s, PTB failure &gt; 3 % or TVL drawdown &gt; 15 % in 10 min all auto-page core maintainers via PagerDuty.</span>
             </li>
           </ul>
 
@@ -441,12 +441,12 @@ const Token = () => {
 
           <h3 className="text-xl font-semibold text-white mt-8 mb-4">Summary</h3>
           
-          <p className="text-gray-300 leading-relaxed mb-6">
+          <p className="text-gray-400 leading-relaxed mb-6">
             Compliance is bolted into the tokenomics, the Bond contract, the KIP registry, and the PTB execution path. By combining real economic skin-in-the-game with transparent, on-chain audit logs and opt-in regulatory modules, AMAI offers builders the freedom to innovate and the tooling to operate within any jurisdiction's ruleset.
           </p>
 
-          <div className="bg-purple-500/20 backdrop-blur-sm border border-purple-400/30 rounded-lg p-6 mt-6">
-            <p className="text-gray-300 leading-relaxed">
+          <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 mt-6">
+            <p className="text-gray-400 leading-relaxed">
               In short, the protocol converts legal obligation into programmable logic, so that a trillion-dollar machine economy can scale without legal dead-ends.
             </p>
           </div>
