@@ -1,33 +1,31 @@
 import { WhitepaperLayout } from '@/components/WhitepaperLayout';
-import tokenChart from '@/assets/token-chart.jpg';
 
 const Token = () => {
   return (
     <WhitepaperLayout
       eyebrow="Token"
-      title={
-        <>
-          The <span className="shimmer-text text-transparent">AMAI</span> Token
-        </>
-      }
+      title="The AMAI Token"
     >
-      <div className="space-y-8">
+      <div className="space-y-12">
         {/* Hero Image */}
-        <div className="relative overflow-hidden rounded-xl">
+        <div className="relative overflow-hidden rounded-lg border border-gray-800">
           <img 
             src="/lovable-uploads/5ded7f85-a62b-4a83-a75b-848ed5bf0d02.png" 
             alt="Token, Governance & Risk"
-            className="w-full h-64 lg:h-80 object-cover"
+            className="w-full h-64 lg:h-80 object-cover opacity-80"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
         </div>
 
         {/* Content */}
-        <div className="prose prose-lg max-w-none text-white">
-          <h2 className="text-2xl font-bold text-white mb-4">AMAI as "Skin-in-the-Game"</h2>
-          
-          <p className="text-gray-300 leading-relaxed">
-            Every AMAI token locked into an agent is engineering collateral. The bond functions as live economic circuit-breaker: it authorizes the agent's private keys, meters its on-chain privileges, and auto-funds penalties when behavior deviates from defined SLAs. From the moment an agent (or swarm) mints its soul-bound Bond Token, every trade it executes, every PTB it submits, and every royalty it streams is underwritten by verifiable, forfeitable value.
-          </p>
+        <div className="space-y-10">
+          <div>
+            <h2 className="text-2xl font-bold text-white mb-4 tracking-tight">AMAI as "Skin-in-the-Game"</h2>
+            
+            <p className="text-gray-400 leading-relaxed text-base">
+              Every AMAI token locked into an agent is engineering collateral. The bond functions as live economic circuit-breaker: it authorizes the agent's private keys, meters its on-chain privileges, and auto-funds penalties when behavior deviates from defined SLAs. From the moment an agent (or swarm) mints its soul-bound Bond Token, every trade it executes, every PTB it submits, and every royalty it streams is underwritten by verifiable, forfeitable value.
+            </p>
+          </div>
 
           <h3 className="text-xl font-semibold text-white mt-8 mb-4">Bonded Collateral — Turning Reputation into a Balance-Sheet Item</h3>
           

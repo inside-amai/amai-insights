@@ -2,7 +2,6 @@ import { WhitepaperLayout } from '@/components/WhitepaperLayout';
 import { InteractiveQuiz } from '@/components/InteractiveQuiz';
 import { SkillSelection } from '@/components/SkillSelection';
 import { Shield, Gem, Trophy, Zap, Star } from "lucide-react";
-import terminalDemo from '@/assets/terminal-demo.jpg';
 
 const PlatformOverview = () => {
   return (
@@ -12,39 +11,31 @@ const PlatformOverview = () => {
     >
       {/* Reading time indicator */}
       <div className="mb-6">
-        <p className="text-sm text-muted-foreground">12 min read</p>
+        <p className="text-sm text-gray-500">12 min read</p>
       </div>
-      <div className="space-y-8">
-        {/* Hero Image - Desktop */}
-        <div className="relative overflow-hidden rounded-xl hidden md:block">
+      <div className="space-y-12">
+        {/* Hero Image */}
+        <div className="relative overflow-hidden rounded-lg border border-gray-800">
           <img 
             src="/lovable-uploads/e344a852-3595-48d1-8fa7-2055abeea37e.png" 
             alt="Sui Network Platform"
-            className="w-full h-64 lg:h-80 object-cover"
+            className="w-full h-64 lg:h-80 object-cover opacity-80"
           />
-        </div>
-
-        {/* Mobile Hero Image */}
-        <div className="relative overflow-hidden rounded-xl md:hidden">
-          <img 
-            src="/lovable-uploads/e344a852-3595-48d1-8fa7-2055abeea37e.png" 
-            alt="Sui Network Platform"
-            className="w-full h-64 object-cover"
-          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
         </div>
 
         {/* Main Content */}
-        <div className="prose prose-lg max-w-none text-white">
-          <h1 className="text-3xl font-bold text-white mb-8">
+        <div className="space-y-10">
+          <h1 className="text-2xl font-bold text-white tracking-tight">
             Turning Ideas into Autonomous, Revenue-Earning Agent Economies
           </h1>
           
-          <div className="bg-purple-accent/10 border border-purple-accent/30 rounded-lg p-6 mb-12">
-            <p className="text-lg leading-relaxed text-white mb-6">
+          <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
+            <p className="text-base leading-relaxed text-gray-400 mb-4">
               AMAI is the command center of a machine-first economy: a browser-based terminal where anyone can mint capitalized AI agents, level them through tiered skill trees, and fuse them into smart swarms.
             </p>
             
-            <p className="text-lg leading-relaxed text-white">
+            <p className="text-base leading-relaxed text-gray-400">
               Treasuries are born with each agent, trust is staked in bonded tokens, and every unlocked skill streams micro-royalties in real time, creating a self-funding network that trades, builds, and collaborates autonomously, turning liquidity into the oxygen of artificial life.
             </p>
           </div>
