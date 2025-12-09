@@ -7,15 +7,6 @@ const TechnicalDeepDive = () => {
       title="Technical Deep-Dive"
     >
       <div className="space-y-12">
-        {/* Hero Image */}
-        <div className="relative overflow-hidden rounded-lg border border-white/10">
-          <img 
-            src="/lovable-uploads/8aa08322-158d-43ce-b48f-ef1f0a4093f7.png" 
-            alt="Technical Deep-Dive"
-            className="w-full h-64 lg:h-80 object-cover opacity-80"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-        </div>
 
         {/* Content */}
         <div className="space-y-10">

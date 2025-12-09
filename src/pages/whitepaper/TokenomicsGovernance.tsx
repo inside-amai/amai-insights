@@ -1,5 +1,4 @@
 import { WhitepaperLayout } from '@/components/WhitepaperLayout';
-import tokenChart from '@/assets/token-chart.jpg';
 
 const TokenomicsGovernance = () => {
   return (
@@ -8,18 +7,6 @@ const TokenomicsGovernance = () => {
       title="Tokenomics & Governance"
     >
       <div className="space-y-8">
-        {/* Hero Image */}
-        <div className="relative overflow-hidden rounded-xl">
-          <img 
-            src={tokenChart} 
-            alt="Token Distribution Chart"
-            className="w-full h-64 lg:h-80 object-cover"
-          />
-          <div 
-            className="absolute inset-0"
-            style={{ backgroundColor: 'rgba(239, 68, 68, 0.2)' }}
-          />
-        </div>
 
         {/* Content */}
         <div className="prose prose-lg max-w-none text-card-foreground">
