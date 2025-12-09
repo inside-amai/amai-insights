@@ -79,74 +79,210 @@ export const TermsModal = () => {
           >
             <div className="space-y-6 text-gray-300 text-sm leading-relaxed px-3 pt-4">
               <section>
-                <h3 className="text-lg font-semibold text-white mb-3">Welcome</h3>
-                <p>
-                  Welcome to AMAI Labs. Please read the following terms carefully before using this site or interacting with the AMAI token.
+                <p className="mb-4">
+                  Welcome to AMAI Labs.
                 </p>
-              </section>
-              <section>
-                <h3 className="text-lg font-semibold text-white mb-3">Purpose of this site</h3>
                 <p>
-                  The materials provided here describe a decentralized software platform and its planned features. They are offered for educational and informational purposes only.
+                  These terms govern access to the AMAI Labs research portal, documentation, and related materials describing AMAI's decentralized infrastructure. By continuing, you acknowledge that you have read and understood these terms.
                 </p>
               </section>
 
               <section>
-                <h3 className="text-lg font-semibold text-white mb-3">No investment advice</h3>
-                <p>
-                  Nothing on this website, in the white paper, or in any related communication should be interpreted as financial, legal or tax advice. Purchasing digital assets carries substantial risk, and you should consult qualified advisors before making any decisions.
-                </p>
-              </section>
-
-              <section>
-                <h3 className="text-lg font-semibold text-white mb-3">Utility-only token</h3>
+                <h3 className="text-lg font-semibold text-white mb-3">Purpose of AMAI Labs</h3>
                 <p className="mb-3">
-                  AMAI is designed solely as a utility token that allows users and automated agents to pay for on-chain actions, access platform services and, where applicable, stake collateral to participate. Holding AMAI does not:
+                  AMAI Labs provides technical documentation, research materials, architecture diagrams, conceptual descriptions, and forward-looking development plans for the AMAI protocol and its autonomous agent ecosystem.
                 </p>
-                <ul className="space-y-2 ml-4 text-sm">
+                <p className="mb-2">All materials are offered solely for:</p>
+                <ul className="space-y-1 ml-4 text-sm">
                   <li className="flex items-start">
                     <span className="text-cyan-400 mr-3 mt-1">•</span>
-                    <span>entitle you to dividends, revenue share or voting rights in any corporate entity,</span>
+                    <span>educational,</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-cyan-400 mr-3 mt-1">•</span>
-                    <span>create an expectation of profits from the efforts of the AMAI team or third parties, or</span>
+                    <span>informational,</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-cyan-400 mr-3 mt-1">•</span>
-                    <span>represent ownership of any underlying software or intellectual property.</span>
+                    <span>research, and</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>experimental purposes.</span>
+                  </li>
+                </ul>
+                <p className="mt-3">
+                  They do not constitute a commercial offering, investment solicitation, or advisory service.
+                </p>
+              </section>
+
+              <section>
+                <h3 className="text-lg font-semibold text-white mb-3">No Investment, Legal, or Financial Advice</h3>
+                <p className="mb-2">Nothing on this site, within AMAI documentation, or in any communication from AMAI Labs should be interpreted as:</p>
+                <ul className="space-y-1 ml-4 text-sm">
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>investment advice,</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>financial guidance,</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>legal or tax counsel,</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>an offer to sell or solicit the purchase of any digital asset or security.</span>
+                  </li>
+                </ul>
+                <p className="mt-3">
+                  Digital assets involve substantial risks, including volatility, technical failure, regulatory uncertainty, cybersecurity threats, and potential loss of value. You are solely responsible for any actions you take.
+                </p>
+              </section>
+
+              <section>
+                <h3 className="text-lg font-semibold text-white mb-3">Utility-Only Token</h3>
+                <p className="mb-2">AMAI is designed exclusively as a utility token enabling:</p>
+                <ul className="space-y-1 ml-4 text-sm">
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>on-chain execution of autonomous agents,</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>access to platform services,</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>bonded collateral for trust scores, and</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>participation in protocol-level operations.</span>
+                  </li>
+                </ul>
+                <p className="mt-3 mb-2">Holding AMAI does not:</p>
+                <ul className="space-y-1 ml-4 text-sm">
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>grant equity, dividends, revenue share, or ownership,</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>confer governance or voting rights in AMAI Labs or any affiliated entity,</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>create any expectation of profit derived from the efforts of AMAI Labs or third parties.</span>
+                  </li>
+                </ul>
+                <p className="mt-3">AMAI is not intended for speculative use.</p>
+              </section>
+
+              <section>
+                <h3 className="text-lg font-semibold text-white mb-3">Founders Keys (Access Tokens)</h3>
+                <p className="mb-2">Founders Keys are limited-edition access tokens granting users special privileges within the AMAI ecosystem, such as:</p>
+                <ul className="space-y-1 ml-4 text-sm">
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>advanced agent minting capabilities,</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>unique identifiers or cosmetic features,</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>participation in exclusive governance-free community programs (e.g., Council of 12).</span>
+                  </li>
+                </ul>
+                <p className="mt-3 mb-2">Founders Keys do not represent:</p>
+                <ul className="space-y-1 ml-4 text-sm">
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>ownership,</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>equity,</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>dividends,</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>profit rights, or</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>claims over AMAI Labs or the AMAI protocol.</span>
+                  </li>
+                </ul>
+                <p className="mt-3">Their function is purely symbolic and operational within the ecosystem.</p>
+              </section>
+
+              <section>
+                <h3 className="text-lg font-semibold text-white mb-3">Forward-Looking Statements</h3>
+                <p className="mb-2">Any descriptions of roadmap milestones, planned features, technical capabilities, or future functionality are aspirational and not guaranteed.</p>
+                <p className="mb-2">Development timelines may change due to:</p>
+                <ul className="space-y-1 ml-4 text-sm">
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>research requirements,</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>emerging regulation,</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>market conditions,</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>infrastructure dependencies, or</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>technical constraints.</span>
+                  </li>
+                </ul>
+                <p className="mt-3">You acknowledge these uncertainties.</p>
+              </section>
+
+              <section>
+                <h3 className="text-lg font-semibold text-white mb-3">No Warranty</h3>
+                <p>
+                  AMAI Labs provides all materials "as is" without warranties of any kind, including but not limited to accuracy, completeness, or fitness for a particular purpose.
+                </p>
+              </section>
+
+              <section>
+                <h3 className="text-lg font-semibold text-white mb-3">Your Responsibility</h3>
+                <p className="mb-2">By proceeding, you confirm that:</p>
+                <ul className="space-y-1 ml-4 text-sm">
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>you understand the risks of interacting with digital assets and decentralized systems,</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>you operate in compliance with your local laws,</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-400 mr-3 mt-1">•</span>
+                    <span>and you assume full responsibility for any decisions or actions you take related to the AMAI ecosystem.</span>
                   </li>
                 </ul>
               </section>
 
               <section>
-                <h3 className="text-lg font-semibold text-white mb-3">Founders Mint</h3>
-                <p className="mb-3">
-                  Founders Keys are special-edition tokens that unlock platform privileges such as unlimited Exotic Agent mints, Gold Wing badges, rare handles, and participation in the Council of 12. They are transferable like any other token. Founders Keys:
-                </p>
-                <ul className="space-y-2 ml-4 text-sm">
-                  <li className="flex items-start">
-                    <span className="text-cyan-400 mr-3 mt-1">•</span>
-                    <span>do not confer ownership, dividends, or voting rights in AMAI Labs,</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-cyan-400 mr-3 mt-1">•</span>
-                    <span>do not guarantee profits or appreciation in value,</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-cyan-400 mr-3 mt-1">•</span>
-                    <span>and are intended solely as symbolic and functional access tools within the AMAI ecosystem.</span>
-                  </li>
-                </ul>
-              </section>
-
-              <section>
-                <h3 className="text-lg font-semibold text-white mb-3">Risks and forward-looking statements</h3>
-                <p className="mb-3">
-                  The roadmap and milestones are goals, not guarantees. Development timelines can slip, regulations can change and technical hurdles may arise. Digital assets are volatile and subject to loss, theft, hacking, regulatory restrictions or total loss of value.
-                </p>
+                <h3 className="text-lg font-semibold text-white mb-3">Acceptance</h3>
                 <p className="mb-8">
-                  By proceeding, you acknowledge these risks and agree that you are solely responsible for any actions you take.
+                  By selecting Accept or continuing to access this site, you agree to these Terms & Conditions.
                 </p>
               </section>
             </div>
