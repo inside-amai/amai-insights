@@ -74,7 +74,6 @@ const Index = () => {
       <div className="overflow-x-hidden">
         {/* Main content with perspective grid background */}
         <div className="relative bg-perspective-grid">
-          
           {/* Hero with header overlay */}
           <div className="relative z-10">
             <Header />

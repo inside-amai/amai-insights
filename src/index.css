@@ -415,12 +415,39 @@ All colors MUST be HSL.
   background-position: center center;
 }
 
-/* Perspective grid with isometric diamond pattern */
+/* Perspective grid variant with depth */
+/* Perspective grid with depth - using direct background-image for proper tiling */
 .bg-perspective-grid {
   background-color: #000;
   background-image: 
-    linear-gradient(45deg, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
-    linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
-    linear-gradient(to bottom, transparent 0%, transparent 50%, rgba(0,0,0,0.8) 75%, #000 100%);
-  background-size: 50px 50px, 50px 50px, 100% 100%;
+    /* Subtle radial vignette for depth, repeating per viewport height */
+    radial-gradient(
+      ellipse 80% 50% at 50% 0%,
+      transparent 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    /* Vertical grid lines */
+    linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.06) 1px,
+      transparent 1px
+    ),
+    /* Horizontal grid lines */
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.06) 1px,
+      transparent 1px
+    );
+  background-size: 
+    100% 100vh,
+    80px 80px,
+    80px 80px;
+  background-position: 
+    center top,
+    center center,
+    center center;
+  background-repeat: 
+    repeat-y,
+    repeat,
+    repeat;
 }
