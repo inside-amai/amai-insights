@@ -416,52 +416,38 @@ All colors MUST be HSL.
 }
 
 /* Perspective grid variant with depth */
+/* Perspective grid with depth - using direct background-image for proper tiling */
 .bg-perspective-grid {
   background-color: #000;
-  position: relative;
-}
-
-.bg-perspective-grid::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: 
-    linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgba(0, 0, 0, 0.8) 100%
-    );
-  pointer-events: none;
-  z-index: 1;
-}
-
-.bg-perspective-grid::after {
-  content: '';
-  position: absolute;
-  inset: 0;
   background-image: 
+    /* Subtle radial vignette for depth, repeating per viewport height */
+    radial-gradient(
+      ellipse 80% 50% at 50% 0%,
+      transparent 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    /* Vertical grid lines */
     linear-gradient(
       to right,
-      rgba(255, 255, 255, 0.04) 1px,
+      rgba(255, 255, 255, 0.06) 1px,
       transparent 1px
     ),
+    /* Horizontal grid lines */
     linear-gradient(
       to bottom,
-      rgba(255, 255, 255, 0.04) 1px,
+      rgba(255, 255, 255, 0.06) 1px,
       transparent 1px
     );
-  background-size: 80px 80px;
-  mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.6) 0%,
-    rgba(0, 0, 0, 0.1) 60%,
-    transparent 100%
-  );
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.6) 0%,
-    rgba(0, 0, 0, 0.1) 60%,
-    transparent 100%
-  );
-  pointer-events: none;
+  background-size: 
+    100% 100vh,
+    80px 80px,
+    80px 80px;
+  background-position: 
+    center top,
+    center center,
+    center center;
+  background-repeat: 
+    repeat-y,
+    repeat,
+    repeat;
 }
