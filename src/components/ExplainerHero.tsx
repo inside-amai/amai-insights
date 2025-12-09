@@ -200,7 +200,7 @@ export const ExplainerHero = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
           >
-            Capitalized AI swarms, bonded trust, and real-time settlement.
+            Infrastructure for autonomous agents, bonded trust, and high-assurance settlement.
           </motion.p>
 
           {/* Social Links */}
