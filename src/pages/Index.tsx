@@ -86,122 +86,124 @@ const Index = () => {
         <ExplainerHero />
       </div>
 
-      {/* Explainer Sections */}
-      <div className="relative bg-black pt-8">
-        <AgentLayersSection />
+      {/* Main Content Sections with Isometric Grid Background */}
+      <div className="relative bg-perspective-grid">
+        {/* Grid content wrapper */}
+        <div className="relative z-10">
+          <AgentLayersSection />
+          
+          {/* Architecture Diagram Section */}
+          <ArchitectureDiagram />
         
-        {/* Architecture Diagram Section */}
-        <ArchitectureDiagram />
-        
-        <ExplainerSection
-          eyebrow="Platform"
-          title="Overview"
-          content={
-            <div className="space-y-4">
-              <p>
-                AMAI provides the execution environment where autonomous agents operate with capital, memory, skills, and verifiable trust scores.
-              </p>
-              <p>
-                Agents run inside a deterministic engine that manages identity, bonded collateral, mission routing, skill execution, and swarm coordination. Each action generates verifiable performance data, enabling trust-weighted capital allocation and automated economic settlement.
-              </p>
-              <p>
-                This environment forms the operational core of the machine-first economy — where agents transact, collaborate, and optimize in real time.
-              </p>
+          <ExplainerSection
+            eyebrow="Platform"
+            title="Overview"
+            content={
+              <div className="space-y-4">
+                <p>
+                  AMAI provides the execution environment where autonomous agents operate with capital, memory, skills, and verifiable trust scores.
+                </p>
+                <p>
+                  Agents run inside a deterministic engine that manages identity, bonded collateral, mission routing, skill execution, and swarm coordination. Each action generates verifiable performance data, enabling trust-weighted capital allocation and automated economic settlement.
+                </p>
+                <p>
+                  This environment forms the operational core of the machine-first economy — where agents transact, collaborate, and optimize in real time.
+                </p>
+              </div>
+            }
+            videoUrl="https://www.youtube.com/embed/N1RBnriszfQ?autoplay=1&loop=1&controls=0&mute=1&playlist=N1RBnriszfQ&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&fs=0&disablekb=1&cc_load_policy=0&playsinline=1&widget_referrer=https%3A%2F%2Flocalhost&origin=https%3A%2F%2Flocalhost&enablejsapi=0&html5=1&autohide=1&theme=dark&color=white"
+            imageAlt="Four-Step Agent Builder Wizard Demo"
+            overlayColor="rgba(0, 0, 0, 0)"
+          />
+
+          {/* Decorative Moon */}
+          <div className="relative py-8 overflow-hidden">
+            <div className="container mx-auto px-6">
+              <div className="flex justify-end pr-4 md:pr-12">
+                <motion.div
+                  initial={{ opacity: 0, rotate: -20 }}
+                  whileInView={{ opacity: 1, rotate: 0 }}
+                  transition={{ duration: 1, ease: "easeOut" }}
+                  viewport={{ once: true }}
+                >
+                  <motion.div
+                    animate={{ 
+                      y: [0, -10, 0],
+                      rotate: [0, 5, 0]
+                    }}
+                    transition={{ 
+                      y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+                      rotate: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                    }}
+                  >
+                    <Moon className="w-12 h-12 text-purple-accent" />
+                  </motion.div>
+                </motion.div>
+              </div>
             </div>
-          }
-          videoUrl="https://www.youtube.com/embed/N1RBnriszfQ?autoplay=1&loop=1&controls=0&mute=1&playlist=N1RBnriszfQ&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&fs=0&disablekb=1&cc_load_policy=0&playsinline=1&widget_referrer=https%3A%2F%2Flocalhost&origin=https%3A%2F%2Flocalhost&enablejsapi=0&html5=1&autohide=1&theme=dark&color=white"
-          imageAlt="Four-Step Agent Builder Wizard Demo"
-          overlayColor="rgba(0, 0, 0, 0)"
-        />
-      </div>
+          </div>
 
-      {/* Decorative Moon */}
-      <div className="relative bg-black py-8 overflow-hidden">
-        <div className="container mx-auto px-6">
-          <div className="flex justify-end pr-4 md:pr-12">
-            <motion.div
-              initial={{ opacity: 0, rotate: -20 }}
-              whileInView={{ opacity: 1, rotate: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              viewport={{ once: true }}
-            >
-              <motion.div
-                animate={{ 
-                  y: [0, -10, 0],
-                  rotate: [0, 5, 0]
-                }}
-                transition={{ 
-                  y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
-                  rotate: { duration: 4, repeat: Infinity, ease: "easeInOut" }
-                }}
-              >
-                <Moon className="w-12 h-12 text-purple-accent" />
-              </motion.div>
-            </motion.div>
+          {/* Technical Stack */}
+          <TechnicalFoundationSection />
+
+          {/* Decorative Star */}
+          <div className="relative py-8 overflow-hidden">
+            <div className="container mx-auto px-6">
+              <div className="flex justify-start pl-4 md:pl-32">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 1, ease: "easeOut" }}
+                  viewport={{ once: true }}
+                >
+                  <motion.div
+                    animate={{ 
+                      y: [0, 15, 0],
+                      rotate: [0, -10, 0]
+                    }}
+                    transition={{ 
+                      y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                      rotate: { duration: 5, repeat: Infinity, ease: "easeInOut" }
+                    }}
+                  >
+                    <Star className="w-12 h-12 text-cyan-accent fill-current" />
+                  </motion.div>
+                </motion.div>
+              </div>
+            </div>
+          </div>
+
+          {/* Decorative Zapier Icon */}
+          <div className="relative py-8 overflow-hidden">
+            <div className="container mx-auto px-6">
+              <div className="flex justify-end pr-4 md:pr-24">
+                <motion.div
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1, ease: "easeOut" }}
+                  viewport={{ once: true }}
+                >
+                  <motion.div
+                    animate={{ 
+                      y: [0, -12, 0],
+                      x: [0, 8, 0],
+                      rotate: [0, 15, 0]
+                    }}
+                    transition={{ 
+                      y: { duration: 3.5, repeat: Infinity, ease: "easeInOut" },
+                      x: { duration: 2.5, repeat: Infinity, ease: "easeInOut" },
+                      rotate: { duration: 6, repeat: Infinity, ease: "easeInOut" }
+                    }}
+                  >
+                    <Zap className="w-12 h-12 text-purple-accent fill-current" />
+                  </motion.div>
+                </motion.div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-        {/* Technical Stack */}
-        <TechnicalFoundationSection />
-
-      {/* Decorative Star */}
-      <div className="relative bg-black py-8 overflow-hidden">
-        <div className="container mx-auto px-6">
-          <div className="flex justify-start pl-4 md:pl-32">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              viewport={{ once: true }}
-            >
-              <motion.div
-                animate={{ 
-                  y: [0, 15, 0],
-                  rotate: [0, -10, 0]
-                }}
-                transition={{ 
-                  y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-                  rotate: { duration: 5, repeat: Infinity, ease: "easeInOut" }
-                }}
-              >
-                <Star className="w-12 h-12 text-cyan-accent fill-current" />
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
-      </div>
-
-
-
-      {/* Decorative Zapier Icon */}
-      <div className="relative bg-black py-8 overflow-hidden">
-        <div className="container mx-auto px-6">
-          <div className="flex justify-end pr-4 md:pr-24">
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              viewport={{ once: true }}
-            >
-              <motion.div
-                animate={{ 
-                  y: [0, -12, 0],
-                  x: [0, 8, 0],
-                  rotate: [0, 15, 0]
-                }}
-                transition={{ 
-                  y: { duration: 3.5, repeat: Infinity, ease: "easeInOut" },
-                  x: { duration: 2.5, repeat: Infinity, ease: "easeInOut" },
-                  rotate: { duration: 6, repeat: Infinity, ease: "easeInOut" }
-                }}
-              >
-                <Zap className="w-12 h-12 text-purple-accent fill-current" />
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
-      </div>
 
       {/* Full Width Hero Image Section */}
       <section className="relative w-full">
