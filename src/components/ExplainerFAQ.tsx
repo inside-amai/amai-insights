@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
 import {
   Accordion,
   AccordionContent,
@@ -39,77 +38,8 @@ const faqData = [
 ];
 
 export const ExplainerFAQ = () => {
-  const [shootingStars, setShootingStars] = useState<Array<{ id: number; x: number; y: number; delay: number; direction: { x: number; y: number; angle: number } }>>([]);
-  
-  useEffect(() => {
-    const createShootingStar = () => {
-      const id = Date.now();
-      
-      // Create safe zones to avoid text areas
-      // Either top corners (0-20% or 80-100% x, 0-25% y) or bottom corners (0-25% or 75-100% x, 75-100% y)
-      const isTopCorner = Math.random() > 0.5;
-      let x, y;
-      
-      if (isTopCorner) {
-        // Top corners - avoid center where header text is
-        x = Math.random() > 0.5 ? Math.random() * 20 : Math.random() * 20 + 80; // 0-20% or 80-100%
-        y = Math.random() * 25; // 0-25%
-      } else {
-        // Bottom corners - avoid center where FAQ content is
-        x = Math.random() > 0.5 ? Math.random() * 25 : Math.random() * 25 + 75; // 0-25% or 75-100%
-        y = Math.random() * 25 + 75; // 75-100%
-      }
-      
-      const delay = Math.random() * 1000; // Random delay up to 1 second
-      
-      // Generate random direction
-      const angle = Math.random() * 360; // Random angle in degrees
-      const distance = 120; // Distance to travel
-      const directionX = Math.cos(angle * Math.PI / 180) * distance;
-      const directionY = Math.sin(angle * Math.PI / 180) * distance;
-      const trailAngle = angle + 180; // Trail points opposite to movement direction
-      
-      const direction = { x: directionX, y: directionY, angle: trailAngle };
-      
-      const newStar = { id, x, y, delay, direction };
-      setShootingStars(prev => [...prev, newStar]);
-      
-      // Remove the star after animation completes
-      setTimeout(() => {
-        setShootingStars(prev => prev.filter(star => star.id !== id));
-      }, 2500 + delay);
-    };
-    
-    // Create first star after 5 seconds
-    const firstTimeout = setTimeout(createShootingStar, 5000);
-    
-    // Then create stars every 7 seconds
-    const interval = setInterval(createShootingStar, 7000);
-    
-    return () => {
-      clearTimeout(firstTimeout);
-      clearInterval(interval);
-    };
-  }, []);
-
   return (
-    <section className="min-h-screen flex items-center snap-start bg-black relative overflow-hidden">
-      {/* Shooting stars */}
-      {shootingStars.map((star) => (
-        <div
-          key={star.id}
-          className="shooting-star"
-          style={{
-            left: `${star.x}%`,
-            top: `${star.y}%`,
-            animationDelay: `${star.delay}ms`,
-            '--end-x': `${star.direction.x}px`,
-            '--end-y': `${star.direction.y}px`,
-            '--trail-angle': `${star.direction.angle}deg`,
-          } as React.CSSProperties}
-        />
-      ))}
-      
+    <section className="min-h-screen flex items-center snap-start bg-perspective-grid relative overflow-hidden">
       <div className="container mx-auto px-6 py-20">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
