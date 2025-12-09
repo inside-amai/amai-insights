@@ -86,8 +86,8 @@ const Index = () => {
             <ArchitectureDiagram />
           
             {/* Platform Overview Section - Centered */}
-            <section className="min-h-screen flex items-center justify-center snap-start relative overflow-hidden">
-              <div className="container mx-auto px-6 py-20 relative z-10">
+            <section className="flex items-center justify-center relative overflow-hidden">
+              <div className="container mx-auto px-6 py-16 relative z-10">
                 <motion.div 
                   className="max-w-3xl mx-auto text-center space-y-6"
                   initial={{ opacity: 0, y: 30 }}
