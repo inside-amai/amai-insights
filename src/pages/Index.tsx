@@ -11,7 +11,7 @@ import { Header } from '@/components/Header';
 import { TermsModal } from '@/components/TermsModal';
 import { TechnicalFoundationSection } from '@/components/TechnicalFoundationSection';
 import { Footer } from '@/components/Footer';
-import { SkillSelection } from '@/components/SkillSelection';
+import { AgentLayersSection } from '@/components/AgentLayersSection';
 import { OptimizedImage } from '@/components/OptimizedImage';
 import terminalDemo from '@/assets/terminal-demo.jpg';
 import circuitBoard from '@/assets/circuit-board.jpg';
@@ -87,31 +87,7 @@ const Index = () => {
 
       {/* Explainer Sections */}
       <div className="relative bg-black pt-8">
-        {/* Explore Title */}
-        <div className="text-center mb-4">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-4xl lg:text-6xl xl:text-7xl font-bold leading-tight"
-          >
-            <span className="shimmer-text text-transparent">
-              Agent Architecture.
-            </span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="text-lg lg:text-xl text-gray-300 mt-4 max-w-2xl mx-auto"
-          >
-            A modular skill system for capitalized autonomous agents.
-          </motion.p>
-        </div>
-        
-        <SkillSelection />
+        <AgentLayersSection />
         
         {/* SuiHub Section */}
         <section className="relative bg-black py-16">
