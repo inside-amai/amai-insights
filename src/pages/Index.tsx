@@ -97,9 +97,18 @@ const Index = () => {
             className="text-4xl lg:text-6xl xl:text-7xl font-bold leading-tight"
           >
             <span className="shimmer-text text-transparent">
-              Explore.
+              Agent Architecture.
             </span>
           </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-lg lg:text-xl text-gray-300 mt-4 max-w-2xl mx-auto"
+          >
+            A modular skill system for capitalized autonomous agents.
+          </motion.p>
         </div>
         
         <SkillSelection />
