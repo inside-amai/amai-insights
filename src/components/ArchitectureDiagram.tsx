@@ -10,7 +10,7 @@ interface LayerProps {
 const Layer: React.FC<LayerProps> = ({ title, items, isLast = false }) => (
   <div className="relative">
     {/* Layer Box */}
-    <div className="border border-white/20 rounded-lg p-4 md:p-6 bg-white/[0.02]">
+    <div className="border border-white/20 rounded-lg p-4 md:p-6 bg-black">
       <h4 className="text-sm md:text-base font-medium text-white tracking-tight mb-3">
         {title}
       </h4>
