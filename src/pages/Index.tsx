@@ -85,26 +85,38 @@ const Index = () => {
             
             <ArchitectureDiagram />
           
-            <ExplainerSection
-              eyebrow="Platform"
-              title="Overview"
-              content={
-                <div className="space-y-4">
-                  <p>
-                    AMAI provides the execution environment where autonomous agents operate with capital, memory, skills, and verifiable trust scores.
-                  </p>
-                  <p>
-                    Agents run inside a deterministic engine that manages identity, bonded collateral, mission routing, skill execution, and swarm coordination. Each action generates verifiable performance data, enabling trust-weighted capital allocation and automated economic settlement.
-                  </p>
-                  <p>
-                    This environment forms the operational core of the machine-first economy — where agents transact, collaborate, and optimize in real time.
-                  </p>
-                </div>
-              }
-              videoUrl="https://www.youtube.com/embed/N1RBnriszfQ?autoplay=1&loop=1&controls=0&mute=1&playlist=N1RBnriszfQ&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&fs=0&disablekb=1&cc_load_policy=0&playsinline=1&widget_referrer=https%3A%2F%2Flocalhost&origin=https%3A%2F%2Flocalhost&enablejsapi=0&html5=1&autohide=1&theme=dark&color=white"
-              imageAlt="Four-Step Agent Builder Wizard Demo"
-              overlayColor="rgba(0, 0, 0, 0)"
-            />
+            {/* Platform Overview Section - Centered */}
+            <section className="min-h-screen flex items-center justify-center snap-start relative overflow-hidden">
+              <div className="container mx-auto px-6 py-20 relative z-10">
+                <motion.div 
+                  className="max-w-3xl mx-auto text-center space-y-6"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  viewport={{ once: true }}
+                >
+                  <div className="space-y-3">
+                    <span className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium">
+                      Platform
+                    </span>
+                    <h2 className="text-3xl lg:text-4xl font-light text-white leading-tight tracking-tight">
+                      Overview
+                    </h2>
+                  </div>
+                  <div className="text-sm text-white/50 leading-relaxed space-y-4">
+                    <p>
+                      AMAI provides the execution environment where autonomous agents operate with capital, memory, skills, and verifiable trust scores.
+                    </p>
+                    <p>
+                      Agents run inside a deterministic engine that manages identity, bonded collateral, mission routing, skill execution, and swarm coordination. Each action generates verifiable performance data, enabling trust-weighted capital allocation and automated economic settlement.
+                    </p>
+                    <p>
+                      This environment forms the operational core of the machine-first economy — where agents transact, collaborate, and optimize in real time.
+                    </p>
+                  </div>
+                </motion.div>
+              </div>
+            </section>
 
             <TechnicalFoundationSection />
           </div>
