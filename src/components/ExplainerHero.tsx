@@ -31,11 +31,11 @@ export const ExplainerHero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight tracking-tight"
+            className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-white leading-tight tracking-tight"
           >
             Bringing A Billion Agents
             <span className="block">
-              Into the <span className="shimmer-text text-transparent">Machine-First Economy</span>
+              Into the <span className="text-white/80">Machine-First Economy</span>
             </span>
           </motion.h1>
 
