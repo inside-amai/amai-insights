@@ -31,7 +31,7 @@ export const ExplainerHero = () => {
         <div className="absolute left-6 top-[15%] bottom-[15%] w-px bg-gradient-to-b from-transparent via-white/[0.04] to-transparent" />
         
         {/* Constellation / Node cluster - agent network visualization */}
-        <svg className="absolute right-[5%] top-[10%] w-[400px] h-[400px] opacity-[0.04]" viewBox="0 0 400 400">
+        <svg className="absolute right-[5%] top-[10%] w-[400px] h-[400px] opacity-[0.10]" viewBox="0 0 400 400">
           {/* Primary nodes */}
           <circle cx="200" cy="180" r="3" fill="white" />
           <circle cx="280" cy="120" r="2" fill="white" />
@@ -68,7 +68,7 @@ export const ExplainerHero = () => {
         </svg>
         
         {/* Secondary smaller constellation - bottom left */}
-        <svg className="absolute left-[10%] bottom-[15%] w-[200px] h-[200px] opacity-[0.025]" viewBox="0 0 200 200">
+        <svg className="absolute left-[10%] bottom-[15%] w-[200px] h-[200px] opacity-[0.07]" viewBox="0 0 200 200">
           <circle cx="100" cy="100" r="2" fill="white" />
           <circle cx="60" cy="70" r="1.5" fill="white" />
           <circle cx="140" cy="80" r="1.5" fill="white" />
