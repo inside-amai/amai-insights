@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
 
 interface WhitepaperCardProps {
   slug: string;
@@ -16,47 +14,38 @@ export const WhitepaperCard = ({ slug, title, description, category, index }: Wh
     <motion.article
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      whileHover={{ y: -8 }}
+      whileHover={{ y: -4 }}
       viewport={{ once: true }}
       transition={{ 
-        duration: 0.44, 
+        duration: 0.5, 
         ease: 'easeOut', 
-        delay: index * 0.08
+        delay: index * 0.05
       }}
-      className="group/card rounded-3xl p-8 h-full cursor-pointer flex flex-col"
-      style={{
-        background: 'white',
-        border: '1px solid rgba(0, 0, 0, 0.1)',
-        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)'
-      }}
+      className="group"
     >
-      <header className="mb-6 flex-grow">
-        <span className="text-xs font-medium uppercase tracking-[0.15em] text-black block">
-          {category}
-        </span>
-        <h3 className="mt-3 font-roboto text-3xl text-[#080808] font-semibold leading-tight">
-          {title}
-        </h3>
-        <p className="mt-2 text-sm leading-relaxed text-[#2F2F2F]">
-          {description}
-        </p>
-      </header>
-      
-      <motion.div
-        whileHover={{ scale: 1.02 }}
-        transition={{ duration: 0.2 }}
+      <Link 
+        to={`/whitepaper/${slug}`}
+        className="block h-full p-6 bg-white border border-black/[0.08] rounded-lg transition-all duration-500 hover:border-black/20 hover:shadow-lg"
       >
-        <Button 
-          asChild 
-          variant="ghost" 
-          className="mt-auto text-sm px-4 py-2 border border-[#080808] rounded-full hover:bg-[#A6FCFC] hover:text-black transition-colors duration-300 w-fit"
-        >
-          <Link to={`/whitepaper/${slug}`}>
-            Read More
-            <ArrowRight className="inline ml-1" size={14} />
-          </Link>
-        </Button>
-      </motion.div>
+        <div className="space-y-3">
+          <span className="text-[11px] tracking-[0.3em] uppercase text-black/40 font-medium">
+            {category}
+          </span>
+          <h3 className="text-lg font-medium text-black tracking-tight">
+            {title}
+          </h3>
+          <p className="text-xs text-black/50 leading-relaxed">
+            {description}
+          </p>
+        </div>
+        
+        <div className="mt-6 flex items-center gap-3 group-hover:gap-4 transition-all duration-300">
+          <div className="w-4 h-px bg-black/20 group-hover:bg-black/40 transition-colors" />
+          <span className="text-xs text-black/50 group-hover:text-black/70 transition-colors">
+            Read more
+          </span>
+        </div>
+      </Link>
     </motion.article>
   );
 };
