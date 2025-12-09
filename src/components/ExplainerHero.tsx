@@ -32,7 +32,7 @@ export const ExplainerHero = () => {
         
         {/* Constellation / Node cluster - agent network visualization */}
         <motion.svg 
-          className="absolute right-[5%] top-[10%] w-[400px] h-[400px] opacity-[0.12]" 
+          className="absolute right-[5%] top-[10%] w-[400px] h-[400px] opacity-[0.14]"
           viewBox="0 0 400 400"
           animate={{ 
             x: [0, 3, -2, 1, 0],
