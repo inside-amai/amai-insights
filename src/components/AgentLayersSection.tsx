@@ -45,19 +45,6 @@ const layers = [
 export const AgentLayersSection = () => {
   return (
     <section className="relative py-24 overflow-hidden">
-      {/* Subtle grid background */}
-      <div className="absolute inset-0 opacity-[0.015]">
-        <div 
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: '60px 60px',
-          }}
-        />
-      </div>
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}

@@ -60,7 +60,7 @@ const ArchitectureDiagram: React.FC = () => {
   ];
 
   return (
-    <section className="relative bg-black py-20 md:py-28">
+    <section className="relative py-20 md:py-28">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <motion.div
