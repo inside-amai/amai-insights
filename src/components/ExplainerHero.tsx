@@ -1,28 +1,27 @@
 import { motion } from 'framer-motion';
 import { OptimizedImage } from '@/components/OptimizedImage';
-import amaiLogo from '@/assets/amai-logo-hero.png';
+import amaiLogo from '@/assets/amai-logo-hero-new.png';
 
 export const ExplainerHero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center snap-start relative overflow-hidden">
-      <div className="container mx-auto px-6 text-center relative z-10">
+    <section className="min-h-[85vh] flex items-center snap-start relative overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="space-y-8"
+          className="space-y-5 max-w-3xl"
         >
-          {/* Logo */}
+          {/* Logo - reduced by ~35% */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex justify-center"
           >
             <OptimizedImage 
               src={amaiLogo}
               alt="AMAI Logo" 
-              className="h-24 md:h-32 lg:h-40 xl:h-48 w-auto"
+              className="h-16 md:h-20 lg:h-24 xl:h-28 w-auto"
               loading="eager"
             />
           </motion.div>
@@ -40,49 +39,35 @@ export const ExplainerHero = () => {
             </span>
           </motion.h1>
 
-          {/* Subtitle */}
+          {/* Subtitle - tighter spacing */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-sm md:text-base text-white/50 max-w-2xl mx-auto leading-relaxed"
+            className="text-sm md:text-base text-white/50 max-w-xl leading-relaxed"
           >
             Infrastructure for autonomous agents, bonded trust, and high-assurance settlement.
           </motion.p>
 
-          {/* Social Links */}
+          {/* CTAs replacing social icons */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex flex-row gap-8 justify-center items-center pt-4"
+            className="flex flex-row gap-4 items-center pt-2"
           >
             <a 
-              href="https://t.me/AMAIOfficial" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="transition-all duration-300 hover:scale-105"
+              href="/whitepaper/system-architecture" 
+              className="text-sm text-white/70 hover:text-white border border-white/20 hover:border-white/40 px-5 py-2.5 rounded transition-all duration-300"
             >
-              <OptimizedImage 
-                src="/lovable-uploads/f688c83b-1c4d-44c4-bbc4-f9328559a323.png" 
-                alt="Join Telegram" 
-                className="w-10 h-10 md:w-12 md:h-12 object-contain brightness-100 hover:brightness-75 transition-all duration-300"
-                style={{ width: '40px', height: '40px' }}
-              />
+              Read the Architecture
             </a>
             
             <a 
-              href="https://x.com/InsideAMAI" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="transition-all duration-300 hover:scale-105"
+              href="#technical-docs" 
+              className="text-sm text-white/50 hover:text-white/70 transition-all duration-300"
             >
-              <OptimizedImage 
-                src="/lovable-uploads/53e90b93-7fe0-4c2c-b053-df64d7a767d0.png" 
-                alt="Follow on X" 
-                className="w-10 h-10 md:w-12 md:h-12 object-contain brightness-100 hover:brightness-75 transition-all duration-300"
-                style={{ width: '40px', height: '40px' }}
-              />
+              Explore Documentation →
             </a>
           </motion.div>
         </motion.div>
