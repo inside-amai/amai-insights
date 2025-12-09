@@ -185,7 +185,7 @@ export const ExplainerHero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-4xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight"
+            className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-white leading-tight tracking-tight"
           >
             Bringing A Billion Agents
             <span className="block">
@@ -198,7 +198,7 @@ export const ExplainerHero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+            className="text-sm md:text-base text-white/50 max-w-2xl mx-auto leading-relaxed"
           >
             Infrastructure for autonomous agents, bonded trust, and high-assurance settlement.
           </motion.p>

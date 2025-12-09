@@ -120,17 +120,15 @@ export const ExplainerSection = ({
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="space-y-4">
-             <span className="text-sm font-medium text-white uppercase tracking-wider">
+            <div className="space-y-3">
+              <span className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium">
                 {eyebrow}
               </span>
-              <h2 className="text-3xl lg:text-4xl font-bold leading-tight">
-                <span className="shimmer-text text-transparent">
-                  {title}
-                </span>
+              <h2 className="text-3xl lg:text-4xl font-light text-white leading-tight tracking-tight">
+                {title}
               </h2>
             </div>
-            <div className="text-lg text-gray-300 leading-relaxed">
+            <div className="text-sm text-white/50 leading-relaxed">
               {content}
             </div>
           </motion.div>
