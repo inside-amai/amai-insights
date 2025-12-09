@@ -44,9 +44,12 @@ export const TechnicalFoundationSection = () => {
             viewport={{ once: true }}
           >
             <div className="space-y-4">
+              <span className="text-sm font-medium text-white uppercase tracking-wider">
+                AUTONOMOUS AGENTS:
+              </span>
               <h2 className="text-3xl lg:text-4xl font-bold leading-tight">
                 <span className="shimmer-text text-transparent">
-                  Autonomous Agent Performance & Trust Rewards
+                  Performance & Trust Rewards
                 </span>
               </h2>
             </div>
