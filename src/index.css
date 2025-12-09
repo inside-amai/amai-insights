@@ -416,48 +416,8 @@ All colors MUST be HSL.
 }
 
 /* Perspective grid variant with depth */
-/* Perspective grid with isometric tilt and horizon fade */
+/* Simple black background for grid container */
 .bg-perspective-grid {
   background-color: #000;
   position: relative;
-}
-
-.bg-perspective-grid::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: 
-    /* Isometric lines at 45° */
-    linear-gradient(
-      45deg,
-      rgba(255, 255, 255, 0.12) 1px,
-      transparent 1px
-    ),
-    /* Isometric lines at -45° (135°) */
-    linear-gradient(
-      -45deg,
-      rgba(255, 255, 255, 0.12) 1px,
-      transparent 1px
-    );
-  background-size: 60px 60px;
-  background-position: center top;
-  background-repeat: repeat;
-  
-  /* Fade only the grid lines from top to bottom */
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.5) 40%,
-    rgba(0, 0, 0, 0.1) 70%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.5) 40%,
-    rgba(0, 0, 0, 0.1) 70%,
-    transparent 100%
-  );
-  pointer-events: none;
-  z-index: 0;
 }
