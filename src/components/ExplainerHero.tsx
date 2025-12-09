@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { OptimizedImage } from '@/components/OptimizedImage';
-import amaiLabsLogo from '@/assets/amai-labs-logo.png';
+import amaiLogo from '@/assets/amai-logo-hero.png';
 
 export const ExplainerHero = () => {
   return (
@@ -20,9 +20,9 @@ export const ExplainerHero = () => {
             className="flex justify-center"
           >
             <OptimizedImage 
-              src={amaiLabsLogo}
-              alt="AMAI Labs Logo" 
-              className="h-20 md:h-28 lg:h-36 xl:h-40 w-auto"
+              src={amaiLogo}
+              alt="AMAI Logo" 
+              className="h-24 md:h-32 lg:h-40 xl:h-48 w-auto"
               loading="eager"
             />
           </motion.div>
