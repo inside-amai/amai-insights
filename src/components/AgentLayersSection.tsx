@@ -158,7 +158,7 @@ export const AgentLayersSection = () => {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <p className="text-[11px] text-white/30 tracking-wide">
+          <p className="text-xs text-white/40">
             Each layer operates independently while maintaining cryptographic coherence across the stack.
           </p>
         </motion.div>
