@@ -31,7 +31,19 @@ export const ExplainerHero = () => {
         <div className="absolute left-6 top-[15%] bottom-[15%] w-px bg-gradient-to-b from-transparent via-white/[0.04] to-transparent" />
         
         {/* Constellation / Node cluster - agent network visualization */}
-        <svg className="absolute right-[5%] top-[10%] w-[400px] h-[400px] opacity-[0.10]" viewBox="0 0 400 400">
+        <motion.svg 
+          className="absolute right-[5%] top-[10%] w-[400px] h-[400px] opacity-[0.12]" 
+          viewBox="0 0 400 400"
+          animate={{ 
+            x: [0, 3, -2, 1, 0],
+            y: [0, -2, 3, -1, 0],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
           {/* Primary nodes */}
           <circle cx="200" cy="180" r="3" fill="white" />
           <circle cx="280" cy="120" r="2" fill="white" />
@@ -65,10 +77,22 @@ export const ExplainerHero = () => {
           <path d="M280,120 L220,80" stroke="white" strokeWidth="0.3" fill="none" />
           <path d="M320,200 L340,300" stroke="white" strokeWidth="0.3" fill="none" />
           <path d="M260,280 L340,300" stroke="white" strokeWidth="0.3" fill="none" />
-        </svg>
+        </motion.svg>
         
         {/* Secondary smaller constellation - bottom left */}
-        <svg className="absolute left-[10%] bottom-[15%] w-[200px] h-[200px] opacity-[0.07]" viewBox="0 0 200 200">
+        <motion.svg 
+          className="absolute left-[10%] bottom-[15%] w-[200px] h-[200px] opacity-[0.08]" 
+          viewBox="0 0 200 200"
+          animate={{ 
+            x: [0, -2, 1, -1, 0],
+            y: [0, 1, -2, 2, 0],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
           <circle cx="100" cy="100" r="2" fill="white" />
           <circle cx="60" cy="70" r="1.5" fill="white" />
           <circle cx="140" cy="80" r="1.5" fill="white" />
@@ -78,7 +102,7 @@ export const ExplainerHero = () => {
           <path d="M100,100 L140,80" stroke="white" strokeWidth="0.4" fill="none" />
           <path d="M100,100 L80,140" stroke="white" strokeWidth="0.4" fill="none" />
           <path d="M100,100 L130,130" stroke="white" strokeWidth="0.4" fill="none" />
-        </svg>
+        </motion.svg>
         
         {/* Micro-grid coordinate label - lower left */}
         <div className="absolute left-6 bottom-8 font-mono text-[9px] tracking-[0.15em] text-white/[0.12]">
