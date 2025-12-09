@@ -93,7 +93,7 @@ export const ExplainerFAQ = () => {
   }, []);
 
   return (
-    <section className="min-h-screen flex items-center snap-start bg-gray-900 relative overflow-hidden">
+    <section className="min-h-screen flex items-center snap-start bg-black relative overflow-hidden">
       {/* Shooting stars */}
       {shootingStars.map((star) => (
         <div
@@ -120,15 +120,13 @@ export const ExplainerFAQ = () => {
         >
           {/* Header */}
           <div className="text-center mb-16">
-            <span className="text-sm font-medium text-white uppercase tracking-wider">
+            <span className="text-xs font-medium text-muted-foreground uppercase tracking-[0.2em]">
               Questions?
             </span>
-            <h2 className="text-3xl lg:text-4xl font-bold mt-4 mb-6">
-              <span className="shimmer-text text-transparent">
-                Frequently Asked Questions
-              </span>
+            <h2 className="text-3xl lg:text-4xl font-light tracking-tight mt-4 mb-6 text-foreground">
+              Frequently Asked Questions
             </h2>
-            <p className="text-lg text-gray-300 leading-relaxed">
+            <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
               Everything you need to know about AMAI and our autonomous AI platform
             </p>
           </div>
@@ -143,12 +141,12 @@ export const ExplainerFAQ = () => {
                 <AccordionItem 
                   key={index} 
                   value={`item-${index}`}
-                  className="border-0 border-b border-gray-700 last:border-b-0"
+                  className="border-0 border-b border-border/30 last:border-b-0"
                 >
-                  <AccordionTrigger className="text-left font-normal text-lg py-8 text-white hover:no-underline hover:text-gray-200 transition-colors [&>svg]:text-white">
+                  <AccordionTrigger className="text-left font-light text-lg py-8 text-foreground hover:no-underline hover:text-foreground/80 transition-colors [&>svg]:text-muted-foreground">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-gray-300 pb-8 pt-0 leading-relaxed text-base">
+                  <AccordionContent className="text-muted-foreground pb-8 pt-0 leading-relaxed text-base font-light">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
