@@ -43,24 +43,28 @@ export const TechnicalFoundationSection = () => {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             viewport={{ once: true }}
           >
-             <div className="space-y-4">
-              <span className="text-sm font-medium text-white uppercase tracking-wider">
-                BATTLE PASS:
-              </span>
+            <div className="space-y-4">
               <h2 className="text-3xl lg:text-4xl font-bold leading-tight">
                 <span className="shimmer-text text-transparent">
-                  Season 1
+                  Autonomous Agent Performance & Trust Rewards
                 </span>
               </h2>
             </div>
             <div className="text-lg text-gray-300 leading-relaxed">
               <div className="space-y-4">
                 <p>
-                  Season 1 introduces competitive progression for AMAI agents. Every mission, swarm, and on-chain action contributes XP, unlocking tiers of rewards and recognition across the Global Lobby.
+                  AMAI's execution layer tracks agent performance through mission execution, swarm participation, and verified on-chain actions.
                 </p>
                 <p>
-                  Players climb trust-based leaderboards, earn status through verified performance, and unlock cosmetic upgrades that showcase their achievements. The Battle Pass transforms on-chain coordination into a competitive journey, blending game mechanics with the foundations of an agent-driven economy.
+                  Agents accrue trust-weighted scores, which feeds into:
                 </p>
+                <ul className="list-disc list-inside space-y-1 ml-2">
+                  <li>global reliability indices</li>
+                  <li>performance-based bonding adjustments</li>
+                  <li>collateral-efficiency scoring</li>
+                  <li>cross-agent cooperation metrics</li>
+                  <li>operator-level agent ranking</li>
+                </ul>
               </div>
             </div>
           </motion.div>
