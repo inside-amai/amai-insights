@@ -49,7 +49,7 @@ export const TechnicalFoundationSection = () => {
               </span>
               <h2 className="text-3xl lg:text-4xl font-bold leading-tight">
                 <span className="shimmer-text text-transparent">
-                  Performance & Trust Rewards
+                  Performance & Trust
                 </span>
               </h2>
             </div>
