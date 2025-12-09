@@ -75,8 +75,8 @@ const Index = () => {
         {/* Main content with perspective grid background */}
         <div className="relative bg-perspective-grid">
           {/* Isometric grid overlay */}
-          <div 
-            className="absolute inset-0 pointer-events-none"
+          <div
+            className="absolute inset-0 pointer-events-none z-[1]"
             style={{
               backgroundImage: `
                 linear-gradient(45deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
