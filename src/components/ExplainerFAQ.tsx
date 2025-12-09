@@ -89,10 +89,10 @@ export const ExplainerFAQ = () => {
                   value={`item-${index}`}
                   className="border-0 border-b border-border/30 last:border-b-0"
                 >
-                  <AccordionTrigger className="text-left font-light text-lg py-8 text-foreground hover:no-underline hover:text-foreground/80 transition-colors [&>svg]:text-muted-foreground">
+                  <AccordionTrigger className="text-left font-light text-base py-5 text-foreground hover:no-underline hover:text-foreground/80 transition-colors [&>svg]:text-muted-foreground">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground pb-8 pt-0 leading-relaxed text-base font-light">
+                  <AccordionContent className="text-muted-foreground pb-5 pt-0 leading-snug text-sm font-light">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
