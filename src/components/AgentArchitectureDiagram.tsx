@@ -15,16 +15,14 @@ const Box: React.FC<BoxProps> = ({ title, subtitle, isCenter = false }) => (
     backdrop-blur-sm
     transition-all duration-500
     hover:border-white/20
+    text-center
     ${isCenter ? "px-6 py-5" : "px-4 py-3"}
   `}>
-    <div className="flex items-center gap-2 mb-1">
-      <div className="w-1 h-1 rounded-full bg-white/60" />
-      <span className={`${isCenter ? "text-sm" : "text-xs"} font-medium text-white tracking-tight`}>
-        {title}
-      </span>
-    </div>
+    <span className={`${isCenter ? "text-sm" : "text-xs"} font-medium text-white tracking-tight`}>
+      {title}
+    </span>
     {subtitle && (
-      <p className="text-[10px] text-white/40 leading-relaxed pl-3">
+      <p className="text-[10px] text-white/40 leading-relaxed mt-1">
         {subtitle}
       </p>
     )}
@@ -41,15 +39,13 @@ const CenterNode: React.FC<BoxProps> = ({ title, subtitle }) => (
     px-6 py-5
     transition-all duration-500
     hover:border-white/30
+    text-center
   ">
-    <div className="flex items-center gap-2 mb-1.5">
-      <div className="w-1.5 h-1.5 rounded-full bg-white/80" />
-      <span className="text-sm font-medium text-white tracking-tight">
-        {title}
-      </span>
-    </div>
+    <span className="text-sm font-medium text-white tracking-tight">
+      {title}
+    </span>
     {subtitle && (
-      <p className="text-[10px] text-white/50 uppercase tracking-wider pl-4">
+      <p className="text-[10px] text-white/50 uppercase tracking-wider mt-1">
         {subtitle}
       </p>
     )}
@@ -152,14 +148,12 @@ const AgentArchitectureDiagram: React.FC = () => {
               px-6 py-3
               transition-all duration-500
               hover:border-white/15
+              text-center
             ">
-              <div className="flex items-center justify-center gap-2 mb-1">
-                <div className="w-1 h-1 rounded-full bg-white/50" />
-                <span className="text-xs font-medium text-white/80 tracking-tight">
-                  Settlement Layer (Sui)
-                </span>
-              </div>
-              <p className="text-[10px] text-white/40 text-center">
+              <span className="text-xs font-medium text-white/80 tracking-tight">
+                Settlement Layer (Sui)
+              </span>
+              <p className="text-[10px] text-white/40 mt-1">
                 Deterministic settlement • Performance verification
               </p>
             </div>
