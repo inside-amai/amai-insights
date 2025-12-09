@@ -175,7 +175,7 @@ export const ExplainerHero = () => {
             <OptimizedImage 
               src={amaiLabsLogo}
               alt="AMAI Labs Logo" 
-              className="h-16 lg:h-20 xl:h-24 w-auto"
+              className="h-24 md:h-32 lg:h-40 xl:h-48 w-auto"
               loading="eager"
             />
           </motion.div>
