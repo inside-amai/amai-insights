@@ -419,6 +419,13 @@ All colors MUST be HSL.
 /* Perspective grid with isometric tilt and horizon fade */
 .bg-perspective-grid {
   background-color: #000;
+  position: relative;
+}
+
+.bg-perspective-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
   background-image: 
     /* Isometric lines at 45° */
     linear-gradient(
@@ -436,19 +443,21 @@ All colors MUST be HSL.
   background-position: center top;
   background-repeat: repeat;
   
-  /* Fade from top to bottom like a horizon */
+  /* Fade only the grid lines from top to bottom */
   -webkit-mask-image: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.6) 30%,
-    rgba(0, 0, 0, 0.2) 60%,
+    rgba(0, 0, 0, 0.5) 40%,
+    rgba(0, 0, 0, 0.1) 70%,
     transparent 100%
   );
   mask-image: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.6) 30%,
-    rgba(0, 0, 0, 0.2) 60%,
+    rgba(0, 0, 0, 0.5) 40%,
+    rgba(0, 0, 0, 0.1) 70%,
     transparent 100%
   );
+  pointer-events: none;
+  z-index: 0;
 }
