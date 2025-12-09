@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import agentArchitectureDiagram from '@/assets/agent-architecture-diagram.png';
+import AgentArchitectureDiagram from './AgentArchitectureDiagram';
 
 export const TechnicalFoundationSection = () => {
   return (
@@ -18,21 +18,15 @@ export const TechnicalFoundationSection = () => {
       
       <div className="container mx-auto px-6 py-20 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center lg:grid-flow-dense">
-          {/* Large Image Column - Made bigger */}
+          {/* Diagram Column */}
           <motion.div 
-            className="lg:col-start-7 lg:col-span-6 relative overflow-hidden rounded-2xl"
+            className="lg:col-start-6 lg:col-span-7 relative"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <div className="relative">
-              <img 
-                src={agentArchitectureDiagram} 
-                alt="AMAI Agent Architecture Diagram"
-                className="w-full object-contain"
-              />
-            </div>
+            <AgentArchitectureDiagram />
           </motion.div>
 
           {/* Content Column - Made smaller to accommodate larger image */}
