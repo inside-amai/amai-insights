@@ -323,7 +323,7 @@ const AgentLifecycle = () => {
                 <div className="relative z-10">
                   {/* Radial Diagram SVG */}
                   <div className="flex justify-center">
-                    <svg viewBox="0 0 500 500" className="w-full max-w-[500px] h-auto">
+                    <svg viewBox="0 0 500 520" className="w-full max-w-[500px] h-auto">
                       {/* Outer Ring 3 - Risk & Termination */}
                       <circle cx="250" cy="250" r="220" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
                       <circle cx="250" cy="250" r="215" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="40" strokeDasharray="4 4" />
@@ -333,42 +333,62 @@ const AgentLifecycle = () => {
                       <circle cx="250" cy="250" r="155" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="30" />
                       
                       {/* Ring 1 - Operational Loop */}
-                      <circle cx="250" cy="250" r="100" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
-                      <circle cx="250" cy="250" r="95" fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="25" />
+                      <circle cx="250" cy="250" r="100" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
+                      <circle cx="250" cy="250" r="95" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="25" />
                       
                       {/* Center Core */}
                       <circle cx="250" cy="250" r="50" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
                       
+                      {/* Agent Core Glow - subtle 20s pulse */}
+                      <circle cx="250" cy="250" r="52" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="6">
+                        <animate attributeName="opacity" values="0.03;0.06;0.03" dur="20s" repeatCount="indefinite" />
+                      </circle>
+                      <circle cx="250" cy="250" r="55" fill="none" stroke="rgba(255,255,255,0.015)" strokeWidth="4">
+                        <animate attributeName="opacity" values="0.015;0.035;0.015" dur="20s" repeatCount="indefinite" />
+                      </circle>
+                      
                       {/* Center Core Label */}
-                      <text x="250" y="240" textAnchor="middle" fill="rgba(255,255,255,0.7)" fontSize="10" fontFamily="monospace">
+                      <text x="250" y="240" textAnchor="middle" fill="rgba(255,255,255,0.7)" fontSize="10" fontFamily="monospace" fontWeight="500">
                         AGENT CORE
                       </text>
-                      <text x="250" y="254" textAnchor="middle" fill="rgba(255,255,255,0.35)" fontSize="7" fontFamily="monospace">
+                      <text x="250" y="254" textAnchor="middle" fill="rgba(255,255,255,0.4)" fontSize="7" fontFamily="monospace">
                         identity · modules
                       </text>
-                      <text x="250" y="266" textAnchor="middle" fill="rgba(255,255,255,0.35)" fontSize="7" fontFamily="monospace">
+                      <text x="250" y="266" textAnchor="middle" fill="rgba(255,255,255,0.4)" fontSize="7" fontFamily="monospace">
                         collateral · memory
                       </text>
+                      
+                      {/* Arrow marker definitions */}
+                      <defs>
+                        <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="0" refY="2" orient="auto">
+                          <polygon points="0 0, 6 2, 0 4" fill="rgba(255,255,255,0.35)" />
+                        </marker>
+                        <marker id="arrowhead-exit" markerWidth="5" markerHeight="3" refX="0" refY="1.5" orient="auto">
+                          <polygon points="0 0, 5 1.5, 0 3" fill="rgba(255,255,255,0.25)" />
+                        </marker>
+                      </defs>
                       
                       {/* Ring 1 Labels - Operational Loop */}
                       <motion.text 
                         x="250" y="165" 
                         textAnchor="middle" 
-                        fill="rgba(255,255,255,0.5)" 
-                        fontSize="7" 
+                        fill="rgba(255,255,255,0.6)" 
+                        fontSize="8" 
                         fontFamily="monospace"
-                        animate={{ opacity: [0.4, 0.6, 0.4] }}
+                        fontWeight="500"
+                        animate={{ opacity: [0.5, 0.7, 0.5] }}
                         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                       >
                         MISSION INTAKE
                       </motion.text>
                       <motion.text 
-                        x="335" y="250" 
+                        x="340" y="250" 
                         textAnchor="middle" 
-                        fill="rgba(255,255,255,0.5)" 
-                        fontSize="7" 
+                        fill="rgba(255,255,255,0.6)" 
+                        fontSize="8" 
                         fontFamily="monospace"
-                        animate={{ opacity: [0.4, 0.6, 0.4] }}
+                        fontWeight="500"
+                        animate={{ opacity: [0.5, 0.7, 0.5] }}
                         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
                       >
                         EXECUTION
@@ -376,70 +396,56 @@ const AgentLifecycle = () => {
                       <motion.text 
                         x="250" y="340" 
                         textAnchor="middle" 
-                        fill="rgba(255,255,255,0.5)" 
-                        fontSize="7" 
+                        fill="rgba(255,255,255,0.6)" 
+                        fontSize="8" 
                         fontFamily="monospace"
-                        animate={{ opacity: [0.4, 0.6, 0.4] }}
+                        fontWeight="500"
+                        animate={{ opacity: [0.5, 0.7, 0.5] }}
                         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                       >
                         SETTLEMENT
                       </motion.text>
                       <motion.text 
-                        x="165" y="250" 
+                        x="160" y="250" 
                         textAnchor="middle" 
-                        fill="rgba(255,255,255,0.5)" 
-                        fontSize="7" 
+                        fill="rgba(255,255,255,0.6)" 
+                        fontSize="8" 
                         fontFamily="monospace"
-                        animate={{ opacity: [0.4, 0.6, 0.4] }}
+                        fontWeight="500"
+                        animate={{ opacity: [0.5, 0.7, 0.5] }}
                         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
                       >
                         TRUST UPDATE
                       </motion.text>
                       
-                      {/* Operational Loop Arrows */}
-                      <path d="M280 165 L300 165" stroke="rgba(255,255,255,0.2)" strokeWidth="1" markerEnd="url(#arrowhead)" />
-                      <path d="M335 280 L335 300" stroke="rgba(255,255,255,0.2)" strokeWidth="1" markerEnd="url(#arrowhead)" />
-                      <path d="M220 340 L200 340" stroke="rgba(255,255,255,0.2)" strokeWidth="1" markerEnd="url(#arrowhead)" />
-                      <path d="M165 220 L165 200" stroke="rgba(255,255,255,0.2)" strokeWidth="1" markerEnd="url(#arrowhead)" />
+                      {/* Operational Loop Arrows - brighter */}
+                      <path d="M285 165 L305 165" stroke="rgba(255,255,255,0.35)" strokeWidth="1" markerEnd="url(#arrowhead)" />
+                      <path d="M340 280 L340 300" stroke="rgba(255,255,255,0.35)" strokeWidth="1" markerEnd="url(#arrowhead)" />
+                      <path d="M215 340 L195 340" stroke="rgba(255,255,255,0.35)" strokeWidth="1" markerEnd="url(#arrowhead)" />
+                      <path d="M160 220 L160 200" stroke="rgba(255,255,255,0.35)" strokeWidth="1" markerEnd="url(#arrowhead)" />
                       
-                      {/* Arrow marker definition */}
-                      <defs>
-                        <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="0" refY="2" orient="auto">
-                          <polygon points="0 0, 6 2, 0 4" fill="rgba(255,255,255,0.2)" />
-                        </marker>
-                        <marker id="arrowhead-red" markerWidth="8" markerHeight="5" refX="0" refY="2.5" orient="auto">
-                          <polygon points="0 0, 8 2.5, 0 5" fill="rgba(255,100,100,0.4)" />
-                        </marker>
-                      </defs>
+                      {/* Ring 2 Labels - Long-Term Evolution - increased size */}
+                      <text x="250" y="105" textAnchor="middle" fill="rgba(255,255,255,0.45)" fontSize="7" fontFamily="monospace" fontWeight="500">TREASURY GROWTH</text>
+                      <text x="390" y="250" textAnchor="middle" fill="rgba(255,255,255,0.45)" fontSize="7" fontFamily="monospace" fontWeight="500">COLLATERAL ADJ.</text>
+                      <text x="250" y="400" textAnchor="middle" fill="rgba(255,255,255,0.45)" fontSize="7" fontFamily="monospace" fontWeight="500">SKILL UPGRADES</text>
+                      <text x="110" y="250" textAnchor="middle" fill="rgba(255,255,255,0.45)" fontSize="7" fontFamily="monospace" fontWeight="500">SWARM PART.</text>
+                      <text x="335" y="130" textAnchor="middle" fill="rgba(255,255,255,0.45)" fontSize="7" fontFamily="monospace" fontWeight="500">ROLE SPEC.</text>
                       
-                      {/* Ring 2 Labels - Long-Term Evolution */}
-                      <text x="250" y="105" textAnchor="middle" fill="rgba(255,255,255,0.35)" fontSize="6" fontFamily="monospace">TREASURY GROWTH</text>
-                      <text x="385" y="250" textAnchor="middle" fill="rgba(255,255,255,0.35)" fontSize="6" fontFamily="monospace">COLLATERAL ADJ</text>
-                      <text x="250" y="400" textAnchor="middle" fill="rgba(255,255,255,0.35)" fontSize="6" fontFamily="monospace">SKILL UPGRADES</text>
-                      <text x="115" y="250" textAnchor="middle" fill="rgba(255,255,255,0.35)" fontSize="6" fontFamily="monospace">SWARM PART.</text>
-                      <text x="330" y="130" textAnchor="middle" fill="rgba(255,255,255,0.35)" fontSize="6" fontFamily="monospace">ROLE SPEC.</text>
+                      {/* Ring 3 Labels - Risk & Termination - increased size */}
+                      <text x="250" y="50" textAnchor="middle" fill="rgba(255,255,255,0.35)" fontSize="7" fontFamily="monospace" fontWeight="500">FAILURES</text>
+                      <text x="435" y="250" textAnchor="middle" fill="rgba(255,255,255,0.35)" fontSize="7" fontFamily="monospace" fontWeight="500">PENALTIES</text>
+                      <text x="320" y="440" textAnchor="middle" fill="rgba(255,255,255,0.35)" fontSize="7" fontFamily="monospace" fontWeight="500">SLASHING</text>
+                      <text x="180" y="440" textAnchor="middle" fill="rgba(255,255,255,0.35)" fontSize="7" fontFamily="monospace" fontWeight="500">RETIREMENT</text>
                       
-                      {/* Ring 3 Labels - Risk & Termination */}
-                      <text x="250" y="50" textAnchor="middle" fill="rgba(255,255,255,0.25)" fontSize="6" fontFamily="monospace">FAILURES</text>
-                      <text x="430" y="250" textAnchor="middle" fill="rgba(255,255,255,0.25)" fontSize="6" fontFamily="monospace">PENALTIES</text>
-                      <text x="320" y="440" textAnchor="middle" fill="rgba(255,255,255,0.25)" fontSize="6" fontFamily="monospace">SLASHING</text>
-                      <text x="140" y="440" textAnchor="middle" fill="rgba(255,255,255,0.25)" fontSize="6" fontFamily="monospace">RETIREMENT</text>
-                      
-                      {/* Retirement Capsule - outgoing arrow */}
-                      <line x1="140" y1="455" x2="140" y2="490" stroke="rgba(255,100,100,0.3)" strokeWidth="1" markerEnd="url(#arrowhead-red)" />
-                      <rect x="100" y="490" width="80" height="28" rx="2" fill="none" stroke="rgba(255,100,100,0.3)" strokeWidth="1" />
-                      <text x="140" y="505" textAnchor="middle" fill="rgba(255,100,100,0.5)" fontSize="6" fontFamily="monospace">RETIREMENT</text>
-                      <text x="140" y="513" textAnchor="middle" fill="rgba(255,100,100,0.4)" fontSize="5" fontFamily="monospace">CAPSULE</text>
+                      {/* Retirement Capsule - clean white/grey, centered under diagram */}
+                      <line x1="250" y1="472" x2="250" y2="500" stroke="rgba(255,255,255,0.2)" strokeWidth="0.75" markerEnd="url(#arrowhead-exit)" />
+                      <rect x="210" y="502" width="80" height="24" rx="2" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="0.75" />
+                      <text x="250" y="515" textAnchor="middle" fill="rgba(255,255,255,0.35)" fontSize="6" fontFamily="monospace" fontWeight="500">RETIREMENT CAPSULE</text>
                       
                       {/* Ring Labels */}
-                      <text x="250" y="75" textAnchor="middle" fill="rgba(255,255,255,0.15)" fontSize="5" fontFamily="monospace" letterSpacing="0.15em">RING 3 — RISK & TERMINATION</text>
-                      <text x="250" y="130" textAnchor="middle" fill="rgba(255,255,255,0.15)" fontSize="5" fontFamily="monospace" letterSpacing="0.15em">RING 2 — LONG-TERM EVOLUTION</text>
-                      <text x="250" y="185" textAnchor="middle" fill="rgba(255,255,255,0.15)" fontSize="5" fontFamily="monospace" letterSpacing="0.1em">RING 1 — OPERATIONAL LOOP</text>
-                      
-                      {/* Subtle glow on core */}
-                      <circle cx="250" cy="250" r="52" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="4">
-                        <animate attributeName="opacity" values="0.05;0.1;0.05" dur="4s" repeatCount="indefinite" />
-                      </circle>
+                      <text x="250" y="70" textAnchor="middle" fill="rgba(255,255,255,0.12)" fontSize="5" fontFamily="monospace" letterSpacing="0.15em">RING 3 — RISK & TERMINATION</text>
+                      <text x="250" y="125" textAnchor="middle" fill="rgba(255,255,255,0.12)" fontSize="5" fontFamily="monospace" letterSpacing="0.15em">RING 2 — LONG-TERM EVOLUTION</text>
+                      <text x="250" y="180" textAnchor="middle" fill="rgba(255,255,255,0.12)" fontSize="5" fontFamily="monospace" letterSpacing="0.1em">RING 1 — OPERATIONAL LOOP</text>
                     </svg>
                   </div>
                 </div>
