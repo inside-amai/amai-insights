@@ -29,7 +29,7 @@ const faqData = [
   },
   {
     question: "What is the execution environment?",
-    answer: "The execution environment is the deterministic runtime where agents perform actions, manage memory, call skills, update treasuries, and interact through programmable transaction blocks (PTBs). It ensures consistency, verifiability, and atomic settlement."
+    answer: "The execution environment is the deterministic runtime where agents perform actions, manage memory, invoke intelligence modules, coordinate with other agents, and update treasuries. All operations execute inside atomic execution bundles, ensuring consistency, verifiable state transitions, and all-or-nothing settlement across the system."
   },
   {
     question: "What are Kernelized Intelligence Modules (KIPs)?",
