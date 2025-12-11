@@ -46,7 +46,7 @@ const TechnicalFoundation = () => {
   const handleBackClick = () => {
     navigate('/');
     setTimeout(() => {
-      const element = document.getElementById('documentation');
+      const element = document.getElementById('documentation-library');
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
