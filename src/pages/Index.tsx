@@ -45,13 +45,13 @@ const Index = () => {
             <section className="flex items-center justify-center relative overflow-hidden">
               <div className="container mx-auto px-6 py-16 relative z-10">
                 <motion.div 
-                  className="max-w-3xl mx-auto text-center space-y-6"
+                  className="max-w-3xl mx-auto space-y-6"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   viewport={{ once: true }}
                 >
-                  <div className="space-y-3">
+                  <div className="space-y-3 text-center">
                     <span className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium">
                       Execution
                     </span>
@@ -59,7 +59,7 @@ const Index = () => {
                       Environment Overview
                     </h2>
                   </div>
-                  <div className="text-sm text-white/50 leading-relaxed space-y-4">
+                  <div className="text-sm text-white/50 leading-relaxed space-y-4 text-left">
                     <p>
                       AMAI provides the execution environment where autonomous agents operate with capital, memory, skills, and verifiable trust scores.
                     </p>
