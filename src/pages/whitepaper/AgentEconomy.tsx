@@ -3,8 +3,13 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, ChevronRight, ChevronLeft } from 'lucide-react';
 import { Footer } from '@/components/Footer';
+import { useEffect } from 'react';
 
 const AgentEconomy = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen bg-black relative overflow-hidden">
       {/* Blueprint grid background */}

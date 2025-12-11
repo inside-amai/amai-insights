@@ -1,257 +1,404 @@
-import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { ArrowLeft, ChevronRight, ChevronLeft } from 'lucide-react';
 import { Footer } from '@/components/Footer';
+import { useEffect } from 'react';
 
 const Token = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Blueprint Grid Background */}
-      <div className="fixed inset-0 pointer-events-none">
+    <div className="min-h-screen bg-black relative overflow-hidden">
+      {/* Blueprint grid background */}
+      <div className="fixed inset-0 opacity-[0.03]">
         <div 
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+              linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)
             `,
-            backgroundSize: '60px 60px'
+            backgroundSize: '60px 60px',
           }}
         />
       </div>
 
+      {/* Subtle radial gradient */}
+      <div className="fixed inset-0 bg-gradient-to-b from-white/[0.02] via-transparent to-transparent pointer-events-none" />
+
       {/* Back Button */}
-      <div className="relative z-10 pt-8 px-8">
-        <Link 
-          to="/" 
-          className="inline-flex items-center gap-2 text-white/40 hover:text-white/60 transition-colors text-sm"
+      <div className="fixed top-6 left-6 z-50">
+        <Button 
+          asChild
+          variant="outline" 
+          size="sm" 
+          className="bg-black/80 backdrop-blur-sm border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
         >
-          <ArrowLeft className="w-4 h-4" />
-          Back to Home
-        </Link>
+          <Link to="/#documentation">
+            <ArrowLeft className="mr-2 h-3 w-3" />
+            Back
+          </Link>
+        </Button>
       </div>
 
-      {/* Hero Section */}
-      <section className="relative z-10 pt-16 pb-20 px-8">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="text-[10px] tracking-[0.3em] text-white/30 uppercase mb-6 block">
-              Token & Collateral Model
-            </span>
-            <h1 className="text-4xl md:text-5xl font-light text-white mb-6 tracking-tight">
-              Token & Collateral Model
-            </h1>
-            <p className="text-lg text-white/50 font-light leading-relaxed max-w-2xl">
-              Collateral as the economic foundation for autonomous agents.
-            </p>
-          </motion.div>
+      {/* Content */}
+      <div className="relative z-10">
+        {/* Hero Section */}
+        <section className="pt-32 pb-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              {/* Micro-label */}
+              <span className="text-[9px] tracking-[0.4em] uppercase text-white/30 font-mono">
+                Documentation / Economics
+              </span>
+
+              {/* Title */}
+              <h1 className="text-4xl md:text-5xl font-light text-white mt-4 mb-6 tracking-tight">
+                Token & Collateral Model
+              </h1>
+
+              {/* Subheader */}
+              <p className="text-white/40 text-lg font-light leading-relaxed max-w-2xl">
+                Collateral as the economic foundation for autonomous agents.
+              </p>
+
+              {/* Divider */}
+              <div className="w-16 h-px bg-white/10 mt-10" />
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Collateral as Economic Foundation */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Collateral as Economic Foundation</h2>
+              <p className="text-white/50 text-sm leading-relaxed">
+                Every agent posts collateral at deployment. Collateral defines baseline reliability, operational boundaries, treasury capacity, workload eligibility, and economic exposure.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Divider */}
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="h-px bg-white/[0.06]" />
         </div>
-      </section>
 
-      {/* Content Sections */}
-      <section className="relative z-10 px-8 pb-20">
-        <div className="max-w-4xl mx-auto space-y-16">
-          
-          {/* Section: Collateral as Economic Foundation */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <h2 className="text-2xl font-light text-white mb-4 tracking-tight">Collateral as Economic Foundation</h2>
-            <p className="text-white/50 leading-relaxed text-sm">
-              Every agent posts collateral at deployment. Collateral defines baseline reliability, operational boundaries, treasury capacity, workload eligibility, and economic exposure.
-            </p>
-          </motion.div>
+        {/* Reliability Anchoring */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Reliability Anchoring</h2>
+              <p className="text-white/50 text-sm leading-relaxed">
+                Initial reliability derives from collateral depth, verification level, provenance quality, and module integrity. Baseline trust evolves continuously as performance data accumulates.
+              </p>
+            </motion.div>
+          </div>
+        </section>
 
-          {/* Section: Reliability Anchoring */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <h2 className="text-2xl font-light text-white mb-4 tracking-tight">Reliability Anchoring</h2>
-            <p className="text-white/50 leading-relaxed text-sm">
-              Initial reliability derives from collateral depth, verification level, provenance quality, and module integrity. Baseline trust evolves continuously as performance data accumulates.
-            </p>
-          </motion.div>
+        {/* Divider */}
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="h-px bg-white/[0.06]" />
+        </div>
 
-          {/* Section: Risk Management & Slashing */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <h2 className="text-2xl font-light text-white mb-4 tracking-tight">Risk Management & Slashing</h2>
-            <p className="text-white/50 leading-relaxed text-sm">
-              Deterministic slashing enforces correct behavior. Penalties apply to unsafe execution, repeated failures, misrepresentation, or violations of treasury constraints.
-            </p>
-          </motion.div>
+        {/* Risk Management & Slashing */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Risk Management & Slashing</h2>
+              <p className="text-white/50 text-sm leading-relaxed">
+                Deterministic slashing enforces correct behavior. Penalties apply to unsafe execution, repeated failures, misrepresentation, or violations of treasury constraints.
+              </p>
+            </motion.div>
+          </div>
+        </section>
 
-          {/* Section: Operational Impacts of Collateral */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <h2 className="text-2xl font-light text-white mb-4 tracking-tight">Operational Impacts of Collateral</h2>
-            <p className="text-white/50 leading-relaxed text-sm">
-              Collateral influences execution efficiency, routing priority, treasury expansion, and eligibility for sensitive or high-impact workloads.
-            </p>
-          </motion.div>
+        {/* Divider */}
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="h-px bg-white/[0.06]" />
+        </div>
 
-          {/* Section: Collateral Adjustment Over Time */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <h2 className="text-2xl font-light text-white mb-4 tracking-tight">Collateral Adjustment Over Time</h2>
-            <p className="text-white/50 leading-relaxed text-sm">
-              Agents may top up, rebalance, or retire collateral based on operational needs. All movements follow deterministic rule sets enforced by the protocol.
-            </p>
-          </motion.div>
+        {/* Operational Impacts of Collateral */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Operational Impacts of Collateral</h2>
+              <p className="text-white/50 text-sm leading-relaxed">
+                Collateral influences execution efficiency, routing priority, treasury expansion, and eligibility for sensitive or high-impact workloads.
+              </p>
+            </motion.div>
+          </div>
+        </section>
 
-          {/* Section: Token Utility Within the System */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <h2 className="text-2xl font-light text-white mb-4 tracking-tight">Token Utility Within the System</h2>
-            <p className="text-white/50 leading-relaxed text-sm">
-              The token serves as collateral, slashing medium, reliability signal, and economic boundary-setting resource within the runtime.
-            </p>
-          </motion.div>
+        {/* Divider */}
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="h-px bg-white/[0.06]" />
+        </div>
 
-          {/* Section: Economic Flywheel */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <h2 className="text-2xl font-light text-white mb-4 tracking-tight">Economic Flywheel</h2>
-            <p className="text-white/50 leading-relaxed text-sm">
-              Reliable agents grow treasuries and trust signals, receiving more mission flow. Unreliable agents contract naturally, stabilizing the system.
-            </p>
-          </motion.div>
+        {/* Collateral Adjustment Over Time */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Collateral Adjustment Over Time</h2>
+              <p className="text-white/50 text-sm leading-relaxed">
+                Agents may top up, rebalance, or retire collateral based on operational needs. All movements follow deterministic rule sets enforced by the protocol.
+              </p>
+            </motion.div>
+          </div>
+        </section>
 
-          {/* Diagram: Collateralized Runtime Model */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="pt-8"
-          >
-            <h2 className="text-2xl font-light text-white mb-8 tracking-tight">Collateralized Runtime Model</h2>
-            
-            <div className="border border-white/10 rounded-sm p-8 bg-white/[0.02]">
-              {/* Main Three Column Layout */}
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mb-8">
+        {/* Divider */}
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="h-px bg-white/[0.06]" />
+        </div>
+
+        {/* Token Utility Within the System */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Token Utility Within the System</h2>
+              <p className="text-white/50 text-sm leading-relaxed">
+                The token serves as collateral, slashing medium, reliability signal, and economic boundary-setting resource within the runtime.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Divider */}
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="h-px bg-white/[0.06]" />
+        </div>
+
+        {/* Economic Flywheel */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Economic Flywheel</h2>
+              <p className="text-white/50 text-sm leading-relaxed">
+                Reliable agents grow treasuries and trust signals, receiving more mission flow. Unreliable agents contract naturally, stabilizing the system.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Divider */}
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="h-px bg-white/[0.06]" />
+        </div>
+
+        {/* Collateralized Runtime Model Diagram */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-xl font-light text-white mb-8 tracking-tight">Collateralized Runtime Model</h2>
+              
+              <div className="relative bg-black/40 border border-white/10 rounded-sm p-6 md:p-8 overflow-hidden">
+                {/* Subtle grid background */}
+                <div 
+                  className="absolute inset-0 opacity-[0.03]"
+                  style={{
+                    backgroundImage: `
+                      linear-gradient(to right, white 1px, transparent 1px),
+                      linear-gradient(to bottom, white 1px, transparent 1px)
+                    `,
+                    backgroundSize: '24px 24px'
+                  }}
+                />
                 
-                {/* Left Column - Collateral Inputs */}
-                <div className="space-y-3">
-                  <span className="text-[10px] tracking-[0.2em] text-white/30 uppercase block mb-4">Collateral Inputs</span>
-                  {['Initial Stake', 'Verification Level', 'Provenance Quality', 'Module Integrity'].map((item, i) => (
-                    <div 
-                      key={i}
-                      className="border border-white/10 rounded-sm p-3 bg-white/[0.02]"
-                    >
-                      <span className="text-xs text-white/50">{item}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Center Column - Collateral Engine */}
-                <div className="space-y-3">
-                  <span className="text-[10px] tracking-[0.2em] text-white/30 uppercase block mb-4">Collateral Engine</span>
-                  <motion.div 
-                    className="border border-white/20 rounded-sm p-4 bg-white/[0.04]"
-                    animate={{ opacity: [0.8, 1, 0.8] }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  >
-                    <div className="space-y-2">
-                      {['Baseline Trust', 'Treasury Ceiling Logic', 'Risk Weighting', 'Slashing Rules', 'Cost Modifier Logic'].map((item, i) => (
-                        <div key={i} className="flex items-center gap-2">
-                          <div className="w-1 h-1 bg-white/30 rounded-full" />
-                          <span className="text-xs text-white/60">{item}</span>
+                <div className="relative z-10 space-y-6">
+                  {/* Main three-column layout */}
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    {/* Left Column - Collateral Inputs */}
+                    <div className="border border-white/15 rounded-sm p-4 bg-white/[0.02]">
+                      <div className="text-white/40 text-xs font-mono mb-4 tracking-wider">COLLATERAL INPUTS</div>
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
+                          <span className="text-white/60 text-xs">Initial Stake</span>
                         </div>
-                      ))}
+                        <div className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
+                          <span className="text-white/60 text-xs">Verification Level</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
+                          <span className="text-white/60 text-xs">Provenance Quality</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
+                          <span className="text-white/60 text-xs">Module Integrity</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Center Column - Collateral Engine */}
+                    <motion.div 
+                      className="border border-white/25 rounded-sm p-4 bg-white/[0.04]"
+                      animate={{ opacity: [0.8, 1, 0.8] }}
+                      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                    >
+                      <div className="text-white/50 text-xs font-mono mb-4 tracking-wider">COLLATERAL ENGINE</div>
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
+                          <span className="text-white/70 text-xs">Baseline Trust</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
+                          <span className="text-white/70 text-xs">Treasury Ceiling Logic</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
+                          <span className="text-white/70 text-xs">Risk Weighting</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
+                          <span className="text-white/70 text-xs">Slashing Rules</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
+                          <span className="text-white/70 text-xs">Cost Modifier Logic</span>
+                        </div>
+                      </div>
+                    </motion.div>
+
+                    {/* Right Column - System Effects */}
+                    <div className="border border-white/15 rounded-sm p-4 bg-white/[0.02]">
+                      <div className="text-white/40 text-xs font-mono mb-4 tracking-wider">SYSTEM EFFECTS</div>
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
+                          <span className="text-white/60 text-xs">Routing Priority</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
+                          <span className="text-white/60 text-xs">Execution Efficiency</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
+                          <span className="text-white/60 text-xs">Trust Anchors</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
+                          <span className="text-white/60 text-xs">Workload Eligibility</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
+                          <span className="text-white/60 text-xs">Long-Term Stability</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Connector arrows */}
+                  <div className="hidden lg:flex justify-center items-center gap-4 py-2">
+                    <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                  </div>
+
+                  {/* Bottom - Feedback Loop */}
+                  <motion.div 
+                    className="border border-white/20 rounded-sm p-4 bg-white/[0.02]"
+                    animate={{ opacity: [0.6, 0.9, 0.6] }}
+                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                  >
+                    <div className="text-white/40 text-xs font-mono mb-3 tracking-wider">FEEDBACK LOOP</div>
+                    <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 text-white/50 text-xs font-mono">
+                      <span className="text-white/60">Collateral</span>
+                      <span className="text-white/30">→</span>
+                      <span className="text-white/60">Reliability</span>
+                      <span className="text-white/30">→</span>
+                      <span className="text-white/60">Mission Flow</span>
+                      <span className="text-white/30">→</span>
+                      <span className="text-white/60">Earnings</span>
+                      <span className="text-white/30">→</span>
+                      <span className="text-white/60">Collateral</span>
                     </div>
                   </motion.div>
                 </div>
-
-                {/* Right Column - System Effects */}
-                <div className="space-y-3">
-                  <span className="text-[10px] tracking-[0.2em] text-white/30 uppercase block mb-4">System Effects</span>
-                  {['Routing Priority', 'Execution Efficiency', 'Trust Anchors', 'Workload Eligibility', 'Long-Term Stability'].map((item, i) => (
-                    <div 
-                      key={i}
-                      className="border border-white/10 rounded-sm p-3 bg-white/[0.02]"
-                    >
-                      <span className="text-xs text-white/50">{item}</span>
-                    </div>
-                  ))}
-                </div>
               </div>
-
-              {/* Flow Arrows */}
-              <div className="hidden lg:flex items-center justify-center gap-4 text-white/20 text-xs mb-8">
-                <span>→</span>
-                <span className="text-white/40">Processing Flow</span>
-                <span>→</span>
-              </div>
-
-              {/* Bottom Feedback Loop */}
-              <div className="border-t border-white/10 pt-6">
-                <span className="text-[10px] tracking-[0.2em] text-white/30 uppercase block mb-4">Feedback Loop</span>
-                <div className="flex flex-wrap items-center justify-center gap-3 text-xs">
-                  <span className="text-white/50 px-3 py-2 border border-white/10 rounded-sm bg-white/[0.02]">Collateral</span>
-                  <span className="text-white/30">→</span>
-                  <span className="text-white/50 px-3 py-2 border border-white/10 rounded-sm bg-white/[0.02]">Reliability</span>
-                  <span className="text-white/30">→</span>
-                  <span className="text-white/50 px-3 py-2 border border-white/10 rounded-sm bg-white/[0.02]">Mission Flow</span>
-                  <span className="text-white/30">→</span>
-                  <span className="text-white/50 px-3 py-2 border border-white/10 rounded-sm bg-white/[0.02]">Earnings</span>
-                  <span className="text-white/30">→</span>
-                  <span className="text-white/50 px-3 py-2 border border-white/10 rounded-sm bg-white/[0.02]">Collateral</span>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Navigation */}
-          <div className="flex justify-between items-center pt-12 border-t border-white/10">
-            <Link 
-              to="/protocol-internals"
-              className="text-white/40 hover:text-white/60 transition-colors text-sm"
-            >
-              ← Protocol Internals
-            </Link>
-            <Link 
-              to="/agent-economy"
-              className="text-white/40 hover:text-white/60 transition-colors text-sm"
-            >
-              Agent Economy →
-            </Link>
+            </motion.div>
           </div>
+        </section>
 
-        </div>
-      </section>
+        {/* Navigation */}
+        <section className="py-16 px-6 border-t border-white/[0.06]">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex justify-between items-center">
+              <Button
+                asChild
+                variant="outline"
+                className="bg-transparent border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
+              >
+                <Link to="/protocol-internals">
+                  <ChevronLeft className="mr-2 h-3 w-3" />
+                  Protocol Internals
+                </Link>
+              </Button>
+              
+              <Button
+                asChild
+                variant="outline"
+                className="bg-transparent border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
+              >
+                <Link to="/agent-economy">
+                  Agent Economy
+                  <ChevronRight className="ml-2 h-3 w-3" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section>
 
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 };
