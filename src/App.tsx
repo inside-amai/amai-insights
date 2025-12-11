@@ -22,6 +22,7 @@ import SummaryVision from "./pages/whitepaper/SummaryVision";
 import SystemArchitecture from "./pages/whitepaper/SystemArchitecture";
 import TechnicalFoundation from "./pages/whitepaper/TechnicalFoundation";
 import TechnicalDeepDive from "./pages/whitepaper/TechnicalDeepDive";
+import TreasuryDynamics from "./pages/whitepaper/TreasuryDynamics";
 import AgentEconomyKIPs from "./pages/whitepaper/AgentEconomyKIPs";
 import Token from "./pages/whitepaper/Token";
 
@@ -50,7 +51,7 @@ const App = () => (
           <Route path="/agent-architecture" element={<SystemArchitecture />} />
           <Route path="/economic-substrate" element={<TechnicalFoundation />} />
           <Route path="/trust-mechanics" element={<TechnicalDeepDive />} />
-          <Route path="/treasury-dynamics" element={<AgentEconomyKIPs />} />
+          <Route path="/treasury-dynamics" element={<TreasuryDynamics />} />
           <Route path="/kernelized-intelligence" element={<AgentEconomyKIPs />} />
           <Route path="/protocol-internals" element={<TechnicalDeepDive />} />
           <Route path="/token-model" element={<Token />} />
