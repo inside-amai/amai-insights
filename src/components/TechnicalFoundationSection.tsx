@@ -10,10 +10,10 @@ export const TechnicalFoundationSection = () => {
           {/* Diagram Column */}
           <motion.div 
             className="lg:col-start-6 lg:col-span-7 relative"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
           >
             <AgentArchitectureDiagram />
           </motion.div>
@@ -21,10 +21,10 @@ export const TechnicalFoundationSection = () => {
           {/* Content Column - Made smaller to accommodate larger image */}
           <motion.div 
             className="lg:col-start-1 lg:col-span-5 space-y-6"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+            viewport={{ once: true, margin: "-100px" }}
           >
             <div className="space-y-3">
               <span className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium">
