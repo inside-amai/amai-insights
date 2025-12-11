@@ -489,7 +489,7 @@ const AgentLifecycle = () => {
       </div>
 
       {/* Hidden PDF Layout */}
-      <div ref={pdfLayoutRef} className="absolute left-[-9999px] top-0">
+      <div ref={pdfLayoutRef} className="pdf-layout hidden bg-white text-black p-12 max-w-4xl mx-auto" style={{ fontFamily: 'Georgia, serif' }}>
         <PdfLayout
           pageNumber="10"
           title="Agent Lifecycle"
