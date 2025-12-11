@@ -293,18 +293,21 @@ const TreasuryDynamics = () => {
               <p className="text-white/40 text-sm mb-10">AMAI Treasury Architecture</p>
 
               {/* Blueprint Diagram Container */}
-              <div 
-                className="relative border border-white/[0.08] rounded-[2px] p-4 md:p-6"
-                style={{
-                  backgroundImage: `
-                    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px)
-                  `,
-                  backgroundSize: '16px 16px',
-                }}
-              >
+              <div className="relative bg-black/40 border border-white/10 rounded-sm p-8 overflow-hidden">
+                {/* Subtle grid background */}
+                <div 
+                  className="absolute inset-0 opacity-[0.03]"
+                  style={{
+                    backgroundImage: `
+                      linear-gradient(to right, white 1px, transparent 1px),
+                      linear-gradient(to bottom, white 1px, transparent 1px)
+                    `,
+                    backgroundSize: '24px 24px'
+                  }}
+                />
+                
                 {/* Mobile-friendly stacked layout, desktop horizontal */}
-                <div className="flex flex-col lg:flex-row gap-6 lg:gap-3">
+                <div className="relative z-10 flex flex-col lg:flex-row gap-6 lg:gap-3">
                   
                   {/* INFLOWS/OUTFLOWS COLUMN */}
                   <div className="lg:flex-1 lg:max-w-[160px]">
