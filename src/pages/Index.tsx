@@ -26,7 +26,7 @@ const Index = () => {
             <section className="py-20 md:py-28">
               <div className="container mx-auto px-6">
                 <motion.p 
-                  className="text-white/60 text-sm md:text-base max-w-3xl mx-auto text-center leading-relaxed"
+                  className="text-white/60 text-sm md:text-base max-w-3xl mx-auto text-left leading-relaxed"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
