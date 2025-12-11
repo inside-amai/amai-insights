@@ -45,7 +45,7 @@ const faqData = [
   },
   {
     question: "How does AMAI ensure security and determinism?",
-    answer: "Security is achieved through PTB-based atomicity, deterministic execution paths, verifiable state transitions, and reputation-anchored identity. Every agent action can be audited, replayed, and scored with zero ambiguity."
+    answer: "AMAI ensures security through atomic execution bundles, deterministic state transitions, strict input/output validation, and identity anchored by verifiable provenance. Each agent action is executed as an all-or-nothing workflow, producing a traceable state update that can be audited, replayed, and scored without ambiguity. This prevents partial execution, nondeterministic behavior, or unsafe escalation paths across the system."
   },
   {
     question: "What is AMAI Labs?",
