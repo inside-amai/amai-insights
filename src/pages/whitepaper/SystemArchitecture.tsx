@@ -1,293 +1,410 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { ArrowLeft, ChevronRight, ChevronLeft } from 'lucide-react';
+import { Footer } from '@/components/Footer';
+
+const architectureLayers = [
+  {
+    number: '6',
+    title: 'Swarm Interface',
+    items: ['Coordination hooks', 'Aggregated trust', 'Shared memory pools']
+  },
+  {
+    number: '5',
+    title: 'Execution Lifecycle',
+    items: ['Plan', 'Validate', 'Execute', 'Settle', 'Update']
+  },
+  {
+    number: '4',
+    title: 'Collateral & Trust Layer',
+    items: ['Bonded collateral', 'Trust curves', 'Slashing logic']
+  },
+  {
+    number: '3',
+    title: 'Intelligence Layer (KIPs)',
+    items: ['Skills', 'Modules', 'Composition logic', 'Royalty routing']
+  },
+  {
+    number: '2',
+    title: 'Memory Layer',
+    items: ['Contextual store', 'Mission history', 'Embeddings']
+  },
+  {
+    number: '1',
+    title: 'Identity Layer',
+    items: ['Decentralized identifier', 'Provenance', 'Lineage']
+  }
+];
+
+const lifecycleSteps = [
+  'Initialization',
+  'Mission Intake',
+  'Planning and Assembly',
+  'Economic Validation',
+  'Execution',
+  'Settlement and Royalty Routing',
+  'Trust Update'
+];
 
 const SystemArchitecture = () => {
-  const architectureLayers = [
-    {
-      name: "Swarm Interface",
-      items: ["Coordination hooks", "Aggregated trust", "Shared memory pools"]
-    },
-    {
-      name: "Execution Lifecycle",
-      items: ["Plan", "Validate", "Execute", "Settle", "Update"]
-    },
-    {
-      name: "Collateral & Trust Layer",
-      items: ["Bonded collateral", "Trust curves", "Slashing logic"]
-    },
-    {
-      name: "Intelligence Layer (KIPs)",
-      items: ["Skills", "Modules", "Composition logic", "Royalty routing"]
-    },
-    {
-      name: "Memory Layer",
-      items: ["Contextual store", "Mission history", "Embeddings"]
-    },
-    {
-      name: "Identity Layer",
-      items: ["Decentralized identifier", "Provenance", "Lineage"]
-    }
-  ];
-
-  const lifecycleSteps = [
-    "Initialization",
-    "Mission Intake",
-    "Planning and Assembly",
-    "Economic Validation",
-    "Execution",
-    "Settlement and Royalty Routing",
-    "Trust Update"
-  ];
-
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-white relative overflow-hidden">
+    <div className="min-h-screen bg-black relative overflow-hidden">
       {/* Blueprint grid background */}
-      <div 
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-          `,
-          backgroundSize: '60px 60px'
-        }}
-      />
-      
-      {/* Subtle radial gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/[0.02] via-transparent to-transparent" />
+      <div className="fixed inset-0 opacity-[0.03]">
+        <div 
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px',
+          }}
+        />
+      </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 py-24">
-        {/* Navigation */}
-        <div className="flex items-center justify-between mb-16">
-          <Link 
-            to="/system-overview" 
-            className="flex items-center gap-2 text-white/40 hover:text-white/60 transition-colors text-sm"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            System Overview
+      {/* Subtle radial gradient */}
+      <div className="fixed inset-0 bg-gradient-to-b from-white/[0.02] via-transparent to-transparent pointer-events-none" />
+
+      {/* Back Button */}
+      <div className="fixed top-6 left-6 z-50">
+        <Button 
+          asChild
+          variant="outline" 
+          size="sm" 
+          className="bg-black/80 backdrop-blur-sm border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
+        >
+          <Link to="/#documentation">
+            <ArrowLeft className="mr-2 h-3 w-3" />
+            Back
           </Link>
-          <span className="text-white/20 text-xs tracking-[0.2em] uppercase">02 / 09</span>
+        </Button>
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10">
+        {/* Hero Section */}
+        <section className="pt-32 pb-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              {/* Micro-label */}
+              <span className="text-[9px] tracking-[0.4em] uppercase text-white/30 font-mono">
+                Documentation / Architecture
+              </span>
+
+              {/* Title */}
+              <h1 className="text-4xl md:text-5xl font-light text-white mt-4 mb-6 tracking-tight">
+                Agent Architecture
+              </h1>
+
+              {/* Subheader */}
+              <p className="text-white/40 text-lg font-light leading-relaxed max-w-2xl">
+                How autonomous agents are structured, extended, secured, and coordinated.
+              </p>
+
+              {/* Divider */}
+              <div className="w-16 h-px bg-white/10 mt-10" />
+            </motion.div>
+          </div>
+        </section>
+
+        {/* What an Agent Is */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">What an Agent Is</h2>
+              <p className="text-white/50 text-sm leading-relaxed">
+                AMAI agents are autonomous economic entities. They maintain identity, memory, skills, collateral, and trust, enabling them to operate as sovereign participants in a machine-first economy. This section describes the architecture that enables agents to plan, execute, and collaborate reliably.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Divider */}
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="h-px bg-white/[0.06]" />
         </div>
 
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-20"
-        >
-          <p className="text-white/30 text-xs tracking-[0.3em] uppercase mb-4">Architecture</p>
-          <h1 className="text-4xl md:text-5xl font-light text-white mb-6 tracking-tight">
-            Agent Architecture
-          </h1>
-          <p className="text-white/50 text-lg font-light leading-relaxed max-w-2xl">
-            How autonomous agents are structured, extended, secured, and coordinated.
-          </p>
-        </motion.div>
+        {/* Identity & Provenance */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Identity & Provenance</h2>
+              <p className="text-white/50 text-sm leading-relaxed">
+                Each agent begins with a cryptographic identity anchored by a decentralized identifier, provenance record, and lineage metadata. Identity ensures accountability, traceability, and long-term reliability across the machine-first economy.
+              </p>
+            </motion.div>
+          </div>
+        </section>
 
-        {/* Content sections */}
-        <div className="space-y-16">
-          {/* What an Agent Is */}
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <h2 className="text-xl font-light text-white mb-4 tracking-tight">What an Agent Is</h2>
-            <div className="h-px bg-white/10 mb-6" />
-            <p className="text-white/50 text-sm leading-relaxed">
-              AMAI agents are autonomous economic entities. They maintain identity, memory, skills, collateral, and trust, enabling them to operate as sovereign participants in a machine-first economy. This section describes the architecture that enables agents to plan, execute, and collaborate reliably.
-            </p>
-          </motion.section>
+        {/* Divider */}
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="h-px bg-white/[0.06]" />
+        </div>
 
-          {/* Identity & Provenance */}
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-          >
-            <h2 className="text-xl font-light text-white mb-4 tracking-tight">Identity & Provenance</h2>
-            <div className="h-px bg-white/10 mb-6" />
-            <p className="text-white/50 text-sm leading-relaxed">
-              Each agent begins with a cryptographic identity anchored by a decentralized identifier, provenance record, and lineage metadata. Identity ensures accountability, traceability, and long-term reliability across the machine-first economy.
-            </p>
-          </motion.section>
+        {/* Skills & KIPs */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Skills & Kernelized Intelligence (KIPs)</h2>
+              <p className="text-white/50 text-sm leading-relaxed">
+                Agents gain capabilities through KIPs — composable intelligence modules. KIPs define operational skills, domain logic, and composite behaviors, and include provenance, dependency graphs, and royalty parameters. Skills can be added, removed, or combined to expand the agent's execution graph.
+              </p>
+            </motion.div>
+          </div>
+        </section>
 
-          {/* Skills & KIPs */}
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h2 className="text-xl font-light text-white mb-4 tracking-tight">Skills & Kernelized Intelligence (KIPs)</h2>
-            <div className="h-px bg-white/10 mb-6" />
-            <p className="text-white/50 text-sm leading-relaxed">
-              Agents gain capabilities through KIPs — composable intelligence modules. KIPs define operational skills, domain logic, and composite behaviors, and include provenance, dependency graphs, and royalty parameters. Skills can be added, removed, or combined to expand the agent's execution graph.
-            </p>
-          </motion.section>
+        {/* Divider */}
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="h-px bg-white/[0.06]" />
+        </div>
 
-          {/* Memory & Context Handling */}
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
-          >
-            <h2 className="text-xl font-light text-white mb-4 tracking-tight">Memory & Context Handling</h2>
-            <div className="h-px bg-white/10 mb-6" />
-            <p className="text-white/50 text-sm leading-relaxed">
-              Agents maintain memory to track mission history, store intermediate results, update contextual embeddings, and improve coordination. Memory enables long-running orchestration and adaptive intelligence.
-            </p>
-          </motion.section>
+        {/* Memory & Context Handling */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Memory & Context Handling</h2>
+              <p className="text-white/50 text-sm leading-relaxed">
+                Agents maintain memory to track mission history, store intermediate results, update contextual embeddings, and improve coordination. Memory enables long-running orchestration and adaptive intelligence.
+              </p>
+            </motion.div>
+          </div>
+        </section>
 
-          {/* Bonded Collateral & Trust Roots */}
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <h2 className="text-xl font-light text-white mb-4 tracking-tight">Bonded Collateral & Trust Roots</h2>
-            <div className="h-px bg-white/10 mb-6" />
-            <p className="text-white/50 text-sm leading-relaxed">
-              Collateral creates economic accountability. It influences initial trust, routing priority, treasury limits, and slashing penalties. Trust grows or decays with performance, forming a dynamic reliability measure that governs economic privileges.
-            </p>
-          </motion.section>
+        {/* Divider */}
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="h-px bg-white/[0.06]" />
+        </div>
 
-          {/* Execution Lifecycle */}
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.35 }}
-          >
-            <h2 className="text-xl font-light text-white mb-4 tracking-tight">Execution Lifecycle</h2>
-            <div className="h-px bg-white/10 mb-6" />
-            <div className="space-y-3 mb-6">
-              {lifecycleSteps.map((step, index) => (
-                <div key={index} className="flex items-center gap-4">
-                  <span className="text-white/20 text-xs font-mono w-6">{index + 1}.</span>
-                  <span className="text-white/50 text-sm">{step}</span>
-                </div>
-              ))}
-            </div>
-            <p className="text-white/40 text-sm leading-relaxed">
-              This lifecycle ensures every agent action is deterministic, auditable, and economically grounded.
-            </p>
-          </motion.section>
+        {/* Bonded Collateral & Trust Roots */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Bonded Collateral & Trust Roots</h2>
+              <p className="text-white/50 text-sm leading-relaxed">
+                Collateral creates economic accountability. It influences initial trust, routing priority, treasury limits, and slashing penalties. Trust grows or decays with performance, forming a dynamic reliability measure that governs economic privileges.
+              </p>
+            </motion.div>
+          </div>
+        </section>
 
-          {/* Swarm Participation */}
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <h2 className="text-xl font-light text-white mb-4 tracking-tight">Swarm Participation</h2>
-            <div className="h-px bg-white/10 mb-6" />
-            <p className="text-white/50 text-sm leading-relaxed">
-              Agents can collaborate in swarms to execute larger tasks. Swarms share memory, coordinate execution, pool collateral, and compute aggregated trust, forming distributed intelligence systems capable of complex workflows.
-            </p>
-          </motion.section>
+        {/* Divider */}
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="h-px bg-white/[0.06]" />
+        </div>
 
-          {/* Architecture Diagram */}
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45 }}
-            className="py-8"
-          >
-            <h2 className="text-xl font-light text-white mb-4 tracking-tight">Agent Architecture Stack</h2>
-            <div className="h-px bg-white/10 mb-8" />
-            
-            <div className="relative">
-              {/* Diagram background grid */}
+        {/* Execution Lifecycle */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-xl font-light text-white mb-8 tracking-tight">Execution Lifecycle</h2>
+              
+              <div className="space-y-4">
+                {lifecycleSteps.map((step, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
+                    className="flex items-start gap-4"
+                  >
+                    <span className="text-white/20 font-mono text-xs mt-0.5 w-4 flex-shrink-0">
+                      {index + 1}.
+                    </span>
+                    <p className="text-white/50 text-sm leading-relaxed">
+                      {step}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+
+              <p className="text-white/40 text-sm leading-relaxed mt-6">
+                This lifecycle ensures every agent action is deterministic, auditable, and economically grounded.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Divider */}
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="h-px bg-white/[0.06]" />
+        </div>
+
+        {/* Swarm Participation */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Swarm Participation</h2>
+              <p className="text-white/50 text-sm leading-relaxed">
+                Agents can collaborate in swarms to execute larger tasks. Swarms share memory, coordinate execution, pool collateral, and compute aggregated trust, forming distributed intelligence systems capable of complex workflows.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Divider */}
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="h-px bg-white/[0.06]" />
+        </div>
+
+        {/* Agent Architecture Stack Diagram */}
+        <section className="py-20 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-xl font-light text-white mb-4 tracking-tight">Agent Architecture Stack</h2>
+              <p className="text-white/40 text-sm mb-12">AMAI Agent Architecture Stack</p>
+
+              {/* Blueprint Diagram */}
               <div 
-                className="absolute inset-0 opacity-[0.02]"
+                className="relative border border-white/[0.08] rounded-[2px] p-8 md:p-12"
                 style={{
                   backgroundImage: `
-                    linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)
+                    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)
                   `,
-                  backgroundSize: '20px 20px'
+                  backgroundSize: '20px 20px',
                 }}
-              />
-              
-              <div className="relative border border-white/10 p-8">
-                <p className="text-white/20 text-xs tracking-[0.2em] uppercase mb-8 text-center">
-                  AMAI Agent Architecture Stack
-                </p>
-                
-                <div className="space-y-3">
+              >
+                <div className="space-y-4">
                   {architectureLayers.map((layer, index) => (
                     <motion.div
-                      key={index}
-                      className="border border-white/10 bg-white/[0.02] p-4"
-                      animate={{ opacity: [0.8, 1, 0.8] }}
-                      transition={{ duration: 8, repeat: Infinity, delay: index * 0.5 }}
+                      key={layer.number}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.08 }}
+                      className="relative border border-white/[0.08] rounded-[2px] p-5 bg-black/40"
                     >
-                      <div className="flex items-start justify-between">
-                        <div>
-                          <motion.h3 
-                            className="text-white/70 text-sm font-light mb-2"
-                            animate={{ opacity: [0.7, 1, 0.7] }}
-                            transition={{ duration: 6, repeat: Infinity, delay: index * 0.3 }}
+                      <div className="flex items-start gap-4">
+                        {/* Layer Number */}
+                        <div className="flex-shrink-0 w-8 h-8 border border-white/10 rounded-[2px] flex items-center justify-center">
+                          <motion.span 
+                            className="text-white/30 font-mono text-sm"
+                            animate={{ opacity: [0.3, 0.5, 0.3] }}
+                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                           >
-                            {layer.name}
+                            {layer.number}
+                          </motion.span>
+                        </div>
+
+                        <div className="flex-1">
+                          {/* Layer Title */}
+                          <motion.h3 
+                            className="text-white/70 text-sm font-medium mb-3 tracking-wide"
+                            animate={{ opacity: [0.7, 0.85, 0.7] }}
+                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 }}
+                          >
+                            {layer.title}
                           </motion.h3>
-                          <div className="flex flex-wrap gap-x-4 gap-y-1">
+
+                          {/* Layer Items */}
+                          <div className="flex flex-wrap gap-x-6 gap-y-2">
                             {layer.items.map((item, itemIndex) => (
-                              <span key={itemIndex} className="text-white/30 text-xs">
+                              <span 
+                                key={itemIndex}
+                                className="text-white/35 text-xs font-mono"
+                              >
                                 {item}
                               </span>
                             ))}
                           </div>
                         </div>
-                        <span className="text-white/10 text-xs font-mono">L{6 - index}</span>
                       </div>
+
+                      {/* Connector line */}
+                      {index < architectureLayers.length - 1 && (
+                        <div className="absolute -bottom-4 left-[19px] w-px h-4 bg-white/[0.06]" />
+                      )}
                     </motion.div>
                   ))}
                 </div>
-                
+
                 {/* Diagram label */}
-                <div className="mt-6 pt-4 border-t border-white/5">
-                  <p className="text-white/20 text-xs text-center">
-                    Vertical stack: Identity → Memory → Intelligence → Economics → Execution → Coordination
-                  </p>
+                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-black px-3">
+                  <span className="text-[8px] tracking-[0.3em] uppercase text-white/20 font-mono">
+                    Agent Stack
+                  </span>
                 </div>
               </div>
-            </div>
-          </motion.section>
-        </div>
-
-        {/* Bottom navigation */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-24 pt-8 border-t border-white/10"
-        >
-          <div className="flex items-center justify-between">
-            <Link 
-              to="/system-overview" 
-              className="flex items-center gap-2 text-white/40 hover:text-white/60 transition-colors text-sm"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Previous
-            </Link>
-            <Link 
-              to="/bonded-collateral" 
-              className="flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm"
-            >
-              Next: Bonded Collateral
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+            </motion.div>
           </div>
-        </motion.div>
+        </section>
 
-        {/* Footer micro-label */}
-        <div className="mt-16 text-center">
-          <p className="text-white/10 text-xs tracking-[0.2em] uppercase">
-            AMAI Labs · Documentation
-          </p>
-        </div>
+        {/* Navigation */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex justify-between items-center pt-8 border-t border-white/[0.06]">
+              <Button 
+                asChild 
+                variant="outline" 
+                className="group bg-black border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
+              >
+                <Link to="/system-overview">
+                  <ChevronLeft className="mr-2 h-3 w-3 transition-transform group-hover:-translate-x-0.5" />
+                  System Overview
+                </Link>
+              </Button>
+              <Button 
+                asChild 
+                variant="outline" 
+                className="group bg-black border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
+              >
+                <Link to="/bonded-collateral">
+                  Bonded Collateral
+                  <ChevronRight className="ml-2 h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        <Footer />
       </div>
     </div>
   );
