@@ -108,7 +108,7 @@ const DocumentCard = ({ card, index }: { card: typeof documentationCards[0]; ind
 
 export const DocumentationIndex = () => {
   return (
-    <section id="documentation-library" className="relative isolate py-28 md:py-36 overflow-hidden bg-black scroll-mt-24">
+    <section className="relative isolate py-28 md:py-36 overflow-hidden bg-black">
       {/* Blueprint grid background */}
       <div className="absolute inset-0 opacity-[0.2]">
         <div 
@@ -124,6 +124,8 @@ export const DocumentationIndex = () => {
       </div>
       
       <div className="relative z-10 max-w-6xl mx-auto px-6">
+        {/* Scroll anchor - positioned at the header */}
+        <div id="documentation-library" className="scroll-mt-6" />
         {/* Section Header */}
         <div className="mb-14">
           <motion.div
