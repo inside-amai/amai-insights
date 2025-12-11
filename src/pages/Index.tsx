@@ -22,6 +22,23 @@ const Index = () => {
           <div className="relative z-10">
             <AgentLayersSection />
             
+            {/* Architecture Intro */}
+            <section className="py-20 md:py-28">
+              <div className="container mx-auto px-6">
+                <motion.p 
+                  className="text-white/60 text-sm md:text-base max-w-3xl mx-auto text-center leading-relaxed"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                >
+                  Agent coordination is crossing from speculative to operational — and the bottleneck is no longer models, but trust, capital, and execution guarantees.
+                  <br /><br />
+                  AMAI provides a unified blueprint for machine-first economic infrastructure.
+                </motion.p>
+              </div>
+            </section>
+            
             <ArchitectureDiagram />
           
             {/* Platform Overview Section - Centered */}
