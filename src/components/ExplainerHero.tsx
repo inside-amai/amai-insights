@@ -189,7 +189,7 @@ export const ExplainerHero = () => {
             
             {/* Micro-label */}
             <span className="text-[10px] tracking-[0.25em] text-white/25 font-mono uppercase pt-2">
-              AMAI Labs · Infrastructure Portal
+              AMAI Labs · Infrastructure & Research
             </span>
           </motion.div>
         </motion.div>
