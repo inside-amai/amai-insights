@@ -7,10 +7,15 @@ interface PdfOptions {
 
 export const usePdfDownload = () => {
   const contentRef = useRef<HTMLDivElement>(null);
+  const pdfLayoutRef = useRef<HTMLDivElement>(null);
   const [isGenerating, setIsGenerating] = useState(false);
 
-  const downloadPdf = useCallback(async ({ filename, margin = 5 }: PdfOptions) => {
-    if (!contentRef.current || isGenerating) return;
+  const downloadPdf = useCallback(async ({ filename, margin = 10 }: PdfOptions) => {
+    if (isGenerating) return;
+    
+    // Prefer the dedicated PDF layout if available
+    const element = pdfLayoutRef.current || contentRef.current;
+    if (!element) return;
 
     setIsGenerating(true);
 
@@ -18,39 +23,23 @@ export const usePdfDownload = () => {
       // Dynamically import html2pdf
       const html2pdf = (await import('html2pdf.js')).default;
 
-      const element = contentRef.current;
-      
-      // Temporarily add inline background color to ensure it captures
-      const originalBg = element.style.backgroundColor;
-      element.style.backgroundColor = '#000000';
-      
-      // Add class for print optimization
-      element.classList.add('pdf-capture');
+      // If using pdf-layout, temporarily show it
+      const isPdfLayout = element.classList.contains('pdf-layout');
+      if (isPdfLayout) {
+        element.classList.remove('hidden');
+        element.style.display = 'block';
+      }
 
       const opt = {
         margin: [margin, margin, margin, margin],
         filename: filename,
-        image: { type: 'jpeg', quality: 0.95 },
+        image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { 
-          scale: 1.5,
+          scale: 2,
           useCORS: true,
-          backgroundColor: '#000000',
+          backgroundColor: '#ffffff',
           logging: false,
           letterRendering: true,
-          scrollY: -window.scrollY,
-          windowWidth: element.scrollWidth,
-          windowHeight: element.scrollHeight,
-          onclone: (clonedDoc: Document) => {
-            // Apply black background to cloned element
-            const clonedElement = clonedDoc.body.querySelector('[class*="relative z-10"]');
-            if (clonedElement) {
-              (clonedElement as HTMLElement).style.backgroundColor = '#000000';
-            }
-            // Force all elements with bg-black to have inline style
-            clonedDoc.querySelectorAll('.bg-black, [class*="bg-black"]').forEach((el) => {
-              (el as HTMLElement).style.backgroundColor = '#000000';
-            });
-          }
         },
         jsPDF: { 
           unit: 'mm', 
@@ -63,9 +52,11 @@ export const usePdfDownload = () => {
 
       await html2pdf().set(opt).from(element).save();
       
-      // Restore original styles
-      element.style.backgroundColor = originalBg;
-      element.classList.remove('pdf-capture');
+      // Hide pdf-layout again
+      if (isPdfLayout) {
+        element.classList.add('hidden');
+        element.style.display = '';
+      }
       
     } catch (error) {
       console.error('PDF generation failed:', error);
@@ -74,5 +65,5 @@ export const usePdfDownload = () => {
     }
   }, [isGenerating]);
 
-  return { contentRef, downloadPdf, isGenerating };
+  return { contentRef, pdfLayoutRef, downloadPdf, isGenerating };
 };

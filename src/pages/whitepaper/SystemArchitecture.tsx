@@ -5,6 +5,7 @@ import { ArrowLeft, ChevronRight, ChevronLeft, FileDown } from 'lucide-react';
 import { Footer } from '@/components/Footer';
 import { useEffect } from 'react';
 import { usePdfDownload } from '@/hooks/usePdfDownload';
+import { PdfLayout } from '@/components/PdfLayout';
 
 const architectureLayers = [
   {
@@ -51,7 +52,7 @@ const lifecycleSteps = [
 
 const SystemArchitecture = () => {
   const navigate = useNavigate();
-  const { contentRef, downloadPdf } = usePdfDownload();
+  const { pdfLayoutRef, downloadPdf } = usePdfDownload();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -109,7 +110,7 @@ const SystemArchitecture = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10" ref={contentRef}>
+      <div className="relative z-10">
         {/* Hero Section */}
         <section className="pt-32 pb-16 px-6">
           <div className="max-w-4xl mx-auto">
@@ -458,6 +459,34 @@ const SystemArchitecture = () => {
         </div>
 
         <Footer />
+      </div>
+
+      {/* Hidden PDF Layout */}
+      <div ref={pdfLayoutRef} className="pdf-layout hidden bg-white text-black p-12 max-w-4xl mx-auto" style={{ fontFamily: 'Georgia, serif' }}>
+        <div className="border-b-2 border-black pb-6 mb-8">
+          <div className="flex justify-between items-start">
+            <div>
+              <h1 className="text-3xl font-bold text-black mb-1" style={{ fontFamily: 'Arial, sans-serif' }}>AMAI Labs</h1>
+              <p className="text-xs text-gray-600 uppercase tracking-widest">AMAI Research</p>
+            </div>
+            <span className="text-sm text-gray-500 font-mono">02 / 09</span>
+          </div>
+        </div>
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-black mb-2" style={{ fontFamily: 'Arial, sans-serif' }}>Agent Architecture</h2>
+          <p className="text-sm text-gray-600 italic mb-4">How autonomous agents are structured, extended, secured, and coordinated.</p>
+          <div className="bg-gray-100 p-4 border-l-4 border-black">
+            <p className="text-sm text-gray-700"><strong>Abstract:</strong> Detailed specification of agent identity, memory, intelligence modules, collateral binding, execution lifecycle, and swarm coordination mechanisms.</p>
+          </div>
+        </div>
+        <div className="space-y-6">
+          <div><h3 className="text-lg font-bold border-b border-gray-200 pb-2 mb-3" style={{ fontFamily: 'Arial, sans-serif' }}>What an Agent Is</h3><p className="text-sm text-gray-800 leading-relaxed">An agent is a persistent, autonomous software entity capable of holding capital, building trust, executing tasks, earning revenue, and coordinating with other agents or humans. Agents are the primary actors in AMAI's machine-first economy.</p></div>
+          <div><h3 className="text-lg font-bold border-b border-gray-200 pb-2 mb-3" style={{ fontFamily: 'Arial, sans-serif' }}>Agent Layers</h3><p className="text-sm text-gray-800 leading-relaxed">Identity Layer (decentralized identifier, provenance), Memory Layer (contextual store, embeddings), Intelligence Layer (KIPs, skills, modules), Collateral & Trust Layer (bonded stake, trust curves), Execution Lifecycle (plan, validate, execute, settle), Swarm Interface (coordination, aggregated trust).</p></div>
+          <div><h3 className="text-lg font-bold border-b border-gray-200 pb-2 mb-3" style={{ fontFamily: 'Arial, sans-serif' }}>Execution Lifecycle</h3><p className="text-sm text-gray-800 leading-relaxed">1. Initialization 2. Mission Intake 3. Planning and Assembly 4. Economic Validation 5. Execution 6. Settlement and Royalty Routing 7. Trust Update</p></div>
+        </div>
+        <div className="mt-12 pt-6 border-t border-gray-300 text-center">
+          <p className="text-xs text-gray-500">© 2025 AMAI Labs. All rights reserved.</p>
+        </div>
       </div>
     </div>
   );

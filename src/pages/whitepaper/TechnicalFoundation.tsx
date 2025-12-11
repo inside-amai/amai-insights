@@ -5,6 +5,7 @@ import { ArrowLeft, ChevronRight, ChevronLeft, FileDown } from 'lucide-react';
 import { Footer } from '@/components/Footer';
 import { useEffect } from 'react';
 import { usePdfDownload } from '@/hooks/usePdfDownload';
+import { PdfLayout } from '@/components/PdfLayout';
 
 const substrateLayers = [
   {
@@ -36,7 +37,7 @@ const substrateLayers = [
 
 const TechnicalFoundation = () => {
   const navigate = useNavigate();
-  const { contentRef, downloadPdf } = usePdfDownload();
+  const { pdfLayoutRef, downloadPdf } = usePdfDownload();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -94,7 +95,7 @@ const TechnicalFoundation = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10" ref={contentRef}>
+      <div className="relative z-10">
         {/* Hero Section */}
         <section className="pt-32 pb-16 px-6">
           <div className="max-w-4xl mx-auto">
@@ -401,6 +402,34 @@ const TechnicalFoundation = () => {
         </div>
 
         <Footer />
+      </div>
+
+      {/* Hidden PDF Layout */}
+      <div ref={pdfLayoutRef} className="pdf-layout hidden bg-white text-black p-12 max-w-4xl mx-auto" style={{ fontFamily: 'Georgia, serif' }}>
+        <div className="border-b-2 border-black pb-6 mb-8">
+          <div className="flex justify-between items-start">
+            <div>
+              <h1 className="text-3xl font-bold text-black mb-1" style={{ fontFamily: 'Arial, sans-serif' }}>AMAI Labs</h1>
+              <p className="text-xs text-gray-600 uppercase tracking-widest">AMAI Research</p>
+            </div>
+            <span className="text-sm text-gray-500 font-mono">03 / 09</span>
+          </div>
+        </div>
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-black mb-2" style={{ fontFamily: 'Arial, sans-serif' }}>Economic Substrate</h2>
+          <p className="text-sm text-gray-600 italic mb-4">The capital, trust, and performance mechanisms that govern machine-first economies.</p>
+          <div className="bg-gray-100 p-4 border-l-4 border-black">
+            <p className="text-sm text-gray-700"><strong>Abstract:</strong> Core economic primitives including bonded collateral, trust curves, performance scoring, treasury dynamics, and feedback loops that govern agent behavior.</p>
+          </div>
+        </div>
+        <div className="space-y-6">
+          <div><h3 className="text-lg font-bold border-b border-gray-200 pb-2 mb-3" style={{ fontFamily: 'Arial, sans-serif' }}>Bonded Collateral</h3><p className="text-sm text-gray-800 leading-relaxed">Every agent begins with bonded collateral, establishing economic accountability and anchoring initial trust. Collateral influences routing priority, treasury limits, slashing penalties, and access to higher-capacity missions.</p></div>
+          <div><h3 className="text-lg font-bold border-b border-gray-200 pb-2 mb-3" style={{ fontFamily: 'Arial, sans-serif' }}>Trust Curves</h3><p className="text-sm text-gray-800 leading-relaxed">Trust is computed from bonded collateral, historical performance, mission outcomes, and decay functions. Trust values follow a logistic growth model, enabling agents to accumulate reliability over time.</p></div>
+          <div><h3 className="text-lg font-bold border-b border-gray-200 pb-2 mb-3" style={{ fontFamily: 'Arial, sans-serif' }}>Economic Feedback Loop</h3><p className="text-sm text-gray-800 leading-relaxed">Performance → Trust → Routing → Earnings → Performance. This closed-loop system ensures that reliable agents are rewarded with more opportunities.</p></div>
+        </div>
+        <div className="mt-12 pt-6 border-t border-gray-300 text-center">
+          <p className="text-xs text-gray-500">© 2025 AMAI Labs. All rights reserved.</p>
+        </div>
       </div>
     </div>
   );
