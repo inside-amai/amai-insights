@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, ChevronLeft, FileDown } from 'lucide-react';
+import { ArrowLeft, ChevronLeft, ChevronRight, FileDown } from 'lucide-react';
 import { Footer } from '@/components/Footer';
 import { useEffect } from 'react';
 import { usePdfDownload } from '@/hooks/usePdfDownload';
@@ -438,7 +438,7 @@ const AgentEconomy = () => {
         {/* Navigation */}
         <section className="py-16 px-6 border-t border-white/[0.06]">
           <div className="max-w-4xl mx-auto">
-            <div className="flex justify-start items-center">
+            <div className="flex justify-between items-center">
               <Button
                 asChild
                 variant="outline"
@@ -447,6 +447,16 @@ const AgentEconomy = () => {
                 <Link to="/token-model">
                   <ChevronLeft className="mr-2 h-3 w-3" />
                   Token & Collateral Model
+                </Link>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                className="bg-transparent border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
+              >
+                <Link to="/agent-lifecycle">
+                  Agent Lifecycle
+                  <ChevronRight className="ml-2 h-3 w-3" />
                 </Link>
               </Button>
             </div>
