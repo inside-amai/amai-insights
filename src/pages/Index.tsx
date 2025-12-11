@@ -32,9 +32,9 @@ const Index = () => {
                   transition={{ duration: 0.6 }}
                   viewport={{ once: true }}
                 >
-                  Agent coordination is crossing from speculative to operational — and the bottleneck is no longer models, but trust, capital, and execution guarantees.
+                  Agent coordination is transitioning from speculative research to operational systems.
                   <br /><br />
-                  AMAI provides a unified blueprint for machine-first economic infrastructure.
+                  The primary bottlenecks are no longer model capability, but trust, capital allocation, and execution guarantees.
                 </motion.p>
               </div>
             </section>
