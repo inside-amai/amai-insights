@@ -178,8 +178,8 @@ const TechnicalFoundation = () => {
                       
                       <div className="space-y-2">
                         <div className="border border-white/[0.06] rounded-[1px] p-2 bg-black/20">
-                          <span className="text-[10px] text-white/50 font-mono block">Tier Anchor</span>
-                          <span className="text-[9px] text-white/30">Common 70% · Rare 80% · Legendary 91%</span>
+                          <span className="text-[10px] text-white/50 font-mono block">Baseline Reliability</span>
+                          <span className="text-[9px] text-white/30">Collateral · Verification · Provenance</span>
                         </div>
                         <div className="border border-white/[0.06] rounded-[1px] p-2 bg-black/20">
                           <span className="text-[10px] text-white/50 font-mono block">Bonded Collateral</span>
