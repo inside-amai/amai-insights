@@ -108,7 +108,7 @@ const DocumentCard = ({ card, index }: { card: typeof documentationCards[0]; ind
 
 export const DocumentationIndex = () => {
   return (
-    <section id="documentation" className="relative isolate py-28 md:py-36 overflow-hidden bg-black">
+    <section id="documentation-library" className="relative isolate py-28 md:py-36 overflow-hidden bg-black">
       {/* Blueprint grid background */}
       <div className="absolute inset-0 opacity-[0.2]">
         <div 

@@ -165,17 +165,25 @@ export const ExplainerHero = () => {
           >
             <div className="flex flex-row gap-4 items-center">
               <a 
-                href="/whitepaper/system-architecture" 
+                href="#architecture-section"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('architecture-section')?.scrollIntoView({ behavior: 'smooth' });
+                }}
                 className="text-sm text-white/70 hover:text-white border border-white/20 hover:border-white/40 px-5 py-2.5 rounded transition-all duration-300"
               >
-                Read the Architecture
+                View System Architecture →
               </a>
               
               <a 
-                href="#technical-docs" 
+                href="#documentation-library"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('documentation-library')?.scrollIntoView({ behavior: 'smooth' });
+                }}
                 className="text-sm text-white/50 hover:text-white/70 transition-all duration-300"
               >
-                Explore Documentation →
+                Open Documentation Library
               </a>
             </div>
             

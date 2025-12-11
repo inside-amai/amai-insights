@@ -44,7 +44,7 @@ const layers = [
 
 export const AgentLayersSection = () => {
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section id="architecture-section" className="relative py-24 overflow-hidden">
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
