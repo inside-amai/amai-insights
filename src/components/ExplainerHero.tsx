@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { OptimizedImage } from '@/components/OptimizedImage';
 import amaiLogo from '@/assets/amai-logo-hero-new.png';
 
 export const ExplainerHero = () => {
@@ -125,11 +124,10 @@ export const ExplainerHero = () => {
             animate={{ opacity: 0.95, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <OptimizedImage 
+            <img 
               src={amaiLogo}
               alt="AMAI Logo" 
               className="h-12 md:h-16 lg:h-20 xl:h-22 w-auto"
-              loading="eager"
             />
           </motion.div>
 
