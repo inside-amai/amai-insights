@@ -86,7 +86,7 @@ export const AgentLayersSection = () => {
               style={{ transition: 'border-color 0.3s ease' }}
             >
               {/* Layer Number Indicator */}
-              <div className="absolute -left-3 top-1/2 -translate-y-1/2 hidden lg:flex items-center justify-center">
+              <div className="absolute -left-10 top-1/2 -translate-y-1/2 hidden lg:flex items-center justify-center">
                 <span className="text-[10px] text-white/20 font-mono">
                   0{index + 1}
                 </span>
