@@ -463,18 +463,23 @@ const AgentLifecycle = () => {
         {/* Navigation */}
         <section className="py-16 px-6">
           <div className="max-w-4xl mx-auto">
-            <div className="flex justify-between items-center pt-8 border-t border-white/[0.06]">
+            <div className="flex justify-center items-center pt-8 border-t border-white/[0.06]">
               <Button 
-                asChild 
                 variant="outline" 
                 className="group bg-transparent border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
+                onClick={() => {
+                  navigate('/');
+                  setTimeout(() => {
+                    const element = document.getElementById('documentation-library');
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }, 100);
+                }}
               >
-                <Link to="/agent-economy">
-                  <ChevronLeft className="mr-2 h-3 w-3 transition-transform group-hover:-translate-x-1" />
-                  Agent Economy
-                </Link>
+                <ChevronLeft className="mr-2 h-3 w-3 transition-transform group-hover:-translate-x-1" />
+                Documentation
               </Button>
-              <div />
             </div>
           </div>
         </section>
