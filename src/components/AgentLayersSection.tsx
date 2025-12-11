@@ -73,17 +73,17 @@ export const AgentLayersSection = () => {
               key={layer.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              viewport={{ once: true, margin: "-80px" }}
               className={`
                 relative group
                 bg-gradient-to-b ${layer.gradient}
                 border ${layer.borderColor}
                 rounded-lg
                 backdrop-blur-sm
-                transition-all duration-500
                 hover:border-white/20
               `}
+              style={{ transition: 'border-color 0.3s ease' }}
             >
               {/* Layer Number Indicator */}
               <div className="absolute -left-3 top-1/2 -translate-y-1/2 hidden lg:flex items-center justify-center">

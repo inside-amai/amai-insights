@@ -82,29 +82,16 @@ const ArchitectureDiagram: React.FC = () => {
         </motion.div>
 
         {/* Diagram Container */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="max-w-2xl mx-auto"
-        >
+        <div className="max-w-2xl mx-auto">
           {layers.map((layer, index) => (
-            <motion.div
+            <Layer
               key={layer.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <Layer
-                title={layer.title}
-                items={layer.items}
-                isLast={index === layers.length - 1}
-              />
-            </motion.div>
+              title={layer.title}
+              items={layer.items}
+              isLast={index === layers.length - 1}
+            />
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -14,8 +14,7 @@ export const WhitepaperCard = ({ slug, title, description, category, index }: Wh
     <motion.article
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      whileHover={{ y: -2 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, margin: "-50px" }}
       transition={{ 
         duration: 0.5, 
         ease: 'easeOut', 
