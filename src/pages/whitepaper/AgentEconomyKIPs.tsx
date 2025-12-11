@@ -56,7 +56,7 @@ const AgentEconomyKIPs = () => {
 
               {/* Title */}
               <h1 className="text-4xl md:text-5xl font-light text-white mt-4 mb-6 tracking-tight">
-                Kernelized Intelligence (KIPs)
+                Kernelized Intelligent Property (KIP)
               </h1>
 
               {/* Subheader */}
