@@ -12,6 +12,7 @@ const AgentEconomyKIPs = () => {
   const { pdfLayoutRef, downloadPdf } = usePdfDownload();
 
   useEffect(() => {
+    document.title = 'Kernelized Intelligence | AMAI Labs';
     window.scrollTo(0, 0);
   }, []);
 

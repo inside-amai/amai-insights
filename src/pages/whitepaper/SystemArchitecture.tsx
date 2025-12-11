@@ -55,6 +55,7 @@ const SystemArchitecture = () => {
   const { pdfLayoutRef, downloadPdf } = usePdfDownload();
 
   useEffect(() => {
+    document.title = 'Agent Architecture | AMAI Labs';
     window.scrollTo(0, 0);
   }, []);
 

@@ -12,6 +12,7 @@ const Token = () => {
   const { pdfLayoutRef, downloadPdf } = usePdfDownload();
 
   useEffect(() => {
+    document.title = 'Token & Collateral Model | AMAI Labs';
     window.scrollTo(0, 0);
   }, []);
 

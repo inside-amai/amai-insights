@@ -12,6 +12,7 @@ const AgentEconomy = () => {
   const { pdfLayoutRef, downloadPdf } = usePdfDownload();
 
   useEffect(() => {
+    document.title = 'Agent Economy | AMAI Labs';
     window.scrollTo(0, 0);
   }, []);
 

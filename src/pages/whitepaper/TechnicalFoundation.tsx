@@ -40,6 +40,7 @@ const TechnicalFoundation = () => {
   const { pdfLayoutRef, downloadPdf } = usePdfDownload();
 
   useEffect(() => {
+    document.title = 'Economic Substrate | AMAI Labs';
     window.scrollTo(0, 0);
   }, []);
 
