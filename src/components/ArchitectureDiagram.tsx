@@ -76,11 +76,8 @@ const ArchitectureDiagram: React.FC = () => {
           <h2 className="mt-4 text-3xl md:text-4xl font-light text-white tracking-tight">
             Architecture
           </h2>
-          <p className="mt-6 text-white/60 text-sm max-w-xl mx-auto leading-relaxed">
-            Agent coordination is crossing from speculative to operational — and the bottleneck is no longer models, but trust, capital, and execution guarantees.
-          </p>
           <p className="mt-4 text-white/50 text-sm max-w-lg mx-auto leading-relaxed">
-            AMAI provides a unified blueprint for machine-first economic infrastructure.
+            A unified blueprint of AMAI's machine-first economic infrastructure.
           </p>
         </motion.div>
 
