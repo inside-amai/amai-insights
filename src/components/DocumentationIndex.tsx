@@ -41,7 +41,7 @@ const documentationCards = [
   {
     category: 'EXECUTION',
     title: 'Protocol Internals',
-    subtitle: 'PTBs, settlement logic, oracle routing, security boundaries, and performance benchmarks.',
+    subtitle: 'Settlement logic, oracle routing, security boundaries, and performance benchmarks.',
     slug: 'protocol-internals'
   },
   {
