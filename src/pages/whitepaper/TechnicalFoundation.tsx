@@ -279,9 +279,13 @@ const TechnicalFoundation = () => {
                       {/* Aggregation */}
                       <div className="mt-4 pt-3 border-t border-white/[0.06]">
                         <span className="text-[9px] tracking-[0.15em] uppercase text-white/35 font-mono block mb-2">Aggregation & Clamping</span>
-                        <div className="space-y-1 font-mono text-[9px] text-white/40">
-                          <div>T<sub>raw</sub> = Σ T<sub>i</sub></div>
-                          <div>T<sub>final</sub> = min(99.9%, max(50%, T<sub>raw</sub>))</div>
+                        <div className="space-y-0.5 font-mono text-[8px] text-white/40">
+                          <div>T<sub>base</sub> = baseline(c, v, p)</div>
+                          <div>T<sub>stake</sub> = logistic(bond)</div>
+                          <div>T<sub>quality</sub> = moduleQuality(q)</div>
+                          <div>T<sub>oracle</sub> = weightedKPI</div>
+                          <div className="pt-1">T<sub>raw</sub> = Σ T<sub>i</sub></div>
+                          <div>T<sub>final</sub> = clamp(T<sub>raw</sub>, 50%, 99.9%)</div>
                         </div>
                       </div>
                     </motion.div>
