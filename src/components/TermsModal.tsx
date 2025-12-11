@@ -62,8 +62,7 @@ export const TermsModal = () => {
       <div className="relative w-[85vw] max-w-[480px] h-[68vh] bg-[#0a0a0a] border border-white/15 rounded-lg mb-4 overflow-hidden transition-all duration-500 hover:border-white/25">
         {/* Header */}
         <div className="px-6 pt-6 pb-4 border-b border-white/5">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="w-1.5 h-1.5 rounded-full bg-white/80" />
+          <div className="mb-2">
             <h2 className="text-lg font-medium text-white tracking-tight">
               AMAI Labs — Terms & Conditions
             </h2>
