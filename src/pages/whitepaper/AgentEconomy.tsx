@@ -1,14 +1,26 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, ChevronRight, ChevronLeft } from 'lucide-react';
+import { ArrowLeft, ChevronLeft } from 'lucide-react';
 import { Footer } from '@/components/Footer';
 import { useEffect } from 'react';
 
 const AgentEconomy = () => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const handleBackClick = () => {
+    navigate('/');
+    setTimeout(() => {
+      const element = document.getElementById('documentation');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
 
   return (
     <div className="min-h-screen bg-black relative overflow-hidden">
@@ -32,15 +44,13 @@ const AgentEconomy = () => {
       {/* Back Button */}
       <div className="fixed top-6 left-6 z-50">
         <Button 
-          asChild
           variant="outline" 
           size="sm" 
+          onClick={handleBackClick}
           className="bg-black/80 backdrop-blur-sm border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
         >
-          <Link to="/#documentation">
-            <ArrowLeft className="mr-2 h-3 w-3" />
-            Back
-          </Link>
+          <ArrowLeft className="mr-2 h-3 w-3" />
+          Back
         </Button>
       </div>
 
@@ -395,7 +405,7 @@ const AgentEconomy = () => {
         {/* Navigation */}
         <section className="py-16 px-6 border-t border-white/[0.06]">
           <div className="max-w-4xl mx-auto">
-            <div className="flex justify-between items-center">
+            <div className="flex justify-start items-center">
               <Button
                 asChild
                 variant="outline"
@@ -404,17 +414,6 @@ const AgentEconomy = () => {
                 <Link to="/token-model">
                   <ChevronLeft className="mr-2 h-3 w-3" />
                   Token & Collateral Model
-                </Link>
-              </Button>
-              
-              <Button
-                asChild
-                variant="outline"
-                className="bg-transparent border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
-              >
-                <Link to="/#documentation">
-                  Documentation Index
-                  <ChevronRight className="ml-2 h-3 w-3" />
                 </Link>
               </Button>
             </div>
