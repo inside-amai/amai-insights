@@ -414,7 +414,7 @@ const SystemArchitecture = () => {
                 </div>
 
                 {/* Diagram label */}
-                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-black px-3">
+                <div className="mt-6 text-center lg:absolute lg:-bottom-3 lg:left-1/2 lg:-translate-x-1/2 lg:mt-0 bg-black px-3">
                   <span className="text-[8px] tracking-[0.3em] uppercase text-white/20 font-mono">
                     Agent Stack
                   </span>
