@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, ChevronRight } from 'lucide-react';
 import { Footer } from '@/components/Footer';
+import { useEffect } from 'react';
 
 const architectureLayers = [
   {
@@ -50,6 +51,10 @@ const economicGuarantees = [
 ];
 
 const SummaryVision = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen bg-black relative overflow-hidden">
       {/* Blueprint grid background */}

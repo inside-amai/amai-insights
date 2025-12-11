@@ -3,8 +3,13 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, ChevronRight, ChevronLeft } from 'lucide-react';
 import { Footer } from '@/components/Footer';
+import { useEffect } from 'react';
 
 const TreasuryDynamics = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen bg-black relative overflow-hidden">
       {/* Blueprint grid background */}
@@ -413,7 +418,7 @@ const TreasuryDynamics = () => {
                 className="group bg-black border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
               >
                 <Link to="/kernelized-intelligence">
-                  Kernelized Intelligence
+                  Kernelized Intelligent Property
                   <ChevronRight className="ml-2 h-3 w-3 transition-transform group-hover:translate-x-0.5" />
                 </Link>
               </Button>
