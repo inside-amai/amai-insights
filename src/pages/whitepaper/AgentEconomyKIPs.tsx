@@ -303,15 +303,15 @@ const AgentEconomyKIPs = () => {
                   }}
                 />
                 
-                <div className="relative z-10 space-y-6">
-                  {/* Top - Metadata Layer */}
+                <div className="relative z-10 space-y-4">
+                  {/* TOP - Metadata Layer */}
                   <motion.div 
                     className="border border-white/20 rounded-sm p-4 bg-white/[0.02]"
                     animate={{ opacity: [0.7, 1, 0.7] }}
                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                   >
-                    <div className="text-white/40 text-xs font-mono mb-3 tracking-wider">METADATA LAYER</div>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    <div className="text-white/40 text-xs font-mono mb-3 tracking-wider text-center">METADATA LAYER</div>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 justify-items-center">
                       <div className="text-white/60 text-xs">Content Hash</div>
                       <div className="text-white/60 text-xs">Provenance</div>
                       <div className="text-white/60 text-xs">Lineage</div>
@@ -319,16 +319,19 @@ const AgentEconomyKIPs = () => {
                     </div>
                   </motion.div>
 
-                  {/* Connector */}
+                  {/* Arrow down from Metadata */}
                   <div className="flex justify-center">
-                    <div className="w-px h-4 bg-white/20" />
+                    <div className="flex flex-col items-center">
+                      <div className="w-px h-6 bg-white/20" />
+                      <div className="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[5px] border-t-white/20" />
+                    </div>
                   </div>
 
-                  {/* Middle Row - Intelligence Module + Side Parameters */}
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-                    {/* Side Parameters - Left */}
+                  {/* MIDDLE - Parameters + Intelligence Module */}
+                  <div className="flex flex-col lg:flex-row gap-4 items-center justify-center">
+                    {/* Parameters - Left */}
                     <motion.div 
-                      className="border border-white/15 rounded-sm p-4 bg-white/[0.02] lg:order-1"
+                      className="border border-white/15 rounded-sm p-4 bg-white/[0.02] w-full lg:w-48"
                       animate={{ opacity: [0.6, 0.9, 0.6] }}
                       transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
                     >
@@ -341,13 +344,27 @@ const AgentEconomyKIPs = () => {
                       </div>
                     </motion.div>
 
+                    {/* Arrow from Parameters to Intelligence Module - Desktop only */}
+                    <div className="hidden lg:flex items-center">
+                      <div className="w-6 h-px bg-white/20" />
+                      <div className="w-0 h-0 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent border-l-[5px] border-l-white/20" />
+                    </div>
+
+                    {/* Arrow down on mobile */}
+                    <div className="flex lg:hidden justify-center">
+                      <div className="flex flex-col items-center">
+                        <div className="w-px h-4 bg-white/20" />
+                        <div className="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[5px] border-t-white/20" />
+                      </div>
+                    </div>
+
                     {/* Intelligence Module - Center */}
                     <motion.div 
-                      className="border border-white/25 rounded-sm p-4 bg-white/[0.04] lg:order-2"
+                      className="border border-white/25 rounded-sm p-4 bg-white/[0.04] w-full lg:w-64"
                       animate={{ opacity: [0.8, 1, 0.8] }}
                       transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.25 }}
                     >
-                      <div className="text-white/50 text-xs font-mono mb-3 tracking-wider">INTELLIGENCE MODULE</div>
+                      <div className="text-white/50 text-xs font-mono mb-3 tracking-wider text-center">INTELLIGENCE MODULE</div>
                       <div className="space-y-3">
                         <div className="flex items-center gap-2">
                           <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
@@ -367,30 +384,32 @@ const AgentEconomyKIPs = () => {
                         </div>
                       </div>
                     </motion.div>
-
-                    {/* Placeholder for grid alignment */}
-                    <div className="hidden lg:block lg:order-3" />
                   </div>
 
-                  {/* Connector */}
-                  <div className="flex justify-center">
-                    <div className="w-px h-4 bg-white/20" />
-                  </div>
-
-                  {/* Bottom - Execution Interface */}
-                  <motion.div 
-                    className="border border-white/20 rounded-sm p-4 bg-white/[0.02]"
-                    animate={{ opacity: [0.7, 1, 0.7] }}
-                    transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.75 }}
-                  >
-                    <div className="text-white/40 text-xs font-mono mb-3 tracking-wider">EXECUTION INTERFACE</div>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                      <div className="text-white/60 text-xs font-mono">Invoke()</div>
-                      <div className="text-white/60 text-xs font-mono">Validate()</div>
-                      <div className="text-white/60 text-xs font-mono">Version()</div>
-                      <div className="text-white/60 text-xs font-mono">Compose()</div>
+                  {/* Arrow down from Intelligence Module */}
+                  <div className="flex justify-center lg:ml-[calc(12rem+1.5rem)]">
+                    <div className="flex flex-col items-center">
+                      <div className="w-px h-6 bg-white/20" />
+                      <div className="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[5px] border-t-white/20" />
                     </div>
-                  </motion.div>
+                  </div>
+
+                  {/* BOTTOM - Execution Interface */}
+                  <div className="flex justify-center">
+                    <motion.div 
+                      className="border border-white/20 rounded-sm p-4 bg-white/[0.02] w-full lg:w-64 lg:ml-[calc(12rem+1.5rem)]"
+                      animate={{ opacity: [0.7, 1, 0.7] }}
+                      transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.75 }}
+                    >
+                      <div className="text-white/40 text-xs font-mono mb-3 tracking-wider text-center">EXECUTION INTERFACE</div>
+                      <div className="grid grid-cols-2 gap-2 justify-items-center">
+                        <div className="text-white/60 text-xs font-mono">Invoke()</div>
+                        <div className="text-white/60 text-xs font-mono">Validate()</div>
+                        <div className="text-white/60 text-xs font-mono">Version()</div>
+                        <div className="text-white/60 text-xs font-mono">Compose()</div>
+                      </div>
+                    </motion.div>
+                  </div>
                 </div>
               </div>
             </motion.div>
