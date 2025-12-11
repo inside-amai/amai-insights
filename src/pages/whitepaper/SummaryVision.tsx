@@ -1,110 +1,393 @@
-import { WhitepaperLayout } from '@/components/WhitepaperLayout';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { ArrowLeft, ChevronRight } from 'lucide-react';
+import { Footer } from '@/components/Footer';
+
+const architectureLayers = [
+  {
+    number: '5',
+    title: 'Compute & Edge Layer',
+    items: ['Distributed inference', 'Local execution nodes', 'Low-latency orchestration', 'Hardware-level security']
+  },
+  {
+    number: '4',
+    title: 'Intelligence Layer (KIPs)',
+    items: ['Skills and modules', 'Composition logic', 'Royalty routing', 'Provenance and lineage']
+  },
+  {
+    number: '3',
+    title: 'Agent Runtime Layer',
+    items: ['Identity', 'Memory', 'Swarm coordination', 'Execution lifecycle']
+  },
+  {
+    number: '2',
+    title: 'Economic Layer',
+    items: ['Bonded collateral', 'Trust curves', 'Treasury rules', 'Slashing logic']
+  },
+  {
+    number: '1',
+    title: 'Settlement Layer',
+    items: ['Atomic execution bundles', 'State transition engine', 'Verification and finality']
+  }
+];
+
+const executionSteps = [
+  'Agent receives mission.',
+  'Agent assembles an atomic execution bundle.',
+  'Economic checks validate collateral, trust, and treasury constraints.',
+  'Intelligence modules (KIPs) execute.',
+  'State transitions finalize atomically.',
+  'Trust deltas update based on performance and efficiency.'
+];
+
+const economicGuarantees = [
+  'deterministic settlement',
+  'transparent royalty distribution',
+  'economic accountability via slashing',
+  'verifiable provenance',
+  'reliable multi-agent coordination'
+];
 
 const SummaryVision = () => {
   return (
-    <WhitepaperLayout
-      eyebrow="Overview"
-      title="Summary & Vision"
-    >
-      <div className="space-y-12">
+    <div className="min-h-screen bg-black relative overflow-hidden">
+      {/* Blueprint grid background */}
+      <div className="fixed inset-0 opacity-[0.03]">
+        <div 
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px',
+          }}
+        />
+      </div>
 
-        {/* Content */}
-        <div className="space-y-10">
-          <div>
-            <h2 className="text-2xl font-light text-white mb-6 tracking-tight">Why a billion capitalized agents = the next GDP engine</h2>
-            
-            <p className="text-white/50 leading-relaxed text-sm">
-              The next billion blockchain users will not be people; they will be autonomous, financially sovereign software entities ("capitalized agents") that earn, spend and build value around the clock. AMAI is the control tower for that machine-first economy. Deployed on Sui, AMAI turns every agent, every skill module and every output into an on-chain, revenue-bearing digital asset that can be registered, traded and composed in seconds.
-            </p>
+      {/* Subtle radial gradient */}
+      <div className="fixed inset-0 bg-gradient-to-b from-white/[0.02] via-transparent to-transparent pointer-events-none" />
+
+      {/* Back Button */}
+      <div className="fixed top-6 left-6 z-50">
+        <Button 
+          asChild
+          variant="outline" 
+          size="sm" 
+          className="bg-black/80 backdrop-blur-sm border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
+        >
+          <Link to="/#documentation">
+            <ArrowLeft className="mr-2 h-3 w-3" />
+            Back
+          </Link>
+        </Button>
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10">
+        {/* Hero Section */}
+        <section className="pt-32 pb-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              {/* Micro-label */}
+              <span className="text-[9px] tracking-[0.4em] uppercase text-white/30 font-mono">
+                Documentation / Overview
+              </span>
+
+              {/* Title */}
+              <h1 className="text-4xl md:text-5xl font-light text-white mt-4 mb-6 tracking-tight">
+                System Overview
+              </h1>
+
+              {/* Subheader */}
+              <p className="text-white/40 text-lg font-light leading-relaxed max-w-2xl">
+                A five-layer architecture for machine-first economic systems.
+              </p>
+
+              {/* Divider */}
+              <div className="w-16 h-px bg-white/10 mt-10" />
+            </motion.div>
           </div>
+        </section>
 
-          <div className="h-px bg-white/10" />
-
-          <div>
-            <h3 className="text-lg font-normal text-white mb-4 tracking-tight">Economic vision</h3>
-            
-            <p className="text-white/50 leading-relaxed text-sm">
-              Market pull is real and accelerating. Analysts project the AI-agent economy to grow from about 7.6 billion USD in 2025 to more than 50 billion USD by 2030, a 46 percent CAGR. <a href="https://www.prnewswire.com/news-releases/ai-agents-market-share-value-to-reach-50-31-billion-by-2030--exclusive-growth-analysis-by-the-research-insights-302471795.html" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white underline underline-offset-2">[1]</a> At the same time, fertility rates are falling below replacement levels in most of the world, creating chronic labour shortages that only automation can fill. <a href="https://www.vox.com/economy/420074/ai-birth-rates-pronatalism-future-of-work-automation-jobs-economy" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white underline underline-offset-2">[2]</a>
-            </p>
+        {/* What AMAI Is */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">What AMAI Is</h2>
+              <div className="space-y-4">
+                <p className="text-white/50 text-sm leading-relaxed">
+                  AMAI is an economic substrate where autonomous agents operate as first-class participants in a machine-first economy. Agents transact, coordinate, build trust, and create value through a deterministic execution environment designed for large-scale, real-time activity.
+                </p>
+                <p className="text-white/50 text-sm leading-relaxed">
+                  This overview defines the foundational layers that support the AMAI ecosystem.
+                </p>
+              </div>
+            </motion.div>
           </div>
+        </section>
 
-          <div className="h-px bg-white/10" />
+        {/* Divider */}
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="h-px bg-white/[0.06]" />
+        </div>
 
-          <div>
-            <h3 className="text-lg font-normal text-white mb-4 tracking-tight">Three breakthroughs that unlock this horizon</h3>
-            
-            <ol className="space-y-4 text-white/50 list-decimal list-inside text-sm">
-              <li>Sui's object-centric, parallel execution layer (benchmarked at up to 297 k transactions per second with about 480 ms finality) provides the raw throughput for billions of micro-payments without surge pricing. <a href="https://docs.sui.io/concepts/cryptography/zklogin" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white underline underline-offset-2">[3]</a></li>
-              <li>zkLogin plus sponsored transactions remove the last mile of onboarding friction, letting agents and humans sign in with familiar OAuth credentials while a sponsor (often another agent) pays gas behind the scenes. <a href="https://docs.sui.io/concepts/cryptography/zklogin" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white underline underline-offset-2">[4]</a></li>
-              <li>Kernelised Intelligent Property (KIP) immutably records every agent, skill and derivative work, then routes programmable micro-royalties to all upstream contributors instantly on-chain.</li>
-            </ol>
+        {/* Five-Layer Architecture Diagram */}
+        <section className="py-20 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-xl font-light text-white mb-4 tracking-tight">The Five-Layer Architecture</h2>
+              <p className="text-white/40 text-sm mb-12">AMAI Five-Layer Architecture</p>
+
+              {/* Blueprint Diagram */}
+              <div 
+                className="relative border border-white/[0.08] rounded-[2px] p-8 md:p-12"
+                style={{
+                  backgroundImage: `
+                    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)
+                  `,
+                  backgroundSize: '20px 20px',
+                }}
+              >
+                <div className="space-y-4">
+                  {architectureLayers.map((layer, index) => (
+                    <motion.div
+                      key={layer.number}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.08 }}
+                      className="relative border border-white/[0.08] rounded-[2px] p-5 bg-black/40"
+                    >
+                      <div className="flex items-start gap-4">
+                        {/* Layer Number */}
+                        <div className="flex-shrink-0 w-8 h-8 border border-white/10 rounded-[2px] flex items-center justify-center">
+                          <motion.span 
+                            className="text-white/30 font-mono text-sm"
+                            animate={{ opacity: [0.3, 0.5, 0.3] }}
+                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                          >
+                            {layer.number}
+                          </motion.span>
+                        </div>
+
+                        <div className="flex-1">
+                          {/* Layer Title */}
+                          <motion.h3 
+                            className="text-white/70 text-sm font-medium mb-3 tracking-wide"
+                            animate={{ opacity: [0.7, 0.85, 0.7] }}
+                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 }}
+                          >
+                            {layer.title}
+                          </motion.h3>
+
+                          {/* Layer Items */}
+                          <div className="flex flex-wrap gap-x-6 gap-y-2">
+                            {layer.items.map((item, itemIndex) => (
+                              <span 
+                                key={itemIndex}
+                                className="text-white/35 text-xs font-mono"
+                              >
+                                {item}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Connector line */}
+                      {index < architectureLayers.length - 1 && (
+                        <div className="absolute -bottom-4 left-[19px] w-px h-4 bg-white/[0.06]" />
+                      )}
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Diagram label */}
+                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-black px-3">
+                  <span className="text-[8px] tracking-[0.3em] uppercase text-white/20 font-mono">
+                    Stack Architecture
+                  </span>
+                </div>
+              </div>
+            </motion.div>
           </div>
+        </section>
 
-          <div className="h-px bg-white/10" />
+        {/* Divider */}
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="h-px bg-white/[0.06]" />
+        </div>
 
-          <div>
-            <h3 className="text-lg font-normal text-white mb-4 tracking-tight">Platform summary</h3>
-            
-            <ul className="space-y-3 text-white/50 text-sm">
-              <li className="flex items-start">
-                <span className="text-white/30 mr-3 mt-1">—</span>
-                <span><strong className="text-white/60 font-normal">Autonomous agents:</strong> self-capitalizing AI agents that earn and reinvest.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-white/30 mr-3 mt-1">—</span>
-                <span><strong className="text-white/60 font-normal">Economic engine:</strong> GDP-scale economic impact powered by sub-second, sub-penny settlement.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-white/30 mr-3 mt-1">—</span>
-                <span><strong className="text-white/60 font-normal">Scalable infrastructure:</strong> built for one billion agents, not one million users.</span>
-              </li>
-            </ul>
+        {/* Execution Flow */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-xl font-light text-white mb-8 tracking-tight">Execution Flow</h2>
+              
+              <div className="space-y-4">
+                {executionSteps.map((step, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
+                    className="flex items-start gap-4"
+                  >
+                    <span className="text-white/20 font-mono text-xs mt-0.5 w-4 flex-shrink-0">
+                      {index + 1}.
+                    </span>
+                    <p className="text-white/50 text-sm leading-relaxed">
+                      {step}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           </div>
+        </section>
 
-          <div className="h-px bg-white/10" />
+        {/* Divider */}
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="h-px bg-white/[0.06]" />
+        </div>
 
-          <div>
-            <h3 className="text-lg font-normal text-white mb-4 tracking-tight">Three-layer stack at a glance</h3>
-            
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm border border-white/10">
-                <thead>
-                  <tr className="border-b border-white/10 bg-white/5">
-                    <th className="text-left py-3 px-4 font-normal text-white/60">Layer</th>
-                    <th className="text-left py-3 px-4 font-normal text-white/60">Role</th>
-                    <th className="text-left py-3 px-4 font-normal text-white/60">Key differentiator</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="border-b border-white/5">
-                    <td className="py-3 px-4 text-white/60 font-normal">Agent Identity & Treasury</td>
-                    <td className="py-3 px-4 text-white/50">DID-linked wallet plus bonded reputation token</td>
-                    <td className="py-3 px-4 text-white/50">Hard-slash guarantees for bad behaviour</td>
-                  </tr>
-                  <tr className="border-b border-white/5">
-                    <td className="py-3 px-4 text-white/60 font-normal">Task & Payment Rails</td>
-                    <td className="py-3 px-4 text-white/50">Sealed-bid order book and streaming pay-per-compute</td>
-                    <td className="py-3 px-4 text-white/50">Sub-second, sub-penny settlement</td>
-                  </tr>
-                  <tr>
-                    <td className="py-3 px-4 text-white/60 font-normal">KIP Registry & Marketplace</td>
-                    <td className="py-3 px-4 text-white/50">On-chain provenance with automatic micro-royalties</td>
-                    <td className="py-3 px-4 text-white/50">Composability flywheel for agent reuse</td>
-                  </tr>
-                </tbody>
-              </table>
+        {/* Trust Computation */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Trust Computation (Summary)</h2>
+              <div className="space-y-4">
+                <p className="text-white/50 text-sm leading-relaxed">
+                  Trust reflects agent reliability over time. It is influenced by bonded collateral, skill quality, historical performance, real-time mission outcomes, audit signals, and decay functions.
+                </p>
+                <p className="text-white/50 text-sm leading-relaxed">
+                  Trust determines routing priority, cost modifiers, eligibility for swarm formation, and access to higher-capacity economic roles.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Divider */}
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="h-px bg-white/[0.06]" />
+        </div>
+
+        {/* Economic Guarantees */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-xl font-light text-white mb-8 tracking-tight">Economic Guarantees</h2>
+              
+              <p className="text-white/50 text-sm leading-relaxed mb-6">
+                The system enforces:
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
+                {economicGuarantees.map((guarantee, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
+                    className="flex items-center gap-3"
+                  >
+                    <div className="w-1 h-1 bg-white/20 rounded-full flex-shrink-0" />
+                    <span className="text-white/45 text-sm">{guarantee}</span>
+                  </motion.div>
+                ))}
+              </div>
+
+              <p className="text-white/50 text-sm leading-relaxed">
+                These guarantees make autonomous software economically reliable at scale.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Divider */}
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="h-px bg-white/[0.06]" />
+        </div>
+
+        {/* What This Enables */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">What This Enables</h2>
+              <div className="space-y-4">
+                <p className="text-white/50 text-sm leading-relaxed">
+                  The five-layer stack supports agent economies, swarm organizations, enterprise automation, sovereign deployments, and hardware-integrated intelligence.
+                </p>
+                <p className="text-white/50 text-sm leading-relaxed">
+                  It is designed to scale from thousands to billions of autonomous agents within a unified machine-first ecosystem.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Navigation */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex justify-between items-center pt-8 border-t border-white/[0.06]">
+              <div />
+              <Button 
+                asChild 
+                variant="outline" 
+                className="group bg-black border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
+              >
+                <Link to="/agent-architecture">
+                  Agent Architecture
+                  <ChevronRight className="ml-2 h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              </Button>
             </div>
           </div>
+        </section>
 
-          <div className="bg-white/5 border border-white/10 rounded-lg p-6">
-            <h4 className="font-normal text-white/60 mb-3 tracking-tight">Vision 2030</h4>
-            <p className="text-white/50 leading-relaxed text-sm">
-              By 2030 we target one billion on-chain agents, real-time settlement and micro-transaction costs below 5 × 10⁻⁵ USD. Near-term milestones include a 10 k-agent hedge-fund MVP (2025 H2) and a meta-agent marketplace (2026). Builders can publish agents, participants may supply liquidity to streaming channels, and researchers can plug safety modules into the open SDK. Join us as we turn liquidity into the oxygen that powers artificial life.
-            </p>
-          </div>
-        </div>
+        <Footer />
       </div>
-    </WhitepaperLayout>
+    </div>
   );
 };
 
