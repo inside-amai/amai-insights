@@ -273,10 +273,10 @@ const TechnicalDeepDive = () => {
                 }}
               >
                 {/* Mobile-friendly stacked layout, desktop horizontal */}
-                <div className="flex flex-col lg:flex-row gap-6 lg:gap-3">
+                <div className="flex flex-col lg:flex-row gap-6 lg:gap-4 justify-center items-stretch">
                   
                   {/* INPUT COLUMN */}
-                  <div className="lg:flex-1 lg:max-w-[180px]">
+                  <div className="flex-1 lg:max-w-[220px]">
                     <span className="text-[8px] tracking-[0.3em] uppercase text-white/20 font-mono mb-4 block">Input</span>
                     
                     {/* Static Inputs */}
@@ -354,7 +354,7 @@ const TechnicalDeepDive = () => {
                   </div>
 
                   {/* ENGINE COLUMN */}
-                  <div className="lg:flex-1 lg:max-w-[240px]">
+                  <div className="flex-1 lg:max-w-[280px]">
                     <span className="text-[8px] tracking-[0.3em] uppercase text-white/20 font-mono mb-4 block">Engine</span>
                     
                     <motion.div 
@@ -405,7 +405,7 @@ const TechnicalDeepDive = () => {
                   </div>
 
                   {/* OUTPUT COLUMN */}
-                  <div className="lg:flex-1 lg:max-w-[180px]">
+                  <div className="flex-1 lg:max-w-[220px]">
                     <span className="text-[8px] tracking-[0.3em] uppercase text-white/20 font-mono mb-4 block">Output</span>
                     
                     <div className="border border-white/[0.08] rounded-[2px] p-3 bg-black/30">
