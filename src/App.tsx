@@ -26,6 +26,7 @@ import TreasuryDynamics from "./pages/whitepaper/TreasuryDynamics";
 import AgentEconomyKIPs from "./pages/whitepaper/AgentEconomyKIPs";
 import ProtocolInternals from "./pages/whitepaper/ProtocolInternals";
 import Token from "./pages/whitepaper/Token";
+import AgentEconomy from "./pages/whitepaper/AgentEconomy";
 
 
 const queryClient = new QueryClient();
@@ -56,7 +57,7 @@ const App = () => (
           <Route path="/kernelized-intelligence" element={<AgentEconomyKIPs />} />
           <Route path="/protocol-internals" element={<ProtocolInternals />} />
           <Route path="/token-model" element={<Token />} />
-          <Route path="/agent-economy" element={<AgentEconomyKIPs />} />
+          <Route path="/agent-economy" element={<AgentEconomy />} />
           
           <Route path="/diagram" element={<Diagram />} />
           <Route path="/ui" element={<UI />} />
