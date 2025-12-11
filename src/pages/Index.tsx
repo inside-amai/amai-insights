@@ -35,7 +35,7 @@ const Index = () => {
                   <span className="text-xs font-medium text-muted-foreground uppercase tracking-[0.2em] mb-4 block">
                     Thesis
                   </span>
-                  <p className="text-white/60 text-sm md:text-base text-left leading-relaxed">
+                  <p className="text-sm text-white/50 text-left leading-relaxed">
                     Agent coordination is transitioning from speculative research to operational systems.
                     <br /><br />
                     The primary bottlenecks are no longer model capability, but trust, capital allocation, and execution guarantees.
