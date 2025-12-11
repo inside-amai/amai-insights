@@ -434,7 +434,7 @@ const TreasuryDynamics = () => {
                 </div>
 
                 {/* Diagram Footer Label */}
-                <div className="mt-6 text-center lg:absolute lg:-bottom-3 lg:left-1/2 lg:-translate-x-1/2 lg:mt-0 bg-black px-3">
+                <div className="mt-6 text-center">
                   <span className="text-[8px] tracking-[0.3em] uppercase text-white/20 font-mono">
                     Treasury & Performance Pipeline
                   </span>
