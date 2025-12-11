@@ -25,17 +25,22 @@ const Index = () => {
             {/* Architecture Intro */}
             <section className="py-20 md:py-28">
               <div className="container mx-auto px-6">
-                <motion.p 
-                  className="text-white/60 text-sm md:text-base max-w-3xl mx-auto text-left leading-relaxed"
+                <motion.div 
+                  className="max-w-3xl mx-auto"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
                   viewport={{ once: true }}
                 >
-                  Agent coordination is transitioning from speculative research to operational systems.
-                  <br /><br />
-                  The primary bottlenecks are no longer model capability, but trust, capital allocation, and execution guarantees.
-                </motion.p>
+                  <span className="text-xs font-medium text-muted-foreground uppercase tracking-[0.2em] mb-4 block">
+                    Thesis
+                  </span>
+                  <p className="text-white/60 text-sm md:text-base text-left leading-relaxed">
+                    Agent coordination is transitioning from speculative research to operational systems.
+                    <br /><br />
+                    The primary bottlenecks are no longer model capability, but trust, capital allocation, and execution guarantees.
+                  </p>
+                </motion.div>
               </div>
             </section>
             
