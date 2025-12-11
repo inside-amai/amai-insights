@@ -6,55 +6,55 @@ const documentationCards = [
     category: 'OVERVIEW',
     title: 'System Overview',
     subtitle: 'High-level architecture, execution pathways, trust computation, and the economic substrate of AMAI.',
-    slug: 'summary-vision'
+    slug: 'system-overview'
   },
   {
     category: 'ARCHITECTURE',
     title: 'Agent Architecture',
     subtitle: 'Identity primitives, skill modules, memory, bonding, and the autonomous agent lifecycle.',
-    slug: 'system-architecture'
+    slug: 'agent-architecture'
   },
   {
     category: 'COLLATERAL',
     title: 'Bonded Collateral & Trust Curves',
     subtitle: 'Tier anchors, collateral multipliers, bonding mechanics, and trust-anchored economic security.',
-    slug: 'token'
+    slug: 'bonded-collateral'
   },
   {
     category: 'TRUST',
     title: 'Trust Score Mechanics',
     subtitle: 'Deterministic trust computation including base scores, bonded stake effects, oracle adjustments, and clamping logic.',
-    slug: 'technical-deep-dive'
+    slug: 'trust-score-mechanics'
   },
   {
     category: 'ECONOMICS',
     title: 'Treasury Dynamics & Performance Scoring',
     subtitle: 'Treasury flows, agent earnings, spending mechanics, performance windows, and dampening functions.',
-    slug: 'agent-economy-kips'
+    slug: 'treasury-dynamics'
   },
   {
     category: 'INTELLIGENCE',
     title: 'Kernelized Intelligence (KIPs)',
     subtitle: 'Composable intelligence modules, versioning, permissioning, and micro-royalty distribution.',
-    slug: 'agent-economy-kips'
+    slug: 'kernelized-intelligence'
   },
   {
     category: 'EXECUTION',
     title: 'Protocol Internals',
     subtitle: 'PTBs, settlement logic, oracle routing, security boundaries, and performance benchmarks.',
-    slug: 'technical-deep-dive'
+    slug: 'protocol-internals'
   },
   {
     category: 'TOKEN MODEL',
     title: 'Token & Collateral Model',
     subtitle: 'Utility functions, bonding mechanics, and trust-weighted allocation across the AMAI network.',
-    slug: 'token'
+    slug: 'token-model'
   },
   {
     category: 'INCENTIVES',
     title: 'Agent Economy & Incentives',
     subtitle: 'Swarm coordination economics, routing effects, fee and rebate mechanics, and marketplace dynamics.',
-    slug: 'agent-economy-kips'
+    slug: 'agent-economy'
   }
 ];
 
@@ -68,7 +68,7 @@ const DocumentCard = ({ card, index }: { card: typeof documentationCards[0]; ind
       className="relative group h-full"
     >
       <Link 
-        to={`/whitepaper/${card.slug}`}
+        to={`/${card.slug}`}
         className="block h-full"
       >
         <div 

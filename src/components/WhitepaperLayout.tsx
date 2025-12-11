@@ -6,15 +6,15 @@ import { motion } from 'framer-motion';
 import { Footer } from '@/components/Footer';
 
 export const whitepaperSections = [
-  { slug: 'summary-vision', title: 'Summary & Vision' },
-  { slug: 'Our-journey', title: 'Our Journey' },
-  { slug: 'platform-overview', title: 'Platform' },
-  { slug: 'problem-landscape', title: 'Problem' },
-  { slug: 'token', title: 'Token' },
-  { slug: 'system-architecture', title: 'Architecture' },
-  { slug: 'technical-deep-dive', title: 'Technical' },
-  { slug: 'agent-economy-kips', title: 'Agent Economy' },
-  { slug: 'roadmap-milestones', title: 'Roadmap' }
+  { slug: 'system-overview', title: 'System Overview' },
+  { slug: 'agent-architecture', title: 'Agent Architecture' },
+  { slug: 'bonded-collateral', title: 'Bonded Collateral' },
+  { slug: 'trust-score-mechanics', title: 'Trust Mechanics' },
+  { slug: 'treasury-dynamics', title: 'Treasury Dynamics' },
+  { slug: 'kernelized-intelligence', title: 'KIPs' },
+  { slug: 'protocol-internals', title: 'Protocol Internals' },
+  { slug: 'token-model', title: 'Token Model' },
+  { slug: 'agent-economy', title: 'Agent Economy' }
 ];
 
 interface WhitepaperLayoutProps {
@@ -123,7 +123,7 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
                 variant="outline" 
                 className="group bg-gray-900/80 backdrop-blur-sm border-gray-700 text-white/50 hover:bg-gray-800 hover:text-white hover:border-gray-600 rounded-md font-roboto"
               >
-                <Link to={`/whitepaper/${prevSection.slug}`}>
+                <Link to={`/${prevSection.slug}`}>
                   <ChevronLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
                   {prevSection.title}
                 </Link>
@@ -138,7 +138,7 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
                 variant="outline" 
                 className="group bg-gray-900/80 backdrop-blur-sm border-gray-700 text-white/50 hover:bg-gray-800 hover:text-white hover:border-gray-600 rounded-md font-roboto"
               >
-                <Link to={`/whitepaper/${nextSection.slug}`}>
+                <Link to={`/${nextSection.slug}`}>
                   {nextSection.title}
                   <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
