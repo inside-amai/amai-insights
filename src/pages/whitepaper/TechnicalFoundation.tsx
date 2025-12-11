@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft, ChevronRight, ChevronLeft, FileDown } from 'lucide-react';
 import { Footer } from '@/components/Footer';
 import { useEffect } from 'react';
+import { usePdfDownload } from '@/hooks/usePdfDownload';
 
 const substrateLayers = [
   {
@@ -35,6 +36,7 @@ const substrateLayers = [
 
 const TechnicalFoundation = () => {
   const navigate = useNavigate();
+  const { contentRef, downloadPdf } = usePdfDownload();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -48,6 +50,10 @@ const TechnicalFoundation = () => {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     }, 100);
+  };
+
+  const handleDownloadPdf = () => {
+    downloadPdf({ filename: 'amai-labs-economic-substrate.pdf' });
   };
 
   return (
@@ -88,7 +94,7 @@ const TechnicalFoundation = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10">
+      <div className="relative z-10" ref={contentRef}>
         {/* Hero Section */}
         <section className="pt-32 pb-16 px-6">
           <div className="max-w-4xl mx-auto">
@@ -120,7 +126,7 @@ const TechnicalFoundation = () => {
                   variant="outline"
                   size="sm"
                   className="hidden md:flex bg-transparent border-white/10 text-white/30 hover:bg-white/5 hover:text-white/50 hover:border-white/20 rounded-[2px] font-mono text-[10px] gap-2"
-                  disabled
+                  onClick={handleDownloadPdf}
                 >
                   <FileDown className="h-3 w-3" />
                   Download PDF
