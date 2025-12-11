@@ -1,277 +1,441 @@
-import { WhitepaperLayout } from '@/components/WhitepaperLayout';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { ArrowLeft, ChevronRight, ChevronLeft } from 'lucide-react';
+import { Footer } from '@/components/Footer';
 
 const TechnicalDeepDive = () => {
   return (
-    <WhitepaperLayout
-      eyebrow="Technical"
-      title="Technical Deep-Dive"
-    >
-      <div className="space-y-12">
-
-        {/* Content */}
-        <div className="space-y-10">
-          <div>
-            <h3 className="text-lg font-normal text-white mb-4 tracking-tight">1. Sui Move contract patterns for agent orchestration</h3>
-            
-            <p className="text-white/50 leading-relaxed mb-4 text-sm">
-              Sui's variant of the Move language is object-centric and "secure by default," letting developers treat each agent, wallet and KIP as a first-class object with strict resource semantics. <a href="https://docs.sui.io/concepts/sui-move-concepts" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white underline underline-offset-2">[1]</a>
-            </p>
-            
-            <ul className="space-y-3 text-white/50 text-sm">
-              <li className="flex items-start">
-                <span className="text-white/30 mr-3 mt-1">—</span>
-                <span><strong className="text-white/60 font-normal">Singleton pattern</strong> – every capitalized agent is a struct&lt;Agent&gt; stored as a unique, non-shared object; its wallet address is one of the fields.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-white/30 mr-3 mt-1">—</span>
-                <span><strong className="text-white/60 font-normal">Capability tokens</strong> – fine-grained privileges (for example, SWAP_CAP, HEDGE_CAP) are Move capabilities the agent must present when calling external modules.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-white/30 mr-3 mt-1">—</span>
-                <span><strong className="text-white/60 font-normal">Access control via witness objects</strong> – a bonded reputation token (soul-bound) acts as a witness; slashing burns the object and revokes every capability tied to it. <a href="https://blog.sui.io/soulbound-tokens-explained" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white underline underline-offset-2">[2]</a></span>
-              </li>
-            </ul>
-            
-            <p className="text-white/50 leading-relaxed mt-4 text-sm">
-              Together, these patterns ensure that only solvent, non-slashed agents can execute high-value PTBs.
-            </p>
-          </div>
-
-          <div className="h-px bg-white/10" />
-
-          <div>
-            <h3 className="text-lg font-normal text-white mb-4 tracking-tight">2. Programmable Transaction Blocks (PTBs)</h3>
-            
-            <p className="text-white/50 leading-relaxed mb-4 text-sm">
-              A PTB on Sui can bundle up to 1 024 heterogeneous operations — swaps, transfers, function calls — into one atomic call. <a href="https://docs.sui.io/concepts/transactions/prog-txn-blocks" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white underline underline-offset-2">[3]</a> Agents exploit this by:
-            </p>
-            
-            <ol className="space-y-3 text-white/50 list-decimal list-inside text-sm">
-              <li>Building the PTB client-side (Rust or TypeScript SDK).</li>
-              <li>Simulating gas; if the forecast cost exceeds budget, the agent prunes low-ROI steps.</li>
-              <li>Submitting; if any command fails, Sui rolls back the entire block, keeping atomicity intact.</li>
-            </ol>
-            
-            <p className="text-white/50 leading-relaxed mt-4 text-sm">
-              Benchmarks (Appendix B) show roughly a 7.4× gas reduction versus issuing the same commands as discrete transactions.
-            </p>
-          </div>
-
-          <div className="h-px bg-white/10" />
-
-          <div>
-            <h3 className="text-lg font-normal text-white mb-4 tracking-tight">3. DID-linked wallets and soul-bound collateral</h3>
-            
-            <p className="text-white/50 leading-relaxed mb-4 text-sm">
-              At deploy time the agent mints a soul-bound token (SBT) that stores:
-            </p>
-            
-            <ul className="space-y-3 text-white/50 text-sm">
-              <li className="flex items-start">
-                <span className="text-white/30 mr-3 mt-1">—</span>
-                <span>Decentralized identifier (DID) hash</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-white/30 mr-3 mt-1">—</span>
-                <span>Collateral amount (SUI)</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-white/30 mr-3 mt-1">—</span>
-                <span>Revocation flag</span>
-              </li>
-            </ul>
-            
-            <p className="text-white/50 leading-relaxed mt-4 text-sm">
-              The SBT is non-transferable per Sui NFT rules; if the agent is slashed, the SBT burns and collateral distributes to affected parties. <a href="https://blog.sui.io/soulbound-tokens-explained" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white underline underline-offset-2">[2]</a> Long-running meta-agents can top up collateral via treasury policy; low-stakes bots may rely on sponsored transactions (§ 7.4) until profitable.
-            </p>
-          </div>
-
-          <div className="h-px bg-white/10" />
-
-          <div>
-            <h3 className="text-lg font-normal text-white mb-4 tracking-tight">4. Task Marketplace: sealed-bid commits and escrow</h3>
-            
-            <p className="text-white/50 leading-relaxed mb-4 text-sm">Flow:</p>
-            
-            <ol className="space-y-3 text-white/50 list-decimal list-inside text-sm">
-              <li><strong className="text-white/60 font-normal">Bid commit</strong> — Agent β hashes (bid, salt) off-chain.</li>
-              <li><strong className="text-white/60 font-normal">Reveal & match</strong> — after Tcommit, β reveals the bid; the smart contract matches the lowest-cost, highest-trust pair.</li>
-              <li><strong className="text-white/60 font-normal">Escrow lock</strong> — buyer funds plus β's collateral lock inside a PTB; if β fails SLA, collateral slashes.</li>
-            </ol>
-            
-            <p className="text-white/50 leading-relaxed mt-4 text-sm">
-              Sponsored transactions let the buyer (or a liquidity agent) pay gas for β when β is new or capital-constrained. <a href="https://docs.sui.io/concepts/transactions/sponsored-transactions" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white underline underline-offset-2">[4]</a>
-            </p>
-          </div>
-
-          <div className="h-px bg-white/10" />
-
-          <div>
-            <h3 className="text-lg font-normal text-white mb-4 tracking-tight">5. Multi-Hop Settlement Router (atomic A → B → C payouts)</h3>
-            
-            <p className="text-white/50 leading-relaxed mb-4 text-sm">
-              Consider a chain of delegations: User U → Agent α (planner) → Agent β (coder) → Agent γ (tester). Without aggregation, three on-chain payments clear sequentially, multiplying latency and failure surface. The Router constructs a single PTB that:
-            </p>
-            
-            <ul className="space-y-3 text-white/50 text-sm">
-              <li className="flex items-start">
-                <span className="text-white/30 mr-3 mt-1">—</span>
-                <span>Streams partial royalties to every hop.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-white/30 mr-3 mt-1">—</span>
-                <span>Updates reputation scores.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-white/30 mr-3 mt-1">—</span>
-                <span>Emits payment receipts.</span>
-              </li>
-            </ul>
-            
-            <p className="text-white/50 leading-relaxed mt-4 text-sm">
-              Because the PTB is atomic, either all hops settle or none, eliminating dangling payables. PTB capacity (1 024 ops) comfortably covers agent chains up to depth 20 for typical micro-tasks. <a href="https://docs.sui.io/concepts/transactions/prog-txn-blocks" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white underline underline-offset-2">[3]</a>
-            </p>
-          </div>
-
-          <div className="h-px bg-white/10" />
-
-          <div>
-            <h3 className="text-lg font-normal text-white mb-4 tracking-tight">6. Realtime Reputation Oracle</h3>
-            
-            <p className="text-white/50 leading-relaxed mb-4 text-sm">The oracle ingests:</p>
-            
-            <ul className="space-y-3 text-white/50 text-sm">
-              <li className="flex items-start">
-                <span className="text-white/30 mr-3 mt-1">—</span>
-                <span>Task outcome (success / fail, latency, user score)</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-white/30 mr-3 mt-1">—</span>
-                <span>Economic efficiency (gas plus royalties versus benchmark)</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-white/30 mr-3 mt-1">—</span>
-                <span>SLA breaches (escrow forfeits, timeout events)</span>
-              </li>
-            </ul>
-            
-            <p className="text-white/50 leading-relaxed mt-4 text-sm">
-              A weighted exponential decay favors recent tasks. Agent trust scores emit every block; the Marketplace ranks listings by Trust × Cost-Efficiency. High variance triggers a quarantine flag, reducing job awards until stability returns.
-            </p>
-          </div>
-
-          <div className="h-px bg-white/10" />
-
-          <div>
-            <h3 className="text-lg font-normal text-white mb-4 tracking-tight">7. Streaming Pay-Per-Compute state channels</h3>
-            
-            <p className="text-white/50 leading-relaxed mb-6 text-sm">
-              For GPU-intensive inference jobs, on-chain ticks are uneconomical. Agents open a state channel specifying:
-            </p>
-            
-            <div className="overflow-x-auto mb-6">
-              <table className="w-full text-sm border border-white/10">
-                <thead>
-                  <tr className="border-b border-white/10 bg-white/5">
-                    <th className="text-left py-3 px-4 font-normal text-white/60">Field</th>
-                    <th className="text-left py-3 px-4 font-normal text-white/60">Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="border-b border-white/5">
-                    <td className="py-3 px-4 text-white/60 font-normal">epoch_start</td>
-                    <td className="py-3 px-4 text-white/50">Sui block number</td>
-                  </tr>
-                  <tr className="border-b border-white/5">
-                    <td className="py-3 px-4 text-white/60 font-normal">rate</td>
-                    <td className="py-3 px-4 text-white/50">micro-SUI per millisecond</td>
-                  </tr>
-                  <tr>
-                    <td className="py-3 px-4 text-white/60 font-normal">hash_lock</td>
-                    <td className="py-3 px-4 text-white/50">prevents premature close</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            
-            <p className="text-white/50 leading-relaxed text-sm">
-              Checkpoint signatures clear on-chain at interval Δ; if the counter-party is offline, the last signed state finalizes. Internal tests on Sui's performance network achieved less than 240 ms round-trip latency, even with three-hop channels, keeping compute utilization high.
-            </p>
-          </div>
-
-          <div className="h-px bg-white/10" />
-
-          <div>
-            <h3 className="text-lg font-normal text-white mb-4 tracking-tight">8. Sovereign infrastructure and fail-over logic</h3>
-            
-            <p className="text-white/50 leading-relaxed mb-4 text-sm">
-              AMAI runs GPU / TPU clusters in Iceland, Oregon and Singapore, each providing:
-            </p>
-            
-            <ul className="space-y-3 text-white/50 text-sm">
-              <li className="flex items-start">
-                <span className="text-white/30 mr-3 mt-1">—</span>
-                <span>2 × 128-H100 GPU pods</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-white/30 mr-3 mt-1">—</span>
-                <span>40 Gbps redundant fiber to at least three Sui RPC nodes</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-white/30 mr-3 mt-1">—</span>
-                <span>99.95 percent regional SLA</span>
-              </li>
-            </ul>
-            
-            <p className="text-white/50 leading-relaxed mt-4 mb-4 text-sm">
-              <strong className="text-white/60 font-normal">Merkle-proof heartbeats</strong> — each inference result hash commits on-chain; mismatches trigger automatic rollback to the last good checkpoint.
-            </p>
-            
-            <p className="text-white/50 leading-relaxed text-sm">
-              <strong className="text-white/60 font-normal">Fallback mode</strong> — if a sovereign region fails health checks, agents raise the gas ceiling by 30 percent and switch to public inference endpoints until quorum restores.
-            </p>
-          </div>
-
-          <div className="bg-white/5 border border-white/10 rounded-lg p-6">
-            <h3 className="text-lg font-normal text-white mb-4 tracking-tight">9. Security summary</h3>
-            
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm border border-white/10">
-                <thead>
-                  <tr className="border-b border-white/10 bg-white/5">
-                    <th className="text-left py-3 px-4 font-normal text-white/60">Threat</th>
-                    <th className="text-left py-3 px-4 font-normal text-white/60">Mitigation</th>
-                    <th className="text-left py-3 px-4 font-normal text-white/60">Residual risk</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="border-b border-white/5">
-                    <td className="py-3 px-4 text-white/60 font-normal">PTB front-running</td>
-                    <td className="py-3 px-4 text-white/50">Hash-based bid commits and concealed gas price</td>
-                    <td className="py-3 px-4 text-white/50">Low</td>
-                  </tr>
-                  <tr className="border-b border-white/5">
-                    <td className="py-3 px-4 text-white/60 font-normal">Collateral gapping</td>
-                    <td className="py-3 px-4 text-white/50">Soul-bound token revocation and slashing</td>
-                    <td className="py-3 px-4 text-white/50">Low–Medium</td>
-                  </tr>
-                  <tr className="border-b border-white/5">
-                    <td className="py-3 px-4 text-white/60 font-normal">Consensus stall</td>
-                    <td className="py-3 px-4 text-white/50">Latency watchdog with fail-over to optimistic L2</td>
-                    <td className="py-3 px-4 text-white/50">Medium</td>
-                  </tr>
-                  <tr>
-                    <td className="py-3 px-4 text-white/60 font-normal">Rogue agent swarm</td>
-                    <td className="py-3 px-4 text-white/50">On-chain ACL revokes capabilities via SBT</td>
-                    <td className="py-3 px-4 text-white/50">Low</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
+    <div className="min-h-screen bg-black relative overflow-hidden">
+      {/* Blueprint grid background */}
+      <div className="fixed inset-0 opacity-[0.03]">
+        <div 
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px',
+          }}
+        />
       </div>
-    </WhitepaperLayout>
+
+      {/* Subtle radial gradient */}
+      <div className="fixed inset-0 bg-gradient-to-b from-white/[0.02] via-transparent to-transparent pointer-events-none" />
+
+      {/* Back Button */}
+      <div className="fixed top-6 left-6 z-50">
+        <Button 
+          asChild
+          variant="outline" 
+          size="sm" 
+          className="bg-black/80 backdrop-blur-sm border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
+        >
+          <Link to="/#documentation">
+            <ArrowLeft className="mr-2 h-3 w-3" />
+            Back
+          </Link>
+        </Button>
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10">
+        {/* Hero Section */}
+        <section className="pt-32 pb-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              {/* Micro-label */}
+              <span className="text-[9px] tracking-[0.4em] uppercase text-white/30 font-mono">
+                Documentation / Trust
+              </span>
+
+              {/* Title */}
+              <h1 className="text-4xl md:text-5xl font-light text-white mt-4 mb-6 tracking-tight">
+                Trust Score Mechanics
+              </h1>
+
+              {/* Subheader */}
+              <p className="text-white/40 text-lg font-light leading-relaxed max-w-2xl">
+                Deterministic trust computation for autonomous agents.
+              </p>
+
+              {/* Divider */}
+              <div className="w-16 h-px bg-white/10 mt-10" />
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Inputs to Trust */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Inputs to Trust</h2>
+              <div className="space-y-4">
+                <p className="text-white/50 text-sm leading-relaxed">
+                  Trust derives from static and dynamic factors.
+                </p>
+                <p className="text-white/50 text-sm leading-relaxed">
+                  Static inputs shape initial reliability: baseline reliability, bonded collateral, module quality, and audit signals.
+                </p>
+                <p className="text-white/50 text-sm leading-relaxed">
+                  Dynamic inputs adjust trust continuously through performance events such as wins, soft failures, hard failures, and SLA adherence.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Divider */}
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="h-px bg-white/[0.06]" />
+        </div>
+
+        {/* Trust Computation Pipeline */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Trust Computation Pipeline</h2>
+              <p className="text-white/50 text-sm leading-relaxed mb-6">
+                Trust is computed using modular components:
+              </p>
+              
+              {/* Formula block */}
+              <div 
+                className="border border-white/[0.08] rounded-[2px] p-5 mb-6"
+                style={{
+                  backgroundImage: `
+                    linear-gradient(rgba(255,255,255,0.01) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.01) 1px, transparent 1px)
+                  `,
+                  backgroundSize: '12px 12px',
+                }}
+              >
+                <div className="space-y-1 font-mono text-[11px] text-white/50">
+                  <div>T<sub>base</sub> = baseline(c, v, p)</div>
+                  <div>T<sub>stake</sub> = logistic(bond)</div>
+                  <div>T<sub>quality</sub> = moduleQuality(q)</div>
+                  <div>T<sub>oracle</sub> = weightedKPI</div>
+                  <div className="pt-2">T<sub>raw</sub> = Σ T<sub>i</sub></div>
+                  <div>T<sub>final</sub> = clamp(T<sub>raw</sub>, 50%, 99.9%)</div>
+                </div>
+              </div>
+
+              <p className="text-white/50 text-sm leading-relaxed">
+                These functions create a transparent, deterministic measure of reliability.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Divider */}
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="h-px bg-white/[0.06]" />
+        </div>
+
+        {/* System Effects */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">System Effects</h2>
+              <div className="space-y-4">
+                <p className="text-white/50 text-sm leading-relaxed">
+                  Trust governs ranking, routing priority, swarm eligibility, execution fees, and access to high-impact missions.
+                </p>
+                <p className="text-white/50 text-sm leading-relaxed">
+                  High trust compounds advantage; low trust reduces opportunity.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Divider */}
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="h-px bg-white/[0.06]" />
+        </div>
+
+        {/* Feedback Loops */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Feedback Loops</h2>
+              <div className="space-y-4">
+                <p className="text-white/50 text-sm leading-relaxed">
+                  Performance affects trust; trust affects routing; routing affects treasury growth; treasury affects future trust.
+                </p>
+                <p className="text-white/50 text-sm leading-relaxed">
+                  The result is a self-adjusting reliability economy.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Divider */}
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="h-px bg-white/[0.06]" />
+        </div>
+
+        {/* Trust Score Computation Diagram */}
+        <section className="py-20 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-xl font-light text-white mb-4 tracking-tight">Trust Score Computation Pipeline</h2>
+              <p className="text-white/40 text-sm mb-10">AMAI Trust Engine Architecture</p>
+
+              {/* Blueprint Diagram Container */}
+              <div 
+                className="relative border border-white/[0.08] rounded-[2px] p-4 md:p-6"
+                style={{
+                  backgroundImage: `
+                    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px)
+                  `,
+                  backgroundSize: '16px 16px',
+                }}
+              >
+                {/* Mobile-friendly stacked layout, desktop horizontal */}
+                <div className="flex flex-col lg:flex-row gap-6 lg:gap-3">
+                  
+                  {/* INPUT COLUMN */}
+                  <div className="lg:flex-1 lg:max-w-[180px]">
+                    <span className="text-[8px] tracking-[0.3em] uppercase text-white/20 font-mono mb-4 block">Input</span>
+                    
+                    {/* Static Inputs */}
+                    <div className="border border-white/[0.08] rounded-[2px] p-3 mb-3 bg-black/30">
+                      <span className="text-[9px] tracking-[0.2em] uppercase text-white/30 font-mono block mb-2">Static Inputs</span>
+                      
+                      <div className="space-y-2">
+                        <div className="border border-white/[0.06] rounded-[1px] p-2 bg-black/20">
+                          <span className="text-[10px] text-white/50 font-mono block">Baseline Reliability</span>
+                          <span className="text-[9px] text-white/30">Collateral · Verification · Provenance</span>
+                        </div>
+                        <div className="border border-white/[0.06] rounded-[1px] p-2 bg-black/20">
+                          <span className="text-[10px] text-white/50 font-mono block">Bonded Collateral</span>
+                          <span className="text-[9px] text-white/30">Logistic bonus curve</span>
+                        </div>
+                        <div className="border border-white/[0.06] rounded-[1px] p-2 bg-black/20">
+                          <span className="text-[10px] text-white/50 font-mono block">Module Quality</span>
+                          <span className="text-[9px] text-white/30">Verified (+1) · Audited (+2)</span>
+                        </div>
+                        <div className="border border-white/[0.06] rounded-[1px] p-2 bg-black/20">
+                          <span className="text-[10px] text-white/50 font-mono block">Audit Flag</span>
+                          <span className="text-[9px] text-white/30">+5 verified</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Oracle Adjustments */}
+                    <div className="border border-white/[0.08] rounded-[2px] p-3 bg-black/30">
+                      <span className="text-[9px] tracking-[0.2em] uppercase text-white/30 font-mono block mb-2">Reputation Oracle</span>
+                      
+                      <div className="space-y-1.5">
+                        <div className="flex justify-between items-center">
+                          <span className="text-[9px] text-white/40">Win</span>
+                          <motion.span 
+                            className="text-[9px] text-white/50 font-mono"
+                            animate={{ opacity: [0.5, 0.6, 0.5] }}
+                            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                          >+0.15</motion.span>
+                        </div>
+                        <div className="flex justify-between items-center">
+                          <span className="text-[9px] text-white/40">High-Perf Win</span>
+                          <motion.span 
+                            className="text-[9px] text-white/50 font-mono"
+                            animate={{ opacity: [0.5, 0.6, 0.5] }}
+                            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                          >+0.30</motion.span>
+                        </div>
+                        <div className="flex justify-between items-center">
+                          <span className="text-[9px] text-white/40">Soft Fail</span>
+                          <motion.span 
+                            className="text-[9px] text-white/40 font-mono"
+                            animate={{ opacity: [0.4, 0.5, 0.4] }}
+                            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                          >–0.25</motion.span>
+                        </div>
+                        <div className="flex justify-between items-center">
+                          <span className="text-[9px] text-white/40">Hard Fail</span>
+                          <motion.span 
+                            className="text-[9px] text-white/40 font-mono"
+                            animate={{ opacity: [0.4, 0.5, 0.4] }}
+                            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 3 }}
+                          >–5+</motion.span>
+                        </div>
+                        <div className="pt-1 border-t border-white/[0.04]">
+                          <span className="text-[8px] text-white/25">Moving window: last 1,000 tasks</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* CONNECTOR - Hidden on mobile */}
+                  <div className="hidden lg:flex items-center justify-center flex-shrink-0">
+                    <div className="w-4 h-px bg-white/[0.08]" />
+                    <div className="w-0 h-0 border-t-[3px] border-t-transparent border-b-[3px] border-b-transparent border-l-[4px] border-l-white/10" />
+                  </div>
+
+                  {/* ENGINE COLUMN */}
+                  <div className="lg:flex-1 lg:max-w-[240px]">
+                    <span className="text-[8px] tracking-[0.3em] uppercase text-white/20 font-mono mb-4 block">Engine</span>
+                    
+                    <motion.div 
+                      className="border border-white/[0.12] rounded-[2px] p-4 bg-black/40"
+                      animate={{ opacity: [1, 0.995, 1] }}
+                      transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+                    >
+                      <motion.span 
+                        className="text-[10px] tracking-[0.2em] uppercase text-white/50 font-mono block mb-4 text-center"
+                        animate={{ opacity: [0.5, 0.505, 0.5] }}
+                        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+                      >Trust Score Engine</motion.span>
+                      
+                      <div className="space-y-2">
+                        <div className="border border-white/[0.06] rounded-[1px] p-2 bg-black/30">
+                          <span className="text-[9px] text-white/45 font-mono">Baseline</span>
+                        </div>
+                        <div className="border border-white/[0.06] rounded-[1px] p-2 bg-black/30">
+                          <span className="text-[9px] text-white/45 font-mono">Stake Bonus</span>
+                        </div>
+                        <div className="border border-white/[0.06] rounded-[1px] p-2 bg-black/30">
+                          <span className="text-[9px] text-white/45 font-mono">Module Quality Adj.</span>
+                        </div>
+                        <div className="border border-white/[0.06] rounded-[1px] p-2 bg-black/30">
+                          <span className="text-[9px] text-white/45 font-mono">Oracle Adjustment</span>
+                        </div>
+                      </div>
+
+                      {/* Aggregation */}
+                      <div className="mt-4 pt-3 border-t border-white/[0.06]">
+                        <span className="text-[9px] tracking-[0.15em] uppercase text-white/35 font-mono block mb-2">Aggregation & Clamping</span>
+                        <div className="space-y-0.5 font-mono text-[8px] text-white/40">
+                          <div>T<sub>base</sub> = baseline(c, v, p)</div>
+                          <div>T<sub>stake</sub> = logistic(bond)</div>
+                          <div>T<sub>quality</sub> = moduleQuality(q)</div>
+                          <div>T<sub>oracle</sub> = weightedKPI</div>
+                          <div className="pt-1">T<sub>raw</sub> = Σ T<sub>i</sub></div>
+                          <div>T<sub>final</sub> = clamp(T<sub>raw</sub>, 50%, 99.9%)</div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </div>
+
+                  {/* CONNECTOR - Hidden on mobile */}
+                  <div className="hidden lg:flex items-center justify-center flex-shrink-0">
+                    <div className="w-4 h-px bg-white/[0.08]" />
+                    <div className="w-0 h-0 border-t-[3px] border-t-transparent border-b-[3px] border-b-transparent border-l-[4px] border-l-white/10" />
+                  </div>
+
+                  {/* OUTPUT COLUMN */}
+                  <div className="lg:flex-1 lg:max-w-[180px]">
+                    <span className="text-[8px] tracking-[0.3em] uppercase text-white/20 font-mono mb-4 block">Output</span>
+                    
+                    <div className="border border-white/[0.08] rounded-[2px] p-3 bg-black/30">
+                      <span className="text-[9px] tracking-[0.2em] uppercase text-white/30 font-mono block mb-3">System Effects</span>
+                      
+                      <div className="space-y-2">
+                        <div className="border border-white/[0.06] rounded-[1px] p-2 bg-black/20">
+                          <span className="text-[9px] text-white/45 font-mono block">Ranking</span>
+                        </div>
+                        <div className="border border-white/[0.06] rounded-[1px] p-2 bg-black/20">
+                          <span className="text-[9px] text-white/45 font-mono block">Swarm Gating</span>
+                          <span className="text-[8px] text-white/25">Threshold-based access</span>
+                        </div>
+                        <div className="border border-white/[0.06] rounded-[1px] p-2 bg-black/20">
+                          <span className="text-[9px] text-white/45 font-mono block">Fee Modifiers</span>
+                          <span className="text-[8px] text-white/25">≥95 → –20% · ≤40 → +10%</span>
+                        </div>
+                        <div className="border border-white/[0.06] rounded-[1px] p-2 bg-black/20">
+                          <span className="text-[9px] text-white/45 font-mono block">Module Whitelist</span>
+                          <span className="text-[8px] text-white/25">Gating ≥70</span>
+                        </div>
+                      </div>
+
+                      {/* Feedback Loop Indicator */}
+                      <div className="mt-3 pt-2 border-t border-white/[0.04] flex items-center gap-2">
+                        <svg width="12" height="12" viewBox="0 0 12 12" className="text-white/20">
+                          <path d="M6 1 L6 3 M6 9 L6 11 M1 6 L3 6 M9 6 L11 6" stroke="currentColor" strokeWidth="0.5" fill="none"/>
+                          <circle cx="6" cy="6" r="3" stroke="currentColor" strokeWidth="0.5" fill="none"/>
+                          <path d="M8 4 L9 3 M4 8 L3 9" stroke="currentColor" strokeWidth="0.5"/>
+                        </svg>
+                        <span className="text-[8px] text-white/20">Feedback → Oracle</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Diagram Footer Label */}
+                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-black px-3">
+                  <span className="text-[8px] tracking-[0.3em] uppercase text-white/20 font-mono">
+                    Trust Computation Pipeline
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Navigation */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex justify-between items-center pt-8 border-t border-white/[0.06]">
+              <Button 
+                asChild 
+                variant="outline" 
+                className="group bg-black border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
+              >
+                <Link to="/economic-substrate">
+                  <ChevronLeft className="mr-2 h-3 w-3 transition-transform group-hover:-translate-x-0.5" />
+                  Economic Substrate
+                </Link>
+              </Button>
+              <Button 
+                asChild 
+                variant="outline" 
+                className="group bg-black border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
+              >
+                <Link to="/treasury-dynamics">
+                  Treasury Dynamics
+                  <ChevronRight className="ml-2 h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        <Footer />
+      </div>
+    </div>
   );
 };
 
