@@ -73,7 +73,7 @@ export const ExplainerFAQ = () => {
               Frequently Asked Questions
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-              Everything you need to know about AMAI and our autonomous AI platform
+              Concise explanations of AMAI's architecture, economic substrate, trust mechanics, and autonomous agent runtime.
             </p>
           </div>
           <motion.div
