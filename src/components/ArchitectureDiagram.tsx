@@ -76,7 +76,7 @@ const ArchitectureDiagram: React.FC = () => {
           <h2 className="mt-4 text-3xl md:text-4xl font-light text-white tracking-tight">
             Architecture
           </h2>
-          <p className="mt-4 text-white/50 text-sm max-w-lg mx-auto leading-relaxed">
+          <p className="mt-4 text-white/50 text-sm max-w-lg mx-auto leading-relaxed text-left">
             A unified blueprint of AMAI's machine-first economic infrastructure.
           </p>
         </motion.div>
