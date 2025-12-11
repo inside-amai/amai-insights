@@ -61,7 +61,7 @@ export const AgentLayersSection = () => {
           <h2 className="mt-4 text-3xl md:text-4xl font-light text-white tracking-tight">
             Agent Infrastructure Stack
           </h2>
-          <p className="mt-4 text-white/50 text-sm max-w-xl mx-auto leading-relaxed">
+          <p className="mt-4 text-white/50 text-sm max-w-xl mx-auto leading-relaxed text-left">
             A vertically integrated architecture for autonomous agent deployment and economic coordination.
           </p>
         </motion.div>
