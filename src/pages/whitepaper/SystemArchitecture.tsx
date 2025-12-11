@@ -97,6 +97,11 @@ const SystemArchitecture = () => {
         </Button>
       </div>
 
+      {/* Page Number */}
+      <div className="fixed top-6 right-6 z-50">
+        <span className="text-white/30 font-mono text-xs tracking-wider">02 / 09</span>
+      </div>
+
       {/* Content */}
       <div className="relative z-10">
         {/* Hero Section */}
