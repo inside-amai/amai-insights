@@ -5,6 +5,7 @@ import { ArrowLeft, ChevronRight, FileDown } from 'lucide-react';
 import { Footer } from '@/components/Footer';
 import { useEffect } from 'react';
 import { usePdfDownload } from '@/hooks/usePdfDownload';
+import { PdfLayout } from '@/components/PdfLayout';
 
 const architectureLayers = [
   {
@@ -53,7 +54,7 @@ const economicGuarantees = [
 
 const SummaryVision = () => {
   const navigate = useNavigate();
-  const { contentRef, downloadPdf } = usePdfDownload();
+  const { pdfLayoutRef, downloadPdf } = usePdfDownload();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -111,7 +112,7 @@ const SummaryVision = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10" ref={contentRef}>
+      <div className="relative z-10">
         {/* Hero Section */}
         <section className="pt-32 pb-16 px-6">
           <div className="max-w-4xl mx-auto">
@@ -439,6 +440,58 @@ const SummaryVision = () => {
         </div>
 
         <Footer />
+      </div>
+
+      {/* Hidden PDF Layout for Print */}
+      <div ref={pdfLayoutRef} className="pdf-layout hidden bg-white text-black p-12 max-w-4xl mx-auto" style={{ fontFamily: 'Georgia, serif' }}>
+        <div className="border-b-2 border-black pb-6 mb-8">
+          <div className="flex justify-between items-start">
+            <div>
+              <h1 className="text-3xl font-bold tracking-tight text-black mb-1" style={{ fontFamily: 'Arial, sans-serif' }}>AMAI Labs</h1>
+              <p className="text-xs text-gray-600 uppercase tracking-widest">AMAI Research</p>
+            </div>
+            <span className="text-sm text-gray-500 font-mono">01 / 09</span>
+          </div>
+        </div>
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-black mb-2" style={{ fontFamily: 'Arial, sans-serif' }}>System Overview</h2>
+          <p className="text-sm text-gray-600 italic mb-4">A five-layer architecture for machine-first economic systems.</p>
+          <div className="bg-gray-100 p-4 border-l-4 border-black">
+            <p className="text-sm text-gray-700"><strong>Abstract:</strong> A comprehensive overview of AMAI's five-layer stack architecture enabling deterministic execution, economic accountability, and scalable agent coordination.</p>
+          </div>
+        </div>
+        <div className="mb-8 p-6 border border-gray-300">
+          <h3 className="text-lg font-bold mb-4" style={{ fontFamily: 'Arial, sans-serif' }}>Five-Layer Architecture</h3>
+          <div className="space-y-3">
+            {[
+              { n: '5', title: 'Compute & Edge Layer', items: ['Distributed inference', 'Local execution nodes', 'Low-latency orchestration'] },
+              { n: '4', title: 'Intelligence Layer (KIPs)', items: ['Skills and modules', 'Composition logic', 'Royalty routing'] },
+              { n: '3', title: 'Agent Runtime Layer', items: ['Identity', 'Memory', 'Swarm coordination'] },
+              { n: '2', title: 'Economic Layer', items: ['Bonded collateral', 'Trust curves', 'Slashing logic'] },
+              { n: '1', title: 'Settlement Layer', items: ['Atomic execution', 'State transitions', 'Verification'] },
+            ].map((layer, i) => (
+              <div key={i} className="border border-black p-4 bg-white">
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="w-6 h-6 border border-black flex items-center justify-center text-xs font-mono">{layer.n}</span>
+                  <span className="font-bold text-sm">{layer.title}</span>
+                </div>
+                <div className="ml-9 flex flex-wrap gap-2">
+                  {layer.items.map((item, j) => (
+                    <span key={j} className="text-xs text-gray-700 border border-gray-300 px-2 py-1">{item}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="space-y-6">
+          <div><h3 className="text-lg font-bold border-b border-gray-200 pb-2 mb-3" style={{ fontFamily: 'Arial, sans-serif' }}>What AMAI Is</h3><p className="text-sm text-gray-800 leading-relaxed">AMAI is an economic substrate where autonomous agents operate as first-class participants in a machine-first economy. Agents transact, coordinate, build trust, and create value through a deterministic execution environment designed for large-scale, real-time activity.</p></div>
+          <div><h3 className="text-lg font-bold border-b border-gray-200 pb-2 mb-3" style={{ fontFamily: 'Arial, sans-serif' }}>Execution Flow</h3><p className="text-sm text-gray-800 leading-relaxed">1. Agent receives mission. 2. Agent assembles atomic execution bundle. 3. Economic checks validate collateral, trust, and treasury. 4. Intelligence modules (KIPs) execute. 5. State transitions finalize atomically. 6. Trust deltas update based on performance.</p></div>
+          <div><h3 className="text-lg font-bold border-b border-gray-200 pb-2 mb-3" style={{ fontFamily: 'Arial, sans-serif' }}>Economic Guarantees</h3><p className="text-sm text-gray-800 leading-relaxed">The system enforces: deterministic settlement, transparent royalty distribution, economic accountability via slashing, verifiable provenance, and reliable multi-agent coordination.</p></div>
+        </div>
+        <div className="mt-12 pt-6 border-t border-gray-300 text-center">
+          <p className="text-xs text-gray-500">© 2025 AMAI Labs. All rights reserved.</p>
+        </div>
       </div>
     </div>
   );

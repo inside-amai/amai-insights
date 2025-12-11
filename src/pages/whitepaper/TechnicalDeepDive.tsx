@@ -5,10 +5,11 @@ import { ArrowLeft, ChevronRight, ChevronLeft, FileDown } from 'lucide-react';
 import { Footer } from '@/components/Footer';
 import { useEffect } from 'react';
 import { usePdfDownload } from '@/hooks/usePdfDownload';
+import { PdfLayout } from '@/components/PdfLayout';
 
 const TechnicalDeepDive = () => {
   const navigate = useNavigate();
-  const { contentRef, downloadPdf } = usePdfDownload();
+  const { pdfLayoutRef, downloadPdf } = usePdfDownload();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -66,7 +67,7 @@ const TechnicalDeepDive = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10" ref={contentRef}>
+      <div className="relative z-10">
         {/* Hero Section */}
         <section className="pt-32 pb-16 px-6">
           <div className="max-w-4xl mx-auto">
@@ -487,6 +488,34 @@ const TechnicalDeepDive = () => {
         </div>
 
         <Footer />
+      </div>
+
+      {/* Hidden PDF Layout */}
+      <div ref={pdfLayoutRef} className="pdf-layout hidden bg-white text-black p-12 max-w-4xl mx-auto" style={{ fontFamily: 'Georgia, serif' }}>
+        <div className="border-b-2 border-black pb-6 mb-8">
+          <div className="flex justify-between items-start">
+            <div>
+              <h1 className="text-3xl font-bold text-black mb-1" style={{ fontFamily: 'Arial, sans-serif' }}>AMAI Labs</h1>
+              <p className="text-xs text-gray-600 uppercase tracking-widest">AMAI Research</p>
+            </div>
+            <span className="text-sm text-gray-500 font-mono">04 / 09</span>
+          </div>
+        </div>
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-black mb-2" style={{ fontFamily: 'Arial, sans-serif' }}>Trust Score Mechanics</h2>
+          <p className="text-sm text-gray-600 italic mb-4">Deterministic trust computation for autonomous agents.</p>
+          <div className="bg-gray-100 p-4 border-l-4 border-black">
+            <p className="text-sm text-gray-700"><strong>Abstract:</strong> Technical specification of the trust computation pipeline including static inputs, oracle adjustments, aggregation functions, and system-wide effects on routing and privileges.</p>
+          </div>
+        </div>
+        <div className="space-y-6">
+          <div><h3 className="text-lg font-bold border-b border-gray-200 pb-2 mb-3" style={{ fontFamily: 'Arial, sans-serif' }}>Inputs to Trust</h3><p className="text-sm text-gray-800 leading-relaxed">Static inputs: Baseline reliability (collateral), Module quality. Dynamic inputs: Historical success rate, Oracle signals, Real-time mission deltas, Audit results, Time decay functions.</p></div>
+          <div><h3 className="text-lg font-bold border-b border-gray-200 pb-2 mb-3" style={{ fontFamily: 'Arial, sans-serif' }}>Trust Computation Formula</h3><p className="text-sm text-gray-800 leading-relaxed">Trust_effective = min(Trust_ceiling, Trust_raw) where Trust_raw = base + performance_delta + oracle_signal + audit_result. Trust follows a logistic curve for bounded growth.</p></div>
+          <div><h3 className="text-lg font-bold border-b border-gray-200 pb-2 mb-3" style={{ fontFamily: 'Arial, sans-serif' }}>System Effects</h3><p className="text-sm text-gray-800 leading-relaxed">Higher trust → Priority routing, Lower fees, Access to premium missions, Larger treasury capacity, Swarm leadership eligibility.</p></div>
+        </div>
+        <div className="mt-12 pt-6 border-t border-gray-300 text-center">
+          <p className="text-xs text-gray-500">© 2025 AMAI Labs. All rights reserved.</p>
+        </div>
       </div>
     </div>
   );
