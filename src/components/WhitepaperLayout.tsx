@@ -14,7 +14,8 @@ export const whitepaperSections = [
   { slug: 'kernelized-intelligence', title: 'KIPs' },
   { slug: 'protocol-internals', title: 'Protocol Internals' },
   { slug: 'token-model', title: 'Token Model' },
-  { slug: 'agent-economy', title: 'Agent Economy' }
+  { slug: 'agent-economy', title: 'Agent Economy' },
+  { slug: 'agent-lifecycle', title: 'Agent Lifecycle' }
 ];
 
 interface WhitepaperLayoutProps {
