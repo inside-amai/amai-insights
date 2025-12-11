@@ -156,7 +156,7 @@ const TechnicalFoundation = () => {
 
               {/* Blueprint Diagram Container */}
               <div 
-                className="relative border border-white/[0.08] rounded-[2px] p-4 md:p-8 overflow-x-auto"
+                className="relative border border-white/[0.08] rounded-[2px] p-4 md:p-6"
                 style={{
                   backgroundImage: `
                     linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
@@ -166,10 +166,10 @@ const TechnicalFoundation = () => {
                 }}
               >
                 {/* Mobile-friendly stacked layout, desktop horizontal */}
-                <div className="flex flex-col lg:flex-row gap-6 lg:gap-4 min-w-0">
+                <div className="flex flex-col lg:flex-row gap-6 lg:gap-3">
                   
                   {/* INPUT COLUMN */}
-                  <div className="flex-shrink-0 lg:w-[200px]">
+                  <div className="lg:flex-1 lg:max-w-[180px]">
                     <span className="text-[8px] tracking-[0.3em] uppercase text-white/20 font-mono mb-4 block">Input</span>
                     
                     {/* Static Inputs */}
@@ -241,13 +241,13 @@ const TechnicalFoundation = () => {
                   </div>
 
                   {/* CONNECTOR - Hidden on mobile */}
-                  <div className="hidden lg:flex items-center justify-center">
-                    <div className="w-8 h-px bg-white/[0.08]" />
-                    <div className="w-0 h-0 border-t-[3px] border-t-transparent border-b-[3px] border-b-transparent border-l-[5px] border-l-white/10" />
+                  <div className="hidden lg:flex items-center justify-center flex-shrink-0">
+                    <div className="w-4 h-px bg-white/[0.08]" />
+                    <div className="w-0 h-0 border-t-[3px] border-t-transparent border-b-[3px] border-b-transparent border-l-[4px] border-l-white/10" />
                   </div>
 
                   {/* ENGINE COLUMN */}
-                  <div className="flex-1 min-w-0 lg:max-w-[280px]">
+                  <div className="lg:flex-1 lg:max-w-[240px]">
                     <span className="text-[8px] tracking-[0.3em] uppercase text-white/20 font-mono mb-4 block">Engine</span>
                     
                     <motion.div 
@@ -288,13 +288,13 @@ const TechnicalFoundation = () => {
                   </div>
 
                   {/* CONNECTOR - Hidden on mobile */}
-                  <div className="hidden lg:flex items-center justify-center">
-                    <div className="w-8 h-px bg-white/[0.08]" />
-                    <div className="w-0 h-0 border-t-[3px] border-t-transparent border-b-[3px] border-b-transparent border-l-[5px] border-l-white/10" />
+                  <div className="hidden lg:flex items-center justify-center flex-shrink-0">
+                    <div className="w-4 h-px bg-white/[0.08]" />
+                    <div className="w-0 h-0 border-t-[3px] border-t-transparent border-b-[3px] border-b-transparent border-l-[4px] border-l-white/10" />
                   </div>
 
                   {/* OUTPUT COLUMN */}
-                  <div className="flex-shrink-0 lg:w-[200px]">
+                  <div className="lg:flex-1 lg:max-w-[180px]">
                     <span className="text-[8px] tracking-[0.3em] uppercase text-white/20 font-mono mb-4 block">Output</span>
                     
                     <div className="border border-white/[0.08] rounded-[2px] p-3 bg-black/30">
