@@ -12,6 +12,7 @@ const TechnicalDeepDive = () => {
   const { pdfLayoutRef, downloadPdf } = usePdfDownload();
 
   useEffect(() => {
+    document.title = 'Trust Mechanics | AMAI Labs';
     window.scrollTo(0, 0);
   }, []);
 

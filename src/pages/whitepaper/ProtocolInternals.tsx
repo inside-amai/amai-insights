@@ -12,6 +12,7 @@ const ProtocolInternals = () => {
   const { pdfLayoutRef, downloadPdf } = usePdfDownload();
 
   useEffect(() => {
+    document.title = 'Protocol Internals | AMAI Labs';
     window.scrollTo(0, 0);
   }, []);
 

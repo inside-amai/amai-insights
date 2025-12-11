@@ -12,6 +12,7 @@ const TreasuryDynamics = () => {
   const { pdfLayoutRef, downloadPdf } = usePdfDownload();
 
   useEffect(() => {
+    document.title = 'Treasury Dynamics | AMAI Labs';
     window.scrollTo(0, 0);
   }, []);
 

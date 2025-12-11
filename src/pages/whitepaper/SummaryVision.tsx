@@ -57,6 +57,7 @@ const SummaryVision = () => {
   const { pdfLayoutRef, downloadPdf } = usePdfDownload();
 
   useEffect(() => {
+    document.title = 'System Overview | AMAI Labs';
     window.scrollTo(0, 0);
   }, []);
 
