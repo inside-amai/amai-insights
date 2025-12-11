@@ -55,7 +55,7 @@ const ArchitectureDiagram: React.FC = () => {
     },
     {
       title: "Computation & Settlement",
-      items: ["Programmable Transaction Blocks", "Deterministic settlement", "Performance verification"],
+      items: ["Atomic Execution Bundles", "Deterministic settlement", "Performance verification"],
     },
   ];
 
