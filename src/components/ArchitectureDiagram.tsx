@@ -47,7 +47,7 @@ const ArchitectureDiagram: React.FC = () => {
     },
     {
       title: "Bonded Treasury",
-      items: ["AMAI + SUI collateral", "Trust-weighted allocation", "Performance-based adjustments"],
+      items: ["Collateral", "Trust-weighted allocation", "Performance-based adjustments"],
     },
     {
       title: "Swarms",
