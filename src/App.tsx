@@ -24,6 +24,7 @@ import TechnicalFoundation from "./pages/whitepaper/TechnicalFoundation";
 import TechnicalDeepDive from "./pages/whitepaper/TechnicalDeepDive";
 import TreasuryDynamics from "./pages/whitepaper/TreasuryDynamics";
 import AgentEconomyKIPs from "./pages/whitepaper/AgentEconomyKIPs";
+import ProtocolInternals from "./pages/whitepaper/ProtocolInternals";
 import Token from "./pages/whitepaper/Token";
 
 
@@ -53,7 +54,7 @@ const App = () => (
           <Route path="/trust-mechanics" element={<TechnicalDeepDive />} />
           <Route path="/treasury-dynamics" element={<TreasuryDynamics />} />
           <Route path="/kernelized-intelligence" element={<AgentEconomyKIPs />} />
-          <Route path="/protocol-internals" element={<TechnicalDeepDive />} />
+          <Route path="/protocol-internals" element={<ProtocolInternals />} />
           <Route path="/token-model" element={<Token />} />
           <Route path="/agent-economy" element={<AgentEconomyKIPs />} />
           
