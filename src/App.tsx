@@ -20,6 +20,7 @@ import NotFound from "./pages/NotFound";
 // Whitepaper sections (eagerly loaded to avoid Suspense loading screen)
 import SummaryVision from "./pages/whitepaper/SummaryVision";
 import SystemArchitecture from "./pages/whitepaper/SystemArchitecture";
+import TechnicalFoundation from "./pages/whitepaper/TechnicalFoundation";
 import TechnicalDeepDive from "./pages/whitepaper/TechnicalDeepDive";
 import AgentEconomyKIPs from "./pages/whitepaper/AgentEconomyKIPs";
 import Token from "./pages/whitepaper/Token";
@@ -47,8 +48,8 @@ const App = () => (
           
           <Route path="/system-overview" element={<SummaryVision />} />
           <Route path="/agent-architecture" element={<SystemArchitecture />} />
-          <Route path="/bonded-collateral" element={<Token />} />
-          <Route path="/trust-score-mechanics" element={<TechnicalDeepDive />} />
+          <Route path="/economic-substrate" element={<TechnicalFoundation />} />
+          <Route path="/trust-mechanics" element={<TechnicalDeepDive />} />
           <Route path="/treasury-dynamics" element={<AgentEconomyKIPs />} />
           <Route path="/kernelized-intelligence" element={<AgentEconomyKIPs />} />
           <Route path="/protocol-internals" element={<TechnicalDeepDive />} />
