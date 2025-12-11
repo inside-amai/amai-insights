@@ -56,7 +56,7 @@ export const AgentLayersSection = () => {
           className="text-center mb-16"
         >
           <span className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium">
-            Protocol Architecture
+            AMAI Protocol Architecture
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-light text-white tracking-tight">
             Agent Infrastructure Stack
