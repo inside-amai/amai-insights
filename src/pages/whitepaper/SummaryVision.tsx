@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft, ChevronRight, FileDown } from 'lucide-react';
 import { Footer } from '@/components/Footer';
 import { useEffect } from 'react';
 
@@ -109,19 +109,39 @@ const SummaryVision = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              {/* Micro-label */}
-              <span className="text-[9px] tracking-[0.4em] uppercase text-white/30 font-mono">
-                Documentation / Overview
-              </span>
+              <div className="flex justify-between items-start">
+                <div className="flex-1">
+                  {/* Micro-label */}
+                  <span className="text-[9px] tracking-[0.4em] uppercase text-white/30 font-mono">
+                    Documentation / Overview
+                  </span>
 
-              {/* Title */}
-              <h1 className="text-4xl md:text-5xl font-light text-white mt-4 mb-6 tracking-tight">
-                System Overview
-              </h1>
+                  {/* Title */}
+                  <h1 className="text-4xl md:text-5xl font-light text-white mt-4 mb-6 tracking-tight">
+                    System Overview
+                  </h1>
 
-              {/* Subheader */}
-              <p className="text-white/40 text-lg font-light leading-relaxed max-w-2xl">
-                A five-layer architecture for machine-first economic systems.
+                  {/* Subheader */}
+                  <p className="text-white/40 text-lg font-light leading-relaxed max-w-2xl">
+                    A five-layer architecture for machine-first economic systems.
+                  </p>
+                </div>
+
+                {/* Download PDF Button */}
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="hidden md:flex bg-transparent border-white/10 text-white/30 hover:bg-white/5 hover:text-white/50 hover:border-white/20 rounded-[2px] font-mono text-[10px] gap-2"
+                  disabled
+                >
+                  <FileDown className="h-3 w-3" />
+                  Download PDF
+                </Button>
+              </div>
+
+              {/* Abstract */}
+              <p className="text-white/30 text-xs font-mono mt-6 leading-relaxed max-w-2xl">
+                Abstract: A comprehensive overview of AMAI's five-layer stack architecture enabling deterministic execution, economic accountability, and scalable agent coordination.
               </p>
 
               {/* Divider */}
@@ -399,6 +419,13 @@ const SummaryVision = () => {
             </div>
           </div>
         </section>
+
+        {/* AMAI Research Tag */}
+        <div className="py-8 text-center">
+          <span className="text-[10px] tracking-[0.3em] uppercase text-white/20 font-mono">
+            AMAI Research
+          </span>
+        </div>
 
         <Footer />
       </div>
