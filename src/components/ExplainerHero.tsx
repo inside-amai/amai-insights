@@ -183,6 +183,13 @@ export const ExplainerHero = () => {
               >
                 Open Documentation Library
               </a>
+              
+              <a 
+                href="/agent-lifecycle"
+                className="text-sm text-white/50 hover:text-white/70 transition-all duration-300"
+              >
+                Agent Lifecycle →
+              </a>
             </div>
             
             {/* Micro-label */}
