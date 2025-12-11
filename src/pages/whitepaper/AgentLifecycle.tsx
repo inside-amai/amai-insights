@@ -472,8 +472,8 @@ const AgentLifecycle = () => {
                   }, 100);
                 }}
               >
-                <ChevronLeft className="mr-2 h-3 w-3 transition-transform group-hover:-translate-x-1" />
                 Documentation
+                <ChevronRight className="ml-2 h-3 w-3 transition-transform group-hover:translate-x-1" />
               </Button>
             </div>
           </div>
