@@ -19,14 +19,10 @@ import NotFound from "./pages/NotFound";
 
 // Whitepaper sections (eagerly loaded to avoid Suspense loading screen)
 import SummaryVision from "./pages/whitepaper/SummaryVision";
-import PlatformOverview from "./pages/whitepaper/PlatformOverview";
-import ProblemLandscape from "./pages/whitepaper/ProblemLandscape";
 import SystemArchitecture from "./pages/whitepaper/SystemArchitecture";
 import TechnicalDeepDive from "./pages/whitepaper/TechnicalDeepDive";
 import AgentEconomyKIPs from "./pages/whitepaper/AgentEconomyKIPs";
-import RoadmapMilestones from "./pages/whitepaper/RoadmapMilestones";
 import Token from "./pages/whitepaper/Token";
-import OurJourney from "./pages/whitepaper/OurJourney";
 
 
 const queryClient = new QueryClient();
@@ -49,15 +45,15 @@ const App = () => (
             <Route path="/genesis-mint" element={<GenesisMint />} />
             <Route path="/founders-mint" element={<FoundersMint />} />
           
-          <Route path="/whitepaper/summary-vision" element={<SummaryVision />} />
-          <Route path="/whitepaper/platform-overview" element={<PlatformOverview />} />
-          <Route path="/whitepaper/problem-landscape" element={<ProblemLandscape />} />
-          <Route path="/whitepaper/system-architecture" element={<SystemArchitecture />} />
-          <Route path="/whitepaper/technical-deep-dive" element={<TechnicalDeepDive />} />
-          <Route path="/whitepaper/agent-economy-kips" element={<AgentEconomyKIPs />} />
-          <Route path="/whitepaper/roadmap-milestones" element={<RoadmapMilestones />} />
-          <Route path="/whitepaper/token" element={<Token />} />
-          <Route path="/whitepaper/Our-journey" element={<OurJourney />} />
+          <Route path="/system-overview" element={<SummaryVision />} />
+          <Route path="/agent-architecture" element={<SystemArchitecture />} />
+          <Route path="/bonded-collateral" element={<Token />} />
+          <Route path="/trust-score-mechanics" element={<TechnicalDeepDive />} />
+          <Route path="/treasury-dynamics" element={<AgentEconomyKIPs />} />
+          <Route path="/kernelized-intelligence" element={<AgentEconomyKIPs />} />
+          <Route path="/protocol-internals" element={<TechnicalDeepDive />} />
+          <Route path="/token-model" element={<Token />} />
+          <Route path="/agent-economy" element={<AgentEconomyKIPs />} />
           
           <Route path="/diagram" element={<Diagram />} />
           <Route path="/ui" element={<UI />} />
