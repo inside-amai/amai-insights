@@ -292,17 +292,20 @@ const TechnicalFoundation = () => {
               <p className="text-white/40 text-sm mb-12">AMAI Economic Substrate Stack</p>
 
               {/* Blueprint Diagram */}
-              <div 
-                className="relative border border-white/[0.08] rounded-[2px] p-8 md:p-12"
-                style={{
-                  backgroundImage: `
-                    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)
-                  `,
-                  backgroundSize: '20px 20px',
-                }}
-              >
-                <div className="space-y-4">
+              <div className="relative bg-black/40 border border-white/10 rounded-sm p-8 md:p-12 overflow-hidden">
+                {/* Subtle grid background */}
+                <div 
+                  className="absolute inset-0 opacity-[0.03]"
+                  style={{
+                    backgroundImage: `
+                      linear-gradient(to right, white 1px, transparent 1px),
+                      linear-gradient(to bottom, white 1px, transparent 1px)
+                    `,
+                    backgroundSize: '24px 24px'
+                  }}
+                />
+                
+                <div className="relative z-10 space-y-4">
                   {substrateLayers.map((layer, index) => (
                     <motion.div
                       key={layer.number}
