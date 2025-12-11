@@ -59,7 +59,7 @@ export const TermsModal = () => {
       />
       
       {/* Modal window - styled like Identity Layer card */}
-      <div className="relative w-[85vw] max-w-[480px] h-[68vh] bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/10 rounded-lg backdrop-blur-sm mb-4 overflow-hidden transition-all duration-500 hover:border-white/20">
+      <div className="relative w-[85vw] max-w-[480px] h-[68vh] bg-[#0a0a0a] border border-white/15 rounded-lg mb-4 overflow-hidden transition-all duration-500 hover:border-white/25">
         {/* Header */}
         <div className="px-6 pt-6 pb-4 border-b border-white/5">
           <div className="flex items-center gap-3 mb-2">
@@ -341,7 +341,7 @@ export const TermsModal = () => {
           <div className="absolute bottom-4 left-0 right-0 flex justify-center">
             <button
               onClick={handleScrollToBottom}
-              className="bg-black/80 hover:bg-black/90 text-white text-xs px-4 py-2 rounded-full border border-white/20 transition-colors duration-200 flex items-center gap-1.5"
+              className="bg-white hover:bg-white/90 text-black text-xs font-medium px-4 py-2 rounded-full transition-colors duration-200 flex items-center gap-1.5"
             >
               Scroll down <ChevronDown className="w-3 h-3" />
             </button>

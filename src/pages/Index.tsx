@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { ExplainerHero } from '@/components/ExplainerHero';
 import { ExplainerFAQ } from '@/components/ExplainerFAQ';
-import { TermsModal } from '@/components/TermsModal';
 import { TechnicalFoundationSection } from '@/components/TechnicalFoundationSection';
 import { Footer } from '@/components/Footer';
 import { AgentLayersSection } from '@/components/AgentLayersSection';
@@ -11,7 +10,6 @@ import { DocumentationIndex } from '@/components/DocumentationIndex';
 const Index = () => {
   return (
     <>
-      <TermsModal />
       <div className="overflow-x-hidden">
         {/* Main content with perspective grid background */}
         <div className="relative bg-perspective-grid">
