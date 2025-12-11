@@ -186,8 +186,8 @@ const TechnicalFoundation = () => {
                           <span className="text-[9px] text-white/30">Logistic bonus curve</span>
                         </div>
                         <div className="border border-white/[0.06] rounded-[1px] p-2 bg-black/20">
-                          <span className="text-[10px] text-white/50 font-mono block">Skill Quality</span>
-                          <span className="text-[9px] text-white/30">Epic +1 · Mythic +2</span>
+                          <span className="text-[10px] text-white/50 font-mono block">Module Quality</span>
+                          <span className="text-[9px] text-white/30">Verified (+1) · Audited (+2)</span>
                         </div>
                         <div className="border border-white/[0.06] rounded-[1px] p-2 bg-black/20">
                           <span className="text-[10px] text-white/50 font-mono block">Audit Flag</span>
