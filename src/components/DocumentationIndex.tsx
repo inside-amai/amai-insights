@@ -72,32 +72,36 @@ const DocumentCard = ({ card, index }: { card: typeof documentationCards[0]; ind
         className="block h-full"
       >
         <div 
-          className="relative h-full bg-black border border-white/[0.08] rounded-[3px] p-6 flex flex-col"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px)
-            `,
-            backgroundSize: '20px 20px',
-          }}
+          className="relative h-full bg-black border border-white/[0.08] rounded-[3px] p-6 flex flex-col overflow-hidden"
         >
+          {/* Internal grid pattern */}
+          <div 
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              backgroundImage: `
+                linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)
+              `,
+              backgroundSize: '16px 16px',
+            }}
+          />
           {/* Category micro-label */}
-          <span className="text-[9px] tracking-[0.25em] uppercase text-white/30 font-medium mb-3">
+          <span className="relative z-10 text-[9px] tracking-[0.25em] uppercase text-white/30 font-medium mb-3">
             {card.category}
           </span>
           
           {/* Title */}
-          <h3 className="text-[15px] font-semibold text-white/90 mb-2 leading-snug">
+          <h3 className="relative z-10 text-[15px] font-semibold text-white/90 mb-2 leading-snug">
             {card.title}
           </h3>
           
           {/* Subtitle */}
-          <p className="text-[12px] text-white/40 leading-relaxed flex-1 mb-4">
+          <p className="relative z-10 text-[12px] text-white/40 leading-relaxed flex-1 mb-4">
             {card.subtitle}
           </p>
           
           {/* Read more link */}
-          <span className="text-[11px] text-white/25 group-hover:text-white/50 transition-colors duration-200 flex items-center gap-1">
+          <span className="relative z-10 text-[11px] text-white/25 group-hover:text-white/50 transition-colors duration-200 flex items-center gap-1">
             Read more <span className="text-[10px]">→</span>
           </span>
         </div>
