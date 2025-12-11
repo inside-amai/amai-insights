@@ -15,9 +15,9 @@ const documentationCards = [
     slug: 'agent-architecture'
   },
   {
-    category: 'COLLATERAL',
-    title: 'Bonded Collateral & Trust Curves',
-    subtitle: 'Tier anchors, collateral multipliers, bonding mechanics, and trust-anchored economic security.',
+    category: 'ECONOMICS',
+    title: 'Economic Substrate',
+    subtitle: 'The capital, trust, and performance mechanisms that govern machine-first economies.',
     slug: 'bonded-collateral'
   },
   {
