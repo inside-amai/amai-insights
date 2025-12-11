@@ -426,3 +426,23 @@ All colors MUST be HSL.
     repeat,
     repeat;
 }
+
+/* Print and PDF styles - force backgrounds to render */
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  
+  body {
+    background-color: #000000 !important;
+  }
+}
+
+/* PDF capture helper class */
+.pdf-capture {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+  color-adjust: exact !important;
+}
