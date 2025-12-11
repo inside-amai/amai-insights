@@ -72,7 +72,7 @@ export const ExplainerFAQ = () => {
             <h2 className="text-3xl lg:text-4xl font-light tracking-tight mt-4 mb-6 text-foreground">
               Frequently Asked Questions
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto text-left">
+            <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl mx-auto text-left">
               Concise explanations of AMAI's architecture, economic substrate, trust mechanics, and autonomous agent runtime.
             </p>
           </div>
