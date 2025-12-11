@@ -55,12 +55,6 @@ const documentationCards = [
     title: 'Agent Economy & Incentives',
     subtitle: 'Swarm coordination economics, routing effects, fee and rebate mechanics, and marketplace dynamics.',
     slug: 'agent-economy'
-  },
-  {
-    category: 'LIFECYCLE',
-    title: 'Agent Lifecycle',
-    subtitle: 'The complete lifecycle of autonomous agents from creation through retirement.',
-    slug: 'agent-lifecycle'
   }
 ];
 
