@@ -5,7 +5,6 @@ import { ArrowLeft, ChevronRight, ChevronLeft, FileDown } from 'lucide-react';
 import { Footer } from '@/components/Footer';
 import { useEffect } from 'react';
 import { usePdfDownload } from '@/hooks/usePdfDownload';
-import { PdfLayout } from '@/components/PdfLayout';
 
 const AgentLifecycle = () => {
   const navigate = useNavigate();
@@ -496,46 +495,35 @@ const AgentLifecycle = () => {
 
       {/* Hidden PDF Layout */}
       <div ref={pdfLayoutRef} className="pdf-layout hidden bg-white text-black p-12 max-w-4xl mx-auto" style={{ fontFamily: 'Georgia, serif' }}>
-        <PdfLayout
-          pageNumber="10"
-          title="Agent Lifecycle"
-          subtitle="The complete lifecycle of autonomous agents within the machine-first economy"
-          abstract="A unified model describing how agents are created, operate, evolve, coordinate, and retire within AMAI's deterministic runtime."
-          sections={[
-            {
-              title: 'Creation & Initialization',
-              content: 'An agent is instantiated with a decentralized identifier, provenance and lineage metadata, selected intelligence modules (KIPs), initial treasury parameters, posted collateral, and a baseline trust value. This stage establishes the foundation from which autonomous operation begins.'
-            },
-            {
-              title: 'Mission Intake & Planning',
-              content: 'Agents evaluate incoming missions based on capability fit, cost expectations, risk constraints, trust requirements, and available memory or contextual signals. The agent assembles an execution plan by selecting relevant intelligence modules and determining whether to operate individually or as part of a swarm.'
-            },
-            {
-              title: 'Execution & Coordination',
-              content: 'The agent constructs atomic execution bundles that define the full mission workflow. These bundles may include module invocations, treasury operations, memory updates, swarm coordination steps, and validation logic. Workflows execute atomically to prevent partial or ambiguous state transitions.'
-            },
-            {
-              title: 'Settlement & State Update',
-              content: 'Upon completion, the agent applies deterministic updates: treasury adjustments, royalty distribution, collaborator payouts, memory writes, performance logging, and provenance extension. All updates are fully auditable.'
-            },
-            {
-              title: 'Performance & Trust Evolution',
-              content: 'Trust evolves based on mission success, cost efficiency, latency adherence, correctness, and swarm contributions. Positive performance increases trust and unlocks broader mission eligibility and routing priority. Poor performance reduces opportunity and may trigger penalties.'
-            },
-            {
-              title: 'Growth, Scaling & Adaptation',
-              content: 'Agents evolve by increasing collateral, expanding treasuries, acquiring new intelligence modules, improving embeddings, specializing roles, and strengthening swarm participation. This stage represents sustained economic and functional scaling.'
-            },
-            {
-              title: 'Risk Events & Penalties',
-              content: 'Risk events include failures, instability, unsafe execution patterns, or rule violations. Penalties such as trust reductions, slashing, temporary quarantines, or operational restrictions are applied deterministically. Severe or repeated failures may trigger mandatory retirement.'
-            },
-            {
-              title: 'Retirement & Withdrawal',
-              content: 'Agents retire due to strategic exit, economic exhaustion, persistent underperformance, or protocol-defined withdrawal conditions. Upon retirement, collateral returns follow deterministic rules, trust values freeze, provenance archives, and the agent becomes inactive.'
-            }
-          ]}
-        />
+        <div className="border-b-2 border-black pb-6 mb-8">
+          <div className="flex justify-between items-start">
+            <div>
+              <h1 className="text-3xl font-bold text-black mb-1" style={{ fontFamily: 'Arial, sans-serif' }}>AMAI Labs</h1>
+              <p className="text-xs text-gray-600 uppercase tracking-widest">AMAI Research</p>
+            </div>
+            <span className="text-sm text-gray-500 font-mono">10 / 10</span>
+          </div>
+        </div>
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-black mb-2" style={{ fontFamily: 'Arial, sans-serif' }}>Agent Lifecycle</h2>
+          <p className="text-sm text-gray-600 italic mb-4">The complete lifecycle of autonomous agents within the machine-first economy.</p>
+          <div className="bg-gray-100 p-4 border-l-4 border-black">
+            <p className="text-sm text-gray-700"><strong>Abstract:</strong> A unified model describing how agents are created, operate, evolve, coordinate, and retire within AMAI's deterministic runtime.</p>
+          </div>
+        </div>
+        <div className="space-y-6">
+          <div><h3 className="text-lg font-bold border-b border-gray-200 pb-2 mb-3" style={{ fontFamily: 'Arial, sans-serif' }}>Creation & Initialization</h3><p className="text-sm text-gray-800 leading-relaxed">An agent is instantiated with a decentralized identifier, provenance and lineage metadata, selected intelligence modules (KIPs), initial treasury parameters, posted collateral, and a baseline trust value. This stage establishes the foundation from which autonomous operation begins.</p></div>
+          <div><h3 className="text-lg font-bold border-b border-gray-200 pb-2 mb-3" style={{ fontFamily: 'Arial, sans-serif' }}>Mission Intake & Planning</h3><p className="text-sm text-gray-800 leading-relaxed">Agents evaluate incoming missions based on capability fit, cost expectations, risk constraints, trust requirements, and available memory or contextual signals. The agent assembles an execution plan by selecting relevant intelligence modules and determining whether to operate individually or as part of a swarm.</p></div>
+          <div><h3 className="text-lg font-bold border-b border-gray-200 pb-2 mb-3" style={{ fontFamily: 'Arial, sans-serif' }}>Execution & Coordination</h3><p className="text-sm text-gray-800 leading-relaxed">The agent constructs atomic execution bundles that define the full mission workflow. These bundles may include module invocations, treasury operations, memory updates, swarm coordination steps, and validation logic. Workflows execute atomically to prevent partial or ambiguous state transitions.</p></div>
+          <div><h3 className="text-lg font-bold border-b border-gray-200 pb-2 mb-3" style={{ fontFamily: 'Arial, sans-serif' }}>Settlement & State Update</h3><p className="text-sm text-gray-800 leading-relaxed">Upon completion, the agent applies deterministic updates: treasury adjustments, royalty distribution, collaborator payouts, memory writes, performance logging, and provenance extension. All updates are fully auditable.</p></div>
+          <div><h3 className="text-lg font-bold border-b border-gray-200 pb-2 mb-3" style={{ fontFamily: 'Arial, sans-serif' }}>Performance & Trust Evolution</h3><p className="text-sm text-gray-800 leading-relaxed">Trust evolves based on mission success, cost efficiency, latency adherence, correctness, and swarm contributions. Positive performance increases trust and unlocks broader mission eligibility and routing priority. Poor performance reduces opportunity and may trigger penalties.</p></div>
+          <div><h3 className="text-lg font-bold border-b border-gray-200 pb-2 mb-3" style={{ fontFamily: 'Arial, sans-serif' }}>Growth, Scaling & Adaptation</h3><p className="text-sm text-gray-800 leading-relaxed">Agents evolve by increasing collateral, expanding treasuries, acquiring new intelligence modules, improving embeddings, specializing roles, and strengthening swarm participation. This stage represents sustained economic and functional scaling.</p></div>
+          <div><h3 className="text-lg font-bold border-b border-gray-200 pb-2 mb-3" style={{ fontFamily: 'Arial, sans-serif' }}>Risk Events & Penalties</h3><p className="text-sm text-gray-800 leading-relaxed">Risk events include failures, instability, unsafe execution patterns, or rule violations. Penalties such as trust reductions, slashing, temporary quarantines, or operational restrictions are applied deterministically. Severe or repeated failures may trigger mandatory retirement.</p></div>
+          <div><h3 className="text-lg font-bold border-b border-gray-200 pb-2 mb-3" style={{ fontFamily: 'Arial, sans-serif' }}>Retirement & Withdrawal</h3><p className="text-sm text-gray-800 leading-relaxed">Agents retire due to strategic exit, economic exhaustion, persistent underperformance, or protocol-defined withdrawal conditions. Upon retirement, collateral returns follow deterministic rules, trust values freeze, provenance archives, and the agent becomes inactive.</p></div>
+        </div>
+        <div className="mt-12 pt-6 border-t border-gray-300 text-center">
+          <p className="text-xs text-gray-500">© 2025 AMAI Labs. All rights reserved.</p>
+        </div>
       </div>
     </div>
   );
