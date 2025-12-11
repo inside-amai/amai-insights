@@ -18,13 +18,13 @@ const documentationCards = [
     category: 'ECONOMICS',
     title: 'Economic Substrate',
     subtitle: 'The capital, trust, and performance mechanisms that govern machine-first economies.',
-    slug: 'bonded-collateral'
+    slug: 'economic-substrate'
   },
   {
     category: 'TRUST',
     title: 'Trust Score Mechanics',
     subtitle: 'Deterministic trust computation including base scores, bonded stake effects, oracle adjustments, and clamping logic.',
-    slug: 'trust-score-mechanics'
+    slug: 'trust-mechanics'
   },
   {
     category: 'ECONOMICS',
