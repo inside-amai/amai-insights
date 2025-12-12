@@ -78,7 +78,7 @@ const TechnicalFoundation = () => {
       <div className="fixed inset-0 bg-gradient-to-b from-white/[0.02] via-transparent to-transparent pointer-events-none" />
 
       {/* Back Button */}
-      <div className="fixed top-6 left-6 z-50">
+      <div className="fixed top-14 md:top-6 left-6 z-50">
         <Button 
           variant="outline" 
           size="sm" 
