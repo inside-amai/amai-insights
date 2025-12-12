@@ -97,10 +97,10 @@ const AgentArchitectureDiagram: React.FC = () => {
           <div className="flex items-center justify-center gap-3 lg:gap-6">
             {/* Left: Collateral */}
             <div className="flex items-center gap-2">
-              <Box 
-                title="Bonded Collateral" 
-                subtitle="AMAI + SUI"
-              />
+            <Box 
+              title="Bonded Collateral" 
+              subtitle="AMAI"
+            />
               <div className="w-4 h-px bg-white/20" />
             </div>
 
