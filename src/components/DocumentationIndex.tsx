@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { PilotAccessForm } from './PilotAccessForm';
 
 const documentationCards = [
   {
@@ -111,6 +113,8 @@ const DocumentCard = ({ card, index }: { card: typeof documentationCards[0]; ind
 };
 
 export const DocumentationIndex = () => {
+  const [isPilotFormOpen, setIsPilotFormOpen] = useState(false);
+
   return (
     <section className="relative isolate py-28 md:py-36 overflow-hidden bg-black">
       {/* Blueprint grid background */}
@@ -171,7 +175,32 @@ export const DocumentationIndex = () => {
             <DocumentCard key={card.title} card={card} index={index} />
           ))}
         </div>
+
+        {/* Pilot Access CTA */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-16 text-center"
+        >
+          <p className="text-white/35 text-sm mb-5 max-w-xl mx-auto leading-relaxed">
+            AMAI Labs selectively supports pilot deployments for infrastructure partners, research institutions, and enterprise systems exploring autonomous agent coordination.
+          </p>
+          <button
+            onClick={() => setIsPilotFormOpen(true)}
+            className="text-xs text-white/40 hover:text-white/60 transition-colors duration-200 border-b border-white/20 hover:border-white/40 pb-0.5"
+          >
+            Request Pilot Access
+          </button>
+        </motion.div>
       </div>
+
+      {/* Pilot Access Form Modal */}
+      <PilotAccessForm 
+        isOpen={isPilotFormOpen} 
+        onClose={() => setIsPilotFormOpen(false)} 
+      />
     </section>
   );
 };
