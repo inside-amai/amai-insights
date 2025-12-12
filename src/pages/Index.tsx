@@ -38,7 +38,7 @@ const Index = () => {
                   <p className="text-sm text-white/50 text-center leading-relaxed">
                     Agent coordination is transitioning from speculative research to operational systems.
                     <br /><br />
-                    The primary bottlenecks are no longer model capability, but trust, capital allocation, and execution guarantees.
+                    The bottlenecks are no longer model capability, but trust, capital allocation, and execution guarantees.
                   </p>
                 </motion.div>
                 
