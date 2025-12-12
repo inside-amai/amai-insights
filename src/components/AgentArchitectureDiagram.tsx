@@ -151,7 +151,7 @@ const AgentArchitectureDiagram: React.FC = () => {
               text-center
             ">
               <span className="text-xs font-medium text-white/80 tracking-tight">
-                Settlement Layer (Sui)
+                Settlement Layer
               </span>
               <p className="text-[10px] text-white/40 mt-1">
                 Deterministic settlement • Performance verification
