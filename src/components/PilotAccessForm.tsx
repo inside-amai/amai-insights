@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { X } from 'lucide-react';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -115,8 +116,17 @@ export const PilotAccessForm = ({ isOpen, onClose }: PilotAccessFormProps) => {
               className="relative w-full max-w-md bg-black border border-white/10 rounded-[4px] p-6 pointer-events-auto"
               onClick={(e) => e.stopPropagation()}
             >
+              {/* Close button */}
+              <button
+                onClick={onClose}
+                className="absolute top-4 right-4 text-white/30 hover:text-white/60 transition-colors"
+                aria-label="Close"
+              >
+                <X size={16} />
+              </button>
+
               {/* Header */}
-              <div className="mb-5">
+              <div className="mb-5 pr-6">
                 <h2 className="text-lg font-light text-white tracking-tight mb-2">
                   Request Pilot Access
                 </h2>
