@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/hooks/useAuth";
 import { AuthGuard } from "@/components/AuthGuard";
 import { TermsModal } from "@/components/TermsModal";
+import { SiteHeader } from "@/components/SiteHeader";
 
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
@@ -41,6 +42,7 @@ const App = () => (
         <Sonner />
         <TermsModal />
         <BrowserRouter>
+          <SiteHeader />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={
