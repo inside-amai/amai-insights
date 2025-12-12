@@ -115,7 +115,7 @@ const AgentArchitectureDiagram: React.FC = () => {
               <div className="w-4 h-px bg-white/20" />
               <Box 
                 title="On-Chain Missions" 
-                subtitle="Sui PTBs"
+                subtitle="Atomic Execution"
               />
             </div>
           </div>
