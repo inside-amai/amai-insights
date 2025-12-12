@@ -63,9 +63,9 @@ export const TermsModal = () => {
         {/* Header */}
         <div className="px-6 pt-6 pb-4 border-b border-white/5">
           <div className="mb-2">
-            <h2 className="text-lg font-medium text-white tracking-tight">
-              AMAI Labs — Terms & Conditions
-            </h2>
+          <h2 className="text-lg font-medium text-white tracking-tight">
+              AMAI Labs — Research Use & Disclaimer
+          </h2>
           </div>
           <p className="text-xs text-white/40 uppercase tracking-wider">
             Legal Agreement for Access to Research, Documentation, and Technical Materials
@@ -354,7 +354,7 @@ export const TermsModal = () => {
           onClick={handleDecline}
           className="px-6 py-2.5 text-sm text-white/60 border border-white/10 rounded-lg hover:bg-white/5 hover:border-white/20 transition-all duration-300"
         >
-          Decline
+          Exit Research Portal
         </button>
         <button
           onClick={handleAccept}
