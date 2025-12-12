@@ -89,7 +89,8 @@ export const PilotAccessForm = ({ isOpen, onClose }: PilotAccessFormProps) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm"
+            style={{ zIndex: 9998 }}
             onClick={onClose}
           />
 
@@ -99,7 +100,8 @@ export const PilotAccessForm = ({ isOpen, onClose }: PilotAccessFormProps) => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 10 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 flex items-center justify-center p-4"
+            style={{ zIndex: 9999 }}
           >
             <div 
               className="relative w-full max-w-lg bg-black border border-white/10 rounded-[4px] p-8 max-h-[90vh] overflow-y-auto"
@@ -114,10 +116,13 @@ export const PilotAccessForm = ({ isOpen, onClose }: PilotAccessFormProps) => {
               </button>
 
               {/* Header */}
-              <div className="mb-8">
-                <h2 className="text-xl font-light text-white tracking-tight">
+              <div className="mb-6">
+                <h2 className="text-xl font-light text-white tracking-tight mb-3">
                   Request Pilot Access
                 </h2>
+                <p className="text-white/40 text-sm leading-relaxed">
+                  AMAI Labs selectively supports pilot deployments for infrastructure partners, research institutions, and enterprise systems exploring autonomous agent coordination.
+                </p>
               </div>
 
               {/* Form */}
