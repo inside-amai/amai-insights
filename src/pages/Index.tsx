@@ -41,6 +41,11 @@ const Index = () => {
                     The primary bottlenecks are no longer model capability, but trust, capital allocation, and execution guarantees.
                   </p>
                 </motion.div>
+                
+                {/* Micro break */}
+                <div className="flex justify-center pt-10">
+                  <div className="w-8 h-px bg-white/10" />
+                </div>
               </div>
             </section>
             
