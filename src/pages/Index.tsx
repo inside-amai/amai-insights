@@ -32,7 +32,7 @@ const Index = () => {
                   transition={{ duration: 0.6 }}
                   viewport={{ once: true }}
                 >
-                  <span className="text-xs font-medium text-muted-foreground uppercase tracking-[0.2em] mb-4 block">
+                  <span className="text-xs font-medium text-muted-foreground uppercase tracking-[0.2em] mb-4 block text-center">
                     Thesis
                   </span>
                   <p className="text-sm text-white/50 text-center leading-relaxed">
