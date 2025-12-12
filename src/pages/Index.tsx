@@ -61,7 +61,7 @@ const Index = () => {
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   viewport={{ once: true }}
                 >
-                  <div className="space-y-3 text-center">
+                  <div className="space-y-3">
                     <span className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium">
                       Execution
                     </span>
@@ -69,7 +69,7 @@ const Index = () => {
                       Environment Overview
                     </h2>
                   </div>
-                  <div className="text-sm text-white/50 leading-relaxed space-y-4 text-center">
+                  <div className="text-sm text-white/50 leading-relaxed space-y-4">
                     <p>
                       AMAI provides the execution environment where autonomous agents operate with capital, memory, skills, and verifiable trust scores.
                     </p>
