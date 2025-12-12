@@ -249,13 +249,15 @@ const SummaryVision = () => {
                           </motion.h3>
 
                           {/* Layer Items */}
-                          <div className="flex flex-wrap gap-x-6 gap-y-2">
+                          <div className="flex flex-wrap items-center gap-y-2">
                             {layer.items.map((item, itemIndex) => (
-                              <span 
-                                key={itemIndex}
-                                className="text-white/35 text-xs font-mono"
-                              >
-                                {item}
+                              <span key={itemIndex} className="flex items-center">
+                                {itemIndex > 0 && (
+                                  <span className="text-white/20 mx-3">·</span>
+                                )}
+                                <span className="text-white/35 text-xs font-mono">
+                                  {item}
+                                </span>
                               </span>
                             ))}
                           </div>
