@@ -8,8 +8,6 @@ export const SiteHeader = () => {
           {/* Logo - links to amai.net */}
           <a 
             href="https://amai.net" 
-            target="_blank" 
-            rel="noopener noreferrer"
             className="pointer-events-auto"
           >
             <img 
