@@ -10,9 +10,6 @@ const layers = [
       { label: 'SBT-Bound Ownership', desc: 'Soul-bound tokens for non-transferable provenance' },
       { label: 'Reputation Roots', desc: 'Verifiable credential accumulation over time' },
     ],
-    gradient: 'from-white/[0.08] to-white/[0.02]',
-    borderColor: 'border-white/10',
-    accentColor: 'bg-white/80',
   },
   {
     id: 'skill',
@@ -23,9 +20,6 @@ const layers = [
       { label: 'Versioning & Permissioning', desc: 'Granular access control and upgrade paths' },
       { label: 'Micro-Royalty Structure', desc: 'Automated attribution and value distribution' },
     ],
-    gradient: 'from-white/[0.06] to-white/[0.01]',
-    borderColor: 'border-white/8',
-    accentColor: 'bg-white/70',
   },
   {
     id: 'treasury',
@@ -36,9 +30,6 @@ const layers = [
       { label: 'Trust-Weighted Allocation', desc: 'Dynamic capital routing based on performance' },
       { label: 'Treasury Performance Curves', desc: 'Non-linear reward and penalty mechanisms' },
     ],
-    gradient: 'from-white/[0.04] to-transparent',
-    borderColor: 'border-white/6',
-    accentColor: 'bg-white/60',
   },
 ];
 
@@ -75,14 +66,14 @@ export const AgentLayersSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
               viewport={{ once: true, margin: "-80px" }}
-              className={`
+              className="
                 relative group
-                bg-gradient-to-b ${layer.gradient}
-                border ${layer.borderColor}
+                bg-gradient-to-b from-white/[0.06] to-white/[0.02]
+                border border-white/10
                 rounded-lg
                 backdrop-blur-sm
                 hover:border-white/20
-              `}
+              "
               style={{ transition: 'border-color 0.3s ease' }}
             >
               {/* Layer Number Indicator */}
@@ -97,7 +88,7 @@ export const AgentLayersSection = () => {
                   {/* Layer Title */}
                   <div className="md:w-1/3 md:pr-8 md:border-r md:border-white/5">
                     <div className="flex items-center gap-3 mb-2">
-                      <div className={`w-1.5 h-1.5 rounded-full ${layer.accentColor}`} />
+                      <div className="w-1.5 h-1.5 rounded-full bg-white/70" />
                       <h3 className="text-lg font-medium text-white tracking-tight">
                         {layer.title}
                       </h3>
