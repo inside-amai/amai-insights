@@ -13,9 +13,9 @@ export const SiteHeader = () => {
             className="pointer-events-auto"
           >
             <img 
-              src="/amai-icon-greyscale.png"
+              src="/amai-header-logo.png"
               alt="AMAI" 
-              className="h-8 w-auto opacity-80 hover:opacity-100 transition-opacity"
+              className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity"
               loading="eager"
             />
           </a>
