@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -48,6 +48,18 @@ export const PilotAccessForm = ({ isOpen, onClose }: PilotAccessFormProps) => {
     },
   });
 
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   const onSubmit = async (data: PilotRequestFormData) => {
     setIsSubmitting(true);
     try {
@@ -79,66 +91,53 @@ export const PilotAccessForm = ({ isOpen, onClose }: PilotAccessFormProps) => {
     }
   };
 
-  return (
+  const modalContent = (
     <AnimatePresence>
       {isOpen && (
-        <>
+        <div className="fixed inset-0" style={{ zIndex: 99999 }}>
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm"
-            style={{ zIndex: 9998 }}
+            className="absolute inset-0 bg-black/90 backdrop-blur-sm"
             onClick={onClose}
           />
 
-          {/* Modal */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96, y: 10 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.96, y: 10 }}
-            transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="fixed inset-0 flex items-center justify-center p-4"
-            style={{ zIndex: 9999 }}
-          >
-            <div 
-              className="relative w-full max-w-lg bg-black border border-white/10 rounded-[4px] p-8 max-h-[90vh] overflow-y-auto"
+          {/* Modal Container */}
+          <div className="absolute inset-0 flex items-center justify-center p-4 pointer-events-none">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.96, y: 10 }}
+              transition={{ duration: 0.2, ease: 'easeOut' }}
+              className="relative w-full max-w-md bg-black border border-white/10 rounded-[4px] p-6 pointer-events-auto"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close button */}
-              <button
-                onClick={onClose}
-                className="absolute top-4 right-4 text-white/30 hover:text-white/60 transition-colors"
-              >
-                <X size={18} />
-              </button>
-
               {/* Header */}
-              <div className="mb-6">
-                <h2 className="text-xl font-light text-white tracking-tight mb-3">
+              <div className="mb-5">
+                <h2 className="text-lg font-light text-white tracking-tight mb-2">
                   Request Pilot Access
                 </h2>
-                <p className="text-white/40 text-sm leading-relaxed">
+                <p className="text-white/40 text-xs leading-relaxed">
                   AMAI Labs selectively supports pilot deployments for infrastructure partners, research institutions, and enterprise systems exploring autonomous agent coordination.
                 </p>
               </div>
 
               {/* Form */}
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
                   <FormField
                     control={form.control}
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-xs text-white/50 font-normal">Name</FormLabel>
+                        <FormLabel className="text-[11px] text-white/50 font-normal">Name</FormLabel>
                         <FormControl>
                           <Input
                             {...field}
-                            className="bg-white/[0.03] border-white/10 text-white/90 text-sm placeholder:text-white/20 focus:border-white/20 rounded-[3px]"
-                            placeholder=""
+                            className="bg-white/[0.03] border-white/10 text-white/90 text-sm placeholder:text-white/20 focus:border-white/20 rounded-[3px] h-9"
                           />
                         </FormControl>
                         <FormMessage className="text-xs" />
@@ -151,12 +150,11 @@ export const PilotAccessForm = ({ isOpen, onClose }: PilotAccessFormProps) => {
                     name="organization"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-xs text-white/50 font-normal">Organization</FormLabel>
+                        <FormLabel className="text-[11px] text-white/50 font-normal">Organization</FormLabel>
                         <FormControl>
                           <Input
                             {...field}
-                            className="bg-white/[0.03] border-white/10 text-white/90 text-sm placeholder:text-white/20 focus:border-white/20 rounded-[3px]"
-                            placeholder=""
+                            className="bg-white/[0.03] border-white/10 text-white/90 text-sm placeholder:text-white/20 focus:border-white/20 rounded-[3px] h-9"
                           />
                         </FormControl>
                         <FormMessage className="text-xs" />
@@ -169,13 +167,12 @@ export const PilotAccessForm = ({ isOpen, onClose }: PilotAccessFormProps) => {
                     name="use_case"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-xs text-white/50 font-normal">Use Case</FormLabel>
+                        <FormLabel className="text-[11px] text-white/50 font-normal">Use Case</FormLabel>
                         <FormControl>
                           <Textarea
                             {...field}
-                            rows={3}
+                            rows={2}
                             className="bg-white/[0.03] border-white/10 text-white/90 text-sm placeholder:text-white/20 focus:border-white/20 rounded-[3px] resize-none"
-                            placeholder=""
                           />
                         </FormControl>
                         <FormMessage className="text-xs" />
@@ -188,13 +185,12 @@ export const PilotAccessForm = ({ isOpen, onClose }: PilotAccessFormProps) => {
                     name="why_amai"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-xs text-white/50 font-normal">Why AMAI</FormLabel>
+                        <FormLabel className="text-[11px] text-white/50 font-normal">Why AMAI</FormLabel>
                         <FormControl>
                           <Textarea
                             {...field}
-                            rows={3}
+                            rows={2}
                             className="bg-white/[0.03] border-white/10 text-white/90 text-sm placeholder:text-white/20 focus:border-white/20 rounded-[3px] resize-none"
-                            placeholder=""
                           />
                         </FormControl>
                         <FormMessage className="text-xs" />
@@ -207,14 +203,13 @@ export const PilotAccessForm = ({ isOpen, onClose }: PilotAccessFormProps) => {
                     name="linkedin_website"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-xs text-white/50 font-normal">
+                        <FormLabel className="text-[11px] text-white/50 font-normal">
                           LinkedIn / Website <span className="text-white/30">(optional)</span>
                         </FormLabel>
                         <FormControl>
                           <Input
                             {...field}
-                            className="bg-white/[0.03] border-white/10 text-white/90 text-sm placeholder:text-white/20 focus:border-white/20 rounded-[3px]"
-                            placeholder=""
+                            className="bg-white/[0.03] border-white/10 text-white/90 text-sm placeholder:text-white/20 focus:border-white/20 rounded-[3px] h-9"
                           />
                         </FormControl>
                         <FormMessage className="text-xs" />
@@ -222,25 +217,28 @@ export const PilotAccessForm = ({ isOpen, onClose }: PilotAccessFormProps) => {
                     )}
                   />
 
-                  <div className="pt-4">
+                  <div className="pt-3">
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-white/[0.08] hover:bg-white/[0.12] text-white/80 text-sm font-normal border border-white/10 rounded-[3px] h-10"
+                      className="w-full bg-white/[0.08] hover:bg-white/[0.12] text-white/80 text-sm font-normal border border-white/10 rounded-[3px] h-9"
                     >
                       {isSubmitting ? 'Submitting...' : 'Submit Request'}
                     </Button>
                   </div>
 
-                  <p className="text-[11px] text-white/30 text-center leading-relaxed pt-2">
+                  <p className="text-[10px] text-white/30 text-center leading-relaxed pt-1">
                     Pilot access is reviewed on a rolling basis. Not all requests are accepted.
                   </p>
                 </form>
               </Form>
-            </div>
-          </motion.div>
-        </>
+            </motion.div>
+          </div>
+        </div>
       )}
     </AnimatePresence>
   );
+
+  // Use portal to render at document body level
+  return createPortal(modalContent, document.body);
 };
