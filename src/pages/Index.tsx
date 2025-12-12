@@ -35,7 +35,7 @@ const Index = () => {
                   <span className="text-xs font-medium text-muted-foreground uppercase tracking-[0.2em] mb-4 block">
                     Thesis
                   </span>
-                  <p className="text-sm text-white/50 text-left leading-relaxed">
+                  <p className="text-sm text-white/50 text-center leading-relaxed">
                     Agent coordination is transitioning from speculative research to operational systems.
                     <br /><br />
                     The primary bottlenecks are no longer model capability, but trust, capital allocation, and execution guarantees.
@@ -64,7 +64,7 @@ const Index = () => {
                       Environment Overview
                     </h2>
                   </div>
-                  <div className="text-sm text-white/50 leading-relaxed space-y-4 text-left">
+                  <div className="text-sm text-white/50 leading-relaxed space-y-4 text-center">
                     <p>
                       AMAI provides the execution environment where autonomous agents operate with capital, memory, skills, and verifiable trust scores.
                     </p>
