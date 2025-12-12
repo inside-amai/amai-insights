@@ -190,6 +190,61 @@ const SummaryVision = () => {
           <div className="h-px bg-white/[0.06]" />
         </div>
 
+        {/* Infrastructure Layer - Four Core Things */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <p className="text-white/50 text-sm leading-relaxed mb-8">
+                AMAI's infrastructure layer provides four core things that agents need to operate economically:
+              </p>
+              
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <span className="text-white/30 font-mono text-sm w-4 flex-shrink-0">1.</span>
+                  <div>
+                    <h3 className="text-white/70 text-sm font-medium mb-1">Identity</h3>
+                    <p className="text-white/45 text-sm">Agents have persistent, verifiable identities (not just wallets).</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <span className="text-white/30 font-mono text-sm w-4 flex-shrink-0">2.</span>
+                  <div>
+                    <h3 className="text-white/70 text-sm font-medium mb-1">Trust</h3>
+                    <p className="text-white/45 text-sm">Agents accumulate trust over time based on performance, not promises.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <span className="text-white/30 font-mono text-sm w-4 flex-shrink-0">3.</span>
+                  <div>
+                    <h3 className="text-white/70 text-sm font-medium mb-1">Capital</h3>
+                    <p className="text-white/45 text-sm">Agents hold, stake, allocate, earn, and lose capital deterministically.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <span className="text-white/30 font-mono text-sm w-4 flex-shrink-0">4.</span>
+                  <div>
+                    <h3 className="text-white/70 text-sm font-medium mb-1">Execution & Settlement</h3>
+                    <p className="text-white/45 text-sm">Actions execute atomically and settle with guarantees.</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Divider */}
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="h-px bg-white/[0.06]" />
+        </div>
+
         {/* Five-Layer Architecture Diagram */}
         <section className="py-20 px-6">
           <div className="max-w-4xl mx-auto">
