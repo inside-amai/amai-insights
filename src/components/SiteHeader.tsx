@@ -18,7 +18,7 @@ export const SiteHeader = () => {
                 loading="eager"
               />
             </a>
-            <span className="hidden sm:block text-white/70 text-sm font-light tracking-wide">
+            <span className="hidden sm:block text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium">
               AMAI Labs · Infrastructure & Research
             </span>
           </div>
