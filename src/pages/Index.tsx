@@ -11,6 +11,20 @@ const Index = () => {
   return (
     <>
       <div className="overflow-x-hidden">
+        {/* Site Header */}
+        <header className="fixed top-0 left-0 right-0 z-50 py-4 px-6">
+          <div className="flex items-center gap-4">
+            <img 
+              src="/lovable-uploads/262e27b2-1bd9-4177-aebe-841d7cce6b6a.png"
+              alt="AMAI Logo" 
+              className="h-10 w-auto"
+            />
+            <span className="hidden sm:block text-white/70 text-sm font-light tracking-wide">
+              AMAI Labs · Infrastructure & Research
+            </span>
+          </div>
+        </header>
+
         {/* Main content with perspective grid background */}
         <div className="relative bg-perspective-grid">
           {/* Hero */}
