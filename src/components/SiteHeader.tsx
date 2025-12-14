@@ -6,20 +6,22 @@ export const SiteHeader = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo + Site Title */}
-          <a 
-            href="https://amai.net" 
-            className="pointer-events-auto flex items-center gap-4"
-          >
-            <img 
-              src="/amai-header-logo.png"
-              alt="AMAI" 
-              className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity"
-              loading="eager"
-            />
+          <div className="flex items-center gap-4">
+            <a 
+              href="https://amai.net" 
+              className="pointer-events-auto"
+            >
+              <img 
+                src="/amai-header-logo.png"
+                alt="AMAI" 
+                className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity"
+                loading="eager"
+              />
+            </a>
             <span className="hidden sm:block text-white/70 text-sm font-light tracking-wide">
               AMAI Labs · Infrastructure & Research
             </span>
-          </a>
+          </div>
         </div>
       </div>
     </header>
