@@ -208,7 +208,7 @@ const SummaryVision = () => {
                   <span className="text-white/30 font-mono text-sm w-4 flex-shrink-0">1.</span>
                   <div>
                     <h3 className="text-white/70 text-sm font-medium mb-1">Identity</h3>
-                    <p className="text-white/45 text-sm">Agents have persistent, verifiable identities (not just wallets).</p>
+                    <p className="text-white/45 text-sm">Agents have persistent, verifiable identities.</p>
                   </div>
                 </div>
                 
