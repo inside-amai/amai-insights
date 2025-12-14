@@ -36,7 +36,7 @@ const documentationCards = [
   },
   {
     category: 'INTELLIGENCE',
-    title: 'Kernelized Intelligence (KIPs)',
+    title: 'Kernelized Intelligence Properties (KIPs)',
     subtitle: 'Composable intelligence modules, versioning, permissioning, and micro-royalty distribution.',
     slug: 'kernelized-intelligence'
   },
