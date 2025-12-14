@@ -118,17 +118,21 @@ export const ExplainerHero = () => {
           transition={{ duration: 1, ease: "easeOut" }}
           className="space-y-3 max-w-3xl"
         >
-          {/* Logo - 95% opacity for infra atmosphere */}
+          {/* Logo + Site Title */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 0.95, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex items-center gap-4"
           >
             <img 
               src={amaiLogo}
               alt="AMAI Logo" 
               className="h-12 md:h-16 lg:h-20 xl:h-22 w-auto"
             />
+            <span className="hidden sm:block text-white/70 text-sm font-light tracking-wide">
+              AMAI Labs · Infrastructure & Research
+            </span>
           </motion.div>
 
           {/* Headline - tighter spacing */}
