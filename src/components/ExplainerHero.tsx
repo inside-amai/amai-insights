@@ -181,7 +181,7 @@ export const ExplainerHero = () => {
                 }}
                 className="text-sm text-white/50 hover:text-white/70 transition-all duration-300"
               >
-                Open Documentation Library
+                <span className="hidden md:inline">Open </span>Documentation Library
               </a>
               
               <a 
@@ -193,7 +193,7 @@ export const ExplainerHero = () => {
             </div>
             
             {/* Micro-label */}
-            <span className="text-[10px] tracking-[0.25em] text-white/25 font-mono uppercase pt-2">
+            <span className="text-[10px] tracking-[0.25em] text-white/40 md:text-white/25 font-mono uppercase pt-2">
               AMAI Labs · Infrastructure & Research
             </span>
           </motion.div>
