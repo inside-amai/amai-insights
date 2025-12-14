@@ -65,13 +65,16 @@ export const Header = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center gap-4">
             <img 
               src="/lovable-uploads/262e27b2-1bd9-4177-aebe-841d7cce6b6a.png"
               alt="AMAI Logo" 
               className="h-12 w-auto hover:opacity-80 transition-opacity"
               loading="eager"
             />
+            <span className="text-white/70 text-sm font-light tracking-wide hidden sm:block">
+              AMAI Labs · Infrastructure & Research
+            </span>
           </Link>
           
           {/* Back to Genesis button for Founders Mint page */}
