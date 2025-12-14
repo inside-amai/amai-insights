@@ -9,7 +9,7 @@ export const SiteHeader = () => {
           <div className="flex items-center gap-4">
             <a 
               href="https://amai.net" 
-              className="pointer-events-auto w-[72px] h-10 flex-shrink-0"
+              className="pointer-events-auto w-[64px] h-10 flex-shrink-0"
             >
               <img 
                 src="/amai-header-logo.png"
