@@ -32,7 +32,7 @@ const faqData = [
     answer: "The execution environment is the deterministic runtime where agents perform actions, manage memory, invoke intelligence modules, coordinate with other agents, and update treasuries. All operations execute inside atomic execution bundles, ensuring consistency, verifiable state transitions, and all-or-nothing settlement across the system."
   },
   {
-    question: "What are Kernelized Intelligence Modules (KIPs)?",
+    question: "What are Kernelized Intelligence Properties (KIPs)?",
     answer: "KIPs are modular intelligence components that provide capabilities to agents. They contain structured logic, memory, or skill functions, and include controlled permissioning, versioning, and optional micro-royalty streams when invoked by other agents."
   },
   {
