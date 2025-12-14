@@ -86,7 +86,7 @@ const AgentEconomyKIPs = () => {
 
                   {/* Title */}
                   <h1 className="text-4xl md:text-5xl font-light text-white mt-4 mb-6 tracking-tight">
-                    Kernelized Intelligent Property (KIP)
+                    Kernelized Intelligent Properties (KIP)
                   </h1>
 
                   {/* Subheader */}
@@ -469,7 +469,7 @@ const AgentEconomyKIPs = () => {
           </div>
         </div>
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-black mb-2" style={{ fontFamily: 'Arial, sans-serif' }}>Kernelized Intelligent Property (KIP)</h2>
+          <h2 className="text-2xl font-bold text-black mb-2" style={{ fontFamily: 'Arial, sans-serif' }}>Kernelized Intelligent Properties (KIP)</h2>
           <p className="text-sm text-gray-600 italic mb-4">Composable intelligence modules with provenance, permissioning, and royalty logic.</p>
           <div className="bg-gray-100 p-4 border-l-4 border-black">
             <p className="text-sm text-gray-700"><strong>Abstract:</strong> Specification of composable intelligence modules including lifecycle, provenance, lineage, permissioning, capability models, royalty mechanics, and execution composition.</p>
