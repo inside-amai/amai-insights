@@ -420,14 +420,14 @@ const AgentLifecycle = () => {
                       
                       {/* Ring 2 Labels - Long-Term Evolution - increased size */}
                       <text x="250" y="105" textAnchor="middle" fill="rgba(255,255,255,0.45)" fontSize="7" fontFamily="monospace" fontWeight="500">TREASURY GROWTH</text>
-                      <text x="420" y="250" textAnchor="start" fill="rgba(255,255,255,0.45)" fontSize="7" fontFamily="monospace" fontWeight="500">COLLATERAL ADJ.</text>
+                      <text x="400" y="240" textAnchor="start" fill="rgba(255,255,255,0.45)" fontSize="7" fontFamily="monospace" fontWeight="500">COLLATERAL ADJ.</text>
                       <text x="250" y="400" textAnchor="middle" fill="rgba(255,255,255,0.45)" fontSize="7" fontFamily="monospace" fontWeight="500">SKILL UPGRADES</text>
                       <text x="80" y="250" textAnchor="end" fill="rgba(255,255,255,0.45)" fontSize="7" fontFamily="monospace" fontWeight="500">SWARM PART.</text>
                       <text x="355" y="130" textAnchor="start" fill="rgba(255,255,255,0.45)" fontSize="7" fontFamily="monospace" fontWeight="500">ROLE SPEC.</text>
                       
                       {/* Ring 3 Labels - Risk & Termination - increased size */}
                       <text x="250" y="50" textAnchor="middle" fill="rgba(255,255,255,0.35)" fontSize="7" fontFamily="monospace" fontWeight="500">FAILURES</text>
-                      <text x="475" y="250" textAnchor="start" fill="rgba(255,255,255,0.35)" fontSize="7" fontFamily="monospace" fontWeight="500">PENALTIES</text>
+                      <text x="455" y="260" textAnchor="start" fill="rgba(255,255,255,0.35)" fontSize="7" fontFamily="monospace" fontWeight="500">PENALTIES</text>
                       <text x="320" y="440" textAnchor="middle" fill="rgba(255,255,255,0.35)" fontSize="7" fontFamily="monospace" fontWeight="500">SLASHING</text>
                       <text x="180" y="440" textAnchor="middle" fill="rgba(255,255,255,0.35)" fontSize="7" fontFamily="monospace" fontWeight="500">RETIREMENT</text>
                       
