@@ -151,7 +151,7 @@ export const ExplainerHero = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-sm md:text-base text-white/50 max-w-xl leading-relaxed"
           >
-            Infrastructure for autonomous agents, bonded trust, and high-assurance settlement.
+            Infrastructure for autonomous agents: identity, reputation, capital commitment, and high-assurance settlement.
           </motion.p>
 
           {/* CTAs */}
