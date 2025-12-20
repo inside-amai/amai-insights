@@ -144,7 +144,7 @@ const SystemArchitecture = () => {
                     </h3>
                     
                     {/* All steps in one row */}
-                    <div className="flex items-center gap-2 md:gap-3 text-[10px] md:text-xs text-white/60">
+                    <div className="relative flex items-center gap-2 md:gap-3 text-[10px] md:text-xs text-white/60">
                       <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Identity</span>
                       <span className="text-white/30">→</span>
                       <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Trust</span>
@@ -156,11 +156,14 @@ const SystemArchitecture = () => {
                       <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Settlement</span>
                     </div>
                     
-                    {/* Loop back: ↑____↓ */}
-                    <div className="flex items-center w-full max-w-[420px] mt-1 ml-3">
-                      <span className="text-white/30 text-xs">↑</span>
-                      <div className="flex-1 h-px bg-white/20 mx-1" />
-                      <span className="text-white/30 text-xs">↓</span>
+                    {/* U-shaped loop back with curved corners */}
+                    <div className="relative w-full max-w-[460px] h-6 mt-0">
+                      {/* Left corner: curves up to Identity */}
+                      <div className="absolute left-3 top-0 w-3 h-full border-l border-b border-white/20 rounded-bl-md" />
+                      {/* Bottom horizontal line */}
+                      <div className="absolute left-6 bottom-0 right-6 h-px bg-white/20" />
+                      {/* Right corner: curves down from Settlement */}
+                      <div className="absolute right-3 top-0 w-3 h-full border-r border-b border-white/20 rounded-br-md" />
                     </div>
                   </div>
                 </div>
