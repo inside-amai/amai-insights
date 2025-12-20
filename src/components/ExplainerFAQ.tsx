@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   Accordion,
@@ -5,6 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { PilotAccessForm } from './PilotAccessForm';
 
 const faqData = [
   {
@@ -54,6 +56,8 @@ const faqData = [
 ];
 
 export const ExplainerFAQ = () => {
+  const [isPilotFormOpen, setIsPilotFormOpen] = useState(false);
+
   return (
     <section className="min-h-screen flex items-center snap-start bg-perspective-grid relative overflow-hidden">
       <div className="container mx-auto px-6 py-20">
@@ -99,8 +103,30 @@ export const ExplainerFAQ = () => {
               ))}
             </Accordion>
           </motion.div>
+
+          {/* Pilot Access CTA */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="mt-16 text-center"
+          >
+            <button
+              onClick={() => setIsPilotFormOpen(true)}
+              className="text-xs text-muted-foreground hover:text-foreground/60 transition-colors duration-200 border-b border-border/40 hover:border-border/60 pb-0.5"
+            >
+              Request Pilot Access
+            </button>
+          </motion.div>
         </motion.div>
       </div>
+
+      {/* Pilot Access Form Modal */}
+      <PilotAccessForm 
+        isOpen={isPilotFormOpen} 
+        onClose={() => setIsPilotFormOpen(false)} 
+      />
     </section>
   );
 };
