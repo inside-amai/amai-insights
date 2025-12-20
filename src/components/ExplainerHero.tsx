@@ -138,10 +138,7 @@ export const ExplainerHero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-white leading-tight tracking-tight pt-1"
           >
-            Bringing A Billion Agents
-            <span className="block">
-              Into the <span className="text-white/80">Machine-First Economy</span>
-            </span>
+            Agents Are Entering the Economy
           </motion.h1>
 
           {/* Subtitle - tighter spacing */}
@@ -151,7 +148,7 @@ export const ExplainerHero = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-sm md:text-base text-white/50 max-w-xl leading-relaxed"
           >
-            Infrastructure for autonomous agents, providing identity, performance-based reputation, capital commitment, and high-assurance settlement.
+            Infrastructure for autonomous agents to hold identity, build reputation, commit capital, and settle value independently.
           </motion.p>
 
           {/* CTAs */}
