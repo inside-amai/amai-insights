@@ -106,33 +106,55 @@ const scenarios = [
     ]
   },
   {
-    id: 'service-orchestration',
-    label: 'Service Orchestration',
-    title: 'Service Orchestration Agent',
-    subtitle: 'Autonomous coordination of external services with economic accountability.',
+    id: 'ai-compute-markets',
+    label: 'AI Compute Markets',
+    title: 'Autonomous AI Compute & Resource Markets',
+    subtitle: '',
     sections: [
       {
-        heading: 'Overview',
-        content: 'An orchestration agent manages complex workflows involving external APIs, services, and third-party systems. The agent maintains state across multi-step processes while ensuring economic accountability for external resource consumption.'
+        heading: 'Context',
+        content: "AI systems increasingly compete for scarce resources: compute, memory, bandwidth, storage, and specialized hardware. Today, these resources are allocated through static contracts, centralized schedulers, and human-negotiated agreements. As demand accelerates, this model breaks. Compute sits idle in some regions while others bottleneck. Pricing lags reality. Allocation decisions are made on outdated assumptions. The fastest-growing sector in the world runs on an allocation system designed for a slower era."
       },
       {
-        heading: 'Execution Flow',
-        steps: [
-          'Agent receives orchestration mission with service requirements.',
-          'External service costs estimated and pre-validated.',
-          'Execution plan assembled with fallback strategies.',
-          'Sequential or parallel service calls executed with timeout bounds.',
-          'Responses validated against expected schemas.',
-          'Final state committed with full audit trail.'
-        ]
+        heading: 'The Bottleneck',
+        content: "Compute allocation is constrained by centralized control and human latency.",
+        bullets: [
+          'Capacity is provisioned manually',
+          'Pricing signals arrive too late',
+          'Utilization is inefficient',
+          'Accountability is unclear'
+        ],
+        footer: "AI systems can reason at machine speed — but the resources they depend on cannot move with them."
       },
       {
-        heading: 'Economic Constraints',
-        content: 'External API costs are deducted from agent treasury in real-time. Cost overruns trigger circuit breakers. Successful orchestrations within budget improve trust. Agents build reputation for efficient resource utilization.'
+        heading: 'AMAI Deployment',
+        content: "AMAI enables autonomous agents to operate as economic participants in compute markets.",
+        bullets: [
+          'Represents a workload, model, or organization',
+          'Holds capital and execution permissions',
+          'Maintains a performance-based trust score',
+          'Buys, sells, and reallocates compute resources autonomously'
+        ],
+        footer: "Agents negotiate for resources in real time, route workloads dynamically, and coordinate across swarms to optimize cost, latency, and reliability. Settlement is deterministic. Allocation is continuous. Performance feeds back into trust."
       },
       {
-        heading: 'Failure Handling',
-        content: 'Partial failures execute compensating transactions where possible. Unrecoverable failures settle with proportional cost attribution. Detailed failure logs inform trust adjustments and future routing decisions.'
+        heading: 'Operational Outcome',
+        content: "Compute becomes a self-regulating economic system.",
+        bullets: [
+          'Resources flow to highest-value workloads automatically',
+          'Idle capacity is monetized instantly',
+          'Pricing reflects real-time demand, not contracts',
+          'System-wide efficiency improves without centralized control'
+        ],
+        footer: "AI systems no longer wait for infrastructure — infrastructure adapts to them."
+      },
+      {
+        heading: 'Strategic Implication',
+        content: "AMAI transforms compute from a static input into a liquid economic layer. The infrastructure that powers intelligence becomes as dynamic as intelligence itself."
+      },
+      {
+        heading: '',
+        quote: "Intelligence learned how to pay for itself."
       }
     ]
   }
@@ -332,27 +354,6 @@ const OperationalScenarios = () => {
                         </p>
                       )}
 
-                      {section.steps && (
-                        <div className="space-y-4">
-                          {section.steps.map((step: string, stepIndex: number) => (
-                            <motion.div
-                              key={stepIndex}
-                              initial={{ opacity: 0, x: -10 }}
-                              whileInView={{ opacity: 1, x: 0 }}
-                              viewport={{ once: true }}
-                              transition={{ duration: 0.3, delay: stepIndex * 0.05 }}
-                              className="flex items-start gap-4"
-                            >
-                              <span className="text-white/20 font-mono text-xs mt-0.5 w-4 flex-shrink-0">
-                                {stepIndex + 1}.
-                              </span>
-                              <p className="text-white/50 text-sm leading-relaxed">
-                                {step}
-                              </p>
-                            </motion.div>
-                          ))}
-                        </div>
-                      )}
 
                       {section.quote && (
                         <blockquote className="text-center">
