@@ -85,22 +85,32 @@ const ArchitectureDiagram: React.FC = () => {
             <h3 className="text-xs tracking-[0.2em] uppercase text-white/30 mb-4">
               AMAI Economic Loop
             </h3>
-            <div className="relative flex items-center gap-2 md:gap-3 text-[10px] md:text-xs text-white/60">
-              <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Identity</span>
-              <span className="text-white/30">→</span>
-              <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Trust</span>
-              <span className="text-white/30">→</span>
-              <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Capital</span>
-              <span className="text-white/30">→</span>
-              <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Execution</span>
-              <span className="text-white/30">→</span>
-              <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Settlement</span>
-            </div>
-            {/* Loop back arrow */}
-            <div className="mt-3 flex items-center justify-center w-full max-w-md">
-              <div className="flex-1 h-px bg-white/20" />
-              <span className="px-3 text-white/30 text-[10px]">↻</span>
-              <div className="flex-1 h-px bg-white/20" />
+            <div className="relative">
+              {/* Main flow row */}
+              <div className="flex items-center gap-2 md:gap-3 text-[10px] md:text-xs text-white/60">
+                <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Identity</span>
+                <span className="text-white/30">→</span>
+                <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Trust</span>
+                <span className="text-white/30">→</span>
+                <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Capital</span>
+                <span className="text-white/30">→</span>
+                <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Execution</span>
+                <span className="text-white/30">→</span>
+                <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Settlement</span>
+              </div>
+              {/* Loop back visualization - U-shaped path from Settlement back to Identity */}
+              <div className="relative h-5 mt-1">
+                {/* Left corner: curves up to Identity */}
+                <div className="absolute left-3 top-0 w-3 h-full border-l border-b border-white/20 rounded-bl-md" />
+                {/* Bottom horizontal line with arrows */}
+                <div className="absolute left-6 bottom-0 right-6 h-px bg-white/20" />
+                {/* Direction arrows pointing left (Settlement → Identity) */}
+                <span className="absolute left-[25%] -translate-x-1/2 bottom-[-3px] text-white/40 text-[10px]">←</span>
+                <span className="absolute left-1/2 -translate-x-1/2 bottom-[-3px] text-white/40 text-[10px]">←</span>
+                <span className="absolute left-[75%] -translate-x-1/2 bottom-[-3px] text-white/40 text-[10px]">←</span>
+                {/* Right corner: curves down from Settlement */}
+                <div className="absolute right-3 top-0 w-3 h-full border-r border-b border-white/20 rounded-br-md" />
+              </div>
             </div>
           </div>
         </motion.div>
