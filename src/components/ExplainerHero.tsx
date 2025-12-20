@@ -118,16 +118,15 @@ export const ExplainerHero = () => {
           transition={{ duration: 1, ease: "easeOut" }}
           className="space-y-3 max-w-3xl"
         >
-          {/* Logo - 95% opacity for infra atmosphere */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 0.95, scale: 1 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <img 
               src={amaiLogo}
               alt="AMAI Logo" 
-              className="h-12 md:h-16 lg:h-20 xl:h-22 w-auto"
+              className="h-12 md:h-16 lg:h-20 xl:h-22 w-auto brightness-110"
             />
           </motion.div>
 
