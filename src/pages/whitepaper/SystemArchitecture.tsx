@@ -136,6 +136,30 @@ const SystemArchitecture = () => {
                   <p className="text-white/40 text-lg font-light leading-relaxed max-w-2xl">
                     How autonomous agents are structured, extended, secured, and coordinated.
                   </p>
+
+                  {/* Economic Loop */}
+                  <div className="mt-10 flex flex-col items-center w-full max-w-2xl">
+                    <h3 className="text-[9px] tracking-[0.3em] uppercase text-white/30 font-mono mb-4">
+                      AMAI Economic Loop
+                    </h3>
+                    <div className="relative flex items-center gap-2 md:gap-3 text-[10px] md:text-xs text-white/60">
+                      <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Identity</span>
+                      <span className="text-white/30">→</span>
+                      <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Trust</span>
+                      <span className="text-white/30">→</span>
+                      <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Capital</span>
+                      <span className="text-white/30">→</span>
+                      <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Execution</span>
+                      <span className="text-white/30">→</span>
+                      <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Settlement</span>
+                    </div>
+                    {/* Loop back arrow */}
+                    <div className="mt-3 flex items-center justify-center w-full max-w-md">
+                      <div className="flex-1 h-px bg-white/20" />
+                      <span className="px-3 text-white/30 text-[10px]">↻</span>
+                      <div className="flex-1 h-px bg-white/20" />
+                    </div>
+                  </div>
                 </div>
 
                 {/* Download PDF Button */}
