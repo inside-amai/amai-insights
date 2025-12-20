@@ -136,9 +136,10 @@ export const ExplainerHero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-white leading-tight tracking-tight pt-1"
+            className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-white leading-tight tracking-tight pt-1"
           >
-            Agents Are Entering the Economy
+            <span className="font-light">Agents Are</span>
+            <span className="block font-normal">Entering the Economy.</span>
           </motion.h1>
 
           {/* Subtitle - tighter spacing */}
