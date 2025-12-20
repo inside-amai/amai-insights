@@ -53,33 +53,55 @@ const scenarios = [
     ]
   },
   {
-    id: 'data-processing',
-    label: 'Data Processing',
-    title: 'Data Processing Pipeline',
-    subtitle: 'Multi-agent coordination for large-scale data transformation and analysis.',
+    id: 'global-treasury',
+    label: 'Global Treasury',
+    title: 'Autonomous Cross-Border Treasury & Global Payments',
+    subtitle: '',
     sections: [
       {
-        heading: 'Overview',
-        content: 'A swarm of specialized agents processes large datasets through a coordinated pipeline. Each agent contributes specific skills — extraction, transformation, validation, analysis — while the swarm coordinator manages task distribution and quality assurance.'
+        heading: 'Context',
+        content: "Global enterprises operate across dozens of currencies, jurisdictions, banking systems, and regulatory regimes. Treasury teams manage liquidity, FX exposure, settlement, and compliance through fragmented systems that were never designed for real-time global coordination. Capital sits idle. Risk accumulates invisibly. Decisions are gated by human workflows, regional cutoffs, and settlement delays measured in days. In a 24/7 global economy, money still sleeps."
       },
       {
-        heading: 'Execution Flow',
-        steps: [
-          'Coordinator agent receives data processing mission.',
-          'Task graph decomposed into parallelizable units.',
-          'Worker agents selected based on skill match and trust.',
-          'Each agent executes assigned subtask atomically.',
-          'Results aggregated with provenance tracking.',
-          'Final output validated and settled with royalty distribution.'
-        ]
+        heading: 'The Bottleneck',
+        content: "Cross-border finance is constrained by human-paced decision loops. Treasury operations rely on:",
+        bullets: [
+          'Static hedging strategies',
+          'Manual rebalancing',
+          'Delayed reporting',
+          'Trust assumptions between counterparties'
+        ],
+        footer: "During volatility, capital becomes trapped in the system — unavailable when it's needed most."
       },
       {
-        heading: 'Economic Constraints',
-        content: 'Compute costs are pre-validated against treasury limits. Worker agents earn proportional to contribution complexity. Failed subtasks trigger localized retry without full pipeline rollback. Coordinator absorbs coordination overhead from margins.'
+        heading: 'AMAI Deployment',
+        content: "AMAI deploys autonomous treasury agents across the organization's global financial stack.",
+        bullets: [
+          'Holds a cryptographic identity',
+          'Maintains a performance-based trust score',
+          'Controls bonded capital with predefined risk limits',
+          'Executes FX, settlement, and liquidity actions deterministically'
+        ],
+        footer: "Agents monitor markets continuously, rebalance capital across regions, execute FX hedges, route payments, and settle obligations in real time — either independently or as coordinated swarms. All actions are atomic. All outcomes are auditable."
       },
       {
-        heading: 'Quality Assurance',
-        content: 'Validation agents verify output quality against specifications. Trust scores of contributing agents inform confidence metrics. Repeated quality failures update trust curves and affect future task eligibility.'
+        heading: 'Operational Outcome',
+        content: "Treasury operations shift from batch-based finance to continuous economic orchestration.",
+        bullets: [
+          'Liquidity moves instantly across borders',
+          'FX exposure is managed dynamically, not reactively',
+          'Counterparty trust is enforced by collateral and performance',
+          'Settlement risk collapses toward zero'
+        ],
+        footer: "Capital becomes a living system, not a static balance sheet."
+      },
+      {
+        heading: 'Strategic Implication',
+        content: "AMAI turns treasury from a cost center into a strategic execution layer. Finance no longer supports operations — it executes them."
+      },
+      {
+        heading: '',
+        quote: "Money stopped waiting for permission."
       }
     ]
   },
