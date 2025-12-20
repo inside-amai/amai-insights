@@ -142,34 +142,25 @@ const SystemArchitecture = () => {
                     <h3 className="text-[9px] tracking-[0.3em] uppercase text-white/30 font-mono mb-4">
                       AMAI Economic Loop
                     </h3>
-                    <div className="relative">
-                      {/* Top row: Identity → Trust → Capital → Execution */}
-                      <div className="flex items-center gap-2 md:gap-3 text-[10px] md:text-xs text-white/60">
-                        <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Identity</span>
-                        <span className="text-white/30">→</span>
-                        <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Trust</span>
-                        <span className="text-white/30">→</span>
-                        <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Capital</span>
-                        <span className="text-white/30">→</span>
-                        <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Execution</span>
-                      </div>
-                      
-                      {/* Down arrow + Settlement + loop back */}
-                      <div className="flex items-start mt-2">
-                        {/* Left side: loop back line going up to Identity */}
-                        <div className="flex flex-col items-center mr-2">
-                          <div className="w-px h-8 bg-white/20" />
-                          <span className="text-white/30 text-[10px]">↑</span>
-                        </div>
-                        
-                        {/* Horizontal return line */}
-                        <div className="flex items-center flex-1 mt-4">
-                          <div className="flex-1 h-px bg-white/20" />
-                          <span className="text-white/30 mx-2">←</span>
-                          <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02] text-[10px] md:text-xs text-white/60">Settlement</span>
-                          <span className="text-white/30 mx-2">↓</span>
-                        </div>
-                      </div>
+                    
+                    {/* All steps in one row */}
+                    <div className="flex items-center gap-2 md:gap-3 text-[10px] md:text-xs text-white/60">
+                      <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Identity</span>
+                      <span className="text-white/30">→</span>
+                      <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Trust</span>
+                      <span className="text-white/30">→</span>
+                      <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Capital</span>
+                      <span className="text-white/30">→</span>
+                      <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Execution</span>
+                      <span className="text-white/30">→</span>
+                      <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Settlement</span>
+                    </div>
+                    
+                    {/* Loop back: ↑____↓ */}
+                    <div className="flex items-center w-full max-w-[420px] mt-1 ml-3">
+                      <span className="text-white/30 text-xs">↑</span>
+                      <div className="flex-1 h-px bg-white/20 mx-1" />
+                      <span className="text-white/30 text-xs">↓</span>
                     </div>
                   </div>
                 </div>
