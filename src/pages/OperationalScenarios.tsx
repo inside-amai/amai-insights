@@ -235,12 +235,12 @@ const OperationalScenarios = () => {
 
               {/* Subheader */}
               <p className="text-white/40 text-lg font-light leading-relaxed max-w-2xl">
-                Reference implementations demonstrating agent capabilities across real-world use cases.
+                Reference implementations illustrating how autonomous agents operate as economic actors across real-world systems.
               </p>
 
               {/* Abstract */}
               <p className="text-white/30 text-xs font-mono mt-6 leading-relaxed max-w-2xl">
-                Abstract: Practical examples of autonomous agent operation including trading, data processing, and service orchestration with full economic accountability.
+                Abstract: These scenarios demonstrate agents executing, coordinating, and settling value autonomously — with identity, reputation, capital commitment, and deterministic outcomes — across critical infrastructure domains.
               </p>
 
               {/* Divider */}
