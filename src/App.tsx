@@ -30,6 +30,7 @@ import ProtocolInternals from "./pages/whitepaper/ProtocolInternals";
 import Token from "./pages/whitepaper/Token";
 import AgentEconomy from "./pages/whitepaper/AgentEconomy";
 import AgentLifecycle from "./pages/whitepaper/AgentLifecycle";
+import OperationalScenarios from "./pages/OperationalScenarios";
 
 
 const queryClient = new QueryClient();
@@ -64,6 +65,7 @@ const App = () => (
           <Route path="/token-model" element={<Token />} />
           <Route path="/agent-economy" element={<AgentEconomy />} />
           <Route path="/agent-lifecycle" element={<AgentLifecycle />} />
+          <Route path="/operational-scenarios" element={<OperationalScenarios />} />
           
           <Route path="/diagram" element={<Diagram />} />
           <Route path="/ui" element={<UI />} />
