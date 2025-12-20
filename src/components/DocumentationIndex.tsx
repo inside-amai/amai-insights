@@ -1,7 +1,5 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { PilotAccessForm } from './PilotAccessForm';
 
 const documentationCards = [
   {
@@ -113,7 +111,6 @@ const DocumentCard = ({ card, index }: { card: typeof documentationCards[0]; ind
 };
 
 export const DocumentationIndex = () => {
-  const [isPilotFormOpen, setIsPilotFormOpen] = useState(false);
 
   return (
     <section className="relative isolate py-28 md:py-36 overflow-hidden bg-black">
@@ -176,7 +173,7 @@ export const DocumentationIndex = () => {
           ))}
         </div>
 
-        {/* Pilot Access CTA */}
+        {/* Operational Scenarios CTA */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -184,20 +181,14 @@ export const DocumentationIndex = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mt-16 text-center"
         >
-          <button
-            onClick={() => setIsPilotFormOpen(true)}
+          <Link
+            to="/operational-scenarios"
             className="text-xs text-white/40 hover:text-white/60 transition-colors duration-200 border-b border-white/20 hover:border-white/40 pb-0.5"
           >
-            Request Pilot Access
-          </button>
+            Operational Scenarios
+          </Link>
         </motion.div>
       </div>
-
-      {/* Pilot Access Form Modal */}
-      <PilotAccessForm 
-        isOpen={isPilotFormOpen} 
-        onClose={() => setIsPilotFormOpen(false)} 
-      />
     </section>
   );
 };
