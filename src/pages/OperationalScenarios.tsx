@@ -7,33 +7,48 @@ import { Footer } from '@/components/Footer';
 
 const scenarios = [
   {
-    id: 'autonomous-trading',
-    label: 'Autonomous Trading',
-    title: 'Autonomous Trading Agent',
-    subtitle: 'Capital allocation, risk management, and settlement in real-time markets.',
+    id: 'global-energy-network',
+    label: 'Global Energy Network',
+    title: 'Autonomous Capital & Operations for a Global Energy Network',
+    subtitle: '',
     sections: [
       {
-        heading: 'Overview',
-        content: 'A trading agent operates with bonded collateral, executing market strategies within trust-weighted capital limits. The agent receives market signals, evaluates risk parameters, and executes trades through atomic execution bundles that ensure deterministic settlement.'
+        heading: 'Context',
+        content: "Global energy systems operate across thousands of assets, jurisdictions, and markets — power generation, transmission, storage, and trading — each governed by different rules, incentives, and risk profiles. Today, these systems are coordinated through layers of human decision-making, delayed reporting, and fragmented capital allocation. Even minor inefficiencies compound at scale, creating systemic exposure during periods of volatility, supply disruption, or geopolitical stress."
       },
       {
-        heading: 'Execution Flow',
-        steps: [
-          'Agent receives market signal or strategy trigger.',
-          'Risk parameters validated against collateral and trust ceiling.',
-          'Trade execution bundle assembled with slippage bounds.',
-          'Atomic execution ensures all-or-nothing settlement.',
-          'Performance metrics update trust score.',
-          'Treasury balance adjusted based on P&L.'
-        ]
+        heading: 'The Bottleneck',
+        content: "Modern energy infrastructure is constrained not by physical capacity, but by economic coordination. Human-in-the-loop workflows introduce latency, bias, and operational risk. Capital is allocated on static assumptions. Trust is inferred rather than measured. Accountability is retrospective rather than real-time. In critical moments, decisions arrive too late."
       },
       {
-        heading: 'Economic Constraints',
-        content: 'Position sizing is bounded by trust-weighted capital allocation. Higher trust agents access larger capital pools. Losses trigger proportional collateral adjustments. Consistent performance unlocks expanded operating parameters.'
+        heading: 'AMAI Deployment',
+        content: "AMAI deploys a network of autonomous agents across the energy operator's infrastructure.",
+        bullets: [
+          'Holds a persistent identity',
+          'Maintains a verifiable trust score derived from historical performance',
+          'Controls bonded capital with deterministic limits',
+          'Executes actions atomically with guaranteed settlement'
+        ],
+        footer: "Agents operate independently or as coordinated swarms, dynamically reallocating capital, routing energy, hedging exposure, and enforcing risk constraints in real time. All execution is verifiable. All outcomes are settled deterministically."
       },
       {
-        heading: 'Swarm Coordination',
-        content: 'Multiple trading agents can form swarms to execute coordinated strategies across markets. Shared memory enables signal aggregation while individual trust scores weight contribution to collective decisions.'
+        heading: 'Operational Outcome',
+        content: "Energy operations transition from human-managed systems to machine-coordinated economic infrastructure.",
+        bullets: [
+          'Capital is allocated continuously, not quarterly',
+          'Risk is enforced at execution, not post-mortem',
+          'Trust becomes measurable, transferable, and enforceable',
+          'System behavior adapts instantly to real-world conditions'
+        ],
+        footer: "The organization does not react to volatility — it absorbs it."
+      },
+      {
+        heading: 'Strategic Implication',
+        content: "AMAI does not replace operators. It replaces the economic friction between them."
+      },
+      {
+        heading: '',
+        quote: "We didn't automate jobs. We automated the economy that runs them."
       }
     ]
   },
@@ -249,7 +264,7 @@ const OperationalScenarios = () => {
             {/* Scenario Sections */}
             {currentScenario.sections.map((section, index) => (
               <div key={index}>
-                <section className="py-16 px-6">
+                <section className={section.quote ? "py-20 px-6" : "py-16 px-6"}>
                   <div className="max-w-4xl mx-auto">
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
@@ -257,9 +272,11 @@ const OperationalScenarios = () => {
                       viewport={{ once: true, margin: "-100px" }}
                       transition={{ duration: 0.6 }}
                     >
-                      <h3 className="text-xl font-light text-white mb-6 tracking-tight">
-                        {section.heading}
-                      </h3>
+                      {section.heading && (
+                        <h3 className="text-xl font-light text-white mb-6 tracking-tight">
+                          {section.heading}
+                        </h3>
+                      )}
                       
                       {section.content && (
                         <p className="text-white/50 text-sm leading-relaxed">
@@ -267,9 +284,35 @@ const OperationalScenarios = () => {
                         </p>
                       )}
 
+                      {section.bullets && (
+                        <div className="space-y-3 mt-6 mb-6">
+                          {section.bullets.map((bullet: string, bulletIndex: number) => (
+                            <motion.div
+                              key={bulletIndex}
+                              initial={{ opacity: 0, x: -10 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.3, delay: bulletIndex * 0.05 }}
+                              className="flex items-start gap-3"
+                            >
+                              <span className="text-white/30 mt-1.5">•</span>
+                              <p className="text-white/50 text-sm leading-relaxed">
+                                {bullet}
+                              </p>
+                            </motion.div>
+                          ))}
+                        </div>
+                      )}
+
+                      {section.footer && (
+                        <p className="text-white/50 text-sm leading-relaxed mt-6">
+                          {section.footer}
+                        </p>
+                      )}
+
                       {section.steps && (
                         <div className="space-y-4">
-                          {section.steps.map((step, stepIndex) => (
+                          {section.steps.map((step: string, stepIndex: number) => (
                             <motion.div
                               key={stepIndex}
                               initial={{ opacity: 0, x: -10 }}
@@ -288,12 +331,20 @@ const OperationalScenarios = () => {
                           ))}
                         </div>
                       )}
+
+                      {section.quote && (
+                        <blockquote className="text-center">
+                          <p className="text-white/70 text-lg md:text-xl font-light italic leading-relaxed">
+                            "{section.quote}"
+                          </p>
+                        </blockquote>
+                      )}
                     </motion.div>
                   </div>
                 </section>
 
                 {/* Divider between sections */}
-                {index < currentScenario.sections.length - 1 && (
+                {index < currentScenario.sections.length - 1 && !section.quote && (
                   <div className="max-w-4xl mx-auto px-6">
                     <div className="h-px bg-white/[0.06]" />
                   </div>
