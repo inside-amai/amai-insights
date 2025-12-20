@@ -183,9 +183,10 @@ export const DocumentationIndex = () => {
         >
           <Link
             to="/operational-scenarios"
-            className="text-xs text-white/40 hover:text-white/60 transition-colors duration-200 border-b border-white/20 hover:border-white/40 pb-0.5"
+            className="inline-flex flex-col items-center gap-1 text-white/40 hover:text-white/60 transition-colors duration-200 group"
           >
-            Operational Scenarios
+            <span className="text-xs border-b border-white/20 group-hover:border-white/40 pb-0.5">Operational Scenarios</span>
+            <span className="text-[10px] italic text-white/30 group-hover:text-white/50">Applied reference implementations</span>
           </Link>
         </motion.div>
       </div>
