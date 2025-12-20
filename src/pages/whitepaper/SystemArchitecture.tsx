@@ -158,13 +158,13 @@ const SystemArchitecture = () => {
                     
                     {/* U-shaped loop back with curved corners */}
                     <div className="relative w-full max-w-[460px] h-6 mt-0">
-                      {/* Left corner: curves up to Identity */}
-                      <div className="absolute left-3 top-0 w-3 h-full border-l border-b border-white/20 rounded-bl-md" />
+                      {/* Left corner: curves up to Trust (positioned after Identity) */}
+                      <div className="absolute left-[72px] md:left-[88px] top-0 w-3 h-full border-l border-b border-white/20 rounded-bl-md" />
                       {/* Bottom horizontal line with arrow */}
-                      <div className="absolute left-6 bottom-0 right-6 h-px bg-white/20" />
-                      {/* Direction arrows pointing left (Settlement → Identity) */}
-                      <span className="absolute left-[25%] -translate-x-1/2 bottom-[-3px] text-white/40 text-[10px]">←</span>
-                      <span className="absolute left-1/2 -translate-x-1/2 bottom-[-3px] text-white/40 text-[10px]">←</span>
+                      <div className="absolute left-[84px] md:left-[100px] bottom-0 right-6 h-px bg-white/20" />
+                      {/* Direction arrows pointing left (Settlement → Trust) */}
+                      <span className="absolute left-[35%] -translate-x-1/2 bottom-[-3px] text-white/40 text-[10px]">←</span>
+                      <span className="absolute left-[55%] -translate-x-1/2 bottom-[-3px] text-white/40 text-[10px]">←</span>
                       <span className="absolute left-[75%] -translate-x-1/2 bottom-[-3px] text-white/40 text-[10px]">←</span>
                       {/* Right corner: curves down from Settlement */}
                       <div className="absolute right-3 top-0 w-3 h-full border-r border-b border-white/20 rounded-br-md" />

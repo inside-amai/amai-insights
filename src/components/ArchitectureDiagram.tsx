@@ -98,15 +98,15 @@ const ArchitectureDiagram: React.FC = () => {
                 <span className="text-white/30">→</span>
                 <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Settlement</span>
               </div>
-              {/* Loop back visualization - U-shaped path from Settlement back to Identity */}
+              {/* Loop back visualization - U-shaped path from Settlement back to Trust */}
               <div className="relative h-5 mt-1">
-                {/* Left corner: curves up to Identity */}
-                <div className="absolute left-3 top-0 w-3 h-full border-l border-b border-white/20 rounded-bl-md" />
+                {/* Left corner: curves up to Trust (positioned after Identity) */}
+                <div className="absolute left-[72px] md:left-[88px] top-0 w-3 h-full border-l border-b border-white/20 rounded-bl-md" />
                 {/* Bottom horizontal line with arrows */}
-                <div className="absolute left-6 bottom-0 right-6 h-px bg-white/20" />
-                {/* Direction arrows pointing left (Settlement → Identity) */}
-                <span className="absolute left-[25%] -translate-x-1/2 bottom-[-3px] text-white/40 text-[10px]">←</span>
-                <span className="absolute left-1/2 -translate-x-1/2 bottom-[-3px] text-white/40 text-[10px]">←</span>
+                <div className="absolute left-[84px] md:left-[100px] bottom-0 right-6 h-px bg-white/20" />
+                {/* Direction arrows pointing left (Settlement → Trust) */}
+                <span className="absolute left-[35%] -translate-x-1/2 bottom-[-3px] text-white/40 text-[10px]">←</span>
+                <span className="absolute left-[55%] -translate-x-1/2 bottom-[-3px] text-white/40 text-[10px]">←</span>
                 <span className="absolute left-[75%] -translate-x-1/2 bottom-[-3px] text-white/40 text-[10px]">←</span>
                 {/* Right corner: curves down from Settlement */}
                 <div className="absolute right-3 top-0 w-3 h-full border-r border-b border-white/20 rounded-br-md" />
