@@ -148,7 +148,7 @@ export const ExplainerHero = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-sm md:text-base text-white/50 max-w-xl leading-relaxed"
           >
-            Infrastructure for autonomous agents to establish identity, build reputation, commit capital, and settle value independently.
+            Infrastructure for autonomous agents to establish identity, build reputation, enforce capital accountability, and settle value independently.
           </motion.p>
 
           {/* CTAs */}
