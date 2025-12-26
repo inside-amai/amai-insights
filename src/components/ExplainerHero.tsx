@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
 import amaiLogo from '@/assets/amai-logo-hero-new.png';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export const ExplainerHero = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="min-h-[85vh] flex items-center snap-start relative overflow-hidden">
       {/* Subtle blueprint background */}
@@ -17,13 +20,13 @@ export const ExplainerHero = () => {
         
         {/* Faint layer labels */}
         <div className="absolute left-8 top-1/4 transform -translate-y-1/2">
-          <span className="text-[9px] tracking-[0.3em] text-white/[0.06] font-mono uppercase">Identity Layer</span>
+          <span className="text-[9px] tracking-[0.3em] text-white/[0.06] font-mono uppercase">{t('hero.layer.identity')}</span>
         </div>
         <div className="absolute left-8 top-1/2 transform -translate-y-1/2">
-          <span className="text-[9px] tracking-[0.3em] text-white/[0.06] font-mono uppercase">Execution Layer</span>
+          <span className="text-[9px] tracking-[0.3em] text-white/[0.06] font-mono uppercase">{t('hero.layer.execution')}</span>
         </div>
         <div className="absolute left-8 top-3/4 transform -translate-y-1/2">
-          <span className="text-[9px] tracking-[0.3em] text-white/[0.06] font-mono uppercase">Settlement Layer</span>
+          <span className="text-[9px] tracking-[0.3em] text-white/[0.06] font-mono uppercase">{t('hero.layer.settlement')}</span>
         </div>
         
         {/* Faint vertical line */}
@@ -130,7 +133,7 @@ export const ExplainerHero = () => {
             />
           </motion.div>
 
-          {/* Headline - tighter spacing */}
+          {/* Headline - NOT translated */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -141,14 +144,14 @@ export const ExplainerHero = () => {
             <span className="block font-normal">Entering the Economy.</span>
           </motion.h1>
 
-          {/* Subtitle - tighter spacing */}
+          {/* Subtitle - translated */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-sm md:text-base text-white/50 max-w-xl leading-relaxed"
           >
-            Infrastructure for autonomous agents to establish identity, build reputation, enforce capital accountability, and settle value independently.
+            {t('hero.subheader')}
           </motion.p>
 
           {/* CTAs */}
@@ -167,7 +170,7 @@ export const ExplainerHero = () => {
                 }}
                 className="text-sm text-white/70 hover:text-white border border-white/20 hover:border-white/40 px-5 py-2.5 rounded transition-all duration-300"
               >
-                View System Architecture →
+                {t('hero.cta.architecture')}
               </a>
               
               <a 
@@ -178,20 +181,20 @@ export const ExplainerHero = () => {
                 }}
                 className="text-sm text-white/50 hover:text-white/70 transition-all duration-300"
               >
-                <span className="hidden md:inline">Open </span>Documentation Library
+                <span className="hidden md:inline">{t('hero.cta.documentation.prefix')}</span>{t('hero.cta.documentation')}
               </a>
               
               <a 
                 href="/agent-lifecycle"
                 className="text-sm text-white/50 hover:text-white/70 transition-all duration-300"
               >
-                Agent Lifecycle →
+                {t('hero.cta.lifecycle')}
               </a>
             </div>
             
             {/* Micro-label */}
             <span className="text-[10px] tracking-[0.25em] text-white/40 md:text-white/25 font-mono uppercase pt-2">
-              AMAI Labs · Infrastructure & Research
+              {t('hero.microlabel')}
             </span>
           </motion.div>
         </motion.div>

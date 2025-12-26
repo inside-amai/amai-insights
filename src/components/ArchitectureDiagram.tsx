@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface LayerProps {
   title: string;
@@ -36,27 +37,14 @@ const Layer: React.FC<LayerProps> = ({ title, items, isLast = false }) => (
 );
 
 const ArchitectureDiagram: React.FC = () => {
+  const { t } = useLanguage();
+
   const layers = [
-    {
-      title: "Identity Root",
-      items: ["Immutable identifiers", "SBT-bound ownership", "Reputation state"],
-    },
-    {
-      title: "Agent Engine Cluster",
-      items: ["Kernelized intelligence modules (KIPs)", "Memory store", "Execution engine", "Permissioning & versioning"],
-    },
-    {
-      title: "Bonded Treasury",
-      items: ["Collateral", "Trust-weighted allocation", "Performance-based adjustments"],
-    },
-    {
-      title: "Swarms",
-      items: ["Shared context", "Delegated tasks", "Collective optimization"],
-    },
-    {
-      title: "Computation & Settlement",
-      items: ["Atomic Execution Bundles", "Deterministic settlement", "Performance verification"],
-    },
+    { titleKey: 'arch.layer1.title', itemsKey: 'arch.layer1.items' },
+    { titleKey: 'arch.layer2.title', itemsKey: 'arch.layer2.items' },
+    { titleKey: 'arch.layer3.title', itemsKey: 'arch.layer3.items' },
+    { titleKey: 'arch.layer4.title', itemsKey: 'arch.layer4.items' },
+    { titleKey: 'arch.layer5.title', itemsKey: 'arch.layer5.items' },
   ];
 
   return (
@@ -71,32 +59,32 @@ const ArchitectureDiagram: React.FC = () => {
           className="text-center mb-12 md:mb-16"
         >
           <span className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium">
-            System
+            {t('arch.eyebrow')}
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-light text-white tracking-tight">
-            Architecture
+            {t('arch.title')}
           </h2>
           <p className="mt-4 text-white/50 text-sm max-w-lg mx-auto leading-relaxed text-center">
-            A unified blueprint of AMAI's machine-first economic infrastructure.
+            {t('arch.subtitle')}
           </p>
 
           {/* Economic Loop */}
           <div className="mt-10 flex flex-col items-center">
             <h3 className="text-xs tracking-[0.2em] uppercase text-white/30 mb-4">
-              AMAI Economic Loop
+              {t('arch.loop.title')}
             </h3>
             <div className="relative">
               {/* Main flow row */}
               <div className="flex items-center gap-2 md:gap-3 text-[10px] md:text-xs text-white/60">
-                <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Identity</span>
+                <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">{t('arch.loop.identity')}</span>
                 <span className="text-white/30">→</span>
-                <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Trust</span>
+                <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">{t('arch.loop.trust')}</span>
                 <span className="text-white/30">→</span>
-                <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Capital</span>
+                <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">{t('arch.loop.capital')}</span>
                 <span className="text-white/30">→</span>
-                <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Execution</span>
+                <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">{t('arch.loop.execution')}</span>
                 <span className="text-white/30">→</span>
-                <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Settlement</span>
+                <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">{t('arch.loop.settlement')}</span>
               </div>
               {/* Loop back visualization - U-shaped path from Settlement back to Trust */}
               <div className="relative h-5 mt-1">
@@ -119,9 +107,9 @@ const ArchitectureDiagram: React.FC = () => {
         <div className="max-w-2xl mx-auto">
           {layers.map((layer, index) => (
             <Layer
-              key={layer.title}
-              title={layer.title}
-              items={layer.items}
+              key={layer.titleKey}
+              title={t(layer.titleKey)}
+              items={t(layer.itemsKey).split(',')}
               isLast={index === layers.length - 1}
             />
           ))}
