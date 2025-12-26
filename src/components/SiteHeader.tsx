@@ -1,6 +1,16 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+
+type Language = 'en' | 'ja' | 'ar';
+
+const languages: { code: Language; label: string }[] = [
+  { code: 'en', label: 'EN' },
+  { code: 'ja', label: '日本語' },
+  { code: 'ar', label: 'AR' },
+];
 
 export const SiteHeader = () => {
+  const [currentLang, setCurrentLang] = useState<Language>('en');
+
   return (
     <header className="absolute top-0 left-0 right-0 z-50 pointer-events-none">
       <div className="container mx-auto px-6 py-4">
@@ -21,6 +31,27 @@ export const SiteHeader = () => {
             <span className="hidden sm:block text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium">
               AMAI Labs · Infrastructure & Research
             </span>
+          </div>
+
+          {/* Language Selector */}
+          <div className="pointer-events-auto flex items-center gap-1 text-[11px] tracking-wide">
+            {languages.map((lang, index) => (
+              <span key={lang.code} className="flex items-center">
+                <button
+                  onClick={() => setCurrentLang(lang.code)}
+                  className={`transition-opacity ${
+                    currentLang === lang.code 
+                      ? 'text-white/90' 
+                      : 'text-white/40 hover:text-white/70'
+                  }`}
+                >
+                  {lang.label}
+                </button>
+                {index < languages.length - 1 && (
+                  <span className="text-white/20 mx-2">·</span>
+                )}
+              </span>
+            ))}
           </div>
         </div>
       </div>
