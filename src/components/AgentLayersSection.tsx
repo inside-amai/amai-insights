@@ -1,39 +1,42 @@
 import { motion } from 'framer-motion';
-
-const layers = [
-  {
-    id: 'identity',
-    title: 'Identity Layer',
-    subtitle: 'Foundational Trust Infrastructure',
-    items: [
-      { label: 'Immutable Identifiers', desc: 'Cryptographic agent identity anchored on-chain' },
-      { label: 'SBT-Bound Ownership', desc: 'Soul-bound tokens for non-transferable provenance' },
-      { label: 'Reputation Roots', desc: 'Verifiable credential accumulation over time' },
-    ],
-  },
-  {
-    id: 'skill',
-    title: 'Skill & Memory Layer',
-    subtitle: 'Kernelized Intelligent Properties',
-    items: [
-      { label: 'Kernelized Intelligence Modules', desc: 'Composable skill primitives with defined interfaces' },
-      { label: 'Versioning & Permissioning', desc: 'Granular access control and upgrade paths' },
-      { label: 'Micro-Royalty Structure', desc: 'Automated attribution and value distribution' },
-    ],
-  },
-  {
-    id: 'treasury',
-    title: 'Bonded Treasury Layer',
-    subtitle: 'Economic Security Substrate',
-    items: [
-      { label: 'AMAI Collateral', desc: 'Staked capital backing agent commitments' },
-      { label: 'Trust-Weighted Allocation', desc: 'Dynamic capital routing based on performance' },
-      { label: 'Treasury Performance Curves', desc: 'Non-linear reward and penalty mechanisms' },
-    ],
-  },
-];
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export const AgentLayersSection = () => {
+  const { t } = useLanguage();
+
+  const layers = [
+    {
+      id: 'identity',
+      titleKey: 'layers.identity.title',
+      subtitleKey: 'layers.identity.subtitle',
+      items: [
+        { labelKey: 'layers.identity.item1.label', descKey: 'layers.identity.item1.desc' },
+        { labelKey: 'layers.identity.item2.label', descKey: 'layers.identity.item2.desc' },
+        { labelKey: 'layers.identity.item3.label', descKey: 'layers.identity.item3.desc' },
+      ],
+    },
+    {
+      id: 'skill',
+      titleKey: 'layers.skill.title',
+      subtitleKey: 'layers.skill.subtitle',
+      items: [
+        { labelKey: 'layers.skill.item1.label', descKey: 'layers.skill.item1.desc' },
+        { labelKey: 'layers.skill.item2.label', descKey: 'layers.skill.item2.desc' },
+        { labelKey: 'layers.skill.item3.label', descKey: 'layers.skill.item3.desc' },
+      ],
+    },
+    {
+      id: 'treasury',
+      titleKey: 'layers.treasury.title',
+      subtitleKey: 'layers.treasury.subtitle',
+      items: [
+        { labelKey: 'layers.treasury.item1.label', descKey: 'layers.treasury.item1.desc' },
+        { labelKey: 'layers.treasury.item2.label', descKey: 'layers.treasury.item2.desc' },
+        { labelKey: 'layers.treasury.item3.label', descKey: 'layers.treasury.item3.desc' },
+      ],
+    },
+  ];
+
   return (
     <section id="architecture-section" className="relative py-24 overflow-hidden">
 
@@ -47,13 +50,13 @@ export const AgentLayersSection = () => {
           className="text-center mb-16"
         >
           <span className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium">
-            AMAI Protocol Architecture
+            {t('layers.eyebrow')}
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-light text-white tracking-tight">
-            Agent Infrastructure Stack
+            {t('layers.title')}
           </h2>
           <p className="mt-4 text-white/50 text-sm max-w-xl mx-auto leading-relaxed text-center">
-            A vertically integrated architecture for autonomous agent deployment and economic coordination.
+            {t('layers.subtitle')}
           </p>
         </motion.div>
 
@@ -90,11 +93,11 @@ export const AgentLayersSection = () => {
                     <div className="flex items-center gap-3 mb-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-white/70" />
                       <h3 className="text-lg font-medium text-white tracking-tight">
-                        {layer.title}
+                        {t(layer.titleKey)}
                       </h3>
                     </div>
                     <p className="text-xs text-white/40 uppercase tracking-wider">
-                      {layer.subtitle}
+                      {t(layer.subtitleKey)}
                     </p>
                   </div>
 
@@ -108,10 +111,10 @@ export const AgentLayersSection = () => {
                         <div className="mt-1.5 w-4 h-px bg-white/20 group-hover/item:bg-white/40 transition-colors" />
                         <div>
                           <span className="text-sm text-white/80 font-medium">
-                            {item.label}
+                            {t(item.labelKey)}
                           </span>
                           <p className="text-xs text-white/40 mt-0.5 leading-relaxed">
-                            {item.desc}
+                            {t(item.descKey)}
                           </p>
                         </div>
                       </div>
@@ -137,7 +140,7 @@ export const AgentLayersSection = () => {
           className="mt-16 text-center"
         >
           <p className="text-xs text-white/40">
-            Each layer operates independently while maintaining cryptographic coherence across the stack.
+            {t('layers.bottomNote')}
           </p>
         </motion.div>
       </div>

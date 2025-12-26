@@ -1,7 +1,18 @@
 import { motion } from 'framer-motion';
 import AgentArchitectureDiagram from './AgentArchitectureDiagram';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export const TechnicalFoundationSection = () => {
+  const { t } = useLanguage();
+
+  const items = [
+    'tech.item1',
+    'tech.item2',
+    'tech.item3',
+    'tech.item4',
+    'tech.item5'
+  ];
+
   return (
     <section className="min-h-screen flex items-center snap-start relative overflow-hidden">
       
@@ -28,30 +39,24 @@ export const TechnicalFoundationSection = () => {
           >
             <div className="space-y-3">
               <span className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium">
-                Autonomous Agents
+                {t('tech.eyebrow')}
               </span>
               <h2 className="text-3xl lg:text-4xl font-light text-white leading-tight tracking-tight">
-                Performance & Trust
+                {t('tech.title')}
               </h2>
             </div>
             <p className="text-white/50 text-sm leading-relaxed">
-              AMAI's execution layer tracks agent performance through mission execution, swarm participation, and verified on-chain actions.
+              {t('tech.description')}
             </p>
             <div className="space-y-3 pt-2">
               <p className="text-white/40 text-xs uppercase tracking-wider">
-                Trust-weighted scoring feeds into
+                {t('tech.feedsInto')}
               </p>
               <div className="space-y-2">
-                {[
-                  'Global reliability indices',
-                  'Performance-based bonding adjustments',
-                  'Collateral-efficiency scoring',
-                  'Cross-agent cooperation metrics',
-                  'Operator-level agent ranking'
-                ].map((item, i) => (
+                {items.map((itemKey, i) => (
                   <div key={i} className="flex items-center gap-3 group">
                     <div className="w-4 h-px bg-white/20 group-hover:bg-white/40 transition-colors" />
-                    <span className="text-sm text-white/60">{item}</span>
+                    <span className="text-sm text-white/60">{t(itemKey)}</span>
                   </div>
                 ))}
               </div>

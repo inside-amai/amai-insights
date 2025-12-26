@@ -1,64 +1,20 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const documentationCards = [
-  {
-    category: 'OVERVIEW',
-    title: 'System Overview',
-    subtitle: 'High-level architecture, execution pathways, trust computation, and the economic substrate of AMAI.',
-    slug: 'system-overview'
-  },
-  {
-    category: 'ARCHITECTURE',
-    title: 'Agent Architecture',
-    subtitle: 'Identity primitives, skill modules, memory, bonding, and the autonomous agent lifecycle.',
-    slug: 'agent-architecture'
-  },
-  {
-    category: 'ECONOMICS',
-    title: 'Economic Substrate',
-    subtitle: 'The capital, trust, and performance mechanisms that govern machine-first economies.',
-    slug: 'economic-substrate'
-  },
-  {
-    category: 'TRUST',
-    title: 'Trust Score Mechanics',
-    subtitle: 'Deterministic trust computation including base scores, bonded stake effects, oracle adjustments, and clamping logic.',
-    slug: 'trust-mechanics'
-  },
-  {
-    category: 'ECONOMICS',
-    title: 'Treasury Dynamics & Performance Scoring',
-    subtitle: 'Treasury flows, agent earnings, spending mechanics, performance windows, and dampening functions.',
-    slug: 'treasury-dynamics'
-  },
-  {
-    category: 'INTELLIGENCE',
-    title: 'Kernelized Intelligence Properties (KIPs)',
-    subtitle: 'Composable intelligence modules, versioning, permissioning, and micro-royalty distribution.',
-    slug: 'kernelized-intelligence'
-  },
-  {
-    category: 'EXECUTION',
-    title: 'Protocol Internals',
-    subtitle: 'Settlement logic, oracle routing, security boundaries, and performance benchmarks.',
-    slug: 'protocol-internals'
-  },
-  {
-    category: 'TOKEN MODEL',
-    title: 'Token & Collateral Model',
-    subtitle: 'Utility functions, bonding mechanics, and trust-weighted allocation across the AMAI network.',
-    slug: 'token-model'
-  },
-  {
-    category: 'INCENTIVES',
-    title: 'Agent Economy & Incentives',
-    subtitle: 'Swarm coordination economics, routing effects, fee and rebate mechanics, and marketplace dynamics.',
-    slug: 'agent-economy'
-  }
+  { categoryKey: 'docs.card1.category', titleKey: 'docs.card1.title', subtitleKey: 'docs.card1.subtitle', slug: 'system-overview' },
+  { categoryKey: 'docs.card2.category', titleKey: 'docs.card2.title', subtitleKey: 'docs.card2.subtitle', slug: 'agent-architecture' },
+  { categoryKey: 'docs.card3.category', titleKey: 'docs.card3.title', subtitleKey: 'docs.card3.subtitle', slug: 'economic-substrate' },
+  { categoryKey: 'docs.card4.category', titleKey: 'docs.card4.title', subtitleKey: 'docs.card4.subtitle', slug: 'trust-mechanics' },
+  { categoryKey: 'docs.card5.category', titleKey: 'docs.card5.title', subtitleKey: 'docs.card5.subtitle', slug: 'treasury-dynamics' },
+  { categoryKey: 'docs.card6.category', titleKey: 'docs.card6.title', subtitleKey: 'docs.card6.subtitle', slug: 'kernelized-intelligence' },
+  { categoryKey: 'docs.card7.category', titleKey: 'docs.card7.title', subtitleKey: 'docs.card7.subtitle', slug: 'protocol-internals' },
+  { categoryKey: 'docs.card8.category', titleKey: 'docs.card8.title', subtitleKey: 'docs.card8.subtitle', slug: 'token-model' },
+  { categoryKey: 'docs.card9.category', titleKey: 'docs.card9.title', subtitleKey: 'docs.card9.subtitle', slug: 'agent-economy' },
 ];
 
-const DocumentCard = ({ card, index }: { card: typeof documentationCards[0]; index: number }) => {
+const DocumentCard = ({ card, index, t }: { card: typeof documentationCards[0]; index: number; t: (key: string) => string }) => {
   return (
     <motion.article
       initial={{ opacity: 0, y: 16 }}
@@ -87,22 +43,22 @@ const DocumentCard = ({ card, index }: { card: typeof documentationCards[0]; ind
           />
           {/* Category micro-label */}
           <span className="relative z-10 text-[9px] tracking-[0.25em] uppercase text-white/30 font-medium mb-3">
-            {card.category}
+            {t(card.categoryKey)}
           </span>
           
           {/* Title */}
           <h3 className="relative z-10 text-[15px] font-semibold text-white/90 mb-2 leading-snug">
-            {card.title}
+            {t(card.titleKey)}
           </h3>
           
           {/* Subtitle */}
           <p className="relative z-10 text-[12px] text-white/40 leading-relaxed flex-1 mb-4">
-            {card.subtitle}
+            {t(card.subtitleKey)}
           </p>
           
           {/* Read more link */}
           <span className="relative z-10 text-[11px] text-white/25 group-hover:text-white/50 transition-colors duration-200 flex items-center gap-1">
-            Read more <span className="text-[10px]">→</span>
+            {t('docs.readMore')} <span className="text-[10px]">→</span>
           </span>
         </div>
       </Link>
@@ -111,6 +67,7 @@ const DocumentCard = ({ card, index }: { card: typeof documentationCards[0]; ind
 };
 
 export const DocumentationIndex = () => {
+  const { t } = useLanguage();
 
   return (
     <section className="relative isolate py-28 md:py-36 overflow-hidden bg-black">
@@ -142,17 +99,17 @@ export const DocumentationIndex = () => {
           >
             {/* Section label */}
             <span className="text-[9px] tracking-[0.35em] uppercase text-white/30 font-medium">
-              Documentation
+              {t('docs.eyebrow')}
             </span>
             
             {/* Main header */}
             <h2 className="text-3xl md:text-4xl font-light text-white tracking-tight">
-              Documentation Library
+              {t('docs.title')}
             </h2>
             
             {/* Subheader */}
             <p className="text-white/45 text-sm max-w-2xl leading-relaxed">
-              Core research papers covering AMAI's architecture, economic substrate, trust computation, and execution mechanics.
+              {t('docs.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -161,7 +118,7 @@ export const DocumentationIndex = () => {
         <div className="flex items-center gap-4 mb-8">
           <div className="flex-1 h-px bg-white/[0.06]" />
           <span className="text-[8px] tracking-[0.4em] uppercase text-white/20 font-medium">
-            Documentation Index
+            {t('docs.index')}
           </span>
           <div className="flex-1 h-px bg-white/[0.06]" />
         </div>
@@ -169,7 +126,7 @@ export const DocumentationIndex = () => {
         {/* 3x3 Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {documentationCards.map((card, index) => (
-            <DocumentCard key={card.title} card={card} index={index} />
+            <DocumentCard key={card.slug} card={card} index={index} t={t} />
           ))}
         </div>
 
@@ -185,8 +142,8 @@ export const DocumentationIndex = () => {
             to="/operational-scenarios"
             className="inline-flex flex-col items-center gap-1 text-white/40 hover:text-white/60 transition-colors duration-200 group"
           >
-            <span className="text-xs border-b border-white/20 group-hover:border-white/40 pb-0.5">Operational Scenarios</span>
-            <span className="text-[10px] italic text-white/30 group-hover:text-white/50">Applied reference implementations</span>
+            <span className="text-xs border-b border-white/20 group-hover:border-white/40 pb-0.5">{t('docs.scenarios')}</span>
+            <span className="text-[10px] italic text-white/30 group-hover:text-white/50">{t('docs.scenariosSubtitle')}</span>
           </Link>
         </motion.div>
       </div>
