@@ -1,6 +1,4 @@
-import { useState } from 'react';
-
-type Language = 'en' | 'ja' | 'ar';
+import { useLanguage, Language } from '@/contexts/LanguageContext';
 
 const languages: { code: Language; label: string }[] = [
   { code: 'en', label: 'EN' },
@@ -9,7 +7,7 @@ const languages: { code: Language; label: string }[] = [
 ];
 
 export const SiteHeader = () => {
-  const [currentLang, setCurrentLang] = useState<Language>('en');
+  const { language, setLanguage } = useLanguage();
 
   return (
     <header className="absolute top-0 left-0 right-0 z-50 pointer-events-none">
@@ -38,9 +36,9 @@ export const SiteHeader = () => {
             {languages.map((lang, index) => (
               <span key={lang.code} className="flex items-center">
                 <button
-                  onClick={() => setCurrentLang(lang.code)}
+                  onClick={() => setLanguage(lang.code)}
                   className={`transition-opacity ${
-                    currentLang === lang.code 
+                    language === lang.code 
                       ? 'text-white/90' 
                       : 'text-white/40 hover:text-white/70'
                   }`}

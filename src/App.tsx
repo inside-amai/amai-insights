@@ -7,6 +7,7 @@ import { AuthProvider } from "@/hooks/useAuth";
 import { AuthGuard } from "@/components/AuthGuard";
 import { TermsModal } from "@/components/TermsModal";
 import { SiteHeader } from "@/components/SiteHeader";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
@@ -38,44 +39,46 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <AuthProvider>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <TermsModal />
-        <BrowserRouter>
-          <SiteHeader />
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/auth" element={
-              <AuthGuard requireAuth={false}>
-                <Auth />
-              </AuthGuard>
-            } />
-            <Route path="/technical-docs" element={<TechnicalDocs />} />
-            <Route path="/genesis-mint" element={<GenesisMint />} />
-            <Route path="/founders-mint" element={<FoundersMint />} />
-          
-          <Route path="/system-overview" element={<SummaryVision />} />
-          <Route path="/agent-architecture" element={<SystemArchitecture />} />
-          <Route path="/economic-substrate" element={<TechnicalFoundation />} />
-          <Route path="/trust-mechanics" element={<TechnicalDeepDive />} />
-          <Route path="/treasury-dynamics" element={<TreasuryDynamics />} />
-          <Route path="/kernelized-intelligence" element={<AgentEconomyKIPs />} />
-          <Route path="/protocol-internals" element={<ProtocolInternals />} />
-          <Route path="/token-model" element={<Token />} />
-          <Route path="/agent-economy" element={<AgentEconomy />} />
-          <Route path="/agent-lifecycle" element={<AgentLifecycle />} />
-          <Route path="/operational-scenarios" element={<OperationalScenarios />} />
-          
-          <Route path="/diagram" element={<Diagram />} />
-          <Route path="/ui" element={<UI />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </AuthProvider>
-</QueryClientProvider>
+      <LanguageProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <TermsModal />
+          <BrowserRouter>
+            <SiteHeader />
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/auth" element={
+                <AuthGuard requireAuth={false}>
+                  <Auth />
+                </AuthGuard>
+              } />
+              <Route path="/technical-docs" element={<TechnicalDocs />} />
+              <Route path="/genesis-mint" element={<GenesisMint />} />
+              <Route path="/founders-mint" element={<FoundersMint />} />
+            
+            <Route path="/system-overview" element={<SummaryVision />} />
+            <Route path="/agent-architecture" element={<SystemArchitecture />} />
+            <Route path="/economic-substrate" element={<TechnicalFoundation />} />
+            <Route path="/trust-mechanics" element={<TechnicalDeepDive />} />
+            <Route path="/treasury-dynamics" element={<TreasuryDynamics />} />
+            <Route path="/kernelized-intelligence" element={<AgentEconomyKIPs />} />
+            <Route path="/protocol-internals" element={<ProtocolInternals />} />
+            <Route path="/token-model" element={<Token />} />
+            <Route path="/agent-economy" element={<AgentEconomy />} />
+            <Route path="/agent-lifecycle" element={<AgentLifecycle />} />
+            <Route path="/operational-scenarios" element={<OperationalScenarios />} />
+            
+            <Route path="/diagram" element={<Diagram />} />
+            <Route path="/ui" element={<UI />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+      </LanguageProvider>
+    </AuthProvider>
+  </QueryClientProvider>
 );
 
 export default App;
