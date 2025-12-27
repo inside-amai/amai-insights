@@ -177,18 +177,11 @@ export const ExplainerHero = () => {
                 href="#documentation-library"
                 onClick={(e) => {
                   e.preventDefault();
-                  document.getElementById('documentation-library')?.scrollIntoView({ behavior: 'smooth' });
+                document.getElementById('documentation-library')?.scrollIntoView({ behavior: 'smooth' });
                 }}
                 className="text-sm text-white/50 hover:text-white/70 transition-all duration-300"
               >
                 <span className="hidden md:inline">{t('hero.cta.documentation.prefix')}</span>{t('hero.cta.documentation')}
-              </a>
-              
-              <a 
-                href="/agent-lifecycle"
-                className="text-sm text-white/50 hover:text-white/70 transition-all duration-300"
-              >
-                {t('hero.cta.lifecycle')}
               </a>
             </div>
             
