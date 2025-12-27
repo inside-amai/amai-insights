@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
-import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
-import 'react-pdf/dist/esm/Page/TextLayer.css';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 // Set up PDF.js worker
@@ -63,8 +61,8 @@ const ConflictOfThoughtPaper = () => {
                 <Page
                   pageNumber={index + 1}
                   width={pageWidth}
-                  renderTextLayer={true}
-                  renderAnnotationLayer={true}
+                  renderTextLayer={false}
+                  renderAnnotationLayer={false}
                 />
               </div>
               
