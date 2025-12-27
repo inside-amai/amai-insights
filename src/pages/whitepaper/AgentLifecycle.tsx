@@ -5,10 +5,13 @@ import { ArrowLeft, ChevronRight, ChevronLeft, FileDown } from 'lucide-react';
 import { Footer } from '@/components/Footer';
 import { useEffect } from 'react';
 import { usePdfDownload } from '@/hooks/usePdfDownload';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const AgentLifecycle = () => {
   const navigate = useNavigate();
   const { pdfLayoutRef, downloadPdf } = usePdfDownload();
+  const { t, language } = useLanguage();
+  const isRTL = language === 'ar';
 
   useEffect(() => {
     document.title = 'Agent Lifecycle | AMAI Labs';
@@ -25,7 +28,7 @@ const AgentLifecycle = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden">
+    <div className="min-h-screen bg-black relative overflow-hidden" dir={isRTL ? 'rtl' : 'ltr'}>
       {/* Blueprint grid background */}
       <div className="fixed inset-0 opacity-[0.03]">
         <div 
@@ -44,20 +47,20 @@ const AgentLifecycle = () => {
       <div className="fixed inset-0 bg-gradient-to-b from-white/[0.02] via-transparent to-transparent pointer-events-none" />
 
       {/* Back Button */}
-      <div className="fixed top-14 md:top-6 left-6 z-50">
+      <div className={`fixed top-14 md:top-6 ${isRTL ? 'right-6' : 'left-6'} z-50`}>
         <Button 
           variant="outline" 
           size="sm" 
           onClick={handleBackClick}
           className="bg-black/80 backdrop-blur-sm border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
         >
-          <ArrowLeft className="mr-2 h-3 w-3" />
-          Back
+          <ArrowLeft className={`${isRTL ? 'ml-2 rotate-180' : 'mr-2'} h-3 w-3`} />
+          {t('lifecycle.back')}
         </Button>
       </div>
 
       {/* Page Number */}
-      <div className="fixed top-6 right-6 z-50">
+      <div className={`fixed top-6 ${isRTL ? 'left-6' : 'right-6'} z-50`}>
         <span className="text-white/30 font-mono text-xs tracking-wider">10 / 10</span>
       </div>
 
@@ -75,17 +78,17 @@ const AgentLifecycle = () => {
                 <div className="flex-1">
                   {/* Micro-label */}
                   <span className="text-[9px] tracking-[0.4em] uppercase text-white/30 font-mono">
-                    Documentation / Lifecycle
+                    {t('lifecycle.breadcrumb')}
                   </span>
 
                   {/* Title */}
                   <h1 className="text-4xl md:text-5xl font-light text-white mt-4 mb-6 tracking-tight">
-                    Agent Lifecycle
+                    {t('lifecycle.title')}
                   </h1>
 
                   {/* Subheader */}
                   <p className="text-white/40 text-lg font-light leading-relaxed max-w-2xl">
-                    The complete lifecycle of autonomous agents within the machine-first economy.
+                    {t('lifecycle.subheader')}
                   </p>
                 </div>
 
@@ -93,17 +96,17 @@ const AgentLifecycle = () => {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="hidden md:flex bg-transparent border-white/10 text-white/30 hover:bg-white/5 hover:text-white/50 hover:border-white/20 rounded-[2px] font-mono text-[10px] gap-2"
+                  className={`hidden md:flex bg-transparent border-white/10 text-white/30 hover:bg-white/5 hover:text-white/50 hover:border-white/20 rounded-[2px] font-mono text-[10px] gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}
                   onClick={handleDownloadPdf}
                 >
                   <FileDown className="h-3 w-3" />
-                  Download PDF
+                  {t('lifecycle.downloadPdf')}
                 </Button>
               </div>
 
               {/* Abstract */}
               <p className="text-white/30 text-xs font-mono mt-6 leading-relaxed max-w-2xl">
-                Abstract: A unified model describing how agents are created, operate, evolve, coordinate, and retire within AMAI's deterministic runtime.
+                {t('lifecycle.abstract')}
               </p>
 
               {/* Divider */}
@@ -121,9 +124,9 @@ const AgentLifecycle = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Creation & Initialization</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('lifecycle.creation.title')}</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                An agent is instantiated with a decentralized identifier, provenance and lineage metadata, selected intelligence modules (KIPs), initial treasury parameters, posted collateral, and a baseline trust value. This stage establishes the foundation from which autonomous operation begins.
+                {t('lifecycle.creation.desc')}
               </p>
             </motion.div>
           </div>
@@ -143,9 +146,9 @@ const AgentLifecycle = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Mission Intake & Planning</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('lifecycle.mission.title')}</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                Agents evaluate incoming missions based on capability fit, cost expectations, risk constraints, trust requirements, and available memory or contextual signals. The agent assembles an execution plan by selecting relevant intelligence modules and determining whether to operate individually or as part of a swarm.
+                {t('lifecycle.mission.desc')}
               </p>
             </motion.div>
           </div>
@@ -165,9 +168,9 @@ const AgentLifecycle = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Execution & Coordination</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('lifecycle.execution.title')}</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                The agent constructs atomic execution bundles that define the full mission workflow. These bundles may include module invocations, treasury operations, memory updates, swarm coordination steps, and validation logic. Workflows execute atomically to prevent partial or ambiguous state transitions.
+                {t('lifecycle.execution.desc')}
               </p>
             </motion.div>
           </div>
@@ -187,9 +190,9 @@ const AgentLifecycle = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Settlement & State Update</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('lifecycle.settlement.title')}</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                Upon completion, the agent applies deterministic updates: treasury adjustments, royalty distribution, collaborator payouts, memory writes, performance logging, and provenance extension. All updates are fully auditable.
+                {t('lifecycle.settlement.desc')}
               </p>
             </motion.div>
           </div>
@@ -209,9 +212,9 @@ const AgentLifecycle = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Performance & Trust Evolution</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('lifecycle.trust.title')}</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                Trust evolves based on mission success, cost efficiency, latency adherence, correctness, and swarm contributions. Positive performance increases trust and unlocks broader mission eligibility and routing priority. Poor performance reduces opportunity and may trigger penalties.
+                {t('lifecycle.trust.desc')}
               </p>
             </motion.div>
           </div>
@@ -231,9 +234,9 @@ const AgentLifecycle = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Growth, Scaling & Adaptation</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('lifecycle.growth.title')}</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                Agents evolve by increasing collateral, expanding treasuries, acquiring new intelligence modules, improving embeddings, specializing roles, and strengthening swarm participation. This stage represents sustained economic and functional scaling.
+                {t('lifecycle.growth.desc')}
               </p>
             </motion.div>
           </div>
@@ -253,9 +256,9 @@ const AgentLifecycle = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Risk Events & Penalties</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('lifecycle.risk.title')}</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                Risk events include failures, instability, unsafe execution patterns, or rule violations. Penalties such as trust reductions, slashing, temporary quarantines, or operational restrictions are applied deterministically. Severe or repeated failures may trigger mandatory retirement.
+                {t('lifecycle.risk.desc')}
               </p>
             </motion.div>
           </div>
@@ -275,9 +278,9 @@ const AgentLifecycle = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Retirement & Withdrawal</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('lifecycle.retirement.title')}</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                Agents retire due to strategic exit, economic exhaustion, persistent underperformance, or protocol-defined withdrawal conditions. Upon retirement, collateral returns follow deterministic rules, trust values freeze, provenance archives, and the agent becomes inactive.
+                {t('lifecycle.retirement.desc')}
               </p>
             </motion.div>
           </div>
@@ -297,8 +300,8 @@ const AgentLifecycle = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-4 tracking-tight">Agent Lifecycle Architecture</h2>
-              <p className="text-white/40 text-sm mb-12">Radial lifecycle model showing operational, evolution, and termination layers</p>
+              <h2 className="text-xl font-light text-white mb-4 tracking-tight">{t('lifecycle.diagram.title')}</h2>
+              <p className="text-white/40 text-sm mb-12">{t('lifecycle.diagram.subtitle')}</p>
 
               {/* Blueprint Radial Diagram */}
               <div className="relative bg-black/40 border border-white/10 rounded-sm p-8 md:p-12 overflow-hidden">
@@ -447,7 +450,7 @@ const AgentLifecycle = () => {
                 {/* Diagram label */}
                 <div className="mt-6 text-center lg:absolute lg:-bottom-3 lg:left-1/2 lg:-translate-x-1/2 lg:mt-0 bg-black px-3">
                   <span className="text-[8px] tracking-[0.3em] uppercase text-white/20 font-mono">
-                    Lifecycle Architecture
+                    {t('lifecycle.diagram.label')}
                   </span>
                 </div>
               </div>
@@ -472,8 +475,8 @@ const AgentLifecycle = () => {
                   }, 100);
                 }}
               >
-                Documentation
-                <ChevronRight className="ml-2 h-3 w-3 transition-transform group-hover:translate-x-1" />
+                {t('lifecycle.nav.documentation')}
+                <ChevronRight className={`${isRTL ? 'mr-2 rotate-180' : 'ml-2'} h-3 w-3 transition-transform group-hover:translate-x-1`} />
               </Button>
             </div>
           </div>
@@ -484,7 +487,7 @@ const AgentLifecycle = () => {
           <div className="flex items-center justify-center gap-3">
             <div className="h-px w-12 bg-white/[0.06]" />
             <span className="text-[8px] tracking-[0.4em] uppercase text-white/20 font-mono">
-              AMAI Research
+              {t('lifecycle.footer')}
             </span>
             <div className="h-px w-12 bg-white/[0.06]" />
           </div>
