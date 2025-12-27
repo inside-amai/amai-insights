@@ -45,24 +45,23 @@ const Research = () => {
       </div>
 
       {/* Content */}
+      {/* Fixed Back Button */}
+      <div className="fixed top-20 left-6 z-50">
+        <Button 
+          variant="outline" 
+          size="sm" 
+          onClick={handleBackClick}
+          className="bg-black/80 backdrop-blur-sm border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
+        >
+          <ArrowLeft className={`${isRTL ? 'ml-2 rotate-180' : 'mr-2'} h-3 w-3`} />
+          {t('research.back')}
+        </Button>
+      </div>
+
       <div className="relative z-10">
-        {/* Back Button */}
-        <div className="pt-20 px-6">
-          <div className="max-w-3xl mx-auto">
-            <Button 
-              variant="outline" 
-              size="sm" 
-              onClick={handleBackClick}
-              className="bg-black/80 backdrop-blur-sm border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
-            >
-              <ArrowLeft className={`${isRTL ? 'ml-2 rotate-180' : 'mr-2'} h-3 w-3`} />
-              {t('research.back')}
-            </Button>
-          </div>
-        </div>
 
         {/* Hero Section */}
-        <section className="pt-8 pb-8 px-6">
+        <section className="pt-24 pb-8 px-6">
           <div className="max-w-3xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
