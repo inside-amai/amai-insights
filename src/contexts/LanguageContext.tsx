@@ -167,7 +167,7 @@ const translations: Record<Language, Record<string, string>> = {
     'research.paper1.authors': 'AMAI Labs Research',
     'research.paper1.date': 'December 2025',
     'research.paper1.abstract': 'This paper explores the fundamental challenges of agent accountability in autonomous systems, proposing novel mechanisms for conflict resolution when agents encounter contradictory objectives or competing priorities. We introduce a trust-weighted decision framework that enables verifiable accountability across multi-agent coordination scenarios.',
-    'research.paper1.related1': 'Agent Architecture',
+    'research.paper1.related1': 'System Overview',
     'research.paper1.related2': 'Trust Score Mechanics',
     
     // FAQ Section
@@ -904,8 +904,8 @@ const translations: Record<Language, Record<string, string>> = {
     'research.paper1.authors': 'AMAI Labs リサーチ',
     'research.paper1.date': '2025年12月',
     'research.paper1.abstract': '本論文は、自律システムにおけるエージェント説明責任の根本的な課題を探求し、エージェントが矛盾する目的や競合する優先事項に遭遇した際の対立解決のための新しいメカニズムを提案します。マルチエージェント調整シナリオにおいて検証可能な説明責任を可能にする信頼加重意思決定フレームワークを導入します。',
-    'research.paper1.related1': 'エージェントアーキテクチャ',
-    'research.paper1.related2': '信頼スコアメカニクス',
+    'research.paper1.related1': 'システム概観',
+    'research.paper1.related2': '信頼評点機構',
     
     // FAQ Section
     'faq.eyebrow': '質疑',
@@ -1639,7 +1639,7 @@ const translations: Record<Language, Record<string, string>> = {
     'research.paper1.authors': 'أبحاث AMAI Labs',
     'research.paper1.date': 'ديسمبر 2025',
     'research.paper1.abstract': 'تستكشف هذه الورقة التحديات الأساسية لمساءلة الوكيل في الأنظمة المستقلة، وتقترح آليات جديدة لحل النزاعات عندما يواجه الوكلاء أهدافًا متناقضة أو أولويات متنافسة. نقدم إطار عمل لاتخاذ القرار مرجح بالثقة يتيح المساءلة القابلة للتحقق عبر سيناريوهات التنسيق متعدد الوكلاء.',
-    'research.paper1.related1': 'هندسة الوكيل',
+    'research.paper1.related1': 'نظرة عامة على النظام',
     'research.paper1.related2': 'آليات درجة الثقة',
     
     // FAQ Section

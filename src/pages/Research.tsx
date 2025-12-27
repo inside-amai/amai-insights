@@ -138,13 +138,13 @@ const Research = () => {
               </h3>
               <div className="flex flex-wrap justify-center gap-2">
                 <button
-                  onClick={() => navigate('/system-architecture')}
+                  onClick={() => navigate('/system-overview')}
                   className="px-3 py-1.5 bg-white/[0.03] border border-white/10 rounded-[2px] text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/15 transition-all duration-200 font-mono text-[10px]"
                 >
                   {t('research.paper1.related1')}
                 </button>
                 <button
-                  onClick={() => navigate('/protocol-internals')}
+                  onClick={() => navigate('/technical-deep-dive')}
                   className="px-3 py-1.5 bg-white/[0.03] border border-white/10 rounded-[2px] text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/15 transition-all duration-200 font-mono text-[10px]"
                 >
                   {t('research.paper1.related2')}
