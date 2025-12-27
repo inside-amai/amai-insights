@@ -1,65 +1,49 @@
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, ChevronRight, FileDown } from 'lucide-react';
+import { ArrowLeft, ChevronRight, FileDown, ArrowRight } from 'lucide-react';
 import { Footer } from '@/components/Footer';
 import { useEffect } from 'react';
 import { usePdfDownload } from '@/hooks/usePdfDownload';
 import { PdfLayout } from '@/components/PdfLayout';
-
-const architectureLayers = [
-  {
-    number: '5',
-    title: 'Compute & Edge Layer',
-    items: ['Distributed inference', 'Local execution nodes', 'Low-latency orchestration', 'Hardware-level security']
-  },
-  {
-    number: '4',
-    title: 'Intelligence Layer (KIPs)',
-    items: ['Skills and modules', 'Composition logic', 'Royalty routing', 'Provenance and lineage']
-  },
-  {
-    number: '3',
-    title: 'Agent Runtime Layer',
-    items: ['Identity', 'Memory', 'Swarm coordination', 'Execution lifecycle']
-  },
-  {
-    number: '2',
-    title: 'Economic Layer',
-    items: ['Bonded collateral', 'Trust curves', 'Treasury rules', 'Slashing logic']
-  },
-  {
-    number: '1',
-    title: 'Settlement Layer',
-    items: ['Atomic execution bundles', 'State transition engine', 'Verification and finality']
-  }
-];
-
-const executionSteps = [
-  'Agent receives mission.',
-  'Agent assembles an atomic execution bundle.',
-  'Economic checks validate collateral, trust, and treasury constraints.',
-  'Intelligence modules (KIPs) execute.',
-  'State transitions finalize atomically.',
-  'Trust deltas update based on performance and efficiency.'
-];
-
-const economicGuarantees = [
-  'deterministic settlement',
-  'transparent royalty distribution',
-  'economic accountability via slashing',
-  'verifiable provenance',
-  'reliable multi-agent coordination'
-];
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const SummaryVision = () => {
   const navigate = useNavigate();
   const { pdfLayoutRef, downloadPdf } = usePdfDownload();
+  const { t, language } = useLanguage();
+  const isRTL = language === 'ar';
+
+  // Architecture layers with translation keys
+  const architectureLayers = [
+    { number: '5', titleKey: 'overview.layer5.title', itemsKey: 'overview.layer5.items' },
+    { number: '4', titleKey: 'overview.layer4.title', itemsKey: 'overview.layer4.items' },
+    { number: '3', titleKey: 'overview.layer3.title', itemsKey: 'overview.layer3.items' },
+    { number: '2', titleKey: 'overview.layer2.title', itemsKey: 'overview.layer2.items' },
+    { number: '1', titleKey: 'overview.layer1.title', itemsKey: 'overview.layer1.items' }
+  ];
+
+  const executionStepKeys = [
+    'overview.executionFlow.step1',
+    'overview.executionFlow.step2',
+    'overview.executionFlow.step3',
+    'overview.executionFlow.step4',
+    'overview.executionFlow.step5',
+    'overview.executionFlow.step6'
+  ];
+
+  const guaranteeKeys = [
+    'overview.guarantees.item1',
+    'overview.guarantees.item2',
+    'overview.guarantees.item3',
+    'overview.guarantees.item4',
+    'overview.guarantees.item5'
+  ];
 
   useEffect(() => {
-    document.title = 'System Overview | AMAI Labs';
+    document.title = `${t('overview.title')} | AMAI Labs`;
     window.scrollTo(0, 0);
-  }, []);
+  }, [t]);
 
   const handleBackClick = () => {
     navigate('/');
@@ -76,7 +60,7 @@ const SummaryVision = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden">
+    <div className="min-h-screen bg-black relative overflow-hidden" dir={isRTL ? 'rtl' : 'ltr'}>
       {/* Blueprint grid background */}
       <div className="fixed inset-0 opacity-[0.03]">
         <div 
@@ -105,8 +89,17 @@ const SummaryVision = () => {
               onClick={handleBackClick}
               className="bg-black/80 backdrop-blur-sm border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
             >
-              <ArrowLeft className="mr-2 h-3 w-3" />
-              Back
+              {isRTL ? (
+                <>
+                  {t('overview.back')}
+                  <ArrowRight className="ms-2 h-3 w-3" />
+                </>
+              ) : (
+                <>
+                  <ArrowLeft className="me-2 h-3 w-3" />
+                  {t('overview.back')}
+                </>
+              )}
             </Button>
           </div>
         </div>
@@ -123,17 +116,17 @@ const SummaryVision = () => {
                 <div className="flex-1">
                   {/* Micro-label */}
                   <span className="text-[9px] tracking-[0.4em] uppercase text-white/30 font-mono">
-                    Documentation / Overview
+                    {t('overview.breadcrumb')}
                   </span>
 
                   {/* Title */}
                   <h1 className="text-4xl md:text-5xl font-light text-white mt-4 mb-6 tracking-tight">
-                    System Overview
+                    {t('overview.title')}
                   </h1>
 
                   {/* Subheader */}
                   <p className="text-white/40 text-lg font-light leading-relaxed max-w-2xl">
-                    A five-layer architecture for machine-first economic systems.
+                    {t('overview.subheader')}
                   </p>
                 </div>
 
@@ -145,17 +138,17 @@ const SummaryVision = () => {
                   onClick={handleDownloadPdf}
                 >
                   <FileDown className="h-3 w-3" />
-                  Download PDF
+                  {t('overview.downloadPdf')}
                 </Button>
               </div>
 
               {/* Abstract */}
               <p className="text-white/30 text-xs font-mono mt-6 leading-relaxed max-w-2xl">
-                Abstract: A comprehensive overview of AMAI's five-layer stack architecture enabling deterministic execution, economic accountability, and scalable agent coordination.
+                {t('overview.abstract')}
               </p>
 
               {/* Divider */}
-              <div className="w-16 h-px bg-white/10 mt-10" />
+              <div className={`w-16 h-px bg-white/10 mt-10 ${isRTL ? 'mr-0' : 'ml-0'}`} />
             </motion.div>
           </div>
         </section>
@@ -169,13 +162,13 @@ const SummaryVision = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">What AMAI Is</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('overview.whatIs.title')}</h2>
               <div className="space-y-4">
                 <p className="text-white/50 text-sm leading-relaxed">
-                  AMAI is an economic substrate where autonomous agents operate as first-class participants in a machine-first economy. Agents transact, coordinate, build trust, and create value through a deterministic execution environment designed for large-scale, real-time activity.
+                  {t('overview.whatIs.p1')}
                 </p>
                 <p className="text-white/50 text-sm leading-relaxed">
-                  This overview defines the foundational layers that support the AMAI ecosystem.
+                  {t('overview.whatIs.p2')}
                 </p>
               </div>
             </motion.div>
@@ -197,39 +190,39 @@ const SummaryVision = () => {
               transition={{ duration: 0.6 }}
             >
               <p className="text-white/50 text-sm leading-relaxed mb-8">
-                AMAI's infrastructure layer provides four core things that agents need to operate economically:
+                {t('overview.infrastructure.intro')}
               </p>
               
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <span className="text-white/30 font-mono text-sm w-4 flex-shrink-0">1.</span>
                   <div>
-                    <h3 className="text-white/70 text-sm font-medium mb-1">Identity</h3>
-                    <p className="text-white/45 text-sm">Agents have persistent, verifiable identities.</p>
+                    <h3 className="text-white/70 text-sm font-medium mb-1">{t('overview.infrastructure.identity.title')}</h3>
+                    <p className="text-white/45 text-sm">{t('overview.infrastructure.identity.desc')}</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start gap-4">
                   <span className="text-white/30 font-mono text-sm w-4 flex-shrink-0">2.</span>
                   <div>
-                    <h3 className="text-white/70 text-sm font-medium mb-1">Trust</h3>
-                    <p className="text-white/45 text-sm">Agents accumulate trust over time based on performance, not promises.</p>
+                    <h3 className="text-white/70 text-sm font-medium mb-1">{t('overview.infrastructure.trust.title')}</h3>
+                    <p className="text-white/45 text-sm">{t('overview.infrastructure.trust.desc')}</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start gap-4">
                   <span className="text-white/30 font-mono text-sm w-4 flex-shrink-0">3.</span>
                   <div>
-                    <h3 className="text-white/70 text-sm font-medium mb-1">Capital</h3>
-                    <p className="text-white/45 text-sm">Agents hold, stake, allocate, earn, and lose capital deterministically.</p>
+                    <h3 className="text-white/70 text-sm font-medium mb-1">{t('overview.infrastructure.capital.title')}</h3>
+                    <p className="text-white/45 text-sm">{t('overview.infrastructure.capital.desc')}</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start gap-4">
                   <span className="text-white/30 font-mono text-sm w-4 flex-shrink-0">4.</span>
                   <div>
-                    <h3 className="text-white/70 text-sm font-medium mb-1">Execution & Settlement</h3>
-                    <p className="text-white/45 text-sm">Actions execute atomically and settle with guarantees.</p>
+                    <h3 className="text-white/70 text-sm font-medium mb-1">{t('overview.infrastructure.execution.title')}</h3>
+                    <p className="text-white/45 text-sm">{t('overview.infrastructure.execution.desc')}</p>
                   </div>
                 </div>
               </div>
@@ -251,8 +244,8 @@ const SummaryVision = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-4 tracking-tight">The Five-Layer Architecture</h2>
-              <p className="text-white/40 text-sm mb-12">AMAI Five-Layer Architecture</p>
+              <h2 className="text-xl font-light text-white mb-4 tracking-tight">{t('overview.fiveLayer.title')}</h2>
+              <p className="text-white/40 text-sm mb-12">{t('overview.fiveLayer.subtitle')}</p>
 
               {/* Blueprint Diagram */}
               <div className="relative bg-black/40 border border-white/10 rounded-sm p-8 md:p-12 overflow-hidden">
@@ -272,7 +265,7 @@ const SummaryVision = () => {
                   {architectureLayers.map((layer, index) => (
                     <motion.div
                       key={layer.number}
-                      initial={{ opacity: 0, x: -10 }}
+                      initial={{ opacity: 0, x: isRTL ? 10 : -10 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: index * 0.08 }}
@@ -297,12 +290,12 @@ const SummaryVision = () => {
                             animate={{ opacity: [0.7, 0.85, 0.7] }}
                             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 }}
                           >
-                            {layer.title}
+                            {t(layer.titleKey)}
                           </motion.h3>
 
                           {/* Layer Items */}
                           <div className="flex flex-wrap items-center gap-y-2">
-                            {layer.items.map((item, itemIndex) => (
+                            {t(layer.itemsKey).split(',').map((item, itemIndex) => (
                               <span key={itemIndex} className="flex items-center">
                                 {itemIndex > 0 && (
                                   <span className="text-white/20 mx-3">·</span>
@@ -318,7 +311,7 @@ const SummaryVision = () => {
 
                       {/* Connector line */}
                       {index < architectureLayers.length - 1 && (
-                        <div className="absolute -bottom-4 left-[19px] w-px h-4 bg-white/[0.06]" />
+                        <div className={`absolute -bottom-4 ${isRTL ? 'right-[19px]' : 'left-[19px]'} w-px h-4 bg-white/[0.06]`} />
                       )}
                     </motion.div>
                   ))}
@@ -327,7 +320,7 @@ const SummaryVision = () => {
                 {/* Diagram label */}
                 <div className="mt-6 text-center lg:absolute lg:-bottom-3 lg:left-1/2 lg:-translate-x-1/2 lg:mt-0 bg-black px-3">
                   <span className="text-[8px] tracking-[0.3em] uppercase text-white/20 font-mono">
-                    Stack Architecture
+                    {t('overview.fiveLayer.label')}
                   </span>
                 </div>
               </div>
@@ -349,13 +342,13 @@ const SummaryVision = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-8 tracking-tight">Execution Flow</h2>
+              <h2 className="text-xl font-light text-white mb-8 tracking-tight">{t('overview.executionFlow.title')}</h2>
               
               <div className="space-y-4">
-                {executionSteps.map((step, index) => (
+                {executionStepKeys.map((stepKey, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, x: -10 }}
+                    initial={{ opacity: 0, x: isRTL ? 10 : -10 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: index * 0.05 }}
@@ -365,7 +358,7 @@ const SummaryVision = () => {
                       {index + 1}.
                     </span>
                     <p className="text-white/50 text-sm leading-relaxed">
-                      {step}
+                      {t(stepKey)}
                     </p>
                   </motion.div>
                 ))}
@@ -388,13 +381,13 @@ const SummaryVision = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Trust Computation (Summary)</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('overview.trustComputation.title')}</h2>
               <div className="space-y-4">
                 <p className="text-white/50 text-sm leading-relaxed">
-                  Trust reflects agent reliability over time. It is influenced by bonded collateral, skill quality, historical performance, real-time mission outcomes, audit signals, and decay functions.
+                  {t('overview.trustComputation.p1')}
                 </p>
                 <p className="text-white/50 text-sm leading-relaxed">
-                  Trust determines routing priority, cost modifiers, eligibility for swarm formation, and access to higher-capacity economic roles.
+                  {t('overview.trustComputation.p2')}
                 </p>
               </div>
             </motion.div>
@@ -415,14 +408,14 @@ const SummaryVision = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-8 tracking-tight">Economic Guarantees</h2>
+              <h2 className="text-xl font-light text-white mb-8 tracking-tight">{t('overview.guarantees.title')}</h2>
               
               <p className="text-white/50 text-sm leading-relaxed mb-6">
-                The system enforces:
+                {t('overview.guarantees.intro')}
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
-                {economicGuarantees.map((guarantee, index) => (
+                {guaranteeKeys.map((key, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0 }}
@@ -432,13 +425,13 @@ const SummaryVision = () => {
                     className="flex items-center gap-3"
                   >
                     <div className="w-1 h-1 bg-white/20 rounded-full flex-shrink-0" />
-                    <span className="text-white/45 text-sm">{guarantee}</span>
+                    <span className="text-white/45 text-sm">{t(key)}</span>
                   </motion.div>
                 ))}
               </div>
 
               <p className="text-white/50 text-sm leading-relaxed">
-                These guarantees make autonomous software economically reliable at scale.
+                {t('overview.guarantees.conclusion')}
               </p>
             </motion.div>
           </div>
@@ -458,13 +451,13 @@ const SummaryVision = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">What This Enables</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('overview.enables.title')}</h2>
               <div className="space-y-4">
                 <p className="text-white/50 text-sm leading-relaxed">
-                  The five-layer stack supports agent economies, swarm organizations, enterprise automation, sovereign deployments, and hardware-integrated intelligence.
+                  {t('overview.enables.p1')}
                 </p>
                 <p className="text-white/50 text-sm leading-relaxed">
-                  It is designed to scale from thousands to billions of autonomous agents within a unified machine-first ecosystem.
+                  {t('overview.enables.p2')}
                 </p>
               </div>
             </motion.div>
@@ -482,8 +475,8 @@ const SummaryVision = () => {
                 className="group bg-black border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
               >
                 <Link to="/agent-architecture">
-                  Agent Architecture
-                  <ChevronRight className="ml-2 h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+                  {t('overview.nav.agentArchitecture')}
+                  <ChevronRight className={`${isRTL ? 'me-2 rotate-180' : 'ms-2'} h-3 w-3 transition-transform group-hover:translate-x-0.5`} />
                 </Link>
               </Button>
             </div>
@@ -493,7 +486,7 @@ const SummaryVision = () => {
         {/* AMAI Research Tag */}
         <div className="py-8 text-center">
           <span className="text-[10px] tracking-[0.3em] uppercase text-white/20 font-mono">
-            AMAI Research
+            {t('overview.footer')}
           </span>
         </div>
 
