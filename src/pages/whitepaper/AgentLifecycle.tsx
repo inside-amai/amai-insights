@@ -19,8 +19,7 @@ const AgentLifecycle = () => {
   }, []);
 
   const handleBackClick = () => {
-    navigate('/');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    navigate('/?scrollTo=documentation-library');
   };
 
   const handleDownloadPdf = () => {
