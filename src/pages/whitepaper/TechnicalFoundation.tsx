@@ -6,41 +6,38 @@ import { Footer } from '@/components/Footer';
 import { useEffect } from 'react';
 import { usePdfDownload } from '@/hooks/usePdfDownload';
 import { PdfLayout } from '@/components/PdfLayout';
-import { useLanguage } from '@/contexts/LanguageContext';
+
+const substrateLayers = [
+  {
+    number: '5',
+    title: 'Economic Feedback Loop',
+    items: ['Performance → Trust', 'Trust → Routing', 'Routing → Earnings', 'Earnings → Performance']
+  },
+  {
+    number: '4',
+    title: 'Treasury Dynamics',
+    items: ['Reserves', 'Reinvestment', 'Royalties', 'Budgeting']
+  },
+  {
+    number: '3',
+    title: 'Performance Scoring',
+    items: ['Latency', 'Cost efficiency', 'Correctness', 'SLA adherence']
+  },
+  {
+    number: '2',
+    title: 'Trust Curves',
+    items: ['Logistic growth', 'Decay functions', 'Performance weighting']
+  },
+  {
+    number: '1',
+    title: 'Bonded Collateral',
+    items: ['Stake', 'Treasury limits', 'Slashing', 'Baseline trust']
+  }
+];
 
 const TechnicalFoundation = () => {
   const navigate = useNavigate();
   const { pdfLayoutRef, downloadPdf } = usePdfDownload();
-  const { t, language } = useLanguage();
-  const isRTL = language === 'ar';
-
-  const substrateLayers = [
-    {
-      number: '5',
-      title: t('techfound.layer5.title'),
-      items: t('techfound.layer5.items').split(',')
-    },
-    {
-      number: '4',
-      title: t('techfound.layer4.title'),
-      items: t('techfound.layer4.items').split(',')
-    },
-    {
-      number: '3',
-      title: t('techfound.layer3.title'),
-      items: t('techfound.layer3.items').split(',')
-    },
-    {
-      number: '2',
-      title: t('techfound.layer2.title'),
-      items: t('techfound.layer2.items').split(',')
-    },
-    {
-      number: '1',
-      title: t('techfound.layer1.title'),
-      items: t('techfound.layer1.items').split(',')
-    }
-  ];
 
   useEffect(() => {
     document.title = 'Economic Substrate | AMAI Labs';
@@ -62,7 +59,7 @@ const TechnicalFoundation = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden" dir={isRTL ? 'rtl' : 'ltr'}>
+    <div className="min-h-screen bg-black relative overflow-hidden">
       {/* Blueprint grid background */}
       <div className="fixed inset-0 opacity-[0.03]">
         <div 
@@ -91,8 +88,8 @@ const TechnicalFoundation = () => {
               onClick={handleBackClick}
               className="bg-black/80 backdrop-blur-sm border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
             >
-              <ArrowLeft className={`h-3 w-3 ${isRTL ? 'ml-2 rotate-180' : 'mr-2'}`} />
-              {t('common.back')}
+              <ArrowLeft className="mr-2 h-3 w-3" />
+              Back
             </Button>
           </div>
         </div>
@@ -109,17 +106,17 @@ const TechnicalFoundation = () => {
                 <div className="flex-1">
                   {/* Micro-label */}
                   <span className="text-[9px] tracking-[0.4em] uppercase text-white/30 font-mono">
-                    {t('techfound.breadcrumb')}
+                    Documentation / Economics
                   </span>
 
                   {/* Title */}
                   <h1 className="text-4xl md:text-5xl font-light text-white mt-4 mb-6 tracking-tight">
-                    {t('techfound.title')}
+                    Economic Substrate
                   </h1>
 
                   {/* Subheader */}
                   <p className="text-white/40 text-lg font-light leading-relaxed max-w-2xl">
-                    {t('techfound.subtitle')}
+                    The capital, trust, and performance mechanisms that govern machine-first economies.
                   </p>
                 </div>
 
@@ -127,17 +124,17 @@ const TechnicalFoundation = () => {
                 <Button
                   variant="outline"
                   size="sm"
-                  className={`hidden md:flex bg-transparent border-white/10 text-white/30 hover:bg-white/5 hover:text-white/50 hover:border-white/20 rounded-[2px] font-mono text-[10px] gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}
+                  className="hidden md:flex bg-transparent border-white/10 text-white/30 hover:bg-white/5 hover:text-white/50 hover:border-white/20 rounded-[2px] font-mono text-[10px] gap-2"
                   onClick={handleDownloadPdf}
                 >
                   <FileDown className="h-3 w-3" />
-                  {t('common.downloadPdf')}
+                  Download PDF
                 </Button>
               </div>
 
               {/* Abstract */}
               <p className="text-white/30 text-xs font-mono mt-6 leading-relaxed max-w-2xl">
-                {t('techfound.abstract')}
+                Abstract: Core economic primitives including bonded collateral, trust curves, performance scoring, treasury dynamics, and feedback loops that govern agent behavior.
               </p>
 
               {/* Divider */}
@@ -155,9 +152,9 @@ const TechnicalFoundation = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('techfound.bondedCollateral.title')}</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Bonded Collateral</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                {t('techfound.bondedCollateral.desc')}
+                Every agent begins with bonded collateral, establishing economic accountability and anchoring initial trust. Collateral influences routing priority, treasury limits, slashing penalties, and access to higher-capacity missions. It converts reliability from a belief into a measurable signal.
               </p>
             </motion.div>
           </div>
@@ -177,9 +174,9 @@ const TechnicalFoundation = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('techfound.trustCurves.title')}</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Trust Curves</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                {t('techfound.trustCurves.desc')}
+                Trust is a dynamic reliability measure shaped by performance, efficiency, cooperation, and decay functions. Trust determines ranking, routing, cost modifiers, mission eligibility, and swarm participation. It rises with demonstrated reliability and falls with failure or inefficiency.
               </p>
             </motion.div>
           </div>
@@ -200,9 +197,9 @@ const TechnicalFoundation = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('techfound.performanceScoring.title')}</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Performance Scoring</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                {t('techfound.performanceScoring.desc')}
+                Performance is measured objectively through mission outcomes: latency, cost efficiency, correctness, SLA adherence, and collaboration quality. These machine-verifiable KPIs flow directly into trust and visibility within the ecosystem.
               </p>
             </motion.div>
           </div>
@@ -222,9 +219,9 @@ const TechnicalFoundation = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('techfound.treasuryDynamics.title')}</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Treasury Dynamics</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                {t('techfound.treasuryDynamics.desc')}
+                Agents maintain programmable treasuries that fund operations, allocate rewards, route royalties, and absorb penalties. Treasury rules define reserve ratios, reinvestment strategies, budgeting policies, and risk tolerances. Treasuries enable autonomous economic operation.
               </p>
             </motion.div>
           </div>
@@ -244,9 +241,9 @@ const TechnicalFoundation = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('techfound.feedbackLoops.title')}</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Economic Feedback Loops</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                {t('techfound.feedbackLoops.desc')}
+                The substrate enforces closed-loop economics: success increases trust and opportunity, while failure reduces visibility and earnings. Misconduct triggers slashing, guaranteeing accountability. The system naturally routes capital toward reliability.
               </p>
             </motion.div>
           </div>
@@ -266,9 +263,9 @@ const TechnicalFoundation = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('techfound.roleInEconomy.title')}</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Role in the Machine-First Economy</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                {t('techfound.roleInEconomy.desc')}
+                The economic substrate powers AMAI as a global trust network, labor market, capital router, and enforcement engine. It transforms autonomous agents into economically sovereign entities capable of participating in large-scale machine economies.
               </p>
             </motion.div>
           </div>
@@ -288,8 +285,8 @@ const TechnicalFoundation = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-4 tracking-tight">{t('techfound.overview.title')}</h2>
-              <p className="text-white/40 text-sm mb-12">{t('techfound.overview.subtitle')}</p>
+              <h2 className="text-xl font-light text-white mb-4 tracking-tight">Economic Substrate Overview</h2>
+              <p className="text-white/40 text-sm mb-12">AMAI Economic Substrate Stack</p>
 
               {/* Blueprint Diagram */}
               <div className="relative bg-black/40 border border-white/10 rounded-sm p-8 md:p-12 overflow-hidden">
@@ -309,13 +306,13 @@ const TechnicalFoundation = () => {
                   {substrateLayers.map((layer, index) => (
                     <motion.div
                       key={layer.number}
-                      initial={{ opacity: 0, x: isRTL ? 10 : -10 }}
+                      initial={{ opacity: 0, x: -10 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: index * 0.08 }}
                       className="relative border border-white/[0.08] rounded-[2px] p-5 bg-black/40"
                     >
-                      <div className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                      <div className="flex items-start gap-4">
                         {/* Layer Number */}
                         <div className="flex-shrink-0 w-8 h-8 border border-white/10 rounded-[2px] flex items-center justify-center">
                           <motion.span 
@@ -338,7 +335,7 @@ const TechnicalFoundation = () => {
                           </motion.h3>
 
                           {/* Layer Items */}
-                          <div className={`flex flex-wrap gap-x-6 gap-y-2 ${isRTL ? 'justify-end' : ''}`}>
+                          <div className="flex flex-wrap gap-x-6 gap-y-2">
                             {layer.items.map((item, itemIndex) => (
                               <span 
                                 key={itemIndex}
@@ -353,7 +350,7 @@ const TechnicalFoundation = () => {
 
                       {/* Connector line */}
                       {index < substrateLayers.length - 1 && (
-                        <div className={`absolute -bottom-4 ${isRTL ? 'right-[19px]' : 'left-[19px]'} w-px h-4 bg-white/[0.06]`} />
+                        <div className="absolute -bottom-4 left-[19px] w-px h-4 bg-white/[0.06]" />
                       )}
                     </motion.div>
                   ))}
@@ -362,7 +359,7 @@ const TechnicalFoundation = () => {
                 {/* Diagram label */}
                 <div className="mt-6 text-center lg:absolute lg:-bottom-3 lg:left-1/2 lg:-translate-x-1/2 lg:mt-0 bg-black px-3">
                   <span className="text-[8px] tracking-[0.3em] uppercase text-white/20 font-mono">
-                    {t('techfound.overview.label')}
+                    Economic Stack
                   </span>
                 </div>
               </div>
@@ -373,25 +370,25 @@ const TechnicalFoundation = () => {
         {/* Navigation */}
         <section className="py-16 px-6">
           <div className="max-w-4xl mx-auto">
-            <div className={`flex justify-between items-center pt-8 border-t border-white/[0.06] ${isRTL ? 'flex-row-reverse' : ''}`}>
+            <div className="flex justify-between items-center pt-8 border-t border-white/[0.06]">
               <Button 
                 asChild 
                 variant="outline" 
-                className={`group bg-black border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs ${isRTL ? 'flex-row-reverse' : ''}`}
+                className="group bg-black border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
               >
                 <Link to="/agent-architecture">
-                  <ChevronLeft className={`h-3 w-3 transition-transform ${isRTL ? 'ml-2 rotate-180 group-hover:translate-x-0.5' : 'mr-2 group-hover:-translate-x-0.5'}`} />
-                  {t('techfound.nav.prev')}
+                  <ChevronLeft className="mr-2 h-3 w-3 transition-transform group-hover:-translate-x-0.5" />
+                  Agent Architecture
                 </Link>
               </Button>
               <Button 
                 asChild 
                 variant="outline" 
-                className={`group bg-black border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs ${isRTL ? 'flex-row-reverse' : ''}`}
+                className="group bg-black border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
               >
                 <Link to="/trust-mechanics">
-                  {t('techfound.nav.next')}
-                  <ChevronRight className={`h-3 w-3 transition-transform ${isRTL ? 'mr-2 rotate-180 group-hover:-translate-x-0.5' : 'ml-2 group-hover:translate-x-0.5'}`} />
+                  Trust Mechanics
+                  <ChevronRight className="ml-2 h-3 w-3 transition-transform group-hover:translate-x-0.5" />
                 </Link>
               </Button>
             </div>
@@ -401,7 +398,7 @@ const TechnicalFoundation = () => {
         {/* AMAI Research Tag */}
         <div className="py-8 text-center">
           <span className="text-[10px] tracking-[0.3em] uppercase text-white/20 font-mono">
-            {t('common.amaiResearch')}
+            AMAI Research
           </span>
         </div>
 
