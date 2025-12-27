@@ -3,9 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, FileDown } from 'lucide-react';
 import { Footer } from '@/components/Footer';
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import ConflictOfThoughtPaper from '@/components/research/ConflictOfThoughtPaper';
+
+const ConflictOfThoughtPaper = lazy(() => import('@/components/research/ConflictOfThoughtPaper'));
 
 const Research = () => {
   const navigate = useNavigate();
@@ -105,9 +106,15 @@ const Research = () => {
           </div>
         </section>
 
-        {/* Full Paper Content */}
-        <section className="px-6">
-          <ConflictOfThoughtPaper />
+        {/* Full Paper Content - Rendered PDF Pages */}
+        <section className="px-6 py-8">
+          <Suspense fallback={
+            <div className="flex items-center justify-center py-20">
+              <div className="text-white/40 font-mono text-sm">Loading paper...</div>
+            </div>
+          }>
+            <ConflictOfThoughtPaper />
+          </Suspense>
         </section>
 
         {/* Bottom Download Button */}
