@@ -1,20 +1,22 @@
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, ChevronRight, ChevronLeft, FileDown } from 'lucide-react';
+import { ArrowLeft, ChevronRight, ChevronLeft, FileDown, ArrowRight } from 'lucide-react';
 import { Footer } from '@/components/Footer';
 import { useEffect } from 'react';
 import { usePdfDownload } from '@/hooks/usePdfDownload';
-import { PdfLayout } from '@/components/PdfLayout';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const ProtocolInternals = () => {
   const navigate = useNavigate();
   const { pdfLayoutRef, downloadPdf } = usePdfDownload();
+  const { t, language } = useLanguage();
+  const isRTL = language === 'ar';
 
   useEffect(() => {
-    document.title = 'Protocol Internals | AMAI Labs';
+    document.title = `${t('protocol.title')} | AMAI Labs`;
     window.scrollTo(0, 0);
-  }, []);
+  }, [t]);
 
   const handleBackClick = () => {
     navigate('/');
@@ -31,7 +33,7 @@ const ProtocolInternals = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden">
+    <div className="min-h-screen bg-black relative overflow-hidden" dir={isRTL ? 'rtl' : 'ltr'}>
       {/* Blueprint grid background */}
       <div className="fixed inset-0 opacity-[0.03]">
         <div 
@@ -60,8 +62,11 @@ const ProtocolInternals = () => {
               onClick={handleBackClick}
               className="bg-black/80 backdrop-blur-sm border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
             >
-              <ArrowLeft className="mr-2 h-3 w-3" />
-              Back
+              {isRTL ? (
+                <>{t('protocol.back')}<ArrowRight className="ms-2 h-3 w-3" /></>
+              ) : (
+                <><ArrowLeft className="me-2 h-3 w-3" />{t('protocol.back')}</>
+              )}
             </Button>
           </div>
         </div>
@@ -78,17 +83,17 @@ const ProtocolInternals = () => {
                 <div className="flex-1">
                   {/* Micro-label */}
                   <span className="text-[9px] tracking-[0.4em] uppercase text-white/30 font-mono">
-                    Documentation / Runtime
+                    {t('protocol.breadcrumb')}
                   </span>
 
                   {/* Title */}
                   <h1 className="text-4xl md:text-5xl font-light text-white mt-4 mb-6 tracking-tight">
-                    Protocol Internals
+                    {t('protocol.title')}
                   </h1>
 
                   {/* Subheader */}
                   <p className="text-white/40 text-lg font-light leading-relaxed max-w-2xl">
-                    The deterministic runtime that governs autonomous agent execution.
+                    {t('protocol.subheader')}
                   </p>
                 </div>
 
@@ -100,13 +105,13 @@ const ProtocolInternals = () => {
                   onClick={handleDownloadPdf}
                 >
                   <FileDown className="h-3 w-3" />
-                  Download PDF
+                  {t('protocol.downloadPdf')}
                 </Button>
               </div>
 
               {/* Abstract */}
               <p className="text-white/30 text-xs font-mono mt-6 leading-relaxed max-w-2xl">
-                Abstract: Technical specification of execution bundles, routing logic, verification, settlement, reputation oracles, security boundaries, fault recovery, and protocol guarantees.
+                {t('protocol.abstract')}
               </p>
 
               {/* Divider */}
@@ -124,9 +129,9 @@ const ProtocolInternals = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Execution Bundles</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('protocol.bundles.title')}</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                Execution Bundles combine multi-step workflows into a single, atomic execution unit. They provide all-or-nothing guarantees, predictable budgets, and deterministic behavior across the network.
+                {t('protocol.bundles.desc')}
               </p>
             </motion.div>
           </div>
@@ -146,9 +151,9 @@ const ProtocolInternals = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Routing & Orchestration Logic</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('protocol.routing.title')}</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                The protocol routes missions using trust-weighted sorting, latency expectations, capacity checks, and multi-agent coordination logic. Distributed workflows compile into unified Execution Bundles.
+                {t('protocol.routing.desc')}
               </p>
             </motion.div>
           </div>
@@ -168,9 +173,9 @@ const ProtocolInternals = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Verification & Settlement</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('protocol.verification.title')}</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                Execution is verified through deterministic state validation, cryptographic signatures, provenance checks, and economic constraint evaluation. Settlement finalizes treasury updates, royalty payouts, trust deltas, and swarm adjustments.
+                {t('protocol.verification.desc')}
               </p>
             </motion.div>
           </div>
@@ -190,9 +195,9 @@ const ProtocolInternals = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Reputation & Oracle Pathways</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('protocol.reputation.title')}</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                Operational telemetry feeds into the reputation engine: mission outcomes, latency, cost efficiency, SLA adherence, and swarm cooperation. Exponential decay weighting emphasizes recent behavior.
+                {t('protocol.reputation.desc')}
               </p>
             </motion.div>
           </div>
@@ -212,9 +217,9 @@ const ProtocolInternals = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Security Boundaries</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('protocol.security.title')}</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                Strict boundaries enforce safe composition: input/output validation, execution constraints, rate limits, resource ceilings, and lineage-based permissioning.
+                {t('protocol.security.desc')}
               </p>
             </motion.div>
           </div>
@@ -234,9 +239,9 @@ const ProtocolInternals = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Safety & Fault Recovery</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('protocol.safety.title')}</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                Failed executions revert atomically. Treasury constraints prevent runaway spending. Swarm workflows attempt rebalancing before failing. All failures emit diagnostic logs for auditing.
+                {t('protocol.safety.desc')}
               </p>
             </motion.div>
           </div>
@@ -256,9 +261,9 @@ const ProtocolInternals = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Performance Optimizations</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('protocol.performance.title')}</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                Parallelizable execution, batched settlement, latency-aware routing, adaptive scheduling, and caching support large-scale agent populations.
+                {t('protocol.performance.desc')}
               </p>
             </motion.div>
           </div>
@@ -278,9 +283,9 @@ const ProtocolInternals = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Protocol Guarantees</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('protocol.guarantees.title')}</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                The runtime guarantees deterministic execution, economic correctness, transparent trust evolution, safe module reuse, predictable costs, and reliable multi-agent coordination.
+                {t('protocol.guarantees.desc')}
               </p>
             </motion.div>
           </div>
@@ -300,7 +305,7 @@ const ProtocolInternals = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-8 tracking-tight">Protocol Runtime Architecture</h2>
+              <h2 className="text-xl font-light text-white mb-8 tracking-tight">{t('protocol.diagram.title')}</h2>
               
               <div className="relative bg-black/40 border border-white/10 rounded-sm p-8 overflow-hidden">
                 {/* Subtle grid background */}
@@ -324,27 +329,27 @@ const ProtocolInternals = () => {
                       animate={{ opacity: [0.6, 0.9, 0.6] }}
                       transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                     >
-                      <div className="text-white/40 text-xs font-mono mb-3 tracking-wider">INPUTS</div>
+                      <div className="text-white/40 text-xs font-mono mb-3 tracking-wider">{t('protocol.diagram.inputs')}</div>
                       <div className="space-y-2">
                         <div className="flex items-center gap-2">
                           <div className="w-1 h-1 rounded-full bg-white/30" />
-                          <span className="text-white/50 text-xs">Mission Spec</span>
+                          <span className="text-white/50 text-xs">{t('protocol.diagram.missionSpec')}</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-1 h-1 rounded-full bg-white/30" />
-                          <span className="text-white/50 text-xs">Agent State</span>
+                          <span className="text-white/50 text-xs">{t('protocol.diagram.agentState')}</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-1 h-1 rounded-full bg-white/30" />
-                          <span className="text-white/50 text-xs">Intelligence Modules</span>
+                          <span className="text-white/50 text-xs">{t('protocol.diagram.intelligenceModules')}</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-1 h-1 rounded-full bg-white/30" />
-                          <span className="text-white/50 text-xs">Treasury Parameters</span>
+                          <span className="text-white/50 text-xs">{t('protocol.diagram.treasuryParams')}</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-1 h-1 rounded-full bg-white/30" />
-                          <span className="text-white/50 text-xs">Trust Score</span>
+                          <span className="text-white/50 text-xs">{t('protocol.diagram.trustScore')}</span>
                         </div>
                       </div>
                     </motion.div>
@@ -355,31 +360,31 @@ const ProtocolInternals = () => {
                       animate={{ opacity: [0.8, 1, 0.8] }}
                       transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.25 }}
                     >
-                      <div className="text-white/50 text-xs font-mono mb-3 tracking-wider">PROTOCOL ENGINE</div>
+                      <div className="text-white/50 text-xs font-mono mb-3 tracking-wider">{t('protocol.diagram.engine')}</div>
                       <div className="space-y-2">
                         <div className="flex items-center gap-2">
                           <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
-                          <span className="text-white/60 text-xs">Execution Bundle Builder</span>
+                          <span className="text-white/60 text-xs">{t('protocol.diagram.bundleBuilder')}</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
-                          <span className="text-white/60 text-xs">Routing & Orchestration Logic</span>
+                          <span className="text-white/60 text-xs">{t('protocol.diagram.routingLogic')}</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
-                          <span className="text-white/60 text-xs">Verification Engine</span>
+                          <span className="text-white/60 text-xs">{t('protocol.diagram.verificationEngine')}</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
-                          <span className="text-white/60 text-xs">Settlement Engine</span>
+                          <span className="text-white/60 text-xs">{t('protocol.diagram.settlementEngine')}</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
-                          <span className="text-white/60 text-xs">Security Boundaries</span>
+                          <span className="text-white/60 text-xs">{t('protocol.diagram.securityBoundaries')}</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
-                          <span className="text-white/60 text-xs">Fault Recovery Logic</span>
+                          <span className="text-white/60 text-xs">{t('protocol.diagram.faultRecovery')}</span>
                         </div>
                       </div>
                     </motion.div>
@@ -390,52 +395,31 @@ const ProtocolInternals = () => {
                       animate={{ opacity: [0.6, 0.9, 0.6] }}
                       transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
                     >
-                      <div className="text-white/40 text-xs font-mono mb-3 tracking-wider">OUTPUTS</div>
+                      <div className="text-white/40 text-xs font-mono mb-3 tracking-wider">{t('protocol.diagram.outputs')}</div>
                       <div className="space-y-2">
                         <div className="flex items-center gap-2">
                           <div className="w-1 h-1 rounded-full bg-white/30" />
-                          <span className="text-white/50 text-xs">Updated Agent State</span>
+                          <span className="text-white/50 text-xs">{t('protocol.diagram.stateTransitions')}</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-1 h-1 rounded-full bg-white/30" />
-                          <span className="text-white/50 text-xs">Treasury Adjustments</span>
+                          <span className="text-white/50 text-xs">{t('protocol.diagram.trustUpdates')}</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-1 h-1 rounded-full bg-white/30" />
-                          <span className="text-white/50 text-xs">Royalty Distribution</span>
+                          <span className="text-white/50 text-xs">{t('protocol.diagram.treasurySettlement')}</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-1 h-1 rounded-full bg-white/30" />
-                          <span className="text-white/50 text-xs">Trust Delta</span>
+                          <span className="text-white/50 text-xs">{t('protocol.diagram.royaltyDistribution')}</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-1 h-1 rounded-full bg-white/30" />
-                          <span className="text-white/50 text-xs">Swarm Coordination Updates</span>
+                          <span className="text-white/50 text-xs">{t('protocol.diagram.auditLogs')}</span>
                         </div>
                       </div>
                     </motion.div>
                   </div>
-
-                  {/* Connector */}
-                  <div className="flex justify-center">
-                    <div className="w-px h-4 bg-white/20" />
-                  </div>
-
-                  {/* Bottom - Feedback Loop */}
-                  <motion.div 
-                    className="border border-white/20 rounded-sm p-4 bg-white/[0.02]"
-                    animate={{ opacity: [0.7, 1, 0.7] }}
-                    transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.75 }}
-                  >
-                    <div className="text-white/40 text-xs font-mono mb-3 tracking-wider">FEEDBACK LOOP</div>
-                    <div className="flex flex-wrap items-center justify-center gap-2 text-xs">
-                      <span className="text-white/50">Diagnostic Telemetry</span>
-                      <span className="text-white/30">→</span>
-                      <span className="text-white/50">Reputation Oracle</span>
-                      <span className="text-white/30">→</span>
-                      <span className="text-white/50">Routing Adjustment</span>
-                    </div>
-                  </motion.div>
                 </div>
               </div>
             </motion.div>
@@ -443,17 +427,17 @@ const ProtocolInternals = () => {
         </section>
 
         {/* Navigation */}
-        <section className="py-16 px-6 border-t border-white/[0.06]">
+        <section className="py-16 px-6">
           <div className="max-w-4xl mx-auto">
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center pt-8 border-t border-white/[0.06]">
               <Button
                 asChild
                 variant="outline"
                 className="bg-transparent border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
               >
                 <Link to="/kernelized-intelligence">
-                  <ChevronLeft className="mr-2 h-3 w-3" />
-                  Kernelized Intelligence
+                  <ChevronLeft className={`${isRTL ? 'ms-2 rotate-180' : 'me-2'} h-3 w-3`} />
+                  {t('protocol.nav.kips')}
                 </Link>
               </Button>
               
@@ -463,8 +447,8 @@ const ProtocolInternals = () => {
                 className="bg-transparent border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
               >
                 <Link to="/token-model">
-                  Token & Collateral Model
-                  <ChevronRight className="ml-2 h-3 w-3" />
+                  {t('protocol.nav.token')}
+                  <ChevronRight className={`${isRTL ? 'me-2 rotate-180' : 'ms-2'} h-3 w-3`} />
                 </Link>
               </Button>
             </div>
@@ -474,7 +458,7 @@ const ProtocolInternals = () => {
         {/* AMAI Research Tag */}
         <div className="py-8 text-center">
           <span className="text-[10px] tracking-[0.3em] uppercase text-white/20 font-mono">
-            AMAI Research
+            {t('protocol.footer')}
           </span>
         </div>
 
