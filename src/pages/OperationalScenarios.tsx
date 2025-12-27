@@ -4,165 +4,55 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import { Footer } from '@/components/Footer';
-
-const scenarios = [
-  {
-    id: 'global-energy-network',
-    label: 'Global Energy Network',
-    title: 'Autonomous Capital & Operations for a Global Energy Network',
-    subtitle: '',
-    sections: [
-      {
-        heading: 'Context',
-        content: "Global energy systems operate across thousands of assets, jurisdictions, and markets — power generation, transmission, storage, and trading — each governed by different rules, incentives, and risk profiles. Today, these systems are coordinated through layers of human decision-making, delayed reporting, and fragmented capital allocation. Even minor inefficiencies compound at scale, creating systemic exposure during periods of volatility, supply disruption, or geopolitical stress."
-      },
-      {
-        heading: 'The Bottleneck',
-        content: "Modern energy infrastructure is constrained not by physical capacity, but by economic coordination. Human-in-the-loop workflows introduce latency, bias, and operational risk. Capital is allocated on static assumptions. Trust is inferred rather than measured. Accountability is retrospective rather than real-time. In critical moments, decisions arrive too late."
-      },
-      {
-        heading: 'AMAI Deployment',
-        content: "AMAI deploys a network of autonomous agents across the energy operator's infrastructure.",
-        bullets: [
-          'Holds a persistent identity',
-          'Maintains a verifiable trust score derived from historical performance',
-          'Controls bonded capital with deterministic limits',
-          'Executes actions atomically with guaranteed settlement'
-        ],
-        footer: "Agents operate independently or as coordinated swarms, dynamically reallocating capital, routing energy, hedging exposure, and enforcing risk constraints in real time. All execution is verifiable. All outcomes are settled deterministically."
-      },
-      {
-        heading: 'Operational Outcome',
-        content: "Energy operations transition from human-managed systems to machine-coordinated economic infrastructure.",
-        bullets: [
-          'Capital is allocated continuously, not quarterly',
-          'Risk is enforced at execution, not post-mortem',
-          'Trust becomes measurable, transferable, and enforceable',
-          'System behavior adapts instantly to real-world conditions'
-        ],
-        footer: "The organization does not react to volatility — it absorbs it."
-      },
-      {
-        heading: 'Strategic Implication',
-        content: "AMAI does not replace operators. It replaces the economic friction between them."
-      },
-      {
-        heading: '',
-        quote: "We didn't automate jobs. We automated the economy that runs them."
-      }
-    ]
-  },
-  {
-    id: 'global-treasury',
-    label: 'Global Treasury',
-    title: 'Autonomous Cross-Border Treasury & Global Payments',
-    subtitle: '',
-    sections: [
-      {
-        heading: 'Context',
-        content: "Global enterprises operate across dozens of currencies, jurisdictions, banking systems, and regulatory regimes. Treasury teams manage liquidity, FX exposure, settlement, and compliance through fragmented systems that were never designed for real-time global coordination. Capital sits idle. Risk accumulates invisibly. Decisions are gated by human workflows, regional cutoffs, and settlement delays measured in days. In a 24/7 global economy, money still sleeps."
-      },
-      {
-        heading: 'The Bottleneck',
-        content: "Cross-border finance is constrained by human-paced decision loops. Treasury operations rely on:",
-        bullets: [
-          'Static hedging strategies',
-          'Manual rebalancing',
-          'Delayed reporting',
-          'Trust assumptions between counterparties'
-        ],
-        footer: "During volatility, capital becomes trapped in the system — unavailable when it's needed most."
-      },
-      {
-        heading: 'AMAI Deployment',
-        content: "AMAI deploys autonomous treasury agents across the organization's global financial stack.",
-        bullets: [
-          'Holds a cryptographic identity',
-          'Maintains a performance-based trust score',
-          'Controls bonded capital with predefined risk limits',
-          'Executes FX, settlement, and liquidity actions deterministically'
-        ],
-        footer: "Agents monitor markets continuously, rebalance capital across regions, execute FX hedges, route payments, and settle obligations in real time — either independently or as coordinated swarms. All actions are atomic. All outcomes are auditable."
-      },
-      {
-        heading: 'Operational Outcome',
-        content: "Treasury operations shift from batch-based finance to continuous economic orchestration.",
-        bullets: [
-          'Liquidity moves instantly across borders',
-          'FX exposure is managed dynamically, not reactively',
-          'Counterparty trust is enforced by collateral and performance',
-          'Settlement risk collapses toward zero'
-        ],
-        footer: "Capital becomes a living system, not a static balance sheet."
-      },
-      {
-        heading: 'Strategic Implication',
-        content: "AMAI turns treasury from a cost center into a strategic execution layer. Finance no longer supports operations — it executes them."
-      },
-      {
-        heading: '',
-        quote: "Money stopped waiting for permission."
-      }
-    ]
-  },
-  {
-    id: 'ai-compute-markets',
-    label: 'AI Compute Markets',
-    title: 'Autonomous AI Compute & Resource Markets',
-    subtitle: '',
-    sections: [
-      {
-        heading: 'Context',
-        content: "AI systems increasingly compete for scarce resources: compute, memory, bandwidth, storage, and specialized hardware. Today, these resources are allocated through static contracts, centralized schedulers, and human-negotiated agreements. As demand accelerates, this model breaks. Compute sits idle in some regions while others bottleneck. Pricing lags reality. Allocation decisions are made on outdated assumptions. The fastest-growing sector in the world runs on an allocation system designed for a slower era."
-      },
-      {
-        heading: 'The Bottleneck',
-        content: "Compute allocation is constrained by centralized control and human latency.",
-        bullets: [
-          'Capacity is provisioned manually',
-          'Pricing signals arrive too late',
-          'Utilization is inefficient',
-          'Accountability is unclear'
-        ],
-        footer: "AI systems can reason at machine speed — but the resources they depend on cannot move with them."
-      },
-      {
-        heading: 'AMAI Deployment',
-        content: "AMAI enables autonomous agents to operate as economic participants in compute markets.",
-        bullets: [
-          'Represents a workload, model, or organization',
-          'Holds capital and execution permissions',
-          'Maintains a performance-based trust score',
-          'Buys, sells, and reallocates compute resources autonomously'
-        ],
-        footer: "Agents negotiate for resources in real time, route workloads dynamically, and coordinate across swarms to optimize cost, latency, and reliability. Settlement is deterministic. Allocation is continuous. Performance feeds back into trust."
-      },
-      {
-        heading: 'Operational Outcome',
-        content: "Compute becomes a self-regulating economic system.",
-        bullets: [
-          'Resources flow to highest-value workloads automatically',
-          'Idle capacity is monetized instantly',
-          'Pricing reflects real-time demand, not contracts',
-          'System-wide efficiency improves without centralized control'
-        ],
-        footer: "AI systems no longer wait for infrastructure — infrastructure adapts to them."
-      },
-      {
-        heading: 'Strategic Implication',
-        content: "AMAI transforms compute from a static input into a liquid economic layer. The infrastructure that powers intelligence becomes as dynamic as intelligence itself."
-      },
-      {
-        heading: '',
-        quote: "Intelligence learned how to pay for itself."
-      }
-    ]
-  }
-];
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const OperationalScenarios = () => {
   const navigate = useNavigate();
-  const [activeScenario, setActiveScenario] = useState(scenarios[0].id);
+  const [activeScenario, setActiveScenario] = useState('global-energy-network');
+  const { t, language } = useLanguage();
+  const isRTL = language === 'ar';
+
+  const scenarios = [
+    {
+      id: 'global-energy-network',
+      label: t('scenarios.energy.label'),
+      title: t('scenarios.energy.title'),
+      sections: [
+        { heading: t('scenarios.energy.context.heading'), content: t('scenarios.energy.context.content') },
+        { heading: t('scenarios.energy.bottleneck.heading'), content: t('scenarios.energy.bottleneck.content') },
+        { heading: t('scenarios.energy.deployment.heading'), content: t('scenarios.energy.deployment.content'), bullets: [t('scenarios.energy.deployment.bullet1'), t('scenarios.energy.deployment.bullet2'), t('scenarios.energy.deployment.bullet3'), t('scenarios.energy.deployment.bullet4')], footer: t('scenarios.energy.deployment.footer') },
+        { heading: t('scenarios.energy.outcome.heading'), content: t('scenarios.energy.outcome.content'), bullets: [t('scenarios.energy.outcome.bullet1'), t('scenarios.energy.outcome.bullet2'), t('scenarios.energy.outcome.bullet3'), t('scenarios.energy.outcome.bullet4')], footer: t('scenarios.energy.outcome.footer') },
+        { heading: t('scenarios.energy.implication.heading'), content: t('scenarios.energy.implication.content') },
+        { heading: '', quote: t('scenarios.energy.quote') }
+      ]
+    },
+    {
+      id: 'global-treasury',
+      label: t('scenarios.treasury.label'),
+      title: t('scenarios.treasury.title'),
+      sections: [
+        { heading: t('scenarios.treasury.context.heading'), content: t('scenarios.treasury.context.content') },
+        { heading: t('scenarios.treasury.bottleneck.heading'), content: t('scenarios.treasury.bottleneck.content'), bullets: [t('scenarios.treasury.bottleneck.bullet1'), t('scenarios.treasury.bottleneck.bullet2'), t('scenarios.treasury.bottleneck.bullet3'), t('scenarios.treasury.bottleneck.bullet4')], footer: t('scenarios.treasury.bottleneck.footer') },
+        { heading: t('scenarios.treasury.deployment.heading'), content: t('scenarios.treasury.deployment.content'), bullets: [t('scenarios.treasury.deployment.bullet1'), t('scenarios.treasury.deployment.bullet2'), t('scenarios.treasury.deployment.bullet3'), t('scenarios.treasury.deployment.bullet4')], footer: t('scenarios.treasury.deployment.footer') },
+        { heading: t('scenarios.treasury.outcome.heading'), content: t('scenarios.treasury.outcome.content'), bullets: [t('scenarios.treasury.outcome.bullet1'), t('scenarios.treasury.outcome.bullet2'), t('scenarios.treasury.outcome.bullet3'), t('scenarios.treasury.outcome.bullet4')], footer: t('scenarios.treasury.outcome.footer') },
+        { heading: t('scenarios.treasury.implication.heading'), content: t('scenarios.treasury.implication.content') },
+        { heading: '', quote: t('scenarios.treasury.quote') }
+      ]
+    },
+    {
+      id: 'ai-compute-markets',
+      label: t('scenarios.compute.label'),
+      title: t('scenarios.compute.title'),
+      sections: [
+        { heading: t('scenarios.compute.context.heading'), content: t('scenarios.compute.context.content') },
+        { heading: t('scenarios.compute.bottleneck.heading'), content: t('scenarios.compute.bottleneck.content'), bullets: [t('scenarios.compute.bottleneck.bullet1'), t('scenarios.compute.bottleneck.bullet2'), t('scenarios.compute.bottleneck.bullet3'), t('scenarios.compute.bottleneck.bullet4')], footer: t('scenarios.compute.bottleneck.footer') },
+        { heading: t('scenarios.compute.deployment.heading'), content: t('scenarios.compute.deployment.content'), bullets: [t('scenarios.compute.deployment.bullet1'), t('scenarios.compute.deployment.bullet2'), t('scenarios.compute.deployment.bullet3'), t('scenarios.compute.deployment.bullet4')], footer: t('scenarios.compute.deployment.footer') },
+        { heading: t('scenarios.compute.outcome.heading'), content: t('scenarios.compute.outcome.content'), bullets: [t('scenarios.compute.outcome.bullet1'), t('scenarios.compute.outcome.bullet2'), t('scenarios.compute.outcome.bullet3'), t('scenarios.compute.outcome.bullet4')], footer: t('scenarios.compute.outcome.footer') },
+        { heading: t('scenarios.compute.implication.heading'), content: t('scenarios.compute.implication.content') },
+        { heading: '', quote: t('scenarios.compute.quote') }
+      ]
+    }
+  ];
 
   useEffect(() => {
     document.title = 'Operational Scenarios | AMAI Labs';
@@ -182,7 +72,7 @@ const OperationalScenarios = () => {
   const currentScenario = scenarios.find(s => s.id === activeScenario) || scenarios[0];
 
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden">
+    <div className="min-h-screen bg-black relative overflow-hidden" dir={isRTL ? 'rtl' : 'ltr'}>
       {/* Blueprint grid background */}
       <div className="fixed inset-0 opacity-[0.03]">
         <div 
@@ -201,15 +91,15 @@ const OperationalScenarios = () => {
       <div className="fixed inset-0 bg-gradient-to-b from-white/[0.02] via-transparent to-transparent pointer-events-none" />
 
       {/* Back Button */}
-      <div className="fixed top-14 md:top-6 left-6 z-50">
+      <div className={`fixed top-14 md:top-6 ${isRTL ? 'right-6' : 'left-6'} z-50`}>
         <Button 
           variant="outline" 
           size="sm" 
           onClick={handleBackClick}
           className="bg-black/80 backdrop-blur-sm border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
         >
-          <ArrowLeft className="mr-2 h-3 w-3" />
-          Back
+          <ArrowLeft className={`${isRTL ? 'ml-2 rotate-180' : 'mr-2'} h-3 w-3`} />
+          {t('scenarios.back')}
         </Button>
       </div>
 
@@ -225,22 +115,22 @@ const OperationalScenarios = () => {
             >
               {/* Micro-label */}
               <span className="text-[9px] tracking-[0.4em] uppercase text-white/30 font-mono">
-                Documentation / Scenarios
+                {t('scenarios.breadcrumb')}
               </span>
 
               {/* Title */}
               <h1 className="text-4xl md:text-5xl font-light text-white mt-4 mb-6 tracking-tight">
-                Operational Scenarios
+                {t('scenarios.title')}
               </h1>
 
               {/* Subheader */}
               <p className="text-white/40 text-lg font-light leading-relaxed max-w-2xl">
-                Reference implementations illustrating how autonomous agents operate as economic actors across real-world systems.
+                {t('scenarios.subheader')}
               </p>
 
               {/* Abstract */}
               <p className="text-white/30 text-xs font-mono mt-6 leading-relaxed max-w-2xl">
-                Abstract: These scenarios demonstrate agents executing, coordinating, and settling value autonomously — with identity, reputation, capital commitment, and deterministic outcomes — across critical infrastructure domains.
+                {t('scenarios.abstract')}
               </p>
 
               {/* Divider */}
