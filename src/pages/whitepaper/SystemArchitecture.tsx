@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import { usePdfDownload } from '@/hooks/usePdfDownload';
 import { PdfLayout } from '@/components/PdfLayout';
 import { useLanguage } from '@/contexts/LanguageContext';
+import EconomicLoopDiagram from '@/components/EconomicLoopDiagram';
 
 const SystemArchitecture = () => {
   const navigate = useNavigate();
@@ -124,38 +125,7 @@ const SystemArchitecture = () => {
                   </p>
 
                   {/* Economic Loop */}
-                  <div className="mt-10 flex flex-col items-start w-full max-w-2xl">
-                    <h3 className="text-[9px] tracking-[0.3em] uppercase text-white/30 font-mono mb-4">
-                      {t('architecture.loop.title')}
-                    </h3>
-                    
-                    {/* All steps in one row */}
-                    <div className="relative flex items-center gap-2 md:gap-3 text-[10px] md:text-xs text-white/60">
-                      <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">{t('architecture.loop.identity')}</span>
-                      <span className="text-white/30">{isRTL ? '←' : '→'}</span>
-                      <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">{t('architecture.loop.trust')}</span>
-                      <span className="text-white/30">{isRTL ? '←' : '→'}</span>
-                      <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">{t('architecture.loop.capital')}</span>
-                      <span className="text-white/30">{isRTL ? '←' : '→'}</span>
-                      <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">{t('architecture.loop.execution')}</span>
-                      <span className="text-white/30">{isRTL ? '←' : '→'}</span>
-                      <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">{t('architecture.loop.settlement')}</span>
-                    </div>
-                    
-                    {/* U-shaped loop back with curved corners */}
-                    <div className="relative w-full max-w-[460px] h-6 mt-0">
-                      {/* Left corner: curves up to Trust (positioned after Identity) */}
-                      <div className={`absolute ${isRTL ? 'right-[72px] md:right-[88px] border-r border-b rounded-br-md' : 'left-[72px] md:left-[88px] border-l border-b rounded-bl-md'} top-0 w-3 h-full border-white/20`} />
-                      {/* Bottom horizontal line with arrow */}
-                      <div className={`absolute ${isRTL ? 'right-[84px] md:right-[100px] left-6' : 'left-[84px] md:left-[100px] right-6'} bottom-0 h-px bg-white/20`} />
-                      {/* Direction arrows pointing left (Settlement → Trust) */}
-                      <span className="absolute left-[35%] -translate-x-1/2 bottom-[-3px] text-white/40 text-[10px]">{isRTL ? '→' : '←'}</span>
-                      <span className="absolute left-[55%] -translate-x-1/2 bottom-[-3px] text-white/40 text-[10px]">{isRTL ? '→' : '←'}</span>
-                      <span className="absolute left-[75%] -translate-x-1/2 bottom-[-3px] text-white/40 text-[10px]">{isRTL ? '→' : '←'}</span>
-                      {/* Right corner: curves down from Settlement */}
-                      <div className={`absolute ${isRTL ? 'left-3 border-l border-b rounded-bl-md' : 'right-3 border-r border-b rounded-br-md'} top-0 w-3 h-full border-white/20`} />
-                    </div>
-                  </div>
+                  <EconomicLoopDiagram className="mt-8 items-start" />
                 </div>
 
                 {/* Download PDF Button */}
