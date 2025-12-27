@@ -94,28 +94,25 @@ const SummaryVision = () => {
       {/* Subtle radial gradient */}
       <div className="fixed inset-0 bg-gradient-to-b from-white/[0.02] via-transparent to-transparent pointer-events-none" />
 
-      {/* Back Button */}
-      <div className="fixed top-14 md:top-6 left-6 z-50">
-        <Button 
-          variant="outline" 
-          size="sm" 
-          onClick={handleBackClick}
-          className="bg-black/80 backdrop-blur-sm border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
-        >
-          <ArrowLeft className="mr-2 h-3 w-3" />
-          Back
-        </Button>
-      </div>
-
-      {/* Page Number */}
-      <div className="fixed top-6 right-6 z-50">
-        <span className="text-white/30 font-mono text-xs tracking-wider">01 / 09</span>
-      </div>
-
       {/* Content */}
       <div className="relative z-10">
+        {/* Back Button - below header */}
+        <div className="pt-20 px-6">
+          <div className="max-w-4xl mx-auto">
+            <Button 
+              variant="outline" 
+              size="sm" 
+              onClick={handleBackClick}
+              className="bg-black/80 backdrop-blur-sm border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
+            >
+              <ArrowLeft className="mr-2 h-3 w-3" />
+              Back
+            </Button>
+          </div>
+        </div>
+
         {/* Hero Section */}
-        <section className="pt-32 pb-16 px-6">
+        <section className="pt-8 pb-16 px-6">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
