@@ -12,6 +12,9 @@ const documentationCards = [
   { categoryKey: 'docs.card7.category', titleKey: 'docs.card7.title', subtitleKey: 'docs.card7.subtitle', slug: 'protocol-internals' },
   { categoryKey: 'docs.card8.category', titleKey: 'docs.card8.title', subtitleKey: 'docs.card8.subtitle', slug: 'token-model' },
   { categoryKey: 'docs.card9.category', titleKey: 'docs.card9.title', subtitleKey: 'docs.card9.subtitle', slug: 'agent-economy' },
+  { categoryKey: 'docs.card10.category', titleKey: 'docs.card10.title', subtitleKey: 'docs.card10.subtitle', slug: 'agent-lifecycle' },
+  { categoryKey: 'docs.card11.category', titleKey: 'docs.card11.title', subtitleKey: 'docs.card11.subtitle', slug: 'operational-scenarios' },
+  { categoryKey: 'docs.card12.category', titleKey: 'docs.card12.title', subtitleKey: 'docs.card12.subtitle', slug: 'research' },
 ];
 
 const DocumentCard = ({ card, index, t }: { card: typeof documentationCards[0]; index: number; t: (key: string) => string }) => {
@@ -130,22 +133,6 @@ export const DocumentationIndex = () => {
           ))}
         </div>
 
-        {/* Operational Scenarios CTA */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-16 text-center"
-        >
-          <Link
-            to="/operational-scenarios"
-            className="inline-flex flex-col items-center gap-1 text-white/40 hover:text-white/60 transition-colors duration-200 group"
-          >
-            <span className="text-xs border-b border-white/20 group-hover:border-white/40 pb-0.5">{t('docs.scenarios')}</span>
-            <span className="text-[10px] italic text-white/30 group-hover:text-white/50">{t('docs.scenariosSubtitle')}</span>
-          </Link>
-        </motion.div>
       </div>
     </section>
   );
