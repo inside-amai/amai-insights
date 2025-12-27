@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from '@/contexts/LanguageContext';
+import EconomicLoopDiagram from './EconomicLoopDiagram';
 
 interface LayerProps {
   title: string;
@@ -69,38 +70,7 @@ const ArchitectureDiagram: React.FC = () => {
           </p>
 
           {/* Economic Loop */}
-          <div className="mt-10 flex flex-col items-center">
-            <h3 className="text-xs tracking-[0.2em] uppercase text-white/30 mb-4">
-              {t('arch.loop.title')}
-            </h3>
-            <div className="relative">
-              {/* Main flow row */}
-              <div className="flex items-center gap-2 md:gap-3 text-[10px] md:text-xs text-white/60">
-                <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">{t('arch.loop.identity')}</span>
-                <span className="text-white/30">→</span>
-                <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">{t('arch.loop.trust')}</span>
-                <span className="text-white/30">→</span>
-                <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">{t('arch.loop.capital')}</span>
-                <span className="text-white/30">→</span>
-                <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">{t('arch.loop.execution')}</span>
-                <span className="text-white/30">→</span>
-                <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">{t('arch.loop.settlement')}</span>
-              </div>
-              {/* Loop back visualization - U-shaped path from Settlement back to Trust */}
-              <div className="relative h-5 mt-1">
-                {/* Left corner: curves up to Trust (positioned after Identity) */}
-                <div className="absolute left-[72px] md:left-[88px] top-0 w-3 h-full border-l border-b border-white/20 rounded-bl-md" />
-                {/* Bottom horizontal line with arrows */}
-                <div className="absolute left-[84px] md:left-[100px] bottom-0 right-6 h-px bg-white/20" />
-                {/* Direction arrows pointing left (Settlement → Trust) */}
-                <span className="absolute left-[35%] -translate-x-1/2 bottom-[-3px] text-white/40 text-[10px]">←</span>
-                <span className="absolute left-[55%] -translate-x-1/2 bottom-[-3px] text-white/40 text-[10px]">←</span>
-                <span className="absolute left-[75%] -translate-x-1/2 bottom-[-3px] text-white/40 text-[10px]">←</span>
-                {/* Right corner: curves down from Settlement */}
-                <div className="absolute right-3 top-0 w-3 h-full border-r border-b border-white/20 rounded-br-md" />
-              </div>
-            </div>
-          </div>
+          <EconomicLoopDiagram className="mt-8" />
         </motion.div>
 
         {/* Diagram Container */}
