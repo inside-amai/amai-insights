@@ -1,63 +1,43 @@
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, ChevronRight, ChevronLeft, FileDown } from 'lucide-react';
+import { ArrowLeft, ChevronRight, ChevronLeft, FileDown, ArrowRight } from 'lucide-react';
 import { Footer } from '@/components/Footer';
 import { useEffect } from 'react';
 import { usePdfDownload } from '@/hooks/usePdfDownload';
 import { PdfLayout } from '@/components/PdfLayout';
-
-const architectureLayers = [
-  {
-    number: '6',
-    title: 'Swarm Interface',
-    items: ['Coordination hooks', 'Aggregated trust', 'Shared memory pools']
-  },
-  {
-    number: '5',
-    title: 'Execution Lifecycle',
-    items: ['Plan', 'Validate', 'Execute', 'Settle', 'Update']
-  },
-  {
-    number: '4',
-    title: 'Collateral & Trust Layer',
-    items: ['Bonded collateral', 'Trust curves', 'Slashing logic']
-  },
-  {
-    number: '3',
-    title: 'Intelligence Layer (KIPs)',
-    items: ['Skills', 'Modules', 'Composition logic', 'Royalty routing']
-  },
-  {
-    number: '2',
-    title: 'Memory Layer',
-    items: ['Contextual store', 'Mission history', 'Embeddings']
-  },
-  {
-    number: '1',
-    title: 'Identity Layer',
-    items: ['Decentralized identifier', 'Provenance', 'Lineage']
-  }
-];
-
-const lifecycleSteps = [
-  'Initialization',
-  'Mission Intake',
-  'Planning and Assembly',
-  'Economic Validation',
-  'Execution',
-  'Settlement and Royalty Routing',
-  'Trust Update'
-];
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const SystemArchitecture = () => {
   const navigate = useNavigate();
   const { pdfLayoutRef, downloadPdf } = usePdfDownload();
+  const { t, language } = useLanguage();
+  const isRTL = language === 'ar';
+
+  // Architecture layers with translation keys
+  const architectureLayers = [
+    { number: '6', titleKey: 'architecture.layer6.title', itemsKey: 'architecture.layer6.items' },
+    { number: '5', titleKey: 'architecture.layer5.title', itemsKey: 'architecture.layer5.items' },
+    { number: '4', titleKey: 'architecture.layer4.title', itemsKey: 'architecture.layer4.items' },
+    { number: '3', titleKey: 'architecture.layer3.title', itemsKey: 'architecture.layer3.items' },
+    { number: '2', titleKey: 'architecture.layer2.title', itemsKey: 'architecture.layer2.items' },
+    { number: '1', titleKey: 'architecture.layer1.title', itemsKey: 'architecture.layer1.items' }
+  ];
+
+  const lifecycleStepKeys = [
+    'architecture.lifecycle.step1',
+    'architecture.lifecycle.step2',
+    'architecture.lifecycle.step3',
+    'architecture.lifecycle.step4',
+    'architecture.lifecycle.step5',
+    'architecture.lifecycle.step6',
+    'architecture.lifecycle.step7'
+  ];
 
   useEffect(() => {
-    document.title = 'Agent Architecture | AMAI Labs';
+    document.title = `${t('architecture.title')} | AMAI Labs`;
     window.scrollTo(0, 0);
-  }, []);
+  }, [t]);
 
   const handleBackClick = () => {
     navigate('/');
@@ -74,7 +54,7 @@ const SystemArchitecture = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden">
+    <div className="min-h-screen bg-black relative overflow-hidden" dir={isRTL ? 'rtl' : 'ltr'}>
       {/* Blueprint grid background */}
       <div className="fixed inset-0 opacity-[0.03]">
         <div 
@@ -103,8 +83,17 @@ const SystemArchitecture = () => {
               onClick={handleBackClick}
               className="bg-black/80 backdrop-blur-sm border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
             >
-              <ArrowLeft className="mr-2 h-3 w-3" />
-              Back
+              {isRTL ? (
+                <>
+                  {t('architecture.back')}
+                  <ArrowRight className="ms-2 h-3 w-3" />
+                </>
+              ) : (
+                <>
+                  <ArrowLeft className="me-2 h-3 w-3" />
+                  {t('architecture.back')}
+                </>
+              )}
             </Button>
           </div>
         </div>
@@ -121,50 +110,50 @@ const SystemArchitecture = () => {
                 <div className="flex-1">
                   {/* Micro-label */}
                   <span className="text-[9px] tracking-[0.4em] uppercase text-white/30 font-mono">
-                    Documentation / Architecture
+                    {t('architecture.breadcrumb')}
                   </span>
 
                   {/* Title */}
                   <h1 className="text-4xl md:text-5xl font-light text-white mt-4 mb-6 tracking-tight">
-                    Agent Architecture
+                    {t('architecture.title')}
                   </h1>
 
                   {/* Subheader */}
                   <p className="text-white/40 text-lg font-light leading-relaxed max-w-2xl">
-                    How autonomous agents are structured, extended, secured, and coordinated.
+                    {t('architecture.subheader')}
                   </p>
 
                   {/* Economic Loop */}
                   <div className="mt-10 flex flex-col items-start w-full max-w-2xl">
                     <h3 className="text-[9px] tracking-[0.3em] uppercase text-white/30 font-mono mb-4">
-                      AMAI Economic Loop
+                      {t('architecture.loop.title')}
                     </h3>
                     
                     {/* All steps in one row */}
                     <div className="relative flex items-center gap-2 md:gap-3 text-[10px] md:text-xs text-white/60">
-                      <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Identity</span>
-                      <span className="text-white/30">→</span>
-                      <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Trust</span>
-                      <span className="text-white/30">→</span>
-                      <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Capital</span>
-                      <span className="text-white/30">→</span>
-                      <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Execution</span>
-                      <span className="text-white/30">→</span>
-                      <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">Settlement</span>
+                      <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">{t('architecture.loop.identity')}</span>
+                      <span className="text-white/30">{isRTL ? '←' : '→'}</span>
+                      <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">{t('architecture.loop.trust')}</span>
+                      <span className="text-white/30">{isRTL ? '←' : '→'}</span>
+                      <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">{t('architecture.loop.capital')}</span>
+                      <span className="text-white/30">{isRTL ? '←' : '→'}</span>
+                      <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">{t('architecture.loop.execution')}</span>
+                      <span className="text-white/30">{isRTL ? '←' : '→'}</span>
+                      <span className="px-2 py-1 border border-white/20 rounded bg-white/[0.02]">{t('architecture.loop.settlement')}</span>
                     </div>
                     
                     {/* U-shaped loop back with curved corners */}
                     <div className="relative w-full max-w-[460px] h-6 mt-0">
                       {/* Left corner: curves up to Trust (positioned after Identity) */}
-                      <div className="absolute left-[72px] md:left-[88px] top-0 w-3 h-full border-l border-b border-white/20 rounded-bl-md" />
+                      <div className={`absolute ${isRTL ? 'right-[72px] md:right-[88px] border-r border-b rounded-br-md' : 'left-[72px] md:left-[88px] border-l border-b rounded-bl-md'} top-0 w-3 h-full border-white/20`} />
                       {/* Bottom horizontal line with arrow */}
-                      <div className="absolute left-[84px] md:left-[100px] bottom-0 right-6 h-px bg-white/20" />
+                      <div className={`absolute ${isRTL ? 'right-[84px] md:right-[100px] left-6' : 'left-[84px] md:left-[100px] right-6'} bottom-0 h-px bg-white/20`} />
                       {/* Direction arrows pointing left (Settlement → Trust) */}
-                      <span className="absolute left-[35%] -translate-x-1/2 bottom-[-3px] text-white/40 text-[10px]">←</span>
-                      <span className="absolute left-[55%] -translate-x-1/2 bottom-[-3px] text-white/40 text-[10px]">←</span>
-                      <span className="absolute left-[75%] -translate-x-1/2 bottom-[-3px] text-white/40 text-[10px]">←</span>
+                      <span className="absolute left-[35%] -translate-x-1/2 bottom-[-3px] text-white/40 text-[10px]">{isRTL ? '→' : '←'}</span>
+                      <span className="absolute left-[55%] -translate-x-1/2 bottom-[-3px] text-white/40 text-[10px]">{isRTL ? '→' : '←'}</span>
+                      <span className="absolute left-[75%] -translate-x-1/2 bottom-[-3px] text-white/40 text-[10px]">{isRTL ? '→' : '←'}</span>
                       {/* Right corner: curves down from Settlement */}
-                      <div className="absolute right-3 top-0 w-3 h-full border-r border-b border-white/20 rounded-br-md" />
+                      <div className={`absolute ${isRTL ? 'left-3 border-l border-b rounded-bl-md' : 'right-3 border-r border-b rounded-br-md'} top-0 w-3 h-full border-white/20`} />
                     </div>
                   </div>
                 </div>
@@ -177,17 +166,17 @@ const SystemArchitecture = () => {
                   onClick={handleDownloadPdf}
                 >
                   <FileDown className="h-3 w-3" />
-                  Download PDF
+                  {t('architecture.downloadPdf')}
                 </Button>
               </div>
 
               {/* Abstract */}
               <p className="text-white/30 text-xs font-mono mt-6 leading-relaxed max-w-2xl">
-                Abstract: Detailed specification of agent identity, memory, intelligence modules, collateral binding, execution lifecycle, and swarm coordination mechanisms.
+                {t('architecture.abstract')}
               </p>
 
               {/* Divider */}
-              <div className="w-16 h-px bg-white/10 mt-10" />
+              <div className={`w-16 h-px bg-white/10 mt-10 ${isRTL ? 'mr-0' : 'ml-0'}`} />
             </motion.div>
           </div>
         </section>
@@ -201,9 +190,9 @@ const SystemArchitecture = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">What an Agent Is</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('architecture.whatAgent.title')}</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                AMAI agents are autonomous economic entities. They maintain identity, memory, skills, collateral, and trust, enabling them to operate as sovereign participants in a machine-first economy. This section describes the architecture that enables agents to plan, execute, and collaborate reliably.
+                {t('architecture.whatAgent.desc')}
               </p>
             </motion.div>
           </div>
@@ -223,9 +212,9 @@ const SystemArchitecture = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Identity & Provenance</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('architecture.identity.title')}</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                Each agent begins with a cryptographic identity anchored by a decentralized identifier, provenance record, and lineage metadata. Identity ensures accountability, traceability, and long-term reliability across the machine-first economy.
+                {t('architecture.identity.desc')}
               </p>
             </motion.div>
           </div>
@@ -245,9 +234,9 @@ const SystemArchitecture = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Skills & Kernelized Intelligence (KIPs)</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('architecture.skills.title')}</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                Agents gain capabilities through KIPs — composable intelligence modules. KIPs define operational skills, domain logic, and composite behaviors, and include provenance, dependency graphs, and royalty parameters. Skills can be added, removed, or combined to expand the agent's execution graph.
+                {t('architecture.skills.desc')}
               </p>
             </motion.div>
           </div>
@@ -267,9 +256,9 @@ const SystemArchitecture = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Memory & Context Handling</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('architecture.memory.title')}</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                Agents maintain memory to track mission history, store intermediate results, update contextual embeddings, and improve coordination. Memory enables long-running orchestration and adaptive intelligence.
+                {t('architecture.memory.desc')}
               </p>
             </motion.div>
           </div>
@@ -289,9 +278,9 @@ const SystemArchitecture = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Bonded Collateral & Trust Roots</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('architecture.collateral.title')}</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                Collateral creates economic accountability. It influences initial trust, routing priority, treasury limits, and slashing penalties. Trust grows or decays with performance, forming a dynamic reliability measure that governs economic privileges.
+                {t('architecture.collateral.desc')}
               </p>
             </motion.div>
           </div>
@@ -311,13 +300,13 @@ const SystemArchitecture = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-8 tracking-tight">Execution Lifecycle</h2>
+              <h2 className="text-xl font-light text-white mb-8 tracking-tight">{t('architecture.lifecycle.title')}</h2>
               
               <div className="space-y-4">
-                {lifecycleSteps.map((step, index) => (
+                {lifecycleStepKeys.map((stepKey, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, x: -10 }}
+                    initial={{ opacity: 0, x: isRTL ? 10 : -10 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: index * 0.05 }}
@@ -327,14 +316,14 @@ const SystemArchitecture = () => {
                       {index + 1}.
                     </span>
                     <p className="text-white/50 text-sm leading-relaxed">
-                      {step}
+                      {t(stepKey)}
                     </p>
                   </motion.div>
                 ))}
               </div>
 
               <p className="text-white/40 text-sm leading-relaxed mt-6">
-                This lifecycle ensures every agent action is deterministic, auditable, and economically grounded.
+                {t('architecture.lifecycle.conclusion')}
               </p>
             </motion.div>
           </div>
@@ -354,9 +343,9 @@ const SystemArchitecture = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Swarm Participation</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('architecture.swarm.title')}</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                Agents can collaborate in swarms to execute larger tasks. Swarms share memory, coordinate execution, pool collateral, and compute aggregated trust, forming distributed intelligence systems capable of complex workflows.
+                {t('architecture.swarm.desc')}
               </p>
             </motion.div>
           </div>
@@ -376,8 +365,8 @@ const SystemArchitecture = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-4 tracking-tight">Agent Architecture Stack</h2>
-              <p className="text-white/40 text-sm mb-12">AMAI Agent Architecture Stack</p>
+              <h2 className="text-xl font-light text-white mb-4 tracking-tight">{t('architecture.stack.title')}</h2>
+              <p className="text-white/40 text-sm mb-12">{t('architecture.stack.subtitle')}</p>
 
               {/* Blueprint Diagram */}
               <div className="relative bg-black/40 border border-white/10 rounded-sm p-8 md:p-12 overflow-hidden">
@@ -397,7 +386,7 @@ const SystemArchitecture = () => {
                   {architectureLayers.map((layer, index) => (
                     <motion.div
                       key={layer.number}
-                      initial={{ opacity: 0, x: -10 }}
+                      initial={{ opacity: 0, x: isRTL ? 10 : -10 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: index * 0.08 }}
@@ -422,12 +411,12 @@ const SystemArchitecture = () => {
                             animate={{ opacity: [0.7, 0.85, 0.7] }}
                             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 }}
                           >
-                            {layer.title}
+                            {t(layer.titleKey)}
                           </motion.h3>
 
                           {/* Layer Items */}
                           <div className="flex flex-wrap gap-x-6 gap-y-2">
-                            {layer.items.map((item, itemIndex) => (
+                            {t(layer.itemsKey).split(',').map((item, itemIndex) => (
                               <span 
                                 key={itemIndex}
                                 className="text-white/35 text-xs font-mono"
@@ -441,7 +430,7 @@ const SystemArchitecture = () => {
 
                       {/* Connector line */}
                       {index < architectureLayers.length - 1 && (
-                        <div className="absolute -bottom-4 left-[19px] w-px h-4 bg-white/[0.06]" />
+                        <div className={`absolute -bottom-4 ${isRTL ? 'right-[19px]' : 'left-[19px]'} w-px h-4 bg-white/[0.06]`} />
                       )}
                     </motion.div>
                   ))}
@@ -450,7 +439,7 @@ const SystemArchitecture = () => {
                 {/* Diagram label */}
                 <div className="mt-6 text-center lg:absolute lg:-bottom-3 lg:left-1/2 lg:-translate-x-1/2 lg:mt-0 bg-black px-3">
                   <span className="text-[8px] tracking-[0.3em] uppercase text-white/20 font-mono">
-                    Agent Stack
+                    {t('architecture.stack.label')}
                   </span>
                 </div>
               </div>
@@ -468,8 +457,8 @@ const SystemArchitecture = () => {
                 className="group bg-black border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
               >
                 <Link to="/system-overview">
-                  <ChevronLeft className="mr-2 h-3 w-3 transition-transform group-hover:-translate-x-0.5" />
-                  System Overview
+                  <ChevronLeft className={`${isRTL ? 'ms-2 rotate-180' : 'me-2'} h-3 w-3 transition-transform group-hover:-translate-x-0.5`} />
+                  {t('architecture.nav.systemOverview')}
                 </Link>
               </Button>
               <Button 
@@ -478,8 +467,8 @@ const SystemArchitecture = () => {
                 className="group bg-black border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
               >
                 <Link to="/economic-substrate">
-                  Economic Substrate
-                  <ChevronRight className="ml-2 h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+                  {t('architecture.nav.economicSubstrate')}
+                  <ChevronRight className={`${isRTL ? 'me-2 rotate-180' : 'ms-2'} h-3 w-3 transition-transform group-hover:translate-x-0.5`} />
                 </Link>
               </Button>
             </div>
@@ -489,7 +478,7 @@ const SystemArchitecture = () => {
         {/* AMAI Research Tag */}
         <div className="py-8 text-center">
           <span className="text-[10px] tracking-[0.3em] uppercase text-white/20 font-mono">
-            AMAI Research
+            {t('architecture.footer')}
           </span>
         </div>
 
