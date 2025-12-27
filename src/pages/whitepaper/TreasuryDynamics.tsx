@@ -103,7 +103,7 @@ const TreasuryDynamics = () => {
                 </Link>
               </Button>
               <Button asChild variant="outline" className="group bg-black border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs">
-                <Link to="/kips">
+                <Link to="/kernelized-intelligence">
                   {t('treasury.nav.kips')}
                   <ChevronRight className={`${isRTL ? 'me-2 rotate-180' : 'ms-2'} h-3 w-3`} />
                 </Link>
