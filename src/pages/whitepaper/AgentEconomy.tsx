@@ -94,14 +94,14 @@ const AgentEconomy = () => {
           <div className="max-w-4xl mx-auto">
             <div className="flex justify-between items-center pt-8 border-t border-white/[0.06]">
               <Button asChild variant="outline" className="group bg-black border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs">
-                <Link to="/protocol-internals">
+                <Link to="/token-model">
                   <ChevronLeft className={`${isRTL ? 'ms-2 rotate-180' : 'me-2'} h-3 w-3`} />
-                  {t('economy.nav.protocol')}
+                  {t('economy.nav.token')}
                 </Link>
               </Button>
               <Button asChild variant="outline" className="group bg-black border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs">
-                <Link to="/token-model">
-                  {t('economy.nav.token')}
+                <Link to="/agent-lifecycle">
+                  {t('economy.nav.lifecycle')}
                   <ChevronRight className={`${isRTL ? 'me-2 rotate-180' : 'ms-2'} h-3 w-3`} />
                 </Link>
               </Button>

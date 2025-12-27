@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Footer } from '@/components/Footer';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -266,8 +266,33 @@ const OperationalScenarios = () => {
           </motion.div>
         </AnimatePresence>
 
-        {/* Bottom spacing before footer */}
-        <div className="py-16" />
+        {/* Navigation */}
+        <section className="py-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex justify-between items-center pt-8 border-t border-white/[0.06]">
+              <Button 
+                asChild
+                variant="outline" 
+                className="group bg-transparent border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
+              >
+                <Link to="/agent-lifecycle">
+                  <ChevronLeft className={`${isRTL ? 'ms-2 rotate-180' : 'me-2'} h-3 w-3`} />
+                  {t('scenarios.nav.lifecycle')}
+                </Link>
+              </Button>
+              <Button 
+                asChild
+                variant="outline" 
+                className="group bg-transparent border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
+              >
+                <Link to="/research">
+                  {t('scenarios.nav.research')}
+                  <ChevronRight className={`${isRTL ? 'me-2 rotate-180' : 'ms-2'} h-3 w-3`} />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section>
 
         {/* Footer */}
         <Footer />
