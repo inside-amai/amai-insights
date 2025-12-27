@@ -1,20 +1,22 @@
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, ChevronRight, ChevronLeft, FileDown } from 'lucide-react';
+import { ArrowLeft, ChevronRight, ChevronLeft, FileDown, ArrowRight } from 'lucide-react';
 import { Footer } from '@/components/Footer';
 import { useEffect } from 'react';
 import { usePdfDownload } from '@/hooks/usePdfDownload';
-import { PdfLayout } from '@/components/PdfLayout';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Token = () => {
   const navigate = useNavigate();
   const { pdfLayoutRef, downloadPdf } = usePdfDownload();
+  const { t, language } = useLanguage();
+  const isRTL = language === 'ar';
 
   useEffect(() => {
-    document.title = 'Token & Collateral Model | AMAI Labs';
+    document.title = `${t('token.title')} | AMAI Labs`;
     window.scrollTo(0, 0);
-  }, []);
+  }, [t]);
 
   const handleBackClick = () => {
     navigate('/');
@@ -31,7 +33,7 @@ const Token = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden">
+    <div className="min-h-screen bg-black relative overflow-hidden" dir={isRTL ? 'rtl' : 'ltr'}>
       {/* Blueprint grid background */}
       <div className="fixed inset-0 opacity-[0.03]">
         <div 
@@ -60,8 +62,11 @@ const Token = () => {
               onClick={handleBackClick}
               className="bg-black/80 backdrop-blur-sm border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
             >
-              <ArrowLeft className="mr-2 h-3 w-3" />
-              Back
+              {isRTL ? (
+                <>{t('token.back')}<ArrowRight className="ms-2 h-3 w-3" /></>
+              ) : (
+                <><ArrowLeft className="me-2 h-3 w-3" />{t('token.back')}</>
+              )}
             </Button>
           </div>
         </div>
@@ -78,17 +83,17 @@ const Token = () => {
                 <div className="flex-1">
                   {/* Micro-label */}
                   <span className="text-[9px] tracking-[0.4em] uppercase text-white/30 font-mono">
-                    Documentation / Economics
+                    {t('token.breadcrumb')}
                   </span>
 
                   {/* Title */}
                   <h1 className="text-4xl md:text-5xl font-light text-white mt-4 mb-6 tracking-tight">
-                    Token & Collateral Model
+                    {t('token.title')}
                   </h1>
 
                   {/* Subheader */}
                   <p className="text-white/40 text-lg font-light leading-relaxed max-w-2xl">
-                    Collateral as the economic foundation for autonomous agents.
+                    {t('token.subheader')}
                   </p>
                 </div>
 
@@ -100,13 +105,13 @@ const Token = () => {
                   onClick={handleDownloadPdf}
                 >
                   <FileDown className="h-3 w-3" />
-                  Download PDF
+                  {t('token.downloadPdf')}
                 </Button>
               </div>
 
               {/* Abstract */}
               <p className="text-white/30 text-xs font-mono mt-6 leading-relaxed max-w-2xl">
-                Abstract: Specification of collateral mechanics including reliability anchoring, risk management, slashing rules, operational impacts, adjustment logic, token utility, and economic flywheel dynamics.
+                {t('token.abstract')}
               </p>
 
               {/* Divider */}
@@ -124,9 +129,9 @@ const Token = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Collateral as Economic Foundation</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('token.foundation.title')}</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                Every agent posts collateral at deployment. Collateral defines baseline reliability, operational boundaries, treasury capacity, workload eligibility, and economic exposure.
+                {t('token.foundation.desc')}
               </p>
             </motion.div>
           </div>
@@ -146,9 +151,9 @@ const Token = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Reliability Anchoring</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('token.reliability.title')}</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                Initial reliability derives from collateral depth, verification level, provenance quality, and module integrity. Baseline trust evolves continuously as performance data accumulates.
+                {t('token.reliability.desc')}
               </p>
             </motion.div>
           </div>
@@ -168,9 +173,9 @@ const Token = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Risk Management & Slashing</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('token.risk.title')}</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                Deterministic slashing enforces correct behavior. Penalties apply to unsafe execution, repeated failures, misrepresentation, or violations of treasury constraints.
+                {t('token.risk.desc')}
               </p>
             </motion.div>
           </div>
@@ -190,9 +195,9 @@ const Token = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Operational Impacts of Collateral</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('token.operational.title')}</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                Collateral influences execution efficiency, routing priority, treasury expansion, and eligibility for sensitive or high-impact workloads.
+                {t('token.operational.desc')}
               </p>
             </motion.div>
           </div>
@@ -212,9 +217,9 @@ const Token = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Collateral Adjustment Over Time</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('token.adjustment.title')}</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                Agents may top up, rebalance, or retire collateral based on operational needs. All movements follow deterministic rule sets enforced by the protocol.
+                {t('token.adjustment.desc')}
               </p>
             </motion.div>
           </div>
@@ -234,9 +239,9 @@ const Token = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Token Utility Within the System</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('token.utility.title')}</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                The token serves as collateral, slashing medium, reliability signal, and economic boundary-setting resource within the runtime.
+                {t('token.utility.desc')}
               </p>
             </motion.div>
           </div>
@@ -256,9 +261,9 @@ const Token = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-6 tracking-tight">Economic Flywheel</h2>
+              <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('token.flywheel.title')}</h2>
               <p className="text-white/50 text-sm leading-relaxed">
-                Reliable agents grow treasuries and trust signals, receiving more mission flow. Unreliable agents contract naturally, stabilizing the system.
+                {t('token.flywheel.desc')}
               </p>
             </motion.div>
           </div>
@@ -278,7 +283,7 @@ const Token = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-xl font-light text-white mb-8 tracking-tight">Collateralized Runtime Model</h2>
+              <h2 className="text-xl font-light text-white mb-8 tracking-tight">{t('token.diagram.title')}</h2>
               
               <div className="relative bg-black/40 border border-white/10 rounded-sm p-6 md:p-8 overflow-hidden">
                 {/* Subtle grid background */}
@@ -298,23 +303,23 @@ const Token = () => {
                   <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
                     {/* Left Column - Collateral Inputs */}
                     <div className="border border-white/15 rounded-sm p-4 bg-white/[0.02]">
-                      <div className="text-white/40 text-xs font-mono mb-4 tracking-wider">COLLATERAL INPUTS</div>
+                      <div className="text-white/40 text-xs font-mono mb-4 tracking-wider">{t('token.diagram.inputs')}</div>
                       <div className="space-y-3">
                         <div className="flex items-center gap-2">
                           <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
-                          <span className="text-white/60 text-xs">Initial Stake</span>
+                          <span className="text-white/60 text-xs">{t('token.diagram.initialStake')}</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
-                          <span className="text-white/60 text-xs">Verification Level</span>
+                          <span className="text-white/60 text-xs">{t('token.diagram.verificationLevel')}</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
-                          <span className="text-white/60 text-xs">Provenance Quality</span>
+                          <span className="text-white/60 text-xs">{t('token.diagram.provenanceQuality')}</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
-                          <span className="text-white/60 text-xs">Module Integrity</span>
+                          <span className="text-white/60 text-xs">{t('token.diagram.moduleIntegrity')}</span>
                         </div>
                       </div>
                     </div>
@@ -325,54 +330,54 @@ const Token = () => {
                       animate={{ opacity: [0.8, 1, 0.8] }}
                       transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                     >
-                      <div className="text-white/50 text-xs font-mono mb-4 tracking-wider">COLLATERAL ENGINE</div>
+                      <div className="text-white/50 text-xs font-mono mb-4 tracking-wider">{t('token.diagram.engine')}</div>
                       <div className="space-y-3">
                         <div className="flex items-center gap-2">
                           <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
-                          <span className="text-white/70 text-xs">Baseline Trust</span>
+                          <span className="text-white/70 text-xs">{t('token.diagram.baselineTrust')}</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
-                          <span className="text-white/70 text-xs">Treasury Ceiling Logic</span>
+                          <span className="text-white/70 text-xs">{t('token.diagram.treasuryCeiling')}</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
-                          <span className="text-white/70 text-xs">Risk Weighting</span>
+                          <span className="text-white/70 text-xs">{t('token.diagram.riskWeighting')}</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
-                          <span className="text-white/70 text-xs">Slashing Rules</span>
+                          <span className="text-white/70 text-xs">{t('token.diagram.slashingRules')}</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
-                          <span className="text-white/70 text-xs">Cost Modifier Logic</span>
+                          <span className="text-white/70 text-xs">{t('token.diagram.costModifier')}</span>
                         </div>
                       </div>
                     </motion.div>
 
                     {/* Right Column - System Effects */}
                     <div className="border border-white/15 rounded-sm p-4 bg-white/[0.02]">
-                      <div className="text-white/40 text-xs font-mono mb-4 tracking-wider">SYSTEM EFFECTS</div>
+                      <div className="text-white/40 text-xs font-mono mb-4 tracking-wider">{t('token.diagram.effects')}</div>
                       <div className="space-y-3">
                         <div className="flex items-center gap-2">
                           <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
-                          <span className="text-white/60 text-xs">Routing Priority</span>
+                          <span className="text-white/60 text-xs">{t('token.diagram.routingPriority')}</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
-                          <span className="text-white/60 text-xs">Execution Efficiency</span>
+                          <span className="text-white/60 text-xs">{t('token.diagram.executionEfficiency')}</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
-                          <span className="text-white/60 text-xs">Trust Anchors</span>
+                          <span className="text-white/60 text-xs">{t('token.diagram.trustAnchors')}</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
-                          <span className="text-white/60 text-xs">Workload Eligibility</span>
+                          <span className="text-white/60 text-xs">{t('token.diagram.workloadEligibility')}</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
-                          <span className="text-white/60 text-xs">Long-Term Stability</span>
+                          <span className="text-white/60 text-xs">{t('token.diagram.longTermStability')}</span>
                         </div>
                       </div>
                     </div>
@@ -389,18 +394,10 @@ const Token = () => {
                     animate={{ opacity: [0.6, 0.9, 0.6] }}
                     transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
                   >
-                    <div className="text-white/40 text-xs font-mono mb-3 tracking-wider">FEEDBACK LOOP</div>
-                    <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 text-white/50 text-xs font-mono">
-                      <span className="text-white/60">Collateral</span>
-                      <span className="text-white/30">→</span>
-                      <span className="text-white/60">Reliability</span>
-                      <span className="text-white/30">→</span>
-                      <span className="text-white/60">Mission Flow</span>
-                      <span className="text-white/30">→</span>
-                      <span className="text-white/60">Earnings</span>
-                      <span className="text-white/30">→</span>
-                      <span className="text-white/60">Collateral</span>
-                    </div>
+                    <div className="text-white/40 text-xs font-mono mb-2 tracking-wider text-center">{t('token.diagram.feedback')}</div>
+                    <p className="text-white/50 text-xs text-center">
+                      {t('token.diagram.feedbackDesc')}
+                    </p>
                   </motion.div>
                 </div>
               </div>
@@ -409,17 +406,17 @@ const Token = () => {
         </section>
 
         {/* Navigation */}
-        <section className="py-16 px-6 border-t border-white/[0.06]">
+        <section className="py-16 px-6">
           <div className="max-w-4xl mx-auto">
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center pt-8 border-t border-white/[0.06]">
               <Button
                 asChild
                 variant="outline"
                 className="bg-transparent border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
               >
                 <Link to="/protocol-internals">
-                  <ChevronLeft className="mr-2 h-3 w-3" />
-                  Protocol Internals
+                  <ChevronLeft className={`${isRTL ? 'ms-2 rotate-180' : 'me-2'} h-3 w-3`} />
+                  {t('token.nav.protocol')}
                 </Link>
               </Button>
               
@@ -429,8 +426,8 @@ const Token = () => {
                 className="bg-transparent border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
               >
                 <Link to="/agent-economy">
-                  Agent Economy
-                  <ChevronRight className="ml-2 h-3 w-3" />
+                  {t('token.nav.economy')}
+                  <ChevronRight className={`${isRTL ? 'me-2 rotate-180' : 'ms-2'} h-3 w-3`} />
                 </Link>
               </Button>
             </div>
@@ -440,7 +437,7 @@ const Token = () => {
         {/* AMAI Research Tag */}
         <div className="py-8 text-center">
           <span className="text-[10px] tracking-[0.3em] uppercase text-white/20 font-mono">
-            AMAI Research
+            {t('token.footer')}
           </span>
         </div>
 
