@@ -639,8 +639,12 @@ const translations: Record<Language, Record<string, string>> = {
     'lifecycle.diagram.title': 'Agent Lifecycle Architecture',
     'lifecycle.diagram.subtitle': 'Radial lifecycle model showing operational, evolution, and termination layers',
     'lifecycle.diagram.label': 'Lifecycle Architecture',
-    'lifecycle.nav.documentation': 'Documentation',
+    'lifecycle.nav.economy': 'Agent Economy',
+    'lifecycle.nav.scenarios': 'Operational Scenarios',
     'lifecycle.footer': 'AMAI Research',
+    
+    // Trust/Technical Deep Dive navigation
+    'trust.nav.economicSubstrate': 'Economic Substrate',
     
     // Operational Scenarios Page
     'scenarios.breadcrumb': 'Documentation / Scenarios',
@@ -733,6 +737,13 @@ const translations: Record<Language, Record<string, string>> = {
     'scenarios.compute.implication.heading': 'Strategic Implication',
     'scenarios.compute.implication.content': "AMAI transforms compute from a static input into a liquid economic layer. The infrastructure that powers intelligence becomes as dynamic as intelligence itself.",
     'scenarios.compute.quote': "Intelligence learned how to pay for itself.",
+    
+    // Scenarios navigation
+    'scenarios.nav.lifecycle': 'Agent Lifecycle',
+    'scenarios.nav.research': 'Research',
+    
+    // Research navigation
+    'research.nav.scenarios': 'Operational Scenarios',
   },
   ja: {
     // Hero section (subheader only - NOT the headline)
@@ -1362,8 +1373,12 @@ const translations: Record<Language, Record<string, string>> = {
     'lifecycle.diagram.title': 'エージェント生命周期設計',
     'lifecycle.diagram.subtitle': '運用・進化・終了層を示す放射状生命周期模型',
     'lifecycle.diagram.label': '生命周期設計',
-    'lifecycle.nav.documentation': '文書',
+    'lifecycle.nav.economy': 'エージェント経済',
+    'lifecycle.nav.scenarios': '運用想定',
     'lifecycle.footer': 'AMAI 研究',
+    
+    // Trust/Technical Deep Dive navigation
+    'trust.nav.economicSubstrate': '経済基盤',
     
     // Operational Scenarios Page
     'scenarios.breadcrumb': '文書 / 運用想定',
@@ -1456,6 +1471,13 @@ const translations: Record<Language, Record<string, string>> = {
     'scenarios.compute.implication.heading': '戦略的含意',
     'scenarios.compute.implication.content': 'AMAIは演算を静的投入から流動経済層へ転換。知能を駆動する基盤が知能自体と同様に動的になる。',
     'scenarios.compute.quote': '知能は自身の費用を支払う術を学んだ。',
+    
+    // Scenarios navigation
+    'scenarios.nav.lifecycle': 'エージェント生命周期',
+    'scenarios.nav.research': '研究',
+    
+    // Research navigation
+    'research.nav.scenarios': '運用想定',
   },
   ar: {
     // Hero section (subheader only - NOT the headline)
@@ -2085,8 +2107,12 @@ const translations: Record<Language, Record<string, string>> = {
     'lifecycle.diagram.title': 'بنية دورة حياة الوكيل',
     'lifecycle.diagram.subtitle': 'نموذج دورة حياة شعاعي يُظهر طبقات التشغيل والتطور والإنهاء',
     'lifecycle.diagram.label': 'بنية دورة الحياة',
-    'lifecycle.nav.documentation': 'الوثائق',
+    'lifecycle.nav.economy': 'اقتصاد الوكيل',
+    'lifecycle.nav.scenarios': 'السيناريوهات التشغيلية',
     'lifecycle.footer': 'أبحاث AMAI',
+    
+    // Trust/Technical Deep Dive navigation
+    'trust.nav.economicSubstrate': 'الركيزة الاقتصادية',
     
     // Operational Scenarios Page
     'scenarios.breadcrumb': 'الوثائق / السيناريوهات',
@@ -2179,6 +2205,13 @@ const translations: Record<Language, Record<string, string>> = {
     'scenarios.compute.implication.heading': 'الدلالة الاستراتيجية',
     'scenarios.compute.implication.content': 'تحوّل AMAI الحوسبة من مُدخل ثابت إلى طبقة اقتصادية سائلة. البنية التحتية التي تُغذي الذكاء تصبح ديناميكية كالذكاء ذاته.',
     'scenarios.compute.quote': 'تعلّم الذكاء كيف يدفع ثمن نفسه.',
+    
+    // Scenarios navigation
+    'scenarios.nav.lifecycle': 'دورة حياة الوكيل',
+    'scenarios.nav.research': 'البحث',
+    
+    // Research navigation
+    'research.nav.scenarios': 'السيناريوهات التشغيلية',
   }
 };
 
