@@ -44,33 +44,47 @@ const EconomicLoopDiagram: React.FC<EconomicLoopDiagramProps> = ({ className = '
 
         {/* SVG loop-back path */}
         <svg 
-          className="w-full h-7 mt-1" 
-          viewBox="0 0 480 28" 
+          className="w-full h-8 mt-1" 
+          viewBox="0 0 480 32" 
           preserveAspectRatio="xMidYMid meet"
           fill="none"
         >
           {/* Curved U-path from Settlement back to Trust */}
           <path 
             d={isRTL 
-              ? "M 72 0 L 72 16 Q 72 22 78 22 L 398 22 Q 404 22 404 16 L 404 0"
-              : "M 404 0 L 404 16 Q 404 22 398 22 L 78 22 Q 72 22 72 16 L 72 0"
+              ? "M 72 0 L 72 18 Q 72 24 78 24 L 398 24 Q 404 24 404 18 L 404 0"
+              : "M 404 0 L 404 18 Q 404 24 398 24 L 78 24 Q 72 24 72 18 L 72 0"
             }
             stroke="rgba(255,255,255,0.15)"
             strokeWidth="1"
           />
           
+          {/* Vertical arrow under Settlement (pointing down) */}
+          {isRTL ? (
+            <polygon points="72,5 69,0 75,0" fill="rgba(255,255,255,0.25)" />
+          ) : (
+            <polygon points="404,5 401,0 407,0" fill="rgba(255,255,255,0.25)" />
+          )}
+          
+          {/* Vertical arrow between Identity and Trust (pointing up) */}
+          {isRTL ? (
+            <polygon points="404,0 401,5 407,5" fill="rgba(255,255,255,0.25)" />
+          ) : (
+            <polygon points="72,0 69,5 75,5" fill="rgba(255,255,255,0.25)" />
+          )}
+          
           {/* Arrow markers along the bottom path */}
           {isRTL ? (
             <>
-              <polygon points="160,19 166,22 160,25" fill="rgba(255,255,255,0.25)" />
-              <polygon points="240,19 246,22 240,25" fill="rgba(255,255,255,0.25)" />
-              <polygon points="320,19 326,22 320,25" fill="rgba(255,255,255,0.25)" />
+              <polygon points="160,21 166,24 160,27" fill="rgba(255,255,255,0.25)" />
+              <polygon points="240,21 246,24 240,27" fill="rgba(255,255,255,0.25)" />
+              <polygon points="320,21 326,24 320,27" fill="rgba(255,255,255,0.25)" />
             </>
           ) : (
             <>
-              <polygon points="320,19 314,22 320,25" fill="rgba(255,255,255,0.25)" />
-              <polygon points="240,19 234,22 240,25" fill="rgba(255,255,255,0.25)" />
-              <polygon points="160,19 154,22 160,25" fill="rgba(255,255,255,0.25)" />
+              <polygon points="320,21 314,24 320,27" fill="rgba(255,255,255,0.25)" />
+              <polygon points="240,21 234,24 240,27" fill="rgba(255,255,255,0.25)" />
+              <polygon points="160,21 154,24 160,27" fill="rgba(255,255,255,0.25)" />
             </>
           )}
         </svg>
