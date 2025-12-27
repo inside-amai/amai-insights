@@ -96,7 +96,7 @@ const AgentEconomy = () => {
               <Button asChild variant="outline" className="group bg-black border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs">
                 <Link to="/protocol-internals">
                   <ChevronLeft className={`${isRTL ? 'ms-2 rotate-180' : 'me-2'} h-3 w-3`} />
-                  Protocol Internals
+                  {t('economy.nav.protocol')}
                 </Link>
               </Button>
               <Button asChild variant="outline" className="group bg-black border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs">
