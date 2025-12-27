@@ -470,6 +470,7 @@ const translations: Record<Language, Record<string, string>> = {
     'economy.diagram.economicRole': 'Economic Role',
     'economy.diagram.label': 'Incentive Architecture',
     'economy.nav.token': 'Token & Collateral',
+    'economy.nav.lifecycle': 'Agent Lifecycle',
     
     // KIPs Page (Kernelized Intelligence Properties)
     'kips.breadcrumb': 'Documentation / Intelligence',
@@ -1206,6 +1207,7 @@ const translations: Record<Language, Record<string, string>> = {
     'economy.diagram.economicRole': '経済役割',
     'economy.diagram.label': '誘因設計',
     'economy.nav.token': '証票・担保',
+    'economy.nav.lifecycle': 'エージェント生命周期',
     'economy.nav.protocol': '協定内部',
     'economy.footer': 'AMAI 研究',
     
@@ -1940,6 +1942,7 @@ const translations: Record<Language, Record<string, string>> = {
     'economy.diagram.economicRole': 'الدور الاقتصادي',
     'economy.diagram.label': 'بنية الحوافز',
     'economy.nav.token': 'الرمز والضمانات',
+    'economy.nav.lifecycle': 'دورة حياة الوكيل',
     'economy.nav.protocol': 'داخليات البروتوكول',
     'economy.footer': 'أبحاث AMAI',
     
