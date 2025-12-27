@@ -179,13 +179,10 @@ const OperationalScenarios = () => {
             {/* Scenario Header */}
             <section className="py-12 px-6">
               <div className="max-w-4xl mx-auto">
-                <div className="border-l-2 border-white/10 pl-6">
+                <div className={`border-${isRTL ? 'r' : 'l'}-2 border-white/10 ${isRTL ? 'pr-6' : 'pl-6'}`}>
                   <h2 className="text-2xl font-light text-white mb-3 tracking-tight">
                     {currentScenario.title}
                   </h2>
-                  <p className="text-white/45 text-sm leading-relaxed">
-                    {currentScenario.subtitle}
-                  </p>
                 </div>
               </div>
             </section>
