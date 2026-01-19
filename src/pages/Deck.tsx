@@ -58,18 +58,18 @@ const Deck = () => {
         style={{ scaleX: scrollYProgress, width: '100%' }}
       />
       {/* Slide 1: Title */}
-      <Slide align="left" slideNumber={1}>
+      <Slide slideNumber={1}>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2 }}
-          className="max-w-4xl"
+          className="max-w-4xl text-center mx-auto"
         >
           {/* Logo */}
           <motion.img
             src={amaiLogo}
             alt="AMAI Labs"
-            className="h-12 md:h-16 lg:h-20 xl:h-22 w-auto brightness-110 mb-16 md:mb-24"
+            className="h-12 md:h-16 lg:h-20 xl:h-22 w-auto brightness-110 mb-16 md:mb-24 mx-auto"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -99,7 +99,7 @@ const Deck = () => {
           
           {/* Subheadline */}
           <motion.p
-            className="text-base md:text-lg lg:text-xl text-white/50 font-light leading-relaxed max-w-2xl"
+            className="text-base md:text-lg lg:text-xl text-white/50 font-light leading-relaxed max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
