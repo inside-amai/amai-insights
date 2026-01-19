@@ -35,7 +35,7 @@ const Slide = ({ children, className = "", align = "center", slideNumber, totalS
     
     {/* Page number */}
     {slideNumber && (
-      <div className="absolute bottom-8 right-8 md:bottom-10 md:right-12 text-[10px] tracking-[0.2em] text-white/20 font-medium">
+      <div className="absolute bottom-8 right-8 md:bottom-10 md:right-12 text-[10px] tracking-[0.2em] text-white/50 font-medium">
         {String(slideNumber).padStart(2, '0')} / {String(totalSlides).padStart(2, '0')}
       </div>
     )}
