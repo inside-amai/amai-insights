@@ -183,7 +183,7 @@ const Deck = () => {
           
           {/* Closing line */}
           <motion.p
-            className="mt-12 md:mt-16 text-base md:text-lg text-white font-normal leading-relaxed"
+            className="mt-12 md:mt-16 text-base md:text-lg text-white/70 font-normal leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
