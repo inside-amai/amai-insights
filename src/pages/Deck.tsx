@@ -884,7 +884,7 @@ const Deck = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1.2 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="max-w-3xl text-center"
+          className="max-w-3xl mx-auto text-center"
         >
           {/* Headline */}
           <motion.h2
