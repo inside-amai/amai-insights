@@ -629,17 +629,6 @@ const Deck = () => {
             ))}
           </motion.div>
           
-          {/* Secondary paragraph */}
-          <motion.div
-            className="text-base md:text-lg text-white/50 font-light leading-relaxed space-y-1"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            viewport={{ once: true }}
-          >
-            <p>These users are not early adopters for novelty.</p>
-            <p className="text-white/60">They are early adopters because the system already solves problems they have.</p>
-          </motion.div>
           
           {/* Closing line */}
           <motion.p
