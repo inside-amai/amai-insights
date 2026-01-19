@@ -88,23 +88,73 @@ const Deck = () => {
         </motion.div>
       </Slide>
 
-      {/* Slide 2: Placeholder */}
+      {/* Slide 2: The Shift */}
       <Slide>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="max-w-3xl"
         >
-          <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6">
-            Section Label
-          </p>
-          <h2 className="text-4xl md:text-5xl font-light text-white mb-8">
-            Headline
-          </h2>
-          <p className="text-base md:text-lg text-white/50 font-light max-w-3xl">
-            Body copy placeholder.
-          </p>
+          {/* Micro-label */}
+          <motion.p
+            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            The Shift
+          </motion.p>
+          
+          {/* Headline */}
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-12 md:mb-16 leading-[1.15]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            The Next Billion Participants in the Economy Will Not Be Human.
+          </motion.h2>
+          
+          {/* Body copy */}
+          <motion.div
+            className="space-y-6 text-base md:text-lg text-white/50 font-light leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <p>
+              Software agents are rapidly becoming the primary interface through which value moves online. They already make decisions, execute instructions, and interact with financial systems.
+            </p>
+            
+            <p className="text-white/60">
+              What they lack is economic standing.
+            </p>
+            
+            <p>
+              Today, agents cannot hold identity, accumulate reputation, or be held accountable over time. They operate as tools, not participants.
+            </p>
+            
+            <p>
+              As agents move from copilots to autonomous actors, the absence of economic primitives becomes the core bottleneck.
+            </p>
+          </motion.div>
+          
+          {/* Closing line */}
+          <motion.p
+            className="mt-12 md:mt-16 text-base md:text-lg text-white/70 font-normal leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            viewport={{ once: true }}
+          >
+            This is not a UX problem.<br />
+            It is an infrastructure problem.
+          </motion.p>
         </motion.div>
       </Slide>
 
