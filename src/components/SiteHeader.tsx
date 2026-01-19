@@ -16,21 +16,9 @@ export const SiteHeader = () => {
     <header className="absolute top-0 left-0 right-0 z-50 pointer-events-none">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo + Site Title */}
-          <div className="flex items-center gap-4">
-            {isDeckPage ? (
-              <Link 
-                to="/" 
-                className="pointer-events-auto w-[64px] h-10 flex-shrink-0"
-              >
-                <img 
-                  src="/amai-header-logo.png"
-                  alt="AMAI" 
-                  className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity"
-                  loading="eager"
-                />
-              </Link>
-            ) : (
+          {/* Logo + Site Title - Hidden on /deck page */}
+          {!isDeckPage && (
+            <div className="flex items-center gap-4">
               <a 
                 href="https://amai.net" 
                 className="pointer-events-auto w-[64px] h-10 flex-shrink-0"
@@ -42,11 +30,11 @@ export const SiteHeader = () => {
                   loading="eager"
                 />
               </a>
-            )}
-            <span className="hidden sm:block text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium">
-              AMAI Labs · Infrastructure & Research
-            </span>
-          </div>
+              <span className="hidden sm:block text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium">
+                AMAI Labs · Infrastructure & Research
+              </span>
+            </div>
+          )}
 
           {/* Language Selector */}
           <div className="pointer-events-auto flex items-center gap-1 text-[11px] tracking-wide">
