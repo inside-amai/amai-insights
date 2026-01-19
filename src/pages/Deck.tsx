@@ -456,8 +456,6 @@ const Deck = () => {
               Trust and capital flow dynamically across the swarm based on performance.
             </p>
             <p>
-              Execution creates feedback. Feedback shapes behavior.
-              <br /><br /><br />
               Over time, swarms converge toward efficiency through deterministic feedback loops:
             </p>
           </motion.div>
