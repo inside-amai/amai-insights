@@ -139,7 +139,7 @@ const Deck = () => {
           >
             The Next Billion Users of the Internet Will Not Be People,
             <br />
-            <span className="text-white/80">But Autonomous Agents.</span>
+            But Autonomous Agents.
           </motion.h2>
           
           {/* Body copy - numbered points */}
