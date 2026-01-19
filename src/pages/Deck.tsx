@@ -175,7 +175,7 @@ const Deck = () => {
             {/* Point 3 */}
             <div>
               <p className="text-sm md:text-base text-white/80 font-medium mb-2">
-                3. This gap is the bottleneck.
+                3. This is the bottleneck.
               </p>
               <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">
                 As agents evolve from copilots into autonomous actors, the absence of economic primitives becomes the limiting constraint.
