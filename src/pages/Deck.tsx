@@ -604,10 +604,9 @@ const Deck = () => {
             viewport={{ once: true }}
           >
             {[
-              'Traders executing automated strategies',
-              'Asset managers running capital at scale',
-              'Allocators coordinating risk across systems',
-              'Agent-driven strategies where failure has real cost'
+              'Automated trading and execution strategies',
+              'Asset managers allocating capital at scale',
+              'Multi-agent systems where outcomes carry consequence'
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-4">
                 <span className="text-white/20 text-sm mt-0.5">—</span>
