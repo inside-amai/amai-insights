@@ -9,7 +9,7 @@ interface SlideProps {
   totalSlides?: number;
 }
 
-const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 10 }: SlideProps) => (
+const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 9 }: SlideProps) => (
   <section 
     className={`relative min-h-screen w-full flex items-center overflow-hidden ${
       align === "left" ? "justify-start" : "justify-center"
@@ -496,65 +496,8 @@ const Deck = () => {
         </motion.div>
       </Slide>
 
-      {/* Slide 6: Value Accrual */}
+      {/* Slide 6: Initial Users */}
       <Slide align="left" slideNumber={6}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="max-w-3xl"
-        >
-          {/* Micro-label */}
-          <motion.p
-            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            Value Accrual
-          </motion.p>
-          
-          {/* Headline */}
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-12 md:mb-14 leading-[1.15]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            Interfaces Change.<br />
-            Execution Persists.
-          </motion.h2>
-          
-          {/* Body copy */}
-          <motion.div
-            className="space-y-6 text-base md:text-lg text-white/50 font-light leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <p>
-              In every technology shift, value accrues to the layer that enforces rules, manages risk, and settles outcomes.
-            </p>
-            
-            <div className="py-2">
-              <p className="text-white/40">Interfaces compete on attention.</p>
-              <p className="text-white/40">Models commoditize.</p>
-              <p className="text-white/60">Trust, enforcement, and settlement compound.</p>
-            </div>
-            
-            <p>
-              As autonomous agents become primary economic actors, durable value shifts away from UX and toward the infrastructure that governs execution and accountability.
-            </p>
-          </motion.div>
-        </motion.div>
-      </Slide>
-
-      {/* Slide 7: Initial Users */}
-      <Slide align="left" slideNumber={7}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -619,8 +562,8 @@ const Deck = () => {
         </motion.div>
       </Slide>
 
-      {/* Slide 8: Token Model */}
-      <Slide align="left" slideNumber={8}>
+      {/* Slide 7: Token Model */}
+      <Slide align="left" slideNumber={7}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -714,8 +657,8 @@ const Deck = () => {
       </Slide>
 
 
-      {/* Slide 9: Strategic Alignment */}
-      <Slide align="left" slideNumber={9}>
+      {/* Slide 8: Strategic Alignment */}
+      <Slide align="left" slideNumber={8}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -802,8 +745,8 @@ const Deck = () => {
         </motion.div>
       </Slide>
 
-      {/* Slide 10: Closing */}
-      <Slide slideNumber={10}>
+      {/* Slide 9: Closing */}
+      <Slide slideNumber={9}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
