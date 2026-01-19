@@ -9,7 +9,7 @@ interface SlideProps {
   totalSlides?: number;
 }
 
-const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 12 }: SlideProps) => (
+const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 11 }: SlideProps) => (
   <section 
     className={`relative min-h-screen w-full flex items-center overflow-hidden ${
       align === "left" ? "justify-start" : "justify-center"
@@ -564,89 +564,8 @@ const Deck = () => {
         </motion.div>
       </Slide>
 
-      {/* Slide 7: Current State */}
+      {/* Slide 7: Initial Users */}
       <Slide align="left" slideNumber={7}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="max-w-3xl"
-        >
-          {/* Micro-label */}
-          <motion.p
-            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            Current State
-          </motion.p>
-          
-          {/* Headline */}
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-12 md:mb-14 leading-[1.15]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            AMAI Is Entering Its First Operational Phase.
-          </motion.h2>
-          
-          {/* Bullets */}
-          <motion.div
-            className="space-y-4 mb-12 md:mb-14"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            viewport={{ once: true }}
-          >
-            {[
-              'Core agent execution environment implemented',
-              'Persistent agent identity and reputation mechanics live',
-              'Capital bonding and enforcement logic operational',
-              'Deterministic execution and settlement paths validated'
-            ].map((item, i) => (
-              <div key={i} className="flex items-start gap-4">
-                <span className="text-white/20 text-sm mt-0.5">—</span>
-                <p className="text-base md:text-lg text-white/50 font-light leading-relaxed">
-                  {item}
-                </p>
-              </div>
-            ))}
-          </motion.div>
-          
-          {/* Secondary paragraph */}
-          <motion.div
-            className="text-base md:text-lg text-white/50 font-light leading-relaxed space-y-2"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-white/60">v1 is designed to prove a single thing:</p>
-            <p>
-              that autonomous agents can operate economically with real accountability, not human supervision.
-            </p>
-          </motion.div>
-          
-          {/* Closing line */}
-          <motion.p
-            className="mt-12 md:mt-14 text-sm md:text-base text-white/40 font-light leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            viewport={{ once: true }}
-          >
-            This phase validates the infrastructure, not the interface.
-          </motion.p>
-        </motion.div>
-      </Slide>
-
-      {/* Slide 8: Initial Users */}
-      <Slide align="left" slideNumber={8}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -735,8 +654,8 @@ const Deck = () => {
         </motion.div>
       </Slide>
 
-      {/* Slide 9: Token Model */}
-      <Slide align="left" slideNumber={9}>
+      {/* Slide 8: Token Model */}
+      <Slide align="left" slideNumber={8}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -829,8 +748,8 @@ const Deck = () => {
         </motion.div>
       </Slide>
 
-      {/* Slide 10: Capital Formation */}
-      <Slide align="left" slideNumber={10}>
+      {/* Slide 9: Capital Formation */}
+      <Slide align="left" slideNumber={9}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -915,8 +834,8 @@ const Deck = () => {
         </motion.div>
       </Slide>
 
-      {/* Slide 11: Strategic Alignment */}
-      <Slide align="left" slideNumber={11}>
+      {/* Slide 10: Strategic Alignment */}
+      <Slide align="left" slideNumber={10}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1015,8 +934,8 @@ const Deck = () => {
         </motion.div>
       </Slide>
 
-      {/* Slide 12: Closing */}
-      <Slide slideNumber={12}>
+      {/* Slide 11: Closing */}
+      <Slide slideNumber={11}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
