@@ -738,7 +738,7 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            Base Network's cost structure, SDKs, and settlement primitives make billion-agent participation viable at scale.
+            Base Network's cost structure, SDKs, and settlement primitives support billion-agent execution at scale.
           </motion.p>
         </motion.div>
       </Slide>
