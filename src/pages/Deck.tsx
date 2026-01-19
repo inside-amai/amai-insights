@@ -94,7 +94,7 @@ const Deck = () => {
           >
             <span className="font-light">Agents Are</span>
             <br />
-            <span className="font-normal">Entering the Economy.</span>
+            <span className="font-light">Entering the Economy.</span>
           </motion.h1>
           
           {/* Subheadline */}
