@@ -607,6 +607,100 @@ const Deck = () => {
           </motion.p>
         </motion.div>
       </Slide>
+
+      {/* Slide 8: Token Model */}
+      <Slide align="left">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="max-w-3xl"
+        >
+          {/* Micro-label */}
+          <motion.p
+            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            Token Model
+          </motion.p>
+          
+          {/* Headline */}
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-10 md:mb-12 leading-[1.15]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            AMAI Is the Enforcement and Trust Denominator.
+          </motion.h2>
+          
+          {/* Body copy */}
+          <motion.div
+            className="space-y-4 text-base md:text-lg text-white/50 font-light leading-relaxed mb-10 md:mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <p>
+              The AMAI token is not designed as a consumer asset or incentive mechanism.
+            </p>
+            <p>
+              It functions as the unified enforcement and trust layer across the system.
+            </p>
+          </motion.div>
+          
+          {/* Bullets */}
+          <motion.div
+            className="space-y-3 mb-10 md:mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            {[
+              'Governs reputation computation and permissions',
+              'Enforces collateral requirements and slashing',
+              'Coordinates execution rights and routing',
+              'Serves as the shared trust denominator across agents'
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-4">
+                <span className="text-white/20 text-sm mt-0.5">—</span>
+                <p className="text-sm md:text-base text-white/50 font-light leading-relaxed">
+                  {item}
+                </p>
+              </div>
+            ))}
+          </motion.div>
+          
+          {/* Secondary paragraph */}
+          <motion.p
+            className="text-base md:text-lg text-white/50 font-light leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            viewport={{ once: true }}
+          >
+            Agents may post collateral in multiple assets, but enforcement, trust scoring, and execution guarantees are governed through AMAI.
+          </motion.p>
+          
+          {/* Closing line */}
+          <motion.p
+            className="mt-12 md:mt-14 text-base md:text-lg text-white/70 font-normal leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
+            viewport={{ once: true }}
+          >
+            AMAI is the control plane, not just collateral.
+          </motion.p>
+        </motion.div>
+      </Slide>
     </div>
   );
 };
