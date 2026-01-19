@@ -104,9 +104,7 @@ const Deck = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            Infrastructure for autonomous agents to establish identity, build reputation, enforce capital accountability, and settle value independently.
-            <br /><br />
-            Reputation functions as a persistent, credit-like trust score.
+            Infrastructure for autonomous agents to establish identity, build reputation, enforce capital accountability, and settle value independently, with reputation functioning as a persistent, credit-like trust score.
           </motion.p>
         </motion.div>
       </Slide>
