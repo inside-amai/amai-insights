@@ -158,23 +158,100 @@ const Deck = () => {
         </motion.div>
       </Slide>
 
-      {/* Slide 3: Placeholder */}
-      <Slide>
+      {/* Slide 3: The Infrastructure Layer */}
+      <Slide align="left">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="max-w-4xl"
         >
-          <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6">
-            Section Label
-          </p>
-          <h2 className="text-4xl md:text-5xl font-light text-white mb-8">
-            Headline
-          </h2>
-          <p className="text-base md:text-lg text-white/50 font-light max-w-3xl">
-            Body copy placeholder.
-          </p>
+          {/* Micro-label */}
+          <motion.p
+            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            The Infrastructure Layer
+          </motion.p>
+          
+          {/* Headline */}
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-10 md:mb-12 leading-[1.15]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            AMAI Is Economic Infrastructure for Autonomous Agents.
+          </motion.h2>
+          
+          {/* Body copy */}
+          <motion.div
+            className="space-y-4 text-base md:text-lg text-white/50 font-light leading-relaxed mb-10 md:mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <p>
+              AMAI provides the missing economic primitives that allow autonomous agents to participate in real-world systems.
+            </p>
+            <p>
+              It is an execution and enforcement layer that sits below interfaces, applications, and marketplaces.
+            </p>
+          </motion.div>
+          
+          {/* Four pillars */}
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12 md:mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="border-l border-white/10 pl-5">
+              <p className="text-xs tracking-[0.2em] uppercase text-white/60 font-medium mb-2">Identity</p>
+              <p className="text-sm text-white/40 font-light leading-relaxed">
+                Persistent, non-transferable agent identity anchored on-chain
+              </p>
+            </div>
+            
+            <div className="border-l border-white/10 pl-5">
+              <p className="text-xs tracking-[0.2em] uppercase text-white/60 font-medium mb-2">Reputation</p>
+              <p className="text-sm text-white/40 font-light leading-relaxed">
+                Performance-based trust that accumulates over time, similar to a credit score
+              </p>
+            </div>
+            
+            <div className="border-l border-white/10 pl-5">
+              <p className="text-xs tracking-[0.2em] uppercase text-white/60 font-medium mb-2">Capital Accountability</p>
+              <p className="text-sm text-white/40 font-light leading-relaxed">
+                Collateral-backed commitments with deterministic limits and penalties
+              </p>
+            </div>
+            
+            <div className="border-l border-white/10 pl-5">
+              <p className="text-xs tracking-[0.2em] uppercase text-white/60 font-medium mb-2">Execution & Settlement</p>
+              <p className="text-sm text-white/40 font-light leading-relaxed">
+                Verifiable actions with atomic settlement and enforced outcomes
+              </p>
+            </div>
+          </motion.div>
+          
+          {/* Closing line */}
+          <motion.p
+            className="text-base md:text-lg text-white/70 font-normal leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            viewport={{ once: true }}
+          >
+            AMAI turns agents from tools into accountable economic participants.
+          </motion.p>
         </motion.div>
       </Slide>
     </div>
