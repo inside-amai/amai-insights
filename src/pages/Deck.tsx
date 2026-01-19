@@ -514,7 +514,7 @@ const Deck = () => {
       </Slide>
 
       {/* Slide 7: Token Model */}
-      <Slide align="left" slideNumber={7} isRTL={isRTL}>
+      <Slide align="left" slideNumber={7} isRTL={isRTL} hideGrid>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true, margin: "-100px" }} className="max-w-3xl">
           <motion.p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }}>{t('deck.slide7.label')}</motion.p>
           <motion.h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-10 md:mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>{t('deck.slide7.headline')}</motion.h2>
