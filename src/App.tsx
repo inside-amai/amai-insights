@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AuthProvider } from "@/hooks/useAuth";
 import { AuthGuard } from "@/components/AuthGuard";
 import { TermsModal } from "@/components/TermsModal";
@@ -38,6 +38,17 @@ import Research from "./pages/Research";
 
 const queryClient = new QueryClient();
 
+const ConditionalTermsModal = () => {
+  const location = useLocation();
+  
+  // Don't show terms modal on /deck page
+  if (location.pathname === '/deck') {
+    return null;
+  }
+  
+  return <TermsModal />;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <AuthProvider>
@@ -45,8 +56,8 @@ const App = () => (
         <TooltipProvider>
           <Toaster />
           <Sonner />
-          <TermsModal />
           <BrowserRouter>
+            <ConditionalTermsModal />
             <SiteHeader />
             <Routes>
               <Route path="/" element={<Index />} />
