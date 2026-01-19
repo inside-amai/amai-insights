@@ -173,8 +173,8 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.7 }}
             viewport={{ once: true }}
           >
-            This is not a UX problem.<br />
-            It is an infrastructure problem.
+            The limitation isn't design.<br />
+            It's infrastructure.
           </motion.p>
         </motion.div>
       </Slide>
