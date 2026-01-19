@@ -1,4 +1,5 @@
 import { useLanguage, Language } from '@/contexts/LanguageContext';
+import { Link, useLocation } from 'react-router-dom';
 
 const languages: { code: Language; label: string }[] = [
   { code: 'en', label: 'EN' },
@@ -8,6 +9,8 @@ const languages: { code: Language; label: string }[] = [
 
 export const SiteHeader = () => {
   const { language, setLanguage } = useLanguage();
+  const location = useLocation();
+  const isDeckPage = location.pathname === '/deck';
 
   return (
     <header className="absolute top-0 left-0 right-0 z-50 pointer-events-none">
@@ -15,17 +18,31 @@ export const SiteHeader = () => {
         <div className="flex items-center justify-between">
           {/* Logo + Site Title */}
           <div className="flex items-center gap-4">
-            <a 
-              href="https://amai.net" 
-              className="pointer-events-auto w-[64px] h-10 flex-shrink-0"
-            >
-              <img 
-                src="/amai-header-logo.png"
-                alt="AMAI" 
-                className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity"
-                loading="eager"
-              />
-            </a>
+            {isDeckPage ? (
+              <Link 
+                to="/" 
+                className="pointer-events-auto w-[64px] h-10 flex-shrink-0"
+              >
+                <img 
+                  src="/amai-header-logo.png"
+                  alt="AMAI" 
+                  className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity"
+                  loading="eager"
+                />
+              </Link>
+            ) : (
+              <a 
+                href="https://amai.net" 
+                className="pointer-events-auto w-[64px] h-10 flex-shrink-0"
+              >
+                <img 
+                  src="/amai-header-logo.png"
+                  alt="AMAI" 
+                  className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity"
+                  loading="eager"
+                />
+              </a>
+            )}
             <span className="hidden sm:block text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium">
               AMAI Labs · Infrastructure & Research
             </span>
