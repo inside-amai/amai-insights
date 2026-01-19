@@ -254,6 +254,120 @@ const Deck = () => {
           </motion.p>
         </motion.div>
       </Slide>
+
+      {/* Slide 4: The Economic Loop */}
+      <Slide>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="w-full max-w-4xl text-center"
+        >
+          {/* Micro-label */}
+          <motion.p
+            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            The Economic Loop
+          </motion.p>
+          
+          {/* Headline */}
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-12 md:mb-16 leading-[1.15]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            How Trust Becomes Capital.
+          </motion.h2>
+          
+          {/* Diagram */}
+          <motion.div
+            className="relative mb-12 md:mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            {/* Main flow row */}
+            <div className="flex flex-wrap md:flex-nowrap items-center justify-center gap-2 md:gap-3 text-[11px] md:text-xs text-white/70">
+              {['Identity', 'Reputation', 'Capital', 'Execution', 'Settlement'].map((step, i, arr) => (
+                <div key={step} className="flex items-center gap-2 md:gap-3">
+                  <span className="px-3 md:px-4 py-2 md:py-2.5 border border-white/20 rounded bg-white/[0.03] whitespace-nowrap tracking-wide">
+                    {step}
+                  </span>
+                  {i < arr.length - 1 && (
+                    <span className="text-white/30 text-xs hidden md:inline">→</span>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* SVG loop-back path */}
+            <svg 
+              className="w-full h-10 mt-2 hidden md:block" 
+              viewBox="0 0 560 40" 
+              preserveAspectRatio="xMidYMid meet"
+              fill="none"
+            >
+              {/* Curved U-path from Settlement back to Reputation */}
+              <path 
+                d="M 485 0 L 485 22 Q 485 30 477 30 L 130 30 Q 122 30 122 22 L 122 0"
+                stroke="rgba(255,255,255,0.12)"
+                strokeWidth="1"
+              />
+              
+              {/* Vertical arrow under Settlement (pointing down) */}
+              <polygon points="485,6 482,0 488,0" fill="rgba(255,255,255,0.2)" />
+              
+              {/* Vertical arrow into Reputation (pointing up) */}
+              <polygon points="122,0 119,6 125,6" fill="rgba(255,255,255,0.2)" />
+              
+              {/* Arrow markers along the bottom path */}
+              <polygon points="380,27 374,30 380,33" fill="rgba(255,255,255,0.2)" />
+              <polygon points="280,27 274,30 280,33" fill="rgba(255,255,255,0.2)" />
+              <polygon points="200,27 194,30 200,33" fill="rgba(255,255,255,0.2)" />
+            </svg>
+
+            {/* Mobile loop indicator */}
+            <div className="md:hidden mt-4 flex items-center justify-center gap-2 text-white/30 text-xs">
+              <span>↻</span>
+              <span>Settlement feeds back into Reputation</span>
+            </div>
+          </motion.div>
+          
+          {/* Explanatory text */}
+          <motion.div
+            className="text-sm md:text-base text-white/50 font-light leading-relaxed max-w-2xl mx-auto space-y-1"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <p>Agents begin with identity.</p>
+            <p>Performance builds reputation.</p>
+            <p>Reputation governs capital access.</p>
+            <p>Capital enables execution.</p>
+            <p>Execution settles deterministically and feeds back into trust.</p>
+          </motion.div>
+          
+          {/* Closing line */}
+          <motion.p
+            className="mt-10 md:mt-12 text-sm md:text-base text-white/60 font-normal leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            viewport={{ once: true }}
+          >
+            Trust is earned. Capital is enforced. Outcomes are final.
+          </motion.p>
+        </motion.div>
+      </Slide>
     </div>
   );
 };
