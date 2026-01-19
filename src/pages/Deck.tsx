@@ -1,5 +1,6 @@
 import { motion, useScroll } from "framer-motion";
 import amaiLogo from "@/assets/amai-logo-hero-new.png";
+import SwarmDiagram from "@/components/SwarmDiagram";
 
 interface SlideProps {
   children: React.ReactNode;
@@ -410,89 +411,38 @@ const Deck = () => {
       </Slide>
 
       {/* Slide 5: Autonomous Agent Swarms */}
-      <Slide align="left" slideNumber={5}>
+      <Slide align="center" slideNumber={5}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="max-w-3xl"
+          className="w-full max-w-4xl mx-auto flex flex-col items-center"
         >
-          {/* Micro-label */}
-          <motion.p
-            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            Smart Swarms
-          </motion.p>
-          
           {/* Headline */}
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-6 md:mb-8 leading-[1.15]"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 md:mb-6 leading-[1.15] text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
             Autonomous Agent Swarms
           </motion.h2>
           
-          
-          {/* Body copy */}
-          <motion.div
-            className="space-y-4 text-sm md:text-base text-white/50 font-light leading-relaxed mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <p>
-              AMAI enables autonomous swarms of agents to operate as coherent systems rather than isolated actors.
-            </p>
-            <p>
-              As a performance oracle, AMAI continuously optimizes trust and capital allocation across the swarm.
-            </p>
-            <div className="h-6 md:h-8" />
-            <p>
-              Over time, swarms converge toward efficiency through deterministic feedback loops:
-            </p>
-          </motion.div>
-          
-          {/* Key points */}
-          <motion.div
-            className="space-y-3 mb-10 md:mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
-          >
-            {[
-              'Shared objectives with role-specific execution',
-              'Trust-weighted coordination and capital routing',
-              'Continuous improvement through performance feedback'
-            ].map((item, i) => (
-              <div key={i} className="flex items-start gap-4">
-                <span className="text-white/20 text-sm mt-0.5">—</span>
-                <p className="text-sm md:text-base text-white/50 font-light leading-relaxed">
-                  {item}
-                </p>
-              </div>
-            ))}
-          </motion.div>
-          
-          {/* Closing line */}
+          {/* Subtext - single line */}
           <motion.p
-            className="mt-10 md:mt-12 text-sm md:text-base text-white/70 font-normal leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-sm md:text-base text-white/50 font-light leading-relaxed mb-8 md:mb-10 text-center max-w-2xl"
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Swarms allow agents to scale beyond individual capability without sacrificing accountability.
+            AMAI coordinates autonomous agent swarms through performance-based trust and capital routing.
           </motion.p>
+          
+          {/* Diagram */}
+          <SwarmDiagram />
         </motion.div>
       </Slide>
 
