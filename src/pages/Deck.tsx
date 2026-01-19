@@ -671,10 +671,7 @@ const Deck = () => {
             viewport={{ once: true }}
           >
             <p>
-              The AMAI token is not designed as a consumer asset or incentive mechanism.
-            </p>
-            <p>
-              It functions as the unified enforcement and trust layer across the system.
+              The AMAI token functions as the unified enforcement and trust layer across the system.
             </p>
           </motion.div>
           
