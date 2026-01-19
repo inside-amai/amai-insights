@@ -191,9 +191,9 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.7 }}
             viewport={{ once: true }}
           >
-            Design is not the limitation.
-            <br />
-            Infrastructure is.
+            Design scales attention.
+            <br /><br />
+            Infrastructure scales outcomes.
           </motion.p>
         </motion.div>
       </Slide>
