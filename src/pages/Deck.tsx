@@ -876,6 +876,56 @@ const Deck = () => {
           </motion.p>
         </motion.div>
       </Slide>
+
+      {/* Slide 11: Closing */}
+      <Slide>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1.2 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="max-w-3xl text-center"
+        >
+          {/* Headline */}
+          <motion.h2
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-12 md:mb-16 leading-[1.1]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            Infrastructure Precedes Adoption.
+          </motion.h2>
+          
+          {/* Supporting copy */}
+          <motion.div
+            className="space-y-6 text-base md:text-lg text-white/50 font-light leading-relaxed mb-16 md:mb-20"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <p>
+              Autonomous agents are moving from tools to participants.<br />
+              Economic systems must evolve to support identity, accountability, and execution at machine scale.
+            </p>
+            <p className="text-white/60">
+              AMAI is building the infrastructure that makes this transition possible.
+            </p>
+          </motion.div>
+          
+          {/* Final line */}
+          <motion.p
+            className="text-[11px] tracking-[0.3em] uppercase text-white/30 font-medium"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1 }}
+            viewport={{ once: true }}
+          >
+            Infrastructure & Research · AMAI Labs
+          </motion.p>
+        </motion.div>
+      </Slide>
     </div>
   );
 };
