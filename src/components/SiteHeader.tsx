@@ -15,7 +15,7 @@ export const SiteHeader = () => {
   return (
     <header className="absolute top-0 left-0 right-0 z-50 pointer-events-none">
       <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
+        <div className={`flex items-center ${isDeckPage ? 'justify-center' : 'justify-between'}`}>
           {/* Logo + Site Title - Hidden on /deck page */}
           {!isDeckPage && (
             <div className="flex items-center gap-4">
