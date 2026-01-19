@@ -368,6 +368,74 @@ const Deck = () => {
           </motion.p>
         </motion.div>
       </Slide>
+
+      {/* Slide 5: Value Accrual */}
+      <Slide align="left">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="max-w-3xl"
+        >
+          {/* Micro-label */}
+          <motion.p
+            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            Value Accrual
+          </motion.p>
+          
+          {/* Headline */}
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-12 md:mb-14 leading-[1.15]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            Interfaces Change.<br />
+            Execution Persists.
+          </motion.h2>
+          
+          {/* Body copy */}
+          <motion.div
+            className="space-y-6 text-base md:text-lg text-white/50 font-light leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <p>
+              In every technology shift, value accrues to the layer that enforces rules, manages risk, and settles outcomes.
+            </p>
+            
+            <div className="py-2">
+              <p className="text-white/40">Interfaces compete on attention.</p>
+              <p className="text-white/40">Models commoditize.</p>
+              <p className="text-white/60">Trust, enforcement, and settlement compound.</p>
+            </div>
+            
+            <p>
+              As autonomous agents become primary economic actors, durable value shifts away from UX and toward the infrastructure that governs execution and accountability.
+            </p>
+          </motion.div>
+          
+          {/* Closing line */}
+          <motion.p
+            className="mt-12 md:mt-16 text-base md:text-lg text-white/70 font-normal leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            viewport={{ once: true }}
+          >
+            AMAI is built where value compounds, not where attention lives.
+          </motion.p>
+        </motion.div>
+      </Slide>
     </div>
   );
 };
