@@ -944,10 +944,10 @@ const Deck = () => {
           >
             <a
               href="/"
-              className="inline-flex items-center gap-2 px-8 py-3 border border-white/20 text-white/80 text-sm tracking-[0.15em] uppercase font-medium hover:bg-white/5 hover:border-white/30 transition-all duration-300"
+              className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
             >
               Explore the Architecture
-              <span className="text-white/40">→</span>
+              <span>→</span>
             </a>
           </motion.div>
         </motion.div>
