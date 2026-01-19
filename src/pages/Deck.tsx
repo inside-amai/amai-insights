@@ -5,9 +5,11 @@ interface SlideProps {
   children: React.ReactNode;
   className?: string;
   align?: "left" | "center";
+  slideNumber?: number;
+  totalSlides?: number;
 }
 
-const Slide = ({ children, className = "", align = "center" }: SlideProps) => (
+const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 11 }: SlideProps) => (
   <section 
     className={`relative min-h-screen w-full flex items-center overflow-hidden ${
       align === "left" ? "justify-start" : "justify-center"
@@ -30,6 +32,13 @@ const Slide = ({ children, className = "", align = "center" }: SlideProps) => (
     }`}>
       {children}
     </div>
+    
+    {/* Page number */}
+    {slideNumber && (
+      <div className="absolute bottom-8 right-8 md:bottom-10 md:right-12 text-[10px] tracking-[0.2em] text-white/20 font-medium">
+        {String(slideNumber).padStart(2, '0')} / {String(totalSlides).padStart(2, '0')}
+      </div>
+    )}
   </section>
 );
 
@@ -37,7 +46,7 @@ const Deck = () => {
   return (
     <div className="bg-black min-h-screen">
       {/* Slide 1: Title */}
-      <Slide align="left">
+      <Slide align="left" slideNumber={1}>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -89,7 +98,7 @@ const Deck = () => {
       </Slide>
 
       {/* Slide 2: The Shift */}
-      <Slide>
+      <Slide slideNumber={2}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -159,7 +168,7 @@ const Deck = () => {
       </Slide>
 
       {/* Slide 3: The Infrastructure Layer */}
-      <Slide align="left">
+      <Slide align="left" slideNumber={3}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -256,7 +265,7 @@ const Deck = () => {
       </Slide>
 
       {/* Slide 4: The Economic Loop */}
-      <Slide>
+      <Slide slideNumber={4}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -370,7 +379,7 @@ const Deck = () => {
       </Slide>
 
       {/* Slide 5: Value Accrual */}
-      <Slide align="left">
+      <Slide align="left" slideNumber={5}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -438,7 +447,7 @@ const Deck = () => {
       </Slide>
 
       {/* Slide 6: Current State */}
-      <Slide align="left">
+      <Slide align="left" slideNumber={6}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -519,7 +528,7 @@ const Deck = () => {
       </Slide>
 
       {/* Slide 7: Initial Users */}
-      <Slide align="left">
+      <Slide align="left" slideNumber={7}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -609,7 +618,7 @@ const Deck = () => {
       </Slide>
 
       {/* Slide 8: Token Model */}
-      <Slide align="left">
+      <Slide align="left" slideNumber={8}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -703,7 +712,7 @@ const Deck = () => {
       </Slide>
 
       {/* Slide 9: Capital Formation */}
-      <Slide align="left">
+      <Slide align="left" slideNumber={9}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -789,7 +798,7 @@ const Deck = () => {
       </Slide>
 
       {/* Slide 10: Strategic Alignment */}
-      <Slide align="left">
+      <Slide align="left" slideNumber={10}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -878,7 +887,7 @@ const Deck = () => {
       </Slide>
 
       {/* Slide 11: Closing */}
-      <Slide>
+      <Slide slideNumber={11}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
