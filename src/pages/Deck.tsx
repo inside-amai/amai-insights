@@ -54,7 +54,7 @@ const Deck = () => {
     <div className="bg-black min-h-screen">
       {/* Progress bar */}
       <motion.div
-        className="fixed bottom-0 left-0 h-px bg-white/15 origin-left z-50"
+        className="fixed bottom-0 left-0 h-[1px] bg-white/25 origin-left z-50"
         style={{ scaleX: scrollYProgress, width: '100%' }}
       />
       {/* Slide 1: Title */}
