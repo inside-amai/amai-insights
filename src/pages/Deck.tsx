@@ -443,7 +443,7 @@ const Deck = () => {
           
           {/* Body copy */}
           <motion.div
-            className="space-y-4 text-sm md:text-base text-white/50 font-light leading-relaxed mb-10 md:mb-12"
+            className="space-y-4 text-sm md:text-base text-white/50 font-light leading-relaxed mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
@@ -457,8 +457,7 @@ const Deck = () => {
             </p>
             <p>
               Execution creates feedback. Feedback shapes behavior.
-            </p>
-            <p>
+              <br /><br />
               Over time, swarms converge toward efficiency through deterministic feedback loops:
             </p>
           </motion.div>
