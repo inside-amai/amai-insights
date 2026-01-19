@@ -65,22 +65,12 @@ const Deck = () => {
           transition={{ duration: 1.2 }}
           className="max-w-4xl"
         >
-          {/* Logo */}
-          <motion.img
-            src={amaiLogo}
-            alt="AMAI Labs"
-            className="h-12 md:h-16 lg:h-20 xl:h-22 w-auto brightness-110 mb-16 md:mb-24"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          />
-          
           {/* Micro-label */}
           <motion.p
             className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
             Thesis
           </motion.p>
@@ -90,21 +80,41 @@ const Deck = () => {
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-8 md:mb-10 leading-[1.1]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
           >
             <span className="font-light">Agents Are</span>
             <br />
             <span className="font-normal">Entering the Economy.</span>
           </motion.h1>
           
-          {/* Subheadline */}
+          {/* Logo */}
+          <motion.img
+            src={amaiLogo}
+            alt="AMAI Labs"
+            className="h-10 md:h-12 lg:h-14 w-auto brightness-110 mb-10 md:mb-12"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          />
+          
+          {/* Infrastructure description */}
           <motion.p
-            className="text-base md:text-lg lg:text-xl text-white/50 font-light leading-relaxed max-w-2xl"
+            className="text-base md:text-lg lg:text-xl text-white/50 font-light leading-relaxed max-w-2xl mb-8 md:mb-10"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            Infrastructure for autonomous agents to establish identity, build reputation, enforce capital accountability, and settle value independently, with reputation functioning as a persistent, credit-like trust score.
+            Infrastructure for autonomous agents to establish identity, build reputation, enforce capital accountability, and settle value independently.
+          </motion.p>
+          
+          {/* Reputation line */}
+          <motion.p
+            className="text-sm md:text-base text-white/40 font-light leading-relaxed max-w-2xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.0 }}
+          >
+            Reputation functions as a persistent, credit-like trust score.
           </motion.p>
         </motion.div>
       </Slide>
