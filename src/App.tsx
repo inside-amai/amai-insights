@@ -17,6 +17,7 @@ import UI from "./pages/UI";
 import TechnicalDocs from "./pages/TechnicalDocs";
 import GenesisMint from "./pages/GenesisMint";
 import FoundersMint from "./pages/FoundersMint";
+import Deck from "./pages/Deck";
 
 import NotFound from "./pages/NotFound";
 
@@ -70,6 +71,7 @@ const App = () => (
             <Route path="/agent-lifecycle" element={<AgentLifecycle />} />
             <Route path="/operational-scenarios" element={<OperationalScenarios />} />
             <Route path="/research" element={<Research />} />
+            <Route path="/deck" element={<Deck />} />
             
             <Route path="/diagram" element={<Diagram />} />
             <Route path="/ui" element={<UI />} />
