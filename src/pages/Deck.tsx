@@ -452,10 +452,11 @@ const Deck = () => {
             <p>
               AMAI enables autonomous swarms of agents to operate as coherent systems rather than isolated actors.
             </p>
-            <div className="h-6 md:h-8" />
             <p>
               Trust and capital flow dynamically across the swarm based on performance.
-              <br /><br />
+            </p>
+            <div className="h-6 md:h-8" />
+            <p>
               Over time, swarms converge toward efficiency through deterministic feedback loops:
             </p>
           </motion.div>
