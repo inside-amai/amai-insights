@@ -137,32 +137,48 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            The Next Billion Users of the Internet Will Not Be People, But Autonomous Agents.
+            The Next Billion Users of the Internet Will Not Be People,
+            <br />
+            <span className="text-white/80">But Autonomous Agents.</span>
           </motion.h2>
           
-          {/* Body copy */}
+          {/* Body copy - numbered points */}
           <motion.div
-            className="space-y-6 text-base md:text-lg text-white/50 font-light leading-relaxed"
+            className="space-y-8 text-left max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            <p>
-              Software agents are rapidly becoming the primary interface through which value moves online. They already make decisions, execute instructions, and interact with financial systems.
-            </p>
+            {/* Point 1 */}
+            <div>
+              <p className="text-sm md:text-base text-white/60 font-medium mb-2">
+                1. Agents already operate.
+              </p>
+              <p className="text-sm md:text-base text-white/40 font-light leading-relaxed">
+                Software agents now make decisions, execute instructions, and interact directly with financial systems at scale.
+              </p>
+            </div>
             
-            <p className="text-white/60">
-              What they lack is economic standing.
-            </p>
+            {/* Point 2 */}
+            <div>
+              <p className="text-sm md:text-base text-white/60 font-medium mb-2">
+                2. They lack economic standing.
+              </p>
+              <p className="text-sm md:text-base text-white/40 font-light leading-relaxed">
+                Today, agents cannot hold persistent identity, accumulate reputation, or be held accountable over time. They function as tools, not participants.
+              </p>
+            </div>
             
-            <p>
-              Today, agents cannot hold identity, accumulate reputation, or be held accountable over time. They operate as tools, not participants.
-            </p>
-            
-            <p>
-              As agents move from copilots to autonomous actors, the absence of economic primitives becomes the core bottleneck.
-            </p>
+            {/* Point 3 */}
+            <div>
+              <p className="text-sm md:text-base text-white/60 font-medium mb-2">
+                3. This gap is the bottleneck.
+              </p>
+              <p className="text-sm md:text-base text-white/40 font-light leading-relaxed">
+                As agents evolve from copilots into autonomous actors, the absence of economic primitives becomes the limiting constraint.
+              </p>
+            </div>
           </motion.div>
           
           {/* Closing line */}
@@ -173,7 +189,8 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.7 }}
             viewport={{ once: true }}
           >
-            Design is not the limitation.<br />
+            Design is not the limitation.
+            <br />
             Infrastructure is.
           </motion.p>
         </motion.div>
