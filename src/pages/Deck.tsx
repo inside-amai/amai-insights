@@ -191,9 +191,7 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.7 }}
             viewport={{ once: true }}
           >
-            Design scales attention.
-            <br />
-            Infrastructure scales outcomes.
+            Infrastructure determines what lasts.
           </motion.p>
         </motion.div>
       </Slide>
