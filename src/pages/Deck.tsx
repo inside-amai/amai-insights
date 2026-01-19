@@ -9,7 +9,7 @@ interface SlideProps {
   totalSlides?: number;
 }
 
-const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 11 }: SlideProps) => (
+const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 12 }: SlideProps) => (
   <section 
     className={`relative min-h-screen w-full flex items-center overflow-hidden ${
       align === "left" ? "justify-start" : "justify-center"
@@ -409,8 +409,110 @@ const Deck = () => {
         </motion.div>
       </Slide>
 
-      {/* Slide 5: Value Accrual */}
+      {/* Slide 5: Autonomous Agent Swarms */}
       <Slide align="left" slideNumber={5}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="max-w-3xl"
+        >
+          {/* Micro-label */}
+          <motion.p
+            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            Swarm Coordination
+          </motion.p>
+          
+          {/* Headline */}
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-6 md:mb-8 leading-[1.15]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            Autonomous Agent Swarms
+          </motion.h2>
+          
+          {/* Subheading */}
+          <motion.p
+            className="text-sm md:text-base text-white/40 font-light mb-10 md:mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            Coordinated systems of agents operating as a single economic unit.
+          </motion.p>
+          
+          {/* Body copy */}
+          <motion.div
+            className="space-y-4 text-sm md:text-base text-white/50 font-light leading-relaxed mb-10 md:mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <p>
+              AMAI enables autonomous swarms of agents to operate as coherent systems rather than isolated actors.
+            </p>
+            <p>
+              These swarms function like virtual teams: each agent has a defined role, bounded authority, and capital exposure, while performance feedback continuously reallocates trust and resources across the group.
+            </p>
+            <p className="text-white/40">
+              Coordination emerges from execution, not central control.
+            </p>
+            <p className="text-white/40">
+              Performance creates pressure. Pressure refines behavior.
+            </p>
+            <p>
+              Over time, swarms converge toward efficiency through deterministic feedback loops.
+            </p>
+          </motion.div>
+          
+          {/* Key points */}
+          <motion.div
+            className="space-y-3 mb-10 md:mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            {[
+              'Shared objectives with role-specific execution',
+              'Trust-weighted coordination and capital routing',
+              'Continuous improvement through performance feedback'
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-4">
+                <span className="text-white/20 text-sm mt-0.5">—</span>
+                <p className="text-sm md:text-base text-white/50 font-light leading-relaxed">
+                  {item}
+                </p>
+              </div>
+            ))}
+          </motion.div>
+          
+          {/* Closing line */}
+          <motion.p
+            className="mt-10 md:mt-12 text-sm md:text-base text-white/70 font-normal leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            viewport={{ once: true }}
+          >
+            Swarms allow agents to scale beyond individual capability without sacrificing accountability.
+          </motion.p>
+        </motion.div>
+      </Slide>
+
+      {/* Slide 6: Value Accrual */}
+      <Slide align="left" slideNumber={6}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -477,8 +579,8 @@ const Deck = () => {
         </motion.div>
       </Slide>
 
-      {/* Slide 6: Current State */}
-      <Slide align="left" slideNumber={6}>
+      {/* Slide 7: Current State */}
+      <Slide align="left" slideNumber={7}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -558,8 +660,8 @@ const Deck = () => {
         </motion.div>
       </Slide>
 
-      {/* Slide 7: Initial Users */}
-      <Slide align="left" slideNumber={7}>
+      {/* Slide 8: Initial Users */}
+      <Slide align="left" slideNumber={8}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -648,8 +750,8 @@ const Deck = () => {
         </motion.div>
       </Slide>
 
-      {/* Slide 8: Token Model */}
-      <Slide align="left" slideNumber={8}>
+      {/* Slide 9: Token Model */}
+      <Slide align="left" slideNumber={9}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -742,8 +844,8 @@ const Deck = () => {
         </motion.div>
       </Slide>
 
-      {/* Slide 9: Capital Formation */}
-      <Slide align="left" slideNumber={9}>
+      {/* Slide 10: Capital Formation */}
+      <Slide align="left" slideNumber={10}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -828,8 +930,8 @@ const Deck = () => {
         </motion.div>
       </Slide>
 
-      {/* Slide 10: Strategic Alignment */}
-      <Slide align="left" slideNumber={10}>
+      {/* Slide 11: Strategic Alignment */}
+      <Slide align="left" slideNumber={11}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -917,8 +1019,8 @@ const Deck = () => {
         </motion.div>
       </Slide>
 
-      {/* Slide 11: Closing */}
-      <Slide slideNumber={11}>
+      {/* Slide 12: Closing */}
+      <Slide slideNumber={12}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
