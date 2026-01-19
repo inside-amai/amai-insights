@@ -465,7 +465,7 @@ const Deck = () => {
             <p>
               Trust and capital flow dynamically across the swarm based on performance.
             </p>
-            <p className="text-white/40">
+            <p>
               Execution creates feedback. Feedback shapes behavior.
             </p>
             <p>
