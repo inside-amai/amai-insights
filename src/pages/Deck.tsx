@@ -708,17 +708,6 @@ const Deck = () => {
           >
             Agents may post collateral in multiple assets, but enforcement, trust scoring, and execution guarantees are governed through AMAI.
           </motion.p>
-          
-          {/* Closing line */}
-          <motion.p
-            className="mt-12 md:mt-14 text-base md:text-lg text-white/70 font-normal leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            viewport={{ once: true }}
-          >
-            AMAI is the control plane, not just collateral.
-          </motion.p>
         </motion.div>
       </Slide>
 
