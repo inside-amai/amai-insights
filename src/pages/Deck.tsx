@@ -1,5 +1,6 @@
 import { motion, useScroll } from "framer-motion";
 import amaiLogo from "@/assets/amai-logo-hero-new.png";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface SlideProps {
   children: React.ReactNode;
@@ -7,58 +8,66 @@ interface SlideProps {
   align?: "left" | "center";
   slideNumber?: number;
   totalSlides?: number;
+  isRTL?: boolean;
 }
 
-const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 9 }: SlideProps) => (
-  <section 
-    className={`relative min-h-screen w-full flex items-center overflow-hidden ${
-      align === "left" ? "justify-start" : "justify-center"
-    } ${className}`}
-  >
-    {/* Grid background */}
-    <div 
-      className="absolute inset-0 pointer-events-none"
-      style={{
-        backgroundImage: `
-          linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px),
-          linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px)
-        `,
-        backgroundSize: '80px 80px'
-      }}
-    />
-    
-    <div className={`relative z-10 w-full max-w-6xl mx-auto px-8 md:px-16 lg:px-24 pb-24 md:pb-16 ${
-      align === "left" ? "" : ""
-    }`}>
-      {children}
-    </div>
-    
-    {/* Page number */}
-    {slideNumber && (
-      <div className="absolute bottom-8 right-8 md:bottom-10 md:right-12 text-[10px] tracking-[0.2em] text-white/50 font-medium">
-        {String(slideNumber).padStart(2, '0')} / {String(totalSlides).padStart(2, '0')}
+const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 9, isRTL = false }: SlideProps) => {
+  const { t } = useLanguage();
+  
+  return (
+    <section 
+      className={`relative min-h-screen w-full flex items-center overflow-hidden ${
+        align === "left" ? "justify-start" : "justify-center"
+      } ${className}`}
+      dir={isRTL ? "rtl" : "ltr"}
+    >
+      {/* Grid background */}
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px)
+          `,
+          backgroundSize: '80px 80px'
+        }}
+      />
+      
+      <div className={`relative z-10 w-full max-w-6xl mx-auto px-8 md:px-16 lg:px-24 pb-24 md:pb-16 ${
+        align === "left" ? "" : ""
+      }`}>
+        {children}
       </div>
-    )}
-    
-    {/* Footer branding */}
-    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.2em] uppercase text-white/20 font-medium">
-      Infrastructure & Research · AMAI Labs
-    </div>
-  </section>
-);
+      
+      {/* Page number */}
+      {slideNumber && (
+        <div className={`absolute bottom-8 ${isRTL ? 'left-8 md:left-12' : 'right-8 md:right-12'} md:bottom-10 text-[10px] tracking-[0.2em] text-white/50 font-medium`}>
+          {String(slideNumber).padStart(2, '0')} / {String(totalSlides).padStart(2, '0')}
+        </div>
+      )}
+      
+      {/* Footer branding */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.2em] uppercase text-white/20 font-medium">
+        {t('deck.footer')}
+      </div>
+    </section>
+  );
+};
 
 const Deck = () => {
   const { scrollYProgress } = useScroll();
+  const { t, language } = useLanguage();
+  const isRTL = language === 'ar';
 
   return (
-    <div className="bg-black min-h-screen">
+    <div className="bg-black min-h-screen" dir={isRTL ? "rtl" : "ltr"}>
       {/* Progress bar */}
       <motion.div
         className="fixed bottom-0 left-0 h-[3px] bg-white/30 origin-left z-50"
         style={{ scaleX: scrollYProgress, width: '100%' }}
       />
       {/* Slide 1: Title */}
-      <Slide align="left" slideNumber={1}>
+      <Slide align="left" slideNumber={1} isRTL={isRTL}>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -82,7 +91,7 @@ const Deck = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Briefing
+            {t('deck.slide1.label')}
           </motion.p>
           
           {/* Headline */}
@@ -92,9 +101,9 @@ const Deck = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <span className="font-light">Agents Are</span>
+            <span className="font-light">{t('deck.slide1.headline1')}</span>
             <br />
-            <span className="font-light">Entering the Economy.</span>
+            <span className="font-light">{t('deck.slide1.headline2')}</span>
           </motion.h1>
           
           {/* Subheadline */}
@@ -104,15 +113,15 @@ const Deck = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            Infrastructure for autonomous agents to establish identity, build reputation, enforce capital accountability, and settle value independently.
+            {t('deck.slide1.subheadline1')}
             <br /><br />
-            Reputation functions as a persistent, credit-like trust score.
+            {t('deck.slide1.subheadline2')}
           </motion.p>
         </motion.div>
       </Slide>
 
       {/* Slide 2: The Shift */}
-      <Slide slideNumber={2}>
+      <Slide slideNumber={2} isRTL={isRTL}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -128,7 +137,7 @@ const Deck = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            The Shift
+            {t('deck.slide2.label')}
           </motion.p>
           
           {/* Headline */}
@@ -139,14 +148,14 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            The Next Billion Users of the Internet Will Not Be People,
+            {t('deck.slide2.headline1')}
             <br />
-            But Autonomous Agents.
+            {t('deck.slide2.headline2')}
           </motion.h2>
           
           {/* Body copy - numbered points */}
           <motion.div
-            className="space-y-8 text-left max-w-2xl mx-auto"
+            className={`space-y-8 ${isRTL ? 'text-right' : 'text-left'} max-w-2xl mx-auto`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
@@ -155,30 +164,30 @@ const Deck = () => {
             {/* Point 1 */}
             <div>
               <p className="text-sm md:text-base text-white/80 font-medium mb-2">
-                1. Agents already operate.
+                {t('deck.slide2.point1.title')}
               </p>
               <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">
-                Software agents now make decisions, execute instructions, and interact directly with financial systems at scale.
+                {t('deck.slide2.point1.body')}
               </p>
             </div>
             
             {/* Point 2 */}
             <div>
               <p className="text-sm md:text-base text-white/80 font-medium mb-2">
-                2. They lack economic standing.
+                {t('deck.slide2.point2.title')}
               </p>
               <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">
-                Today, agents cannot hold persistent identity, accumulate reputation, or be held accountable over time. They function as tools, not participants.
+                {t('deck.slide2.point2.body')}
               </p>
             </div>
             
             {/* Point 3 */}
             <div>
               <p className="text-sm md:text-base text-white/80 font-medium mb-2">
-                3. This is the bottleneck.
+                {t('deck.slide2.point3.title')}
               </p>
               <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">
-                As agents evolve from copilots into autonomous actors, the absence of economic primitives becomes the limiting constraint.
+                {t('deck.slide2.point3.body')}
               </p>
             </div>
           </motion.div>
@@ -191,13 +200,13 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.7 }}
             viewport={{ once: true }}
           >
-            Infrastructure determines what lasts.
+            {t('deck.slide2.closing')}
           </motion.p>
         </motion.div>
       </Slide>
 
       {/* Slide 3: The Infrastructure Layer */}
-      <Slide align="left" slideNumber={3}>
+      <Slide align="left" slideNumber={3} isRTL={isRTL}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -213,7 +222,7 @@ const Deck = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            The Infrastructure Layer
+            {t('deck.slide3.label')}
           </motion.p>
           
           {/* Headline */}
@@ -224,7 +233,7 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            AMAI Is Economic Infrastructure for Autonomous Agents.
+            {t('deck.slide3.headline')}
           </motion.h2>
           
           {/* Body copy */}
@@ -235,12 +244,8 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            <p>
-              AMAI provides the missing economic primitives that allow autonomous agents to participate in real-world systems.
-            </p>
-            <p>
-              It is an execution and enforcement layer that sits below interfaces, applications, and marketplaces.
-            </p>
+            <p>{t('deck.slide3.body1')}</p>
+            <p>{t('deck.slide3.body2')}</p>
           </motion.div>
           
           {/* Four pillars */}
@@ -251,31 +256,31 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="border-l border-white/10 pl-5">
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">Identity</p>
+            <div className={`${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}>
+              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide3.pillar1.title')}</p>
               <p className="text-sm text-white/70 font-light leading-relaxed">
-                Persistent, non-transferable agent identity anchored on-chain
+                {t('deck.slide3.pillar1.desc')}
               </p>
             </div>
             
-            <div className="border-l border-white/10 pl-5">
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">Reputation</p>
+            <div className={`${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}>
+              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide3.pillar2.title')}</p>
               <p className="text-sm text-white/70 font-light leading-relaxed">
-                Performance-based trust that accumulates over time, similar to a credit score
+                {t('deck.slide3.pillar2.desc')}
               </p>
             </div>
             
-            <div className="border-l border-white/10 pl-5">
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">Capital Accountability</p>
+            <div className={`${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}>
+              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide3.pillar3.title')}</p>
               <p className="text-sm text-white/70 font-light leading-relaxed">
-                Collateral-backed commitments with deterministic limits and penalties
+                {t('deck.slide3.pillar3.desc')}
               </p>
             </div>
             
-            <div className="border-l border-white/10 pl-5">
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">Execution & Settlement</p>
+            <div className={`${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}>
+              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide3.pillar4.title')}</p>
               <p className="text-sm text-white/70 font-light leading-relaxed">
-                Verifiable actions with atomic settlement and enforced outcomes
+                {t('deck.slide3.pillar4.desc')}
               </p>
             </div>
           </motion.div>
@@ -288,13 +293,13 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            AMAI turns agents from tools into accountable economic participants.
+            {t('deck.slide3.closing')}
           </motion.p>
         </motion.div>
       </Slide>
 
       {/* Slide 4: The Economic Loop */}
-      <Slide slideNumber={4}>
+      <Slide slideNumber={4} isRTL={isRTL}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -310,7 +315,7 @@ const Deck = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            The Economic Loop
+            {t('deck.slide4.label')}
           </motion.p>
           
           {/* Headline */}
@@ -321,7 +326,7 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            How Trust Becomes Capital.
+            {t('deck.slide4.headline')}
           </motion.h2>
           
           {/* Diagram */}
@@ -333,14 +338,20 @@ const Deck = () => {
             viewport={{ once: true }}
           >
             {/* Main flow row */}
-            <div className="flex flex-wrap md:flex-nowrap items-center justify-center gap-2 md:gap-3 text-[11px] md:text-xs text-white/70">
-              {['Identity', 'Reputation', 'Capital', 'Execution', 'Settlement'].map((step, i, arr) => (
-                <div key={step} className="flex items-center gap-2 md:gap-3">
+            <div className={`flex flex-wrap md:flex-nowrap items-center justify-center gap-2 md:gap-3 text-[11px] md:text-xs text-white/70 ${isRTL ? 'flex-row-reverse' : ''}`}>
+              {[
+                t('deck.slide4.step.identity'),
+                t('deck.slide4.step.reputation'),
+                t('deck.slide4.step.capital'),
+                t('deck.slide4.step.execution'),
+                t('deck.slide4.step.settlement')
+              ].map((step, i, arr) => (
+                <div key={i} className={`flex items-center gap-2 md:gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                   <span className="px-3 md:px-4 py-2 md:py-2.5 border border-white/20 rounded bg-white/[0.03] whitespace-nowrap tracking-wide">
                     {step}
                   </span>
                   {i < arr.length - 1 && (
-                    <span className="text-white/30 text-xs hidden md:inline">→</span>
+                    <span className="text-white/30 text-xs hidden md:inline">{isRTL ? '←' : '→'}</span>
                   )}
                 </div>
               ))}
@@ -352,6 +363,7 @@ const Deck = () => {
               viewBox="0 0 560 40" 
               preserveAspectRatio="xMidYMid meet"
               fill="none"
+              style={{ transform: isRTL ? 'scaleX(-1)' : undefined }}
             >
               {/* Curved U-path from Settlement back to Reputation */}
               <path 
@@ -375,7 +387,7 @@ const Deck = () => {
             {/* Mobile loop indicator */}
             <div className="md:hidden mt-4 flex items-center justify-center gap-2 text-white/30 text-xs">
               <span>↻</span>
-              <span>Settlement feeds back into Reputation</span>
+              <span>{t('deck.slide4.mobile.loop')}</span>
             </div>
           </motion.div>
           
@@ -387,11 +399,11 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            <p>Agents begin with identity.</p>
-            <p>Performance builds reputation.</p>
-            <p>Reputation governs capital access.</p>
-            <p>Capital enables execution.</p>
-            <p>Execution settles deterministically and feeds back into trust.</p>
+            <p>{t('deck.slide4.explanation1')}</p>
+            <p>{t('deck.slide4.explanation2')}</p>
+            <p>{t('deck.slide4.explanation3')}</p>
+            <p>{t('deck.slide4.explanation4')}</p>
+            <p>{t('deck.slide4.explanation5')}</p>
           </motion.div>
           
           {/* Closing line */}
@@ -402,13 +414,13 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            Trust is earned. Capital is enforced. Outcomes are final.
+            {t('deck.slide4.closing')}
           </motion.p>
         </motion.div>
       </Slide>
 
       {/* Slide 5: Autonomous Agent Swarms */}
-      <Slide align="left" slideNumber={5}>
+      <Slide align="left" slideNumber={5} isRTL={isRTL}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -416,7 +428,6 @@ const Deck = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="max-w-3xl"
         >
-          {/* Micro-label */}
           <motion.p
             className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8"
             initial={{ opacity: 0, y: 10 }}
@@ -424,10 +435,9 @@ const Deck = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Agent Swarms
+            {t('deck.slide5.label')}
           </motion.p>
           
-          {/* Headline */}
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-6 md:mb-8 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
@@ -435,11 +445,9 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Autonomous Smart Swarms
+            {t('deck.slide5.headline')}
           </motion.h2>
           
-          
-          {/* Body copy */}
           <motion.div
             className="space-y-4 text-sm md:text-base text-white/50 font-light leading-relaxed mb-6"
             initial={{ opacity: 0, y: 20 }}
@@ -447,19 +455,12 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            <p>
-              AMAI enables autonomous swarms of agents to operate as coherent systems rather than isolated actors.
-            </p>
-            <p>
-              As a performance oracle, AMAI continuously optimizes trust and capital allocation across the swarm.
-            </p>
+            <p>{t('deck.slide5.body1')}</p>
+            <p>{t('deck.slide5.body2')}</p>
             <div className="h-6 md:h-8" />
-            <p>
-              Over time, swarms converge toward efficiency through deterministic feedback loops:
-            </p>
+            <p>{t('deck.slide5.body3')}</p>
           </motion.div>
           
-          {/* Key points */}
           <motion.div
             className="space-y-3 mb-10 md:mb-12"
             initial={{ opacity: 0, y: 20 }}
@@ -467,21 +468,14 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            {[
-              'Shared objectives with role-specific execution',
-              'Trust-weighted coordination and capital routing',
-              'Continuous improvement through performance feedback'
-            ].map((item, i) => (
-              <div key={i} className="flex items-start gap-4">
+            {[t('deck.slide5.point1'), t('deck.slide5.point2'), t('deck.slide5.point3')].map((item, i) => (
+              <div key={i} className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <span className="text-white/20 text-sm mt-0.5">—</span>
-                <p className="text-sm md:text-base text-white/50 font-light leading-relaxed">
-                  {item}
-                </p>
+                <p className="text-sm md:text-base text-white/50 font-light leading-relaxed">{item}</p>
               </div>
             ))}
           </motion.div>
           
-          {/* Closing line */}
           <motion.p
             className="mt-10 md:mt-12 text-sm md:text-base text-white/70 font-normal leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
@@ -489,13 +483,13 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            Smart Swarms allow agents to scale beyond individual capability without sacrificing accountability.
+            {t('deck.slide5.closing')}
           </motion.p>
         </motion.div>
       </Slide>
 
       {/* Slide 6: Initial Users */}
-      <Slide align="left" slideNumber={6}>
+      <Slide align="left" slideNumber={6} isRTL={isRTL}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -503,57 +497,14 @@ const Deck = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="max-w-3xl"
         >
-          {/* Micro-label */}
-          <motion.p
-            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            Initial Users
-          </motion.p>
-          
-          {/* Headline */}
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-10 md:mb-12 leading-[1.15]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            The First Users Are Capital-Intensive Operators.
-          </motion.h2>
-          
-          {/* Body copy */}
-          <motion.p
-            className="text-base md:text-lg text-white/50 font-light leading-relaxed mb-8 md:mb-10"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            viewport={{ once: true }}
-          >
-            AMAI is designed first for operators who already require deterministic execution, risk enforcement, and trust continuity.
-          </motion.p>
-          
-          {/* Bullets */}
-          <motion.div
-            className="space-y-3 mb-10 md:mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
-          >
-            {[
-              'Automated trading and execution strategies',
-              'Asset managers allocating capital at scale',
-              'Multi-agent systems where outcomes carry consequence'
-            ].map((item, i) => (
-              <div key={i} className="flex items-start gap-4">
+          <motion.p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }}>{t('deck.slide6.label')}</motion.p>
+          <motion.h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-10 md:mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>{t('deck.slide6.headline')}</motion.h2>
+          <motion.p className="text-base md:text-lg text-white/50 font-light leading-relaxed mb-8 md:mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} viewport={{ once: true }}>{t('deck.slide6.body')}</motion.p>
+          <motion.div className="space-y-3 mb-10 md:mb-12" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
+            {[t('deck.slide6.point1'), t('deck.slide6.point2'), t('deck.slide6.point3')].map((item, i) => (
+              <div key={i} className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <span className="text-white/20 text-sm mt-0.5">—</span>
-                <p className="text-sm md:text-base text-white/50 font-light leading-relaxed">
-                  {item}
-                </p>
+                <p className="text-sm md:text-base text-white/50 font-light leading-relaxed">{item}</p>
               </div>
             ))}
           </motion.div>
@@ -561,248 +512,54 @@ const Deck = () => {
       </Slide>
 
       {/* Slide 7: Token Model */}
-      <Slide align="left" slideNumber={7}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="max-w-3xl"
-        >
-          {/* Micro-label */}
-          <motion.p
-            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            Token Model
-          </motion.p>
-          
-          {/* Headline */}
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-10 md:mb-12 leading-[1.15]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            AMAI Is the Enforcement and Trust Denominator.
-          </motion.h2>
-          
-          {/* Body copy */}
-          <motion.div
-            className="space-y-4 text-base md:text-lg text-white/50 font-light leading-relaxed mb-10 md:mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <p>
-              The AMAI token functions as the unified enforcement and trust layer across the system.
-            </p>
+      <Slide align="left" slideNumber={7} isRTL={isRTL}>
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true, margin: "-100px" }} className="max-w-3xl">
+          <motion.p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }}>{t('deck.slide7.label')}</motion.p>
+          <motion.h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-10 md:mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>{t('deck.slide7.headline')}</motion.h2>
+          <motion.div className="space-y-4 text-base md:text-lg text-white/50 font-light leading-relaxed mb-10 md:mb-12" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} viewport={{ once: true }}><p>{t('deck.slide7.body')}</p></motion.div>
+          <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12 md:mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
+            <div className={`${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}><p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide7.pillar1.title')}</p><p className="text-sm text-white/70 font-light leading-relaxed">{t('deck.slide7.pillar1.desc')}</p></div>
+            <div className={`${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}><p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide7.pillar2.title')}</p><p className="text-sm text-white/70 font-light leading-relaxed">{t('deck.slide7.pillar2.desc')}</p></div>
+            <div className={`${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}><p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide7.pillar3.title')}</p><p className="text-sm text-white/70 font-light leading-relaxed">{t('deck.slide7.pillar3.desc')}</p></div>
+            <div className={`${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}><p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide7.pillar4.title')}</p><p className="text-sm text-white/70 font-light leading-relaxed">{t('deck.slide7.pillar4.desc')}</p></div>
           </motion.div>
-          
-          {/* Four pillars */}
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12 md:mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <div className="border-l border-white/10 pl-5">
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">Reputation Governance</p>
-              <p className="text-sm text-white/70 font-light leading-relaxed">
-                Computes reputation state and governs permissions across agents
-              </p>
-            </div>
-            
-            <div className="border-l border-white/10 pl-5">
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">Capital Enforcement</p>
-              <p className="text-sm text-white/70 font-light leading-relaxed">
-                Applies collateral constraints and consequence mechanisms
-              </p>
-            </div>
-            
-            <div className="border-l border-white/10 pl-5">
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">Execution Coordination</p>
-              <p className="text-sm text-white/70 font-light leading-relaxed">
-                Controls execution rights, routing, and settlement pathways
-              </p>
-            </div>
-            
-            <div className="border-l border-white/10 pl-5">
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">Shared Trust Layer</p>
-              <p className="text-sm text-white/70 font-light leading-relaxed">
-                Provides a common trust denominator across autonomous agents
-              </p>
-            </div>
-          </motion.div>
-          
-          {/* Secondary paragraph */}
-          <motion.p
-            className="text-base md:text-lg text-white/50 font-light leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            viewport={{ once: true }}
-          >
-            Agents may post collateral in multiple assets, but enforcement, trust scoring, and execution guarantees are governed through AMAI.
-          </motion.p>
+          <motion.p className="text-base md:text-lg text-white/50 font-light leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} viewport={{ once: true }}>{t('deck.slide7.closing')}</motion.p>
         </motion.div>
       </Slide>
 
-
       {/* Slide 8: Strategic Alignment */}
-      <Slide align="left" slideNumber={8}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="max-w-3xl"
-        >
-          {/* Micro-label */}
-          <motion.p
-            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            Strategic Alignment
-          </motion.p>
-          
-          {/* Headline */}
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-10 md:mb-12 leading-[1.15]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            Why Coinbase Ventures.
-          </motion.h2>
-          
-          {/* Body copy */}
-          <motion.p
-            className="text-base md:text-lg text-white/50 font-light leading-relaxed mb-8 md:mb-10"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            viewport={{ once: true }}
-          >
-            Coinbase Ventures has consistently backed the infrastructure layers that enable new classes of onchain activity.
-          </motion.p>
-          
-          {/* Bullets */}
-          <motion.div
-            className="space-y-3 mb-10 md:mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
-          >
-            {[
-              'Direct alignment with the AI × crypto execution thesis',
-              'Complements agent-driven onchain activity without competing at the interface layer',
-              'Extends the Base ecosystem toward autonomous execution and settlement',
-              'Positions infrastructure where durable value accrues as agents scale'
-            ].map((item, i) => (
-              <div key={i} className="flex items-start gap-4">
+      <Slide align="left" slideNumber={8} isRTL={isRTL}>
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true, margin: "-100px" }} className="max-w-3xl">
+          <motion.p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }}>{t('deck.slide8.label')}</motion.p>
+          <motion.h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-10 md:mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>{t('deck.slide8.headline')}</motion.h2>
+          <motion.p className="text-base md:text-lg text-white/50 font-light leading-relaxed mb-8 md:mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} viewport={{ once: true }}>{t('deck.slide8.body')}</motion.p>
+          <motion.div className="space-y-3 mb-10 md:mb-12" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
+            {[t('deck.slide8.point1'), t('deck.slide8.point2'), t('deck.slide8.point3'), t('deck.slide8.point4')].map((item, i) => (
+              <div key={i} className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <span className="text-white/20 text-sm mt-0.5">—</span>
-                <p className="text-sm md:text-base text-white/50 font-light leading-relaxed">
-                  {item}
-                </p>
+                <p className="text-sm md:text-base text-white/50 font-light leading-relaxed">{item}</p>
               </div>
             ))}
           </motion.div>
-          
-          {/* Secondary paragraph */}
-          <motion.p
-            className="text-base md:text-lg text-white/50 font-light leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            viewport={{ once: true }}
-          >
-            AMAI is designed to sit beneath applications, wallets, and agentic UX as a shared execution and trust layer.
-          </motion.p>
-          {/* Closing line */}
-          <motion.p
-            className="mt-12 md:mt-14 text-base md:text-lg text-white/70 font-normal leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            viewport={{ once: true }}
-          >
-            Base Network's cost structure, SDKs, and settlement primitives support billion-agent execution at scale.
-          </motion.p>
+          <motion.p className="text-base md:text-lg text-white/50 font-light leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} viewport={{ once: true }}>{t('deck.slide8.body2')}</motion.p>
+          <motion.p className="mt-12 md:mt-14 text-base md:text-lg text-white/70 font-normal leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }} viewport={{ once: true }}>{t('deck.slide8.closing')}</motion.p>
         </motion.div>
       </Slide>
 
       {/* Slide 9: Closing */}
-      <Slide slideNumber={9}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.2 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="max-w-3xl mx-auto text-center"
-        >
-          {/* Headline */}
-          <motion.h2
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-12 md:mb-16 leading-[1.1]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            Infrastructure Precedes Adoption.
-          </motion.h2>
-          
-          {/* Supporting copy */}
-          <motion.div
-            className="space-y-6 text-base md:text-lg text-white/50 font-light leading-relaxed mb-12 md:mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <p>
-              Autonomous agents are moving from tools to participants.<br />
-              Economic systems must evolve to support identity, accountability, and execution at machine scale.
-            </p>
-            <p className="text-white/60">
-              AMAI is building the infrastructure that makes this transition possible.
-            </p>
+      <Slide slideNumber={9} isRTL={isRTL}>
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1.2 }} viewport={{ once: true, margin: "-100px" }} className="max-w-3xl mx-auto text-center">
+          <motion.h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-12 md:mb-16 leading-[1.1]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }} viewport={{ once: true }}>{t('deck.slide9.headline')}</motion.h2>
+          <motion.div className="space-y-6 text-base md:text-lg text-white/50 font-light leading-relaxed mb-12 md:mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
+            <p>{t('deck.slide9.body1')}<br />{t('deck.slide9.body2')}</p>
+            <p className="text-white/60">{t('deck.slide9.body3')}</p>
           </motion.div>
-          
-          {/* CTA Buttons */}
-          <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <a
-              href="https://demo.amai.net"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 rounded text-xs tracking-[0.15em] uppercase text-white/70 hover:text-white hover:border-white/40 transition-all duration-300"
-            >
-              View System Demo
-              <span>→</span>
+          <motion.div className={`flex flex-col sm:flex-row items-center justify-center gap-4 ${isRTL ? 'sm:flex-row-reverse' : ''}`} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }} viewport={{ once: true }}>
+            <a href="https://demo.amai.net" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 rounded text-xs tracking-[0.15em] uppercase text-white/70 hover:text-white hover:border-white/40 transition-all duration-300">
+              {t('deck.slide9.cta1')}<span>{isRTL ? '←' : '→'}</span>
             </a>
-            <a
-              href="/"
-              className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
-            >
-              Explore the Architecture
-              <span>→</span>
+            <a href="/" className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300">
+              {t('deck.slide9.cta2')}<span>{isRTL ? '←' : '→'}</span>
             </a>
           </motion.div>
         </motion.div>
