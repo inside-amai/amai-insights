@@ -453,7 +453,7 @@ const Deck = () => {
               AMAI enables autonomous swarms of agents to operate as coherent systems rather than isolated actors.
             </p>
             <p>
-              Trust and capital flow dynamically across the swarm based on performance.
+              As a performance oracle, AMAI continuously optimizes trust and capital allocation across the swarm.
             </p>
             <div className="h-6 md:h-8" />
             <p>
