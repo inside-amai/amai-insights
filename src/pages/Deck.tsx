@@ -173,8 +173,8 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.7 }}
             viewport={{ once: true }}
           >
-            The limitation isn't design.<br />
-            It's infrastructure.
+            Design is not the limitation.<br />
+            Infrastructure is.
           </motion.p>
         </motion.div>
       </Slide>
