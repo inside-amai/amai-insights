@@ -39,6 +39,11 @@ const Slide = ({ children, className = "", align = "center", slideNumber, totalS
         {String(slideNumber).padStart(2, '0')} / {String(totalSlides).padStart(2, '0')}
       </div>
     )}
+    
+    {/* Footer branding */}
+    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.2em] uppercase text-white/20 font-medium">
+      Infrastructure & Research · AMAI Labs
+    </div>
   </section>
 );
 
@@ -922,17 +927,6 @@ const Deck = () => {
               AMAI is building the infrastructure that makes this transition possible.
             </p>
           </motion.div>
-          
-          {/* Final line */}
-          <motion.p
-            className="text-[11px] tracking-[0.3em] uppercase text-white/30 font-medium"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
-            viewport={{ once: true }}
-          >
-            Infrastructure & Research · AMAI Labs
-          </motion.p>
         </motion.div>
       </Slide>
     </div>
