@@ -424,7 +424,7 @@ const Deck = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Smart Swarms
+            Agent Swarms
           </motion.p>
           
           {/* Headline */}
@@ -435,7 +435,7 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Autonomous Agent Swarms
+            Autonomous Smart Swarms
           </motion.h2>
           
           
