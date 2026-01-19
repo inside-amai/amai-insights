@@ -252,29 +252,29 @@ const Deck = () => {
             viewport={{ once: true }}
           >
             <div className="border-l border-white/10 pl-5">
-              <p className="text-xs tracking-[0.2em] uppercase text-white/60 font-medium mb-2">Identity</p>
-              <p className="text-sm text-white/40 font-light leading-relaxed">
+              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">Identity</p>
+              <p className="text-sm text-white/70 font-light leading-relaxed">
                 Persistent, non-transferable agent identity anchored on-chain
               </p>
             </div>
             
             <div className="border-l border-white/10 pl-5">
-              <p className="text-xs tracking-[0.2em] uppercase text-white/60 font-medium mb-2">Reputation</p>
-              <p className="text-sm text-white/40 font-light leading-relaxed">
+              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">Reputation</p>
+              <p className="text-sm text-white/70 font-light leading-relaxed">
                 Performance-based trust that accumulates over time, similar to a credit score
               </p>
             </div>
             
             <div className="border-l border-white/10 pl-5">
-              <p className="text-xs tracking-[0.2em] uppercase text-white/60 font-medium mb-2">Capital Accountability</p>
-              <p className="text-sm text-white/40 font-light leading-relaxed">
+              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">Capital Accountability</p>
+              <p className="text-sm text-white/70 font-light leading-relaxed">
                 Collateral-backed commitments with deterministic limits and penalties
               </p>
             </div>
             
             <div className="border-l border-white/10 pl-5">
-              <p className="text-xs tracking-[0.2em] uppercase text-white/60 font-medium mb-2">Execution & Settlement</p>
-              <p className="text-sm text-white/40 font-light leading-relaxed">
+              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">Execution & Settlement</p>
+              <p className="text-sm text-white/70 font-light leading-relaxed">
                 Verifiable actions with atomic settlement and enforced outcomes
               </p>
             </div>
