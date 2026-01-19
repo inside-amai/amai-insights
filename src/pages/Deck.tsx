@@ -192,7 +192,7 @@ const Deck = () => {
             viewport={{ once: true }}
           >
             Design scales attention.
-            <br /><br />
+            <br />
             Infrastructure scales outcomes.
           </motion.p>
         </motion.div>
