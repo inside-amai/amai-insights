@@ -489,7 +489,7 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            Swarms allow agents to scale beyond individual capability without sacrificing accountability.
+            Smart Swarms allow agents to scale beyond individual capability without sacrificing accountability.
           </motion.p>
         </motion.div>
       </Slide>
