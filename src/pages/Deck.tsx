@@ -152,30 +152,30 @@ const Deck = () => {
           >
             {/* Point 1 */}
             <div>
-              <p className="text-sm md:text-base text-white/60 font-medium mb-2">
+              <p className="text-sm md:text-base text-white font-medium mb-2">
                 1. Agents already operate.
               </p>
-              <p className="text-sm md:text-base text-white/40 font-light leading-relaxed">
+              <p className="text-sm md:text-base text-white/70 font-light leading-relaxed">
                 Software agents now make decisions, execute instructions, and interact directly with financial systems at scale.
               </p>
             </div>
             
             {/* Point 2 */}
             <div>
-              <p className="text-sm md:text-base text-white/60 font-medium mb-2">
+              <p className="text-sm md:text-base text-white font-medium mb-2">
                 2. They lack economic standing.
               </p>
-              <p className="text-sm md:text-base text-white/40 font-light leading-relaxed">
+              <p className="text-sm md:text-base text-white/70 font-light leading-relaxed">
                 Today, agents cannot hold persistent identity, accumulate reputation, or be held accountable over time. They function as tools, not participants.
               </p>
             </div>
             
             {/* Point 3 */}
             <div>
-              <p className="text-sm md:text-base text-white/60 font-medium mb-2">
+              <p className="text-sm md:text-base text-white font-medium mb-2">
                 3. This gap is the bottleneck.
               </p>
-              <p className="text-sm md:text-base text-white/40 font-light leading-relaxed">
+              <p className="text-sm md:text-base text-white/70 font-light leading-relaxed">
                 As agents evolve from copilots into autonomous actors, the absence of economic primitives becomes the limiting constraint.
               </p>
             </div>
@@ -183,7 +183,7 @@ const Deck = () => {
           
           {/* Closing line */}
           <motion.p
-            className="mt-12 md:mt-16 text-base md:text-lg text-white/70 font-normal leading-relaxed"
+            className="mt-12 md:mt-16 text-base md:text-lg text-white font-normal leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
