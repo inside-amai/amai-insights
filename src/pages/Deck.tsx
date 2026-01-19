@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import amaiLogo from "@/assets/amai-logo-new.png";
+import amaiLogo from "@/assets/amai-logo-hero-new.png";
 
 interface SlideProps {
   children: React.ReactNode;
@@ -48,10 +48,10 @@ const Deck = () => {
           <motion.img
             src={amaiLogo}
             alt="AMAI Labs"
-            className="h-10 md:h-12 w-auto opacity-90 mb-16 md:mb-24"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.9 }}
-            transition={{ duration: 1, delay: 0.2 }}
+            className="h-12 md:h-16 lg:h-20 xl:h-22 w-auto brightness-110 mb-16 md:mb-24"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           />
           
           {/* Micro-label */}
