@@ -11,7 +11,7 @@ interface SlideProps {
   isRTL?: boolean;
 }
 
-const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 9, isRTL = false }: SlideProps) => {
+const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 9, isRTL = false, hideGrid = false }: SlideProps & { hideGrid?: boolean }) => {
   const { t } = useLanguage();
   
   return (
@@ -22,16 +22,18 @@ const Slide = ({ children, className = "", align = "center", slideNumber, totalS
       dir={isRTL ? "rtl" : "ltr"}
     >
       {/* Grid background */}
-      <div 
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px)
-          `,
-          backgroundSize: '80px 80px'
-        }}
-      />
+      {!hideGrid && (
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px)
+            `,
+            backgroundSize: '80px 80px'
+          }}
+        />
+      )}
       
       <div className={`relative z-10 w-full max-w-6xl mx-auto px-8 md:px-16 lg:px-24 pb-24 md:pb-16 ${
         align === "left" ? "" : ""
@@ -206,7 +208,7 @@ const Deck = () => {
       </Slide>
 
       {/* Slide 3: The Infrastructure Layer */}
-      <Slide align="left" slideNumber={3} isRTL={isRTL}>
+      <Slide align="left" slideNumber={3} isRTL={isRTL} hideGrid>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
