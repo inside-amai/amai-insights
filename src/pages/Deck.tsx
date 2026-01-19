@@ -137,7 +137,7 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            The Next Billion Participants in the Economy Will Not Be Human.
+            The Next Billion Users of the Internet Will Not Be People, But Autonomous Agents.
           </motion.h2>
           
           {/* Body copy */}
