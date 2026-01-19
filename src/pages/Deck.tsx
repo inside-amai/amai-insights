@@ -302,7 +302,7 @@ const Deck = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="w-full max-w-4xl text-center"
+          className="w-full max-w-4xl mx-auto text-center"
         >
           {/* Micro-label */}
           <motion.p
