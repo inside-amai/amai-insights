@@ -663,27 +663,41 @@ const Deck = () => {
             </p>
           </motion.div>
           
-          {/* Bullets */}
+          {/* Four pillars */}
           <motion.div
-            className="space-y-3 mb-10 md:mb-12"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12 md:mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            {[
-              'Governs reputation computation and permissions',
-              'Enforces collateral requirements and slashing',
-              'Coordinates execution rights and routing',
-              'Serves as the shared trust denominator across agents'
-            ].map((item, i) => (
-              <div key={i} className="flex items-start gap-4">
-                <span className="text-white/20 text-sm mt-0.5">—</span>
-                <p className="text-sm md:text-base text-white/50 font-light leading-relaxed">
-                  {item}
-                </p>
-              </div>
-            ))}
+            <div className="border-l border-white/10 pl-5">
+              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">Reputation Governance</p>
+              <p className="text-sm text-white/70 font-light leading-relaxed">
+                Computes reputation state and governs permissions across agents
+              </p>
+            </div>
+            
+            <div className="border-l border-white/10 pl-5">
+              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">Capital Enforcement</p>
+              <p className="text-sm text-white/70 font-light leading-relaxed">
+                Applies collateral constraints and consequence mechanisms
+              </p>
+            </div>
+            
+            <div className="border-l border-white/10 pl-5">
+              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">Execution Coordination</p>
+              <p className="text-sm text-white/70 font-light leading-relaxed">
+                Controls execution rights, routing, and settlement pathways
+              </p>
+            </div>
+            
+            <div className="border-l border-white/10 pl-5">
+              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">Shared Trust Layer</p>
+              <p className="text-sm text-white/70 font-light leading-relaxed">
+                Provides a common trust denominator across autonomous agents
+              </p>
+            </div>
           </motion.div>
           
           {/* Secondary paragraph */}
