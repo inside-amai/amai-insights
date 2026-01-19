@@ -27,7 +27,7 @@ const Slide = ({ children, className = "", align = "center", slideNumber, totalS
       }}
     />
     
-    <div className={`relative z-10 w-full max-w-6xl mx-auto px-8 md:px-16 lg:px-24 ${
+    <div className={`relative z-10 w-full max-w-6xl mx-auto px-8 md:px-16 lg:px-24 pb-24 md:pb-16 ${
       align === "left" ? "" : ""
     }`}>
       {children}
