@@ -920,7 +920,7 @@ const Deck = () => {
           
           {/* Supporting copy */}
           <motion.div
-            className="space-y-6 text-base md:text-lg text-white/50 font-light leading-relaxed mb-16 md:mb-20"
+            className="space-y-6 text-base md:text-lg text-white/50 font-light leading-relaxed mb-12 md:mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -933,6 +933,22 @@ const Deck = () => {
             <p className="text-white/60">
               AMAI is building the infrastructure that makes this transition possible.
             </p>
+          </motion.div>
+          
+          {/* CTA Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <a
+              href="/"
+              className="inline-flex items-center gap-2 px-8 py-3 border border-white/20 text-white/80 text-sm tracking-[0.15em] uppercase font-medium hover:bg-white/5 hover:border-white/30 transition-all duration-300"
+            >
+              Explore the Architecture
+              <span className="text-white/40">→</span>
+            </a>
           </motion.div>
         </motion.div>
       </Slide>
