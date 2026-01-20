@@ -557,7 +557,7 @@ const Deck = () => {
             <p className="text-white/60">{t('deck.slide9.body3')}</p>
           </motion.div>
           <motion.div className={`flex flex-col sm:flex-row items-center justify-center gap-4 ${isRTL ? 'sm:flex-row-reverse' : ''}`} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }} viewport={{ once: true }}>
-            <a href="https://demo.amai.net" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 rounded text-xs tracking-[0.15em] uppercase text-white/70 hover:text-white hover:border-white/40 transition-all duration-300">
+            <a href="https://youtu.be/k43rEn8N7qE" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 rounded text-xs tracking-[0.15em] uppercase text-white/70 hover:text-white hover:border-white/40 transition-all duration-300">
               {t('deck.slide9.cta1')}<span>{isRTL ? '←' : '→'}</span>
             </a>
             <a href="/" className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300">
