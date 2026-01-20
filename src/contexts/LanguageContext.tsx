@@ -790,7 +790,7 @@ const translations: Record<Language, Record<string, string>> = {
     'deck.slide4.explanation1': 'Agents begin with identity.',
     'deck.slide4.explanation2': 'Performance builds reputation.',
     'deck.slide4.explanation3': 'Reputation governs capital access.',
-    'deck.slide4.explanation4': 'Capital enables execution at scale.',
+    'deck.slide4.explanation4': 'Capital enables execution at scale across systems.',
     'deck.slide4.explanation5': 'Execution settles deterministically and feeds back into trust.',
     'deck.slide4.closing': 'Trust is earned. Capital is enforced. Outcomes are final.',
     
@@ -1620,7 +1620,7 @@ const translations: Record<Language, Record<string, string>> = {
     'deck.slide4.explanation1': 'エージェントは身元から始まる。',
     'deck.slide4.explanation2': '実績が信用を構築する。',
     'deck.slide4.explanation3': '信用が資本アクセスを統治する。',
-    'deck.slide4.explanation4': '資本が大規模な実行を可能にする。',
+    'deck.slide4.explanation4': '資本がシステム全体で大規模な実行を可能にする。',
     'deck.slide4.explanation5': '実行は決定論的に決済され、信頼にフィードバックする。',
     'deck.slide4.closing': '信頼は獲得される。資本は強制される。結果は最終である。',
     
@@ -2450,7 +2450,7 @@ const translations: Record<Language, Record<string, string>> = {
     'deck.slide4.explanation1': 'يبدأ الوكلاء بالهوية.',
     'deck.slide4.explanation2': 'الأداء يبني السمعة.',
     'deck.slide4.explanation3': 'السمعة تحكم الوصول لرأس المال.',
-    'deck.slide4.explanation4': 'رأس المال يُمكّن التنفيذ على نطاق واسع.',
+    'deck.slide4.explanation4': 'رأس المال يُمكّن التنفيذ على نطاق واسع عبر الأنظمة.',
     'deck.slide4.explanation5': 'التنفيذ يُسوّى حتمياً ويُغذي الثقة.',
     'deck.slide4.closing': 'الثقة تُكتسب. رأس المال يُنفذ. النتائج نهائية.',
     
