@@ -208,7 +208,7 @@ const Deck = () => {
       </Slide>
 
       {/* Slide 3: The Infrastructure Layer */}
-      <Slide align="left" slideNumber={3} isRTL={isRTL} hideGrid>
+      <Slide align="left" slideNumber={3} isRTL={isRTL}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -258,28 +258,28 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className={`${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}>
+            <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}>
               <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide3.pillar1.title')}</p>
               <p className="text-sm text-white/70 font-light leading-relaxed">
                 {t('deck.slide3.pillar1.desc')}
               </p>
             </div>
             
-            <div className={`${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}>
+            <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}>
               <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide3.pillar2.title')}</p>
               <p className="text-sm text-white/70 font-light leading-relaxed">
                 {t('deck.slide3.pillar2.desc')}
               </p>
             </div>
             
-            <div className={`${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}>
+            <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}>
               <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide3.pillar3.title')}</p>
               <p className="text-sm text-white/70 font-light leading-relaxed">
                 {t('deck.slide3.pillar3.desc')}
               </p>
             </div>
             
-            <div className={`${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}>
+            <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}>
               <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide3.pillar4.title')}</p>
               <p className="text-sm text-white/70 font-light leading-relaxed">
                 {t('deck.slide3.pillar4.desc')}
