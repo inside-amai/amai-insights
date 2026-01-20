@@ -349,7 +349,7 @@ const Deck = () => {
                 t('deck.slide4.step.settlement')
               ].map((step, i, arr) => (
                 <div key={i} className={`flex items-center gap-2 md:gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                  <span className="px-3 md:px-4 py-2 md:py-2.5 border border-white/20 rounded bg-white/[0.03] whitespace-nowrap tracking-wide">
+                  <span className="px-3 md:px-4 py-2 md:py-2.5 border border-white/20 rounded bg-black whitespace-nowrap tracking-wide">
                     {step}
                   </span>
                   {i < arr.length - 1 && (
