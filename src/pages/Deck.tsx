@@ -514,16 +514,16 @@ const Deck = () => {
       </Slide>
 
       {/* Slide 7: Token Model */}
-      <Slide align="left" slideNumber={7} isRTL={isRTL} hideGrid>
+      <Slide align="left" slideNumber={7} isRTL={isRTL}>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true, margin: "-100px" }} className="max-w-3xl">
           <motion.p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }}>{t('deck.slide7.label')}</motion.p>
           <motion.h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-10 md:mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>{t('deck.slide7.headline')}</motion.h2>
           <motion.div className="space-y-4 text-base md:text-lg text-white/50 font-light leading-relaxed mb-10 md:mb-12" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} viewport={{ once: true }}><p>{t('deck.slide7.body')}</p></motion.div>
           <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12 md:mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
-            <div className={`${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}><p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide7.pillar1.title')}</p><p className="text-sm text-white/70 font-light leading-relaxed">{t('deck.slide7.pillar1.desc')}</p></div>
-            <div className={`${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}><p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide7.pillar2.title')}</p><p className="text-sm text-white/70 font-light leading-relaxed">{t('deck.slide7.pillar2.desc')}</p></div>
-            <div className={`${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}><p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide7.pillar3.title')}</p><p className="text-sm text-white/70 font-light leading-relaxed">{t('deck.slide7.pillar3.desc')}</p></div>
-            <div className={`${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}><p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide7.pillar4.title')}</p><p className="text-sm text-white/70 font-light leading-relaxed">{t('deck.slide7.pillar4.desc')}</p></div>
+            <div className={`bg-black p-5 ${isRTL ? 'text-right' : 'text-left'}`}><p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide7.pillar1.title')}</p><p className="text-sm text-white/70 font-light leading-relaxed">{t('deck.slide7.pillar1.desc')}</p></div>
+            <div className={`bg-black p-5 ${isRTL ? 'text-right' : 'text-left'}`}><p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide7.pillar2.title')}</p><p className="text-sm text-white/70 font-light leading-relaxed">{t('deck.slide7.pillar2.desc')}</p></div>
+            <div className={`bg-black p-5 ${isRTL ? 'text-right' : 'text-left'}`}><p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide7.pillar3.title')}</p><p className="text-sm text-white/70 font-light leading-relaxed">{t('deck.slide7.pillar3.desc')}</p></div>
+            <div className={`bg-black p-5 ${isRTL ? 'text-right' : 'text-left'}`}><p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide7.pillar4.title')}</p><p className="text-sm text-white/70 font-light leading-relaxed">{t('deck.slide7.pillar4.desc')}</p></div>
           </motion.div>
           <motion.p className="text-base md:text-lg text-white/50 font-light leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} viewport={{ once: true }}>{t('deck.slide7.closing')}</motion.p>
         </motion.div>
