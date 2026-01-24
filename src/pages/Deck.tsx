@@ -80,7 +80,7 @@ const Deck = () => {
           <motion.img
             src={amaiLogo}
             alt="AMAI Labs"
-            className="h-20 w-auto brightness-110 mb-24"
+            className="h-10 md:h-20 w-auto brightness-110 mb-12 md:mb-24"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
