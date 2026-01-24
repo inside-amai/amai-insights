@@ -861,7 +861,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide2.closing': 'Infrastructure determines what lasts.',
     
     'tether.slide3.label': 'The Infrastructure Layer',
-    'tether.slide3.headline': 'AMAI Is Economic Infrastructure for Autonomous Systems.',
+    'tether.slide3.headline': 'AMAI Provides Economic Infrastructure for Autonomous Systems.',
     'tether.slide3.body1': 'AMAI provides the missing economic primitives that allow autonomous agents to participate in real-world systems.',
     'tether.slide3.body2': 'It is an execution and enforcement layer that sits below interfaces, applications, and marketplaces.',
     'tether.slide3.pillar1.title': 'Identity',
@@ -1786,7 +1786,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide2.closing': '基盤が持続性を決定する。',
     
     'tether.slide3.label': '基盤層',
-    'tether.slide3.headline': 'AMAIは自律型システムの経済基盤である。',
+    'tether.slide3.headline': 'AMAIは自律型システムに経済基盤を提供する。',
     'tether.slide3.body1': 'AMAIは、自律型エージェントが実世界システムに参加するために欠けていた経済基本単位を提供する。',
     'tether.slide3.body2': 'インターフェース、アプリケーション、市場の下位に位置する実行・履行層である。',
     'tether.slide3.pillar1.title': '身元',
@@ -2711,7 +2711,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide2.closing': 'البنية التحتية تحدد ما يدوم.',
     
     'tether.slide3.label': 'طبقة البنية التحتية',
-    'tether.slide3.headline': 'AMAI هي البنية التحتية الاقتصادية للأنظمة المستقلة.',
+    'tether.slide3.headline': 'AMAI توفر البنية التحتية الاقتصادية للأنظمة المستقلة.',
     'tether.slide3.body1': 'توفر AMAI الأساسيات الاقتصادية المفقودة التي تسمح للوكلاء المستقلين بالمشاركة في الأنظمة الحقيقية.',
     'tether.slide3.body2': 'إنها طبقة تنفيذ وإنفاذ تقع تحت الواجهات والتطبيقات والأسواق.',
     'tether.slide3.pillar1.title': 'الهوية',
