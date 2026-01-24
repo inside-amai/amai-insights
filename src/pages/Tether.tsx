@@ -10,17 +10,22 @@ interface SlideProps {
   slideNumber?: number;
   totalSlides?: number;
   isRTL?: boolean;
+  isFirst?: boolean;
 }
 
-const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 9, isRTL = false, hideGrid = false }: SlideProps & { hideGrid?: boolean }) => {
+const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 9, isRTL = false, hideGrid = false, isFirst = false }: SlideProps & { hideGrid?: boolean }) => {
   const { t } = useLanguage();
   
   return (
     <section 
       className={`relative min-h-screen w-[1280px] max-w-[1280px] flex items-center overflow-hidden ${
         align === "left" ? "justify-start" : "justify-center"
-      } ${className}`}
+      } ${isFirst ? "pt-32" : ""} ${className}`}
       dir={isRTL ? "rtl" : "ltr"}
+      style={{
+        // Add margin between slides on mobile (when scaled)
+        marginBottom: slideNumber && slideNumber < totalSlides ? 'min(80px, 8vw)' : '0'
+      }}
     >
       {/* Grid background */}
       {!hideGrid && (
@@ -86,7 +91,7 @@ const Tether = () => {
           style={{ scaleX: scrollYProgress, width: '100%' }}
         />
       {/* Slide 1: Title */}
-      <Slide align="left" slideNumber={1} isRTL={isRTL}>
+      <Slide align="left" slideNumber={1} isRTL={isRTL} isFirst>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
