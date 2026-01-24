@@ -1,80 +1,64 @@
 
-# Fix Mobile Scroll Jumping on /deck and /tether Pages
+Goal: Fix “jumpy” mobile scrolling on **/deck** and **/tether** only, using an industry-standard approach that avoids mobile viewport reflow + reduces scroll-thread work.
 
-## Problem Analysis
+## What’s most likely causing the jumpiness (based on code + known mobile behavior)
+1) **`min-h-[100dvh]` on every slide**  
+   `dvh` is “dynamic viewport height” and **changes while you scroll** as the mobile browser address bar collapses/expands. Because each slide is sized with `100dvh`, the browser recalculates layout mid-scroll and can “correct” scroll position → perceived jump.
 
-The scrolling feels "jumpy" on mobile due to three main issues:
+2) **`overflow-hidden` on each slide section**  
+   On iOS especially, `overflow: hidden` on large sections can interact poorly with momentum scrolling and compositing. Industry standard is to only hide the axis you need (usually `overflow-x-hidden`) and avoid blocking vertical overflow unless required.
 
-1. **`100vh` (min-h-screen) + Mobile Browser Chrome**: When the mobile browser's address bar appears/disappears during scrolling, `100vh` recalculates, causing layout shifts. This is a notorious mobile issue.
+3) **Progress bar driven by `useScroll()` on every frame**  
+   A fixed element whose transform updates continuously during scroll can add extra main-thread work on lower-end devices. It’s not always the root cause, but it commonly amplifies “jank.”
 
-2. **Framer Motion Viewport Margins**: The `whileInView` animations use `margin: "-100px"` which triggers animations late. As the mobile viewport height changes (browser UI), elements can jump in/out of the trigger zone.
+## Implementation plan (mobile-only; /deck and /tether only)
+### Step 1 — Replace `dvh` with a stable viewport unit on mobile
+- In **both** `src/pages/Deck.tsx` and `src/pages/Tether.tsx`, update the `Slide` wrapper:
+  - Change from: `min-h-[100dvh] md:min-h-screen`
+  - To: `min-h-svh md:min-h-screen` (or `min-h-[100svh] md:min-h-screen`)
+Why this is “industry standard”: `svh` = *small viewport height* (stable) and does **not** resize during address-bar collapse/expand, preventing layout shifts while scrolling.
 
-3. **Horizontal Overflow Interference**: The diagram sections use `overflow-x-auto` which can interfere with vertical scroll momentum on touch devices.
+### Step 2 — Stop using `overflow-hidden` for the whole slide
+- In the same `Slide` wrapper `<section>` className:
+  - Change `overflow-hidden` → `overflow-x-hidden`
+This keeps horizontal spill contained (what you likely wanted), but avoids interfering with vertical scroll compositing.
 
----
+### Step 3 — Make the page container stable for mobile scrolling
+- On the root wrapper `<div className="bg-black ...">` in both pages:
+  - Change `min-h-screen` → `min-h-svh md:min-h-screen` (mobile stable, desktop unchanged)
+  - Add `overflow-x-hidden` (prevents any accidental horizontal scroll from creating touch/scroll weirdness)
+  - Optional (if still bouncy/jumpy on iOS): add `overscroll-y-contain` to reduce rubber-band chaining effects.
 
-## Solution (Mobile Only - No Desktop Changes)
+### Step 4 — Reduce scroll work on mobile (progress bar)
+Two safe “mobile only” options; I’ll implement the least intrusive one unless you prefer otherwise:
+- Option A (recommended): **Disable the progress bar on mobile only**
+  - Use existing `useIsMobile()` (`src/hooks/use-mobile.tsx`) in both pages
+  - Render the progress bar only when `!isMobile`
+- Option B: Keep it, but add performance hints
+  - Add `will-change-transform` (Tailwind: `will-change-transform`) to the progress bar
+  - (Still not as effective as disabling on mobile if the device is struggling)
 
-### 1. Replace `min-h-screen` with Dynamic Viewport Height on Mobile
+### Step 5 — Verify in preview (repeatable test)
+- In Lovable preview, switch to mobile viewport (phone icon).
+- Test slow scroll + fast flick scroll:
+  - Does the content still “snap” when the address bar collapses/expands?
+  - Do you see fewer micro-stutters during continuous scroll?
+- If needed, we can A/B test:
+  - `svh` vs `dvh`
+  - Progress bar enabled vs disabled on mobile
 
-Change the Slide component's section from:
-```jsx
-className={`relative min-h-screen w-full ...`}
-```
-to:
-```jsx
-className={`relative min-h-[100dvh] md:min-h-screen w-full ...`}
-```
+## Exact files to change
+- `src/pages/Deck.tsx`
+  - `Slide` wrapper: `min-h-[100dvh]` → `min-h-svh`, `overflow-hidden` → `overflow-x-hidden`
+  - Root container: `min-h-screen` → `min-h-svh md:min-h-screen` + `overflow-x-hidden` (+ optional overscroll)
+  - Progress bar: conditionally render only on non-mobile (using `useIsMobile`)
+- `src/pages/Tether.tsx`
+  - Same set of changes as `/deck`
 
-`100dvh` (Dynamic Viewport Height) accounts for mobile browser UI changes and is the industry standard solution. On desktop (`md:` breakpoint and up), we keep `min-h-screen` as requested.
+## Why this should work
+- The biggest scroll “jump” culprit is the **viewport height changing mid-scroll**. Moving from `dvh` to `svh` is the standard, low-risk way to prevent that.
+- Reducing `overflow-hidden` usage prevents iOS compositing quirks.
+- Removing constant scroll-driven updates (progress bar) on mobile reduces jank on the scroll thread.
 
-### 2. Remove Negative Viewport Margins on Mobile
-
-The current viewport config causes late-triggering animations that "snap" when they finally enter view. Update the motion.div viewport settings from:
-```jsx
-viewport={{ once: true, margin: "-100px" }}
-```
-to:
-```jsx
-viewport={{ once: true, margin: "0px" }}
-```
-
-This ensures animations trigger exactly when elements enter the viewport, eliminating the "jump" effect.
-
-### 3. Add Touch-Action for Stable Vertical Scrolling
-
-Add `touch-action: pan-y` to the main container to prioritize vertical scrolling and prevent accidental horizontal scroll interference:
-```jsx
-<div className="bg-black min-h-screen touch-pan-y" ...>
-```
-
-### 4. Add Webkit Scroll Optimization
-
-Add CSS for smooth momentum scrolling on iOS:
-```css
--webkit-overflow-scrolling: touch;
-```
-
-This will be applied via the `scroll-smooth` utility or inline style on the container.
-
----
-
-## Files to Modify
-
-### src/pages/Deck.tsx
-1. Line 19: Change `min-h-screen` to `min-h-[100dvh] md:min-h-screen` in the Slide component
-2. Line 65: Add `touch-pan-y` class to the root container
-3. Lines 131, 216, 309, 424 (and similar): Change viewport margins from `-100px` to `0px`
-
-### src/pages/Tether.tsx  
-1. Line 19: Change `min-h-screen` to `min-h-[100dvh] md:min-h-screen` in the Slide component
-2. Line 65: Add `touch-pan-y` class to the root container
-3. Lines 131, 216, 309, 424 (and similar): Change viewport margins from `-100px` to `0px`
-
----
-
-## Technical Notes
-
-- **`100dvh`** is a modern CSS unit (Dynamic Viewport Height) that automatically adjusts for mobile browser UI. It has excellent browser support (96%+ globally).
-- **`touch-pan-y`** is a Tailwind utility that sets `touch-action: pan-y`, telling the browser to only allow vertical panning/scrolling.
-- These changes only affect mobile behavior - desktop remains completely unchanged due to the `md:` breakpoint prefix.
+## One quick clarification (optional but helpful)
+If you tell me which device/browser you’re seeing it on (iPhone Safari vs Chrome Android), I can fine-tune whether we also add an iOS-specific overscroll tweak. Not required to proceed, though.
