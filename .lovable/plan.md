@@ -1,64 +1,113 @@
 
-Goal: Fix “jumpy” mobile scrolling on **/deck** and **/tether** only, using an industry-standard approach that avoids mobile viewport reflow + reduces scroll-thread work.
+## Goal
+Eliminate the remaining small scroll jump when reversing direction on mobile for `/deck` and `/tether` pages, using industry-standard CSS scoping instead of inline overrides.
 
-## What’s most likely causing the jumpiness (based on code + known mobile behavior)
-1) **`min-h-[100dvh]` on every slide**  
-   `dvh` is “dynamic viewport height” and **changes while you scroll** as the mobile browser address bar collapses/expands. Because each slide is sized with `100dvh`, the browser recalculates layout mid-scroll and can “correct” scroll position → perceived jump.
+## Root Cause (Confirmed)
+The global `#root` styles in `src/App.css` apply `max-width: 1280px`, `margin: 0 auto`, and `padding: 2rem` to every page. When you scroll and reverse direction, the browser detects a mismatch between the slide's full-bleed layout and this constrained container, triggering a micro-recalculation of layout bounds. This is the "couple lines" jump you're seeing.
 
-2) **`overflow-hidden` on each slide section**  
-   On iOS especially, `overflow: hidden` on large sections can interact poorly with momentum scrolling and compositing. Industry standard is to only hide the axis you need (usually `overflow-x-hidden`) and avoid blocking vertical overflow unless required.
+## Industry-Standard Solution: CSS Scoping
 
-3) **Progress bar driven by `useScroll()` on every frame**  
-   A fixed element whose transform updates continuously during scroll can add extra main-thread work on lower-end devices. It’s not always the root cause, but it commonly amplifies “jank.”
+Instead of using `!important` overrides inside the component, the proper approach is to:
 
-## Implementation plan (mobile-only; /deck and /tether only)
-### Step 1 — Replace `dvh` with a stable viewport unit on mobile
-- In **both** `src/pages/Deck.tsx` and `src/pages/Tether.tsx`, update the `Slide` wrapper:
-  - Change from: `min-h-[100dvh] md:min-h-screen`
-  - To: `min-h-svh md:min-h-screen` (or `min-h-[100svh] md:min-h-screen`)
-Why this is “industry standard”: `svh` = *small viewport height* (stable) and does **not** resize during address-bar collapse/expand, preventing layout shifts while scrolling.
+1. **Remove the global constraint from `#root`** for full-bleed pages by scoping it properly
+2. **Use a CSS class on the `body` or a wrapper** that signals "this is a full-bleed page"
+3. **Let CSS specificity handle it naturally** without inline styles or `!important`
 
-### Step 2 — Stop using `overflow-hidden` for the whole slide
-- In the same `Slide` wrapper `<section>` className:
-  - Change `overflow-hidden` → `overflow-x-hidden`
-This keeps horizontal spill contained (what you likely wanted), but avoids interfering with vertical scroll compositing.
+This is how major frameworks (Next.js, Gatsby, etc.) handle route-specific layouts.
 
-### Step 3 — Make the page container stable for mobile scrolling
-- On the root wrapper `<div className="bg-black ...">` in both pages:
-  - Change `min-h-screen` → `min-h-svh md:min-h-screen` (mobile stable, desktop unchanged)
-  - Add `overflow-x-hidden` (prevents any accidental horizontal scroll from creating touch/scroll weirdness)
-  - Optional (if still bouncy/jumpy on iOS): add `overscroll-y-contain` to reduce rubber-band chaining effects.
+---
 
-### Step 4 — Reduce scroll work on mobile (progress bar)
-Two safe “mobile only” options; I’ll implement the least intrusive one unless you prefer otherwise:
-- Option A (recommended): **Disable the progress bar on mobile only**
-  - Use existing `useIsMobile()` (`src/hooks/use-mobile.tsx`) in both pages
-  - Render the progress bar only when `!isMobile`
-- Option B: Keep it, but add performance hints
-  - Add `will-change-transform` (Tailwind: `will-change-transform`) to the progress bar
-  - (Still not as effective as disabling on mobile if the device is struggling)
+## Implementation
 
-### Step 5 — Verify in preview (repeatable test)
-- In Lovable preview, switch to mobile viewport (phone icon).
-- Test slow scroll + fast flick scroll:
-  - Does the content still “snap” when the address bar collapses/expands?
-  - Do you see fewer micro-stutters during continuous scroll?
-- If needed, we can A/B test:
-  - `svh` vs `dvh`
-  - Progress bar enabled vs disabled on mobile
+### Step 1: Modify `App.css` to scope `#root` styles
 
-## Exact files to change
-- `src/pages/Deck.tsx`
-  - `Slide` wrapper: `min-h-[100dvh]` → `min-h-svh`, `overflow-hidden` → `overflow-x-hidden`
-  - Root container: `min-h-screen` → `min-h-svh md:min-h-screen` + `overflow-x-hidden` (+ optional overscroll)
-  - Progress bar: conditionally render only on non-mobile (using `useIsMobile`)
-- `src/pages/Tether.tsx`
-  - Same set of changes as `/deck`
+Change the global `#root` selector to only apply when a specific class is NOT present:
 
-## Why this should work
-- The biggest scroll “jump” culprit is the **viewport height changing mid-scroll**. Moving from `dvh` to `svh` is the standard, low-risk way to prevent that.
-- Reducing `overflow-hidden` usage prevents iOS compositing quirks.
-- Removing constant scroll-driven updates (progress bar) on mobile reduces jank on the scroll thread.
+```css
+/* Only apply constraints when NOT in full-bleed mode */
+#root:not(.full-bleed) {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+```
 
-## One quick clarification (optional but helpful)
-If you tell me which device/browser you’re seeing it on (iPhone Safari vs Chrome Android), I can fine-tune whether we also add an iOS-specific overscroll tweak. Not required to proceed, though.
+This uses the standard CSS `:not()` pseudo-class — no hacks, no `!important`.
+
+### Step 2: Add `.full-bleed` class to `#root` for `/deck` and `/tether`
+
+In `App.tsx`, create a small component that adds/removes the `full-bleed` class on `#root` based on the current route:
+
+```tsx
+const FullBleedRouteHandler = () => {
+  const location = useLocation();
+  
+  useEffect(() => {
+    const root = document.getElementById('root');
+    if (!root) return;
+    
+    const isFullBleed = location.pathname === '/deck' || location.pathname === '/tether';
+    
+    if (isFullBleed) {
+      root.classList.add('full-bleed');
+    } else {
+      root.classList.remove('full-bleed');
+    }
+    
+    return () => {
+      root.classList.remove('full-bleed');
+    };
+  }, [location.pathname]);
+  
+  return null;
+};
+```
+
+Then render it inside `<BrowserRouter>`:
+
+```tsx
+<BrowserRouter>
+  <FullBleedRouteHandler />
+  {/* ... rest of app */}
+</BrowserRouter>
+```
+
+### Step 3: Add `overflow-anchor: none` via CSS (not inline)
+
+Add a CSS rule for full-bleed pages to disable scroll anchoring:
+
+```css
+#root.full-bleed {
+  overflow-anchor: none;
+}
+```
+
+This is a standard CSS property (not a hack) that tells the browser: "Don't try to correct scroll position during layout shifts."
+
+---
+
+## Files to Modify
+
+| File | Change |
+|------|--------|
+| `src/App.css` | Scope `#root` styles with `:not(.full-bleed)`, add `#root.full-bleed` rule with `overflow-anchor: none` |
+| `src/App.tsx` | Add `FullBleedRouteHandler` component that toggles `.full-bleed` class based on route |
+
+---
+
+## Why This Is Industry Standard
+
+1. **CSS Scoping with `:not()`** — Standard CSS3 feature, used by Bootstrap, Tailwind, and every major framework
+2. **Route-aware class toggling** — How Next.js, Gatsby, and SPA frameworks handle layout variants
+3. **`overflow-anchor: none`** — Official CSS property (CSS Scroll Anchoring Module Level 1) designed specifically for this problem
+4. **No `!important`** — Uses natural CSS specificity
+5. **No inline styles** — All styling stays in CSS where it belongs
+
+---
+
+## Expected Outcome
+
+- The `#root` container will no longer apply `max-width`, `margin`, or `padding` on `/deck` and `/tether`
+- Scroll anchoring will be disabled, preventing the browser from "correcting" position on direction change
+- The fix is clean, maintainable, and follows web standards
