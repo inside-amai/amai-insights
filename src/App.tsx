@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -8,7 +9,6 @@ import { AuthGuard } from "@/components/AuthGuard";
 import { TermsModal } from "@/components/TermsModal";
 import { SiteHeader } from "@/components/SiteHeader";
 import { LanguageProvider } from "@/contexts/LanguageContext";
-
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import Explainer from "./pages/Explainer";
@@ -50,6 +50,30 @@ const ConditionalTermsModal = () => {
   return <TermsModal />;
 };
 
+// Route-aware handler for full-bleed pages (industry-standard layout variant pattern)
+const FullBleedRouteHandler = () => {
+  const location = useLocation();
+  
+  useEffect(() => {
+    const root = document.getElementById('root');
+    if (!root) return;
+    
+    const isFullBleed = location.pathname === '/deck' || location.pathname === '/tether';
+    
+    if (isFullBleed) {
+      root.classList.add('full-bleed');
+    } else {
+      root.classList.remove('full-bleed');
+    }
+    
+    return () => {
+      root.classList.remove('full-bleed');
+    };
+  }, [location.pathname]);
+  
+  return null;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <AuthProvider>
@@ -57,7 +81,8 @@ const App = () => (
         <TooltipProvider>
           <Toaster />
           <Sonner />
-          <BrowserRouter>
+        <BrowserRouter>
+            <FullBleedRouteHandler />
             <ConditionalTermsModal />
             <SiteHeader />
             <Routes>
