@@ -68,7 +68,7 @@ const Tether = () => {
     const originalContent = viewport?.getAttribute('content');
     
     // Set fixed width viewport for deck pages
-    viewport?.setAttribute('content', 'width=1280, initial-scale=0.5, user-scalable=yes');
+    viewport?.setAttribute('content', 'width=1280, initial-scale=0.25, minimum-scale=0.25, maximum-scale=1, user-scalable=yes');
     
     return () => {
       // Restore original viewport on unmount
