@@ -1,8 +1,14 @@
-#root {
+/* Only apply constraints when NOT in full-bleed mode */
+#root:not(.full-bleed) {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+/* Full-bleed pages: disable scroll anchoring to prevent jump on direction change */
+#root.full-bleed {
+  overflow-anchor: none;
 }
 
 .logo {
