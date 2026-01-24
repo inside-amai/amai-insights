@@ -3,6 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        if (path === '/deck' || path === '/tether') {
+          var scale = Math.min(window.innerWidth / 1280, 1);
+          var viewport = document.querySelector('meta[name="viewport"]');
+          if (viewport) {
+            viewport.setAttribute('content', 'width=1280, initial-scale=' + scale + ', minimum-scale=' + scale + ', maximum-scale=5, user-scalable=yes, viewport-fit=cover');
+          }
+        }
+      })();
+    </script>
     <link rel="icon" href="/lovable-uploads/47b52432-21b2-469b-905d-210e82c63cca.png" type="image/png">
     <title>AMAI Labs</title>
     <meta name="description" content="AMAI is an infrastructure layer that lets autonomous agents hold identity, build trust, deploy capital, and execute transactions without human intervention." />
