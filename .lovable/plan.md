@@ -1,81 +1,80 @@
 
-# Fixed Desktop Layout for /deck and /tether Pages
+# Fix Mobile Scroll Jumping on /deck and /tether Pages
 
-## Goal
-Make both `/deck` and `/tether` pages display at a fixed desktop width that doesn't adapt to mobile screens - like a PDF would behave when opened on a phone (requiring zoom/horizontal scroll).
+## Problem Analysis
 
-## Implementation Approach
+The scrolling feels "jumpy" on mobile due to three main issues:
 
-### 1. Add Fixed-Width Wrapper Component
-Create a wrapper that enforces a minimum desktop width and disables mobile scaling for these specific pages.
+1. **`100vh` (min-h-screen) + Mobile Browser Chrome**: When the mobile browser's address bar appears/disappears during scrolling, `100vh` recalculates, causing layout shifts. This is a notorious mobile issue.
 
-**Changes to both `src/pages/Deck.tsx` and `src/pages/Tether.tsx`:**
+2. **Framer Motion Viewport Margins**: The `whileInView` animations use `margin: "-100px"` which triggers animations late. As the mobile viewport height changes (browser UI), elements can jump in/out of the trigger zone.
 
-Wrap the entire page content in a container with:
-- `min-w-[1280px]` - Forces minimum desktop width
-- `overflow-x-auto` - Allows horizontal scrolling on mobile
-- Remove responsive breakpoints (`md:`, `sm:`, `lg:`) from critical layout elements OR use fixed desktop values
-
-### 2. Override Viewport for Deck Pages
-Add a `useEffect` hook in both pages that dynamically modifies the viewport meta tag when these pages mount, and restores it on unmount.
-
-```typescript
-useEffect(() => {
-  const viewport = document.querySelector('meta[name="viewport"]');
-  const originalContent = viewport?.getAttribute('content');
-  
-  // Set fixed width viewport for deck pages
-  viewport?.setAttribute('content', 'width=1280, initial-scale=0.5, user-scalable=yes');
-  
-  return () => {
-    // Restore original viewport on unmount
-    if (originalContent) {
-      viewport?.setAttribute('content', originalContent);
-    }
-  };
-}, []);
-```
-
-### 3. Update Container Classes
-Change the root container in both pages from:
-```jsx
-<div className="bg-black min-h-screen">
-```
-to:
-```jsx
-<div className="bg-black min-h-screen min-w-[1280px]">
-```
-
-This ensures content never shrinks below 1280px width.
-
-### 4. Convert Responsive Text Sizes to Fixed Desktop Values
-Update key typography classes throughout both files:
-- `text-4xl sm:text-5xl md:text-6xl lg:text-7xl` → `text-7xl` (use largest size)
-- `text-base md:text-lg` → `text-lg`
-- `px-8 md:px-16 lg:px-24` → `px-24`
-- `mb-16 md:mb-24` → `mb-24`
-
-This ensures the slides always render at their "desktop" appearance.
+3. **Horizontal Overflow Interference**: The diagram sections use `overflow-x-auto` which can interfere with vertical scroll momentum on touch devices.
 
 ---
 
-## Technical Details
+## Solution (Mobile Only - No Desktop Changes)
 
-### Files to Modify
-1. **src/pages/Deck.tsx** - Add viewport override, min-width container, convert responsive classes
-2. **src/pages/Tether.tsx** - Same changes as Deck.tsx
+### 1. Replace `min-h-screen` with Dynamic Viewport Height on Mobile
 
-### Viewport Strategy
-The viewport modification approach:
-- Width set to 1280px (common desktop width)
-- Initial scale at 0.5 so the full slide is visible on mobile screens
-- User scalable enabled so they can zoom in to read
+Change the Slide component's section from:
+```jsx
+className={`relative min-h-screen w-full ...`}
+```
+to:
+```jsx
+className={`relative min-h-[100dvh] md:min-h-screen w-full ...`}
+```
 
-### Result
-On mobile devices:
-- The page will display at full 1280px width
-- The browser will zoom out to fit the width, showing the full slide
-- Users can pinch to zoom or scroll horizontally
-- Content layout matches exactly how it appears on desktop
+`100dvh` (Dynamic Viewport Height) accounts for mobile browser UI changes and is the industry standard solution. On desktop (`md:` breakpoint and up), we keep `min-h-screen` as requested.
 
-This mimics PDF behavior where the document maintains its fixed dimensions regardless of screen size.
+### 2. Remove Negative Viewport Margins on Mobile
+
+The current viewport config causes late-triggering animations that "snap" when they finally enter view. Update the motion.div viewport settings from:
+```jsx
+viewport={{ once: true, margin: "-100px" }}
+```
+to:
+```jsx
+viewport={{ once: true, margin: "0px" }}
+```
+
+This ensures animations trigger exactly when elements enter the viewport, eliminating the "jump" effect.
+
+### 3. Add Touch-Action for Stable Vertical Scrolling
+
+Add `touch-action: pan-y` to the main container to prioritize vertical scrolling and prevent accidental horizontal scroll interference:
+```jsx
+<div className="bg-black min-h-screen touch-pan-y" ...>
+```
+
+### 4. Add Webkit Scroll Optimization
+
+Add CSS for smooth momentum scrolling on iOS:
+```css
+-webkit-overflow-scrolling: touch;
+```
+
+This will be applied via the `scroll-smooth` utility or inline style on the container.
+
+---
+
+## Files to Modify
+
+### src/pages/Deck.tsx
+1. Line 19: Change `min-h-screen` to `min-h-[100dvh] md:min-h-screen` in the Slide component
+2. Line 65: Add `touch-pan-y` class to the root container
+3. Lines 131, 216, 309, 424 (and similar): Change viewport margins from `-100px` to `0px`
+
+### src/pages/Tether.tsx  
+1. Line 19: Change `min-h-screen` to `min-h-[100dvh] md:min-h-screen` in the Slide component
+2. Line 65: Add `touch-pan-y` class to the root container
+3. Lines 131, 216, 309, 424 (and similar): Change viewport margins from `-100px` to `0px`
+
+---
+
+## Technical Notes
+
+- **`100dvh`** is a modern CSS unit (Dynamic Viewport Height) that automatically adjusts for mobile browser UI. It has excellent browser support (96%+ globally).
+- **`touch-pan-y`** is a Tailwind utility that sets `touch-action: pan-y`, telling the browser to only allow vertical panning/scrolling.
+- These changes only affect mobile behavior - desktop remains completely unchanged due to the `md:` breakpoint prefix.
