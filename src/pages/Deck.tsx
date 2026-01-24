@@ -2,6 +2,9 @@ import { motion, useScroll } from "framer-motion";
 import amaiLogo from "@/assets/amai-logo-hero-new.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useFitToWidth } from "@/hooks/useFitToWidth";
+import { useRef } from "react";
+import { useMeasuredElementHeight } from "@/hooks/useMeasuredElementHeight";
+import { SiteHeader } from "@/components/SiteHeader";
 
 interface SlideProps {
   children: React.ReactNode;
@@ -71,18 +74,24 @@ const Deck = () => {
   const { t, language } = useLanguage();
   const isRTL = language === 'ar';
   const { scale, containerHeight, isMobile, targetWidth, heroTopPadding, slideGap } = useFitToWidth();
+  const scaledContentRef = useRef<HTMLDivElement | null>(null);
+  const measuredHeight = useMeasuredElementHeight(scaledContentRef, isMobile);
+  const effectiveHeight = measuredHeight > 0 ? `${measuredHeight}px` : containerHeight;
 
   return (
     <div 
       className="bg-black overflow-x-hidden"
       style={{ 
         width: '100vw',
-        height: isMobile ? containerHeight : 'auto',
+        height: isMobile ? effectiveHeight : 'auto',
         position: 'relative'
       }}
       dir={isRTL ? "rtl" : "ltr"}
     >
+      {/* Render header inside the deck so it scrolls away with the scaled content */}
+      <SiteHeader />
       <div 
+        ref={scaledContentRef}
         style={{
           width: `${targetWidth}px`,
           transform: isMobile ? `scale(${scale})` : 'none',

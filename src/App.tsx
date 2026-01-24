@@ -50,6 +50,18 @@ const ConditionalTermsModal = () => {
   return <TermsModal />;
 };
 
+const ConditionalSiteHeader = () => {
+  const location = useLocation();
+
+  // /deck and /tether render their own header inside the page so it scrolls away
+  // with the (scaled) content on mobile.
+  if (location.pathname === "/deck" || location.pathname === "/tether") {
+    return null;
+  }
+
+  return <SiteHeader />;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <AuthProvider>
@@ -65,7 +77,7 @@ const App = () => (
             */}
             <div className="relative">
               <ConditionalTermsModal />
-              <SiteHeader />
+              <ConditionalSiteHeader />
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/auth" element={
