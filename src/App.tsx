@@ -18,6 +18,7 @@ import TechnicalDocs from "./pages/TechnicalDocs";
 import GenesisMint from "./pages/GenesisMint";
 import FoundersMint from "./pages/FoundersMint";
 import Deck from "./pages/Deck";
+import Tether from "./pages/Tether";
 
 import NotFound from "./pages/NotFound";
 
@@ -83,6 +84,7 @@ const App = () => (
             <Route path="/operational-scenarios" element={<OperationalScenarios />} />
             <Route path="/research" element={<Research />} />
             <Route path="/deck" element={<Deck />} />
+            <Route path="/tether" element={<Tether />} />
             
             <Route path="/diagram" element={<Diagram />} />
             <Route path="/ui" element={<UI />} />
