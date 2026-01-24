@@ -11,20 +11,24 @@ interface SlideProps {
   totalSlides?: number;
   isRTL?: boolean;
   isFirst?: boolean;
+  isMobile?: boolean;
+  heroTopPadding?: number;
+  slideGap?: number;
 }
 
-const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 9, isRTL = false, hideGrid = false, isFirst = false }: SlideProps & { hideGrid?: boolean }) => {
+const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 9, isRTL = false, hideGrid = false, isFirst = false, isMobile = false, heroTopPadding = 0, slideGap = 0 }: SlideProps & { hideGrid?: boolean }) => {
   const { t } = useLanguage();
   
   return (
     <section 
       className={`relative min-h-screen w-[1280px] max-w-[1280px] flex items-center overflow-hidden ${
         align === "left" ? "justify-start" : "justify-center"
-      } ${isFirst ? "pt-32" : ""} ${className}`}
+      } ${className}`}
       dir={isRTL ? "rtl" : "ltr"}
       style={{
-        // Add margin between slides on mobile (when scaled)
-        marginBottom: slideNumber && slideNumber < totalSlides ? 'min(80px, 8vw)' : '0'
+        // Add padding above hero and margin between slides on mobile only
+        paddingTop: isFirst && isMobile ? `${heroTopPadding}px` : undefined,
+        marginBottom: slideNumber && slideNumber < totalSlides && isMobile ? `${slideGap}px` : '0'
       }}
     >
       {/* Grid background */}
@@ -66,7 +70,7 @@ const Tether = () => {
   const { scrollYProgress } = useScroll();
   const { t, language } = useLanguage();
   const isRTL = language === 'ar';
-  const { scale, containerHeight, isMobile, targetWidth } = useFitToWidth();
+  const { scale, containerHeight, isMobile, targetWidth, heroTopPadding, slideGap } = useFitToWidth();
 
   return (
     <div 
@@ -91,7 +95,7 @@ const Tether = () => {
           style={{ scaleX: scrollYProgress, width: '100%' }}
         />
       {/* Slide 1: Title */}
-      <Slide align="left" slideNumber={1} isRTL={isRTL} isFirst>
+      <Slide align="left" slideNumber={1} isRTL={isRTL} isFirst isMobile={isMobile} heroTopPadding={heroTopPadding} slideGap={slideGap}>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -145,7 +149,7 @@ const Tether = () => {
       </Slide>
 
       {/* Slide 2: The Shift */}
-      <Slide slideNumber={2} isRTL={isRTL}>
+      <Slide slideNumber={2} isRTL={isRTL} isMobile={isMobile} slideGap={slideGap}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -230,7 +234,7 @@ const Tether = () => {
       </Slide>
 
       {/* Slide 3: The Infrastructure Layer */}
-      <Slide align="left" slideNumber={3} isRTL={isRTL}>
+      <Slide align="left" slideNumber={3} isRTL={isRTL} isMobile={isMobile} slideGap={slideGap}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -323,7 +327,7 @@ const Tether = () => {
       </Slide>
 
       {/* Slide 4: The Economic Loop */}
-      <Slide slideNumber={4} isRTL={isRTL}>
+      <Slide slideNumber={4} isRTL={isRTL} isMobile={isMobile} slideGap={slideGap}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -438,7 +442,7 @@ const Tether = () => {
       </Slide>
 
       {/* Slide 5: Autonomous Agent Swarms */}
-      <Slide align="left" slideNumber={5} isRTL={isRTL}>
+      <Slide align="left" slideNumber={5} isRTL={isRTL} isMobile={isMobile} slideGap={slideGap}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -507,7 +511,7 @@ const Tether = () => {
       </Slide>
 
       {/* Slide 6: Initial Users */}
-      <Slide align="left" slideNumber={6} isRTL={isRTL}>
+      <Slide align="left" slideNumber={6} isRTL={isRTL} isMobile={isMobile} slideGap={slideGap}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -530,7 +534,7 @@ const Tether = () => {
       </Slide>
 
       {/* Slide 7: Token Model */}
-      <Slide align="left" slideNumber={7} isRTL={isRTL}>
+      <Slide align="left" slideNumber={7} isRTL={isRTL} isMobile={isMobile} slideGap={slideGap}>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true, margin: "-100px" }} className="max-w-3xl">
           <motion.p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }}>{t('tether.slide7.label')}</motion.p>
           <motion.h2 className="text-6xl font-light text-white mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>{t('tether.slide7.headline')}</motion.h2>
@@ -546,7 +550,7 @@ const Tether = () => {
       </Slide>
 
       {/* Slide 8: Strategic Alignment */}
-      <Slide align="left" slideNumber={8} isRTL={isRTL}>
+      <Slide align="left" slideNumber={8} isRTL={isRTL} isMobile={isMobile} slideGap={slideGap}>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true, margin: "-100px" }} className="max-w-3xl">
           <motion.p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }}>{t('tether.slide8.label')}</motion.p>
           <motion.h2 className="text-6xl font-light text-white mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>{t('tether.slide8.headline')}</motion.h2>
@@ -565,7 +569,7 @@ const Tether = () => {
       </Slide>
 
       {/* Slide 9: Closing */}
-      <Slide slideNumber={9} isRTL={isRTL}>
+      <Slide slideNumber={9} isRTL={isRTL} isMobile={isMobile} slideGap={slideGap}>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1.2 }} viewport={{ once: true, margin: "-100px" }} className="max-w-3xl mx-auto text-center">
           <motion.h2 className="text-7xl font-light text-white mb-16 leading-[1.1]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }} viewport={{ once: true }}>{t('tether.slide9.headline')}</motion.h2>
           <motion.div className="space-y-6 text-lg text-white/50 font-light leading-relaxed mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>

@@ -2,6 +2,8 @@ import { useState, useLayoutEffect, useCallback } from "react";
 
 const TARGET_WIDTH = 1280;
 const TOTAL_SLIDES = 9;
+const HERO_TOP_PADDING = 200; // Extra space above hero on mobile
+const SLIDE_GAP = 120; // Gap between slides on mobile
 
 export function useFitToWidth() {
   const [scale, setScale] = useState(1);
@@ -13,11 +15,10 @@ export function useFitToWidth() {
       const newScale = screenWidth / TARGET_WIDTH;
       setScale(newScale);
       // Each slide is 100vh. Total content height = 9 * 100vh
-      // When scaled, the visual height = actualHeight * scale
-      // To enable proper scrolling, the container needs height = actualHeight * scale
-      // But since content uses vh units, we calculate based on viewport
+      // Plus hero padding and gaps between slides
       const totalContentHeight = TOTAL_SLIDES * window.innerHeight;
-      const scaledHeight = totalContentHeight * newScale;
+      const extraHeight = HERO_TOP_PADDING + (SLIDE_GAP * (TOTAL_SLIDES - 1));
+      const scaledHeight = (totalContentHeight + extraHeight) * newScale;
       setContainerHeight(`${scaledHeight}px`);
     } else {
       setScale(1);
@@ -31,5 +32,12 @@ export function useFitToWidth() {
     return () => window.removeEventListener("resize", calculateScale);
   }, [calculateScale]);
 
-  return { scale, containerHeight, isMobile: scale < 1, targetWidth: TARGET_WIDTH };
+  return { 
+    scale, 
+    containerHeight, 
+    isMobile: scale < 1, 
+    targetWidth: TARGET_WIDTH,
+    heroTopPadding: HERO_TOP_PADDING,
+    slideGap: SLIDE_GAP
+  };
 }
