@@ -1,159 +1,81 @@
 
-# Complete Rethink: CSS Transform Scaling for PDF-like Mobile Experience
+# Fixed Desktop Layout for /deck and /tether Pages
 
-## Why Previous Attempts Failed
+## Goal
+Make both `/deck` and `/tether` pages display at a fixed desktop width that doesn't adapt to mobile screens - like a PDF would behave when opened on a phone (requiring zoom/horizontal scroll).
 
-The viewport meta approach is fundamentally broken for this use case:
-- iOS Safari often ignores `initial-scale` values set via JavaScript
-- Even early scripts in `<head>` run after the meta tag is parsed
-- Mobile browsers are designed to resist non-standard viewport configurations
-- SPA routing makes viewport changes even less reliable
+## Implementation Approach
 
-## The New Approach: CSS Transform Scaling
+### 1. Add Fixed-Width Wrapper Component
+Create a wrapper that enforces a minimum desktop width and disables mobile scaling for these specific pages.
 
-Instead of manipulating the viewport, we render the 1280px layout normally and use CSS `transform: scale()` to shrink it to fit the screen.
+**Changes to both `src/pages/Deck.tsx` and `src/pages/Tether.tsx`:**
 
-```text
-+--------------------------------------------------+
-|  Mobile Screen (e.g., 390px wide)                |
-|                                                  |
-|  +--------------------------------------------+  |
-|  |  1280px canvas scaled to 390px via         |  |
-|  |  transform: scale(0.305)                   |  |
-|  |  transform-origin: top left                |  |
-|  |                                            |  |
-|  |  Content appears "zoomed out" but is       |  |
-|  |  actually scaled, not viewport-adjusted    |  |
-|  +--------------------------------------------+  |
-|                                                  |
-+--------------------------------------------------+
-```
+Wrap the entire page content in a container with:
+- `min-w-[1280px]` - Forces minimum desktop width
+- `overflow-x-auto` - Allows horizontal scrolling on mobile
+- Remove responsive breakpoints (`md:`, `sm:`, `lg:`) from critical layout elements OR use fixed desktop values
 
-**Why this works**:
-- No viewport manipulation needed
-- Renders correctly on first paint
-- Pinch-zoom works naturally on top of the scaled content
-- Consistent across all mobile browsers
-- No "flash" or misalignment
+### 2. Override Viewport for Deck Pages
+Add a `useEffect` hook in both pages that dynamically modifies the viewport meta tag when these pages mount, and restores it on unmount.
 
-## Implementation Plan
-
-### Step 1: Revert Viewport Changes
-
-**File: `index.html`**
-- Remove the inline script that manipulates viewport for /deck and /tether
-- Keep the standard viewport: `width=device-width, initial-scale=1.0`
-
-### Step 2: Create a Wrapper Component with Transform Scaling
-
-**New approach in `Deck.tsx` and `Tether.tsx`**:
-
-1. Detect if on mobile (screen width less than 1280px)
-2. Calculate scale factor: `window.innerWidth / 1280`
-3. Apply CSS transform to the outer container:
-   - `transform: scale(${scale})`
-   - `transform-origin: top left`
-   - `width: 1280px`
-   - `height: ${actualHeight / scale}px` (to ensure scrolling works)
-
-4. Wrap everything in a container that:
-   - Has the scaled dimensions
-   - Allows vertical scrolling
-   - Prevents horizontal overflow
-
-### Step 3: Handle Scroll Height
-
-When you scale content down, the browser doesn't automatically adjust the scroll area. We need to:
-- Calculate the true content height
-- Set an explicit height on an outer wrapper that accounts for the scale
-- Or use a "spacer" element to make the scroll area correct
-
-### Technical Details
-
-**Container structure**:
-```jsx
-// Outer container - controls the visible area
-<div style={{ 
-  width: '100vw', 
-  overflowX: 'hidden',
-  overflowY: 'auto',
-  minHeight: '100vh',
-  background: 'black'
-}}>
-  {/* Scaled inner container */}
-  <div style={{
-    width: '1280px',
-    transform: `scale(${scale})`,
-    transformOrigin: 'top left',
-    // height will be set to maintain proper scroll
-  }}>
-    {/* All slides */}
-  </div>
-</div>
-```
-
-**Scale calculation**:
-```javascript
-const [scale, setScale] = useState(1);
-
-useLayoutEffect(() => {
-  const calculateScale = () => {
-    const screenWidth = window.innerWidth;
-    if (screenWidth < 1280) {
-      setScale(screenWidth / 1280);
-    } else {
-      setScale(1);
+```typescript
+useEffect(() => {
+  const viewport = document.querySelector('meta[name="viewport"]');
+  const originalContent = viewport?.getAttribute('content');
+  
+  // Set fixed width viewport for deck pages
+  viewport?.setAttribute('content', 'width=1280, initial-scale=0.5, user-scalable=yes');
+  
+  return () => {
+    // Restore original viewport on unmount
+    if (originalContent) {
+      viewport?.setAttribute('content', originalContent);
     }
   };
-  
-  calculateScale();
-  window.addEventListener('resize', calculateScale);
-  return () => window.removeEventListener('resize', calculateScale);
 }, []);
 ```
 
-**Height compensation**:
-The tricky part is that when you scale content to 30% of its size, the scroll area also shrinks. To fix this, we need to set an explicit height on the scaled container that, when multiplied by scale, gives the correct visual height.
+### 3. Update Container Classes
+Change the root container in both pages from:
+```jsx
+<div className="bg-black min-h-screen">
+```
+to:
+```jsx
+<div className="bg-black min-h-screen min-w-[1280px]">
+```
 
-For 9 slides at 100vh each:
-- True height: 9 * 100vh = 900vh
-- Scaled visual height: 900vh * scale
-- But browser sees: 900vh (the actual DOM height)
+This ensures content never shrinks below 1280px width.
 
-Solution: Wrap in a container that has height = `(9 * 100vh) * scale` to create the correct scroll area, and position the scaled content absolutely within it.
+### 4. Convert Responsive Text Sizes to Fixed Desktop Values
+Update key typography classes throughout both files:
+- `text-4xl sm:text-5xl md:text-6xl lg:text-7xl` → `text-7xl` (use largest size)
+- `text-base md:text-lg` → `text-lg`
+- `px-8 md:px-16 lg:px-24` → `px-24`
+- `mb-16 md:mb-24` → `mb-24`
 
-## Files to Change
+This ensures the slides always render at their "desktop" appearance.
 
-### 1. `index.html`
-Remove the viewport manipulation script entirely.
+---
 
-### 2. `src/pages/Deck.tsx`
-- Remove viewport manipulation code (useLayoutEffect)
-- Add scale state and calculation
-- Restructure container hierarchy:
-  - Outer: `div` with `overflowX: hidden`, normal scrolling
-  - Spacer: `div` with calculated height to enable correct scrolling
-  - Scaled content: positioned absolutely with `transform: scale()`
-- Keep all slide content unchanged
+## Technical Details
 
-### 3. `src/pages/Tether.tsx`
-- Same changes as Deck.tsx
+### Files to Modify
+1. **src/pages/Deck.tsx** - Add viewport override, min-width container, convert responsive classes
+2. **src/pages/Tether.tsx** - Same changes as Deck.tsx
 
-## Expected Behavior
+### Viewport Strategy
+The viewport modification approach:
+- Width set to 1280px (common desktop width)
+- Initial scale at 0.5 so the full slide is visible on mobile screens
+- User scalable enabled so they can zoom in to read
 
-1. User opens /deck or /tether on mobile
-2. Page loads immediately with content scaled to fit screen width
-3. No horizontal scroll at any zoom level
-4. Vertical scroll works naturally
-5. Pinch-to-zoom works to zoom in on details
-6. No flash, no misalignment, no weird initial state
+### Result
+On mobile devices:
+- The page will display at full 1280px width
+- The browser will zoom out to fit the width, showing the full slide
+- Users can pinch to zoom or scroll horizontally
+- Content layout matches exactly how it appears on desktop
 
-## Why This Will Work
-
-- **No viewport fighting**: We accept the browser's viewport and work within it
-- **Pure CSS**: Transform scaling is universally supported and predictable
-- **Immediate**: Scale is calculated in useLayoutEffect, applied before paint
-- **Natural zoom**: Pinch zoom operates on top of our scaled content, so it "just works"
-- **Scroll works**: By using a spacer element or explicit height, scrolling behaves correctly
-
-This is the standard approach used by PDF viewers, presentation tools, and "desktop-only" web experiences that need to work on mobile.
+This mimics PDF behavior where the document maintains its fixed dimensions regardless of screen size.

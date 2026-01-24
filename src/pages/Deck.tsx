@@ -1,10 +1,7 @@
 import { motion, useScroll } from "framer-motion";
+import { useEffect } from "react";
 import amaiLogo from "@/assets/amai-logo-hero-new.png";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useFitToWidth } from "@/hooks/useFitToWidth";
-import { useRef } from "react";
-import { useMeasuredElementHeight } from "@/hooks/useMeasuredElementHeight";
-import { SiteHeader } from "@/components/SiteHeader";
 
 interface SlideProps {
   children: React.ReactNode;
@@ -13,26 +10,17 @@ interface SlideProps {
   slideNumber?: number;
   totalSlides?: number;
   isRTL?: boolean;
-  isFirst?: boolean;
-  isMobile?: boolean;
-  heroTopPadding?: number;
-  slideGap?: number;
 }
 
-const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 9, isRTL = false, hideGrid = false, isFirst = false, isMobile = false, heroTopPadding = 0, slideGap = 0 }: SlideProps & { hideGrid?: boolean }) => {
+const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 9, isRTL = false, hideGrid = false }: SlideProps & { hideGrid?: boolean }) => {
   const { t } = useLanguage();
   
   return (
     <section 
-      className={`relative min-h-screen w-[1280px] max-w-[1280px] flex items-center overflow-hidden ${
+      className={`relative min-h-screen w-full flex items-center overflow-hidden ${
         align === "left" ? "justify-start" : "justify-center"
       } ${className}`}
       dir={isRTL ? "rtl" : "ltr"}
-      style={{
-        // Add padding above hero and margin between slides on mobile only
-        paddingTop: isFirst && isMobile ? `${heroTopPadding}px` : undefined,
-        marginBottom: slideNumber && slideNumber < totalSlides && isMobile ? `${slideGap}px` : '0'
-      }}
     >
       {/* Grid background */}
       {!hideGrid && (
@@ -56,7 +44,7 @@ const Slide = ({ children, className = "", align = "center", slideNumber, totalS
       
       {/* Page number */}
       {slideNumber && (
-        <div className={`absolute bottom-10 ${isRTL ? 'left-8' : 'right-8'} text-[10px] tracking-[0.2em] text-white/50 font-medium`}>
+        <div className={`absolute bottom-10 ${isRTL ? 'left-12' : 'right-12'} text-[10px] tracking-[0.2em] text-white/50 font-medium`}>
           {String(slideNumber).padStart(2, '0')} / {String(totalSlides).padStart(2, '0')}
         </div>
       )}
@@ -73,38 +61,32 @@ const Deck = () => {
   const { scrollYProgress } = useScroll();
   const { t, language } = useLanguage();
   const isRTL = language === 'ar';
-  const { scale, containerHeight, isMobile, targetWidth, heroTopPadding, slideGap } = useFitToWidth();
-  const scaledContentRef = useRef<HTMLDivElement | null>(null);
-  const measuredHeight = useMeasuredElementHeight(scaledContentRef, isMobile);
-  const effectiveHeight = measuredHeight > 0 ? `${measuredHeight}px` : containerHeight;
+
+  // Override viewport for fixed desktop layout
+  useEffect(() => {
+    const viewport = document.querySelector('meta[name="viewport"]');
+    const originalContent = viewport?.getAttribute('content');
+    
+    // Set fixed width viewport for deck pages
+    viewport?.setAttribute('content', 'width=1280, initial-scale=0.5, user-scalable=yes');
+    
+    return () => {
+      // Restore original viewport on unmount
+      if (originalContent) {
+        viewport?.setAttribute('content', originalContent);
+      }
+    };
+  }, []);
 
   return (
-    <div 
-      className="bg-black overflow-x-hidden"
-      style={{ 
-        width: '100vw',
-        height: isMobile ? effectiveHeight : 'auto',
-        position: 'relative'
-      }}
-      dir={isRTL ? "rtl" : "ltr"}
-    >
-      {/* Render header inside the deck so it scrolls away with the scaled content */}
-      <SiteHeader />
-      <div 
-        ref={scaledContentRef}
-        style={{
-          width: `${targetWidth}px`,
-          transform: isMobile ? `scale(${scale})` : 'none',
-          transformOrigin: 'top left',
-        }}
-      >
-        {/* Progress bar */}
-        <motion.div
-          className="fixed bottom-0 left-0 h-[3px] bg-white/30 origin-left z-50"
-          style={{ scaleX: scrollYProgress, width: '100%' }}
-        />
+    <div className="bg-black min-h-screen min-w-[1280px]" dir={isRTL ? "rtl" : "ltr"}>
+      {/* Progress bar */}
+      <motion.div
+        className="fixed bottom-0 left-0 h-[3px] bg-white/30 origin-left z-50"
+        style={{ scaleX: scrollYProgress, width: '100%' }}
+      />
       {/* Slide 1: Title */}
-      <Slide align="left" slideNumber={1} isRTL={isRTL} isFirst isMobile={isMobile} heroTopPadding={heroTopPadding} slideGap={slideGap}>
+      <Slide align="left" slideNumber={1} isRTL={isRTL}>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -158,7 +140,7 @@ const Deck = () => {
       </Slide>
 
       {/* Slide 2: The Shift */}
-      <Slide slideNumber={2} isRTL={isRTL} isMobile={isMobile} slideGap={slideGap}>
+      <Slide slideNumber={2} isRTL={isRTL}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -243,7 +225,7 @@ const Deck = () => {
       </Slide>
 
       {/* Slide 3: The Infrastructure Layer */}
-      <Slide align="left" slideNumber={3} isRTL={isRTL} isMobile={isMobile} slideGap={slideGap}>
+      <Slide align="left" slideNumber={3} isRTL={isRTL}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -336,7 +318,7 @@ const Deck = () => {
       </Slide>
 
       {/* Slide 4: The Economic Loop */}
-      <Slide slideNumber={4} isRTL={isRTL} isMobile={isMobile} slideGap={slideGap}>
+      <Slide slideNumber={4} isRTL={isRTL}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -451,7 +433,7 @@ const Deck = () => {
       </Slide>
 
       {/* Slide 5: Autonomous Agent Swarms */}
-      <Slide align="left" slideNumber={5} isRTL={isRTL} isMobile={isMobile} slideGap={slideGap}>
+      <Slide align="left" slideNumber={5} isRTL={isRTL}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -520,7 +502,7 @@ const Deck = () => {
       </Slide>
 
       {/* Slide 6: Initial Users */}
-      <Slide align="left" slideNumber={6} isRTL={isRTL} isMobile={isMobile} slideGap={slideGap}>
+      <Slide align="left" slideNumber={6} isRTL={isRTL}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -543,7 +525,7 @@ const Deck = () => {
       </Slide>
 
       {/* Slide 7: Token Model */}
-      <Slide align="left" slideNumber={7} isRTL={isRTL} isMobile={isMobile} slideGap={slideGap}>
+      <Slide align="left" slideNumber={7} isRTL={isRTL}>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true, margin: "-100px" }} className="max-w-3xl">
           <motion.p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }}>{t('deck.slide7.label')}</motion.p>
           <motion.h2 className="text-6xl font-light text-white mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>{t('deck.slide7.headline')}</motion.h2>
@@ -559,7 +541,7 @@ const Deck = () => {
       </Slide>
 
       {/* Slide 8: Strategic Alignment */}
-      <Slide align="left" slideNumber={8} isRTL={isRTL} isMobile={isMobile} slideGap={slideGap}>
+      <Slide align="left" slideNumber={8} isRTL={isRTL}>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true, margin: "-100px" }} className="max-w-3xl">
           <motion.p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }}>{t('deck.slide8.label')}</motion.p>
           <motion.h2 className="text-6xl font-light text-white mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>{t('deck.slide8.headline')}</motion.h2>
@@ -578,7 +560,7 @@ const Deck = () => {
       </Slide>
 
       {/* Slide 9: Closing */}
-      <Slide slideNumber={9} isRTL={isRTL} isMobile={isMobile} slideGap={slideGap}>
+      <Slide slideNumber={9} isRTL={isRTL}>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1.2 }} viewport={{ once: true, margin: "-100px" }} className="max-w-3xl mx-auto text-center">
           <motion.h2 className="text-7xl font-light text-white mb-16 leading-[1.1]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }} viewport={{ once: true }}>{t('deck.slide9.headline')}</motion.h2>
           <motion.div className="space-y-6 text-lg text-white/50 font-light leading-relaxed mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
@@ -595,7 +577,6 @@ const Deck = () => {
           </motion.div>
         </motion.div>
       </Slide>
-      </div>
     </div>
   );
 };
