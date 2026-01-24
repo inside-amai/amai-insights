@@ -920,7 +920,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide7.closing': 'Agents may post collateral in multiple assets, but enforcement, trust scoring, and execution guarantees are governed through AMAI.',
     
     'tether.slide8.label': 'Strategic Alignment',
-    'tether.slide8.headline': 'Alignment With Tether\'s Long-Term Infrastructure Mandate',
+    'tether.slide8.headline': 'Why Tether.',
     'tether.slide8.body': 'Tether has consistently backed infrastructure that strengthens autonomy, reduces dependence on centralized gatekeepers, and operates outside short-term market cycles.',
     'tether.slide8.point1': 'Autonomous systems operate across borders, jurisdictions, and political environments.',
     'tether.slide8.point2': 'Economic infrastructure must remain neutral, resilient, and independent of discretionary control.',
@@ -1845,7 +1845,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide7.closing': 'エージェントは複数資産で担保を差し入れ可能だが、履行、信頼評点、実行保証はAMAIを通じて統治される。',
     
     'tether.slide8.label': '戦略的整合',
-    'tether.slide8.headline': 'Tetherの長期基盤使命との整合',
+    'tether.slide8.headline': 'なぜTetherか。',
     'tether.slide8.body': 'Tetherは一貫して、自律性を強化し、中央集権的ゲートキーパーへの依存を減らし、短期市場サイクルの外で運営される基盤を支援してきた。',
     'tether.slide8.point1': '自律型システムは国境、管轄権、政治環境を越えて運用される。',
     'tether.slide8.point2': '経済基盤は中立的、弾力的であり、裁量的管理から独立していなければならない。',
@@ -2770,7 +2770,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide7.closing': 'قد ينشر الوكلاء ضمانات بأصول متعددة، لكن الإنفاذ وتقييم الثقة وضمانات التنفيذ تُحكم عبر AMAI.',
     
     'tether.slide8.label': 'التوافق الاستراتيجي',
-    'tether.slide8.headline': 'التوافق مع تفويض البنية التحتية طويل المدى لـ Tether',
+    'tether.slide8.headline': 'لماذا Tether.',
     'tether.slide8.body': 'دعمت Tether باستمرار البنية التحتية التي تعزز الاستقلالية وتقلل الاعتماد على حراس البوابات المركزيين وتعمل خارج دورات السوق قصيرة المدى.',
     'tether.slide8.point1': 'تعمل الأنظمة المستقلة عبر الحدود والولايات القضائية والبيئات السياسية.',
     'tether.slide8.point2': 'يجب أن تظل البنية التحتية الاقتصادية محايدة ومرنة ومستقلة عن السيطرة التقديرية.',
