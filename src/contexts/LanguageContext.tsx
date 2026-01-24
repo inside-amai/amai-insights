@@ -908,7 +908,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     'tether.slide7.label': 'Token Model',
     'tether.slide7.headline': 'AMAI Is the Enforcement and Trust Denominator.',
-    'tether.slide7.body': 'The AMAI token functions as the unified enforcement and trust layer across the system.',
+    'tether.slide7.body': 'Economic systems require a common unit for enforcement, settlement, and trust continuity.\n\nAMAI defines this layer for autonomous coordination.',
     'tether.slide7.pillar1.title': 'Reputation Governance',
     'tether.slide7.pillar1.desc': 'Computes reputation state and governs permissions across agents',
     'tether.slide7.pillar2.title': 'Capital Enforcement',
@@ -1833,7 +1833,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     'tether.slide7.label': '証票模型',
     'tether.slide7.headline': 'AMAIは履行と信頼の共通単位である。',
-    'tether.slide7.body': 'AMAI証票はシステム全体の統一された履行・信頼層として機能する。',
+    'tether.slide7.body': '経済システムには、履行・決済・信頼継続のための共通単位が必要である。\n\nAMAIは自律的調整のためのこの層を定義する。',
     'tether.slide7.pillar1.title': '信用統治',
     'tether.slide7.pillar1.desc': '信用状態を計算し、エージェント全体の権限を統治',
     'tether.slide7.pillar2.title': '資本履行',
@@ -2758,7 +2758,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     'tether.slide7.label': 'نموذج الرمز',
     'tether.slide7.headline': 'AMAI هي قاسم الإنفاذ والثقة.',
-    'tether.slide7.body': 'يعمل رمز AMAI كطبقة الإنفاذ والثقة الموحدة عبر النظام.',
+    'tether.slide7.body': 'تتطلب الأنظمة الاقتصادية وحدة مشتركة للإنفاذ والتسوية واستمرارية الثقة.\n\nتُحدد AMAI هذه الطبقة للتنسيق المستقل.',
     'tether.slide7.pillar1.title': 'حوكمة السمعة',
     'tether.slide7.pillar1.desc': 'يحسب حالة السمعة ويحكم الصلاحيات عبر الوكلاء',
     'tether.slide7.pillar2.title': 'إنفاذ رأس المال',
