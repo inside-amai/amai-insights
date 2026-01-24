@@ -1,6 +1,7 @@
 import { motion, useScroll } from "framer-motion";
 import amaiLogo from "@/assets/amai-logo-hero-new.png";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface SlideProps {
   children: React.ReactNode;
@@ -16,7 +17,7 @@ const Slide = ({ children, className = "", align = "center", slideNumber, totalS
   
   return (
     <section 
-      className={`relative min-h-[100dvh] md:min-h-screen w-full flex items-center overflow-hidden py-16 md:py-0 ${
+      className={`relative min-h-svh md:min-h-screen w-full flex items-center overflow-x-hidden py-16 md:py-0 ${
         align === "left" ? "justify-start" : "justify-center"
       } ${className}`}
       dir={isRTL ? "rtl" : "ltr"}
@@ -60,14 +61,17 @@ const Deck = () => {
   const { scrollYProgress } = useScroll();
   const { t, language } = useLanguage();
   const isRTL = language === 'ar';
+  const isMobile = useIsMobile();
 
   return (
-    <div className="bg-black min-h-screen touch-pan-y" dir={isRTL ? "rtl" : "ltr"}>
-      {/* Progress bar */}
-      <motion.div
-        className="fixed bottom-0 left-0 h-[3px] bg-white/30 origin-left z-50"
-        style={{ scaleX: scrollYProgress, width: '100%' }}
-      />
+    <div className="bg-black min-h-svh md:min-h-screen overflow-x-hidden overscroll-y-contain touch-pan-y" dir={isRTL ? "rtl" : "ltr"}>
+      {/* Progress bar - hidden on mobile to reduce scroll jank */}
+      {!isMobile && (
+        <motion.div
+          className="fixed bottom-0 left-0 h-[3px] bg-white/30 origin-left z-50"
+          style={{ scaleX: scrollYProgress, width: '100%' }}
+        />
+      )}
       {/* Slide 1: Title */}
       <Slide align="left" slideNumber={1} isRTL={isRTL}>
         <motion.div
