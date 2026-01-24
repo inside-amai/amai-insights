@@ -926,7 +926,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide8.point2': 'Economic infrastructure must remain neutral, resilient, and independent of discretionary control.',
     'tether.slide8.point3': 'Enforcement, settlement, and coordination cannot depend on proprietary platforms or custodial intermediaries.',
     'tether.slide8.point4': 'AMAI provides shared economic infrastructure where openness, continuity, and neutrality are required.',
-    'tether.slide8.body2': 'AMAI is designed to coexist with open payment rails, decentralized compute, and globally accessible capital.',
+    'tether.slide8.body2': 'AMAI is designed to coexist with open payment rails, decentralized compute, and the ability to move capital.',
     'tether.slide8.closing': 'It extends these primitives into autonomous economic coordination.',
     
     'tether.slide9.headline': 'Infrastructure Precedes Adoption.',
@@ -1851,7 +1851,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide8.point2': '経済基盤は中立的、弾力的であり、裁量的管理から独立していなければならない。',
     'tether.slide8.point3': '履行、決済、調整は独自プラットフォームや管理仲介者に依存できない。',
     'tether.slide8.point4': 'AMAIは開放性、継続性、中立性が必要とされる場所に共有経済基盤を提供する。',
-    'tether.slide8.body2': 'AMAIはオープンな決済レール、分散型コンピュート、グローバルにアクセス可能な資本と共存するよう設計されている。',
+    'tether.slide8.body2': 'AMAIはオープンな決済レール、分散型コンピュート、資本を移動させる能力と共存するよう設計されている。',
     'tether.slide8.closing': 'これらの基本単位を自律的経済調整に拡張する。',
     
     'tether.slide9.headline': '基盤が普及に先行する。',
@@ -2776,7 +2776,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide8.point2': 'يجب أن تظل البنية التحتية الاقتصادية محايدة ومرنة ومستقلة عن السيطرة التقديرية.',
     'tether.slide8.point3': 'لا يمكن للإنفاذ والتسوية والتنسيق الاعتماد على منصات ملكية أو وسطاء حفظ.',
     'tether.slide8.point4': 'توفر AMAI بنية تحتية اقتصادية مشتركة حيث تكون الانفتاح والاستمرارية والحياد مطلوبة.',
-    'tether.slide8.body2': 'صُممت AMAI للتعايش مع قنوات الدفع المفتوحة والحوسبة اللامركزية ورأس المال المتاح عالمياً.',
+    'tether.slide8.body2': 'صُممت AMAI للتعايش مع قنوات الدفع المفتوحة والحوسبة اللامركزية والقدرة على نقل رأس المال.',
     'tether.slide8.closing': 'تمدد هذه الأساسيات إلى التنسيق الاقتصادي المستقل.',
     
     'tether.slide9.headline': 'البنية التحتية تسبق التبني.',
