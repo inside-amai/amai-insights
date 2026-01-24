@@ -42,8 +42,8 @@ const queryClient = new QueryClient();
 const ConditionalTermsModal = () => {
   const location = useLocation();
   
-  // Don't show terms modal on /deck page
-  if (location.pathname === '/deck') {
+  // Don't show terms modal on /deck or /tether pages
+  if (location.pathname === '/deck' || location.pathname === '/tether') {
     return null;
   }
   
