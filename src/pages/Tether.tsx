@@ -50,7 +50,7 @@ const Slide = ({ children, className = "", align = "center", slideNumber, totalS
       
       {/* Footer branding */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.2em] uppercase text-white/20 font-medium">
-        {t('deck.footer')}
+        {t('tether.footer')}
       </div>
     </section>
   );
@@ -93,7 +93,7 @@ const Tether = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            {t('deck.slide1.label')}
+            {t('tether.slide1.label')}
           </motion.p>
           
           {/* Headline */}
@@ -103,9 +103,9 @@ const Tether = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <span className="font-light">{t('deck.slide1.headline1')}</span>
+            <span className="font-light">{t('tether.slide1.headline1')}</span>
             <br />
-            <span className="font-light">{t('deck.slide1.headline2')}</span>
+            <span className="font-light">{t('tether.slide1.headline2')}</span>
           </motion.h1>
           
           {/* Subheadline */}
@@ -115,9 +115,9 @@ const Tether = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            {t('deck.slide1.subheadline1')}
+            {t('tether.slide1.subheadline1')}
             <br /><br />
-            {t('deck.slide1.subheadline2')}
+            {t('tether.slide1.subheadline2')}
           </motion.p>
         </motion.div>
       </Slide>
@@ -139,7 +139,7 @@ const Tether = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            {t('deck.slide2.label')}
+            {t('tether.slide2.label')}
           </motion.p>
           
           {/* Headline */}
@@ -150,9 +150,9 @@ const Tether = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            {t('deck.slide2.headline1')}
+            {t('tether.slide2.headline1')}
             <br />
-            {t('deck.slide2.headline2')}
+            {t('tether.slide2.headline2')}
           </motion.h2>
           
           {/* Body copy - numbered points */}
@@ -166,30 +166,30 @@ const Tether = () => {
             {/* Point 1 */}
             <div>
               <p className="text-sm md:text-base text-white/80 font-medium mb-2">
-                {t('deck.slide2.point1.title')}
+                {t('tether.slide2.point1.title')}
               </p>
               <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">
-                {t('deck.slide2.point1.body')}
+                {t('tether.slide2.point1.body')}
               </p>
             </div>
             
             {/* Point 2 */}
             <div>
               <p className="text-sm md:text-base text-white/80 font-medium mb-2">
-                {t('deck.slide2.point2.title')}
+                {t('tether.slide2.point2.title')}
               </p>
               <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">
-                {t('deck.slide2.point2.body')}
+                {t('tether.slide2.point2.body')}
               </p>
             </div>
             
             {/* Point 3 */}
             <div>
               <p className="text-sm md:text-base text-white/80 font-medium mb-2">
-                3. This is the unresolved layer.
+                {t('tether.slide2.point3.title')}
               </p>
               <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">
-                {t('deck.slide2.point3.body')}
+                {t('tether.slide2.point3.body')}
               </p>
             </div>
           </motion.div>
@@ -202,7 +202,7 @@ const Tether = () => {
             transition={{ duration: 0.8, delay: 0.7 }}
             viewport={{ once: true }}
           >
-            {t('deck.slide2.closing')}
+            {t('tether.slide2.closing')}
           </motion.p>
         </motion.div>
       </Slide>
@@ -224,7 +224,7 @@ const Tether = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            {t('deck.slide3.label')}
+            {t('tether.slide3.label')}
           </motion.p>
           
           {/* Headline */}
@@ -235,7 +235,7 @@ const Tether = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            {t('deck.slide3.headline')}
+            {t('tether.slide3.headline')}
           </motion.h2>
           
           {/* Body copy */}
@@ -246,8 +246,8 @@ const Tether = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            <p>{t('deck.slide3.body1')}</p>
-            <p>{t('deck.slide3.body2')}</p>
+            <p>{t('tether.slide3.body1')}</p>
+            <p>{t('tether.slide3.body2')}</p>
           </motion.div>
           
           {/* Four pillars */}
@@ -259,30 +259,30 @@ const Tether = () => {
             viewport={{ once: true }}
           >
             <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}>
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide3.pillar1.title')}</p>
+              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('tether.slide3.pillar1.title')}</p>
               <p className="text-sm text-white/70 font-light leading-relaxed">
-                {t('deck.slide3.pillar1.desc')}
+                {t('tether.slide3.pillar1.desc')}
               </p>
             </div>
             
             <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}>
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide3.pillar2.title')}</p>
+              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('tether.slide3.pillar2.title')}</p>
               <p className="text-sm text-white/70 font-light leading-relaxed">
-                {t('deck.slide3.pillar2.desc')}
+                {t('tether.slide3.pillar2.desc')}
               </p>
             </div>
             
             <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}>
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide3.pillar3.title')}</p>
+              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('tether.slide3.pillar3.title')}</p>
               <p className="text-sm text-white/70 font-light leading-relaxed">
-                {t('deck.slide3.pillar3.desc')}
+                {t('tether.slide3.pillar3.desc')}
               </p>
             </div>
             
             <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}>
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide3.pillar4.title')}</p>
+              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('tether.slide3.pillar4.title')}</p>
               <p className="text-sm text-white/70 font-light leading-relaxed">
-                {t('deck.slide3.pillar4.desc')}
+                {t('tether.slide3.pillar4.desc')}
               </p>
             </div>
           </motion.div>
@@ -295,7 +295,7 @@ const Tether = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            {t('deck.slide3.closing')}
+            {t('tether.slide3.closing')}
           </motion.p>
         </motion.div>
       </Slide>
@@ -317,7 +317,7 @@ const Tether = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            {t('deck.slide4.label')}
+            {t('tether.slide4.label')}
           </motion.p>
           
           {/* Headline */}
@@ -328,7 +328,7 @@ const Tether = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            {t('deck.slide4.headline')}
+            {t('tether.slide4.headline')}
           </motion.h2>
           
           {/* Diagram */}
@@ -342,11 +342,11 @@ const Tether = () => {
             {/* Main flow row */}
             <div className={`flex flex-wrap md:flex-nowrap items-center justify-center gap-2 md:gap-3 text-[11px] md:text-xs text-white/70 ${isRTL ? 'flex-row-reverse' : ''}`}>
               {[
-                t('deck.slide4.step.identity'),
-                t('deck.slide4.step.reputation'),
-                t('deck.slide4.step.capital'),
-                t('deck.slide4.step.execution'),
-                t('deck.slide4.step.settlement')
+                t('tether.slide4.step.identity'),
+                t('tether.slide4.step.reputation'),
+                t('tether.slide4.step.capital'),
+                t('tether.slide4.step.execution'),
+                t('tether.slide4.step.settlement')
               ].map((step, i, arr) => (
                 <div key={i} className={`flex items-center gap-2 md:gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                   <span className="px-3 md:px-4 py-2 md:py-2.5 border border-white/20 rounded bg-black whitespace-nowrap tracking-wide">
@@ -389,7 +389,7 @@ const Tether = () => {
             {/* Mobile loop indicator */}
             <div className="md:hidden mt-4 flex items-center justify-center gap-2 text-white/30 text-xs">
               <span>↻</span>
-              <span>{t('deck.slide4.mobile.loop')}</span>
+              <span>{t('tether.slide4.mobile.loop')}</span>
             </div>
           </motion.div>
           
@@ -401,11 +401,11 @@ const Tether = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            <p>{t('deck.slide4.explanation1')}</p>
-            <p>{t('deck.slide4.explanation2')}</p>
-            <p>{t('deck.slide4.explanation3')}</p>
-            <p>{t('deck.slide4.explanation4')}</p>
-            <p>{t('deck.slide4.explanation5')}</p>
+            <p>{t('tether.slide4.explanation1')}</p>
+            <p>{t('tether.slide4.explanation2')}</p>
+            <p>{t('tether.slide4.explanation3')}</p>
+            <p>{t('tether.slide4.explanation4')}</p>
+            <p>{t('tether.slide4.explanation5')}</p>
           </motion.div>
           
           {/* Closing line */}
@@ -416,7 +416,7 @@ const Tether = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            {t('deck.slide4.closing')}
+            {t('tether.slide4.closing')}
           </motion.p>
         </motion.div>
       </Slide>
@@ -437,7 +437,7 @@ const Tether = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            {t('deck.slide5.label')}
+            {t('tether.slide5.label')}
           </motion.p>
           
           <motion.h2
@@ -447,7 +447,7 @@ const Tether = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            {t('deck.slide5.headline')}
+            {t('tether.slide5.headline')}
           </motion.h2>
           
           <motion.div
@@ -457,10 +457,10 @@ const Tether = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            <p>{t('deck.slide5.body1')}</p>
-            <p>{t('deck.slide5.body2')}</p>
+            <p>{t('tether.slide5.body1')}</p>
+            <p>{t('tether.slide5.body2')}</p>
             <div className="h-6 md:h-8" />
-            <p>{t('deck.slide5.body3')}</p>
+            <p>{t('tether.slide5.body3')}</p>
           </motion.div>
           
           <motion.div
@@ -470,7 +470,7 @@ const Tether = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            {[t('deck.slide5.point1'), t('deck.slide5.point2'), t('deck.slide5.point3')].map((item, i) => (
+            {[t('tether.slide5.point1'), t('tether.slide5.point2'), t('tether.slide5.point3')].map((item, i) => (
               <div key={i} className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <span className="text-white/20 text-sm mt-0.5">—</span>
                 <p className="text-sm md:text-base text-white/50 font-light leading-relaxed">{item}</p>
@@ -485,7 +485,7 @@ const Tether = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            {t('deck.slide5.closing')}
+            {t('tether.slide5.closing')}
           </motion.p>
         </motion.div>
       </Slide>
@@ -499,11 +499,11 @@ const Tether = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="max-w-3xl"
         >
-          <motion.p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }}>{t('deck.slide6.label')}</motion.p>
-          <motion.h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-10 md:mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>{t('deck.slide6.headline')}</motion.h2>
-          <motion.p className="text-base md:text-lg text-white/50 font-light leading-relaxed mb-8 md:mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} viewport={{ once: true }}>{t('deck.slide6.body')}</motion.p>
+          <motion.p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }}>{t('tether.slide6.label')}</motion.p>
+          <motion.h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-10 md:mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>{t('tether.slide6.headline')}</motion.h2>
+          <motion.p className="text-base md:text-lg text-white/50 font-light leading-relaxed mb-8 md:mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} viewport={{ once: true }}>{t('tether.slide6.body')}</motion.p>
           <motion.div className="space-y-3 mb-10 md:mb-12" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
-            {[t('deck.slide6.point1'), t('deck.slide6.point2'), t('deck.slide6.point3')].map((item, i) => (
+            {[t('tether.slide6.point1'), t('tether.slide6.point2'), t('tether.slide6.point3')].map((item, i) => (
               <div key={i} className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <span className="text-white/20 text-sm mt-0.5">—</span>
                 <p className="text-sm md:text-base text-white/50 font-light leading-relaxed">{item}</p>
@@ -516,52 +516,52 @@ const Tether = () => {
       {/* Slide 7: Token Model */}
       <Slide align="left" slideNumber={7} isRTL={isRTL}>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true, margin: "-100px" }} className="max-w-3xl">
-          <motion.p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }}>{t('deck.slide7.label')}</motion.p>
-          <motion.h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-10 md:mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>{t('deck.slide7.headline')}</motion.h2>
-          <motion.div className="space-y-4 text-base md:text-lg text-white/50 font-light leading-relaxed mb-10 md:mb-12" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} viewport={{ once: true }}><p>{t('deck.slide7.body')}</p></motion.div>
+          <motion.p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }}>{t('tether.slide7.label')}</motion.p>
+          <motion.h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-10 md:mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>{t('tether.slide7.headline')}</motion.h2>
+          <motion.div className="space-y-4 text-base md:text-lg text-white/50 font-light leading-relaxed mb-10 md:mb-12" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} viewport={{ once: true }}><p>{t('tether.slide7.body')}</p></motion.div>
           <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12 md:mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
-            <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}><p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide7.pillar1.title')}</p><p className="text-sm text-white/70 font-light leading-relaxed">{t('deck.slide7.pillar1.desc')}</p></div>
-            <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}><p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide7.pillar2.title')}</p><p className="text-sm text-white/70 font-light leading-relaxed">{t('deck.slide7.pillar2.desc')}</p></div>
-            <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}><p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide7.pillar3.title')}</p><p className="text-sm text-white/70 font-light leading-relaxed">{t('deck.slide7.pillar3.desc')}</p></div>
-            <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}><p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide7.pillar4.title')}</p><p className="text-sm text-white/70 font-light leading-relaxed">{t('deck.slide7.pillar4.desc')}</p></div>
+            <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}><p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('tether.slide7.pillar1.title')}</p><p className="text-sm text-white/70 font-light leading-relaxed">{t('tether.slide7.pillar1.desc')}</p></div>
+            <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}><p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('tether.slide7.pillar2.title')}</p><p className="text-sm text-white/70 font-light leading-relaxed">{t('tether.slide7.pillar2.desc')}</p></div>
+            <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}><p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('tether.slide7.pillar3.title')}</p><p className="text-sm text-white/70 font-light leading-relaxed">{t('tether.slide7.pillar3.desc')}</p></div>
+            <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}><p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('tether.slide7.pillar4.title')}</p><p className="text-sm text-white/70 font-light leading-relaxed">{t('tether.slide7.pillar4.desc')}</p></div>
           </motion.div>
-          <motion.p className="text-base md:text-lg text-white/50 font-light leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} viewport={{ once: true }}>{t('deck.slide7.closing')}</motion.p>
+          <motion.p className="text-base md:text-lg text-white/50 font-light leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} viewport={{ once: true }}>{t('tether.slide7.closing')}</motion.p>
         </motion.div>
       </Slide>
 
       {/* Slide 8: Strategic Alignment */}
       <Slide align="left" slideNumber={8} isRTL={isRTL}>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true, margin: "-100px" }} className="max-w-3xl">
-          <motion.p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }}>{t('deck.slide8.label')}</motion.p>
-          <motion.h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-10 md:mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>{t('deck.slide8.headline')}</motion.h2>
-          <motion.p className="text-base md:text-lg text-white/50 font-light leading-relaxed mb-8 md:mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} viewport={{ once: true }}>{t('deck.slide8.body')}</motion.p>
+          <motion.p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }}>{t('tether.slide8.label')}</motion.p>
+          <motion.h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-10 md:mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>{t('tether.slide8.headline')}</motion.h2>
+          <motion.p className="text-base md:text-lg text-white/50 font-light leading-relaxed mb-8 md:mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} viewport={{ once: true }}>{t('tether.slide8.body')}</motion.p>
           <motion.div className="space-y-3 mb-10 md:mb-12" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
-            {[t('deck.slide8.point1'), t('deck.slide8.point2'), t('deck.slide8.point3'), t('deck.slide8.point4')].map((item, i) => (
+            {[t('tether.slide8.point1'), t('tether.slide8.point2'), t('tether.slide8.point3'), t('tether.slide8.point4')].map((item, i) => (
               <div key={i} className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <span className="text-white/20 text-sm mt-0.5">—</span>
                 <p className="text-sm md:text-base text-white/50 font-light leading-relaxed">{item}</p>
               </div>
             ))}
           </motion.div>
-          <motion.p className="text-base md:text-lg text-white/50 font-light leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} viewport={{ once: true }}>{t('deck.slide8.body2')}</motion.p>
-          <motion.p className="mt-12 md:mt-14 text-base md:text-lg text-white/70 font-normal leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }} viewport={{ once: true }}>{t('deck.slide8.closing')}</motion.p>
+          <motion.p className="text-base md:text-lg text-white/50 font-light leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} viewport={{ once: true }}>{t('tether.slide8.body2')}</motion.p>
+          <motion.p className="mt-12 md:mt-14 text-base md:text-lg text-white/70 font-normal leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }} viewport={{ once: true }}>{t('tether.slide8.closing')}</motion.p>
         </motion.div>
       </Slide>
 
       {/* Slide 9: Closing */}
       <Slide slideNumber={9} isRTL={isRTL}>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1.2 }} viewport={{ once: true, margin: "-100px" }} className="max-w-3xl mx-auto text-center">
-          <motion.h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-12 md:mb-16 leading-[1.1]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }} viewport={{ once: true }}>{t('deck.slide9.headline')}</motion.h2>
+          <motion.h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-12 md:mb-16 leading-[1.1]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }} viewport={{ once: true }}>{t('tether.slide9.headline')}</motion.h2>
           <motion.div className="space-y-6 text-base md:text-lg text-white/50 font-light leading-relaxed mb-12 md:mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
-            <p>{t('deck.slide9.body1')}<br />{t('deck.slide9.body2')}</p>
-            <p className="text-white/60">{t('deck.slide9.body3')}</p>
+            <p>{t('tether.slide9.body1')}<br />{t('tether.slide9.body2')}</p>
+            <p className="text-white/60">{t('tether.slide9.body3')}</p>
           </motion.div>
           <motion.div className={`flex flex-col sm:flex-row items-center justify-center gap-4 ${isRTL ? 'sm:flex-row-reverse' : ''}`} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }} viewport={{ once: true }}>
             <a href="https://youtu.be/k43rEn8N7qE" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 rounded text-xs tracking-[0.15em] uppercase text-white/70 hover:text-white hover:border-white/40 transition-all duration-300">
-              {t('deck.slide9.cta1')}<span>{isRTL ? '←' : '→'}</span>
+              {t('tether.slide9.cta1')}<span>{isRTL ? '←' : '→'}</span>
             </a>
             <a href="/" className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300">
-              {t('deck.slide9.cta2')}<span>{isRTL ? '←' : '→'}</span>
+              {t('tether.slide9.cta2')}<span>{isRTL ? '←' : '→'}</span>
             </a>
           </motion.div>
         </motion.div>
