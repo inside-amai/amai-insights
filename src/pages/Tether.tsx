@@ -16,7 +16,7 @@ const Slide = ({ children, className = "", align = "center", slideNumber, totalS
   
   return (
     <section 
-      className={`relative min-h-screen w-full flex items-center overflow-hidden ${
+      className={`relative min-h-screen w-full flex items-center overflow-hidden py-16 md:py-0 ${
         align === "left" ? "justify-start" : "justify-center"
       } ${className}`}
       dir={isRTL ? "rtl" : "ltr"}
@@ -35,7 +35,7 @@ const Slide = ({ children, className = "", align = "center", slideNumber, totalS
         />
       )}
       
-      <div className={`relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-8 md:px-16 lg:px-24 pb-12 md:pb-16 ${
+      <div className={`relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-8 md:px-16 lg:px-24 pb-20 md:pb-16 ${
         align === "left" ? "" : ""
       }`}>
         {children}
@@ -43,13 +43,13 @@ const Slide = ({ children, className = "", align = "center", slideNumber, totalS
       
       {/* Page number */}
       {slideNumber && (
-        <div className={`absolute bottom-6 md:bottom-10 ${isRTL ? 'left-4 md:left-12' : 'right-4 md:right-12'} text-[10px] tracking-[0.2em] text-white/50 font-medium`}>
+        <div className={`absolute bottom-4 md:bottom-10 ${isRTL ? 'left-4 md:left-12' : 'right-4 md:right-12'} text-[10px] tracking-[0.2em] text-white/50 font-medium`}>
           {String(slideNumber).padStart(2, '0')} / {String(totalSlides).padStart(2, '0')}
         </div>
       )}
       
       {/* Footer branding */}
-      <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.2em] uppercase text-white/20 font-medium">
+      <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.2em] uppercase text-white/20 font-medium text-center max-w-[200px] md:max-w-none">
         {t('tether.footer')}
       </div>
     </section>
