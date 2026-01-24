@@ -1,3 +1,4 @@
+import React from "react";
 import { motion, useScroll } from "framer-motion";
 import amaiLogo from "@/assets/amai-logo-hero-new.png";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -335,16 +336,16 @@ const Deck = () => {
             {t('deck.slide4.headline')}
           </motion.h2>
           
-          {/* Diagram */}
+          {/* Diagram - uses flex-nowrap to keep all items in single row (matches landing page) */}
           <motion.div
-            className="relative mb-8 md:mb-16 overflow-x-auto"
+            className="relative mb-8 md:mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            {/* Main flow row */}
-            <div className={`flex flex-wrap md:flex-nowrap items-center justify-center gap-2 md:gap-3 text-xs text-white/70 ${isRTL ? 'flex-row-reverse' : ''}`}>
+            {/* Main flow row - no wrap, items stay in single row */}
+            <div className={`flex items-center justify-center gap-2 text-[11px] text-white/70 ${isRTL ? 'flex-row-reverse' : ''}`}>
               {[
                 t('deck.slide4.step.identity'),
                 t('deck.slide4.step.reputation'),
@@ -352,42 +353,62 @@ const Deck = () => {
                 t('deck.slide4.step.execution'),
                 t('deck.slide4.step.settlement')
               ].map((step, i, arr) => (
-                <div key={i} className={`flex items-center gap-2 md:gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                  <span className="px-3 md:px-4 py-2 md:py-2.5 border border-white/20 rounded bg-black whitespace-nowrap tracking-wide text-[10px] md:text-xs">
+                <React.Fragment key={i}>
+                  <span className="px-3 py-1.5 border border-white/20 rounded bg-black whitespace-nowrap">
                     {step}
                   </span>
                   {i < arr.length - 1 && (
                     <span className="text-white/30 text-xs">{isRTL ? '←' : '→'}</span>
                   )}
-                </div>
+                </React.Fragment>
               ))}
             </div>
 
             {/* SVG loop-back path */}
             <svg 
-              className="w-full h-10 mt-2" 
-              viewBox="0 0 560 40" 
+              className="w-full h-8 mt-1" 
+              viewBox="0 0 480 32" 
               preserveAspectRatio="xMidYMid meet"
               fill="none"
-              style={{ transform: isRTL ? 'scaleX(-1)' : undefined }}
             >
-              {/* Curved U-path from Settlement back to Reputation */}
+              {/* Curved U-path from Settlement back to Trust */}
               <path 
-                d="M 485 0 L 485 22 Q 485 30 477 30 L 130 30 Q 122 30 122 22 L 122 0"
-                stroke="rgba(255,255,255,0.12)"
+                d={isRTL 
+                  ? "M 72 0 L 72 18 Q 72 24 78 24 L 398 24 Q 404 24 404 18 L 404 0"
+                  : "M 404 0 L 404 18 Q 404 24 398 24 L 78 24 Q 72 24 72 18 L 72 0"
+                }
+                stroke="rgba(255,255,255,0.15)"
                 strokeWidth="1"
               />
               
               {/* Vertical arrow under Settlement (pointing down) */}
-              <polygon points="485,6 482,0 488,0" fill="rgba(255,255,255,0.2)" />
+              {isRTL ? (
+                <polygon points="72,5 69,0 75,0" fill="rgba(255,255,255,0.25)" />
+              ) : (
+                <polygon points="404,5 401,0 407,0" fill="rgba(255,255,255,0.25)" />
+              )}
               
-              {/* Vertical arrow into Reputation (pointing up) */}
-              <polygon points="122,0 119,6 125,6" fill="rgba(255,255,255,0.2)" />
+              {/* Vertical arrow into Trust (pointing up) */}
+              {isRTL ? (
+                <polygon points="404,0 401,5 407,5" fill="rgba(255,255,255,0.25)" />
+              ) : (
+                <polygon points="72,0 69,5 75,5" fill="rgba(255,255,255,0.25)" />
+              )}
               
               {/* Arrow markers along the bottom path */}
-              <polygon points="380,27 374,30 380,33" fill="rgba(255,255,255,0.2)" />
-              <polygon points="280,27 274,30 280,33" fill="rgba(255,255,255,0.2)" />
-              <polygon points="200,27 194,30 200,33" fill="rgba(255,255,255,0.2)" />
+              {isRTL ? (
+                <>
+                  <polygon points="160,21 166,24 160,27" fill="rgba(255,255,255,0.25)" />
+                  <polygon points="240,21 246,24 240,27" fill="rgba(255,255,255,0.25)" />
+                  <polygon points="320,21 326,24 320,27" fill="rgba(255,255,255,0.25)" />
+                </>
+              ) : (
+                <>
+                  <polygon points="320,21 314,24 320,27" fill="rgba(255,255,255,0.25)" />
+                  <polygon points="240,21 234,24 240,27" fill="rgba(255,255,255,0.25)" />
+                  <polygon points="160,21 154,24 160,27" fill="rgba(255,255,255,0.25)" />
+                </>
+              )}
             </svg>
           </motion.div>
           
