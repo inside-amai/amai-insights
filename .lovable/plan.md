@@ -1,81 +1,70 @@
 
-# Fixed Desktop Layout for /deck and /tether Pages
+# Fix Horizontal Scroll on Mobile for /deck and /tether Pages
 
-## Goal
-Make both `/deck` and `/tether` pages display at a fixed desktop width that doesn't adapt to mobile screens - like a PDF would behave when opened on a phone (requiring zoom/horizontal scroll).
+## Problem
+When viewing `/deck` and `/tether` pages on mobile (zoomed out), there is extra horizontal space on both sides, allowing side-to-side scrolling. The content should be "locked in" at exactly 1280px with no overflow.
 
-## Implementation Approach
+## Root Causes Identified
+1. **Root container uses `min-w-[1280px]`** - This sets a minimum but allows expansion beyond 1280px
+2. **Page number positioned with `right-12`** - The absolute positioning at 48px from right may extend beyond container bounds
+3. **No `overflow-x-hidden`** on root container - Allows horizontal overflow to create scrollable area
+4. **Slide sections use `w-full`** - Can expand beyond the intended 1280px width
 
-### 1. Add Fixed-Width Wrapper Component
-Create a wrapper that enforces a minimum desktop width and disables mobile scaling for these specific pages.
+## Solution
 
-**Changes to both `src/pages/Deck.tsx` and `src/pages/Tether.tsx`:**
+### Changes to Both `src/pages/Deck.tsx` and `src/pages/Tether.tsx`
 
-Wrap the entire page content in a container with:
-- `min-w-[1280px]` - Forces minimum desktop width
-- `overflow-x-auto` - Allows horizontal scrolling on mobile
-- Remove responsive breakpoints (`md:`, `sm:`, `lg:`) from critical layout elements OR use fixed desktop values
+**1. Fix the root container (line 82 in both files)**
 
-### 2. Override Viewport for Deck Pages
-Add a `useEffect` hook in both pages that dynamically modifies the viewport meta tag when these pages mount, and restores it on unmount.
-
-```typescript
-useEffect(() => {
-  const viewport = document.querySelector('meta[name="viewport"]');
-  const originalContent = viewport?.getAttribute('content');
-  
-  // Set fixed width viewport for deck pages
-  viewport?.setAttribute('content', 'width=1280, initial-scale=0.5, user-scalable=yes');
-  
-  return () => {
-    // Restore original viewport on unmount
-    if (originalContent) {
-      viewport?.setAttribute('content', originalContent);
-    }
-  };
-}, []);
-```
-
-### 3. Update Container Classes
-Change the root container in both pages from:
+Change from:
 ```jsx
-<div className="bg-black min-h-screen">
+<div className="bg-black min-h-screen min-w-[1280px]" ...>
 ```
-to:
+To:
 ```jsx
-<div className="bg-black min-h-screen min-w-[1280px]">
+<div className="bg-black min-h-screen w-[1280px] max-w-[1280px] overflow-x-hidden" ...>
 ```
 
-This ensures content never shrinks below 1280px width.
+This locks the width to exactly 1280px and prevents any horizontal overflow.
 
-### 4. Convert Responsive Text Sizes to Fixed Desktop Values
-Update key typography classes throughout both files:
-- `text-4xl sm:text-5xl md:text-6xl lg:text-7xl` → `text-7xl` (use largest size)
-- `text-base md:text-lg` → `text-lg`
-- `px-8 md:px-16 lg:px-24` → `px-24`
-- `mb-16 md:mb-24` → `mb-24`
+**2. Update the Slide component section element (line 20 in both files)**
 
-This ensures the slides always render at their "desktop" appearance.
+Change from:
+```jsx
+<section className={`relative min-h-screen w-full flex items-center overflow-hidden ...`}
+```
+To:
+```jsx
+<section className={`relative min-h-screen w-[1280px] max-w-[1280px] flex items-center overflow-hidden ...`}
+```
 
----
+This ensures each slide is exactly 1280px wide, matching the parent container.
 
-## Technical Details
+**3. Adjust page number positioning (line 47 in both files)**
 
-### Files to Modify
-1. **src/pages/Deck.tsx** - Add viewport override, min-width container, convert responsive classes
-2. **src/pages/Tether.tsx** - Same changes as Deck.tsx
+Change from:
+```jsx
+<div className={`absolute bottom-10 ${isRTL ? 'left-12' : 'right-12'} ...`}>
+```
+To:
+```jsx
+<div className={`absolute bottom-10 ${isRTL ? 'left-8' : 'right-8'} ...`}>
+```
 
-### Viewport Strategy
-The viewport modification approach:
-- Width set to 1280px (common desktop width)
-- Initial scale at 0.5 so the full slide is visible on mobile screens
-- User scalable enabled so they can zoom in to read
+Reduce the offset from 48px to 32px to ensure it stays well within the 1280px boundary.
 
-### Result
-On mobile devices:
-- The page will display at full 1280px width
-- The browser will zoom out to fit the width, showing the full slide
-- Users can pinch to zoom or scroll horizontally
-- Content layout matches exactly how it appears on desktop
+## Technical Summary
 
-This mimics PDF behavior where the document maintains its fixed dimensions regardless of screen size.
+| Element | Current | Fixed |
+|---------|---------|-------|
+| Root container width | `min-w-[1280px]` | `w-[1280px] max-w-[1280px]` |
+| Root overflow | (none) | `overflow-x-hidden` |
+| Slide section width | `w-full` | `w-[1280px] max-w-[1280px]` |
+| Page number offset | `right-12` (48px) | `right-8` (32px) |
+
+## Files to Modify
+- `src/pages/Deck.tsx` - 3 line changes
+- `src/pages/Tether.tsx` - 3 line changes
+
+## Expected Result
+On mobile, when fully zoomed out, the deck will display at exactly 1280px width with no horizontal scroll. The content will be "locked in" and users will only be able to scroll vertically between slides or pinch to zoom.
