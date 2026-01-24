@@ -338,14 +338,14 @@ const Deck = () => {
           
           {/* Diagram - uses flex-nowrap to keep all items in single row (matches landing page) */}
           <motion.div
-            className="relative mb-8 md:mb-16"
+            className="relative mb-8 md:mb-16 px-4 md:px-0"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            {/* Main flow row - no wrap, items stay in single row */}
-            <div className={`flex items-center justify-center gap-2 text-[11px] text-white/70 ${isRTL ? 'flex-row-reverse' : ''}`}>
+            {/* Main flow row - no wrap, items stay in single row, scales down on mobile */}
+            <div className={`flex items-center justify-center gap-1.5 md:gap-2 text-[9px] md:text-[11px] text-white/70 ${isRTL ? 'flex-row-reverse' : ''}`}>
               {[
                 t('deck.slide4.step.identity'),
                 t('deck.slide4.step.reputation'),
@@ -354,11 +354,11 @@ const Deck = () => {
                 t('deck.slide4.step.settlement')
               ].map((step, i, arr) => (
                 <React.Fragment key={i}>
-                  <span className="px-3 py-1.5 border border-white/20 rounded bg-black whitespace-nowrap">
+                  <span className="px-2 md:px-3 py-1 md:py-1.5 border border-white/20 rounded bg-black whitespace-nowrap">
                     {step}
                   </span>
                   {i < arr.length - 1 && (
-                    <span className="text-white/30 text-xs">{isRTL ? '←' : '→'}</span>
+                    <span className="text-white/30 text-[8px] md:text-xs">{isRTL ? '←' : '→'}</span>
                   )}
                 </React.Fragment>
               ))}
