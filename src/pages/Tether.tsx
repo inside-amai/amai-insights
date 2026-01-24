@@ -16,7 +16,7 @@ const Slide = ({ children, className = "", align = "center", slideNumber, totalS
   
   return (
     <section 
-      className={`relative min-h-screen w-full flex items-center overflow-hidden py-16 md:py-0 ${
+      className={`relative min-h-[100dvh] md:min-h-screen w-full flex items-center overflow-hidden py-16 md:py-0 ${
         align === "left" ? "justify-start" : "justify-center"
       } ${className}`}
       dir={isRTL ? "rtl" : "ltr"}
@@ -62,7 +62,7 @@ const Tether = () => {
   const isRTL = language === 'ar';
 
   return (
-    <div className="bg-black min-h-screen" dir={isRTL ? "rtl" : "ltr"}>
+    <div className="bg-black min-h-screen touch-pan-y" dir={isRTL ? "rtl" : "ltr"}>
       {/* Progress bar */}
       <motion.div
         className="fixed bottom-0 left-0 h-[3px] bg-white/30 origin-left z-50"
@@ -128,7 +128,7 @@ const Tether = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "0px" }}
           className="max-w-3xl"
         >
           {/* Micro-label */}
@@ -213,7 +213,7 @@ const Tether = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "0px" }}
           className="max-w-4xl"
         >
           {/* Micro-label */}
@@ -306,7 +306,7 @@ const Tether = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "0px" }}
           className="w-full max-w-4xl mx-auto text-center"
         >
           {/* Micro-label */}
@@ -421,7 +421,7 @@ const Tether = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "0px" }}
           className="max-w-3xl"
         >
           <motion.p
@@ -490,7 +490,7 @@ const Tether = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "0px" }}
           className="max-w-3xl"
         >
           <motion.p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }}>{t('tether.slide6.label')}</motion.p>
@@ -509,7 +509,7 @@ const Tether = () => {
 
       {/* Slide 7: Token Model */}
       <Slide align="left" slideNumber={7} isRTL={isRTL}>
-        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true, margin: "-100px" }} className="max-w-3xl">
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true, margin: "0px" }} className="max-w-3xl">
           <motion.p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }}>{t('tether.slide7.label')}</motion.p>
           <motion.h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 md:mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>{t('tether.slide7.headline')}</motion.h2>
           <motion.div className="space-y-4 text-base md:text-lg text-white/50 font-light leading-relaxed mb-8 md:mb-12" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} viewport={{ once: true }}><p>{t('tether.slide7.body')}</p></motion.div>
@@ -525,7 +525,7 @@ const Tether = () => {
 
       {/* Slide 8: Strategic Alignment */}
       <Slide align="left" slideNumber={8} isRTL={isRTL}>
-        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true, margin: "-100px" }} className="max-w-3xl">
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true, margin: "0px" }} className="max-w-3xl">
           <motion.p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }}>{t('tether.slide8.label')}</motion.p>
           <motion.h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 md:mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>{t('tether.slide8.headline')}</motion.h2>
           <motion.p className="text-base md:text-lg text-white/50 font-light leading-relaxed mb-6 md:mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} viewport={{ once: true }}>{t('tether.slide8.body')}</motion.p>
@@ -544,7 +544,7 @@ const Tether = () => {
 
       {/* Slide 9: Closing */}
       <Slide slideNumber={9} isRTL={isRTL}>
-        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1.2 }} viewport={{ once: true, margin: "-100px" }} className="max-w-3xl mx-auto text-center">
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1.2 }} viewport={{ once: true, margin: "0px" }} className="max-w-3xl mx-auto text-center">
           <motion.h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-10 md:mb-16 leading-[1.1]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }} viewport={{ once: true }}>{t('tether.slide9.headline')}</motion.h2>
           <motion.div className="space-y-4 md:space-y-6 text-base md:text-lg text-white/50 font-light leading-relaxed mb-10 md:mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
             <p>{t('tether.slide9.body1')}<br />{t('tether.slide9.body2')}</p>
