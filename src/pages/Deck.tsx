@@ -17,7 +17,7 @@ const Slide = ({ children, className = "", align = "center", slideNumber, totalS
   
   return (
     <section 
-      className={`relative min-h-screen w-full flex items-center overflow-hidden ${
+      className={`relative min-h-screen w-[1280px] max-w-[1280px] flex items-center overflow-hidden ${
         align === "left" ? "justify-start" : "justify-center"
       } ${className}`}
       dir={isRTL ? "rtl" : "ltr"}
@@ -44,7 +44,7 @@ const Slide = ({ children, className = "", align = "center", slideNumber, totalS
       
       {/* Page number */}
       {slideNumber && (
-        <div className={`absolute bottom-10 ${isRTL ? 'left-12' : 'right-12'} text-[10px] tracking-[0.2em] text-white/50 font-medium`}>
+        <div className={`absolute bottom-10 ${isRTL ? 'left-8' : 'right-8'} text-[10px] tracking-[0.2em] text-white/50 font-medium`}>
           {String(slideNumber).padStart(2, '0')} / {String(totalSlides).padStart(2, '0')}
         </div>
       )}
@@ -79,7 +79,7 @@ const Deck = () => {
   }, []);
 
   return (
-    <div className="bg-black min-h-screen min-w-[1280px]" dir={isRTL ? "rtl" : "ltr"}>
+    <div className="bg-black min-h-screen w-[1280px] max-w-[1280px] overflow-x-hidden" dir={isRTL ? "rtl" : "ltr"}>
       {/* Progress bar */}
       <motion.div
         className="fixed bottom-0 left-0 h-[3px] bg-white/30 origin-left z-50"
