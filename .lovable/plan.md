@@ -1,98 +1,159 @@
 
-## What’s actually happening (why it feels like we’re going in circles)
+# Complete Rethink: CSS Transform Scaling for PDF-like Mobile Experience
 
-### Key insight
-On iOS Safari (and some mobile browsers), **changing the `<meta name="viewport">` after the page has already rendered** (which is what our `useEffect` does) is unreliable—especially for `initial-scale`. The browser often:
-- renders the page first using the existing viewport (`width=device-width, initial-scale=1`)
-- then React mounts, `useEffect` runs, and we try to change the viewport
-- **but Safari does not fully “re-initialize” the layout/zoom** from a late viewport change  
-Result: the page initially loads “cropped / not aligned / huge side space” until you pinch-zoom, which forces Safari to recompute zoom/viewport and it suddenly “locks in” (your second screenshot).
+## Why Previous Attempts Failed
 
-So the core problem isn’t just Tailwind alignment—it’s *when* the viewport is set.
+The viewport meta approach is fundamentally broken for this use case:
+- iOS Safari often ignores `initial-scale` values set via JavaScript
+- Even early scripts in `<head>` run after the meta tag is parsed
+- Mobile browsers are designed to resist non-standard viewport configurations
+- SPA routing makes viewport changes even less reliable
 
-## Goal
-For `/deck` and `/tether` on mobile:
-- load immediately in the “zoomed out, locked in” PDF-like view
-- no horizontal drifting / sideways scroll at the default zoom
-- retain user pinch-zoom if desired
+## The New Approach: CSS Transform Scaling
 
-## Proposed fix (robust, PDF-like behavior)
+Instead of manipulating the viewport, we render the 1280px layout normally and use CSS `transform: scale()` to shrink it to fit the screen.
 
-### A) Set the correct viewport BEFORE React renders (critical)
-Move the “deck/tether viewport” logic to `index.html` in the `<head>` so it runs immediately at initial load.
+```text
++--------------------------------------------------+
+|  Mobile Screen (e.g., 390px wide)                |
+|                                                  |
+|  +--------------------------------------------+  |
+|  |  1280px canvas scaled to 390px via         |  |
+|  |  transform: scale(0.305)                   |  |
+|  |  transform-origin: top left                |  |
+|  |                                            |  |
+|  |  Content appears "zoomed out" but is       |  |
+|  |  actually scaled, not viewport-adjusted    |  |
+|  +--------------------------------------------+  |
+|                                                  |
++--------------------------------------------------+
+```
 
-**Approach**
-1. Keep the default meta viewport in HTML initially (`width=device-width, initial-scale=1`)
-2. Add a tiny inline script in `<head>` (right after the viewport meta) that:
-   - checks `window.location.pathname`
-   - if path is `/deck` or `/tether`, compute a scale that fits width:
-     - `scale = window.innerWidth / 1280`
-   - set viewport meta to something like:
-     - `width=1280, initial-scale=${scale}, minimum-scale=${scale}, maximum-scale=5, user-scalable=yes`
-   - (optional) include `viewport-fit=cover` for modern iPhones
+**Why this works**:
+- No viewport manipulation needed
+- Renders correctly on first paint
+- Pinch-zoom works naturally on top of the scaled content
+- Consistent across all mobile browsers
+- No "flash" or misalignment
 
-**Why compute scale instead of hardcoding 0.25**
-Different phones have different widths; hardcoding causes “too small” or “not fully fit” behavior. Computing `innerWidth / 1280` guarantees it loads exactly like a fitted PDF on any device.
+## Implementation Plan
 
-### B) Change the React-side viewport override to stop fighting the browser
-Right now, both pages still run a `useEffect` that changes viewport (late). That can cause:
-- a first paint at scale 1 (bad)
-- then a partial change (still bad on iOS)
-- and sometimes it creates the “flash / misalignment” you’re seeing.
+### Step 1: Revert Viewport Changes
 
-**Update strategy**
-- Replace `useEffect` with `useLayoutEffect` so it runs before paint *on route transitions inside the SPA* (Deck/Tether navigated from another page).
-- Use the same computed scale logic (`window.innerWidth / 1280`), not a constant.
-- Keep restore-on-unmount so other routes return to normal viewport.
+**File: `index.html`**
+- Remove the inline script that manipulates viewport for /deck and /tether
+- Keep the standard viewport: `width=device-width, initial-scale=1.0`
 
-Note: iOS may still not perfectly re-apply `initial-scale` during SPA transitions, but:
-- initial load will be correct (big win)
-- transitions will be much better than `useEffect`
-- worst case: users who navigate internally may still need a refresh, but typical usage (opening the deck link) will be correct.
+### Step 2: Create a Wrapper Component with Transform Scaling
 
-### C) Fix layout structure so the “canvas” is centered and cannot drift
-Even with correct viewport, we should ensure the “1280 canvas” can’t drift due to any accidental overflow.
+**New approach in `Deck.tsx` and `Tether.tsx`**:
 
-**Changes for both `Deck.tsx` and `Tether.tsx`**
-- Make the outermost page container full width, and center the fixed-width canvas:
-  - Outer: `w-screen overflow-x-hidden bg-black`
-  - Inner “canvas”: `w-[1280px] mx-auto`
-- Keep the slide width fixed at `w-[1280px]` as you already have.
-- Keep the page number inside safe bounds (`right-8/left-8` is fine).
+1. Detect if on mobile (screen width less than 1280px)
+2. Calculate scale factor: `window.innerWidth / 1280`
+3. Apply CSS transform to the outer container:
+   - `transform: scale(${scale})`
+   - `transform-origin: top left`
+   - `width: 1280px`
+   - `height: ${actualHeight / scale}px` (to ensure scrolling works)
 
-This avoids the risk that the page is anchored to the left edge of a larger scrollable surface.
+4. Wrap everything in a container that:
+   - Has the scaled dimensions
+   - Allows vertical scrolling
+   - Prevents horizontal overflow
 
-## Files to change
+### Step 3: Handle Scroll Height
 
-1) **index.html**
-- Add an inline `<script>` in `<head>` to set viewport early for `/deck` and `/tether` using computed scale.
+When you scale content down, the browser doesn't automatically adjust the scroll area. We need to:
+- Calculate the true content height
+- Set an explicit height on an outer wrapper that accounts for the scale
+- Or use a "spacer" element to make the scroll area correct
 
-2) **src/pages/Deck.tsx**
-- Replace `useEffect` with `useLayoutEffect`
-- Use computed scale rather than hardcoded scale
-- Adjust the wrapper structure to “outer full-width + centered 1280 canvas”
+### Technical Details
 
-3) **src/pages/Tether.tsx**
-- Same as Deck
+**Container structure**:
+```jsx
+// Outer container - controls the visible area
+<div style={{ 
+  width: '100vw', 
+  overflowX: 'hidden',
+  overflowY: 'auto',
+  minHeight: '100vh',
+  background: 'black'
+}}>
+  {/* Scaled inner container */}
+  <div style={{
+    width: '1280px',
+    transform: `scale(${scale})`,
+    transformOrigin: 'top left',
+    // height will be set to maintain proper scroll
+  }}>
+    {/* All slides */}
+  </div>
+</div>
+```
 
-## Acceptance checks (what we’ll verify)
-On a real iPhone (Safari/Chrome):
-1. Open `/tether` and `/deck` directly from the address bar
-   - Page loads already zoomed-out and visually “locked”
-   - No sideways scroll at default zoom
-2. Pinch-zoom in/out
-   - Still works (user-scalable enabled)
-3. Navigate from another route (e.g., `/`) to `/deck` via internal link
-   - Should not flash badly; should land close-to-correct immediately
+**Scale calculation**:
+```javascript
+const [scale, setScale] = useState(1);
 
-## Why this is the “deep fix”
-- It stops relying on a viewport change that happens after first paint (which mobile Safari doesn’t reliably honor)
-- It computes the correct scale per device (true “fit-to-width PDF” behavior)
-- It centers the canvas so alignment is deterministic, not dependent on scroll position or overflow quirks
+useLayoutEffect(() => {
+  const calculateScale = () => {
+    const screenWidth = window.innerWidth;
+    if (screenWidth < 1280) {
+      setScale(screenWidth / 1280);
+    } else {
+      setScale(1);
+    }
+  };
+  
+  calculateScale();
+  window.addEventListener('resize', calculateScale);
+  return () => window.removeEventListener('resize', calculateScale);
+}, []);
+```
 
-## Implementation notes (technical)
-- The inline script must run before the page paints; placing it directly after the viewport meta in `index.html` is ideal.
-- Use `useLayoutEffect` in React to reduce flicker on SPA navigation.
-- Keep restore logic so the rest of the site remains `width=device-width`.
+**Height compensation**:
+The tricky part is that when you scale content to 30% of its size, the scroll area also shrinks. To fix this, we need to set an explicit height on the scaled container that, when multiplied by scale, gives the correct visual height.
 
-If you approve this approach, I’ll implement it carefully in those three files and we should be out of the loop for good.
+For 9 slides at 100vh each:
+- True height: 9 * 100vh = 900vh
+- Scaled visual height: 900vh * scale
+- But browser sees: 900vh (the actual DOM height)
+
+Solution: Wrap in a container that has height = `(9 * 100vh) * scale` to create the correct scroll area, and position the scaled content absolutely within it.
+
+## Files to Change
+
+### 1. `index.html`
+Remove the viewport manipulation script entirely.
+
+### 2. `src/pages/Deck.tsx`
+- Remove viewport manipulation code (useLayoutEffect)
+- Add scale state and calculation
+- Restructure container hierarchy:
+  - Outer: `div` with `overflowX: hidden`, normal scrolling
+  - Spacer: `div` with calculated height to enable correct scrolling
+  - Scaled content: positioned absolutely with `transform: scale()`
+- Keep all slide content unchanged
+
+### 3. `src/pages/Tether.tsx`
+- Same changes as Deck.tsx
+
+## Expected Behavior
+
+1. User opens /deck or /tether on mobile
+2. Page loads immediately with content scaled to fit screen width
+3. No horizontal scroll at any zoom level
+4. Vertical scroll works naturally
+5. Pinch-to-zoom works to zoom in on details
+6. No flash, no misalignment, no weird initial state
+
+## Why This Will Work
+
+- **No viewport fighting**: We accept the browser's viewport and work within it
+- **Pure CSS**: Transform scaling is universally supported and predictable
+- **Immediate**: Scale is calculated in useLayoutEffect, applied before paint
+- **Natural zoom**: Pinch zoom operates on top of our scaled content, so it "just works"
+- **Scroll works**: By using a spacer element or explicit height, scrolling behaves correctly
+
+This is the standard approach used by PDF viewers, presentation tools, and "desktop-only" web experiences that need to work on mobile.
