@@ -1,5 +1,5 @@
 import { motion, useScroll } from "framer-motion";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import amaiLogo from "@/assets/amai-logo-hero-new.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -62,13 +62,14 @@ const Tether = () => {
   const { t, language } = useLanguage();
   const isRTL = language === 'ar';
 
-  // Override viewport for fixed desktop layout
-  useEffect(() => {
+  // Override viewport for fixed desktop layout (useLayoutEffect for SPA transitions)
+  useLayoutEffect(() => {
     const viewport = document.querySelector('meta[name="viewport"]');
     const originalContent = viewport?.getAttribute('content');
     
-    // Set fixed width viewport for deck pages
-    viewport?.setAttribute('content', 'width=1280, initial-scale=0.25, minimum-scale=0.25, maximum-scale=1, user-scalable=yes');
+    // Compute scale to fit 1280px canvas to screen width
+    const scale = Math.min(window.innerWidth / 1280, 1);
+    viewport?.setAttribute('content', `width=1280, initial-scale=${scale}, minimum-scale=${scale}, maximum-scale=5, user-scalable=yes, viewport-fit=cover`);
     
     return () => {
       // Restore original viewport on unmount
@@ -79,7 +80,8 @@ const Tether = () => {
   }, []);
 
   return (
-    <div className="bg-black min-h-screen w-[1280px] max-w-[1280px] overflow-x-hidden" dir={isRTL ? "rtl" : "ltr"}>
+    <div className="w-screen overflow-x-hidden bg-black" dir={isRTL ? "rtl" : "ltr"}>
+      <div className="w-[1280px] mx-auto min-h-screen">
       {/* Progress bar */}
       <motion.div
         className="fixed bottom-0 left-0 h-[3px] bg-white/30 origin-left z-50"
@@ -577,6 +579,7 @@ const Tether = () => {
           </motion.div>
         </motion.div>
       </Slide>
+      </div>
     </div>
   );
 };
