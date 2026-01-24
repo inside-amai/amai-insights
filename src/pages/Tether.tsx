@@ -109,17 +109,16 @@ const Tether = () => {
           </motion.h1>
           
           {/* Subheadline */}
-          <motion.div
-            className="text-base md:text-xl text-white/50 font-light leading-relaxed max-w-2xl text-center mx-auto"
+          <motion.p
+            className="text-base md:text-xl text-white/50 font-light leading-relaxed max-w-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <p>Accountability</p>
-            <p>Transparency</p>
-            <p>Trust</p>
-            <p className="mt-6 text-white/70">That is AMAI</p>
-          </motion.div>
+            {t('tether.slide1.subheadline1')}
+            <br /><br />
+            {t('tether.slide1.subheadline2')}
+          </motion.p>
         </motion.div>
       </Slide>
 
