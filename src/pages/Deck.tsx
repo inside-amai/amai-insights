@@ -1,5 +1,4 @@
 import { motion, useScroll } from "framer-motion";
-import { useEffect } from "react";
 import amaiLogo from "@/assets/amai-logo-hero-new.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -36,7 +35,7 @@ const Slide = ({ children, className = "", align = "center", slideNumber, totalS
         />
       )}
       
-      <div className={`relative z-10 w-full max-w-6xl mx-auto px-24 pb-16 ${
+      <div className={`relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-8 md:px-16 lg:px-24 pb-12 md:pb-16 ${
         align === "left" ? "" : ""
       }`}>
         {children}
@@ -44,13 +43,13 @@ const Slide = ({ children, className = "", align = "center", slideNumber, totalS
       
       {/* Page number */}
       {slideNumber && (
-        <div className={`absolute bottom-10 ${isRTL ? 'left-12' : 'right-12'} text-[10px] tracking-[0.2em] text-white/50 font-medium`}>
+        <div className={`absolute bottom-6 md:bottom-10 ${isRTL ? 'left-4 md:left-12' : 'right-4 md:right-12'} text-[10px] tracking-[0.2em] text-white/50 font-medium`}>
           {String(slideNumber).padStart(2, '0')} / {String(totalSlides).padStart(2, '0')}
         </div>
       )}
       
       {/* Footer branding */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.2em] uppercase text-white/20 font-medium">
+      <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.2em] uppercase text-white/20 font-medium">
         {t('deck.footer')}
       </div>
     </section>
@@ -62,24 +61,8 @@ const Deck = () => {
   const { t, language } = useLanguage();
   const isRTL = language === 'ar';
 
-  // Override viewport for fixed desktop layout
-  useEffect(() => {
-    const viewport = document.querySelector('meta[name="viewport"]');
-    const originalContent = viewport?.getAttribute('content');
-    
-    // Set fixed width viewport for deck pages
-    viewport?.setAttribute('content', 'width=1280, initial-scale=0.5, user-scalable=yes');
-    
-    return () => {
-      // Restore original viewport on unmount
-      if (originalContent) {
-        viewport?.setAttribute('content', originalContent);
-      }
-    };
-  }, []);
-
   return (
-    <div className="bg-black min-h-screen min-w-[1280px]" dir={isRTL ? "rtl" : "ltr"}>
+    <div className="bg-black min-h-screen" dir={isRTL ? "rtl" : "ltr"}>
       {/* Progress bar */}
       <motion.div
         className="fixed bottom-0 left-0 h-[3px] bg-white/30 origin-left z-50"
@@ -115,7 +98,7 @@ const Deck = () => {
           
           {/* Headline */}
           <motion.h1
-            className="text-7xl text-white mb-10 leading-[1.1]"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-6 md:mb-10 leading-[1.1]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -127,7 +110,7 @@ const Deck = () => {
           
           {/* Subheadline */}
           <motion.p
-            className="text-xl text-white/50 font-light leading-relaxed max-w-2xl"
+            className="text-base md:text-xl text-white/50 font-light leading-relaxed max-w-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -161,7 +144,7 @@ const Deck = () => {
           
           {/* Headline */}
           <motion.h2
-            className="text-6xl font-light text-white mb-16 leading-[1.15]"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 md:mb-16 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -246,7 +229,7 @@ const Deck = () => {
           
           {/* Headline */}
           <motion.h2
-            className="text-6xl font-light text-white mb-12 leading-[1.15]"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 md:mb-12 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -257,7 +240,7 @@ const Deck = () => {
           
           {/* Body copy */}
           <motion.div
-            className="space-y-4 text-lg text-white/50 font-light leading-relaxed mb-12"
+            className="space-y-4 text-base md:text-lg text-white/50 font-light leading-relaxed mb-8 md:mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
@@ -269,7 +252,7 @@ const Deck = () => {
           
           {/* Four pillars */}
           <motion.div
-            className="grid grid-cols-2 gap-8 mb-16"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8 mb-10 md:mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -339,7 +322,7 @@ const Deck = () => {
           
           {/* Headline */}
           <motion.h2
-            className="text-6xl font-light text-white mb-16 leading-[1.15]"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 md:mb-16 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -350,14 +333,14 @@ const Deck = () => {
           
           {/* Diagram */}
           <motion.div
-            className="relative mb-16"
+            className="relative mb-8 md:mb-16 overflow-x-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
             {/* Main flow row */}
-            <div className={`flex flex-nowrap items-center justify-center gap-3 text-xs text-white/70 ${isRTL ? 'flex-row-reverse' : ''}`}>
+            <div className={`flex flex-wrap md:flex-nowrap items-center justify-center gap-2 md:gap-3 text-xs text-white/70 ${isRTL ? 'flex-row-reverse' : ''}`}>
               {[
                 t('deck.slide4.step.identity'),
                 t('deck.slide4.step.reputation'),
@@ -365,8 +348,8 @@ const Deck = () => {
                 t('deck.slide4.step.execution'),
                 t('deck.slide4.step.settlement')
               ].map((step, i, arr) => (
-                <div key={i} className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                  <span className="px-4 py-2.5 border border-white/20 rounded bg-black whitespace-nowrap tracking-wide">
+                <div key={i} className={`flex items-center gap-2 md:gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                  <span className="px-3 md:px-4 py-2 md:py-2.5 border border-white/20 rounded bg-black whitespace-nowrap tracking-wide text-[10px] md:text-xs">
                     {step}
                   </span>
                   {i < arr.length - 1 && (
@@ -406,7 +389,7 @@ const Deck = () => {
           
           {/* Explanatory text */}
           <motion.div
-            className="text-base text-white/50 font-light leading-relaxed max-w-2xl mx-auto space-y-1"
+            className="text-sm md:text-base text-white/50 font-light leading-relaxed max-w-2xl mx-auto space-y-1"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -452,7 +435,7 @@ const Deck = () => {
           </motion.p>
           
           <motion.h2
-            className="text-6xl font-light text-white mb-8 leading-[1.15]"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-6 md:mb-8 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -511,8 +494,8 @@ const Deck = () => {
           className="max-w-3xl"
         >
           <motion.p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }}>{t('deck.slide6.label')}</motion.p>
-          <motion.h2 className="text-6xl font-light text-white mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>{t('deck.slide6.headline')}</motion.h2>
-          <motion.p className="text-lg text-white/50 font-light leading-relaxed mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} viewport={{ once: true }}>{t('deck.slide6.body')}</motion.p>
+          <motion.h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 md:mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>{t('deck.slide6.headline')}</motion.h2>
+          <motion.p className="text-base md:text-lg text-white/50 font-light leading-relaxed mb-6 md:mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} viewport={{ once: true }}>{t('deck.slide6.body')}</motion.p>
           <motion.div className="space-y-3 mb-12" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
             {[t('deck.slide6.point1'), t('deck.slide6.point2'), t('deck.slide6.point3')].map((item, i) => (
               <div key={i} className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
@@ -528,15 +511,15 @@ const Deck = () => {
       <Slide align="left" slideNumber={7} isRTL={isRTL}>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true, margin: "-100px" }} className="max-w-3xl">
           <motion.p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }}>{t('deck.slide7.label')}</motion.p>
-          <motion.h2 className="text-6xl font-light text-white mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>{t('deck.slide7.headline')}</motion.h2>
-          <motion.div className="space-y-4 text-lg text-white/50 font-light leading-relaxed mb-12" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} viewport={{ once: true }}><p>{t('deck.slide7.body')}</p></motion.div>
-          <motion.div className="grid grid-cols-2 gap-8 mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
+          <motion.h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 md:mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>{t('deck.slide7.headline')}</motion.h2>
+          <motion.div className="space-y-4 text-base md:text-lg text-white/50 font-light leading-relaxed mb-8 md:mb-12" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} viewport={{ once: true }}><p>{t('deck.slide7.body')}</p></motion.div>
+          <motion.div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8 mb-10 md:mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
             <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}><p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide7.pillar1.title')}</p><p className="text-sm text-white/70 font-light leading-relaxed">{t('deck.slide7.pillar1.desc')}</p></div>
             <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}><p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide7.pillar2.title')}</p><p className="text-sm text-white/70 font-light leading-relaxed">{t('deck.slide7.pillar2.desc')}</p></div>
             <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}><p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide7.pillar3.title')}</p><p className="text-sm text-white/70 font-light leading-relaxed">{t('deck.slide7.pillar3.desc')}</p></div>
             <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}><p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide7.pillar4.title')}</p><p className="text-sm text-white/70 font-light leading-relaxed">{t('deck.slide7.pillar4.desc')}</p></div>
           </motion.div>
-          <motion.p className="text-lg text-white/50 font-light leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} viewport={{ once: true }}>{t('deck.slide7.closing')}</motion.p>
+          <motion.p className="text-base md:text-lg text-white/50 font-light leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} viewport={{ once: true }}>{t('deck.slide7.closing')}</motion.p>
         </motion.div>
       </Slide>
 
@@ -544,8 +527,8 @@ const Deck = () => {
       <Slide align="left" slideNumber={8} isRTL={isRTL}>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true, margin: "-100px" }} className="max-w-3xl">
           <motion.p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }}>{t('deck.slide8.label')}</motion.p>
-          <motion.h2 className="text-6xl font-light text-white mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>{t('deck.slide8.headline')}</motion.h2>
-          <motion.p className="text-lg text-white/50 font-light leading-relaxed mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} viewport={{ once: true }}>{t('deck.slide8.body')}</motion.p>
+          <motion.h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 md:mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>{t('deck.slide8.headline')}</motion.h2>
+          <motion.p className="text-base md:text-lg text-white/50 font-light leading-relaxed mb-6 md:mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} viewport={{ once: true }}>{t('deck.slide8.body')}</motion.p>
           <motion.div className="space-y-3 mb-12" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
             {[t('deck.slide8.point1'), t('deck.slide8.point2'), t('deck.slide8.point3'), t('deck.slide8.point4')].map((item, i) => (
               <div key={i} className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
@@ -554,21 +537,21 @@ const Deck = () => {
               </div>
             ))}
           </motion.div>
-          <motion.p className="text-lg text-white/50 font-light leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} viewport={{ once: true }}>{t('deck.slide8.body2')}</motion.p>
-          <motion.p className="mt-14 text-lg text-white/70 font-normal leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }} viewport={{ once: true }}>{t('deck.slide8.closing')}</motion.p>
+          <motion.p className="text-base md:text-lg text-white/50 font-light leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} viewport={{ once: true }}>{t('deck.slide8.body2')}</motion.p>
+          <motion.p className="mt-8 md:mt-14 text-base md:text-lg text-white/70 font-normal leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }} viewport={{ once: true }}>{t('deck.slide8.closing')}</motion.p>
         </motion.div>
       </Slide>
 
       {/* Slide 9: Closing */}
       <Slide slideNumber={9} isRTL={isRTL}>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1.2 }} viewport={{ once: true, margin: "-100px" }} className="max-w-3xl mx-auto text-center">
-          <motion.h2 className="text-7xl font-light text-white mb-16 leading-[1.1]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }} viewport={{ once: true }}>{t('deck.slide9.headline')}</motion.h2>
-          <motion.div className="space-y-6 text-lg text-white/50 font-light leading-relaxed mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
+          <motion.h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-10 md:mb-16 leading-[1.1]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }} viewport={{ once: true }}>{t('deck.slide9.headline')}</motion.h2>
+          <motion.div className="space-y-4 md:space-y-6 text-base md:text-lg text-white/50 font-light leading-relaxed mb-10 md:mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
             <p>{t('deck.slide9.body1')}<br />{t('deck.slide9.body2')}</p>
             <p className="text-white/60">{t('deck.slide9.body3')}</p>
           </motion.div>
-          <motion.div className={`flex flex-row items-center justify-center gap-4 ${isRTL ? 'flex-row-reverse' : ''}`} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }} viewport={{ once: true }}>
-            <a href="https://youtu.be/k43rEn8N7qE" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 rounded text-xs tracking-[0.15em] uppercase text-white/70 hover:text-white hover:border-white/40 transition-all duration-300">
+          <motion.div className={`flex flex-col sm:flex-row items-center justify-center gap-4 ${isRTL ? 'sm:flex-row-reverse' : ''}`} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }} viewport={{ once: true }}>
+            <a href="https://youtu.be/k43rEn8N7qE" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 border border-white/20 rounded text-xs tracking-[0.15em] uppercase text-white/70 hover:text-white hover:border-white/40 transition-all duration-300">
               {t('deck.slide9.cta1')}<span>{isRTL ? '←' : '→'}</span>
             </a>
             <a href="/" className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300">
