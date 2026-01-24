@@ -186,7 +186,7 @@ const Tether = () => {
             {/* Point 3 */}
             <div>
               <p className="text-sm md:text-base text-white/80 font-medium mb-2">
-                {t('deck.slide2.point3.title')}
+                3. This is the unresolved layer.
               </p>
               <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">
                 {t('deck.slide2.point3.body')}
