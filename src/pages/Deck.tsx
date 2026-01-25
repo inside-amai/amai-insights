@@ -593,7 +593,7 @@ const Deck = () => {
               ))}
             </div>
             <motion.p 
-              className="mt-6 text-xl md:text-2xl text-white font-medium"
+              className="mt-6 text-xl md:text-2xl text-white/70 font-medium"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 1.2 }}
