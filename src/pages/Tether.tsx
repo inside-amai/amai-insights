@@ -629,9 +629,9 @@ const Tether = () => {
               <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-4">What's missing</p>
               <div className="space-y-3">
                 {[
+                  'Identity and behavioral history',
                   'Agent reputation',
                   'Protocol access control',
-                  'Behavioral history',
                   'Institutional-grade enforcement'
                 ].map((item, i) => (
                   <div key={i} className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
