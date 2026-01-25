@@ -756,7 +756,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     'deck.slide2.label': 'The Shift',
     'deck.slide2.headline1': 'The Next Billion Users of the Internet Will Not Be People,',
-    'deck.slide2.headline2': 'But Autonomous Agents.',
+    'deck.slide2.headline2': 'But Autonomous Systems.',
     'deck.slide2.point1.title': '1. Agents already operate.',
     'deck.slide2.point1.body': 'Software agents now make decisions, execute instructions, and interact directly with financial systems at scale.',
     'deck.slide2.point2.title': '2. They lack economic standing.',
@@ -851,7 +851,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     'tether.slide2.label': 'The Shift',
     'tether.slide2.headline1': 'The Next Billion Users of the Internet Will Not Be People,',
-    'tether.slide2.headline2': 'But Autonomous Agents.',
+    'tether.slide2.headline2': 'But Autonomous Systems.',
     'tether.slide2.point1.title': '1. Agents already operate.',
     'tether.slide2.point1.body': 'Software agents now make decisions, execute instructions, and interact directly with financial systems at scale.',
     'tether.slide2.point2.title': '2. They lack economic standing.',
