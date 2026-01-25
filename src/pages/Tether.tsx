@@ -628,12 +628,12 @@ const Tether = () => {
             <div className={`md:col-span-2 ${isRTL ? 'md:col-start-1' : ''}`}>
               <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-4">What's missing</p>
               <div className="space-y-3">
-                {[
-                  'Identity and behavioral history',
-                  'Agent reputation',
-                  'Protocol access control',
-                  'Institutional-grade enforcement'
-                ].map((item, i) => (
+{[
+                    'Identity and behavioral history',
+                    'Agent reputation',
+                    'Protocol access control',
+                    'Economic enforcement through staking, slashing and bonding'
+                  ].map((item, i) => (
                   <div key={i} className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                     <span className="text-white/20 text-sm mt-0.5">—</span>
                     <p className="text-base text-white/50 font-light leading-relaxed">{item}</p>
