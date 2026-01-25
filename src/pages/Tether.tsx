@@ -13,7 +13,7 @@ interface SlideProps {
   isRTL?: boolean;
 }
 
-const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 9, isRTL = false, hideGrid = false }: SlideProps & { hideGrid?: boolean }) => {
+const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 10, isRTL = false, hideGrid = false }: SlideProps & { hideGrid?: boolean }) => {
   const { t } = useLanguage();
   
   return (
@@ -567,8 +567,119 @@ const Tether = () => {
         </motion.div>
       </Slide>
 
-      {/* Slide 9: Closing */}
-      <Slide slideNumber={9} isRTL={isRTL}>
+      {/* Slide 9: The Missing Layer */}
+      <Slide align="left" slideNumber={9} isRTL={isRTL}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true, margin: "0px" }}
+          className="max-w-4xl"
+        >
+          {/* Micro-label */}
+          <motion.p
+            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            The Missing Layer
+          </motion.p>
+          
+          {/* Headline */}
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 md:mb-12 leading-[1.15]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            The Missing Layer in Tether's AI Stack
+          </motion.h2>
+          
+          {/* Two-column layout */}
+          <motion.div
+            className={`grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 mb-10 md:mb-16 ${isRTL ? 'md:grid-flow-dense' : ''}`}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            {/* Left column - wider (3/5) */}
+            <div className={`md:col-span-3 ${isRTL ? 'md:col-start-3' : ''}`}>
+              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-4">Tether has built the rails</p>
+              <div className="space-y-3">
+                {[
+                  'Wallets for humans, machines, agents',
+                  'Bitcoin and stablecoin payments',
+                  'AI runtimes and local-first compute',
+                  'Omnichain settlement and RWAs'
+                ].map((item, i) => (
+                  <div key={i} className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                    <span className="text-white/20 text-sm mt-0.5">—</span>
+                    <p className="text-base text-white/50 font-light leading-relaxed">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Right column - narrower (2/5) */}
+            <div className={`md:col-span-2 ${isRTL ? 'md:col-start-1' : ''}`}>
+              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-4">What's missing</p>
+              <div className="space-y-3">
+                {[
+                  'Agent reputation',
+                  'Protocol access control',
+                  'Behavioral history',
+                  'Economic enforcement',
+                  'Institutional agent identity'
+                ].map((item, i) => (
+                  <div key={i} className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                    <span className="text-white/20 text-sm mt-0.5">—</span>
+                    <p className="text-base text-white/50 font-light leading-relaxed">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+          
+          {/* Full-width divider line */}
+          <motion.div
+            className="w-full h-px bg-white/10 mb-8"
+            initial={{ opacity: 0, scaleX: 0 }}
+            whileInView={{ opacity: 1, scaleX: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+          />
+          
+          {/* Bottom full-width text */}
+          <motion.p
+            className="text-lg md:text-xl text-white/70 font-normal leading-relaxed mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            viewport={{ once: true }}
+          >
+            AMAI is the trust and accountability layer for autonomous agents at scale.
+          </motion.p>
+          
+          {/* Bottom callout - smaller text */}
+          <motion.div
+            className="text-sm text-white/40 font-light leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <p>Wallets let agents transact.</p>
+            <p>Trust lets agents participate.</p>
+          </motion.div>
+        </motion.div>
+      </Slide>
+
+      {/* Slide 10: Closing */}
+      <Slide slideNumber={10} isRTL={isRTL}>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1.2 }} viewport={{ once: true, margin: "0px" }} className="max-w-3xl mx-auto text-center">
           <motion.h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-10 md:mb-16 leading-[1.1]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }} viewport={{ once: true }}>{t('tether.slide9.headline')}</motion.h2>
           <motion.div className="text-base md:text-lg text-white/50 font-light leading-relaxed mb-10 md:mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
