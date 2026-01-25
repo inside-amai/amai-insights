@@ -813,7 +813,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     'deck.slide7.label': 'Token Model',
     'deck.slide7.headline': 'AMAI Is the Enforcement and Trust Denominator.',
-    'deck.slide7.body': 'The AMAI token functions as the unified enforcement and trust layer across the system.',
+    'deck.slide7.body': 'The AMAI token functions as the unified trust layer across the system.',
     'deck.slide7.pillar1.title': 'Reputation Governance',
     'deck.slide7.pillar1.desc': 'Computes reputation state and governs permissions across agents',
     'deck.slide7.pillar2.title': 'Capital Safety',
