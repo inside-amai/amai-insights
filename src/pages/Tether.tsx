@@ -681,9 +681,36 @@ const Tether = () => {
       <Slide slideNumber={10} isRTL={isRTL}>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1.2 }} viewport={{ once: true, margin: "0px" }} className="max-w-3xl mx-auto text-center">
           <motion.h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-10 md:mb-16 leading-[1.1]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }} viewport={{ once: true }}>{t('tether.slide9.headline')}</motion.h2>
-          <motion.div className="text-base md:text-lg text-white/50 font-light leading-relaxed mb-10 md:mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
-            <p>Accountability — Trust — Transparency</p>
-            <p className="text-white/60 font-bold mt-6">That is AMAI</p>
+          <motion.div 
+            className="flex flex-col items-center gap-3 mb-10 md:mb-16" 
+            initial={{ opacity: 0 }} 
+            whileInView={{ opacity: 1 }} 
+            transition={{ duration: 0.8, delay: 0.6 }} 
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center justify-center gap-6 md:gap-10">
+              {['Accountability', 'Trust', 'Transparency'].map((word, i) => (
+                <motion.span
+                  key={word}
+                  className="text-sm md:text-base tracking-[0.2em] uppercase text-white/50 font-light"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.7 + i * 0.15 }}
+                  viewport={{ once: true }}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </div>
+            <motion.p 
+              className="text-white/70 font-medium text-lg md:text-xl mt-4"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 1.2 }}
+              viewport={{ once: true }}
+            >
+              That is AMAI
+            </motion.p>
           </motion.div>
           <motion.div className={`flex flex-col sm:flex-row items-center justify-center gap-4 ${isRTL ? 'sm:flex-row-reverse' : ''}`} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }} viewport={{ once: true }}>
             <a href="https://youtu.be/k43rEn8N7qE" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-black border border-white/20 rounded text-xs tracking-[0.15em] uppercase text-white/70 hover:text-white hover:border-white/40 transition-all duration-300">
