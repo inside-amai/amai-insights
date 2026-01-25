@@ -665,7 +665,7 @@ const Tether = () => {
           
           {/* Bottom callout - smaller text */}
           <motion.div
-            className="text-sm text-white/40 font-light leading-relaxed"
+            className="text-base md:text-lg text-white/40 font-light leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
