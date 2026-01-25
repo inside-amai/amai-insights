@@ -688,7 +688,7 @@ const Tether = () => {
             transition={{ duration: 0.8, delay: 0.6 }} 
             viewport={{ once: true }}
           >
-            <div className="flex items-center justify-center gap-6 md:gap-10">
+            <div className="flex items-center justify-center gap-3 md:gap-5">
               {['Accountability', 'Trust', 'Transparency'].map((word, i) => (
                 <motion.span
                   key={word}
