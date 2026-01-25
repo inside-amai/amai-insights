@@ -632,7 +632,7 @@ const Tether = () => {
                     'Identity and behavioral history',
                     'Agent reputation',
                     'Protocol access control',
-                    'Economic enforcement through staking, slashing and bonding'
+                    'Economic enforcement'
                   ].map((item, i) => (
                   <div key={i} className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                     <span className="text-white/20 text-sm mt-0.5">—</span>
