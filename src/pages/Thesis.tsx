@@ -150,7 +150,7 @@ const Thesis = () => {
               href="#slide-2"
               onClick={(e) => {
                 e.preventDefault();
-                document.querySelector('section:nth-of-type(2)')?.scrollIntoView({ behavior: 'smooth' });
+                document.getElementById('slide-2')?.scrollIntoView({ behavior: 'smooth' });
               }}
               className="text-sm text-white/70 hover:text-white border border-white/20 hover:border-white/40 px-6 py-3 rounded transition-all duration-300 uppercase tracking-[0.15em] text-center"
             >
@@ -170,7 +170,8 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* Slide 2: The Infrastructure Gap */}
-      <Slide slideNumber={2} isRTL={isRTL}>
+      <div id="slide-2">
+        <Slide slideNumber={2} isRTL={isRTL}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -251,6 +252,7 @@ const Thesis = () => {
           </motion.div>
         </motion.div>
       </Slide>
+      </div>
 
       <SlideDivider />
 
