@@ -78,11 +78,11 @@ const TetherPartnershipVisualization = () => {
       <div className="relative z-10 flex flex-col items-center justify-center h-full py-8 md:py-12">
         
         {/* Dual Node Architecture */}
-        <div className="w-full flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0 mb-8 md:mb-12">
+        <div className="w-full flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0 mb-8 md:mb-12 relative z-30">
           
           {/* Tether Infrastructure Node */}
           <motion.div
-            className="relative cursor-pointer"
+            className="relative cursor-pointer z-40"
             whileHover={{ scale: 1.02 }}
             onClick={() => setActiveNode(activeNode === 'tether' ? null : 'tether')}
           >
@@ -109,7 +109,7 @@ const TetherPartnershipVisualization = () => {
                   initial={{ opacity: 0, y: 10, scale: 0.95 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                  className="absolute top-full left-0 mt-3 w-[200px] md:w-[240px] p-4 rounded-sm border border-white/10 bg-black/90 backdrop-blur-md z-20"
+                  className="absolute top-full left-0 mt-3 w-[200px] md:w-[240px] p-4 rounded-sm border border-white/10 bg-black/95 backdrop-blur-md z-50"
                 >
                   <p className="text-[10px] tracking-[0.15em] uppercase text-white/30 mb-2">Settlement Layer</p>
                   <div className="space-y-2 text-[11px] text-white/50 font-light">
@@ -167,7 +167,7 @@ const TetherPartnershipVisualization = () => {
 
           {/* AMAI Governance Node */}
           <motion.div
-            className="relative cursor-pointer"
+            className="relative cursor-pointer z-40"
             whileHover={{ scale: 1.02 }}
             onClick={() => setActiveNode(activeNode === 'amai' ? null : 'amai')}
             onMouseEnter={() => setHoveredShield(true)}
@@ -232,7 +232,7 @@ const TetherPartnershipVisualization = () => {
                   initial={{ opacity: 0, y: 10, scale: 0.95 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                  className="absolute top-full right-0 mt-3 w-[200px] md:w-[240px] p-4 rounded-sm border border-white/10 bg-black/90 backdrop-blur-md z-20"
+                  className="absolute top-full right-0 mt-3 w-[200px] md:w-[240px] p-4 rounded-sm border border-white/10 bg-black/95 backdrop-blur-md z-50"
                 >
                   <p className="text-[10px] tracking-[0.15em] uppercase text-white/30 mb-2">Economic Layer</p>
                   <div className="space-y-2 text-[11px] text-white/50 font-light">
