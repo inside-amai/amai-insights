@@ -585,55 +585,55 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* Slide 8: Why Tether */}
+      {/* Slide 8: Strategic Synergy */}
       <Slide align="left" slideNumber={8} isRTL={isRTL}>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true, margin: "0px" }} className="max-w-3xl">
-          <motion.p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }}>{t('tether.slide8.label')}</motion.p>
-          <motion.h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 md:mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>{t('tether.slide8.headline')}</motion.h2>
+          <motion.p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }}>STRATEGIC SYNERGY</motion.p>
+          <motion.h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 md:mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>The Physical Layer of Machine Commerce.</motion.h2>
           
           {/* Intro paragraph */}
           <motion.p className="text-base md:text-lg text-white/50 font-light leading-relaxed mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} viewport={{ once: true }}>
-            {t('tether.slide8.intro')}
+            Autonomous systems require more than just intelligence; they require resilient liquidity and hardware rails that operate outside of discretionary control. AMAI provides the economic logic required to govern these assets at machine speed.
           </motion.p>
           
           {/* Sovereign Infrastructure */}
           <motion.div className="mb-8" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.55 }} viewport={{ once: true }}>
-            <p className="text-base text-white/70 font-medium mb-2">{t('tether.slide8.sovereign.title')}</p>
+            <p className="text-base text-white/70 font-medium mb-2">Sovereign Infrastructure</p>
             <p className="text-base text-white/50 font-light leading-relaxed">
-              {t('tether.slide8.sovereign.desc')}
+              To operate beyond jurisdictions and centralized gates, the machine economy must be built on a neutral, decentralized substrate. We provide the governance layer for global agentic activity.
             </p>
           </motion.div>
           
           {/* Economic Skin-in-the-Game */}
           <motion.div className="mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
-            <p className="text-base text-white/70 font-medium mb-2">{t('tether.slide8.skin.title')}</p>
+            <p className="text-base text-white/70 font-medium mb-2">Economic Skin-in-the-Game</p>
             <p className="text-base text-white/50 font-light leading-relaxed">
-              {t('tether.slide8.skin.desc')}
+              AMAI's Bonded Treasury Layer requires stable, high-fidelity liquidity to function as collateral. By backing agents with deep-pool digital assets, we establish immediate and enforceable economic accountability.
             </p>
           </motion.div>
           
           {/* The Resilience Loop */}
           <motion.div className="mb-12" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.65 }} viewport={{ once: true }}>
-            <p className="text-base text-white/70 font-medium mb-4">{t('tether.slide8.loop.title')}</p>
+            <p className="text-base text-white/70 font-medium mb-4">The Resilience Loop</p>
             <div className="space-y-3">
               <div className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <span className="text-white/20 text-sm mt-0.5">—</span>
-                <p className="text-base text-white/50 font-light leading-relaxed"><span className="text-white/70">{t('tether.slide8.loop.neutrality')}</span> {t('tether.slide8.loop.neutrality.desc')}</p>
+                <p className="text-base text-white/50 font-light leading-relaxed"><span className="text-white/70">Neutrality:</span> Execution remains independent of legacy banking hours or proprietary custodial intermediaries.</p>
               </div>
               <div className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <span className="text-white/20 text-sm mt-0.5">—</span>
-                <p className="text-base text-white/50 font-light leading-relaxed"><span className="text-white/70">{t('tether.slide8.loop.continuity')}</span> {t('tether.slide8.loop.continuity.desc')}</p>
+                <p className="text-base text-white/50 font-light leading-relaxed"><span className="text-white/70">Continuity:</span> 24/7/365 deterministic settlement ensures capital and compute remain liquid at all times.</p>
               </div>
               <div className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <span className="text-white/20 text-sm mt-0.5">—</span>
-                <p className="text-base text-white/50 font-light leading-relaxed"><span className="text-white/70">{t('tether.slide8.loop.scalability')}</span> {t('tether.slide8.loop.scalability.desc')}</p>
+                <p className="text-base text-white/50 font-light leading-relaxed"><span className="text-white/70">Scalability:</span> Aligning global GPU footprints with AMAI's swarm orchestration to power the "Physical AI" transition.</p>
               </div>
             </div>
           </motion.div>
           
           {/* Closing statement */}
           <motion.p className="text-base md:text-lg text-white/70 font-normal leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.75 }} viewport={{ once: true }}>
-            {t('tether.slide8.closing')}
+            AMAI is the enforcement engine for the sovereign machine economy.
           </motion.p>
         </motion.div>
       </Slide>
