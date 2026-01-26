@@ -491,7 +491,7 @@ const Tether = () => {
           >
             {[t('tether.slide5.point1'), t('tether.slide5.point2'), t('tether.slide5.point3')].map((item, i) => (
               <div key={i} className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                <span className="text-white/20 text-sm mt-0.5">—</span>
+                <span className="text-white/30 text-sm font-medium mt-0.5 w-4">{i + 1}.</span>
                 <p className="text-base text-white/50 font-light leading-relaxed">{item}</p>
               </div>
             ))}
