@@ -39,6 +39,16 @@ export const SiteHeader = () => {
 
           {/* Navigation + Language Selector */}
           <div className="pointer-events-auto flex items-center gap-4 text-[11px] tracking-wide">
+            {/* Contact Link - hidden on /deck and /tether */}
+            {!isDeckPage && (
+              <a 
+                href="mailto:team@amai.net"
+                className="text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase"
+              >
+                Contact
+              </a>
+            )}
+            
             {/* Navigation Link - hidden on /deck and /tether */}
             {!isDeckPage && (
               <Link 
