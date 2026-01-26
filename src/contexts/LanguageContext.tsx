@@ -992,6 +992,23 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide13.tagline': 'That is AMAI',
     'tether.slide13.cta1': 'View System Demo',
     'tether.slide13.cta2': 'Explore the Architecture',
+    
+    // Thesis page translations
+    'thesis.slide8.label': 'STRATEGIC SYNERGY',
+    'thesis.slide8.headline': 'The Physical Layer of Machine Commerce.',
+    'thesis.slide8.intro': 'Autonomous systems require more than just intelligence; they require resilient liquidity and hardware rails that operate outside of discretionary control. AMAI provides the economic logic required to govern these assets at machine speed.',
+    'thesis.slide8.sovereign.title': 'Sovereign Infrastructure',
+    'thesis.slide8.sovereign.desc': 'To operate beyond jurisdictions and centralized gates, the machine economy must be built on a neutral, decentralized substrate. We provide the governance layer for global agentic activity.',
+    'thesis.slide8.skin.title': 'Economic Skin-in-the-Game',
+    'thesis.slide8.skin.desc': "AMAI's Bonded Treasury Layer requires stable, high-fidelity liquidity to function as collateral. By backing agents with deep-pool digital assets, we establish immediate and enforceable economic accountability.",
+    'thesis.slide8.loop.title': 'The Resilience Loop',
+    'thesis.slide8.loop.neutrality': 'Neutrality:',
+    'thesis.slide8.loop.neutrality.desc': 'Execution remains independent of legacy banking hours or proprietary custodial intermediaries.',
+    'thesis.slide8.loop.continuity': 'Continuity:',
+    'thesis.slide8.loop.continuity.desc': '24/7/365 deterministic settlement ensures capital and compute remain liquid at all times.',
+    'thesis.slide8.loop.scalability': 'Scalability:',
+    'thesis.slide8.loop.scalability.desc': 'Aligning global GPU footprints with AMAI\'s swarm orchestration to power the "Physical AI" transition.',
+    'thesis.slide8.closing': 'AMAI is the enforcement engine for the sovereign machine economy.',
   },
   ja: {
     // Hero section (subheader only - NOT the headline)
@@ -1974,6 +1991,23 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide13.tagline': 'それがAMAI',
     'tether.slide13.cta1': 'システムデモを見る',
     'tether.slide13.cta2': '設計を探索',
+    
+    // Thesis page translations (Japanese)
+    'thesis.slide8.label': '戦略的相乗効果',
+    'thesis.slide8.headline': '機械商取引の物理層。',
+    'thesis.slide8.intro': '自律システムは知能だけでなく、裁量的管理の外で稼働する強靭な流動性とハードウェア基盤を必要とする。AMAIはこれらの資産を機械速度で統治するために必要な経済論理を提供する。',
+    'thesis.slide8.sovereign.title': '主権的基盤',
+    'thesis.slide8.sovereign.desc': '司法管轄や中央集権的ゲートを超えて運用するため、機械経済は中立的・分散型の基盤上に構築されなければならない。我々はグローバルなエージェント活動の統治層を提供する。',
+    'thesis.slide8.skin.title': '経済的利害一致',
+    'thesis.slide8.skin.desc': 'AMAIの担保金庫層は、担保として機能するための安定した高忠実度の流動性を必要とする。深いプールのデジタル資産でエージェントを裏付けることで、即座かつ強制力のある経済的説明責任を確立する。',
+    'thesis.slide8.loop.title': '強靭性ループ',
+    'thesis.slide8.loop.neutrality': '中立性：',
+    'thesis.slide8.loop.neutrality.desc': '実行はレガシー銀行営業時間や専有的カストディ仲介者から独立して維持される。',
+    'thesis.slide8.loop.continuity': '継続性：',
+    'thesis.slide8.loop.continuity.desc': '24時間365日の決定論的決済により、資本と計算資源が常に流動的に保たれる。',
+    'thesis.slide8.loop.scalability': '拡張性：',
+    'thesis.slide8.loop.scalability.desc': 'グローバルGPUフットプリントをAMAIのスウォーム・オーケストレーションと連携させ、「物理AI」への移行を推進する。',
+    'thesis.slide8.closing': 'AMAIは主権的機械経済のための執行エンジンである。',
   },
   ar: {
     // Hero section (subheader only - NOT the headline)
@@ -2956,6 +2990,23 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide13.tagline': 'هذا هو AMAI',
     'tether.slide13.cta1': 'عرض العرض التجريبي',
     'tether.slide13.cta2': 'استكشاف البنية المعمارية',
+    
+    // Thesis page translations (Arabic)
+    'thesis.slide8.label': 'التآزر الاستراتيجي',
+    'thesis.slide8.headline': 'الطبقة الفيزيائية للتجارة الآلية.',
+    'thesis.slide8.intro': 'تتطلب الأنظمة المستقلة أكثر من مجرد الذكاء؛ فهي تتطلب سيولة مرنة ومسارات عتاد تعمل خارج السيطرة التقديرية. توفر AMAI المنطق الاقتصادي اللازم لحوكمة هذه الأصول بسرعة الآلة.',
+    'thesis.slide8.sovereign.title': 'البنية التحتية السيادية',
+    'thesis.slide8.sovereign.desc': 'للعمل خارج الولايات القضائية والبوابات المركزية، يجب بناء اقتصاد الآلة على ركيزة محايدة ولامركزية. نحن نوفر طبقة الحوكمة للنشاط الوكالي العالمي.',
+    'thesis.slide8.skin.title': 'المصلحة الاقتصادية المشتركة',
+    'thesis.slide8.skin.desc': 'تتطلب طبقة الخزينة المضمونة في AMAI سيولة مستقرة وعالية الدقة لتعمل كضمان. من خلال دعم الوكلاء بأصول رقمية عميقة السيولة، نؤسس مساءلة اقتصادية فورية وقابلة للتنفيذ.',
+    'thesis.slide8.loop.title': 'حلقة المرونة',
+    'thesis.slide8.loop.neutrality': 'الحياد:',
+    'thesis.slide8.loop.neutrality.desc': 'يظل التنفيذ مستقلاً عن ساعات العمل المصرفية التقليدية أو الوسطاء الحفظيين المملوكين.',
+    'thesis.slide8.loop.continuity': 'الاستمرارية:',
+    'thesis.slide8.loop.continuity.desc': 'تضمن التسوية الحتمية على مدار الساعة طوال أيام السنة بقاء رأس المال والحوسبة سائلين في جميع الأوقات.',
+    'thesis.slide8.loop.scalability': 'قابلية التوسع:',
+    'thesis.slide8.loop.scalability.desc': 'مواءمة البصمات العالمية لوحدات GPU مع تنسيق أسراب AMAI لتشغيل الانتقال إلى "الذكاء الاصطناعي الفيزيائي".',
+    'thesis.slide8.closing': 'AMAI هو محرك الإنفاذ لاقتصاد الآلة السيادي.',
   }
 };
 
