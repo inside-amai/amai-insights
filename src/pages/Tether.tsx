@@ -791,47 +791,91 @@ const Tether = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            {/* Header row */}
-            <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12`}>
-              <p className="text-xs tracking-[0.2em] uppercase text-white/60 font-medium">{t('tether.slide10.col1.header')}</p>
-              <p className="text-xs tracking-[0.2em] uppercase text-white/60 font-medium">{t('tether.slide10.col2.header')}</p>
-            </div>
-            
-            {/* Row 1 */}
-            <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12`}>
-              <p className="text-base md:text-lg text-white/70 font-medium">{t('tether.slide10.risk1')}</p>
-              <div>
-                <p className="text-base text-white/70 font-medium mb-1">{t('tether.slide10.guardrail1.title')}</p>
-                <p className="text-base text-white/50 font-light leading-relaxed">{t('tether.slide10.guardrail1.desc')}</p>
+            {isMobile ? (
+              /* MOBILE: Paired card layout - each risk+guardrail grouped together */
+              <div className="space-y-8">
+                {/* Pair 1 */}
+                <div className="border-l-2 border-white/10 pl-4">
+                  <p className="text-[10px] tracking-[0.2em] uppercase text-white/40 mb-2">RISK</p>
+                  <p className="text-base text-white/70 font-medium mb-4">{t('tether.slide10.risk1')}</p>
+                  <p className="text-[10px] tracking-[0.2em] uppercase text-white/40 mb-2">GUARDRAIL</p>
+                  <p className="text-base text-white/70 font-medium mb-1">{t('tether.slide10.guardrail1.title')}</p>
+                  <p className="text-base text-white/50 font-light leading-relaxed">{t('tether.slide10.guardrail1.desc')}</p>
+                </div>
+                
+                {/* Pair 2 */}
+                <div className="border-l-2 border-white/10 pl-4">
+                  <p className="text-[10px] tracking-[0.2em] uppercase text-white/40 mb-2">RISK</p>
+                  <p className="text-base text-white/70 font-medium mb-4">{t('tether.slide10.risk2')}</p>
+                  <p className="text-[10px] tracking-[0.2em] uppercase text-white/40 mb-2">GUARDRAIL</p>
+                  <p className="text-base text-white/70 font-medium mb-1">{t('tether.slide10.guardrail2.title')}</p>
+                  <p className="text-base text-white/50 font-light leading-relaxed">{t('tether.slide10.guardrail2.desc')}</p>
+                </div>
+                
+                {/* Pair 3 */}
+                <div className="border-l-2 border-white/10 pl-4">
+                  <p className="text-[10px] tracking-[0.2em] uppercase text-white/40 mb-2">RISK</p>
+                  <p className="text-base text-white/70 font-medium mb-4">{t('tether.slide10.risk3')}</p>
+                  <p className="text-[10px] tracking-[0.2em] uppercase text-white/40 mb-2">GUARDRAIL</p>
+                  <p className="text-base text-white/70 font-medium mb-1">{t('tether.slide10.guardrail3.title')}</p>
+                  <p className="text-base text-white/50 font-light leading-relaxed">{t('tether.slide10.guardrail3.desc')}</p>
+                </div>
+                
+                {/* Pair 4 */}
+                <div className="border-l-2 border-white/10 pl-4">
+                  <p className="text-[10px] tracking-[0.2em] uppercase text-white/40 mb-2">RISK</p>
+                  <p className="text-base text-white/70 font-medium mb-4">{t('tether.slide10.risk4')}</p>
+                  <p className="text-[10px] tracking-[0.2em] uppercase text-white/40 mb-2">GUARDRAIL</p>
+                  <p className="text-base text-white/70 font-medium mb-1">{t('tether.slide10.guardrail4.title')}</p>
+                  <p className="text-base text-white/50 font-light leading-relaxed">{t('tether.slide10.guardrail4.desc')}</p>
+                </div>
               </div>
-            </div>
-            
-            {/* Row 2 */}
-            <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12`}>
-              <p className="text-base md:text-lg text-white/70 font-medium">{t('tether.slide10.risk2')}</p>
-              <div>
-                <p className="text-base text-white/70 font-medium mb-1">{t('tether.slide10.guardrail2.title')}</p>
-                <p className="text-base text-white/50 font-light leading-relaxed">{t('tether.slide10.guardrail2.desc')}</p>
-              </div>
-            </div>
-            
-            {/* Row 3 */}
-            <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12`}>
-              <p className="text-base md:text-lg text-white/70 font-medium">{t('tether.slide10.risk3')}</p>
-              <div>
-                <p className="text-base text-white/70 font-medium mb-1">{t('tether.slide10.guardrail3.title')}</p>
-                <p className="text-base text-white/50 font-light leading-relaxed">{t('tether.slide10.guardrail3.desc')}</p>
-              </div>
-            </div>
-            
-            {/* Row 4 */}
-            <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12`}>
-              <p className="text-base md:text-lg text-white/70 font-medium">{t('tether.slide10.risk4')}</p>
-              <div>
-                <p className="text-base text-white/70 font-medium mb-1">{t('tether.slide10.guardrail4.title')}</p>
-                <p className="text-base text-white/50 font-light leading-relaxed">{t('tether.slide10.guardrail4.desc')}</p>
-              </div>
-            </div>
+            ) : (
+              /* DESKTOP: Two-column grid layout */
+              <>
+                {/* Header row */}
+                <div className="grid grid-cols-2 gap-12">
+                  <p className="text-xs tracking-[0.2em] uppercase text-white/60 font-medium">{t('tether.slide10.col1.header')}</p>
+                  <p className="text-xs tracking-[0.2em] uppercase text-white/60 font-medium">{t('tether.slide10.col2.header')}</p>
+                </div>
+                
+                {/* Row 1 */}
+                <div className="grid grid-cols-2 gap-12">
+                  <p className="text-lg text-white/70 font-medium">{t('tether.slide10.risk1')}</p>
+                  <div>
+                    <p className="text-base text-white/70 font-medium mb-1">{t('tether.slide10.guardrail1.title')}</p>
+                    <p className="text-base text-white/50 font-light leading-relaxed">{t('tether.slide10.guardrail1.desc')}</p>
+                  </div>
+                </div>
+                
+                {/* Row 2 */}
+                <div className="grid grid-cols-2 gap-12">
+                  <p className="text-lg text-white/70 font-medium">{t('tether.slide10.risk2')}</p>
+                  <div>
+                    <p className="text-base text-white/70 font-medium mb-1">{t('tether.slide10.guardrail2.title')}</p>
+                    <p className="text-base text-white/50 font-light leading-relaxed">{t('tether.slide10.guardrail2.desc')}</p>
+                  </div>
+                </div>
+                
+                {/* Row 3 */}
+                <div className="grid grid-cols-2 gap-12">
+                  <p className="text-lg text-white/70 font-medium">{t('tether.slide10.risk3')}</p>
+                  <div>
+                    <p className="text-base text-white/70 font-medium mb-1">{t('tether.slide10.guardrail3.title')}</p>
+                    <p className="text-base text-white/50 font-light leading-relaxed">{t('tether.slide10.guardrail3.desc')}</p>
+                  </div>
+                </div>
+                
+                {/* Row 4 */}
+                <div className="grid grid-cols-2 gap-12">
+                  <p className="text-lg text-white/70 font-medium">{t('tether.slide10.risk4')}</p>
+                  <div>
+                    <p className="text-base text-white/70 font-medium mb-1">{t('tether.slide10.guardrail4.title')}</p>
+                    <p className="text-base text-white/50 font-light leading-relaxed">{t('tether.slide10.guardrail4.desc')}</p>
+                  </div>
+                </div>
+              </>
+            )}
           </motion.div>
         </motion.div>
       </Slide>
