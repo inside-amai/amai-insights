@@ -465,13 +465,22 @@ const Tether = () => {
           className="max-w-3xl"
         >
           <motion.p
-            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8"
+            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-2"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
             {t('tether.slide5.label')}
+          </motion.p>
+          <motion.p
+            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            viewport={{ once: true }}
+          >
+            {t('tether.slide5.label2')}
           </motion.p>
           
           <motion.h2
@@ -492,24 +501,31 @@ const Tether = () => {
             viewport={{ once: true }}
           >
             <p>{t('tether.slide5.body1')}</p>
-            <p>{t('tether.slide5.body2')}</p>
-            <div className="h-8" />
-            <p>{t('tether.slide5.body3')}</p>
+            <div className="h-6 md:h-8" />
+            <p className="text-white/70 font-normal">{t('tether.slide5.body2')}</p>
           </motion.div>
           
           <motion.div
-            className="space-y-3 mb-12"
+            className="space-y-4 mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            {[t('tether.slide5.point1'), t('tether.slide5.point2'), t('tether.slide5.point3')].map((item, i) => (
-              <div key={i} className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                <span className="text-white/30 text-sm font-medium mt-0.5 w-4">{i + 1}.</span>
-                <p className="text-base text-white/50 font-light leading-relaxed">{item}</p>
-              </div>
-            ))}
+            {[t('tether.slide5.point1'), t('tether.slide5.point2'), t('tether.slide5.point3')].map((item, i) => {
+              const colonIndex = item.indexOf(':');
+              const title = colonIndex > -1 ? item.slice(0, colonIndex + 1) : '';
+              const body = colonIndex > -1 ? item.slice(colonIndex + 1) : item;
+              return (
+                <div key={i} className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                  <span className="text-white/30 text-sm font-medium mt-0.5 w-4">{i + 1}.</span>
+                  <p className="text-base text-white/50 font-light leading-relaxed">
+                    {title && <span className="text-white/80 font-medium">{title}</span>}
+                    {body}
+                  </p>
+                </div>
+              );
+            })}
           </motion.div>
           
           <motion.p
