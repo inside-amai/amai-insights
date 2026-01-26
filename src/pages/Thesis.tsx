@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
 import { motion, useScroll } from "framer-motion";
 import amaiLogo from "@/assets/amai-logo-hero-new.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useIsMobile } from "@/hooks/use-mobile";
 import TetherPartnershipVisualization from "@/components/TetherPartnershipVisualization";
+import ThesisPdfLayout from "@/components/ThesisPdfLayout";
+import { usePdfDownload } from "@/hooks/usePdfDownload";
 
 interface SlideProps {
   children: React.ReactNode;
@@ -72,9 +74,16 @@ const Thesis = () => {
   const { t, language } = useLanguage();
   const isRTL = language === 'ar';
   const isMobile = useIsMobile();
+  const { pdfLayoutRef, downloadPdf, isGenerating } = usePdfDownload();
+
+  const handleDownloadPdf = () => {
+    downloadPdf({ filename: 'amai-thesis.pdf', margin: 0 });
+  };
 
   return (
     <div className="bg-black min-h-svh md:min-h-screen overflow-x-hidden overscroll-y-contain touch-pan-y" dir={isRTL ? "rtl" : "ltr"}>
+      {/* Hidden PDF Layout for download */}
+      <ThesisPdfLayout ref={pdfLayoutRef} />
       {/* Progress bar - hidden on mobile to reduce scroll jank */}
       {!isMobile && (
         <motion.div
@@ -147,12 +156,13 @@ const Thesis = () => {
             >
               {t('thesis.slide1.cta1')}
             </a>
-            <a
-              href="/thesis-pdf"
-              className="text-sm text-white/50 hover:text-white/70 px-6 py-3 transition-all duration-300 uppercase tracking-[0.15em] text-center"
+            <button
+              onClick={handleDownloadPdf}
+              disabled={isGenerating}
+              className="text-sm text-white/50 hover:text-white/70 px-6 py-3 transition-all duration-300 uppercase tracking-[0.15em] text-center disabled:opacity-50 disabled:cursor-wait"
             >
-              {t('thesis.slide1.cta2')}
-            </a>
+              {isGenerating ? 'Generating...' : t('thesis.slide1.cta2')}
+            </button>
           </motion.div>
         </motion.div>
       </Slide>
