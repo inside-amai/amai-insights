@@ -851,11 +851,11 @@ const translations: Record<Language, Record<string, string>> = {
     
     'tether.slide2.label': 'The Infrastructure Gap',
     'tether.slide2.headline': 'The Economy Is Outpacing Its Infrastructure.',
-    'tether.slide2.intro': 'The next billion users are already here. They are autonomous systems—but they are operating in an economic vacuum.',
+    'tether.slide2.intro': 'The next billion users are already here. They are autonomous systems, but they are operating in an economic vacuum.',
     'tether.slide2.point1.title': '1. The Reality: High-Velocity Agency',
     'tether.slide2.point1.body': 'Autonomous agents already execute instructions and manage capital, but they do so at "Machine Speed" while being audited at "Human Speed".',
     'tether.slide2.point2.title': '2. The Friction: Economic Invisibility',
-    'tether.slide2.point2.body': 'Without persistent identity or reputation roots, agents remain "Sovereign Ghosts"—unable to build credit, establish history, or be held accountable for high-stakes failures.',
+    'tether.slide2.point2.body': 'Without persistent identity or reputation roots, agents remain "Sovereign Ghosts" unable to build credit, establish history, or be held accountable for high-stakes failures.',
     'tether.slide2.point3.title': '3. The Bottleneck: The Accountability Vacuum',
     'tether.slide2.point3.body': 'The limiting constraint for the 2026 Agent Economy is no longer model intelligence; it is the Enforcement Layer. Infrastructure determines which systems survive the transition from tools to autonomous economic participants.',
     
