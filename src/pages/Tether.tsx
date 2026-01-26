@@ -13,7 +13,7 @@ interface SlideProps {
   isRTL?: boolean;
 }
 
-const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 10, isRTL = false, hideGrid = false }: SlideProps & { hideGrid?: boolean }) => {
+const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 11, isRTL = false, hideGrid = false }: SlideProps & { hideGrid?: boolean }) => {
   const { t } = useLanguage();
   
   return (
@@ -703,8 +703,94 @@ const Tether = () => {
 
       <SlideDivider />
 
-      {/* Slide 10: Closing */}
-      <Slide slideNumber={10} isRTL={isRTL}>
+      {/* Slide 10: Risk Mitigation Layer */}
+      <Slide align="left" slideNumber={10} isRTL={isRTL}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true, margin: "0px" }}
+          className="max-w-4xl"
+        >
+          {/* Micro-label */}
+          <motion.p
+            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            The Risk Mitigation Layer
+          </motion.p>
+          
+          {/* Headline */}
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-10 md:mb-16 leading-[1.15]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            Solving for the 2026 Infrastructure Volatility
+          </motion.h2>
+          
+          {/* Two-column risk/guardrail layout */}
+          <motion.div
+            className="space-y-8 md:space-y-10"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            {/* Header row */}
+            <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12`}>
+              <p className="text-xs tracking-[0.2em] uppercase text-white/60 font-medium">Systemic Market Risks</p>
+              <p className="text-xs tracking-[0.2em] uppercase text-white/60 font-medium">AMAI Economic Guardrails</p>
+            </div>
+            
+            {/* Row 1 */}
+            <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12`}>
+              <p className="text-base md:text-lg text-white/70 font-medium">"Overspending on Infrastructure"</p>
+              <div>
+                <p className="text-base text-white/70 font-medium mb-1">Deterministic Operational Ceilings:</p>
+                <p className="text-base text-white/50 font-light leading-relaxed">The Treasury Engine enforces strict spending rules and operational caps, preventing agents from runaway resource consumption.</p>
+              </div>
+            </div>
+            
+            {/* Row 2 */}
+            <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12`}>
+              <p className="text-base md:text-lg text-white/70 font-medium">"Unsustainable Capital Flows"</p>
+              <div>
+                <p className="text-base text-white/70 font-medium mb-1">Bonded Capital Accountability:</p>
+                <p className="text-base text-white/50 font-light leading-relaxed">Agents must post collateral to establish baseline trust, ensuring only economically viable workloads receive routing priority.</p>
+              </div>
+            </div>
+            
+            {/* Row 3 */}
+            <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12`}>
+              <p className="text-base md:text-lg text-white/70 font-medium">"Correlation with Market Panics"</p>
+              <div>
+                <p className="text-base text-white/70 font-medium mb-1">Trust-Weighted Execution:</p>
+                <p className="text-base text-white/50 font-light leading-relaxed">The Reputation Oracle isolates high-performing agents from market noise, using performance (latency, SLA) as a non-volatile value signal.</p>
+              </div>
+            </div>
+            
+            {/* Row 4 */}
+            <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12`}>
+              <p className="text-base md:text-lg text-white/70 font-medium">"Retrospective Accountability"</p>
+              <div>
+                <p className="text-base text-white/70 font-medium mb-1">Slashing & Instant Enforcement:</p>
+                <p className="text-base text-white/50 font-light leading-relaxed">Protocol violations trigger deterministic penalties in real-time, protecting hardware assets from misuse or inefficient allocation.</p>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+      {/* Slide 11: Closing */}
+      <Slide slideNumber={11} isRTL={isRTL}>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1.2 }} viewport={{ once: true, margin: "0px" }} className="max-w-3xl mx-auto text-center">
           <motion.h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-10 md:mb-16 leading-[1.1]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }} viewport={{ once: true }}>{t('tether.slide9.headline')}</motion.h2>
           <motion.div 
