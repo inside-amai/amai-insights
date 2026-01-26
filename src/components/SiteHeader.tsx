@@ -36,25 +36,38 @@ export const SiteHeader = () => {
             </div>
           )}
 
-          {/* Language Selector */}
-          <div className="pointer-events-auto flex items-center gap-1 text-[11px] tracking-wide">
-            {languages.map((lang, index) => (
-              <span key={lang.code} className="flex items-center">
-                <button
-                  onClick={() => setLanguage(lang.code)}
-                  className={`transition-opacity ${
-                    language === lang.code 
-                      ? 'text-white/90' 
-                      : 'text-white/40 hover:text-white/70'
-                  }`}
-                >
-                  {lang.label}
-                </button>
-                {index < languages.length - 1 && (
-                  <span className="text-white/20 mx-2">·</span>
-                )}
-              </span>
-            ))}
+          {/* Navigation + Language Selector */}
+          <div className="pointer-events-auto flex items-center gap-4 text-[11px] tracking-wide">
+            {/* Thesis Link - hidden on /deck and /tether */}
+            {!isDeckPage && (
+              <Link 
+                to="/thesis" 
+                className="text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase"
+              >
+                Explore The Thesis
+              </Link>
+            )}
+            
+            {/* Language Selector */}
+            <div className="flex items-center gap-1">
+              {languages.map((lang, index) => (
+                <span key={lang.code} className="flex items-center">
+                  <button
+                    onClick={() => setLanguage(lang.code)}
+                    className={`transition-opacity ${
+                      language === lang.code 
+                        ? 'text-white/90' 
+                        : 'text-white/40 hover:text-white/70'
+                    }`}
+                  >
+                    {lang.label}
+                  </button>
+                  {index < languages.length - 1 && (
+                    <span className="text-white/20 mx-2">·</span>
+                  )}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
