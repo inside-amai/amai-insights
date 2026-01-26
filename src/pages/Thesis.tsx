@@ -4,6 +4,7 @@ import amaiLogo from "@/assets/amai-logo-hero-new.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useIsMobile } from "@/hooks/use-mobile";
 import TetherPartnershipVisualization from "@/components/TetherPartnershipVisualization";
+import { Header } from "@/components/Header";
 
 interface SlideProps {
   children: React.ReactNode;
@@ -75,6 +76,7 @@ const Thesis = () => {
 
   return (
     <div className="bg-black min-h-svh md:min-h-screen overflow-x-hidden overscroll-y-contain touch-pan-y" dir={isRTL ? "rtl" : "ltr"}>
+      <Header />
       {/* Progress bar - hidden on mobile to reduce scroll jank */}
       {!isMobile && (
         <motion.div
