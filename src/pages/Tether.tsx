@@ -579,47 +579,47 @@ const Tether = () => {
           
           {/* Intro paragraph */}
           <motion.p className="text-base md:text-lg text-white/50 font-light leading-relaxed mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} viewport={{ once: true }}>
-            Tether provides the world's most resilient liquidity and hardware rails. AMAI provides the economic logic required to govern them at machine speed.
+            {t('tether.slide8.intro')}
           </motion.p>
           
           {/* Sovereign Infrastructure */}
           <motion.div className="mb-8" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.55 }} viewport={{ once: true }}>
-            <p className="text-base text-white/70 font-medium mb-2">Sovereign Infrastructure</p>
+            <p className="text-base text-white/70 font-medium mb-2">{t('tether.slide8.sovereign.title')}</p>
             <p className="text-base text-white/50 font-light leading-relaxed">
-              Autonomous systems must operate beyond jurisdictions and discretionary control. AMAI and Tether provide a neutral, decentralized substrate for global agentic activity.
+              {t('tether.slide8.sovereign.desc')}
             </p>
           </motion.div>
           
           {/* Economic Skin-in-the-Game */}
           <motion.div className="mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
-            <p className="text-base text-white/70 font-medium mb-2">Economic Skin-in-the-Game</p>
+            <p className="text-base text-white/70 font-medium mb-2">{t('tether.slide8.skin.title')}</p>
             <p className="text-base text-white/50 font-light leading-relaxed">
-              Tether's liquidity serves as the ideal collateral for AMAI's Bonded Treasury Layer. By backing agents with USDT, we establish immediate, cross-border economic accountability.
+              {t('tether.slide8.skin.desc')}
             </p>
           </motion.div>
           
           {/* The Resilience Loop */}
           <motion.div className="mb-12" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.65 }} viewport={{ once: true }}>
-            <p className="text-base text-white/70 font-medium mb-4">The Resilience Loop</p>
+            <p className="text-base text-white/70 font-medium mb-4">{t('tether.slide8.loop.title')}</p>
             <div className="space-y-3">
               <div className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <span className="text-white/20 text-sm mt-0.5">—</span>
-                <p className="text-base text-white/50 font-light leading-relaxed"><span className="text-white/70">Neutrality:</span> Independent of legacy banking hours or proprietary custodial gates.</p>
+                <p className="text-base text-white/50 font-light leading-relaxed"><span className="text-white/70">{t('tether.slide8.loop.neutrality')}</span> {t('tether.slide8.loop.neutrality.desc')}</p>
               </div>
               <div className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <span className="text-white/20 text-sm mt-0.5">—</span>
-                <p className="text-base text-white/50 font-light leading-relaxed"><span className="text-white/70">Continuity:</span> 24/7/365 deterministic settlement for compute and capital.</p>
+                <p className="text-base text-white/50 font-light leading-relaxed"><span className="text-white/70">{t('tether.slide8.loop.continuity')}</span> {t('tether.slide8.loop.continuity.desc')}</p>
               </div>
               <div className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <span className="text-white/20 text-sm mt-0.5">—</span>
-                <p className="text-base text-white/50 font-light leading-relaxed"><span className="text-white/70">Scalability:</span> Aligning Tether's massive GPU footprint with AMAI's swarm orchestration.</p>
+                <p className="text-base text-white/50 font-light leading-relaxed"><span className="text-white/70">{t('tether.slide8.loop.scalability')}</span> {t('tether.slide8.loop.scalability.desc')}</p>
               </div>
             </div>
           </motion.div>
           
           {/* Closing statement */}
           <motion.p className="text-base md:text-lg text-white/70 font-normal leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.75 }} viewport={{ once: true }}>
-            AMAI is the enforcement engine for Tether's "Physical AI" vision.
+            {t('tether.slide8.closing')}
           </motion.p>
         </motion.div>
       </Slide>
@@ -643,7 +643,7 @@ const Tether = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            The Missing Layer
+            {t('tether.slide9.label')}
           </motion.p>
           
           {/* Headline */}
@@ -654,7 +654,7 @@ const Tether = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            The Missing Layer in Tether's AI Stack
+            {t('tether.slide9.headline')}
           </motion.h2>
           
           {/* Two-column layout */}
@@ -667,13 +667,13 @@ const Tether = () => {
           >
             {/* Left column - wider (3/5) */}
             <div className={`md:col-span-3 ${isRTL ? 'md:col-start-3' : ''}`}>
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-4">Tether has built the rails</p>
+              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-4">{t('tether.slide9.tether.title')}</p>
               <div className="space-y-3">
                 {[
-                  'Wallets for humans, machines, agents',
-                  'Bitcoin and stablecoin payments',
-                  'AI runtimes and local-first compute',
-                  'Omnichain settlement and RWAs'
+                  t('tether.slide9.tether.item1'),
+                  t('tether.slide9.tether.item2'),
+                  t('tether.slide9.tether.item3'),
+                  t('tether.slide9.tether.item4')
                 ].map((item, i) => (
                   <div key={i} className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                     <span className="text-white/20 text-sm mt-0.5">—</span>
@@ -685,14 +685,14 @@ const Tether = () => {
             
             {/* Right column - narrower (2/5) */}
             <div className={`md:col-span-2 ${isRTL ? 'md:col-start-1' : ''}`}>
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-4">What's missing</p>
+              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-4">{t('tether.slide9.missing.title')}</p>
               <div className="space-y-3">
-{[
-                    'Identity and behavioral history',
-                    'Agent reputation',
-                    'Protocol access control',
-                    'Economic enforcement through staking, slashing and bonding'
-                  ].map((item, i) => (
+                {[
+                  t('tether.slide9.missing.item1'),
+                  t('tether.slide9.missing.item2'),
+                  t('tether.slide9.missing.item3'),
+                  t('tether.slide9.missing.item4')
+                ].map((item, i) => (
                   <div key={i} className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                     <span className="text-white/20 text-sm mt-0.5">—</span>
                     <p className="text-base text-white/50 font-light leading-relaxed">{item}</p>
@@ -719,7 +719,7 @@ const Tether = () => {
             transition={{ duration: 0.8, delay: 0.7 }}
             viewport={{ once: true }}
           >
-            AMAI is the trust and accountability layer for autonomous agents at scale.
+            {t('tether.slide9.callout')}
           </motion.p>
           
           {/* Bottom callout - smaller text */}
@@ -730,8 +730,8 @@ const Tether = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            <p>Wallets let agents transact.</p>
-            <p>Trust lets agents participate.</p>
+            <p>{t('tether.slide9.callout2.line1')}</p>
+            <p>{t('tether.slide9.callout2.line2')}</p>
           </motion.div>
         </motion.div>
       </Slide>
@@ -755,7 +755,7 @@ const Tether = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Infrastructure Volatility
+            {t('tether.slide10.label')}
           </motion.p>
           
           {/* Headline */}
@@ -766,7 +766,7 @@ const Tether = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            The Risk Mitigation Layer
+            {t('tether.slide10.headline')}
           </motion.h2>
           
           {/* Two-column risk/guardrail layout */}
@@ -779,43 +779,43 @@ const Tether = () => {
           >
             {/* Header row */}
             <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12`}>
-              <p className="text-xs tracking-[0.2em] uppercase text-white/60 font-medium">Systemic Market Risks</p>
-              <p className="text-xs tracking-[0.2em] uppercase text-white/60 font-medium">AMAI Economic Guardrails</p>
+              <p className="text-xs tracking-[0.2em] uppercase text-white/60 font-medium">{t('tether.slide10.col1.header')}</p>
+              <p className="text-xs tracking-[0.2em] uppercase text-white/60 font-medium">{t('tether.slide10.col2.header')}</p>
             </div>
             
             {/* Row 1 */}
             <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12`}>
-              <p className="text-base md:text-lg text-white/70 font-medium">Overspending on Infrastructure</p>
+              <p className="text-base md:text-lg text-white/70 font-medium">{t('tether.slide10.risk1')}</p>
               <div>
-                <p className="text-base text-white/70 font-medium mb-1">Deterministic Operational Ceilings:</p>
-                <p className="text-base text-white/50 font-light leading-relaxed">The Treasury Engine enforces strict spending rules and operational caps, preventing agents from runaway resource consumption.</p>
+                <p className="text-base text-white/70 font-medium mb-1">{t('tether.slide10.guardrail1.title')}</p>
+                <p className="text-base text-white/50 font-light leading-relaxed">{t('tether.slide10.guardrail1.desc')}</p>
               </div>
             </div>
             
             {/* Row 2 */}
             <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12`}>
-              <p className="text-base md:text-lg text-white/70 font-medium">Unsustainable Capital Flows</p>
+              <p className="text-base md:text-lg text-white/70 font-medium">{t('tether.slide10.risk2')}</p>
               <div>
-                <p className="text-base text-white/70 font-medium mb-1">Bonded Capital Accountability:</p>
-                <p className="text-base text-white/50 font-light leading-relaxed">Agents must post collateral to establish baseline trust, ensuring only economically viable workloads receive routing priority.</p>
+                <p className="text-base text-white/70 font-medium mb-1">{t('tether.slide10.guardrail2.title')}</p>
+                <p className="text-base text-white/50 font-light leading-relaxed">{t('tether.slide10.guardrail2.desc')}</p>
               </div>
             </div>
             
             {/* Row 3 */}
             <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12`}>
-              <p className="text-base md:text-lg text-white/70 font-medium">Correlation with Market Panics</p>
+              <p className="text-base md:text-lg text-white/70 font-medium">{t('tether.slide10.risk3')}</p>
               <div>
-                <p className="text-base text-white/70 font-medium mb-1">Trust-Weighted Execution:</p>
-                <p className="text-base text-white/50 font-light leading-relaxed">The Reputation Oracle isolates high-performing agents from market noise, using performance (latency, SLA) as a non-volatile value signal.</p>
+                <p className="text-base text-white/70 font-medium mb-1">{t('tether.slide10.guardrail3.title')}</p>
+                <p className="text-base text-white/50 font-light leading-relaxed">{t('tether.slide10.guardrail3.desc')}</p>
               </div>
             </div>
             
             {/* Row 4 */}
             <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12`}>
-              <p className="text-base md:text-lg text-white/70 font-medium">Retrospective Accountability</p>
+              <p className="text-base md:text-lg text-white/70 font-medium">{t('tether.slide10.risk4')}</p>
               <div>
-                <p className="text-base text-white/70 font-medium mb-1">Slashing & Instant Enforcement:</p>
-                <p className="text-base text-white/50 font-light leading-relaxed">Protocol violations trigger deterministic penalties in real-time, protecting hardware assets from misuse or inefficient allocation.</p>
+                <p className="text-base text-white/70 font-medium mb-1">{t('tether.slide10.guardrail4.title')}</p>
+                <p className="text-base text-white/50 font-light leading-relaxed">{t('tether.slide10.guardrail4.desc')}</p>
               </div>
             </div>
           </motion.div>
@@ -841,7 +841,7 @@ const Tether = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Strategic Value
+            {t('tether.slide11.label')}
           </motion.p>
           
           {/* Headline */}
@@ -852,10 +852,10 @@ const Tether = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Making Intelligence "Pay for Itself"
+            {t('tether.slide11.headline')}
           </motion.h2>
           
-          {/* Body intro */}
+          {/* Body intro - parse for highlight tags */}
           <motion.p
             className="text-base md:text-lg text-white/50 font-light leading-relaxed mb-8 md:mb-12"
             initial={{ opacity: 0, y: 20 }}
@@ -863,7 +863,16 @@ const Tether = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            AMAI provides the <span className="text-white/70 font-medium">Economic Substrate</span> that transforms Tether's physical infrastructure—from GPU clusters to robotics—into self-sustaining business units.
+            {t('tether.slide11.intro').split('<highlight>').map((part, i) => {
+              if (i === 0) return part;
+              const [highlighted, rest] = part.split('</highlight>');
+              return (
+                <React.Fragment key={i}>
+                  <span className="text-white/70 font-medium">{highlighted}</span>
+                  {rest}
+                </React.Fragment>
+              );
+            })}
           </motion.p>
           
           {/* Bullet points */}
@@ -877,21 +886,30 @@ const Tether = () => {
             <div className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
               <span className="text-white/30 text-lg mt-0.5">•</span>
               <p className="text-base text-white/50 font-light leading-relaxed">
-                <span className="text-white/70 font-medium">Continuous Capital Reinvestment:</span> Positive earnings from missions are automatically routed into upgrading intelligence modules (KIPs) or increasing collateral reserves.
+                <span className="text-white/70 font-medium">{t('tether.slide11.point1.title')}</span> {t('tether.slide11.point1.desc')}
               </p>
             </div>
             
             <div className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
               <span className="text-white/30 text-lg mt-0.5">•</span>
               <p className="text-base text-white/50 font-light leading-relaxed">
-                <span className="text-white/70 font-medium">Auditability for Sovereignty:</span> To meet the goal of "reducing reliance on centralized gatekeepers," AMAI provides a <span className="text-white/70 font-medium">Verifiable Knowledge Graph</span> of all agent actions.
+                <span className="text-white/70 font-medium">{t('tether.slide11.point2.title')}</span> {t('tether.slide11.point2.desc').split('<highlight>').map((part, i) => {
+                  if (i === 0) return part;
+                  const [highlighted, rest] = part.split('</highlight>');
+                  return (
+                    <React.Fragment key={i}>
+                      <span className="text-white/70 font-medium">{highlighted}</span>
+                      {rest}
+                    </React.Fragment>
+                  );
+                })}
               </p>
             </div>
             
             <div className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
               <span className="text-white/30 text-lg mt-0.5">•</span>
               <p className="text-base text-white/50 font-light leading-relaxed">
-                <span className="text-white/70 font-medium">Institutional-Grade Stability:</span> Moves autonomous coordination from speculative hype to a performance-based economy where trust is calculated and capital is protected.
+                <span className="text-white/70 font-medium">{t('tether.slide11.point3.title')}</span> {t('tether.slide11.point3.desc')}
               </p>
             </div>
           </motion.div>
@@ -917,7 +935,7 @@ const Tether = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Tether × AMAI Integration
+            {t('tether.slide12.headline')}
           </motion.h2>
           
           {/* Visualization Component */}
@@ -937,7 +955,7 @@ const Tether = () => {
       {/* Slide 13: Closing */}
       <Slide slideNumber={13} isRTL={isRTL}>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1.2 }} viewport={{ once: true, margin: "0px" }} className="max-w-3xl mx-auto text-center">
-          <motion.h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-10 md:mb-16 leading-[1.1]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }} viewport={{ once: true }}>{t('tether.slide9.headline')}</motion.h2>
+          <motion.h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-10 md:mb-16 leading-[1.1]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }} viewport={{ once: true }}>{t('tether.slide13.headline')}</motion.h2>
           <motion.div 
             className="flex flex-col items-center gap-3 mb-10 md:mb-16" 
             initial={{ opacity: 0 }} 
@@ -946,7 +964,7 @@ const Tether = () => {
             viewport={{ once: true }}
           >
             <div className="flex items-center justify-center gap-3 md:gap-5">
-              {['Accountability', 'Trust', 'Transparency'].map((word, i) => (
+              {[t('tether.slide13.triad1'), t('tether.slide13.triad2'), t('tether.slide13.triad3')].map((word, i) => (
                 <motion.span
                   key={word}
                   className="text-sm md:text-base tracking-[0.2em] uppercase text-white/50 font-light"
@@ -966,15 +984,15 @@ const Tether = () => {
               transition={{ duration: 0.5, delay: 1.2 }}
               viewport={{ once: true }}
             >
-              That is AMAI
+              {t('tether.slide13.tagline')}
             </motion.p>
           </motion.div>
           <motion.div className={`flex flex-col sm:flex-row items-center justify-center gap-4 ${isRTL ? 'sm:flex-row-reverse' : ''}`} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }} viewport={{ once: true }}>
             <a href="https://youtu.be/k43rEn8N7qE" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-black border border-white/20 rounded text-xs tracking-[0.15em] uppercase text-white/70 hover:text-white hover:border-white/40 transition-all duration-300">
-              {t('tether.slide9.cta1')}<span>{isRTL ? '←' : '→'}</span>
+              {t('tether.slide13.cta1')}<span>{isRTL ? '←' : '→'}</span>
             </a>
             <a href="/" className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300">
-              {t('tether.slide9.cta2')}<span>{isRTL ? '←' : '→'}</span>
+              {t('tether.slide13.cta2')}<span>{isRTL ? '←' : '→'}</span>
             </a>
           </motion.div>
         </motion.div>
