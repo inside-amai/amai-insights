@@ -465,22 +465,13 @@ const Tether = () => {
           className="max-w-3xl"
         >
           <motion.p
-            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-2"
+            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
             {t('tether.slide5.label')}
-          </motion.p>
-          <motion.p
-            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
-            viewport={{ once: true }}
-          >
-            {t('tether.slide5.label2')}
           </motion.p>
           
           <motion.h2
