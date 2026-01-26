@@ -154,21 +154,30 @@ const Deck = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            {t('deck.slide2.label')}
+            {t('tether.slide2.label')}
           </motion.p>
           
           {/* Headline */}
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 md:mb-16 leading-[1.15]"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            {t('deck.slide2.headline1')}
-            <br />
-            {t('deck.slide2.headline2')}
+            {t('tether.slide2.headline')}
           </motion.h2>
+          
+          {/* Intro paragraph */}
+          <motion.p
+            className="text-lg md:text-xl text-white/60 font-light leading-relaxed mb-12 md:mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            {t('tether.slide2.intro')}
+          </motion.p>
           
           {/* Body copy - numbered points */}
           <motion.div
@@ -181,44 +190,33 @@ const Deck = () => {
             {/* Point 1 */}
             <div>
               <p className="text-base text-white/80 font-medium mb-2">
-                {t('deck.slide2.point1.title')}
+                {t('tether.slide2.point1.title')}
               </p>
               <p className="text-base text-white/60 font-light leading-relaxed">
-                {t('deck.slide2.point1.body')}
+                {t('tether.slide2.point1.body')}
               </p>
             </div>
             
             {/* Point 2 */}
             <div>
               <p className="text-base text-white/80 font-medium mb-2">
-                {t('deck.slide2.point2.title')}
+                {t('tether.slide2.point2.title')}
               </p>
               <p className="text-base text-white/60 font-light leading-relaxed">
-                {t('deck.slide2.point2.body')}
+                {t('tether.slide2.point2.body')}
               </p>
             </div>
             
             {/* Point 3 */}
             <div>
               <p className="text-base text-white/80 font-medium mb-2">
-                {t('deck.slide2.point3.title')}
+                {t('tether.slide2.point3.title')}
               </p>
               <p className="text-base text-white/60 font-light leading-relaxed">
-                {t('deck.slide2.point3.body')}
+                {t('tether.slide2.point3.body')}
               </p>
             </div>
           </motion.div>
-          
-          {/* Closing line */}
-          <motion.p
-            className="mt-16 text-lg text-white/70 font-normal leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            viewport={{ once: true }}
-          >
-            {t('deck.slide2.closing')}
-          </motion.p>
         </motion.div>
       </Slide>
 
@@ -241,7 +239,7 @@ const Deck = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            {t('deck.slide3.label')}
+            {t('tether.slide3.label')}
           </motion.p>
           
           {/* Headline */}
@@ -252,7 +250,7 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            {t('deck.slide3.headline')}
+            {t('tether.slide3.headline')}
           </motion.h2>
           
           {/* Body copy */}
@@ -263,8 +261,8 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            <p>{t('deck.slide3.body1')}</p>
-            <p>{t('deck.slide3.body2')}</p>
+            <p>{t('tether.slide3.body1')}</p>
+            <p>{t('tether.slide3.body2')}</p>
           </motion.div>
           
           {/* Four pillars */}
@@ -276,30 +274,30 @@ const Deck = () => {
             viewport={{ once: true }}
           >
             <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}>
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide3.pillar1.title')}</p>
+              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('tether.slide3.pillar1.title')}</p>
               <p className="text-sm text-white/70 font-light leading-relaxed">
-                {t('deck.slide3.pillar1.desc')}
+                {t('tether.slide3.pillar1.desc')}
               </p>
             </div>
             
             <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}>
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide3.pillar2.title')}</p>
+              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('tether.slide3.pillar2.title')}</p>
               <p className="text-sm text-white/70 font-light leading-relaxed">
-                {t('deck.slide3.pillar2.desc')}
+                {t('tether.slide3.pillar2.desc')}
               </p>
             </div>
             
             <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}>
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide3.pillar3.title')}</p>
+              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('tether.slide3.pillar3.title')}</p>
               <p className="text-sm text-white/70 font-light leading-relaxed">
-                {t('deck.slide3.pillar3.desc')}
+                {t('tether.slide3.pillar3.desc')}
               </p>
             </div>
             
             <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}>
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('deck.slide3.pillar4.title')}</p>
+              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('tether.slide3.pillar4.title')}</p>
               <p className="text-sm text-white/70 font-light leading-relaxed">
-                {t('deck.slide3.pillar4.desc')}
+                {t('tether.slide3.pillar4.desc')}
               </p>
             </div>
           </motion.div>
@@ -312,7 +310,7 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            {t('deck.slide3.closing')}
+            {t('tether.slide3.closing')}
           </motion.p>
         </motion.div>
       </Slide>
@@ -472,7 +470,7 @@ const Deck = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            {t('deck.slide5.label')}
+            {t('tether.slide5.label')}
           </motion.p>
           
           <motion.h2
@@ -482,7 +480,7 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            {t('deck.slide5.headline')}
+            {t('tether.slide5.headline')}
           </motion.h2>
           
           <motion.div
@@ -492,25 +490,32 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            <p>{t('deck.slide5.body1')}</p>
-            <p>{t('deck.slide5.body2')}</p>
-            <div className="h-8" />
-            <p>{t('deck.slide5.body3')}</p>
+            <p>{t('tether.slide5.body1')}</p>
+            <div className="h-6 md:h-8" />
+            <p className="text-white/70 font-normal">{t('tether.slide5.body2')}</p>
           </motion.div>
           
           <motion.div
-            className="space-y-3 mb-12"
+            className="space-y-4 mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            {[t('deck.slide5.point1'), t('deck.slide5.point2'), t('deck.slide5.point3')].map((item, i) => (
-              <div key={i} className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                <span className="text-white/30 text-sm font-medium mt-0.5 w-4">{i + 1}.</span>
-                <p className="text-base text-white/50 font-light leading-relaxed">{item}</p>
-              </div>
-            ))}
+            {[t('tether.slide5.point1'), t('tether.slide5.point2'), t('tether.slide5.point3')].map((item, i) => {
+              const colonIndex = item.indexOf(':');
+              const title = colonIndex > -1 ? item.slice(0, colonIndex + 1) : '';
+              const body = colonIndex > -1 ? item.slice(colonIndex + 1) : item;
+              return (
+                <div key={i} className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                  <span className="text-white/30 text-sm font-medium mt-0.5 w-4">{i + 1}.</span>
+                  <p className="text-base text-white/50 font-light leading-relaxed">
+                    {title && <span className="text-white/80 font-medium">{title}</span>}
+                    {body}
+                  </p>
+                </div>
+              );
+            })}
           </motion.div>
           
           <motion.p
@@ -520,7 +525,7 @@ const Deck = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            {t('deck.slide5.closing')}
+            {t('tether.slide5.closing')}
           </motion.p>
         </motion.div>
       </Slide>
