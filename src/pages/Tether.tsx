@@ -539,12 +539,20 @@ const Tether = () => {
           <motion.h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 md:mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>{t('tether.slide6.headline')}</motion.h2>
           <motion.p className="text-base md:text-lg text-white/50 font-light leading-relaxed mb-6 md:mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} viewport={{ once: true }}>{t('tether.slide6.body')}</motion.p>
           <motion.div className="space-y-5 mb-12" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
-            {[t('tether.slide6.point1'), t('tether.slide6.point2'), t('tether.slide6.point3')].map((item, i) => (
-              <div key={i} className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                <span className="text-white/20 text-sm mt-0.5">—</span>
-                <p className="text-base text-white/50 font-light leading-relaxed">{item}</p>
-              </div>
-            ))}
+            {[t('tether.slide6.point1'), t('tether.slide6.point2'), t('tether.slide6.point3')].map((item, i) => {
+              const colonIndex = item.indexOf(':');
+              const title = colonIndex > -1 ? item.slice(0, colonIndex + 1) : '';
+              const body = colonIndex > -1 ? item.slice(colonIndex + 1) : item;
+              return (
+                <div key={i} className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                  <span className="text-white/20 text-sm mt-0.5">—</span>
+                  <p className="text-base text-white/50 font-light leading-relaxed">
+                    {title && <span className="text-white/80 font-medium">{title}</span>}
+                    {body}
+                  </p>
+                </div>
+              );
+            })}
           </motion.div>
           <motion.p className="text-lg text-white/70 font-normal leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} viewport={{ once: true }}>{t('tether.slide6.closing')}</motion.p>
         </motion.div>
