@@ -1,5 +1,8 @@
 import { useLanguage, Language } from '@/contexts/LanguageContext';
 import { Link, useLocation } from 'react-router-dom';
+import { toast } from '@/hooks/use-toast';
+import { Copy, Check } from 'lucide-react';
+import { useState } from 'react';
 
 const languages: { code: Language; label: string }[] = [
   { code: 'en', label: 'EN' },
@@ -12,6 +15,34 @@ export const SiteHeader = () => {
   const location = useLocation();
   const isDeckPage = location.pathname === '/deck' || location.pathname === '/tether';
   const isThesisPage = location.pathname === '/thesis';
+  const [copied, setCopied] = useState(false);
+
+  const handleContactClick = () => {
+    // Show toast after a brief delay to allow mailto to attempt opening
+    setTimeout(() => {
+      toast({
+        title: "Email not opening?",
+        description: (
+          <div className="flex items-center gap-3 mt-1">
+            <span className="text-white/80">Reach us at team@amai.net</span>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                navigator.clipboard.writeText('team@amai.net').then(() => {
+                  setCopied(true);
+                  setTimeout(() => setCopied(false), 2000);
+                });
+              }}
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-medium text-white transition-all"
+            >
+              {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+              {copied ? 'Copied!' : 'Copy'}
+            </button>
+          </div>
+        ),
+      });
+    }, 500);
+  };
 
   return (
     <header className="absolute top-0 left-0 right-0 z-50 pointer-events-none">
@@ -43,6 +74,7 @@ export const SiteHeader = () => {
             {!isDeckPage && (
               <a 
                 href="mailto:team@amai.net?subject=Mission%20Briefing%20%2F%2F%20%5BOrganization%20Name%5D&body=To%20the%20AMAI%20Labs%20Team%2C%0A%0AWe%20are%20reaching%20out%20regarding%20the%20%5BThesis%20%2F%20Architecture%5D.%0A%0AName%3A%20%0AOrganization%3A%20%0AIntent%3A%20"
+                onClick={handleContactClick}
                 className="text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase"
               >
                 Contact
