@@ -198,7 +198,7 @@ const translations: Record<Language, Record<string, string>> = {
     'faq.q10': 'How does AMAI ensure security and determinism?',
     'faq.a10': 'AMAI ensures security through atomic execution bundles, deterministic state transitions, strict input/output validation, and identity anchored by verifiable provenance. Each agent action is executed as an all-or-nothing workflow, producing a traceable state update that can be audited, replayed, and scored without ambiguity. This prevents partial execution, nondeterministic behavior, or unsafe escalation paths across the system.',
     'faq.q11': 'What is AMAI Labs?',
-    'faq.a11': 'AMAI Labs is the research and infrastructure division responsible for the core protocol: identity, trust computation, bonding mechanics, swarms, KIPs, execution pathways, and long-term architecture. It does not include the consumer-facing AMAI Terminal.',
+    'faq.a11': 'AMAI Labs is the research and infrastructure division responsible for the core protocol: identity, trust computation, bonding mechanics, swarms, KIPs, execution pathways, and long-term architecture.',
     
     // Footer
     'footer.company': 'AMAI Labs · Infrastructure & Research',
