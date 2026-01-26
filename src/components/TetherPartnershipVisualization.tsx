@@ -78,7 +78,7 @@ const TetherPartnershipVisualization = () => {
       <div className="relative z-10 flex flex-col items-center justify-center h-full py-8 md:py-12">
         
         {/* Dual Node Architecture */}
-        <div className="w-full flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0 mb-8 md:mb-12 relative z-30">
+        <div className="w-full flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0 mb-8 md:mb-12 relative z-30">
           
           {/* Tether Infrastructure Node */}
           <motion.div
@@ -102,14 +102,14 @@ const TetherPartnershipVisualization = () => {
               </div>
             </div>
 
-            {/* Expanded detail panel */}
+            {/* Expanded detail panel - positioned to the right on mobile to avoid overlap */}
             <AnimatePresence>
               {activeNode === 'tether' && (
                 <motion.div
                   initial={{ opacity: 0, y: 10, scale: 0.95 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                  className="absolute top-full left-0 mt-3 w-[200px] md:w-[240px] p-4 rounded-sm border border-white/10 bg-black/95 backdrop-blur-md z-50"
+                  className="absolute left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 top-full mt-3 w-[200px] md:w-[240px] p-4 rounded-sm border border-white/10 bg-black backdrop-blur-md z-[100]"
                 >
                   <p className="text-[10px] tracking-[0.15em] uppercase text-white/30 mb-2">Settlement Layer</p>
                   <div className="space-y-2 text-[11px] text-white/50 font-light">
@@ -232,7 +232,7 @@ const TetherPartnershipVisualization = () => {
                   initial={{ opacity: 0, y: 10, scale: 0.95 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                  className="absolute top-full right-0 mt-3 w-[200px] md:w-[240px] p-4 rounded-sm border border-white/10 bg-black/95 backdrop-blur-md z-50"
+                  className="absolute top-full left-1/2 -translate-x-1/2 md:left-auto md:right-0 md:translate-x-0 mt-3 w-[200px] md:w-[240px] p-4 rounded-sm border border-white/10 bg-black backdrop-blur-md z-[100]"
                 >
                   <p className="text-[10px] tracking-[0.15em] uppercase text-white/30 mb-2">Economic Layer</p>
                   <div className="space-y-2 text-[11px] text-white/50 font-light">
