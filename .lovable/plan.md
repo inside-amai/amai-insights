@@ -1,113 +1,100 @@
 
-## Goal
-Eliminate the remaining small scroll jump when reversing direction on mobile for `/deck` and `/tether` pages, using industry-standard CSS scoping instead of inline overrides.
 
-## Root Cause (Confirmed)
-The global `#root` styles in `src/App.css` apply `max-width: 1280px`, `margin: 0 auto`, and `padding: 2rem` to every page. When you scroll and reverse direction, the browser detects a mismatch between the slide's full-bleed layout and this constrained container, triggering a micro-recalculation of layout bounds. This is the "couple lines" jump you're seeing.
+# Fix Mobile Layout for Slide 10: Risk Mitigation Layer
 
-## Industry-Standard Solution: CSS Scoping
+## Problem
+On desktop, Slide 10 displays a clean two-column layout with "Systemic Market Risks" on the left and "AMAI Economic Guardrails" on the right. Each row shows a risk paired with its solution.
 
-Instead of using `!important` overrides inside the component, the proper approach is to:
+On mobile, the grid stacks vertically, causing:
+1. Both column headers to appear at the top
+2. The "risk → solution" relationship to be lost
+3. A confusing vertical list where risks and guardrails are disconnected
 
-1. **Remove the global constraint from `#root`** for full-bleed pages by scoping it properly
-2. **Use a CSS class on the `body` or a wrapper** that signals "this is a full-bleed page"
-3. **Let CSS specificity handle it naturally** without inline styles or `!important`
+## Recommended Solution: Paired Card Layout for Mobile
 
-This is how major frameworks (Next.js, Gatsby, etc.) handle route-specific layouts.
+Instead of stacking columns, restructure the mobile layout to group each **risk + guardrail pair** together as a cohesive unit.
+
+### Visual Structure (Mobile Only)
+
+```text
+┌─────────────────────────────────────┐
+│ RISK                                │
+│ Overspending on Infrastructure      │
+├─────────────────────────────────────┤
+│ GUARDRAIL                           │
+│ Deterministic Operational Ceilings: │
+│ The Treasury Engine enforces...     │
+└─────────────────────────────────────┘
+
+┌─────────────────────────────────────┐
+│ RISK                                │
+│ Unsustainable Capital Flows         │
+├─────────────────────────────────────┤
+│ GUARDRAIL                           │
+│ Bonded Capital Accountability:      │
+│ Agents must post collateral...      │
+└─────────────────────────────────────┘
+
+... and so on for each pair
+```
+
+Each pair would include:
+- A small "RISK" micro-label + the risk title
+- A divider or subtle visual break
+- A "GUARDRAIL" micro-label + the guardrail title and description
+
+This preserves the cause-and-effect relationship on mobile while keeping the elegant two-column layout on desktop.
 
 ---
 
-## Implementation
+## Technical Implementation
 
-### Step 1: Modify `App.css` to scope `#root` styles
+### File to Modify
+- `src/pages/Tether.tsx` (lines 786-835)
 
-Change the global `#root` selector to only apply when a specific class is NOT present:
+### Changes
+1. **Conditional Rendering**: Use `isMobile` (already imported) to render different layouts for mobile vs desktop
+2. **Desktop**: Keep the current two-column grid layout unchanged
+3. **Mobile**: Render a stacked "card" layout where each risk-guardrail pair is grouped together
 
-```css
-/* Only apply constraints when NOT in full-bleed mode */
-#root:not(.full-bleed) {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-```
-
-This uses the standard CSS `:not()` pseudo-class — no hacks, no `!important`.
-
-### Step 2: Add `.full-bleed` class to `#root` for `/deck` and `/tether`
-
-In `App.tsx`, create a small component that adds/removes the `full-bleed` class on `#root` based on the current route:
+### Code Structure
 
 ```tsx
-const FullBleedRouteHandler = () => {
-  const location = useLocation();
-  
-  useEffect(() => {
-    const root = document.getElementById('root');
-    if (!root) return;
-    
-    const isFullBleed = location.pathname === '/deck' || location.pathname === '/tether';
-    
-    if (isFullBleed) {
-      root.classList.add('full-bleed');
-    } else {
-      root.classList.remove('full-bleed');
-    }
-    
-    return () => {
-      root.classList.remove('full-bleed');
-    };
-  }, [location.pathname]);
-  
-  return null;
-};
+{/* Two-column risk/guardrail layout */}
+<motion.div ... >
+  {isMobile ? (
+    // MOBILE: Paired card layout
+    <div className="space-y-8">
+      {/* Pair 1 */}
+      <div className="border-l-2 border-white/10 pl-4">
+        <p className="text-[10px] tracking-[0.2em] uppercase text-white/40 mb-2">RISK</p>
+        <p className="text-base text-white/70 font-medium mb-4">{t('tether.slide10.risk1')}</p>
+        <p className="text-[10px] tracking-[0.2em] uppercase text-white/40 mb-2">GUARDRAIL</p>
+        <p className="text-base text-white/70 font-medium mb-1">{t('tether.slide10.guardrail1.title')}</p>
+        <p className="text-base text-white/50 font-light">{t('tether.slide10.guardrail1.desc')}</p>
+      </div>
+      {/* Pair 2, 3, 4... */}
+    </div>
+  ) : (
+    // DESKTOP: Keep existing two-column grid
+    <>
+      {/* Header row */}
+      <div className="grid grid-cols-2 gap-12">...</div>
+      {/* Row 1-4 */}
+      ...
+    </>
+  )}
+</motion.div>
 ```
 
-Then render it inside `<BrowserRouter>`:
-
-```tsx
-<BrowserRouter>
-  <FullBleedRouteHandler />
-  {/* ... rest of app */}
-</BrowserRouter>
-```
-
-### Step 3: Add `overflow-anchor: none` via CSS (not inline)
-
-Add a CSS rule for full-bleed pages to disable scroll anchoring:
-
-```css
-#root.full-bleed {
-  overflow-anchor: none;
-}
-```
-
-This is a standard CSS property (not a hack) that tells the browser: "Don't try to correct scroll position during layout shifts."
+### New Translation Keys (Optional)
+Add two new micro-labels for mobile clarity:
+- `'tether.slide10.mobile.riskLabel': 'Risk'`
+- `'tether.slide10.mobile.guardrailLabel': 'Guardrail'`
 
 ---
 
-## Files to Modify
+## Summary
+- **Desktop**: No changes — the two-column layout remains as-is
+- **Mobile**: Each risk-guardrail pair is visually grouped together with clear micro-labels, making the relationship between problem and solution immediately clear
 
-| File | Change |
-|------|--------|
-| `src/App.css` | Scope `#root` styles with `:not(.full-bleed)`, add `#root.full-bleed` rule with `overflow-anchor: none` |
-| `src/App.tsx` | Add `FullBleedRouteHandler` component that toggles `.full-bleed` class based on route |
-
----
-
-## Why This Is Industry Standard
-
-1. **CSS Scoping with `:not()`** — Standard CSS3 feature, used by Bootstrap, Tailwind, and every major framework
-2. **Route-aware class toggling** — How Next.js, Gatsby, and SPA frameworks handle layout variants
-3. **`overflow-anchor: none`** — Official CSS property (CSS Scroll Anchoring Module Level 1) designed specifically for this problem
-4. **No `!important`** — Uses natural CSS specificity
-5. **No inline styles** — All styling stays in CSS where it belongs
-
----
-
-## Expected Outcome
-
-- The `#root` container will no longer apply `max-width`, `margin`, or `padding` on `/deck` and `/tether`
-- Scroll anchoring will be disabled, preventing the browser from "correcting" position on direction change
-- The fix is clean, maintainable, and follows web standards
