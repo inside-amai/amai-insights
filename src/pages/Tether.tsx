@@ -867,7 +867,7 @@ const Tether = () => {
       <SlideDivider />
 
       {/* Slide 12: Partnership Visualization */}
-      <Slide align="left" slideNumber={12} isRTL={isRTL} hideGrid>
+      <Slide align="center" slideNumber={12} isRTL={isRTL} hideGrid>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -875,20 +875,9 @@ const Tether = () => {
           viewport={{ once: true, margin: "0px" }}
           className="w-full"
         >
-          {/* Micro-label */}
-          <motion.p
-            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            Partnership Architecture
-          </motion.p>
-          
           {/* Headline */}
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-8 md:mb-10 leading-[1.15]"
+            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-8 md:mb-10 leading-[1.15] text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
