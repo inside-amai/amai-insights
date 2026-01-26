@@ -907,7 +907,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide6.closing': 'We are not targeting copilots. We are targeting the $100B+ machine-first settlement layer.',
     
     'tether.slide7.label': 'Token Model',
-    'tether.slide7.headline': 'AMAI Is the Enforcement and Trust Denominator.',
+    'tether.slide7.headline': 'Enforcement-as-a-Service for the Agentic Web.',
     'tether.slide7.body': 'The AMAI token functions as the unified trust layer across the system.',
     'tether.slide7.pillar1.title': 'Reputation Governance',
     'tether.slide7.pillar1.desc': 'Computes reputation state and governs permissions across agents',
