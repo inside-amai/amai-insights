@@ -10,7 +10,7 @@ const languages: { code: Language; label: string }[] = [
 export const SiteHeader = () => {
   const { language, setLanguage } = useLanguage();
   const location = useLocation();
-  const isDeckPage = location.pathname === '/deck' || location.pathname === '/tether';
+  const isDeckPage = location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/thesis';
 
   return (
     <header className="absolute top-0 left-0 right-0 z-50 pointer-events-none">
