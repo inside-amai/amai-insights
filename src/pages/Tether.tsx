@@ -750,7 +750,7 @@ const Tether = () => {
             
             {/* Row 1 */}
             <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12`}>
-              <p className="text-base md:text-lg text-white/70 font-medium">"Overspending on Infrastructure"</p>
+              <p className="text-base md:text-lg text-white/70 font-medium">Overspending on Infrastructure</p>
               <div>
                 <p className="text-base text-white/70 font-medium mb-1">Deterministic Operational Ceilings:</p>
                 <p className="text-base text-white/50 font-light leading-relaxed">The Treasury Engine enforces strict spending rules and operational caps, preventing agents from runaway resource consumption.</p>
@@ -759,7 +759,7 @@ const Tether = () => {
             
             {/* Row 2 */}
             <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12`}>
-              <p className="text-base md:text-lg text-white/70 font-medium">"Unsustainable Capital Flows"</p>
+              <p className="text-base md:text-lg text-white/70 font-medium">Unsustainable Capital Flows</p>
               <div>
                 <p className="text-base text-white/70 font-medium mb-1">Bonded Capital Accountability:</p>
                 <p className="text-base text-white/50 font-light leading-relaxed">Agents must post collateral to establish baseline trust, ensuring only economically viable workloads receive routing priority.</p>
@@ -768,7 +768,7 @@ const Tether = () => {
             
             {/* Row 3 */}
             <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12`}>
-              <p className="text-base md:text-lg text-white/70 font-medium">"Correlation with Market Panics"</p>
+              <p className="text-base md:text-lg text-white/70 font-medium">Correlation with Market Panics</p>
               <div>
                 <p className="text-base text-white/70 font-medium mb-1">Trust-Weighted Execution:</p>
                 <p className="text-base text-white/50 font-light leading-relaxed">The Reputation Oracle isolates high-performing agents from market noise, using performance (latency, SLA) as a non-volatile value signal.</p>
@@ -777,7 +777,7 @@ const Tether = () => {
             
             {/* Row 4 */}
             <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12`}>
-              <p className="text-base md:text-lg text-white/70 font-medium">"Retrospective Accountability"</p>
+              <p className="text-base md:text-lg text-white/70 font-medium">Retrospective Accountability</p>
               <div>
                 <p className="text-base text-white/70 font-medium mb-1">Slashing & Instant Enforcement:</p>
                 <p className="text-base text-white/50 font-light leading-relaxed">Protocol violations trigger deterministic penalties in real-time, protecting hardware assets from misuse or inefficient allocation.</p>
