@@ -13,7 +13,7 @@ interface SlideProps {
   isRTL?: boolean;
 }
 
-const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 11, isRTL = false, hideGrid = false }: SlideProps & { hideGrid?: boolean }) => {
+const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 12, isRTL = false, hideGrid = false }: SlideProps & { hideGrid?: boolean }) => {
   const { t } = useLanguage();
   
   return (
@@ -789,8 +789,84 @@ const Tether = () => {
 
       <SlideDivider />
 
-      {/* Slide 11: Closing */}
-      <Slide slideNumber={11} isRTL={isRTL}>
+      {/* Slide 11: Strategic Value */}
+      <Slide align="left" slideNumber={11} isRTL={isRTL}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true, margin: "0px" }}
+          className="max-w-4xl"
+        >
+          {/* Micro-label */}
+          <motion.p
+            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            Strategic Value
+          </motion.p>
+          
+          {/* Headline */}
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 md:mb-12 leading-[1.15]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            Making Intelligence "Pay for Itself"
+          </motion.h2>
+          
+          {/* Body intro */}
+          <motion.p
+            className="text-base md:text-lg text-white/50 font-light leading-relaxed mb-8 md:mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            AMAI provides the <span className="text-white/70 font-medium">Economic Substrate</span> that transforms Tether's physical infrastructure—from GPU clusters to robotics—into self-sustaining business units.
+          </motion.p>
+          
+          {/* Bullet points */}
+          <motion.div
+            className="space-y-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
+              <span className="text-white/30 text-lg mt-0.5">•</span>
+              <p className="text-base text-white/50 font-light leading-relaxed">
+                <span className="text-white/70 font-medium">Continuous Capital Reinvestment:</span> Positive earnings from missions are automatically routed into upgrading intelligence modules (KIPs) or increasing collateral reserves.
+              </p>
+            </div>
+            
+            <div className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
+              <span className="text-white/30 text-lg mt-0.5">•</span>
+              <p className="text-base text-white/50 font-light leading-relaxed">
+                <span className="text-white/70 font-medium">Auditability for Sovereignty:</span> To meet the goal of "reducing reliance on centralized gatekeepers," AMAI provides a <span className="text-white/70 font-medium">Verifiable Knowledge Graph</span> of all agent actions.
+              </p>
+            </div>
+            
+            <div className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
+              <span className="text-white/30 text-lg mt-0.5">•</span>
+              <p className="text-base text-white/50 font-light leading-relaxed">
+                <span className="text-white/70 font-medium">Institutional-Grade Stability:</span> Moves autonomous coordination from speculative hype to a performance-based economy where trust is calculated and capital is protected.
+              </p>
+            </div>
+          </motion.div>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+      {/* Slide 12: Closing */}
+      <Slide slideNumber={12} isRTL={isRTL}>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1.2 }} viewport={{ once: true, margin: "0px" }} className="max-w-3xl mx-auto text-center">
           <motion.h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-10 md:mb-16 leading-[1.1]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }} viewport={{ once: true }}>{t('tether.slide9.headline')}</motion.h2>
           <motion.div 
