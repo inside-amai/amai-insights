@@ -1009,6 +1009,10 @@ const translations: Record<Language, Record<string, string>> = {
     'thesis.slide8.loop.scalability': 'Scalability:',
     'thesis.slide8.loop.scalability.desc': 'Aligning global GPU footprints with AMAI\'s swarm orchestration to power the "Physical AI" transition.',
     'thesis.slide8.closing': 'AMAI is the enforcement engine for the sovereign machine economy.',
+    
+    // Thesis slide 9
+    'thesis.slide9.headline': 'The Missing Layer AI Stack',
+    'thesis.slide9.rails.title': 'The rails are built',
   },
   ja: {
     // Hero section (subheader only - NOT the headline)
@@ -2008,6 +2012,10 @@ const translations: Record<Language, Record<string, string>> = {
     'thesis.slide8.loop.scalability': '拡張性：',
     'thesis.slide8.loop.scalability.desc': 'グローバルGPUフットプリントをAMAIのスウォーム・オーケストレーションと連携させ、「物理AI」への移行を推進する。',
     'thesis.slide8.closing': 'AMAIは主権的機械経済のための執行エンジンである。',
+    
+    // Thesis slide 9 (Japanese)
+    'thesis.slide9.headline': 'AIスタックの欠落層',
+    'thesis.slide9.rails.title': '基盤は構築済み',
   },
   ar: {
     // Hero section (subheader only - NOT the headline)
@@ -3007,6 +3015,10 @@ const translations: Record<Language, Record<string, string>> = {
     'thesis.slide8.loop.scalability': 'قابلية التوسع:',
     'thesis.slide8.loop.scalability.desc': 'مواءمة البصمات العالمية لوحدات GPU مع تنسيق أسراب AMAI لتشغيل الانتقال إلى "الذكاء الاصطناعي الفيزيائي".',
     'thesis.slide8.closing': 'AMAI هو محرك الإنفاذ لاقتصاد الآلة السيادي.',
+    
+    // Thesis slide 9 (Arabic)
+    'thesis.slide9.headline': 'الطبقة المفقودة في مكدس الذكاء الاصطناعي',
+    'thesis.slide9.rails.title': 'السكك مبنية',
   }
 };
 
