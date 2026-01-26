@@ -1017,6 +1017,13 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Thesis slide 11
     'thesis.slide11.intro': 'AMAI provides the <highlight>Economic Substrate</highlight> that transforms physical infrastructure—from GPU clusters to robotics—into self-sustaining business units.',
+    
+    // Thesis slide 1 (hero)
+    'thesis.slide1.label': 'The Thesis',
+    'thesis.slide1.headline': 'The Transition to Machine-First Commerce.',
+    'thesis.slide1.subheadline': 'Autonomous systems are outpacing the physical and economic infrastructure that supports them. AMAI provides the foundational thesis for anchoring identity, reputation, and capital in the agentic web.',
+    'thesis.slide1.cta1': 'Explore The Mission',
+    'thesis.slide1.cta2': 'Download The PDF',
   },
   ja: {
     // Hero section (subheader only - NOT the headline)
@@ -2024,6 +2031,13 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Thesis slide 11 (Japanese)
     'thesis.slide11.intro': 'AMAIは、GPUクラスターからロボティクスまでの物理基盤を自己持続的事業単位に転換する<highlight>経済基盤</highlight>を提供する。',
+    
+    // Thesis slide 1 (hero - Japanese)
+    'thesis.slide1.label': '論文',
+    'thesis.slide1.headline': '機械優先商取引への移行。',
+    'thesis.slide1.subheadline': '自律型システムは、それを支える物理的・経済的インフラストラクチャを追い越している。AMAIは、エージェント・ウェブにおけるアイデンティティ、信用、資本を定着させるための基礎的論文を提供する。',
+    'thesis.slide1.cta1': 'ミッションを探索',
+    'thesis.slide1.cta2': 'PDFをダウンロード',
   },
   ar: {
     // Hero section (subheader only - NOT the headline)
@@ -3031,6 +3045,13 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Thesis slide 11 (Arabic)
     'thesis.slide11.intro': 'توفر AMAI <highlight>الركيزة الاقتصادية</highlight> التي تحول البنية التحتية الفيزيائية—من مجموعات GPU إلى الروبوتات—إلى وحدات أعمال مستدامة ذاتياً.',
+    
+    // Thesis slide 1 (hero - Arabic)
+    'thesis.slide1.label': 'الأطروحة',
+    'thesis.slide1.headline': 'الانتقال إلى التجارة المبنية على الآلات.',
+    'thesis.slide1.subheadline': 'الأنظمة المستقلة تتجاوز البنية التحتية المادية والاقتصادية التي تدعمها. توفر AMAI الأطروحة التأسيسية لترسيخ الهوية والسمعة ورأس المال في الشبكة الوكيلية.',
+    'thesis.slide1.cta1': 'استكشاف المهمة',
+    'thesis.slide1.cta2': 'تحميل ملف PDF',
   }
 };
 
