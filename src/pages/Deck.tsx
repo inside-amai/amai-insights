@@ -58,6 +58,14 @@ const Slide = ({ children, className = "", align = "center", slideNumber, totalS
   );
 };
 
+const SlideDivider = () => (
+  <div className="w-full flex justify-center">
+    <div className="w-full max-w-6xl px-6 sm:px-8 md:px-16 lg:px-24">
+      <div className="h-px bg-white/10" />
+    </div>
+  </div>
+);
+
 const Deck = () => {
   const { scrollYProgress } = useScroll();
   const { t, language } = useLanguage();
@@ -126,6 +134,8 @@ const Deck = () => {
           </motion.p>
         </motion.div>
       </Slide>
+
+      <SlideDivider />
 
       {/* Slide 2: The Shift */}
       <Slide slideNumber={2} isRTL={isRTL}>
@@ -211,6 +221,8 @@ const Deck = () => {
           </motion.p>
         </motion.div>
       </Slide>
+
+      <SlideDivider />
 
       {/* Slide 3: The Infrastructure Layer */}
       <Slide align="left" slideNumber={3} isRTL={isRTL}>
@@ -304,6 +316,8 @@ const Deck = () => {
           </motion.p>
         </motion.div>
       </Slide>
+
+      <SlideDivider />
 
       {/* Slide 4: The Economic Loop */}
       <Slide slideNumber={4} isRTL={isRTL}>
@@ -440,6 +454,8 @@ const Deck = () => {
         </motion.div>
       </Slide>
 
+      <SlideDivider />
+
       {/* Slide 5: Autonomous Agent Swarms */}
       <Slide align="left" slideNumber={5} isRTL={isRTL}>
         <motion.div
@@ -509,6 +525,8 @@ const Deck = () => {
         </motion.div>
       </Slide>
 
+      <SlideDivider />
+
       {/* Slide 6: Initial Users */}
       <Slide align="left" slideNumber={6} isRTL={isRTL}>
         <motion.div
@@ -532,6 +550,8 @@ const Deck = () => {
         </motion.div>
       </Slide>
 
+      <SlideDivider />
+
       {/* Slide 7: Token Model */}
       <Slide align="left" slideNumber={7} isRTL={isRTL}>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true, margin: "0px" }} className="max-w-3xl">
@@ -547,6 +567,8 @@ const Deck = () => {
           <motion.p className="text-base md:text-lg text-white/50 font-light leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} viewport={{ once: true }}>{t('deck.slide7.closing')}</motion.p>
         </motion.div>
       </Slide>
+
+      <SlideDivider />
 
       {/* Slide 8: Strategic Alignment */}
       <Slide align="left" slideNumber={8} isRTL={isRTL}>
@@ -566,6 +588,8 @@ const Deck = () => {
           <motion.p className="mt-8 md:mt-14 text-base md:text-lg text-white/70 font-normal leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }} viewport={{ once: true }}>{t('deck.slide8.closing')}</motion.p>
         </motion.div>
       </Slide>
+
+      <SlideDivider />
 
       {/* Slide 9: Closing */}
       <Slide slideNumber={9} isRTL={isRTL}>
