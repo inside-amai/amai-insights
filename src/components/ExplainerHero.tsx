@@ -141,7 +141,7 @@ export const ExplainerHero = () => {
             className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-white leading-tight tracking-tight"
           >
             <span className="font-light">Agents Are</span>
-            <span className="block font-normal">Entering the Economy.</span>
+            <span className="block font-light">Entering the Economy.</span>
           </motion.h1>
 
           {/* Subtitle - translated */}
