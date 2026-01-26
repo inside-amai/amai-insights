@@ -1021,7 +1021,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Thesis slide 1 (hero)
     'thesis.slide1.label': 'The Thesis',
     'thesis.slide1.headline': 'The Transition to Machine-First Commerce.',
-    'thesis.slide1.subheadline': 'Autonomous systems are outpacing the physical and economic infrastructure that supports them. AMAI provides the foundational thesis for anchoring identity, reputation, and capital in the agentic web.',
+    'thesis.slide1.subheadline': 'Autonomous systems are outpacing the physical and economic infrastructure that supports them. AMAI provides the foundational system for anchoring identity, reputation, and capital in the agentic web.',
     'thesis.slide1.cta1': 'Explore The Mission',
     'thesis.slide1.cta2': 'Download The PDF',
   },

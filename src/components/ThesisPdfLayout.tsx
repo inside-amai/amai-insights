@@ -36,7 +36,7 @@ export const ThesisPdfLayout = React.forwardRef<HTMLDivElement>((_, ref) => {
           </h2>
           <p style={{ fontSize: '14px', color: '#555', lineHeight: '1.8', maxWidth: '400px' }}>
             Autonomous systems are outpacing the physical and economic infrastructure that supports them. 
-            AMAI provides the foundational thesis for anchoring identity, reputation, and capital in the agentic web.
+            AMAI provides the foundational system for anchoring identity, reputation, and capital in the agentic web.
           </p>
         </div>
 
