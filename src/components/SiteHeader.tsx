@@ -11,6 +11,7 @@ export const SiteHeader = () => {
   const { language, setLanguage } = useLanguage();
   const location = useLocation();
   const isDeckPage = location.pathname === '/deck' || location.pathname === '/tether';
+  const isThesisPage = location.pathname === '/thesis';
 
   return (
     <header className="absolute top-0 left-0 right-0 z-50 pointer-events-none">
@@ -38,13 +39,13 @@ export const SiteHeader = () => {
 
           {/* Navigation + Language Selector */}
           <div className="pointer-events-auto flex items-center gap-4 text-[11px] tracking-wide">
-            {/* Thesis Link - hidden on /deck and /tether */}
+            {/* Navigation Link - hidden on /deck and /tether */}
             {!isDeckPage && (
               <Link 
-                to="/thesis" 
+                to={isThesisPage ? "/" : "/thesis"}
                 className="text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase"
               >
-                Explore The Thesis
+                {isThesisPage ? "View Architecture" : "Explore The Thesis"}
               </Link>
             )}
             
