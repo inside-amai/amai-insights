@@ -119,7 +119,7 @@ export const ExplainerHero = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="space-y-3 max-w-3xl"
+          className="space-y-6 md:space-y-8 max-w-3xl"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -138,7 +138,7 @@ export const ExplainerHero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-white leading-tight tracking-tight pt-1"
+            className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-white leading-tight tracking-tight"
           >
             <span className="font-light">Agents Are</span>
             <span className="block font-normal">Entering the Economy.</span>
@@ -160,7 +160,7 @@ export const ExplainerHero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex flex-col gap-3 pt-1"
+            className="flex flex-col gap-3 pt-2"
           >
             <div className="flex flex-row gap-4 items-center">
               <a 
