@@ -668,7 +668,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            {t('tether.slide9.headline')}
+            {t('thesis.slide9.headline')}
           </motion.h2>
           
           {/* Two-column layout */}
@@ -681,7 +681,7 @@ const Thesis = () => {
           >
             {/* Left column - wider (3/5) */}
             <div className={`md:col-span-3 ${isRTL ? 'md:col-start-3' : ''}`}>
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-4">{t('tether.slide9.tether.title')}</p>
+              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-4">{t('thesis.slide9.rails.title')}</p>
               <div className="space-y-3">
                 {[
                   t('tether.slide9.tether.item1'),
