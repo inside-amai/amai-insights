@@ -720,7 +720,7 @@ const Tether = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            The Risk Mitigation Layer
+            Infrastructure Volatility
           </motion.p>
           
           {/* Headline */}
@@ -731,7 +731,7 @@ const Tether = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Solving for the 2026 Infrastructure Volatility
+            The Risk Mitigation Layer
           </motion.h2>
           
           {/* Two-column risk/guardrail layout */}
