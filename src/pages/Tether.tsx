@@ -571,22 +571,56 @@ const Tether = () => {
 
       <SlideDivider />
 
-      {/* Slide 8: Strategic Alignment */}
+      {/* Slide 8: Why Tether */}
       <Slide align="left" slideNumber={8} isRTL={isRTL}>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true, margin: "0px" }} className="max-w-3xl">
           <motion.p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }}>{t('tether.slide8.label')}</motion.p>
           <motion.h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 md:mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>{t('tether.slide8.headline')}</motion.h2>
-          <motion.p className="text-base md:text-lg text-white/50 font-light leading-relaxed mb-6 md:mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} viewport={{ once: true }}>{t('tether.slide8.body')}</motion.p>
-          <motion.div className="space-y-3 mb-12" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
-            {[t('tether.slide8.point1'), t('tether.slide8.point2'), t('tether.slide8.point3'), t('tether.slide8.point4')].map((item, i) => (
-              <div key={i} className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                <span className="text-white/20 text-sm mt-0.5">—</span>
-                <p className="text-base text-white/50 font-light leading-relaxed">{item}</p>
-              </div>
-            ))}
+          
+          {/* Intro paragraph */}
+          <motion.p className="text-base md:text-lg text-white/50 font-light leading-relaxed mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} viewport={{ once: true }}>
+            Tether provides the world's most resilient liquidity and hardware rails. AMAI provides the economic logic required to govern them at machine speed.
+          </motion.p>
+          
+          {/* Sovereign Infrastructure */}
+          <motion.div className="mb-8" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.55 }} viewport={{ once: true }}>
+            <p className="text-base text-white/70 font-medium mb-2">Sovereign Infrastructure</p>
+            <p className="text-base text-white/50 font-light leading-relaxed">
+              Autonomous systems must operate beyond jurisdictions and discretionary control. AMAI and Tether provide a neutral, decentralized substrate for global agentic activity.
+            </p>
           </motion.div>
-          <motion.p className="text-base md:text-lg text-white/50 font-light leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} viewport={{ once: true }}>{t('tether.slide8.body2')}</motion.p>
-          <motion.p className="mt-8 md:mt-14 text-base md:text-lg text-white/70 font-normal leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }} viewport={{ once: true }}>{t('tether.slide8.closing')}</motion.p>
+          
+          {/* Economic Skin-in-the-Game */}
+          <motion.div className="mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
+            <p className="text-base text-white/70 font-medium mb-2">Economic Skin-in-the-Game</p>
+            <p className="text-base text-white/50 font-light leading-relaxed">
+              Tether's liquidity serves as the ideal collateral for AMAI's Bonded Treasury Layer. By backing agents with USDT, we establish immediate, cross-border economic accountability.
+            </p>
+          </motion.div>
+          
+          {/* The Resilience Loop */}
+          <motion.div className="mb-12" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.65 }} viewport={{ once: true }}>
+            <p className="text-base text-white/70 font-medium mb-4">The Resilience Loop</p>
+            <div className="space-y-3">
+              <div className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                <span className="text-white/20 text-sm mt-0.5">—</span>
+                <p className="text-base text-white/50 font-light leading-relaxed"><span className="text-white/70">Neutrality:</span> Independent of legacy banking hours or proprietary custodial gates.</p>
+              </div>
+              <div className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                <span className="text-white/20 text-sm mt-0.5">—</span>
+                <p className="text-base text-white/50 font-light leading-relaxed"><span className="text-white/70">Continuity:</span> 24/7/365 deterministic settlement for compute and capital.</p>
+              </div>
+              <div className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                <span className="text-white/20 text-sm mt-0.5">—</span>
+                <p className="text-base text-white/50 font-light leading-relaxed"><span className="text-white/70">Scalability:</span> Aligning Tether's massive GPU footprint with AMAI's swarm orchestration.</p>
+              </div>
+            </div>
+          </motion.div>
+          
+          {/* Closing statement */}
+          <motion.p className="text-base md:text-lg text-white/70 font-normal leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.75 }} viewport={{ once: true }}>
+            AMAI is the enforcement engine for Tether's "Physical AI" vision.
+          </motion.p>
         </motion.div>
       </Slide>
 
