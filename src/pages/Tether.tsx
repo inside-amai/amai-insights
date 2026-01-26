@@ -3,6 +3,7 @@ import { motion, useScroll } from "framer-motion";
 import amaiLogo from "@/assets/amai-logo-hero-new.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useIsMobile } from "@/hooks/use-mobile";
+import TetherPartnershipVisualization from "@/components/TetherPartnershipVisualization";
 
 interface SlideProps {
   children: React.ReactNode;
@@ -13,7 +14,7 @@ interface SlideProps {
   isRTL?: boolean;
 }
 
-const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 12, isRTL = false, hideGrid = false }: SlideProps & { hideGrid?: boolean }) => {
+const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 13, isRTL = false, hideGrid = false }: SlideProps & { hideGrid?: boolean }) => {
   const { t } = useLanguage();
   
   return (
@@ -865,8 +866,53 @@ const Tether = () => {
 
       <SlideDivider />
 
-      {/* Slide 12: Closing */}
-      <Slide slideNumber={12} isRTL={isRTL}>
+      {/* Slide 12: Partnership Visualization */}
+      <Slide align="left" slideNumber={12} isRTL={isRTL} hideGrid>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true, margin: "0px" }}
+          className="w-full"
+        >
+          {/* Micro-label */}
+          <motion.p
+            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            Partnership Architecture
+          </motion.p>
+          
+          {/* Headline */}
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-8 md:mb-10 leading-[1.15]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            Tether × AMAI Integration
+          </motion.h2>
+          
+          {/* Visualization Component */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <TetherPartnershipVisualization />
+          </motion.div>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+      {/* Slide 13: Closing */}
+      <Slide slideNumber={13} isRTL={isRTL}>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1.2 }} viewport={{ once: true, margin: "0px" }} className="max-w-3xl mx-auto text-center">
           <motion.h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-10 md:mb-16 leading-[1.1]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }} viewport={{ once: true }}>{t('tether.slide9.headline')}</motion.h2>
           <motion.div 
