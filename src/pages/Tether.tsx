@@ -138,7 +138,7 @@ const Tether = () => {
 
       <SlideDivider />
 
-      {/* Slide 2: The Shift */}
+      {/* Slide 2: The Infrastructure Gap */}
       <Slide slideNumber={2} isRTL={isRTL}>
         <motion.div
           initial={{ opacity: 0 }}
@@ -160,16 +160,25 @@ const Tether = () => {
           
           {/* Headline */}
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 md:mb-16 leading-[1.15]"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            {t('tether.slide2.headline1')}
-            <br />
-            {t('tether.slide2.headline2')}
+            {t('tether.slide2.headline')}
           </motion.h2>
+          
+          {/* Intro paragraph */}
+          <motion.p
+            className="text-lg md:text-xl text-white/60 font-light leading-relaxed mb-12 md:mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            {t('tether.slide2.intro')}
+          </motion.p>
           
           {/* Body copy - numbered points */}
           <motion.div
@@ -209,17 +218,6 @@ const Tether = () => {
               </p>
             </div>
           </motion.div>
-          
-          {/* Closing line */}
-          <motion.p
-            className="mt-16 text-lg text-white/70 font-normal leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            viewport={{ once: true }}
-          >
-            {t('tether.slide2.closing')}
-          </motion.p>
         </motion.div>
       </Slide>
 
