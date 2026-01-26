@@ -107,32 +107,53 @@ const Thesis = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            {t('tether.slide1.label')}
+            {t('thesis.slide1.label')}
           </motion.p>
           
           {/* Headline */}
           <motion.h1
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-6 md:mb-10 leading-[1.1]"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-8 md:mb-10 leading-[1.1]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <span className="font-light">{t('tether.slide1.headline1')}</span>
-            <br />
-            <span className="font-light">{t('tether.slide1.headline2')}</span>
+            {t('thesis.slide1.headline')}
           </motion.h1>
           
           {/* Subheadline */}
           <motion.p
-            className="text-base md:text-xl text-white/50 font-light leading-relaxed max-w-2xl"
+            className="text-base md:text-xl text-white/50 font-light leading-relaxed max-w-2xl mb-10 md:mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            {t('tether.slide1.subheadline1')}
-            <br /><br />
-            {t('tether.slide1.subheadline2')}
+            {t('thesis.slide1.subheadline')}
           </motion.p>
+          
+          {/* CTAs */}
+          <motion.div
+            className={`flex flex-col sm:flex-row gap-4 ${isRTL ? 'sm:flex-row-reverse' : ''}`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.0 }}
+          >
+            <a
+              href="#slide-2"
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector('section:nth-of-type(2)')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="text-sm text-white/70 hover:text-white border border-white/20 hover:border-white/40 px-6 py-3 rounded transition-all duration-300 uppercase tracking-[0.15em] text-center"
+            >
+              {t('thesis.slide1.cta1')}
+            </a>
+            <a
+              href="/thesis-pdf"
+              className="text-sm text-white/50 hover:text-white/70 px-6 py-3 transition-all duration-300 uppercase tracking-[0.15em] text-center"
+            >
+              {t('thesis.slide1.cta2')}
+            </a>
+          </motion.div>
         </motion.div>
       </Slide>
 
