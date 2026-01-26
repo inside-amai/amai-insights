@@ -860,7 +860,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide2.point3.body': 'The limiting constraint for the 2026 Agent Economy is no longer model intelligence; it is the Enforcement Layer. Infrastructure determines which systems survive the transition from tools to autonomous economic participants.',
     
     'tether.slide3.label': 'The Infrastructure Layer',
-    'tether.slide3.headline': 'AMAI Provides Economic Infrastructure for Autonomous Systems.',
+    'tether.slide3.headline': 'A Global Trust Denominator for Autonomous Agency.',
     'tether.slide3.body1': 'AMAI provides the missing economic primitives that allow autonomous agents to participate in real-world systems.',
     'tether.slide3.body2': 'It is an execution and enforcement layer that sits below interfaces, applications, and marketplaces.',
     'tether.slide3.pillar1.title': 'Identity',
