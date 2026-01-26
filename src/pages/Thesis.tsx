@@ -14,7 +14,7 @@ interface SlideProps {
   isRTL?: boolean;
 }
 
-const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 13, isRTL = false, hideGrid = false }: SlideProps & { hideGrid?: boolean }) => {
+const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 12, isRTL = false, hideGrid = false }: SlideProps & { hideGrid?: boolean }) => {
   const { t } = useLanguage();
   
   return (
@@ -921,7 +921,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            {t('tether.slide11.intro').split('<highlight>').map((part, i) => {
+            {t('thesis.slide11.intro').split('<highlight>').map((part, i) => {
               if (i === 0) return part;
               const [highlighted, rest] = part.split('</highlight>');
               return (
@@ -976,42 +976,8 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* Slide 12: Partnership Visualization */}
-      <Slide align="center" slideNumber={12} isRTL={isRTL} hideGrid>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true, margin: "0px" }}
-          className="w-full"
-        >
-          {/* Headline */}
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-8 md:mb-10 leading-[1.15] text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            {t('tether.slide12.headline')}
-          </motion.h2>
-          
-          {/* Visualization Component */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <TetherPartnershipVisualization />
-          </motion.div>
-        </motion.div>
-      </Slide>
-
-      <SlideDivider />
-
-      {/* Slide 13: Closing */}
-      <Slide slideNumber={13} isRTL={isRTL}>
+      {/* Slide 12: Closing */}
+      <Slide slideNumber={12} isRTL={isRTL}>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1.2 }} viewport={{ once: true, margin: "0px" }} className="max-w-3xl mx-auto text-center">
           <motion.h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-10 md:mb-16 leading-[1.1]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }} viewport={{ once: true }}>{t('tether.slide13.headline')}</motion.h2>
           <motion.div 

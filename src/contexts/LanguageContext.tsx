@@ -1013,6 +1013,9 @@ const translations: Record<Language, Record<string, string>> = {
     // Thesis slide 9
     'thesis.slide9.headline': 'The Missing Layer AI Stack',
     'thesis.slide9.rails.title': 'The rails are built',
+    
+    // Thesis slide 11
+    'thesis.slide11.intro': 'AMAI provides the <highlight>Economic Substrate</highlight> that transforms physical infrastructure—from GPU clusters to robotics—into self-sustaining business units.',
   },
   ja: {
     // Hero section (subheader only - NOT the headline)
@@ -2016,6 +2019,9 @@ const translations: Record<Language, Record<string, string>> = {
     // Thesis slide 9 (Japanese)
     'thesis.slide9.headline': 'AIスタックの欠落層',
     'thesis.slide9.rails.title': '基盤は構築済み',
+    
+    // Thesis slide 11 (Japanese)
+    'thesis.slide11.intro': 'AMAIは、GPUクラスターからロボティクスまでの物理基盤を自己持続的事業単位に転換する<highlight>経済基盤</highlight>を提供する。',
   },
   ar: {
     // Hero section (subheader only - NOT the headline)
@@ -3019,6 +3025,9 @@ const translations: Record<Language, Record<string, string>> = {
     // Thesis slide 9 (Arabic)
     'thesis.slide9.headline': 'الطبقة المفقودة في مكدس الذكاء الاصطناعي',
     'thesis.slide9.rails.title': 'السكك مبنية',
+    
+    // Thesis slide 11 (Arabic)
+    'thesis.slide11.intro': 'توفر AMAI <highlight>الركيزة الاقتصادية</highlight> التي تحول البنية التحتية الفيزيائية—من مجموعات GPU إلى الروبوتات—إلى وحدات أعمال مستدامة ذاتياً.',
   }
 };
 
