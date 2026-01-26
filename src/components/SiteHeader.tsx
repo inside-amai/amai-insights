@@ -10,12 +10,34 @@ const languages: { code: Language; label: string }[] = [
   { code: 'ar', label: 'AR' },
 ];
 
+// Self-contained copy button that manages its own state
+const CopyEmailButton = () => {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    navigator.clipboard.writeText('team@amai.net').then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
+  return (
+    <button
+      onClick={handleCopy}
+      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-medium text-white transition-all"
+    >
+      {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+      {copied ? 'Copied!' : 'Copy'}
+    </button>
+  );
+};
+
 export const SiteHeader = () => {
   const { language, setLanguage } = useLanguage();
   const location = useLocation();
   const isDeckPage = location.pathname === '/deck' || location.pathname === '/tether';
   const isThesisPage = location.pathname === '/thesis';
-  const [copied, setCopied] = useState(false);
 
   const handleContactClick = () => {
     // Show toast after a brief delay to allow mailto to attempt opening
@@ -25,19 +47,7 @@ export const SiteHeader = () => {
         description: (
           <div className="flex items-center gap-3 mt-1">
             <span className="text-white/80">Reach us at team@amai.net</span>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                navigator.clipboard.writeText('team@amai.net').then(() => {
-                  setCopied(true);
-                  setTimeout(() => setCopied(false), 2000);
-                });
-              }}
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-medium text-white transition-all"
-            >
-              {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
-              {copied ? 'Copied!' : 'Copy'}
-            </button>
+            <CopyEmailButton />
           </div>
         ),
       });
