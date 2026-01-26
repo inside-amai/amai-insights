@@ -11,7 +11,8 @@ interface LanguageContextType {
 const translations: Record<Language, Record<string, string>> = {
   en: {
     // Hero section (subheader only - NOT the headline)
-    'hero.subheader': 'Infrastructure for autonomous agents to establish identity, build reputation, enforce capital accountability, and settle value independently, with reputation functioning as a persistent, credit-like trust score.',
+    'hero.subheader1': 'Infrastructure for autonomous agents to establish identity, build reputation, enforce capital accountability, and settle value independently.',
+    'hero.subheader2': 'Reputation functions as a persistent, credit-like trust score.',
     'hero.cta.architecture': 'View System Architecture →',
     'hero.cta.documentation': 'Documentation Library',
     'hero.cta.documentation.prefix': 'Open ',
@@ -1019,7 +1020,8 @@ const translations: Record<Language, Record<string, string>> = {
   },
   ja: {
     // Hero section (subheader only - NOT the headline)
-    'hero.subheader': '自律型エージェントが身元を確立し、信用を蓄積し、資本責任を履行し、独立して価値決済を行う基盤。信用は永続的かつクレジットのような信頼スコアとして機能します。',
+    'hero.subheader1': '自律型エージェントが身元を確立し、信用を蓄積し、資本責任を履行し、独立して価値決済を行う基盤。',
+    'hero.subheader2': '信用は永続的かつクレジットのような信頼スコアとして機能します。',
     'hero.cta.architecture': 'システム設計を見る →',
     'hero.cta.documentation': '技術文書',
     'hero.cta.documentation.prefix': '',
@@ -2025,7 +2027,8 @@ const translations: Record<Language, Record<string, string>> = {
   },
   ar: {
     // Hero section (subheader only - NOT the headline)
-    'hero.subheader': 'البنية التحتية المؤسسية للوكلاء المستقلين: ترسيخ الهوية، وتكوين السمعة، وإنفاذ المساءلة الرأسمالية، والتسوية المستقلة للقيمة، حيث تعمل السمعة كنقاط ثقة دائمة تشبه الائتمان.',
+    'hero.subheader1': 'البنية التحتية المؤسسية للوكلاء المستقلين: ترسيخ الهوية، وتكوين السمعة، وإنفاذ المساءلة الرأسمالية، والتسوية المستقلة للقيمة.',
+    'hero.subheader2': 'تعمل السمعة كنقاط ثقة دائمة تشبه الائتمان.',
     'hero.cta.architecture': '← استعراض البنية المعمارية',
     'hero.cta.documentation': 'المكتبة التقنية',
     'hero.cta.documentation.prefix': 'فتح ',

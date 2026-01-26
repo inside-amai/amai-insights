@@ -145,14 +145,15 @@ export const ExplainerHero = () => {
           </motion.h1>
 
           {/* Subtitle - translated */}
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-sm md:text-base text-white/50 max-w-xl leading-relaxed"
+            className="text-sm md:text-base text-white/50 max-w-xl leading-relaxed space-y-3"
           >
-            {t('hero.subheader')}
-          </motion.p>
+            <p>{t('hero.subheader1')}</p>
+            <p>{t('hero.subheader2')}</p>
+          </motion.div>
 
           {/* CTAs */}
           <motion.div
