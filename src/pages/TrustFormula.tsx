@@ -19,10 +19,6 @@ const TrustFormula = () => {
 
   return (
     <div className="min-h-screen bg-black relative overflow-hidden">
-      <div className="fixed inset-0 opacity-[0.03]">
-        <div className="absolute inset-0" style={{ backgroundImage: `linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)`, backgroundSize: '60px 60px' }} />
-      </div>
-      <div className="fixed inset-0 bg-gradient-to-b from-white/[0.02] via-transparent to-transparent pointer-events-none" />
 
       <div className="relative z-10">
         <div className="pt-20 px-6">
