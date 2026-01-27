@@ -749,7 +749,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Deck page translations
     'deck.footer': 'Infrastructure & Research · AMAI Labs',
-    'deck.slide1.label': '01 // BRIEFING',
+    'deck.slide1.label': '01 // PREPARED FOR COINBASE VENTURES',
     'deck.slide1.headline1': 'The Settlement Layer for',
     'deck.slide1.headline2': 'the Agentic Web.',
     'deck.slide1.subheadline1': 'Autonomous systems are evolving from passive tools into active economic participants. The next major expansion of global GDP will be autonomous.',
@@ -1890,7 +1890,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Deck page translations
     'deck.footer': '基盤研究開発 · AMAI Labs',
-    'deck.slide1.label': '01 // ブリーフィング',
+    'deck.slide1.label': '01 // PREPARED FOR COINBASE VENTURES',
     'deck.slide1.headline1': 'エージェントウェブの',
     'deck.slide1.headline2': '決済レイヤー。',
     'deck.slide1.subheadline1': '自律型システムは受動的なツールから能動的な経済参加者へと進化している。世界GDPの次なる大規模拡張は自律的なものとなる。',
@@ -3030,7 +3030,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Deck page translations
     'deck.footer': 'البنية التحتية والأبحاث · AMAI Labs',
-    'deck.slide1.label': '01 // الإحاطة',
+    'deck.slide1.label': '01 // PREPARED FOR COINBASE VENTURES',
     'deck.slide1.headline1': 'طبقة التسوية',
     'deck.slide1.headline2': 'للشبكة الوكيلية.',
     'deck.slide1.subheadline1': 'الأنظمة المستقلة تتطور من أدوات سلبية إلى مشاركين اقتصاديين فاعلين. التوسع الكبير القادم في الناتج المحلي الإجمالي العالمي سيكون ذاتياً.',
