@@ -45,11 +45,8 @@ const TrustFormula = () => {
                 <p>Classification: Core Protocol Logic</p>
               </div>
 
-              <p className="text-white/50 text-sm leading-relaxed max-w-2xl mb-4">
+              <p className="text-white/50 text-sm leading-relaxed max-w-2xl">
                 This is the final, consolidated System Architecture Specification (v1.0.4). It merges the core logic with the necessary volatility and temporal safeguards.
-              </p>
-              <p className="text-white/40 text-xs leading-relaxed max-w-2xl">
-                Copy this entire block for your engineering team. It provides the definitive logic for the x402 Enforcement Layer.
               </p>
               <div className="w-16 h-px bg-white/10 mt-10" />
             </motion.div>
