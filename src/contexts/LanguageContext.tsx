@@ -750,10 +750,10 @@ const translations: Record<Language, Record<string, string>> = {
     // Deck page translations
     'deck.footer': 'Infrastructure & Research · AMAI Labs',
     'deck.slide1.label': 'Briefing',
-    'deck.slide1.headline1': 'Agents Are',
-    'deck.slide1.headline2': 'Entering the Economy.',
-    'deck.slide1.subheadline1': 'Infrastructure for autonomous agents to establish identity, build reputation, enforce capital accountability, and settle value independently.',
-    'deck.slide1.subheadline2': 'Reputation functions as a persistent, credit-like trust score.',
+    'deck.slide1.headline1': 'The Settlement Layer for',
+    'deck.slide1.headline2': 'the Agentic Web.',
+    'deck.slide1.subheadline1': 'Autonomous systems are outpacing the physical and economic infrastructure that supports them.',
+    'deck.slide1.subheadline2': 'AMAI provides the foundational system for anchoring identity, reputation, and capital in the agentic web.',
     
     'deck.slide2.label': 'The Shift',
     'deck.slide2.headline1': 'The Next Billion Users of the Internet Will Not Be People,',
@@ -1764,10 +1764,10 @@ const translations: Record<Language, Record<string, string>> = {
     // Deck page translations
     'deck.footer': '基盤研究開発 · AMAI Labs',
     'deck.slide1.label': '概要説明',
-    'deck.slide1.headline1': 'エージェントが',
-    'deck.slide1.headline2': '経済に参入する。',
-    'deck.slide1.subheadline1': '自律型エージェントが身元を確立し、信用を蓄積し、資本責任を履行し、独立して価値を決済するための基盤。',
-    'deck.slide1.subheadline2': '信用は永続的かつクレジットのような信頼スコアとして機能する。',
+    'deck.slide1.headline1': 'エージェントウェブの',
+    'deck.slide1.headline2': '決済レイヤー。',
+    'deck.slide1.subheadline1': '自律型システムは、それを支える物理的・経済的インフラを凌駕している。',
+    'deck.slide1.subheadline2': 'AMAIは、エージェントウェブにおけるアイデンティティ、信用、資本を定着させる基盤システムを提供する。',
     
     'deck.slide2.label': '転換点',
     'deck.slide2.headline1': 'インターネットの次なる10億ユーザーは人間ではなく、',
@@ -2778,10 +2778,10 @@ const translations: Record<Language, Record<string, string>> = {
     // Deck page translations
     'deck.footer': 'البنية التحتية والأبحاث · AMAI Labs',
     'deck.slide1.label': 'الإحاطة',
-    'deck.slide1.headline1': 'الوكلاء يدخلون',
-    'deck.slide1.headline2': 'الاقتصاد.',
-    'deck.slide1.subheadline1': 'بنية تحتية للوكلاء المستقلين لترسيخ الهوية وبناء السمعة وإنفاذ المساءلة الرأسمالية وتسوية القيمة باستقلالية.',
-    'deck.slide1.subheadline2': 'تعمل السمعة كنقاط ثقة دائمة تشبه الائتمان.',
+    'deck.slide1.headline1': 'طبقة التسوية',
+    'deck.slide1.headline2': 'للشبكة الوكيلية.',
+    'deck.slide1.subheadline1': 'الأنظمة المستقلة تتجاوز البنية التحتية المادية والاقتصادية التي تدعمها.',
+    'deck.slide1.subheadline2': 'توفر AMAI النظام الأساسي لترسيخ الهوية والسمعة ورأس المال في الشبكة الوكيلية.',
     
     'deck.slide2.label': 'التحول',
     'deck.slide2.headline1': 'المليار مستخدم القادم للإنترنت لن يكونوا بشراً،',
