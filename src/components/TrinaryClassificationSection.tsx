@@ -25,7 +25,8 @@ export const TrinaryClassificationSection = () => {
           label: 'The Sovereign',
           desc: '"Too Big To Fail" Economics. Institutional bond. Uncapped throughput. The environment for settlement and heavy treasury management.'
         }
-      ]
+      ],
+      visual: 'pyramid'
     },
     {
       number: '02',
@@ -124,6 +125,42 @@ export const TrinaryClassificationSection = () => {
                         <p className="text-[11px] text-white/40 leading-relaxed">{tier.desc}</p>
                       </div>
                     ))}
+                  </div>
+                )}
+
+                {/* Visual: Pyramid Diagram */}
+                {col.visual === 'pyramid' && (
+                  <div className="mt-6 pt-4 border-t border-white/5">
+                    <div className="flex flex-col items-center">
+                      <svg viewBox="0 0 100 70" className="w-24 h-16">
+                        {/* Tier III - Top capstone (floating) */}
+                        <polygon 
+                          points="50,2 60,18 40,18" 
+                          fill="none" 
+                          stroke="rgba(255,255,255,0.4)" 
+                          strokeWidth="1"
+                        />
+                        {/* Tier II - Middle section */}
+                        <polygon 
+                          points="40,22 60,22 70,42 30,42" 
+                          fill="none" 
+                          stroke="rgba(255,255,255,0.3)" 
+                          strokeWidth="1"
+                        />
+                        {/* Tier I - Bottom section (wide base) */}
+                        <polygon 
+                          points="30,46 70,46 85,68 15,68" 
+                          fill="none" 
+                          stroke="rgba(255,255,255,0.25)" 
+                          strokeWidth="1"
+                        />
+                      </svg>
+                      <div className="flex justify-between w-24 mt-2">
+                        <span className="text-[8px] text-white/20">I</span>
+                        <span className="text-[8px] text-white/25">II</span>
+                        <span className="text-[8px] text-white/30">III</span>
+                      </div>
+                    </div>
                   </div>
                 )}
 
