@@ -611,16 +611,16 @@ const Briefing = () => {
 
             <div className="mt-12 flex flex-row flex-wrap items-center justify-center gap-4">
               <a
-                href="/"
-                className="text-sm text-white/70 hover:text-white border border-white/20 hover:border-white/40 px-5 py-2.5 rounded transition-all duration-300"
-              >
-                {t('briefing.slide13.cta1')} →
-              </a>
-              <a
                 href="/thesis"
                 className="text-sm text-white/70 hover:text-white border border-white/20 hover:border-white/40 px-5 py-2.5 rounded transition-all duration-300"
               >
                 {t('briefing.slide13.cta2')} →
+              </a>
+              <a
+                href="/"
+                className="text-sm text-white/70 hover:text-white border border-white/20 hover:border-white/40 px-5 py-2.5 rounded transition-all duration-300"
+              >
+                {t('briefing.slide13.cta1')} →
               </a>
               <a
                 href="mailto:team@amai.net?subject=Mission%20Briefing%20%2F%2F%20%5BOrganization%20Name%5D&body=To%20the%20AMAI%20Labs%20Team%2C%0A%0AWe%20are%20reaching%20out%20regarding%20the%20%5BThesis%20%2F%20Architecture%5D.%0A%0AName%3A%20%0AOrganization%3A%20%0AIntent%3A%20"
