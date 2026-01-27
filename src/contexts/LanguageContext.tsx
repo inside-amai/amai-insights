@@ -749,7 +749,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Deck page translations
     'deck.footer': 'Infrastructure & Research · AMAI Labs',
-    'deck.slide1.label': 'Briefing',
+    'deck.slide1.label': 'Prepared for Coinbase Ventures',
     'deck.slide1.headline1': 'The Settlement Layer for',
     'deck.slide1.headline2': 'the Agentic Web.',
     'deck.slide1.subheadline1': 'Autonomous systems are outpacing the physical and economic infrastructure that supports them.',
@@ -1763,7 +1763,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Deck page translations
     'deck.footer': '基盤研究開発 · AMAI Labs',
-    'deck.slide1.label': '概要説明',
+    'deck.slide1.label': 'Prepared for Coinbase Ventures',
     'deck.slide1.headline1': 'エージェントウェブの',
     'deck.slide1.headline2': '決済レイヤー。',
     'deck.slide1.subheadline1': '自律型システムは、それを支える物理的・経済的インフラを凌駕している。',
@@ -2777,7 +2777,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Deck page translations
     'deck.footer': 'البنية التحتية والأبحاث · AMAI Labs',
-    'deck.slide1.label': 'الإحاطة',
+    'deck.slide1.label': 'Prepared for Coinbase Ventures',
     'deck.slide1.headline1': 'طبقة التسوية',
     'deck.slide1.headline2': 'للشبكة الوكيلية.',
     'deck.slide1.subheadline1': 'الأنظمة المستقلة تتجاوز البنية التحتية المادية والاقتصادية التي تدعمها.',
