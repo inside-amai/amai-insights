@@ -609,25 +609,27 @@ const Briefing = () => {
               </motion.span>
             </div>
 
-            <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="/"
-                className="px-8 py-3 bg-black border border-white/20 text-white/80 text-sm tracking-wider uppercase hover:bg-white/5 transition-colors"
-              >
-                {t('briefing.slide13.cta1')}
-              </a>
+            <div className="mt-12 flex flex-col items-center justify-center gap-6">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a
+                  href="/"
+                  className="px-8 py-3 bg-black border border-white/20 text-white/80 text-sm tracking-wider uppercase hover:bg-white/5 transition-colors"
+                >
+                  {t('briefing.slide13.cta1')} →
+                </a>
+                <a
+                  href="mailto:team@amai.net?subject=Mission%20Briefing%20%2F%2F%20%5BOrganization%20Name%5D&body=To%20the%20AMAI%20Labs%20Team%2C%0A%0AWe%20are%20reaching%20out%20regarding%20the%20%5BThesis%20%2F%20Architecture%5D.%0A%0AName%3A%20%0AOrganization%3A%20%0AIntent%3A%20"
+                  onClick={handleContactClick}
+                  className="px-8 py-3 bg-black border border-white/20 text-white/80 text-sm tracking-wider uppercase hover:bg-white/5 transition-colors"
+                >
+                  {t('briefing.slide13.cta3')} →
+                </a>
+              </div>
               <a
                 href="/thesis"
-                className="px-8 py-3 bg-black border border-white/20 text-white/80 text-sm tracking-wider uppercase hover:bg-white/5 transition-colors"
+                className="text-white/50 text-sm tracking-wider hover:text-white/80 transition-colors"
               >
                 {t('briefing.slide13.cta2')}
-              </a>
-              <a
-                href="mailto:team@amai.net?subject=Mission%20Briefing%20%2F%2F%20%5BOrganization%20Name%5D&body=To%20the%20AMAI%20Labs%20Team%2C%0A%0AWe%20are%20reaching%20out%20regarding%20the%20%5BThesis%20%2F%20Architecture%5D.%0A%0AName%3A%20%0AOrganization%3A%20%0AIntent%3A%20"
-                onClick={handleContactClick}
-                className="px-8 py-3 bg-white/10 border border-white/30 text-white text-sm tracking-wider uppercase hover:bg-white/20 transition-colors"
-              >
-                {t('briefing.slide13.cta3')}
               </a>
             </div>
           </motion.div>
