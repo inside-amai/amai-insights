@@ -1,6 +1,31 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Copy, Check } from 'lucide-react';
+import { toast } from '@/hooks/use-toast';
+
+// Self-contained copy button for toast
+const CopyEmailButton = () => {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    navigator.clipboard.writeText('team@amai.net').then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
+  return (
+    <button
+      onClick={handleCopy}
+      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-medium text-white transition-all"
+    >
+      {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+      {copied ? 'Copied!' : 'Copy'}
+    </button>
+  );
+};
 
 const SlideDivider = () => (
   <div className="h-px bg-white/10 w-full" />
@@ -15,6 +40,20 @@ const Briefing = () => {
     if (slide2) {
       slide2.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const handleContactClick = () => {
+    setTimeout(() => {
+      toast({
+        title: "Email not opening?",
+        description: (
+          <div className="flex items-center gap-3 mt-1">
+            <span className="text-white/80">Reach us at team@amai.net</span>
+            <CopyEmailButton />
+          </div>
+        ),
+      });
+    }, 500);
   };
 
   return (
@@ -578,10 +617,17 @@ const Briefing = () => {
                 {t('briefing.slide13.cta1')}
               </a>
               <a
-                href="mailto:team@amai.net?subject=Mission%20Briefing%20%2F%2F%20%5BOrganization%20Name%5D"
+                href="/thesis"
                 className="px-8 py-3 bg-black border border-white/20 text-white/80 text-sm tracking-wider uppercase hover:bg-white/5 transition-colors"
               >
                 {t('briefing.slide13.cta2')}
+              </a>
+              <a
+                href="mailto:team@amai.net?subject=Mission%20Briefing%20%2F%2F%20%5BOrganization%20Name%5D&body=To%20the%20AMAI%20Labs%20Team%2C%0A%0AWe%20are%20reaching%20out%20regarding%20the%20%5BThesis%20%2F%20Architecture%5D.%0A%0AName%3A%20%0AOrganization%3A%20%0AIntent%3A%20"
+                onClick={handleContactClick}
+                className="px-8 py-3 bg-white/10 border border-white/30 text-white text-sm tracking-wider uppercase hover:bg-white/20 transition-colors"
+              >
+                {t('briefing.slide13.cta3')}
               </a>
             </div>
           </motion.div>
