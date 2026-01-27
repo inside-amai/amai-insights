@@ -994,8 +994,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide13.cta1': 'View System Demo',
     'tether.slide13.cta2': 'Explore the Architecture',
     
-    // Thesis page translations
-    'thesis.slide8.label': 'STRATEGIC SYNERGY',
+    // Thesis page translations (slide 8 label moved to numbered labels section)
     'thesis.slide8.headline': 'The Physical Layer of Machine Commerce.',
     'thesis.slide8.intro': 'Autonomous systems require more than just intelligence; they require resilient liquidity and hardware rails that operate outside of discretionary control. AMAI provides the economic logic required to govern these assets at machine speed.',
     'thesis.slide8.sovereign.title': 'Sovereign Infrastructure',
@@ -1019,11 +1018,24 @@ const translations: Record<Language, Record<string, string>> = {
     'thesis.slide11.intro': 'AMAI provides the <highlight>Economic Substrate</highlight> that transforms physical infrastructure—from GPU clusters to robotics—into self-sustaining business units.',
     
     // Thesis slide 1 (hero)
-    'thesis.slide1.label': 'The Thesis',
+    'thesis.slide1.label': '01 // THE THESIS',
     'thesis.slide1.headline': 'The Transition to Machine-First Commerce.',
     'thesis.slide1.subheadline': 'Autonomous systems are outpacing the physical and economic infrastructure that supports them. AMAI provides the foundational system for anchoring identity, reputation, and capital in the agentic web.',
     'thesis.slide1.cta1': 'Explore The Mission',
     'thesis.slide1.cta2': 'Download The PDF',
+    
+    // Thesis slide numbered labels
+    'thesis.slide2.label': '02 // THE INFRASTRUCTURE GAP',
+    'thesis.slide3.label': '03 // THE INFRASTRUCTURE LAYER',
+    'thesis.slide4.label': '04 // THE ECONOMIC LOOP',
+    'thesis.slide5.label': '05 // COLLECTIVE INTELLIGENCE',
+    'thesis.slide6.label': '06 // THE BEACHHEAD MARKET',
+    'thesis.slide7.label': '07 // TOKEN MODEL',
+    'thesis.slide8.label': '08 // STRATEGIC SYNERGY',
+    'thesis.slide9.label': '09 // THE MISSING LAYER',
+    'thesis.slide10.label': '10 // INFRASTRUCTURE VOLATILITY',
+    'thesis.slide11.label': '11 // STRATEGIC VALUE',
+    'thesis.slide12.label': '12 // CLOSING',
 
     // Briefing page
     'briefing.slide1.label': '01 // THE THESIS',
@@ -2120,8 +2132,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide13.cta1': 'システムデモを見る',
     'tether.slide13.cta2': '設計を探索',
     
-    // Thesis page translations (Japanese)
-    'thesis.slide8.label': '戦略的相乗効果',
+    // Thesis page translations (Japanese - slide8 label moved to numbered labels section)
     'thesis.slide8.headline': '機械商取引の物理層。',
     'thesis.slide8.intro': '自律システムは知能だけでなく、裁量的管理の外で稼働する強靭な流動性とハードウェア基盤を必要とする。AMAIはこれらの資産を機械速度で統治するために必要な経済論理を提供する。',
     'thesis.slide8.sovereign.title': '主権的基盤',
@@ -2145,12 +2156,24 @@ const translations: Record<Language, Record<string, string>> = {
     'thesis.slide11.intro': 'AMAIは、GPUクラスターからロボティクスまでの物理基盤を自己持続的事業単位に転換する<highlight>経済基盤</highlight>を提供する。',
     
     // Thesis slide 1 (hero - Japanese)
-    'thesis.slide1.label': '論文',
+    'thesis.slide1.label': '01 // 論旨',
     'thesis.slide1.headline': '機械優先商取引への移行。',
     'thesis.slide1.subheadline': '自律型システムは、それを支える物理的・経済的インフラストラクチャを追い越している。AMAIは、エージェント・ウェブにおけるアイデンティティ、信用、資本を定着させるための基礎的論文を提供する。',
     'thesis.slide1.cta1': 'ミッションを探索',
     'thesis.slide1.cta2': 'PDFをダウンロード',
-
+    
+    // Thesis slide numbered labels (Japanese)
+    'thesis.slide2.label': '02 // インフラ格差',
+    'thesis.slide3.label': '03 // インフラ層',
+    'thesis.slide4.label': '04 // 経済ループ',
+    'thesis.slide5.label': '05 // 集合知',
+    'thesis.slide6.label': '06 // 橋頭堡市場',
+    'thesis.slide7.label': '07 // トークンモデル',
+    'thesis.slide8.label': '08 // 戦略的相乗効果',
+    'thesis.slide9.label': '09 // 欠落層',
+    'thesis.slide10.label': '10 // インフラ変動性',
+    'thesis.slide11.label': '11 // 戦略的価値',
+    'thesis.slide12.label': '12 // 結語',
     // Briefing page (Japanese)
     'briefing.slide1.label': '01 // 論旨',
     'briefing.slide1.headline': '機械商取引の台頭。',
@@ -3246,8 +3269,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide13.cta1': 'عرض العرض التجريبي',
     'tether.slide13.cta2': 'استكشاف البنية المعمارية',
     
-    // Thesis page translations (Arabic)
-    'thesis.slide8.label': 'التآزر الاستراتيجي',
+    // Thesis page translations (Arabic - slide8 label moved to numbered labels section)
     'thesis.slide8.headline': 'الطبقة الفيزيائية للتجارة الآلية.',
     'thesis.slide8.intro': 'تتطلب الأنظمة المستقلة أكثر من مجرد الذكاء؛ فهي تتطلب سيولة مرنة ومسارات عتاد تعمل خارج السيطرة التقديرية. توفر AMAI المنطق الاقتصادي اللازم لحوكمة هذه الأصول بسرعة الآلة.',
     'thesis.slide8.sovereign.title': 'البنية التحتية السيادية',
@@ -3271,12 +3293,24 @@ const translations: Record<Language, Record<string, string>> = {
     'thesis.slide11.intro': 'توفر AMAI <highlight>الركيزة الاقتصادية</highlight> التي تحول البنية التحتية الفيزيائية—من مجموعات GPU إلى الروبوتات—إلى وحدات أعمال مستدامة ذاتياً.',
     
     // Thesis slide 1 (hero - Arabic)
-    'thesis.slide1.label': 'الأطروحة',
+    'thesis.slide1.label': '01 // الأطروحة',
     'thesis.slide1.headline': 'الانتقال إلى التجارة المبنية على الآلات.',
     'thesis.slide1.subheadline': 'الأنظمة المستقلة تتجاوز البنية التحتية المادية والاقتصادية التي تدعمها. توفر AMAI الأطروحة التأسيسية لترسيخ الهوية والسمعة ورأس المال في الشبكة الوكيلية.',
     'thesis.slide1.cta1': 'استكشاف المهمة',
     'thesis.slide1.cta2': 'تحميل ملف PDF',
-
+    
+    // Thesis slide numbered labels (Arabic)
+    'thesis.slide2.label': '02 // فجوة البنية التحتية',
+    'thesis.slide3.label': '03 // طبقة البنية التحتية',
+    'thesis.slide4.label': '04 // الحلقة الاقتصادية',
+    'thesis.slide5.label': '05 // الذكاء الجماعي',
+    'thesis.slide6.label': '06 // سوق رأس الجسر',
+    'thesis.slide7.label': '07 // نموذج الرمز',
+    'thesis.slide8.label': '08 // التآزر الاستراتيجي',
+    'thesis.slide9.label': '09 // الطبقة المفقودة',
+    'thesis.slide10.label': '10 // تقلبات البنية التحتية',
+    'thesis.slide11.label': '11 // القيمة الاستراتيجية',
+    'thesis.slide12.label': '12 // الخاتمة',
     // Briefing page
     'briefing.slide1.label': '01 // الأطروحة',
     'briefing.slide1.headline': 'صعود التجارة الآلية.',
