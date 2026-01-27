@@ -93,96 +93,87 @@ const Thesis = () => {
       )}
       {/* Slide 1: Title */}
       <Slide align="left" slideNumber={1} isRTL={isRTL}>
-        {/* Curved Horizon Network - Right Edge */}
+        {/* Curved Horizon Network - Right Edge - distant satellites aesthetic */}
         <motion.div 
-          className="absolute right-0 top-0 bottom-0 w-[60%] md:w-[55%] pointer-events-none"
+          className="absolute right-0 top-0 bottom-0 w-[45%] md:w-[40%] pointer-events-none overflow-hidden"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5, delay: 0.3 }}
         >
           <motion.svg 
-            className="absolute right-[-15%] md:right-[-10%] top-1/2 -translate-y-1/2 w-[120%] h-[120%]"
-            viewBox="0 0 500 500"
+            className="absolute right-0 top-1/2 -translate-y-1/2 w-full h-[80%] opacity-[0.18]"
+            viewBox="0 0 300 400"
+            preserveAspectRatio="xMaxYMid slice"
             animate={{ 
-              rotate: [0, 0.5, -0.3, 0.2, 0],
+              rotate: [0, 0.3, -0.2, 0.1, 0],
             }}
             transition={{
-              duration: 30,
+              duration: 40,
               repeat: Infinity,
               ease: "easeInOut"
             }}
           >
             {/* The curved horizon arc - implying a globe edge */}
             <ellipse 
-              cx="380" 
-              cy="250" 
-              rx="220" 
-              ry="220" 
+              cx="280" 
+              cy="200" 
+              rx="180" 
+              ry="180" 
               fill="none" 
-              stroke="rgba(255,255,255,0.12)" 
-              strokeWidth="1"
+              stroke="rgba(255,255,255,0.08)" 
+              strokeWidth="0.5"
             />
             
-            {/* Primary nodes along the curve - brighter */}
-            <circle cx="190" cy="80" r="3.5" fill="white" opacity="0.9" />
-            <circle cx="165" cy="140" r="3" fill="white" opacity="0.85" />
-            <circle cx="160" cy="210" r="3.5" fill="white" opacity="0.9" />
-            <circle cx="165" cy="290" r="3" fill="white" opacity="0.85" />
-            <circle cx="190" cy="360" r="3.5" fill="white" opacity="0.9" />
-            <circle cx="230" cy="420" r="3" fill="white" opacity="0.8" />
+            {/* Primary nodes along the curve */}
+            <circle cx="120" cy="50" r="2.5" fill="white" />
+            <circle cx="105" cy="100" r="2" fill="white" />
+            <circle cx="100" cy="160" r="2.5" fill="white" />
+            <circle cx="100" cy="240" r="2.5" fill="white" />
+            <circle cx="105" cy="300" r="2" fill="white" />
+            <circle cx="120" cy="350" r="2.5" fill="white" />
             
-            {/* Secondary nodes - interior of curve */}
-            <circle cx="240" cy="110" r="2.5" fill="white" opacity="0.7" />
-            <circle cx="220" cy="180" r="2.5" fill="white" opacity="0.7" />
-            <circle cx="210" cy="250" r="2.5" fill="white" opacity="0.7" />
-            <circle cx="220" cy="320" r="2.5" fill="white" opacity="0.7" />
-            <circle cx="250" cy="380" r="2.5" fill="white" opacity="0.65" />
+            {/* Secondary nodes - interior */}
+            <circle cx="150" cy="80" r="1.5" fill="white" />
+            <circle cx="140" cy="140" r="1.5" fill="white" />
+            <circle cx="135" cy="200" r="1.5" fill="white" />
+            <circle cx="140" cy="260" r="1.5" fill="white" />
+            <circle cx="150" cy="320" r="1.5" fill="white" />
             
-            {/* Tertiary nodes - deeper */}
-            <circle cx="290" cy="150" r="2" fill="white" opacity="0.5" />
-            <circle cx="280" cy="220" r="2" fill="white" opacity="0.45" />
-            <circle cx="270" cy="280" r="2" fill="white" opacity="0.4" />
-            <circle cx="290" cy="340" r="2" fill="white" opacity="0.35" />
-            
-            {/* Fading nodes */}
-            <circle cx="330" cy="190" r="1.5" fill="white" opacity="0.25" />
-            <circle cx="320" cy="250" r="1.5" fill="white" opacity="0.2" />
-            <circle cx="330" cy="310" r="1.5" fill="white" opacity="0.15" />
+            {/* Tertiary nodes - fading deeper */}
+            <circle cx="180" cy="120" r="1" fill="white" opacity="0.6" />
+            <circle cx="175" cy="180" r="1" fill="white" opacity="0.5" />
+            <circle cx="170" cy="220" r="1" fill="white" opacity="0.5" />
+            <circle cx="175" cy="280" r="1" fill="white" opacity="0.4" />
             
             {/* Connection lines - along the horizon curve */}
-            <path d="M190,80 L165,140" stroke="white" strokeWidth="0.8" fill="none" opacity="0.6" />
-            <path d="M165,140 L160,210" stroke="white" strokeWidth="0.8" fill="none" opacity="0.6" />
-            <path d="M160,210 L165,290" stroke="white" strokeWidth="0.8" fill="none" opacity="0.6" />
-            <path d="M165,290 L190,360" stroke="white" strokeWidth="0.8" fill="none" opacity="0.6" />
-            <path d="M190,360 L230,420" stroke="white" strokeWidth="0.8" fill="none" opacity="0.5" />
+            <path d="M120,50 L105,100" stroke="white" strokeWidth="0.5" fill="none" />
+            <path d="M105,100 L100,160" stroke="white" strokeWidth="0.5" fill="none" />
+            <path d="M100,160 L100,240" stroke="white" strokeWidth="0.5" fill="none" />
+            <path d="M100,240 L105,300" stroke="white" strokeWidth="0.5" fill="none" />
+            <path d="M105,300 L120,350" stroke="white" strokeWidth="0.5" fill="none" />
             
-            {/* Cross-connections to secondary nodes */}
-            <path d="M190,80 L240,110" stroke="white" strokeWidth="0.5" fill="none" opacity="0.5" />
-            <path d="M165,140 L220,180" stroke="white" strokeWidth="0.5" fill="none" opacity="0.5" />
-            <path d="M160,210 L210,250" stroke="white" strokeWidth="0.5" fill="none" opacity="0.5" />
-            <path d="M165,290 L220,320" stroke="white" strokeWidth="0.5" fill="none" opacity="0.5" />
-            <path d="M190,360 L250,380" stroke="white" strokeWidth="0.5" fill="none" opacity="0.45" />
+            {/* Cross-connections */}
+            <path d="M120,50 L150,80" stroke="white" strokeWidth="0.3" fill="none" />
+            <path d="M105,100 L140,140" stroke="white" strokeWidth="0.3" fill="none" />
+            <path d="M100,160 L135,200" stroke="white" strokeWidth="0.3" fill="none" />
+            <path d="M100,240 L140,260" stroke="white" strokeWidth="0.3" fill="none" />
+            <path d="M105,300 L150,320" stroke="white" strokeWidth="0.3" fill="none" />
             
-            {/* Secondary to tertiary connections */}
-            <path d="M240,110 L290,150" stroke="white" strokeWidth="0.4" fill="none" opacity="0.35" />
-            <path d="M220,180 L280,220" stroke="white" strokeWidth="0.4" fill="none" opacity="0.35" />
-            <path d="M210,250 L270,280" stroke="white" strokeWidth="0.4" fill="none" opacity="0.3" />
-            <path d="M220,320 L290,340" stroke="white" strokeWidth="0.4" fill="none" opacity="0.3" />
+            {/* Secondary to tertiary */}
+            <path d="M150,80 L180,120" stroke="white" strokeWidth="0.2" fill="none" opacity="0.5" />
+            <path d="M140,140 L175,180" stroke="white" strokeWidth="0.2" fill="none" opacity="0.5" />
+            <path d="M135,200 L170,220" stroke="white" strokeWidth="0.2" fill="none" opacity="0.4" />
+            <path d="M140,260 L175,280" stroke="white" strokeWidth="0.2" fill="none" opacity="0.4" />
             
-            {/* Tertiary to fading connections */}
-            <path d="M290,150 L330,190" stroke="white" strokeWidth="0.3" fill="none" opacity="0.2" />
-            <path d="M280,220 L320,250" stroke="white" strokeWidth="0.3" fill="none" opacity="0.15" />
-            <path d="M270,280 L330,310" stroke="white" strokeWidth="0.3" fill="none" opacity="0.15" />
-            
-            {/* Vertical connections along secondary layer */}
-            <path d="M240,110 L220,180" stroke="white" strokeWidth="0.4" fill="none" opacity="0.4" />
-            <path d="M220,180 L210,250" stroke="white" strokeWidth="0.4" fill="none" opacity="0.4" />
-            <path d="M210,250 L220,320" stroke="white" strokeWidth="0.4" fill="none" opacity="0.4" />
-            <path d="M220,320 L250,380" stroke="white" strokeWidth="0.4" fill="none" opacity="0.35" />
+            {/* Vertical secondary connections */}
+            <path d="M150,80 L140,140" stroke="white" strokeWidth="0.25" fill="none" />
+            <path d="M140,140 L135,200" stroke="white" strokeWidth="0.25" fill="none" />
+            <path d="M135,200 L140,260" stroke="white" strokeWidth="0.25" fill="none" />
+            <path d="M140,260 L150,320" stroke="white" strokeWidth="0.25" fill="none" />
           </motion.svg>
           
-          {/* Fade gradient to blend into darkness on the left - softer */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 via-40% to-transparent" />
+          {/* Fade gradient to blend into darkness on the left */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 via-30% to-transparent" />
         </motion.div>
         
         <motion.div
