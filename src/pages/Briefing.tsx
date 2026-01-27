@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ChevronDown, Copy, Check } from 'lucide-react';
@@ -210,38 +210,136 @@ const Briefing = () => {
 
       {/* Slide 4: The Loop */}
       <section className="relative min-h-svh flex items-center px-6 py-20">
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
+        <div className="relative z-10 w-full max-w-4xl mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true, margin: "0px" }}
           >
-            <span className="text-[10px] tracking-[0.4em] uppercase text-white/40 font-medium">
+            {/* Micro-label */}
+            <motion.p
+              className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
               {t('briefing.slide4.label')}
-            </span>
+            </motion.p>
             
-            <h2 className="mt-6 text-3xl md:text-5xl font-light tracking-tight text-white">
+            {/* Headline */}
+            <motion.h2
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 md:mb-16 leading-[1.15]"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
               {t('briefing.slide4.headline')}
-            </h2>
+            </motion.h2>
+            
+            {/* Diagram - uses flex-nowrap to keep all items in single row */}
+            <motion.div
+              className="relative mb-8 md:mb-16 px-4 md:px-0"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              viewport={{ once: true }}
+            >
+              {/* Main flow row - no wrap, items stay in single row, scales down on mobile */}
+              <div className={`flex items-center justify-center gap-1.5 md:gap-2 text-[9px] md:text-[11px] text-white/70 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                {[
+                  t('deck.slide4.step.identity'),
+                  t('deck.slide4.step.reputation'),
+                  t('deck.slide4.step.capital'),
+                  t('deck.slide4.step.execution'),
+                  t('deck.slide4.step.settlement')
+                ].map((step, i, arr) => (
+                  <React.Fragment key={i}>
+                    <span className="px-2 md:px-3 py-1 md:py-1.5 border border-white/20 rounded bg-black whitespace-nowrap">
+                      {step}
+                    </span>
+                    {i < arr.length - 1 && (
+                      <span className="text-white/30 text-[8px] md:text-xs">{isRTL ? '←' : '→'}</span>
+                    )}
+                  </React.Fragment>
+                ))}
+              </div>
 
-            {/* Economic Loop Visualization */}
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-3 text-sm">
-              {['Identity', 'Reputation', 'Capital', 'Execution', 'Settlement'].map((step, i) => (
-                <div key={step} className="flex items-center gap-3">
-                  <span className="px-4 py-2 bg-black border border-white/20 text-white/70">
-                    {step}
-                  </span>
-                  {i < 4 && <span className="text-white/30">{isRTL ? '←' : '→'}</span>}
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-16 space-y-4 text-lg text-white/60">
-              <p>{t('briefing.slide4.point1')}</p>
-              <p>{t('briefing.slide4.point2')}</p>
-              <p>{t('briefing.slide4.point3')}</p>
-            </div>
+              {/* SVG loop-back path */}
+              <svg 
+                className="w-full h-8 mt-1" 
+                viewBox="0 0 480 32" 
+                preserveAspectRatio="xMidYMid meet"
+                fill="none"
+              >
+                {/* Curved U-path from Settlement back to Trust */}
+                <path 
+                  d={isRTL 
+                    ? "M 72 0 L 72 18 Q 72 24 78 24 L 398 24 Q 404 24 404 18 L 404 0"
+                    : "M 404 0 L 404 18 Q 404 24 398 24 L 78 24 Q 72 24 72 18 L 72 0"
+                  }
+                  stroke="rgba(255,255,255,0.15)"
+                  strokeWidth="1"
+                />
+                
+                {/* Vertical arrow under Settlement (pointing down) */}
+                {isRTL ? (
+                  <polygon points="72,5 69,0 75,0" fill="rgba(255,255,255,0.25)" />
+                ) : (
+                  <polygon points="404,5 401,0 407,0" fill="rgba(255,255,255,0.25)" />
+                )}
+                
+                {/* Vertical arrow into Trust (pointing up) */}
+                {isRTL ? (
+                  <polygon points="404,0 401,5 407,5" fill="rgba(255,255,255,0.25)" />
+                ) : (
+                  <polygon points="72,0 69,5 75,5" fill="rgba(255,255,255,0.25)" />
+                )}
+                
+                {/* Arrow markers along the bottom path */}
+                {isRTL ? (
+                  <>
+                    <polygon points="160,21 166,24 160,27" fill="rgba(255,255,255,0.25)" />
+                    <polygon points="240,21 246,24 240,27" fill="rgba(255,255,255,0.25)" />
+                    <polygon points="320,21 326,24 320,27" fill="rgba(255,255,255,0.25)" />
+                  </>
+                ) : (
+                  <>
+                    <polygon points="320,21 314,24 320,27" fill="rgba(255,255,255,0.25)" />
+                    <polygon points="240,21 234,24 240,27" fill="rgba(255,255,255,0.25)" />
+                    <polygon points="160,21 154,24 160,27" fill="rgba(255,255,255,0.25)" />
+                  </>
+                )}
+              </svg>
+            </motion.div>
+            
+            {/* Explanatory text */}
+            <motion.div
+              className="text-sm md:text-base text-white/50 font-light leading-relaxed max-w-2xl mx-auto space-y-1"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <p>{t('deck.slide4.explanation1')}</p>
+              <p>{t('deck.slide4.explanation2')}</p>
+              <p>{t('deck.slide4.explanation3')}</p>
+              <p>{t('deck.slide4.explanation4')}</p>
+              <p>{t('deck.slide4.explanation5')}</p>
+            </motion.div>
+            
+            {/* Closing line */}
+            <motion.p
+              className="mt-10 text-lg text-white/70 font-normal leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              viewport={{ once: true }}
+            >
+              {t('deck.slide4.closing')}
+            </motion.p>
           </motion.div>
         </div>
       </section>
