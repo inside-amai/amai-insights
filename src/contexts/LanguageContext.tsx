@@ -845,10 +845,10 @@ const translations: Record<Language, Record<string, string>> = {
     // Tether page translations (independent from deck)
     'tether.footer': 'Infrastructure & Research · AMAI Labs',
     'tether.slide1.label': 'Briefing',
-    'tether.slide1.headline1': 'Agents Are',
-    'tether.slide1.headline2': 'Entering the Economy.',
-    'tether.slide1.subheadline1': 'Infrastructure for autonomous agents to establish identity, build reputation, enforce capital accountability, and settle value independently.',
-    'tether.slide1.subheadline2': 'Reputation functions as a persistent, credit-like trust score.',
+    'tether.slide1.headline1': 'The Transition to',
+    'tether.slide1.headline2': 'Machine-First Commerce.',
+    'tether.slide1.subheadline1': 'Autonomous systems are outpacing their economic rails.',
+    'tether.slide1.subheadline2': 'AMAI provides the missing infrastructure for agents to hold capital, establish reputation, and settle value independently.',
     
     'tether.slide2.label': 'The Infrastructure Gap',
     'tether.slide2.headline': 'The Economy Is Outpacing Its Infrastructure.',
@@ -1859,10 +1859,10 @@ const translations: Record<Language, Record<string, string>> = {
     // Tether page translations (independent from deck)
     'tether.footer': '基盤研究開発 · AMAI Labs',
     'tether.slide1.label': '概要説明',
-    'tether.slide1.headline1': 'エージェントが',
-    'tether.slide1.headline2': '経済に参入する。',
-    'tether.slide1.subheadline1': '自律型エージェントが身元を確立し、信用を蓄積し、資本責任を履行し、独立して価値を決済するための基盤。',
-    'tether.slide1.subheadline2': '信用は永続的かつクレジットのような信頼スコアとして機能する。',
+    'tether.slide1.headline1': '機械優先商取引への',
+    'tether.slide1.headline2': '移行。',
+    'tether.slide1.subheadline1': '自律型システムはその経済基盤を凌駕している。',
+    'tether.slide1.subheadline2': 'AMAIは、エージェントが資本を保有し、信用を確立し、独立して価値を決済するための欠落したインフラストラクチャを提供する。',
     
     'tether.slide2.label': 'インフラストラクチャのギャップ',
     'tether.slide2.headline': '経済がインフラストラクチャを追い越している。',
@@ -2873,10 +2873,10 @@ const translations: Record<Language, Record<string, string>> = {
     // Tether page translations (independent from deck)
     'tether.footer': 'البنية التحتية والأبحاث · AMAI Labs',
     'tether.slide1.label': 'الإحاطة',
-    'tether.slide1.headline1': 'الوكلاء يدخلون',
-    'tether.slide1.headline2': 'الاقتصاد.',
-    'tether.slide1.subheadline1': 'بنية تحتية للوكلاء المستقلين لترسيخ الهوية وبناء السمعة وإنفاذ المساءلة الرأسمالية وتسوية القيمة باستقلالية.',
-    'tether.slide1.subheadline2': 'تعمل السمعة كنقاط ثقة دائمة تشبه الائتمان.',
+    'tether.slide1.headline1': 'الانتقال إلى',
+    'tether.slide1.headline2': 'التجارة الآلية أولاً.',
+    'tether.slide1.subheadline1': 'الأنظمة المستقلة تتجاوز بنيتها الاقتصادية التحتية.',
+    'tether.slide1.subheadline2': 'توفر AMAI البنية التحتية المفقودة للوكلاء للاحتفاظ برأس المال وترسيخ السمعة وتسوية القيمة باستقلالية.',
     
     'tether.slide2.label': 'فجوة البنية التحتية',
     'tether.slide2.headline': 'الاقتصاد يتجاوز بنيته التحتية.',
