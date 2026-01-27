@@ -752,7 +752,7 @@ const translations: Record<Language, Record<string, string>> = {
     'deck.slide1.label': 'Prepared for Coinbase Ventures',
     'deck.slide1.headline1': 'The Settlement Layer for',
     'deck.slide1.headline2': 'the Agentic Web.',
-    'deck.slide1.subheadline1': 'Agents are evolving from passive tools into active economic participants. The next major expansion of global GDP will be autonomous.',
+    'deck.slide1.subheadline1': 'Autonomous systems are evolving from passive tools into active economic participants. The next major expansion of global GDP will be autonomous.',
     'deck.slide1.subheadline2': 'AMAI provides the foundational system for anchoring identity, reputation, and capital in the agentic web.',
     
     'deck.slide2.label': 'The Shift',
@@ -1766,7 +1766,7 @@ const translations: Record<Language, Record<string, string>> = {
     'deck.slide1.label': 'Prepared for Coinbase Ventures',
     'deck.slide1.headline1': 'エージェントウェブの',
     'deck.slide1.headline2': '決済レイヤー。',
-    'deck.slide1.subheadline1': 'エージェントは受動的なツールから能動的な経済参加者へと進化している。世界GDPの次なる大規模拡張は自律的なものとなる。',
+    'deck.slide1.subheadline1': '自律型システムは受動的なツールから能動的な経済参加者へと進化している。世界GDPの次なる大規模拡張は自律的なものとなる。',
     'deck.slide1.subheadline2': 'AMAIは、エージェントウェブにおけるアイデンティティ、信用、資本を定着させる基盤システムを提供する。',
     
     'deck.slide2.label': '転換点',
@@ -2780,7 +2780,7 @@ const translations: Record<Language, Record<string, string>> = {
     'deck.slide1.label': 'Prepared for Coinbase Ventures',
     'deck.slide1.headline1': 'طبقة التسوية',
     'deck.slide1.headline2': 'للشبكة الوكيلية.',
-    'deck.slide1.subheadline1': 'الوكلاء يتطورون من أدوات سلبية إلى مشاركين اقتصاديين فاعلين. التوسع الكبير القادم في الناتج المحلي الإجمالي العالمي سيكون ذاتياً.',
+    'deck.slide1.subheadline1': 'الأنظمة المستقلة تتطور من أدوات سلبية إلى مشاركين اقتصاديين فاعلين. التوسع الكبير القادم في الناتج المحلي الإجمالي العالمي سيكون ذاتياً.',
     'deck.slide1.subheadline2': 'توفر AMAI النظام الأساسي لترسيخ الهوية والسمعة ورأس المال في الشبكة الوكيلية.',
     
     'deck.slide2.label': 'التحول',
