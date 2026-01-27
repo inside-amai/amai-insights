@@ -128,37 +128,24 @@ export const TrinaryClassificationSection = () => {
                   </div>
                 )}
 
-                {/* Visual: Pyramid Diagram */}
+                {/* Visual: Signal Refinement Diagram */}
                 {col.visual === 'pyramid' && (
                   <div className="mt-6 pt-4 border-t border-white/5">
-                    <div className="flex flex-col items-center">
-                      <svg viewBox="0 0 100 70" className="w-24 h-16">
-                        {/* Tier III - Top capstone (floating) */}
-                        <polygon 
-                          points="50,2 60,18 40,18" 
-                          fill="none" 
-                          stroke="rgba(255,255,255,0.4)" 
-                          strokeWidth="1"
-                        />
-                        {/* Tier II - Middle section */}
-                        <polygon 
-                          points="40,22 60,22 70,42 30,42" 
-                          fill="none" 
-                          stroke="rgba(255,255,255,0.3)" 
-                          strokeWidth="1"
-                        />
-                        {/* Tier I - Bottom section (wide base) */}
-                        <polygon 
-                          points="30,46 70,46 85,68 15,68" 
-                          fill="none" 
-                          stroke="rgba(255,255,255,0.25)" 
-                          strokeWidth="1"
-                        />
-                      </svg>
-                      <div className="flex justify-between w-24 mt-2">
-                        <span className="text-[8px] text-white/20">I</span>
-                        <span className="text-[8px] text-white/25">II</span>
-                        <span className="text-[8px] text-white/30">III</span>
+                    <div className="flex flex-col items-center gap-2">
+                      {/* Tier III - Top: Glowing dot/signal */}
+                      <div className="flex items-center gap-3">
+                        <span className="text-[8px] text-white/30 w-8 text-right">III</span>
+                        <div className="w-2 h-2 bg-white/60 rounded-sm shadow-[0_0_8px_rgba(255,255,255,0.4)]" />
+                      </div>
+                      {/* Tier II - Middle: Thicker block */}
+                      <div className="flex items-center gap-3">
+                        <span className="text-[8px] text-white/25 w-8 text-right">II</span>
+                        <div className="w-10 h-1.5 bg-white/30" />
+                      </div>
+                      {/* Tier I - Bottom: Wide flat line */}
+                      <div className="flex items-center gap-3">
+                        <span className="text-[8px] text-white/20 w-8 text-right">I</span>
+                        <div className="w-20 h-px bg-white/20" />
                       </div>
                     </div>
                   </div>
