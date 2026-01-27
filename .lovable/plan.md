@@ -1,65 +1,42 @@
 
-
-# Plan: Add Prefilled Email Content to Contact Link
+# Add "Powered by x402 Protocol" to Agent Engine Card
 
 ## Overview
-Update the Contact link in the universal header to include a prefilled subject line and body template when the user's email client opens.
+Add a centered "Powered by x402 Protocol" text at the bottom of the central Agent Engine cluster card (the "Autonomous Agent" card) on the main landing page.
 
-## Prefilled Content
+## Location
+- **File**: `src/components/AgentArchitectureDiagram.tsx`
+- **Component**: `CenterNode` (the central card showing "Autonomous Agent")
 
-**Subject:**  
-`Mission Briefing // [Organization Name]`
+## Implementation
 
-**Body:**
+### Modify the CenterNode Component
+Add a new line of text below the existing subtitle, styled consistently with the project's grey text patterns:
+
 ```text
-To the AMAI Labs Team,
-
-We are reaching out regarding the [Thesis / Architecture].
-
-Name: 
-Organization: 
-Intent: 
+┌─────────────────────────────────────┐
+│                                     │
+│        Autonomous Agent             │
+│   Skills • Memory • Engine          │
+│                                     │
+│   ─────────────────────────────     │  ← subtle separator
+│   Powered by x402 Protocol          │  ← new text
+│                                     │
+└─────────────────────────────────────┘
 ```
+
+### Styling
+- Use `text-[10px] text-white/40` to match the existing grey text style used throughout the project
+- Add `mt-3` spacing above the new line
+- Include a subtle separator line (`w-12 h-px bg-white/10`) between the subtitle and the new "Powered by" text for visual separation
+- Uppercase tracking to match institutional aesthetic: `uppercase tracking-wider`
 
 ---
 
-## Technical Implementation
+## Technical Details
 
-### File to Edit
-`src/components/SiteHeader.tsx`
+**Changes to CenterNode component (lines 32-53)**:
+1. Add a horizontal separator line (`<div className="w-12 h-px bg-white/10 mx-auto mt-3" />`)
+2. Add the "Powered by x402 Protocol" text below: `<p className="text-[10px] text-white/40 uppercase tracking-wider mt-2">Powered by x402 Protocol</p>`
 
-### Changes
-Replace the simple `mailto:team@amai.net` href with a properly URL-encoded mailto string that includes `subject` and `body` parameters.
-
-**Current Code (Line 45):**
-```tsx
-href="mailto:team@amai.net"
-```
-
-**New Code:**
-```tsx
-href="mailto:team@amai.net?subject=Mission%20Briefing%20%2F%2F%20%5BOrganization%20Name%5D&body=To%20the%20AMAI%20Labs%20Team%2C%0A%0AWe%20are%20reaching%20out%20regarding%20the%20%5BThesis%20%2F%20Architecture%5D.%0A%0AName%3A%20%0AOrganization%3A%20%0AIntent%3A%20"
-```
-
-### URL Encoding Reference
-| Character | Encoded |
-|-----------|---------|
-| Space     | `%20`   |
-| `/`       | `%2F`   |
-| `[`       | `%5B`   |
-| `]`       | `%5D`   |
-| `,`       | `%2C`   |
-| `:`       | `%3A`   |
-| Newline   | `%0A`   |
-
----
-
-## Note on "Nothing Happens"
-The mailto link is correctly implemented. If clicking it doesn't open an email client, the issue is with the user's system configuration (no default mail app set) or browser settings — not the code. This prefill update won't change that behavior, but it will ensure the email is ready to send once the mail client does open.
-
----
-
-## Summary
-- **1 file edited**: `src/components/SiteHeader.tsx`
-- **Change**: Update mailto href to include prefilled subject and body
-
+This follows the existing minimal, institutional design language with thin lines and subdued grey text.
