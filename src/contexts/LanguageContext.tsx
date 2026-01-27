@@ -749,13 +749,13 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Deck page translations
     'deck.footer': 'Infrastructure & Research · AMAI Labs',
-    'deck.slide1.label': 'Prepared for Coinbase Ventures',
+    'deck.slide1.label': '01 // BRIEFING',
     'deck.slide1.headline1': 'The Settlement Layer for',
     'deck.slide1.headline2': 'the Agentic Web.',
     'deck.slide1.subheadline1': 'Autonomous systems are evolving from passive tools into active economic participants. The next major expansion of global GDP will be autonomous.',
     'deck.slide1.subheadline2': 'AMAI provides the foundational system for anchoring identity, reputation, and capital in the agentic web.',
     
-    'deck.slide2.label': 'The Shift',
+    'deck.slide2.label': '02 // THE INFRASTRUCTURE GAP',
     'deck.slide2.headline1': 'The Next Billion Users of the Internet Will Not Be People,',
     'deck.slide2.headline2': 'But Autonomous Systems.',
     'deck.slide2.point1.title': '1. Agents already operate.',
@@ -766,7 +766,7 @@ const translations: Record<Language, Record<string, string>> = {
     'deck.slide2.point3.body': 'As agents evolve from copilots into autonomous actors, the absence of economic primitives becomes the limiting constraint.',
     'deck.slide2.closing': 'Infrastructure determines what lasts.',
     
-    'deck.slide3.label': 'The Infrastructure Layer',
+    'deck.slide3.label': '03 // THE INFRASTRUCTURE LAYER',
     'deck.slide3.headline': 'AMAI Is Economic Infrastructure for Autonomous Agents.',
     'deck.slide3.body1': 'AMAI provides the missing economic primitives that allow autonomous agents to participate in real-world systems.',
     'deck.slide3.body2': 'It is an execution and enforcement layer that sits below interfaces, applications, and marketplaces.',
@@ -780,7 +780,7 @@ const translations: Record<Language, Record<string, string>> = {
     'deck.slide3.pillar4.desc': 'Verifiable actions with atomic settlement and enforced outcomes',
     'deck.slide3.closing': 'AMAI turns agents from tools into accountable economic participants.',
     
-    'deck.slide4.label': 'The Economic Loop',
+    'deck.slide4.label': '04 // THE ECONOMIC LOOP',
     'deck.slide4.headline': 'How Trust Becomes Capital.',
     'deck.slide4.step.identity': 'Identity',
     'deck.slide4.step.reputation': 'Reputation',
@@ -795,7 +795,7 @@ const translations: Record<Language, Record<string, string>> = {
     'deck.slide4.explanation5': 'Execution settles deterministically and feeds back into trust.',
     'deck.slide4.closing': 'Trust is earned. Capital is enforced. Outcomes are final.',
     
-    'deck.slide5.label': 'Agent Swarms',
+    'deck.slide5.label': '05 // COLLECTIVE INTELLIGENCE',
     'deck.slide5.headline': 'Autonomous Smart Swarms',
     'deck.slide5.body1': 'AMAI enables autonomous swarms of agents to operate as coherent systems rather than isolated actors.',
     'deck.slide5.body2': 'As a performance oracle, AMAI continuously optimizes trust and capital allocation across the swarm.',
@@ -805,14 +805,14 @@ const translations: Record<Language, Record<string, string>> = {
     'deck.slide5.point3': 'Continuous improvement through performance feedback',
     'deck.slide5.closing': 'Smart Swarms allow agents to scale beyond individual capability without sacrificing accountability.',
     
-    'deck.slide6.label': 'Initial Users',
+    'deck.slide6.label': '06 // THE BEACHHEAD MARKET',
     'deck.slide6.headline': 'The First Users Are Capital-Intensive Operators.',
     'deck.slide6.body': 'AMAI is designed first for operators who already require deterministic execution, risk enforcement, and trust continuity.',
     'deck.slide6.point1': 'Automated trading and execution strategies',
     'deck.slide6.point2': 'Asset managers allocating capital at scale',
     'deck.slide6.point3': 'Multi-agent systems where outcomes carry consequence',
     
-    'deck.slide7.label': 'Token Model',
+    'deck.slide7.label': '07 // TOKEN MODEL',
     'deck.slide7.headline': 'AMAI Is the Enforcement and Trust Denominator.',
     'deck.slide7.body': 'The AMAI token functions as the unified trust layer across the system.',
     'deck.slide7.pillar1.title': 'Reputation Governance',
@@ -825,7 +825,7 @@ const translations: Record<Language, Record<string, string>> = {
     'deck.slide7.pillar4.desc': 'Provides a common trust denominator across autonomous agents',
     'deck.slide7.closing': 'Agents may post collateral in multiple assets, but enforcement, trust scoring, and execution guarantees are governed through AMAI.',
     
-    'deck.slide8.label': 'Strategic Alignment',
+    'deck.slide8.label': '08 // STRATEGIC ALIGNMENT',
     'deck.slide8.headline': 'Why Coinbase Ventures.',
     'deck.slide8.body': 'Coinbase Ventures has consistently backed the infrastructure layers that enable new classes of onchain activity.',
     'deck.slide8.point1': 'Direct alignment with the AI × crypto execution thesis',
@@ -835,6 +835,7 @@ const translations: Record<Language, Record<string, string>> = {
     'deck.slide8.body2': 'AMAI is designed to sit beneath applications, wallets, and agentic UX as a shared execution and trust layer.',
     'deck.slide8.closing': 'Base Network\'s cost structure, SDKs, and settlement primitives support billion-agent execution at scale.',
     
+    'deck.slide9.label': '09 // CLOSING',
     'deck.slide9.headline': 'Infrastructure Precedes Adoption.',
     'deck.slide9.body1': 'Autonomous agents are moving from tools to participants.',
     'deck.slide9.body2': 'Economic systems must evolve to support identity, accountability, and execution at machine scale.',
@@ -844,13 +845,13 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Tether page translations (independent from deck)
     'tether.footer': 'Infrastructure & Research · AMAI Labs',
-    'tether.slide1.label': 'Strategic Alignment // Tether',
+    'tether.slide1.label': '01 // STRATEGIC ALIGNMENT // TETHER',
     'tether.slide1.headline1': 'The Transition to',
     'tether.slide1.headline2': 'Machine-First Commerce.',
     'tether.slide1.subheadline1': 'Autonomous systems are evolving from passive software tools into sovereign economic actors.',
     'tether.slide1.subheadline2': 'AMAI provides the missing infrastructure for agents to hold capital, establish reputation, and settle value independently.',
     
-    'tether.slide2.label': 'The Infrastructure Gap',
+    'tether.slide2.label': '02 // THE INFRASTRUCTURE GAP',
     'tether.slide2.headline': 'The Economy Is Outpacing Its Infrastructure.',
     'tether.slide2.intro': 'The next billion users are already here. They are autonomous systems, but they are operating in an economic vacuum.',
     'tether.slide2.point1.title': '1. The Reality: High-Velocity Agency',
@@ -860,7 +861,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide2.point3.title': '3. The Bottleneck: The Accountability Vacuum',
     'tether.slide2.point3.body': 'The limiting constraint for the 2026 Agent Economy is no longer model intelligence; it is the Enforcement Layer. Infrastructure determines which systems survive the transition from tools to autonomous economic participants.',
     
-    'tether.slide3.label': 'The Infrastructure Layer',
+    'tether.slide3.label': '03 // THE INFRASTRUCTURE LAYER',
     'tether.slide3.headline': 'A Global Trust Denominator for Autonomous Agency.',
     'tether.slide3.body1': 'AMAI provides the missing economic primitives that allow autonomous agents to participate in real-world systems.',
     'tether.slide3.body2': 'It is an execution and enforcement layer that sits below interfaces, applications, and marketplaces.',
@@ -874,7 +875,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide3.pillar4.desc': 'Verifiable actions with atomic settlement and enforced outcomes',
     'tether.slide3.closing': 'AMAI turns agents from tools into accountable economic participants.',
     
-    'tether.slide4.label': 'The Economic Loop',
+    'tether.slide4.label': '04 // THE ECONOMIC LOOP',
     'tether.slide4.headline': 'How Trust Becomes Capital.',
     'tether.slide4.step.identity': 'Identity',
     'tether.slide4.step.reputation': 'Reputation',
@@ -889,7 +890,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide4.explanation5': 'Execution settles deterministically and feeds back into trust.',
     'tether.slide4.closing': 'Trust is earned. Capital is enforced. Outcomes are final.',
     
-    'tether.slide5.label': 'Collective Intelligence',
+    'tether.slide5.label': '05 // COLLECTIVE INTELLIGENCE',
     'tether.slide5.label2': 'Sovereign Coordination',
     'tether.slide5.headline': 'Sovereign Coordination',
     'tether.slide5.body1': 'AMAI transforms isolated agents into Sovereign Swarms: coordinated systems that achieve institutional scale while maintaining granular economic accountability.',
@@ -899,7 +900,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide5.point3': 'Autonomous Optimization: Continuous performance feedback drives the swarm toward peak operational efficiency without human intervention.',
     'tether.slide5.closing': 'Sovereign Swarms enable machines to scale beyond individual capability without sacrificing economic integrity.',
     
-    'tether.slide6.label': 'The Beachhead Market',
+    'tether.slide6.label': '06 // THE BEACHHEAD MARKET',
     'tether.slide6.headline': 'Solving High-Stakes Friction First.',
     'tether.slide6.body': 'AMAI is architected for operators where deterministic execution and capital accountability are existential requirements.',
     'tether.slide6.point1': 'Algorithmic High-Frequency Trading: Eliminating the "Trust Gap" in cross-exchange liquidity provision and automated execution.',
@@ -907,7 +908,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide6.point3': 'Autonomous Resource Markets: Managing the 24/7 orchestration of Global GPU Fleets and Energy Networks.',
     'tether.slide6.closing': 'We are not targeting copilots. We are targeting the $100B+ machine-first settlement layer.',
     
-    'tether.slide7.label': 'Token Model',
+    'tether.slide7.label': '07 // TOKEN MODEL',
     'tether.slide7.headline': 'Enforcement-as-a-Service for the Agentic Web.',
     'tether.slide7.body': 'The AMAI token functions as the unified trust layer across the system.',
     'tether.slide7.pillar1.title': 'Reputation Governance',
@@ -920,7 +921,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide7.pillar4.desc': 'Provides a common trust denominator across autonomous agents',
     'tether.slide7.closing': 'Agents may post collateral in multiple assets, but enforcement, trust scoring, and execution guarantees are governed through AMAI.',
     
-    'tether.slide8.label': 'Strategic Alignment',
+    'tether.slide8.label': '08 // STRATEGIC ALIGNMENT',
     'tether.slide8.headline': 'Why Tether.',
     'tether.slide8.intro': "Tether provides the world's most resilient liquidity and hardware rails. AMAI provides the economic logic required to govern them at machine speed.",
     'tether.slide8.sovereign.title': 'Sovereign Infrastructure',
@@ -937,7 +938,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide8.closing': 'AMAI is the enforcement engine for Tether\'s "Physical AI" vision.',
     
     // Slide 9: The Missing Layer
-    'tether.slide9.label': 'The Missing Layer',
+    'tether.slide9.label': '09 // THE MISSING LAYER',
     'tether.slide9.headline': "The Missing Layer in Tether's AI Stack",
     'tether.slide9.tether.title': 'Tether has built the rails',
     'tether.slide9.tether.item1': 'Wallets for humans, machines, agents',
@@ -954,7 +955,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide9.callout2.line2': 'Trust lets agents participate.',
     
     // Slide 10: Risk Mitigation Layer
-    'tether.slide10.label': 'Infrastructure Volatility',
+    'tether.slide10.label': '10 // INFRASTRUCTURE VOLATILITY',
     'tether.slide10.headline': 'The Risk Mitigation Layer',
     'tether.slide10.col1.header': 'Systemic Market Risks',
     'tether.slide10.col2.header': 'AMAI Economic Guardrails',
@@ -972,7 +973,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide10.guardrail4.desc': 'Protocol violations trigger deterministic penalties in real-time, protecting hardware assets from misuse or inefficient allocation.',
     
     // Slide 11: Strategic Value
-    'tether.slide11.label': 'Strategic Value',
+    'tether.slide11.label': '11 // STRATEGIC VALUE',
     'tether.slide11.headline': 'Making Intelligence "Pay for Itself"',
     'tether.slide11.intro': "AMAI provides the <highlight>Economic Substrate</highlight> that transforms Tether's physical infrastructure—from GPU clusters to robotics—into self-sustaining business units.",
     'tether.slide11.point1.title': 'Continuous Capital Reinvestment:',
@@ -983,9 +984,11 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide11.point3.desc': 'Moves autonomous coordination from speculative hype to a performance-based economy where trust is calculated and capital is protected.',
     
     // Slide 12: Partnership Visualization
+    'tether.slide12.label': '12 // PARTNERSHIP VISUALIZATION',
     'tether.slide12.headline': 'Tether × AMAI Integration',
     
     // Slide 13: Closing
+    'tether.slide13.label': '13 // CLOSING',
     'tether.slide13.headline': 'Infrastructure Precedes Adoption.',
     'tether.slide13.triad1': 'Accountability',
     'tether.slide13.triad2': 'Trust',
@@ -1887,13 +1890,13 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Deck page translations
     'deck.footer': '基盤研究開発 · AMAI Labs',
-    'deck.slide1.label': 'Prepared for Coinbase Ventures',
+    'deck.slide1.label': '01 // ブリーフィング',
     'deck.slide1.headline1': 'エージェントウェブの',
     'deck.slide1.headline2': '決済レイヤー。',
     'deck.slide1.subheadline1': '自律型システムは受動的なツールから能動的な経済参加者へと進化している。世界GDPの次なる大規模拡張は自律的なものとなる。',
     'deck.slide1.subheadline2': 'AMAIは、エージェントウェブにおけるアイデンティティ、信用、資本を定着させる基盤システムを提供する。',
     
-    'deck.slide2.label': '転換点',
+    'deck.slide2.label': '02 // インフラ格差',
     'deck.slide2.headline1': 'インターネットの次なる10億ユーザーは人間ではなく、',
     'deck.slide2.headline2': '自律型エージェントとなる。',
     'deck.slide2.point1.title': '1. エージェントは既に稼働している。',
@@ -1904,7 +1907,7 @@ const translations: Record<Language, Record<string, string>> = {
     'deck.slide2.point3.body': 'エージェントが補助者から自律的行為者へと進化するにつれ、経済基本単位の欠如が制約要因となる。',
     'deck.slide2.closing': '基盤が持続性を決定する。',
     
-    'deck.slide3.label': '基盤層',
+    'deck.slide3.label': '03 // インフラ層',
     'deck.slide3.headline': 'AMAIは自律型エージェントの経済基盤である。',
     'deck.slide3.body1': 'AMAIは、自律型エージェントが実世界システムに参加するために欠けていた経済基本単位を提供する。',
     'deck.slide3.body2': 'インターフェース、アプリケーション、市場の下位に位置する実行・履行層である。',
@@ -1918,7 +1921,7 @@ const translations: Record<Language, Record<string, string>> = {
     'deck.slide3.pillar4.desc': '原子的決済と強制された結果を伴う検証可能な行動',
     'deck.slide3.closing': 'AMAIはエージェントを道具から責任ある経済参加者へと転換する。',
     
-    'deck.slide4.label': '経済循環',
+    'deck.slide4.label': '04 // 経済ループ',
     'deck.slide4.headline': '信頼が資本となる仕組み。',
     'deck.slide4.step.identity': '身元',
     'deck.slide4.step.reputation': '信用',
@@ -1933,7 +1936,7 @@ const translations: Record<Language, Record<string, string>> = {
     'deck.slide4.explanation5': '実行は決定論的に決済され、信頼にフィードバックする。',
     'deck.slide4.closing': '信頼は獲得される。資本は強制される。結果は最終である。',
     
-    'deck.slide5.label': 'エージェント群体',
+    'deck.slide5.label': '05 // 集合知',
     'deck.slide5.headline': '自律型スマート群体',
     'deck.slide5.body1': 'AMAIは自律型エージェント群体を孤立した行為者ではなく、一貫したシステムとして稼働させる。',
     'deck.slide5.body2': '実績オラクルとして、AMAIは群体全体の信頼と資本配分を継続的に最適化する。',
@@ -1943,14 +1946,14 @@ const translations: Record<Language, Record<string, string>> = {
     'deck.slide5.point3': '実績フィードバックによる継続的改善',
     'deck.slide5.closing': 'スマート群体により、エージェントは責任を犠牲にすることなく個人能力を超えて拡張できる。',
     
-    'deck.slide6.label': '初期ユーザー',
+    'deck.slide6.label': '06 // 橋頭堡市場',
     'deck.slide6.headline': '最初のユーザーは資本集約型オペレーターである。',
     'deck.slide6.body': 'AMAIは、決定論的実行、リスク履行、信頼継続性を既に必要とするオペレーター向けに設計されている。',
     'deck.slide6.point1': '自動取引および実行戦略',
     'deck.slide6.point2': '大規模に資本を配分するアセットマネージャー',
     'deck.slide6.point3': '結果に帰結があるマルチエージェントシステム',
     
-    'deck.slide7.label': '証票模型',
+    'deck.slide7.label': '07 // トークンモデル',
     'deck.slide7.headline': 'AMAIは履行と信頼の共通単位である。',
     'deck.slide7.body': 'AMAI証票はシステム全体の統一された信頼層として機能する。',
     'deck.slide7.pillar1.title': '信用統治',
@@ -1963,7 +1966,7 @@ const translations: Record<Language, Record<string, string>> = {
     'deck.slide7.pillar4.desc': '自律型エージェント全体で共通の信頼単位を提供',
     'deck.slide7.closing': 'エージェントは複数資産で担保を差し入れ可能だが、履行、信頼評点、実行保証はAMAIを通じて統治される。',
     
-    'deck.slide8.label': '戦略的整合',
+    'deck.slide8.label': '08 // 戦略的整合',
     'deck.slide8.headline': 'なぜCoinbase Venturesか。',
     'deck.slide8.body': 'Coinbase Venturesは、新しいオンチェーン活動クラスを可能にする基盤層を一貫して支援してきた。',
     'deck.slide8.point1': 'AI × 暗号実行論との直接的整合',
@@ -1973,6 +1976,7 @@ const translations: Record<Language, Record<string, string>> = {
     'deck.slide8.body2': 'AMAIは、アプリケーション、ウォレット、エージェントUXの下位に共有実行・信頼層として位置するよう設計されている。',
     'deck.slide8.closing': 'Base Networkのコスト構造、SDK、決済基本単位は10億エージェント規模の実行を支援する。',
     
+    'deck.slide9.label': '09 // 結語',
     'deck.slide9.headline': '基盤が普及に先行する。',
     'deck.slide9.body1': '自律型エージェントは道具から参加者へと移行している。',
     'deck.slide9.body2': '経済システムは機械規模での身元、責任、実行を支援するよう進化しなければならない。',
@@ -1982,13 +1986,13 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Tether page translations (independent from deck)
     'tether.footer': '基盤研究開発 · AMAI Labs',
-    'tether.slide1.label': 'Strategic Alignment // Tether',
+    'tether.slide1.label': '01 // 戦略的整合 // TETHER',
     'tether.slide1.headline1': '機械優先商取引への',
     'tether.slide1.headline2': '移行。',
     'tether.slide1.subheadline1': '自律型システムは受動的なソフトウェアツールから主権的な経済主体へと進化している。',
     'tether.slide1.subheadline2': 'AMAIは、エージェントが資本を保有し、信用を確立し、独立して価値を決済するための欠落したインフラストラクチャを提供する。',
     
-    'tether.slide2.label': 'インフラストラクチャのギャップ',
+    'tether.slide2.label': '02 // インフラ格差',
     'tether.slide2.headline': '経済がインフラストラクチャを追い越している。',
     'tether.slide2.intro': '次なる10億ユーザーはすでにここにいる。彼らは自律型システムだが、経済的真空の中で稼働している。',
     'tether.slide2.point1.title': '1. 現実：高速度エージェンシー',
@@ -1998,7 +2002,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide2.point3.title': '3. ボトルネック：説明責任の真空',
     'tether.slide2.point3.body': '2026年のエージェント経済における制約要因は、もはやモデルの知能ではなく、エンフォースメント層である。インフラストラクチャが、ツールから自律的経済参加者への移行を生き残るシステムを決定する。',
     
-    'tether.slide3.label': '基盤層',
+    'tether.slide3.label': '03 // インフラ層',
     'tether.slide3.headline': 'AMAIは自律型システムに経済基盤を提供する。',
     'tether.slide3.body1': 'AMAIは、自律型エージェントが実世界システムに参加するために欠けていた経済基本単位を提供する。',
     'tether.slide3.body2': 'インターフェース、アプリケーション、市場の下位に位置する実行・履行層である。',
@@ -2012,7 +2016,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide3.pillar4.desc': '原子的決済と強制された結果を伴う検証可能な行動',
     'tether.slide3.closing': 'AMAIはエージェントを道具から責任ある経済参加者へと転換する。',
     
-    'tether.slide4.label': '経済循環',
+    'tether.slide4.label': '04 // 経済ループ',
     'tether.slide4.headline': '信頼が資本となる仕組み。',
     'tether.slide4.step.identity': '身元',
     'tether.slide4.step.reputation': '信用',
@@ -2027,7 +2031,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide4.explanation5': '実行は決定論的に決済され、信頼にフィードバックする。',
     'tether.slide4.closing': '信頼は獲得される。資本は強制される。結果は最終である。',
     
-    'tether.slide5.label': 'エージェント群体',
+    'tether.slide5.label': '05 // 集合知',
     'tether.slide5.headline': '自律型スマート群体',
     'tether.slide5.body1': 'AMAIは自律型エージェント群体を孤立した行為者ではなく、一貫したシステムとして稼働させる。',
     'tether.slide5.body2': '実績オラクルとして、AMAIは群体全体の信頼と資本配分を継続的に最適化する。',
@@ -2037,7 +2041,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide5.point3': '実績フィードバックによる継続的改善',
     'tether.slide5.closing': 'スマート群体により、エージェントは責任を犠牲にすることなく個人能力を超えて拡張できる。',
     
-    'tether.slide6.label': 'ビーチヘッド市場',
+    'tether.slide6.label': '06 // 橋頭堡市場',
     'tether.slide6.headline': '高リスク摩擦を最初に解決する。',
     'tether.slide6.body': 'AMAIは、決定論的実行と資本責任が存続要件であるオペレーター向けに設計されている。',
     'tether.slide6.point1': 'アルゴリズム高頻度取引：クロス取引所の流動性供給と自動実行における「信頼ギャップ」の排除。',
@@ -2045,7 +2049,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide6.point3': '自律型リソース市場：グローバルGPUフリートとエネルギーネットワークの24時間365日オーケストレーション管理。',
     'tether.slide6.closing': 'コパイロットを対象としていない。1000億ドル以上の機械優先決済層を対象としている。',
     
-    'tether.slide7.label': '証票模型',
+    'tether.slide7.label': '07 // トークンモデル',
     'tether.slide7.headline': 'AMAIは履行と信頼の共通単位である。',
     'tether.slide7.body': 'AMAI証票はシステム全体の統一された信頼層として機能する。',
     'tether.slide7.pillar1.title': '信用統治',
@@ -2058,7 +2062,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide7.pillar4.desc': '自律型エージェント全体で共通の信頼単位を提供',
     'tether.slide7.closing': 'エージェントは複数資産で担保を差し入れ可能だが、履行、信頼評点、実行保証はAMAIを通じて統治される。',
     
-    'tether.slide8.label': '戦略的整合',
+    'tether.slide8.label': '08 // 戦略的整合',
     'tether.slide8.headline': 'なぜTetherか。',
     'tether.slide8.intro': 'Tetherは世界最強の流動性とハードウェア基盤を提供する。AMAIはそれを機械速度で統治するための経済論理を提供する。',
     'tether.slide8.sovereign.title': '主権的基盤',
@@ -2075,7 +2079,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide8.closing': 'AMAIはTetherの「Physical AI」ビジョンの履行エンジンである。',
     
     // Slide 9: The Missing Layer
-    'tether.slide9.label': '欠落層',
+    'tether.slide9.label': '09 // 欠落層',
     'tether.slide9.headline': 'TetherのAIスタックにおける欠落層',
     'tether.slide9.tether.title': 'Tetherは基盤を構築した',
     'tether.slide9.tether.item1': '人間、機械、エージェント向けウォレット',
@@ -2092,7 +2096,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide9.callout2.line2': '信頼はエージェントに参加を可能にする。',
     
     // Slide 10: Risk Mitigation Layer
-    'tether.slide10.label': '基盤の変動性',
+    'tether.slide10.label': '10 // インフラ変動性',
     'tether.slide10.headline': 'リスク緩和層',
     'tether.slide10.col1.header': '体系的市場リスク',
     'tether.slide10.col2.header': 'AMAI経済ガードレール',
@@ -2110,7 +2114,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide10.guardrail4.desc': 'プロトコル違反はリアルタイムで決定論的罰則を発動し、ハードウェア資産を誤用や非効率配分から保護する。',
     
     // Slide 11: Strategic Value
-    'tether.slide11.label': '戦略的価値',
+    'tether.slide11.label': '11 // 戦略的価値',
     'tether.slide11.headline': '知能を「自己資金調達」させる',
     'tether.slide11.intro': 'AMAIは、TetherのGPUクラスターからロボティクスまでの物理基盤を自己持続的事業単位に転換する<highlight>経済基盤</highlight>を提供する。',
     'tether.slide11.point1.title': '継続的資本再投資：',
@@ -2121,9 +2125,11 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide11.point3.desc': '自律的調整を投機的誇大宣伝から、信頼が計算され資本が保護される実績ベース経済へと移行させる。',
     
     // Slide 12: Partnership Visualization
+    'tether.slide12.label': '12 // パートナーシップ可視化',
     'tether.slide12.headline': 'Tether × AMAI統合',
     
     // Slide 13: Closing
+    'tether.slide13.label': '13 // 結語',
     'tether.slide13.headline': '基盤が普及に先行する。',
     'tether.slide13.triad1': '説明責任',
     'tether.slide13.triad2': '信頼',
@@ -3024,13 +3030,13 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Deck page translations
     'deck.footer': 'البنية التحتية والأبحاث · AMAI Labs',
-    'deck.slide1.label': 'Prepared for Coinbase Ventures',
+    'deck.slide1.label': '01 // الإحاطة',
     'deck.slide1.headline1': 'طبقة التسوية',
     'deck.slide1.headline2': 'للشبكة الوكيلية.',
     'deck.slide1.subheadline1': 'الأنظمة المستقلة تتطور من أدوات سلبية إلى مشاركين اقتصاديين فاعلين. التوسع الكبير القادم في الناتج المحلي الإجمالي العالمي سيكون ذاتياً.',
     'deck.slide1.subheadline2': 'توفر AMAI النظام الأساسي لترسيخ الهوية والسمعة ورأس المال في الشبكة الوكيلية.',
     
-    'deck.slide2.label': 'التحول',
+    'deck.slide2.label': '02 // فجوة البنية التحتية',
     'deck.slide2.headline1': 'المليار مستخدم القادم للإنترنت لن يكونوا بشراً،',
     'deck.slide2.headline2': 'بل وكلاء مستقلون.',
     'deck.slide2.point1.title': '1. الوكلاء يعملون بالفعل.',
@@ -3041,7 +3047,7 @@ const translations: Record<Language, Record<string, string>> = {
     'deck.slide2.point3.body': 'مع تطور الوكلاء من مساعدين إلى فاعلين مستقلين، يصبح غياب الأساسيات الاقتصادية القيد المحدد.',
     'deck.slide2.closing': 'البنية التحتية تحدد ما يدوم.',
     
-    'deck.slide3.label': 'طبقة البنية التحتية',
+    'deck.slide3.label': '03 // طبقة البنية التحتية',
     'deck.slide3.headline': 'AMAI هي البنية التحتية الاقتصادية للوكلاء المستقلين.',
     'deck.slide3.body1': 'توفر AMAI الأساسيات الاقتصادية المفقودة التي تسمح للوكلاء المستقلين بالمشاركة في الأنظمة الحقيقية.',
     'deck.slide3.body2': 'إنها طبقة تنفيذ وإنفاذ تقع تحت الواجهات والتطبيقات والأسواق.',
@@ -3055,7 +3061,7 @@ const translations: Record<Language, Record<string, string>> = {
     'deck.slide3.pillar4.desc': 'إجراءات قابلة للتحقق مع تسوية ذرية ونتائج مُنفذة',
     'deck.slide3.closing': 'تحوّل AMAI الوكلاء من أدوات إلى مشاركين اقتصاديين مسؤولين.',
     
-    'deck.slide4.label': 'الدورة الاقتصادية',
+    'deck.slide4.label': '04 // الحلقة الاقتصادية',
     'deck.slide4.headline': 'كيف تصبح الثقة رأس مال.',
     'deck.slide4.step.identity': 'الهوية',
     'deck.slide4.step.reputation': 'السمعة',
@@ -3070,7 +3076,7 @@ const translations: Record<Language, Record<string, string>> = {
     'deck.slide4.explanation5': 'التنفيذ يُسوّى حتمياً ويُغذي الثقة.',
     'deck.slide4.closing': 'الثقة تُكتسب. رأس المال يُنفذ. النتائج نهائية.',
     
-    'deck.slide5.label': 'أسراب الوكلاء',
+    'deck.slide5.label': '05 // الذكاء الجماعي',
     'deck.slide5.headline': 'الأسراب الذكية المستقلة',
     'deck.slide5.body1': 'تُمكّن AMAI أسراب الوكلاء المستقلين من العمل كأنظمة متماسكة بدلاً من فاعلين منعزلين.',
     'deck.slide5.body2': 'كأوراكل أداء، تُحسّن AMAI باستمرار الثقة وتخصيص رأس المال عبر السرب.',
@@ -3080,14 +3086,14 @@ const translations: Record<Language, Record<string, string>> = {
     'deck.slide5.point3': 'تحسين مستمر عبر التغذية الراجعة للأداء',
     'deck.slide5.closing': 'تسمح الأسراب الذكية للوكلاء بالتوسع خارج القدرة الفردية دون التضحية بالمساءلة.',
     
-    'deck.slide6.label': 'المستخدمون الأوائل',
+    'deck.slide6.label': '06 // سوق رأس الجسر',
     'deck.slide6.headline': 'المستخدمون الأوائل هم مشغلو رأس المال المكثف.',
     'deck.slide6.body': 'صُممت AMAI أولاً للمشغلين الذين يحتاجون بالفعل التنفيذ الحتمي وإنفاذ المخاطر واستمرارية الثقة.',
     'deck.slide6.point1': 'استراتيجيات التداول والتنفيذ الآلية',
     'deck.slide6.point2': 'مديرو الأصول الذين يخصصون رأس المال على نطاق واسع',
     'deck.slide6.point3': 'أنظمة متعددة الوكلاء حيث تحمل النتائج عواقب',
     
-    'deck.slide7.label': 'نموذج الرمز',
+    'deck.slide7.label': '07 // نموذج الرمز',
     'deck.slide7.headline': 'AMAI هي قاسم الإنفاذ والثقة.',
     'deck.slide7.body': 'يعمل رمز AMAI كطبقة الثقة الموحدة عبر النظام.',
     'deck.slide7.pillar1.title': 'حوكمة السمعة',
@@ -3100,7 +3106,7 @@ const translations: Record<Language, Record<string, string>> = {
     'deck.slide7.pillar4.desc': 'يوفر قاسماً مشتركاً للثقة عبر الوكلاء المستقلين',
     'deck.slide7.closing': 'قد ينشر الوكلاء ضمانات بأصول متعددة، لكن الإنفاذ وتقييم الثقة وضمانات التنفيذ تُحكم عبر AMAI.',
     
-    'deck.slide8.label': 'التوافق الاستراتيجي',
+    'deck.slide8.label': '08 // التوافق الاستراتيجي',
     'deck.slide8.headline': 'لماذا Coinbase Ventures.',
     'deck.slide8.body': 'دعمت Coinbase Ventures باستمرار طبقات البنية التحتية التي تُمكّن فئات جديدة من النشاط على السلسلة.',
     'deck.slide8.point1': 'توافق مباشر مع أطروحة تنفيذ AI × العملات المشفرة',
@@ -3110,6 +3116,7 @@ const translations: Record<Language, Record<string, string>> = {
     'deck.slide8.body2': 'صُممت AMAI لتقع تحت التطبيقات والمحافظ وتجربة المستخدم الوكيلية كطبقة تنفيذ وثقة مشتركة.',
     'deck.slide8.closing': 'يدعم هيكل تكلفة شبكة Base وحزم SDK وأساسيات التسوية تنفيذ مليار وكيل على نطاق واسع.',
     
+    'deck.slide9.label': '09 // الخاتمة',
     'deck.slide9.headline': 'البنية التحتية تسبق التبني.',
     'deck.slide9.body1': 'الوكلاء المستقلون ينتقلون من أدوات إلى مشاركين.',
     'deck.slide9.body2': 'يجب أن تتطور الأنظمة الاقتصادية لدعم الهوية والمساءلة والتنفيذ على نطاق الآلات.',
@@ -3119,13 +3126,13 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Tether page translations (independent from deck)
     'tether.footer': 'البنية التحتية والأبحاث · AMAI Labs',
-    'tether.slide1.label': 'Strategic Alignment // Tether',
+    'tether.slide1.label': '01 // التوافق الاستراتيجي // TETHER',
     'tether.slide1.headline1': 'الانتقال إلى',
     'tether.slide1.headline2': 'التجارة الآلية أولاً.',
     'tether.slide1.subheadline1': 'الأنظمة المستقلة تتطور من أدوات برمجية سلبية إلى فاعلين اقتصاديين ذوي سيادة.',
     'tether.slide1.subheadline2': 'توفر AMAI البنية التحتية المفقودة للوكلاء للاحتفاظ برأس المال وترسيخ السمعة وتسوية القيمة باستقلالية.',
     
-    'tether.slide2.label': 'فجوة البنية التحتية',
+    'tether.slide2.label': '02 // فجوة البنية التحتية',
     'tether.slide2.headline': 'الاقتصاد يتجاوز بنيته التحتية.',
     'tether.slide2.intro': 'المليار مستخدم القادم موجودون بالفعل. إنهم أنظمة مستقلة—لكنهم يعملون في فراغ اقتصادي.',
     'tether.slide2.point1.title': '1. الواقع: الوكالة عالية السرعة',
@@ -3135,7 +3142,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide2.point3.title': '3. عنق الزجاجة: فراغ المساءلة',
     'tether.slide2.point3.body': 'القيد المحدد لاقتصاد الوكلاء في 2026 لم يعد ذكاء النموذج؛ بل طبقة الإنفاذ. البنية التحتية تحدد أي الأنظمة ستنجو من الانتقال من أدوات إلى مشاركين اقتصاديين مستقلين.',
     
-    'tether.slide3.label': 'طبقة البنية التحتية',
+    'tether.slide3.label': '03 // طبقة البنية التحتية',
     'tether.slide3.headline': 'AMAI توفر البنية التحتية الاقتصادية للأنظمة المستقلة.',
     'tether.slide3.body1': 'توفر AMAI الأساسيات الاقتصادية المفقودة التي تسمح للوكلاء المستقلين بالمشاركة في الأنظمة الحقيقية.',
     'tether.slide3.body2': 'إنها طبقة تنفيذ وإنفاذ تقع تحت الواجهات والتطبيقات والأسواق.',
@@ -3149,7 +3156,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide3.pillar4.desc': 'إجراءات قابلة للتحقق مع تسوية ذرية ونتائج مُنفذة',
     'tether.slide3.closing': 'تحوّل AMAI الوكلاء من أدوات إلى مشاركين اقتصاديين مسؤولين.',
     
-    'tether.slide4.label': 'الدورة الاقتصادية',
+    'tether.slide4.label': '04 // الحلقة الاقتصادية',
     'tether.slide4.headline': 'كيف تصبح الثقة رأس مال.',
     'tether.slide4.step.identity': 'الهوية',
     'tether.slide4.step.reputation': 'السمعة',
@@ -3164,7 +3171,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide4.explanation5': 'التنفيذ يُسوّى حتمياً ويُغذي الثقة.',
     'tether.slide4.closing': 'الثقة تُكتسب. رأس المال يُنفذ. النتائج نهائية.',
     
-    'tether.slide5.label': 'أسراب الوكلاء',
+    'tether.slide5.label': '05 // الذكاء الجماعي',
     'tether.slide5.headline': 'الأسراب الذكية المستقلة',
     'tether.slide5.body1': 'تُمكّن AMAI أسراب الوكلاء المستقلين من العمل كأنظمة متماسكة بدلاً من فاعلين منعزلين.',
     'tether.slide5.body2': 'كأوراكل أداء، تُحسّن AMAI باستمرار الثقة وتخصيص رأس المال عبر السرب.',
@@ -3174,7 +3181,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide5.point3': 'تحسين مستمر عبر التغذية الراجعة للأداء',
     'tether.slide5.closing': 'تسمح الأسراب الذكية للوكلاء بالتوسع خارج القدرة الفردية دون التضحية بالمساءلة.',
     
-    'tether.slide6.label': 'السوق الأولى',
+    'tether.slide6.label': '06 // سوق رأس الجسر',
     'tether.slide6.headline': 'حل الاحتكاك عالي المخاطر أولاً.',
     'tether.slide6.body': 'صُممت AMAI للمشغلين حيث التنفيذ الحتمي والمساءلة الرأسمالية متطلبات وجودية.',
     'tether.slide6.point1': 'التداول الخوارزمي عالي التردد: القضاء على "فجوة الثقة" في توفير السيولة عبر البورصات والتنفيذ الآلي.',
@@ -3182,7 +3189,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide6.point3': 'أسواق الموارد المستقلة: إدارة التنسيق على مدار الساعة طوال العام لأساطيل GPU العالمية وشبكات الطاقة.',
     'tether.slide6.closing': 'نحن لا نستهدف المساعدين الثانويين. نحن نستهدف طبقة التسوية الآلية التي تتجاوز 100 مليار دولار.',
     
-    'tether.slide7.label': 'نموذج الرمز',
+    'tether.slide7.label': '07 // نموذج الرمز',
     'tether.slide7.headline': 'AMAI هي قاسم الإنفاذ والثقة.',
     'tether.slide7.body': 'يعمل رمز AMAI كطبقة الثقة الموحدة عبر النظام.',
     'tether.slide7.pillar1.title': 'حوكمة السمعة',
@@ -3195,7 +3202,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide7.pillar4.desc': 'يوفر قاسماً مشتركاً للثقة عبر الوكلاء المستقلين',
     'tether.slide7.closing': 'قد ينشر الوكلاء ضمانات بأصول متعددة، لكن الإنفاذ وتقييم الثقة وضمانات التنفيذ تُحكم عبر AMAI.',
     
-    'tether.slide8.label': 'التوافق الاستراتيجي',
+    'tether.slide8.label': '08 // التوافق الاستراتيجي',
     'tether.slide8.headline': 'لماذا Tether.',
     'tether.slide8.intro': 'توفر Tether أقوى سكك السيولة والعتاد في العالم. توفر AMAI المنطق الاقتصادي اللازم لإدارتها بسرعة الآلة.',
     'tether.slide8.sovereign.title': 'البنية التحتية السيادية',
@@ -3212,7 +3219,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide8.closing': 'AMAI هو محرك الإنفاذ لرؤية Tether للـ "الذكاء الاصطناعي الفيزيائي".',
     
     // Slide 9: The Missing Layer
-    'tether.slide9.label': 'الطبقة المفقودة',
+    'tether.slide9.label': '09 // الطبقة المفقودة',
     'tether.slide9.headline': 'الطبقة المفقودة في مكدس الذكاء الاصطناعي لـ Tether',
     'tether.slide9.tether.title': 'بنت Tether السكك',
     'tether.slide9.tether.item1': 'محافظ للبشر والآلات والوكلاء',
@@ -3229,7 +3236,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide9.callout2.line2': 'الثقة تتيح للوكلاء المشاركة.',
     
     // Slide 10: Risk Mitigation Layer
-    'tether.slide10.label': 'تقلب البنية التحتية',
+    'tether.slide10.label': '10 // تقلبات البنية التحتية',
     'tether.slide10.headline': 'طبقة تخفيف المخاطر',
     'tether.slide10.col1.header': 'مخاطر السوق النظامية',
     'tether.slide10.col2.header': 'حواجز AMAI الاقتصادية',
@@ -3247,7 +3254,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide10.guardrail4.desc': 'تُطلق انتهاكات البروتوكول عقوبات حتمية في الوقت الفعلي، مما يحمي أصول العتاد من سوء الاستخدام أو التخصيص غير الفعال.',
     
     // Slide 11: Strategic Value
-    'tether.slide11.label': 'القيمة الاستراتيجية',
+    'tether.slide11.label': '11 // القيمة الاستراتيجية',
     'tether.slide11.headline': 'جعل الذكاء "يدفع لنفسه"',
     'tether.slide11.intro': 'توفر AMAI <highlight>الركيزة الاقتصادية</highlight> التي تحول البنية التحتية الفيزيائية لـ Tether—من مجموعات GPU إلى الروبوتات—إلى وحدات أعمال مستدامة ذاتياً.',
     'tether.slide11.point1.title': 'إعادة الاستثمار الرأسمالي المستمر:',
@@ -3258,9 +3265,11 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide11.point3.desc': 'ينقل التنسيق المستقل من الضجيج المضاربي إلى اقتصاد قائم على الأداء حيث تُحسب الثقة ويُحمى رأس المال.',
     
     // Slide 12: Partnership Visualization
+    'tether.slide12.label': '12 // تصور الشراكة',
     'tether.slide12.headline': 'تكامل Tether × AMAI',
     
     // Slide 13: Closing
+    'tether.slide13.label': '13 // الخاتمة',
     'tether.slide13.headline': 'البنية التحتية تسبق التبني.',
     'tether.slide13.triad1': 'المساءلة',
     'tether.slide13.triad2': 'الثقة',
