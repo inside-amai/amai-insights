@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { Triangle, Droplets, TrendingUp } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export const TrinaryClassificationSection = () => {
   const columns = [
@@ -7,7 +8,6 @@ export const TrinaryClassificationSection = () => {
       number: '01',
       title: 'INSTITUTIONAL SIGNAL CLARITY',
       subtitle: 'The "Credit Rating" Model',
-      icon: Triangle,
       description: '',
       tiers: [
         {
@@ -32,7 +32,6 @@ export const TrinaryClassificationSection = () => {
       number: '02',
       title: 'LIQUIDITY CONCENTRATION',
       subtitle: 'Deep Pools vs. Fragmented Puddles',
-      icon: Droplets,
       description: 'Collateral health relies on depth.',
       points: [
         {
@@ -50,7 +49,6 @@ export const TrinaryClassificationSection = () => {
       number: '03',
       title: 'THE "SYBIL GAP"',
       subtitle: 'The Step-Function as a Firewall',
-      icon: TrendingUp,
       description: 'The steep jump in bonding requirements between tiers is a feature, not a bug.',
       points: [
         {
@@ -232,6 +230,23 @@ export const TrinaryClassificationSection = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* CTA Button */}
+        <motion.div 
+          className="flex justify-center mt-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+        >
+          <Link 
+            to="/thesis"
+            className="inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-white/60 hover:text-white transition-colors duration-300 group"
+          >
+            Explore The Thesis
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
