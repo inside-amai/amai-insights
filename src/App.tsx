@@ -36,6 +36,7 @@ import AgentEconomy from "./pages/whitepaper/AgentEconomy";
 import AgentLifecycle from "./pages/whitepaper/AgentLifecycle";
 import OperationalScenarios from "./pages/OperationalScenarios";
 import Research from "./pages/Research";
+import TrustFormula from "./pages/TrustFormula";
 
 
 const queryClient = new QueryClient();
@@ -109,10 +110,11 @@ const App = () => (
             <Route path="/agent-lifecycle" element={<AgentLifecycle />} />
             <Route path="/operational-scenarios" element={<OperationalScenarios />} />
             <Route path="/research" element={<Research />} />
+            <Route path="/trust-formula" element={<TrustFormula />} />
             <Route path="/deck" element={<Deck />} />
             <Route path="/tether" element={<Tether />} />
             <Route path="/thesis" element={<Thesis />} />
-            
+
             <Route path="/diagram" element={<Diagram />} />
             <Route path="/ui" element={<UI />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
