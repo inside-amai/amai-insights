@@ -847,7 +847,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide1.label': 'Strategic Alignment // Tether',
     'tether.slide1.headline1': 'The Transition to',
     'tether.slide1.headline2': 'Machine-First Commerce.',
-    'tether.slide1.subheadline1': 'Autonomous systems are outpacing their economic rails.',
+    'tether.slide1.subheadline1': 'Autonomous systems are evolving from passive software tools into sovereign economic actors.',
     'tether.slide1.subheadline2': 'AMAI provides the missing infrastructure for agents to hold capital, establish reputation, and settle value independently.',
     
     'tether.slide2.label': 'The Infrastructure Gap',
@@ -1861,7 +1861,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide1.label': 'Strategic Alignment // Tether',
     'tether.slide1.headline1': '機械優先商取引への',
     'tether.slide1.headline2': '移行。',
-    'tether.slide1.subheadline1': '自律型システムはその経済基盤を凌駕している。',
+    'tether.slide1.subheadline1': '自律型システムは受動的なソフトウェアツールから主権的な経済主体へと進化している。',
     'tether.slide1.subheadline2': 'AMAIは、エージェントが資本を保有し、信用を確立し、独立して価値を決済するための欠落したインフラストラクチャを提供する。',
     
     'tether.slide2.label': 'インフラストラクチャのギャップ',
@@ -2875,7 +2875,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tether.slide1.label': 'Strategic Alignment // Tether',
     'tether.slide1.headline1': 'الانتقال إلى',
     'tether.slide1.headline2': 'التجارة الآلية أولاً.',
-    'tether.slide1.subheadline1': 'الأنظمة المستقلة تتجاوز بنيتها الاقتصادية التحتية.',
+    'tether.slide1.subheadline1': 'الأنظمة المستقلة تتطور من أدوات برمجية سلبية إلى فاعلين اقتصاديين ذوي سيادة.',
     'tether.slide1.subheadline2': 'توفر AMAI البنية التحتية المفقودة للوكلاء للاحتفاظ برأس المال وترسيخ السمعة وتسوية القيمة باستقلالية.',
     
     'tether.slide2.label': 'فجوة البنية التحتية',
