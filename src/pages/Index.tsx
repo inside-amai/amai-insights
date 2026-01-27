@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ExplainerHero } from '@/components/ExplainerHero';
 import { ExplainerFAQ } from '@/components/ExplainerFAQ';
 import { TechnicalFoundationSection } from '@/components/TechnicalFoundationSection';
+import { TrinaryClassificationSection } from '@/components/TrinaryClassificationSection';
 import { Footer } from '@/components/Footer';
 import { AgentLayersSection } from '@/components/AgentLayersSection';
 import ArchitectureDiagram from '@/components/ArchitectureDiagram';
@@ -88,6 +89,8 @@ const Index = () => {
             </section>
 
             <TechnicalFoundationSection />
+            
+            <TrinaryClassificationSection />
           </div>
         </div>
 
