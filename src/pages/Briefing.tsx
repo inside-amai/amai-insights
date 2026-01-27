@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ChevronDown, Copy, Check } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
+import amaiLogo from "@/assets/amai-logo-hero-new.png";
 
 // Self-contained copy button for toast
 const CopyEmailButton = () => {
@@ -77,7 +78,18 @@ const Briefing = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            className="flex flex-col items-center"
           >
+            {/* Logo */}
+            <motion.img
+              src={amaiLogo}
+              alt="AMAI Labs"
+              className="h-10 md:h-20 w-auto brightness-110 mb-12 md:mb-16"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            />
+            
             <span className="text-[10px] tracking-[0.4em] uppercase text-white/40 font-medium">
               {t('briefing.slide1.label')}
             </span>
