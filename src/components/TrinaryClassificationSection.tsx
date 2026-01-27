@@ -99,13 +99,10 @@ export const TrinaryClassificationSection = () => {
               viewport={{ once: true }}
             >
               <div className="h-full border border-white/10 bg-black/40 p-6 lg:p-8">
-                {/* Number */}
-                <div className="mb-6">
-                  <span className="text-xs font-mono text-white/30">{col.number}</span>
-                </div>
-
-                {/* Title */}
+                {/* Title with Number */}
                 <h3 className="text-sm font-medium text-white tracking-wide mb-1">
+                  <span className="text-white/30">{col.number}</span>
+                  <span className="text-white/20 mx-2">//</span>
                   {col.title}
                 </h3>
                 <p className="text-xs text-white/40 mb-4">{col.subtitle}</p>
