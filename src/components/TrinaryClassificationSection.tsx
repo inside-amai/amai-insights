@@ -8,7 +8,7 @@ export const TrinaryClassificationSection = () => {
       title: 'INSTITUTIONAL SIGNAL CLARITY',
       subtitle: 'The "Credit Rating" Model',
       icon: Triangle,
-      description: 'Institutional capital requires distinct, binary risk environments. A 5-tier system introduces ambiguity (noise). A 3-tier system creates a deterministic signal, mapping perfectly to the operational lifecycle of an economic actor:',
+      description: '',
       tiers: [
         {
           name: 'TIER I',
