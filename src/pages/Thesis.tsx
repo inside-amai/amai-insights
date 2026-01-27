@@ -93,11 +93,95 @@ const Thesis = () => {
       )}
       {/* Slide 1: Title */}
       <Slide align="left" slideNumber={1} isRTL={isRTL}>
+        {/* Curved Horizon Network - Right Edge */}
+        <motion.div 
+          className="absolute right-0 top-0 bottom-0 w-[50%] md:w-[45%] pointer-events-none overflow-hidden"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5, delay: 0.3 }}
+        >
+          <motion.svg 
+            className="absolute right-[-30%] md:right-[-20%] top-1/2 -translate-y-1/2 w-[140%] h-[140%] opacity-[0.18]"
+            viewBox="0 0 600 600"
+            animate={{ 
+              rotate: [0, 0.5, -0.3, 0.2, 0],
+            }}
+            transition={{
+              duration: 30,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
+            {/* The curved horizon arc - implying a globe edge */}
+            <ellipse 
+              cx="450" 
+              cy="300" 
+              rx="280" 
+              ry="280" 
+              fill="none" 
+              stroke="rgba(255,255,255,0.08)" 
+              strokeWidth="1"
+            />
+            
+            {/* Primary nodes along the curve */}
+            <circle cx="230" cy="120" r="3" fill="white" />
+            <circle cx="185" cy="180" r="2.5" fill="white" />
+            <circle cx="160" cy="260" r="3" fill="white" />
+            <circle cx="170" cy="340" r="2.5" fill="white" />
+            <circle cx="200" cy="420" r="3" fill="white" />
+            <circle cx="250" cy="480" r="2.5" fill="white" />
+            
+            {/* Secondary nodes - interior of curve */}
+            <circle cx="280" cy="160" r="2" fill="white" />
+            <circle cx="240" cy="240" r="2" fill="white" />
+            <circle cx="230" cy="320" r="2" fill="white" />
+            <circle cx="260" cy="400" r="2" fill="white" />
+            <circle cx="310" cy="200" r="1.5" fill="white" />
+            <circle cx="300" cy="300" r="1.5" fill="white" />
+            <circle cx="310" cy="380" r="1.5" fill="white" />
+            
+            {/* Tertiary nodes - fading into the dark */}
+            <circle cx="340" cy="250" r="1" fill="white" opacity="0.6" />
+            <circle cx="350" cy="320" r="1" fill="white" opacity="0.5" />
+            <circle cx="360" cy="280" r="1" fill="white" opacity="0.4" />
+            <circle cx="380" cy="350" r="1" fill="white" opacity="0.3" />
+            
+            {/* Connection lines - along the horizon */}
+            <path d="M230,120 L185,180" stroke="white" strokeWidth="0.5" fill="none" />
+            <path d="M185,180 L160,260" stroke="white" strokeWidth="0.5" fill="none" />
+            <path d="M160,260 L170,340" stroke="white" strokeWidth="0.5" fill="none" />
+            <path d="M170,340 L200,420" stroke="white" strokeWidth="0.5" fill="none" />
+            <path d="M200,420 L250,480" stroke="white" strokeWidth="0.5" fill="none" />
+            
+            {/* Cross-connections - web structure */}
+            <path d="M230,120 L280,160" stroke="white" strokeWidth="0.3" fill="none" />
+            <path d="M185,180 L240,240" stroke="white" strokeWidth="0.3" fill="none" />
+            <path d="M160,260 L230,320" stroke="white" strokeWidth="0.3" fill="none" />
+            <path d="M170,340 L260,400" stroke="white" strokeWidth="0.3" fill="none" />
+            <path d="M280,160 L310,200" stroke="white" strokeWidth="0.25" fill="none" />
+            <path d="M240,240 L300,300" stroke="white" strokeWidth="0.25" fill="none" />
+            <path d="M230,320 L310,380" stroke="white" strokeWidth="0.25" fill="none" />
+            <path d="M310,200 L340,250" stroke="white" strokeWidth="0.2" fill="none" opacity="0.6" />
+            <path d="M300,300 L350,320" stroke="white" strokeWidth="0.2" fill="none" opacity="0.5" />
+            <path d="M310,380 L380,350" stroke="white" strokeWidth="0.2" fill="none" opacity="0.4" />
+            
+            {/* Horizontal connections along curve */}
+            <path d="M280,160 L240,240" stroke="white" strokeWidth="0.3" fill="none" />
+            <path d="M240,240 L230,320" stroke="white" strokeWidth="0.3" fill="none" />
+            <path d="M230,320 L260,400" stroke="white" strokeWidth="0.3" fill="none" />
+            <path d="M310,200 L300,300" stroke="white" strokeWidth="0.25" fill="none" />
+            <path d="M300,300 L310,380" stroke="white" strokeWidth="0.25" fill="none" />
+          </motion.svg>
+          
+          {/* Fade gradient to blend into darkness on the left */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
+        </motion.div>
+        
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2 }}
-          className="max-w-4xl"
+          className="max-w-4xl relative z-10"
         >
           {/* Logo */}
           <motion.img
