@@ -1134,7 +1134,8 @@ const translations: Record<Language, Record<string, string>> = {
     'briefing.slide13.label': '13 // CLOSE',
     'briefing.slide13.headline': 'Infrastructure Precedes Adoption.',
     'briefing.slide13.cta1': 'View Architecture',
-    'briefing.slide13.cta2': 'Contact Labs',
+    'briefing.slide13.cta2': 'Explore Thesis',
+    'briefing.slide13.cta3': 'Contact',
   },
   ja: {
     // Hero section (subheader only - NOT the headline)
@@ -2259,7 +2260,8 @@ const translations: Record<Language, Record<string, string>> = {
     'briefing.slide13.label': '13 // 結び',
     'briefing.slide13.headline': 'インフラが採用に先行する。',
     'briefing.slide13.cta1': 'アーキテクチャを見る',
-    'briefing.slide13.cta2': 'ラボに連絡',
+    'briefing.slide13.cta2': '論文を探索',
+    'briefing.slide13.cta3': '連絡',
   },
   ar: {
     // Hero section (subheader only - NOT the headline)
@@ -3384,7 +3386,8 @@ const translations: Record<Language, Record<string, string>> = {
     'briefing.slide13.label': '13 // الختام',
     'briefing.slide13.headline': 'البنية التحتية تسبق التبني.',
     'briefing.slide13.cta1': 'عرض الهندسة',
-    'briefing.slide13.cta2': 'اتصل بالمختبرات',
+    'briefing.slide13.cta2': 'استكشاف الأطروحة',
+    'briefing.slide13.cta3': 'اتصال',
   }
 };
 
