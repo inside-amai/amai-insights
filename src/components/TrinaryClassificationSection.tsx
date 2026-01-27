@@ -99,10 +99,9 @@ export const TrinaryClassificationSection = () => {
               viewport={{ once: true }}
             >
               <div className="h-full border border-white/10 bg-black/40 p-6 lg:p-8">
-                {/* Number & Icon */}
-                <div className="flex items-start justify-between mb-6">
+                {/* Number */}
+                <div className="mb-6">
                   <span className="text-xs font-mono text-white/30">{col.number}</span>
-                  <col.icon className="w-5 h-5 text-white/20" strokeWidth={1.5} />
                 </div>
 
                 {/* Title */}
