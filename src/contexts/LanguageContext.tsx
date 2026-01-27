@@ -844,7 +844,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Tether page translations (independent from deck)
     'tether.footer': 'Infrastructure & Research · AMAI Labs',
-    'tether.slide1.label': 'Briefing',
+    'tether.slide1.label': 'Strategic Alignment // Tether',
     'tether.slide1.headline1': 'The Transition to',
     'tether.slide1.headline2': 'Machine-First Commerce.',
     'tether.slide1.subheadline1': 'Autonomous systems are outpacing their economic rails.',
@@ -1858,7 +1858,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Tether page translations (independent from deck)
     'tether.footer': '基盤研究開発 · AMAI Labs',
-    'tether.slide1.label': '概要説明',
+    'tether.slide1.label': 'Strategic Alignment // Tether',
     'tether.slide1.headline1': '機械優先商取引への',
     'tether.slide1.headline2': '移行。',
     'tether.slide1.subheadline1': '自律型システムはその経済基盤を凌駕している。',
@@ -2872,7 +2872,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Tether page translations (independent from deck)
     'tether.footer': 'البنية التحتية والأبحاث · AMAI Labs',
-    'tether.slide1.label': 'الإحاطة',
+    'tether.slide1.label': 'Strategic Alignment // Tether',
     'tether.slide1.headline1': 'الانتقال إلى',
     'tether.slide1.headline2': 'التجارة الآلية أولاً.',
     'tether.slide1.subheadline1': 'الأنظمة المستقلة تتجاوز بنيتها الاقتصادية التحتية.',
