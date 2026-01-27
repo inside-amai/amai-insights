@@ -100,10 +100,19 @@ const TrustFormula = () => {
                   <p className="text-white/50 text-sm leading-relaxed mb-2">
                     <span className="font-mono text-white/60">T<sub>base</sub></span>: The Tier Baseline anchor.
                   </p>
-                  <div className="ml-4 space-y-1 text-white/40 text-sm font-mono">
-                    <p>Common: 60.00</p>
-                    <p>Rare: 80.00</p>
-                    <p>Legendary: 90.00</p>
+                  <div className="ml-4 space-y-3 text-white/40 text-sm font-mono">
+                    <div>
+                      <p className="text-white/60">Tier I: Standard — 60.00</p>
+                      <p className="text-white/30 text-xs">Experimentation & Light Tasks</p>
+                    </div>
+                    <div>
+                      <p className="text-white/60">Tier II: Verified — 80.00</p>
+                      <p className="text-white/30 text-xs">Commercial Operations & Payments</p>
+                    </div>
+                    <div>
+                      <p className="text-white/60">Tier III: Sovereign — 90.00</p>
+                      <p className="text-white/30 text-xs">Heavy Compute & Institutional Treasury</p>
+                    </div>
                   </div>
                 </div>
 
@@ -164,10 +173,19 @@ const TrustFormula = () => {
                 <p className="text-white/50 text-sm leading-relaxed mb-2">
                   <span className="font-mono text-white/60">n<sub>baseline</sub></span>:
                 </p>
-                <div className="ml-4 space-y-1 text-white/40 text-sm font-mono">
-                  <p>Common: 2 Skills</p>
-                  <p>Rare: 4 Skills</p>
-                  <p>Legendary: 6 Skills</p>
+                <div className="ml-4 space-y-3 text-white/40 text-sm font-mono">
+                  <div>
+                    <p className="text-white/60">Tier I: Standard — 2 Skills</p>
+                    <p className="text-white/30 text-xs">Experimentation & Light Tasks</p>
+                  </div>
+                  <div>
+                    <p className="text-white/60">Tier II: Verified — 4 Skills</p>
+                    <p className="text-white/30 text-xs">Commercial Operations & Payments</p>
+                  </div>
+                  <div>
+                    <p className="text-white/60">Tier III: Sovereign — 6 Skills</p>
+                    <p className="text-white/30 text-xs">Heavy Compute & Institutional Treasury</p>
+                  </div>
                 </div>
               </div>
 
