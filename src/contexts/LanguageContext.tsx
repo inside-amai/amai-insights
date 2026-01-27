@@ -1022,8 +1022,10 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Thesis slide 1 (hero)
     'thesis.slide1.label': '01 // THE THESIS',
-    'thesis.slide1.headline': 'The Transition to Machine-First Commerce.',
-    'thesis.slide1.subheadline': 'Autonomous systems are outpacing the physical and economic infrastructure that supports them. AMAI provides the foundational system for anchoring identity, reputation, and capital in the agentic web.',
+    'thesis.slide1.headline1': 'The Settlement Layer for',
+    'thesis.slide1.headline2': 'the Agentic Web.',
+    'thesis.slide1.subheadline1': 'Autonomous systems are evolving from passive tools into active economic participants. The next major expansion of global GDP will be autonomous.',
+    'thesis.slide1.subheadline2': 'AMAI provides the foundational system for anchoring identity, reputation, and capital in the agentic web.',
     'thesis.slide1.cta1': 'Explore The Mission',
     'thesis.slide1.cta2': 'Download The PDF',
     
@@ -2163,8 +2165,10 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Thesis slide 1 (hero - Japanese)
     'thesis.slide1.label': '01 // 論旨',
-    'thesis.slide1.headline': '機械優先商取引への移行。',
-    'thesis.slide1.subheadline': '自律型システムは、それを支える物理的・経済的インフラストラクチャを追い越している。AMAIは、エージェント・ウェブにおけるアイデンティティ、信用、資本を定着させるための基礎的論文を提供する。',
+    'thesis.slide1.headline1': 'エージェント・ウェブのための',
+    'thesis.slide1.headline2': '決済層。',
+    'thesis.slide1.subheadline1': '自律型システムは、受動的なツールから能動的な経済参加者へと進化している。次の世界GDP拡大は自律型システムによってもたらされる。',
+    'thesis.slide1.subheadline2': 'AMAIは、エージェント・ウェブにおけるアイデンティティ、信用、資本を定着させるための基盤システムを提供する。',
     'thesis.slide1.cta1': 'ミッションを探索',
     'thesis.slide1.cta2': 'PDFをダウンロード',
     
@@ -3303,8 +3307,10 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Thesis slide 1 (hero - Arabic)
     'thesis.slide1.label': '01 // الأطروحة',
-    'thesis.slide1.headline': 'الانتقال إلى التجارة المبنية على الآلات.',
-    'thesis.slide1.subheadline': 'الأنظمة المستقلة تتجاوز البنية التحتية المادية والاقتصادية التي تدعمها. توفر AMAI الأطروحة التأسيسية لترسيخ الهوية والسمعة ورأس المال في الشبكة الوكيلية.',
+    'thesis.slide1.headline1': 'طبقة التسوية',
+    'thesis.slide1.headline2': 'للشبكة الوكيلية.',
+    'thesis.slide1.subheadline1': 'الأنظمة المستقلة تتطور من أدوات سلبية إلى مشاركين اقتصاديين فاعلين. التوسع الرئيسي القادم للناتج المحلي الإجمالي العالمي سيكون مستقلاً.',
+    'thesis.slide1.subheadline2': 'توفر AMAI النظام التأسيسي لترسيخ الهوية والسمعة ورأس المال في الشبكة الوكيلية.',
     'thesis.slide1.cta1': 'استكشاف المهمة',
     'thesis.slide1.cta2': 'تحميل ملف PDF',
     

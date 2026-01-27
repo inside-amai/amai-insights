@@ -126,18 +126,20 @@ const Thesis = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            {t('thesis.slide1.headline')}
+            {t('thesis.slide1.headline1')}<br />
+            {t('thesis.slide1.headline2')}
           </motion.h1>
           
           {/* Subheadline */}
-          <motion.p
-            className="text-base md:text-xl text-white/50 font-light leading-relaxed max-w-2xl mb-10 md:mb-12"
+          <motion.div
+            className="text-base md:text-xl text-white/50 font-light leading-relaxed max-w-2xl mb-10 md:mb-12 space-y-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            {t('thesis.slide1.subheadline')}
-          </motion.p>
+            <p>{t('thesis.slide1.subheadline1')}</p>
+            <p>{t('thesis.slide1.subheadline2')}</p>
+          </motion.div>
           
           {/* CTAs */}
           <motion.div
