@@ -152,7 +152,7 @@ const Thesis = () => {
                 e.preventDefault();
                 document.getElementById('slide-2')?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="text-sm text-white/70 hover:text-white border border-white/20 hover:border-white/40 px-6 py-3 rounded transition-all duration-300 uppercase tracking-[0.15em] text-center"
+              className="text-sm text-white/70 hover:text-white bg-black border border-white/20 hover:border-white/40 px-6 py-3 rounded transition-all duration-300 uppercase tracking-[0.15em] text-center"
             >
               {t('thesis.slide1.cta1')}
             </a>
