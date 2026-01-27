@@ -38,7 +38,6 @@ import AgentLifecycle from "./pages/whitepaper/AgentLifecycle";
 import OperationalScenarios from "./pages/OperationalScenarios";
 import Research from "./pages/Research";
 import TrustFormula from "./pages/TrustFormula";
-import TrustMini from "./pages/TrustMini";
 
 
 const queryClient = new QueryClient();
@@ -113,7 +112,6 @@ const App = () => (
             <Route path="/operational-scenarios" element={<OperationalScenarios />} />
             <Route path="/research" element={<Research />} />
             <Route path="/trust-formula" element={<TrustFormula />} />
-            <Route path="/trust-mini" element={<TrustMini />} />
             <Route path="/deck" element={<Deck />} />
             <Route path="/tether" element={<Tether />} />
             <Route path="/thesis" element={<Thesis />} />
