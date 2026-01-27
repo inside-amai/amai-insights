@@ -20,6 +20,7 @@ import FoundersMint from "./pages/FoundersMint";
 import Deck from "./pages/Deck";
 import Tether from "./pages/Tether";
 import Thesis from "./pages/Thesis";
+import Briefing from "./pages/Briefing";
 
 import NotFound from "./pages/NotFound";
 
@@ -45,7 +46,7 @@ const ConditionalTermsModal = () => {
   const location = useLocation();
   
   // Don't show terms modal on /deck or /tether pages
-  if (location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/thesis') {
+  if (location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/thesis' || location.pathname === '/briefing') {
     return null;
   }
   
@@ -60,7 +61,7 @@ const FullBleedRouteHandler = () => {
     const root = document.getElementById('root');
     if (!root) return;
     
-    const isFullBleed = location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/thesis';
+    const isFullBleed = location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/thesis' || location.pathname === '/briefing';
     
     if (isFullBleed) {
       root.classList.add('full-bleed');
@@ -114,6 +115,7 @@ const App = () => (
             <Route path="/deck" element={<Deck />} />
             <Route path="/tether" element={<Tether />} />
             <Route path="/thesis" element={<Thesis />} />
+            <Route path="/briefing" element={<Briefing />} />
 
             <Route path="/diagram" element={<Diagram />} />
             <Route path="/ui" element={<UI />} />
