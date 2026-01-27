@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { motion, useScroll } from "framer-motion";
 import amaiLogo from "@/assets/amai-logo-hero-new.png";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -76,6 +76,10 @@ const Thesis = () => {
   const isMobile = useIsMobile();
   const { pdfLayoutRef, downloadPdf, isGenerating } = usePdfDownload();
 
+  // Scroll to top on mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const handleDownloadPdf = () => {
     downloadPdf({ filename: 'amai-thesis.pdf', margin: 0 });
   };
