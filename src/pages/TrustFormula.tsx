@@ -349,6 +349,56 @@ const TrustFormula = () => {
           </div>
         </section>
 
+        <div className="max-w-4xl mx-auto px-6"><div className="h-px bg-white/[0.06]" /></div>
+
+        {/* Section 6: Dev Implementation Checklist */}
+        <section className="py-12 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }}>
+              <h2 className="text-xl font-light text-white mb-4 tracking-tight">6. Dev Implementation Checklist</h2>
+              <p className="text-white/40 text-xs font-mono mb-6">(Requirements for Engineering Team)</p>
+              
+              <div className="space-y-6">
+                <div>
+                  <p className="text-white/60 text-sm font-medium mb-2">
+                    Oracle Feeds (P<sub>i</sub>):
+                  </p>
+                  <p className="text-white/50 text-sm leading-relaxed">
+                    Must integrate a low-latency Oracle (e.g., Pyth, Switchboard, or Stork) to provide the 30-minute TWAP for SUI/USDT/AMAI prices used in the Collateral Health Factor (H<sub>f</sub>).
+                  </p>
+                </div>
+
+                <div>
+                  <p className="text-white/60 text-sm font-medium mb-2">
+                    Attestation Signers:
+                  </p>
+                  <p className="text-white/50 text-sm leading-relaxed">
+                    Define the allowed <span className="font-mono text-white/60">public_keys</span> for the Reputation Oracle that can sign "SLASH" or "SCORE_UPDATE" payloads.
+                  </p>
+                </div>
+
+                <div>
+                  <p className="text-white/60 text-sm font-medium mb-2">
+                    Time-Locks:
+                  </p>
+                  <p className="text-white/50 text-sm leading-relaxed">
+                    Ensure the Hysteresis (λ) and <span className="font-mono text-white/60">BaseRate</span> variables are behind a 48-hour Timelock or Multi-Sig to prevent "Admin Key" attacks.
+                  </p>
+                </div>
+
+                <div>
+                  <p className="text-white/60 text-sm font-medium mb-2">
+                    Precision Handling:
+                  </p>
+                  <p className="text-white/50 text-sm leading-relaxed">
+                    All percentages (Trust Scores, Yields) should be stored with 18 decimals of precision (WAD) to prevent rounding errors in the Compound Trust Formula.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
         <div className="py-8 text-center">
           <span className="text-[10px] tracking-[0.3em] uppercase text-white/20 font-mono">AMAI Protocol · v1.0.4</span>
         </div>
