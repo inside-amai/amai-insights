@@ -63,12 +63,12 @@ export const SiteHeader = () => {
             <div className="flex items-center gap-4">
               <a 
                 href="https://amai.net" 
-                className="pointer-events-auto w-[64px] h-10 flex-shrink-0"
+                className="pointer-events-auto w-[48px] md:w-[64px] h-7 md:h-10 flex-shrink-0"
               >
                 <img 
                   src="/amai-header-logo.png"
                   alt="AMAI" 
-                  className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity"
+                  className="h-7 md:h-10 w-auto opacity-90 hover:opacity-100 transition-opacity"
                   loading="eager"
                 />
               </a>
