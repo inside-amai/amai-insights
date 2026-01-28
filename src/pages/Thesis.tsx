@@ -819,7 +819,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            {t('tether.slide10.headline')}
+            {t('thesis.slide10.headline')}
           </motion.h2>
           
           {/* Two-column risk/guardrail layout */}
