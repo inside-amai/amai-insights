@@ -1039,6 +1039,7 @@ const translations: Record<Language, Record<string, string>> = {
     'thesis.slide8.label': '08 // STRATEGIC SYNERGY',
     'thesis.slide9.label': '09 // THE MISSING LAYER',
     'thesis.slide10.label': '10 // INFRASTRUCTURE VOLATILITY',
+    'thesis.slide10.headline': 'The Enforcement Layer',
     'thesis.slide11.label': '11 // STRATEGIC VALUE',
     'thesis.slide12.label': '12 // CLOSING',
 
@@ -2182,6 +2183,7 @@ const translations: Record<Language, Record<string, string>> = {
     'thesis.slide8.label': '08 // 戦略的相乗効果',
     'thesis.slide9.label': '09 // 欠落層',
     'thesis.slide10.label': '10 // インフラ変動性',
+    'thesis.slide10.headline': '執行層',
     'thesis.slide11.label': '11 // 戦略的価値',
     'thesis.slide12.label': '12 // 結語',
     // Briefing page (Japanese)
@@ -3324,6 +3326,7 @@ const translations: Record<Language, Record<string, string>> = {
     'thesis.slide8.label': '08 // التآزر الاستراتيجي',
     'thesis.slide9.label': '09 // الطبقة المفقودة',
     'thesis.slide10.label': '10 // تقلبات البنية التحتية',
+    'thesis.slide10.headline': 'طبقة التنفيذ',
     'thesis.slide11.label': '11 // القيمة الاستراتيجية',
     'thesis.slide12.label': '12 // الخاتمة',
     // Briefing page
