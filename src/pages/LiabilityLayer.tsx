@@ -575,7 +575,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            The "Trust Denominator" of the Machine Economy.
+            A Global Trust Denominator for the Machine Economy.
           </motion.h2>
           
           <motion.p
