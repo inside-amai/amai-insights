@@ -410,6 +410,103 @@ const TrustFormula = () => {
           </div>
         </section>
 
+        <div className="max-w-4xl mx-auto px-6"><div className="h-px bg-white/[0.06]" /></div>
+
+        {/* Section 7: The 30:70 Enforcement Ratio */}
+        <section className="py-12 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }}>
+              <h2 className="text-xl font-light text-white mb-4 tracking-tight">7. The 30:70 Enforcement Ratio (The Sovereign Safety-Sync)</h2>
+              <p className="text-white/50 text-sm leading-relaxed mb-8">
+                To ensure the integrity of the x402 Enforcement Layer, the protocol mandates a fixed capital ratio between the Enforcement Asset and the Liquidity Asset. This "Safety-Sync" ensures that every agent's private keys are underwritten by a surplus of sovereign value.
+              </p>
+              
+              {/* 7.1 Asset Allocation & Weights */}
+              <h3 className="text-base font-light text-white/80 mb-3">7.1. Asset Allocation & Weights</h3>
+              <p className="text-white/50 text-sm leading-relaxed mb-4">
+                For every $1,000 of nominal capital deposited into an agent's bond, the system enforces a deterministic 30:70 split:
+              </p>
+              
+              <div className="space-y-6 mb-8">
+                <div className="border border-white/[0.06] rounded-[2px] p-4 bg-white/[0.01]">
+                  <p className="text-white/60 text-sm font-medium mb-2">AMAI (Enforcement Asset): 30% of the total bond.</p>
+                  <p className="text-white/50 text-sm leading-relaxed mb-2">
+                    <span className="text-white/40">Purpose:</span> Functions as the "Soul" of the agent. It authorizes private keys and governs mission-routing permissions.
+                  </p>
+                  <p className="text-white/50 text-sm leading-relaxed">
+                    <span className="font-mono text-white/60">Liquidity Weight (L<sub>i</sub>)</span>: 0.70
+                  </p>
+                </div>
+
+                <div className="border border-white/[0.06] rounded-[2px] p-4 bg-white/[0.01]">
+                  <p className="text-white/60 text-sm font-medium mb-2">USDC (Liquidity Asset): 70% of the total bond.</p>
+                  <p className="text-white/50 text-sm leading-relaxed mb-2">
+                    <span className="text-white/40">Purpose:</span> Functions as the "Body" of the agent. Provides stable liquidity for settlement and operational costs.
+                  </p>
+                  <p className="text-white/50 text-sm leading-relaxed">
+                    <span className="font-mono text-white/60">Liquidity Weight (L<sub>i</sub>)</span>: 1.00
+                  </p>
+                </div>
+              </div>
+
+              {/* 7.2 Effective Collateral & The Enforcement Premium */}
+              <h3 className="text-base font-light text-white/80 mb-3">7.2. Effective Collateral & The Enforcement Premium</h3>
+              <p className="text-white/50 text-sm leading-relaxed mb-4">
+                The 30:70 ratio creates an inherent "Enforcement Premium" through over-collateralization. This ensures the Health Factor (H<sub>f</sub>) remains resilient against market volatility and operational penalties.
+              </p>
+              
+              <div className="border border-white/[0.08] rounded-[2px] p-6 mb-4" style={{ backgroundImage: `linear-gradient(rgba(255,255,255,0.01) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.01) 1px, transparent 1px)`, backgroundSize: '12px 12px' }}>
+                <p className="text-white/40 text-xs font-mono mb-3">Calculation for a $1,000 Nominal Bond:</p>
+                <div className="font-mono text-base text-white/70 text-center">
+                  Effective_Collateral = ($300 × 0.70) + ($700 × 1.00) = $910
+                </div>
+              </div>
+
+              <p className="text-white/50 text-sm leading-relaxed mb-8">
+                By providing $1,000 in nominal value to achieve $910 in effective health, the agent establishes a <span className="text-white/70 font-medium">9% Safety Buffer</span>. This buffer allows the agent to absorb minor Slashing events (σ = 1) or price fluctuations without the H<sub>f</sub> dropping below the 1.0 PAUSE threshold.
+              </p>
+
+              {/* 7.3 Logic Gates for Key Authorization */}
+              <h3 className="text-base font-light text-white/80 mb-3">7.3. Logic Gates for Key Authorization</h3>
+              <p className="text-white/50 text-sm leading-relaxed mb-4">
+                The Enforcement Ratio is the primary governor for Execution Permissions.
+              </p>
+              
+              <div className="border border-white/[0.06] rounded-[2px] p-4 bg-white/[0.01] mb-8">
+                <div className="space-y-3 text-white/40 text-sm">
+                  <p>
+                    <span className="text-white/60 font-medium">Authorization Lock:</span> If the AMAI portion of the bond falls below the 30% threshold relative to the required Bond<sub>req</sub>, the agent's private keys are revoked.
+                  </p>
+                  <p>
+                    <span className="text-white/60 font-medium">Skin-in-the-Game:</span> No amount of pure USDC collateral can authorize an agent. Execution rights are granted strictly via the AMAI enforcement bond.
+                  </p>
+                </div>
+              </div>
+
+              {/* 7.4 Slashing Prioritization */}
+              <h3 className="text-base font-light text-white/80 mb-3">7.4. Slashing Prioritization</h3>
+              <p className="text-white/50 text-sm leading-relaxed mb-4">
+                In the event of an enforcement action (Section 3), penalties are settled in the following order:
+              </p>
+              
+              <div className="border border-white/[0.06] rounded-[2px] p-4 bg-white/[0.01]">
+                <div className="space-y-3 text-white/40 text-sm">
+                  <p>
+                    <span className="text-white/60 font-medium">1. AMAI Bond:</span> 100% of penalties are first drawn from the AMAI portion of the bond.
+                  </p>
+                  <p>
+                    <span className="text-white/60 font-medium">2. USDC Collateral:</span> Only utilized if the AMAI bond is exhausted (e.g., Malicious Intent, σ = 20).
+                  </p>
+                </div>
+              </div>
+
+              <p className="text-white/50 text-sm leading-relaxed mt-4">
+                This ensures that "Operational Faults" and "Gross Negligence" are settled in the sovereign token, preserving the agent's liquid USDC for ongoing mission settlement and debt obligations.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
         <div className="py-8 text-center">
           <span className="text-[10px] tracking-[0.3em] uppercase text-white/20 font-mono">AMAI Protocol · v1.0.4</span>
         </div>
