@@ -661,7 +661,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            The entire crypto-AI industry is fighting over two layers:
+            The entire AI industry is fighting over two layers:
           </motion.p>
           
           <motion.div
