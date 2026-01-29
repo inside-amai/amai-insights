@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, useScroll, AnimatePresence } from "framer-motion";
 import amaiLogo from "@/assets/amai-logo-hero-new.png";
 import terminalPreview1 from "@/assets/terminal-preview-1.png";
@@ -6,6 +6,7 @@ import terminalPreview2 from "@/assets/terminal-preview-2.png";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { X, Copy, Check } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface SlideProps {
   children: React.ReactNode;
@@ -14,14 +15,17 @@ interface SlideProps {
   slideNumber?: number;
   totalSlides?: number;
   hideGrid?: boolean;
+  isRTL?: boolean;
+  footerText?: string;
 }
 
-const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 12, hideGrid = false }: SlideProps) => {
+const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 12, hideGrid = false, isRTL = false, footerText = "AMAI Protocol v2.0 — The Liability Layer" }: SlideProps) => {
   return (
     <section 
       className={`relative min-h-svh md:min-h-screen w-full flex items-center overflow-x-hidden py-16 md:py-0 ${
         align === "left" ? "justify-start" : "justify-center"
       } ${className}`}
+      dir={isRTL ? "rtl" : "ltr"}
     >
       {/* Grid background */}
       {!hideGrid && (
@@ -45,14 +49,14 @@ const Slide = ({ children, className = "", align = "center", slideNumber, totalS
       
       {/* Page number */}
       {slideNumber && (
-        <div className="absolute bottom-4 md:bottom-10 right-4 md:right-12 text-[10px] tracking-[0.2em] text-white/50 font-medium">
+        <div className={`absolute bottom-4 md:bottom-10 ${isRTL ? 'left-4 md:left-12' : 'right-4 md:right-12'} text-[10px] tracking-[0.2em] text-white/50 font-medium`}>
           {String(slideNumber).padStart(2, '0')} / {String(totalSlides).padStart(2, '0')}
         </div>
       )}
       
       {/* Footer branding */}
       <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.2em] uppercase text-white/20 font-medium text-center max-w-[200px] md:max-w-none">
-        AMAI Protocol v2.0 — The Liability Layer
+        {footerText}
       </div>
     </section>
   );
@@ -93,9 +97,16 @@ const LiabilityLayer = () => {
   const { scrollYProgress } = useScroll();
   const isMobile = useIsMobile();
   const [expandedImage, setExpandedImage] = useState<string | null>(null);
+  const { t, language } = useLanguage();
+  const isRTL = language === 'ar';
+  
+  // Scroll to top on mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
-    <div className="bg-black min-h-svh md:min-h-screen overflow-x-hidden overscroll-y-contain touch-pan-y">
+    <div className="bg-black min-h-svh md:min-h-screen overflow-x-hidden overscroll-y-contain touch-pan-y" dir={isRTL ? "rtl" : "ltr"}>
       {/* Progress bar - hidden on mobile to reduce scroll jank */}
       {!isMobile && (
         <motion.div
@@ -105,7 +116,7 @@ const LiabilityLayer = () => {
       )}
 
       {/* Slide 1: The Thesis */}
-      <Slide align="left" slideNumber={1}>
+      <Slide align="left" slideNumber={1} isRTL={isRTL} footerText={t('liability.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -129,7 +140,7 @@ const LiabilityLayer = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            01 // THE THESIS
+            {t('liability.slide1.label')}
           </motion.p>
           
           {/* Headline */}
@@ -139,9 +150,9 @@ const LiabilityLayer = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <span className="font-light">The Insurance Layer</span>
+            <span className="font-light">{t('liability.slide1.headline1')}</span>
             <br />
-            <span className="font-light">for the Agentic Web.</span>
+            <span className="font-light">{t('liability.slide1.headline2')}</span>
           </motion.h1>
           
           {/* Subheadline */}
@@ -151,7 +162,7 @@ const LiabilityLayer = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            Autonomous systems are moving from "Chatbots" to "Fiduciaries." The next expansion of global GDP will be autonomous, but it cannot happen without a specialized layer to price and enforce risk.
+            {t('liability.slide1.subheadline')}
           </motion.p>
           
           {/* The Hook */}
@@ -161,7 +172,7 @@ const LiabilityLayer = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.0 }}
           >
-            We make autonomous systems accountable.
+            {t('liability.slide1.hook')}
           </motion.p>
         </motion.div>
       </Slide>
@@ -169,7 +180,7 @@ const LiabilityLayer = () => {
       <SlideDivider />
 
       {/* Slide 2: The World-Class Problem */}
-      <Slide align="left" slideNumber={2}>
+      <Slide align="left" slideNumber={2} isRTL={isRTL} footerText={t('liability.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -184,7 +195,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            02 // THE WORLD-CLASS PROBLEM
+            {t('liability.slide2.label')}
           </motion.p>
           
           <motion.h2
@@ -194,7 +205,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            The Uninsurability of Autonomous Action.
+            {t('liability.slide2.headline')}
           </motion.h2>
           
           <motion.p
@@ -204,7 +215,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            In academic terms, this is the Principal-Agent Problem applied to AI: How do you trust an agent to execute billion-dollar decisions when it has no body to jail, no assets to seize, and no legal identity to sue?
+            {t('liability.slide2.intro')}
           </motion.p>
           
           <motion.div
@@ -215,15 +226,15 @@ const LiabilityLayer = () => {
             viewport={{ once: true }}
           >
             <div>
-              <p className="text-base text-white/80 font-medium mb-2">1. The Hallucination Risk:</p>
+              <p className="text-base text-white/80 font-medium mb-2">{t('liability.slide2.risk1.title')}</p>
               <p className="text-base text-white/50 font-light leading-relaxed">
-                A trading bot can hallucinate a zero and burn $50M in 4 seconds. The money is gone. The "Principal" (Human) takes 100% of the loss.
+                {t('liability.slide2.risk1.desc')}
               </p>
             </div>
             <div>
-              <p className="text-base text-white/80 font-medium mb-2">2. The Liability Vacuum:</p>
+              <p className="text-base text-white/80 font-medium mb-2">{t('liability.slide2.risk2.title')}</p>
               <p className="text-base text-white/50 font-light leading-relaxed">
-                You cannot sue an LLM. You cannot punish a server. Because there is no recourse, institutional capital cannot deploy autonomous agents.
+                {t('liability.slide2.risk2.desc')}
               </p>
             </div>
           </motion.div>
@@ -235,7 +246,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            Without an enforcement layer, agents remain toys. They are uninsurable.
+            {t('liability.slide2.closing')}
           </motion.p>
         </motion.div>
       </Slide>
@@ -243,7 +254,7 @@ const LiabilityLayer = () => {
       <SlideDivider />
 
       {/* Slide 3: The Solution */}
-      <Slide align="left" slideNumber={3}>
+      <Slide align="left" slideNumber={3} isRTL={isRTL} footerText={t('liability.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -258,7 +269,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            03 // THE SOLUTION
+            {t('liability.slide3.label')}
           </motion.p>
           
           <motion.h2
@@ -268,7 +279,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Enforcement-as-a-Service.
+            {t('liability.slide3.headline')}
           </motion.h2>
           
           <motion.div
@@ -279,21 +290,21 @@ const LiabilityLayer = () => {
             viewport={{ once: true }}
           >
             <div>
-              <p className="text-base text-white/80 font-medium mb-2">The Shift:</p>
+              <p className="text-base text-white/80 font-medium mb-2">{t('liability.slide3.shift.title')}</p>
               <p className="text-base text-white/50 font-light leading-relaxed">
-                AMAI solves the Principal-Agent problem by turning Code into Collateral.
+                {t('liability.slide3.shift.desc')}
               </p>
             </div>
             <div>
-              <p className="text-base text-white/80 font-medium mb-2">The Mechanism:</p>
+              <p className="text-base text-white/80 font-medium mb-2">{t('liability.slide3.mechanism.title')}</p>
               <p className="text-base text-white/50 font-light leading-relaxed">
-                The protocol forces every agent to post a Sovereign Bond (30:70 Split) before it gets "Execution Rights."
+                {t('liability.slide3.mechanism.desc')}
               </p>
             </div>
             <div>
-              <p className="text-base text-white/80 font-medium mb-2">The Result (Fiduciary Agency):</p>
+              <p className="text-base text-white/80 font-medium mb-2">{t('liability.slide3.result.title')}</p>
               <p className="text-base text-white/50 font-light leading-relaxed">
-                If the agent commits an Operational Fault or Gross Negligence, the protocol slashes the bond instantly.
+                {t('liability.slide3.result.desc')}
               </p>
             </div>
           </motion.div>
@@ -305,7 +316,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            This transforms an "unknown software risk" into a "quantifiable financial asset" (H<sub>f</sub>). We make Intelligence liable.
+            {t('liability.slide3.closing')}
           </motion.p>
         </motion.div>
       </Slide>
@@ -313,7 +324,7 @@ const LiabilityLayer = () => {
       <SlideDivider />
 
       {/* Slide 4: The Architecture */}
-      <Slide align="left" slideNumber={4}>
+      <Slide align="left" slideNumber={4} isRTL={isRTL} footerText={t('liability.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -328,7 +339,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            04 // THE ARCHITECTURE
+            {t('liability.slide4.label')}
           </motion.p>
           
           <motion.h2
@@ -338,7 +349,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Church & State: The Separation of Capital.
+            {t('liability.slide4.headline')}
           </motion.h2>
           
           <motion.p
@@ -348,7 +359,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            To solve the "Cold Start" problem, AMAI enforces a strict separation of assets.
+            {t('liability.slide4.intro')}
           </motion.p>
           
           <motion.div
@@ -358,17 +369,17 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="bg-black p-5 border-l border-white/10 pl-5">
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">1. The Enforcement Bond (Locked)</p>
+            <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}>
+              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('liability.slide4.bond.title')}</p>
               <p className="text-sm text-white/70 font-light leading-relaxed">
-                The "Security Deposit" that authorizes the keys. It determines the Trust Score (T<sub>final</sub>) and Spend Limits.
+                {t('liability.slide4.bond.desc')}
               </p>
             </div>
             
-            <div className="bg-black p-5 border-l border-white/10 pl-5">
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">2. The Operating Float (Liquid)</p>
+            <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}>
+              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('liability.slide4.float.title')}</p>
               <p className="text-sm text-white/70 font-light leading-relaxed">
-                The "Ammo" the agent uses to execute trades and pay gas.
+                {t('liability.slide4.float.desc')}
               </p>
             </div>
           </motion.div>
@@ -380,7 +391,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            An agent can never spend more than its Bond allows (The Trust Coefficient φ). Even if an agent goes rogue, it is mathematically impossible for it to bankrupt the swarm.
+            {t('liability.slide4.closing')}
           </motion.p>
         </motion.div>
       </Slide>
@@ -388,7 +399,7 @@ const LiabilityLayer = () => {
       <SlideDivider />
 
       {/* Slide 5: The Economic Loop */}
-      <Slide slideNumber={5}>
+      <Slide slideNumber={5} isRTL={isRTL} footerText={t('liability.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -403,7 +414,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            05 // THE ECONOMIC LOOP
+            {t('liability.slide5.label')}
           </motion.p>
           
           <motion.h2
@@ -413,7 +424,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            How Trust Becomes Capital.
+            {t('liability.slide5.headline')}
           </motion.h2>
           
           {/* Diagram */}
@@ -424,14 +435,20 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center justify-center gap-1.5 md:gap-2 text-[9px] md:text-[11px] text-white/70">
-              {['Identity', 'Reputation', 'Capital', 'Execution', 'Settlement'].map((step, i, arr) => (
+            <div className={`flex items-center justify-center gap-1.5 md:gap-2 text-[9px] md:text-[11px] text-white/70 ${isRTL ? 'flex-row-reverse' : ''}`}>
+              {[
+                t('liability.slide5.step.identity'),
+                t('liability.slide5.step.reputation'),
+                t('liability.slide5.step.capital'),
+                t('liability.slide5.step.execution'),
+                t('liability.slide5.step.settlement')
+              ].map((step, i, arr) => (
                 <React.Fragment key={i}>
                   <span className="px-2 md:px-3 py-1 md:py-1.5 border border-white/20 rounded bg-black whitespace-nowrap">
                     {step}
                   </span>
                   {i < arr.length - 1 && (
-                    <span className="text-white/30 text-[8px] md:text-xs">→</span>
+                    <span className="text-white/30 text-[8px] md:text-xs">{isRTL ? '←' : '→'}</span>
                   )}
                 </React.Fragment>
               ))}
@@ -446,21 +463,42 @@ const LiabilityLayer = () => {
             >
               {/* Curved U-path from Settlement back to Trust */}
               <path 
-                d="M 404 0 L 404 18 Q 404 24 398 24 L 78 24 Q 72 24 72 18 L 72 0"
+                d={isRTL 
+                  ? "M 72 0 L 72 18 Q 72 24 78 24 L 398 24 Q 404 24 404 18 L 404 0"
+                  : "M 404 0 L 404 18 Q 404 24 398 24 L 78 24 Q 72 24 72 18 L 72 0"
+                }
                 stroke="rgba(255,255,255,0.15)"
                 strokeWidth="1"
               />
               
               {/* Vertical arrow under Settlement (pointing down) */}
-              <polygon points="404,5 401,0 407,0" fill="rgba(255,255,255,0.25)" />
+              {isRTL ? (
+                <polygon points="72,5 69,0 75,0" fill="rgba(255,255,255,0.25)" />
+              ) : (
+                <polygon points="404,5 401,0 407,0" fill="rgba(255,255,255,0.25)" />
+              )}
               
               {/* Vertical arrow into Trust (pointing up) */}
-              <polygon points="72,0 69,5 75,5" fill="rgba(255,255,255,0.25)" />
+              {isRTL ? (
+                <polygon points="404,0 401,5 407,5" fill="rgba(255,255,255,0.25)" />
+              ) : (
+                <polygon points="72,0 69,5 75,5" fill="rgba(255,255,255,0.25)" />
+              )}
               
               {/* Arrow markers along the bottom path */}
-              <polygon points="320,21 314,24 320,27" fill="rgba(255,255,255,0.25)" />
-              <polygon points="240,21 234,24 240,27" fill="rgba(255,255,255,0.25)" />
-              <polygon points="160,21 154,24 160,27" fill="rgba(255,255,255,0.25)" />
+              {isRTL ? (
+                <>
+                  <polygon points="160,21 166,24 160,27" fill="rgba(255,255,255,0.25)" />
+                  <polygon points="240,21 246,24 240,27" fill="rgba(255,255,255,0.25)" />
+                  <polygon points="320,21 326,24 320,27" fill="rgba(255,255,255,0.25)" />
+                </>
+              ) : (
+                <>
+                  <polygon points="320,21 314,24 320,27" fill="rgba(255,255,255,0.25)" />
+                  <polygon points="240,21 234,24 240,27" fill="rgba(255,255,255,0.25)" />
+                  <polygon points="160,21 154,24 160,27" fill="rgba(255,255,255,0.25)" />
+                </>
+              )}
             </svg>
           </motion.div>
           
@@ -472,11 +510,11 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            <p>Agents begin with identity.</p>
-            <p>Performance builds reputation.</p>
-            <p>Reputation governs capital access.</p>
-            <p>Capital enables execution at scale across systems.</p>
-            <p>Execution settles deterministically and feeds back into trust.</p>
+            <p>{t('liability.slide5.flow1')}</p>
+            <p>{t('liability.slide5.flow2')}</p>
+            <p>{t('liability.slide5.flow3')}</p>
+            <p>{t('liability.slide5.flow4')}</p>
+            <p>{t('liability.slide5.flow5')}</p>
           </motion.div>
           
           <motion.p
@@ -486,7 +524,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            Trust is earned. Capital is enforced. Outcomes are final.
+            {t('liability.slide5.closing')}
           </motion.p>
         </motion.div>
       </Slide>
@@ -494,7 +532,7 @@ const LiabilityLayer = () => {
       <SlideDivider />
 
       {/* Slide 6: The Market */}
-      <Slide align="left" slideNumber={6}>
+      <Slide align="left" slideNumber={6} isRTL={isRTL} footerText={t('liability.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -509,7 +547,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            06 // THE MARKET
+            {t('liability.slide6.label')}
           </motion.p>
           
           <motion.h2
@@ -519,7 +557,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Targeting the "High-Stakes" Vacuum.
+            {t('liability.slide6.headline')}
           </motion.h2>
           
           <motion.p
@@ -529,7 +567,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            We are for the $100B Machine-First Settlement Layer.
+            {t('liability.slide6.intro')}
           </motion.p>
           
           <motion.div
@@ -542,19 +580,19 @@ const LiabilityLayer = () => {
             <div className="flex items-start gap-4">
               <span className="text-white/20 text-sm mt-0.5">—</span>
               <p className="text-base text-white/50 font-light leading-relaxed">
-                <span className="text-white/80 font-medium">Algorithmic Liquidity:</span> Agents managing cross-chain arbitrage where a 100ms delay equals a $1M loss.
+                <span className="text-white/80 font-medium">{t('liability.slide6.market1.title')}</span> {t('liability.slide6.market1.desc')}
               </p>
             </div>
             <div className="flex items-start gap-4">
               <span className="text-white/20 text-sm mt-0.5">—</span>
               <p className="text-base text-white/50 font-light leading-relaxed">
-                <span className="text-white/80 font-medium">Autonomous Energy Grids:</span> Agents bidding on power contracts 24/7/365.
+                <span className="text-white/80 font-medium">{t('liability.slide6.market2.title')}</span> {t('liability.slide6.market2.desc')}
               </p>
             </div>
             <div className="flex items-start gap-4">
               <span className="text-white/20 text-sm mt-0.5">—</span>
               <p className="text-base text-white/50 font-light leading-relaxed">
-                <span className="text-white/80 font-medium">Sovereign Wealth Swarms:</span> Multi-agent systems rebalancing institutional portfolios without human key-signers.
+                <span className="text-white/80 font-medium">{t('liability.slide6.market3.title')}</span> {t('liability.slide6.market3.desc')}
               </p>
             </div>
           </motion.div>
@@ -566,7 +604,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.7 }}
             viewport={{ once: true }}
           >
-            These markets require deterministic finality. They cannot run on "maybe."
+            {t('liability.slide6.closing')}
           </motion.p>
         </motion.div>
       </Slide>
@@ -574,7 +612,7 @@ const LiabilityLayer = () => {
       <SlideDivider />
 
       {/* Slide 7: The Token */}
-      <Slide align="left" slideNumber={7}>
+      <Slide align="left" slideNumber={7} isRTL={isRTL} footerText={t('liability.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -589,7 +627,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            07 // THE TOKEN
+            {t('liability.slide7.label')}
           </motion.p>
           
           <motion.h2
@@ -599,7 +637,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            A Global Trust Denominator for the Machine Economy.
+            {t('liability.slide7.headline')}
           </motion.h2>
           
           <motion.p
@@ -609,7 +647,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            The AMAI token is the Enforcement Asset.
+            {t('liability.slide7.intro')}
           </motion.p>
           
           <motion.div
@@ -620,27 +658,27 @@ const LiabilityLayer = () => {
             viewport={{ once: true }}
           >
             <div>
-              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-3">Reputation Governance</p>
+              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-3">{t('liability.slide7.reputation.title')}</p>
               <p className="text-base text-white/50 font-light leading-relaxed">
-                Computes reputation state and governs permissions across agents
+                {t('liability.slide7.reputation.desc')}
               </p>
             </div>
             <div>
-              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-3">Capital Enforcement</p>
+              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-3">{t('liability.slide7.capital.title')}</p>
               <p className="text-base text-white/50 font-light leading-relaxed">
-                Applies collateral constraints and consequence mechanisms
+                {t('liability.slide7.capital.desc')}
               </p>
             </div>
             <div>
-              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-3">Execution Coordination</p>
+              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-3">{t('liability.slide7.execution.title')}</p>
               <p className="text-base text-white/50 font-light leading-relaxed">
-                Controls execution rights, routing, and settlement pathways
+                {t('liability.slide7.execution.desc')}
               </p>
             </div>
             <div>
-              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-3">Shared Trust Layer</p>
+              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-3">{t('liability.slide7.trust.title')}</p>
               <p className="text-base text-white/50 font-light leading-relaxed">
-                Provides a common trust denominator across autonomous agents
+                {t('liability.slide7.trust.desc')}
               </p>
             </div>
           </motion.div>
@@ -652,7 +690,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.7 }}
             viewport={{ once: true }}
           >
-            Agents may post collateral in multiple assets, but enforcement, trust scoring, and execution guarantees are governed through AMAI.
+            {t('liability.slide7.closing')}
           </motion.p>
         </motion.div>
       </Slide>
@@ -660,7 +698,7 @@ const LiabilityLayer = () => {
       <SlideDivider />
 
       {/* Slide 8: The Moat (Competition) */}
-      <Slide align="left" slideNumber={8}>
+      <Slide align="left" slideNumber={8} isRTL={isRTL} footerText={t('liability.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -675,7 +713,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            08 // THE MOAT
+            {t('liability.slide8.label')}
           </motion.p>
           
           <motion.h2
@@ -685,7 +723,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Liability vs. Compute.
+            {t('liability.slide8.headline')}
           </motion.h2>
           
           <motion.p
@@ -695,7 +733,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            The entire AI industry is fighting over two layers:
+            {t('liability.slide8.intro')}
           </motion.p>
           
           <motion.div
@@ -708,13 +746,13 @@ const LiabilityLayer = () => {
             <div className="flex items-start gap-4">
               <span className="text-white/20 text-sm mt-0.5">—</span>
               <p className="text-base text-white/50 font-light leading-relaxed">
-                <span className="text-white/80 font-medium">Compute:</span> "Making agents faster" (Akash, Render).
+                <span className="text-white/80 font-medium">{t('liability.slide8.compute.title')}</span> {t('liability.slide8.compute.desc')}
               </p>
             </div>
             <div className="flex items-start gap-4">
               <span className="text-white/20 text-sm mt-0.5">—</span>
               <p className="text-base text-white/50 font-light leading-relaxed">
-                <span className="text-white/80 font-medium">Orchestration:</span> "Making agents talk" (LangChain, Autonolas).
+                <span className="text-white/80 font-medium">{t('liability.slide8.orchestration.title')}</span> {t('liability.slide8.orchestration.desc')}
               </p>
             </div>
           </motion.div>
@@ -726,7 +764,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.7 }}
             viewport={{ once: true }}
           >
-            AMAI is the only protocol solving "Liability."
+            {t('liability.slide8.moat')}
           </motion.p>
           
           <motion.p
@@ -736,7 +774,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            Without AMAI, agents are just fancy calculators. With AMAI, they are Fiduciary Entities. We are the Insurance Layer for the other two layers.
+            {t('liability.slide8.closing')}
           </motion.p>
         </motion.div>
       </Slide>
@@ -744,7 +782,7 @@ const LiabilityLayer = () => {
       <SlideDivider />
 
       {/* Slide 9: The Product */}
-      <Slide align="left" slideNumber={9}>
+      <Slide align="left" slideNumber={9} isRTL={isRTL} footerText={t('liability.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -850,7 +888,7 @@ const LiabilityLayer = () => {
       <SlideDivider />
 
       {/* Slide 10: Risk Management */}
-      <Slide align="left" slideNumber={10}>
+      <Slide align="left" slideNumber={10} isRTL={isRTL} footerText={t('liability.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -920,7 +958,7 @@ const LiabilityLayer = () => {
       <SlideDivider />
 
       {/* Slide 11: The Vision */}
-      <Slide align="left" slideNumber={11}>
+      <Slide align="left" slideNumber={11} isRTL={isRTL} footerText={t('liability.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -984,7 +1022,7 @@ const LiabilityLayer = () => {
       <SlideDivider />
 
       {/* Slide 12: Final Slide */}
-      <Slide slideNumber={12}>
+      <Slide slideNumber={12} isRTL={isRTL} footerText={t('liability.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
