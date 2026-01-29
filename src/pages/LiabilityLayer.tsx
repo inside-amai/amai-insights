@@ -792,15 +792,15 @@ const LiabilityLayer = () => {
             viewport={{ once: true }}
           >
             <div>
-              <p className="text-base text-white/80 font-medium mb-2">The Interface of Consequence:</p>
+              <p className="text-base text-white/80 font-medium mb-2">Fiduciary Oversight</p>
               <p className="text-base text-white/50 font-light leading-relaxed">
-                We don't build "Chat UIs." We build Mission Control Centers for capital.
+                Chat interfaces are for prompts; this is for solvency. We provide a real-time view of agent liability, bond health, and collateral maintenance.
               </p>
             </div>
             <div>
-              <p className="text-base text-white/80 font-medium mb-2">Visual Proof:</p>
+              <p className="text-base text-white/80 font-medium mb-2">The Solvency Engine</p>
               <p className="text-base text-white/50 font-light leading-relaxed">
-                Real-time visualization of Health Factors (H<sub>f</sub>), Trust Physics, and Capital Efficiency.
+                Monitor Health Factors (H<sub>f</sub>) and liquidation thresholds instantly. If an agent's collateral ratio drops, you see it before the slash occurs.
               </p>
             </div>
           </motion.div>
@@ -812,7 +812,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            Live Audit Complete. The math of enforcement is operational.
+            Operational Reality. Not a mockup. The liquidation logic and risk parameterization are live and verifiable.
           </motion.p>
         </motion.div>
       </Slide>
