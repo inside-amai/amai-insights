@@ -21,6 +21,8 @@ import Thesis from "./pages/Thesis";
 import Briefing from "./pages/Briefing";
 import LiabilityLayer from "./pages/LiabilityLayer";
 
+import Deck from "./pages/Deck";
+import Tether from "./pages/Tether";
 import NotFound from "./pages/NotFound";
 
 // Whitepaper sections (eagerly loaded to avoid Suspense loading screen)
@@ -113,8 +115,8 @@ const App = () => (
             <Route path="/research" element={<Research />} />
             <Route path="/trust-formula" element={<TrustFormula />} />
             
-            <Route path="/deck" element={<Navigate to="/liability-layer" replace />} />
-            <Route path="/tether" element={<Navigate to="/liability-layer" replace />} />
+            <Route path="/deck" element={<Deck />} />
+            <Route path="/tether" element={<Tether />} />
             <Route path="/thesis" element={<Thesis />} />
             <Route path="/briefing" element={<Briefing />} />
             <Route path="/liability-layer" element={<LiabilityLayer />} />
