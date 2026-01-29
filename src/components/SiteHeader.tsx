@@ -36,7 +36,7 @@ const CopyEmailButton = () => {
 export const SiteHeader = () => {
   const { language, setLanguage } = useLanguage();
   const location = useLocation();
-  const isDeckPage = location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/briefing';
+  const isDeckPage = location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/briefing' || location.pathname === '/liability-layer';
   const isThesisPage = location.pathname === '/thesis';
 
   const handleContactClick = () => {
