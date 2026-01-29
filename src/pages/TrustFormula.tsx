@@ -150,7 +150,7 @@ const TrustFormula = () => {
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }}>
               <h2 className="text-xl font-light text-white mb-4 tracking-tight">2. The Bonded Treasury (Capital & Health)</h2>
               <p className="text-white/50 text-sm leading-relaxed mb-8">
-                Agents must maintain solvent collateral in real-time. Since collateral may be volatile (SUI/AMAI), the system enforces a Health Factor to trigger pauses before liquidation.
+                Agents must maintain solvent collateral in real-time. Since collateral may be volatile (USDC/AMAI), the system enforces a Health Factor to trigger pauses before liquidation.
               </p>
               
               {/* 2.1 Skill-Escalation Bonding */}
@@ -209,7 +209,7 @@ const TrustFormula = () => {
                   <span className="font-mono text-white/60">P<sub>i</sub></span>: Oracle TWAP Price (30-min window).
                 </p>
                 <p className="text-white/50 text-sm leading-relaxed">
-                  <span className="font-mono text-white/60">L<sub>i</sub></span>: Liquidity Penalty (USDT = 1.0; SUI = 0.85; AMAI = 0.70).
+                  <span className="font-mono text-white/60">L<sub>i</sub></span>: Liquidity Penalty (USDT = 1.0; USDC = 1.00; AMAI = 0.70).
                 </p>
               </div>
 
@@ -375,7 +375,7 @@ const TrustFormula = () => {
                     Oracle Feeds (P<sub>i</sub>):
                   </p>
                   <p className="text-white/50 text-sm leading-relaxed">
-                    Must integrate a low-latency Oracle (e.g., Pyth, Switchboard, or Stork) to provide the 30-minute TWAP for SUI/USDT/AMAI prices used in the Collateral Health Factor (H<sub>f</sub>).
+                    Must integrate a low-latency Oracle (e.g., Pyth, Switchboard, or Stork) to provide the 30-minute TWAP for USDC/USDT/AMAI prices used in the Collateral Health Factor (H<sub>f</sub>).
                   </p>
                 </div>
 
