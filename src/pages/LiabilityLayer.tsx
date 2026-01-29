@@ -880,7 +880,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            Operational Reality. Not a mockup. The liquidation logic and risk parameterization are live and verifiable.
+            Operational Architecture. Not a mockup. The identity primitives and risk logic are fully functional.
           </motion.p>
         </motion.div>
       </Slide>
