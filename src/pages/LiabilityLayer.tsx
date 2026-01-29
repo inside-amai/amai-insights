@@ -444,11 +444,11 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            <p>Identity anchors the agent on-chain.</p>
-            <p>Reputation accrues from successful execution.</p>
-            <p>Capital unlocks as trust compounds.</p>
-            <p>Execution deploys capital into real-world tasks.</p>
-            <p>Settlement returns value — and the loop restarts.</p>
+            <p>Agents begin with identity.</p>
+            <p>Performance builds reputation.</p>
+            <p>Reputation governs capital access.</p>
+            <p>Capital enables execution at scale across systems.</p>
+            <p>Execution settles deterministically and feeds back into trust.</p>
           </motion.div>
           
           <motion.p
@@ -458,7 +458,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            This is the engine of autonomous commerce.
+            Trust is earned. Capital is enforced. Outcomes are final.
           </motion.p>
         </motion.div>
       </Slide>
