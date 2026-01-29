@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { AuthProvider } from "@/hooks/useAuth";
 import { AuthGuard } from "@/components/AuthGuard";
 import { TermsModal } from "@/components/TermsModal";
@@ -17,8 +17,6 @@ import UI from "./pages/UI";
 import TechnicalDocs from "./pages/TechnicalDocs";
 import GenesisMint from "./pages/GenesisMint";
 import FoundersMint from "./pages/FoundersMint";
-import Deck from "./pages/Deck";
-import Tether from "./pages/Tether";
 import Thesis from "./pages/Thesis";
 import Briefing from "./pages/Briefing";
 import LiabilityLayer from "./pages/LiabilityLayer";
@@ -115,8 +113,8 @@ const App = () => (
             <Route path="/research" element={<Research />} />
             <Route path="/trust-formula" element={<TrustFormula />} />
             
-            <Route path="/deck" element={<Deck />} />
-            <Route path="/tether" element={<Tether />} />
+            <Route path="/deck" element={<Navigate to="/liability-layer" replace />} />
+            <Route path="/tether" element={<Navigate to="/liability-layer" replace />} />
             <Route path="/thesis" element={<Thesis />} />
             <Route path="/briefing" element={<Briefing />} />
             <Route path="/liability-layer" element={<LiabilityLayer />} />
