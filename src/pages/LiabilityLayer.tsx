@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { motion, useScroll, AnimatePresence } from "framer-motion";
 import amaiLogo from "@/assets/amai-logo-hero-new.png";
+import terminalPreview1 from "@/assets/terminal-preview-1.png";
+import terminalPreview2 from "@/assets/terminal-preview-2.png";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { X } from "lucide-react";
 
@@ -752,10 +754,10 @@ const LiabilityLayer = () => {
               {/* Terminal 1 */}
               <div 
                 className="relative group cursor-pointer overflow-hidden rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300 bg-black"
-                onClick={() => setExpandedImage("/images/terminal-preview-1.png")}
+                onClick={() => setExpandedImage(terminalPreview1)}
               >
                 <img 
-                  src="/images/terminal-preview-1.png" 
+                  src={terminalPreview1} 
                   alt="Sovereign Terminal Preview" 
                   className="w-full h-auto object-contain group-hover:scale-[1.02] transition-transform duration-500"
                 />
@@ -765,10 +767,10 @@ const LiabilityLayer = () => {
               {/* Terminal 2 */}
               <div 
                 className="relative group cursor-pointer overflow-hidden rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300 bg-black"
-                onClick={() => setExpandedImage("/images/terminal-preview-2.png")}
+                onClick={() => setExpandedImage(terminalPreview2)}
               >
                 <img 
-                  src="/images/terminal-preview-2.png" 
+                  src={terminalPreview2} 
                   alt="Sovereign Terminal Preview" 
                   className="w-full h-auto object-contain group-hover:scale-[1.02] transition-transform duration-500"
                 />
