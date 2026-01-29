@@ -4,7 +4,8 @@ import amaiLogo from "@/assets/amai-logo-hero-new.png";
 import terminalPreview1 from "@/assets/terminal-preview-1.png";
 import terminalPreview2 from "@/assets/terminal-preview-2.png";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { X } from "lucide-react";
+import { X, Copy, Check } from "lucide-react";
+import { toast } from "@/hooks/use-toast";
 
 interface SlideProps {
   children: React.ReactNode;
@@ -54,6 +55,29 @@ const Slide = ({ children, className = "", align = "center", slideNumber, totalS
         AMAI Protocol v2.0 — The Liability Layer
       </div>
     </section>
+  );
+};
+
+// Self-contained copy button that manages its own state
+const CopyEmailButton = () => {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    navigator.clipboard.writeText('team@amai.net').then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
+  return (
+    <button
+      onClick={handleCopy}
+      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-medium text-white transition-all"
+    >
+      {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+      {copied ? 'Copied!' : 'Copy'}
+    </button>
   );
 };
 
@@ -1022,6 +1046,25 @@ const LiabilityLayer = () => {
               className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
             >
               Explore Platform <span>→</span>
+            </a>
+            <a
+              href="mailto:team@amai.net?subject=Mission%20Briefing%20%2F%2F%20%5BOrganization%20Name%5D&body=To%20the%20AMAI%20Labs%20Team%2C%0A%0AWe%20are%20reaching%20out%20regarding%20the%20%5BThesis%20%2F%20Architecture%5D.%0A%0AName%3A%20%0AOrganization%3A%20%0AIntent%3A%20"
+              onClick={() => {
+                setTimeout(() => {
+                  toast({
+                    title: "Email not opening?",
+                    description: (
+                      <div className="flex items-center gap-3 mt-1">
+                        <span className="text-white/80">Reach us at team@amai.net</span>
+                        <CopyEmailButton />
+                      </div>
+                    ),
+                  });
+                }, 500);
+              }}
+              className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
+            >
+              Contact
             </a>
           </motion.div>
         </motion.div>
