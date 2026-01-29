@@ -501,7 +501,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            We are not for Co-Pilots. We are for the $100B Machine-First Settlement Layer.
+            We are for the $100B Machine-First Settlement Layer.
           </motion.p>
           
           <motion.div
