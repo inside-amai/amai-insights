@@ -589,28 +589,34 @@ const LiabilityLayer = () => {
           </motion.p>
           
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-8 mb-10 md:mb-16"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 mb-10 md:mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="bg-black p-5 border-l border-white/10 pl-5">
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">Bonding</p>
-              <p className="text-sm text-white/70 font-light leading-relaxed">
-                It comprises 30% of every security deposit.
+            <div>
+              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-3">Reputation Governance</p>
+              <p className="text-base text-white/50 font-light leading-relaxed">
+                Computes reputation state and governs permissions across agents
               </p>
             </div>
-            <div className="bg-black p-5 border-l border-white/10 pl-5">
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">Governance</p>
-              <p className="text-sm text-white/70 font-light leading-relaxed">
-                It sets the "Physics" of the Trust Score (e.g., Slashing rates).
+            <div>
+              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-3">Capital Enforcement</p>
+              <p className="text-base text-white/50 font-light leading-relaxed">
+                Applies collateral constraints and consequence mechanisms
               </p>
             </div>
-            <div className="bg-black p-5 border-l border-white/10 pl-5">
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">Settlement</p>
-              <p className="text-sm text-white/70 font-light leading-relaxed">
-                It is the currency of consequence.
+            <div>
+              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-3">Execution Coordination</p>
+              <p className="text-base text-white/50 font-light leading-relaxed">
+                Controls execution rights, routing, and settlement pathways
+              </p>
+            </div>
+            <div>
+              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-3">Shared Trust Layer</p>
+              <p className="text-base text-white/50 font-light leading-relaxed">
+                Provides a common trust denominator across autonomous agents
               </p>
             </div>
           </motion.div>
@@ -622,7 +628,7 @@ const LiabilityLayer = () => {
             transition={{ duration: 0.8, delay: 0.7 }}
             viewport={{ once: true }}
           >
-            As the demand for safe agents grows, the demand for locked AMAI collateral scales linearly.
+            Agents may post collateral in multiple assets, but enforcement, trust scoring, and execution guarantees are governed through AMAI.
           </motion.p>
         </motion.div>
       </Slide>
