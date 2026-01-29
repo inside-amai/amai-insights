@@ -133,7 +133,7 @@ const LiabilityLayer = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.0 }}
           >
-            We don't make agents smarter. We make them accountable.
+            We make agents accountable.
           </motion.p>
         </motion.div>
       </Slide>
