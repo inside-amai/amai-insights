@@ -1,7 +1,8 @@
-import React from "react";
-import { motion, useScroll } from "framer-motion";
+import React, { useState } from "react";
+import { motion, useScroll, AnimatePresence } from "framer-motion";
 import amaiLogo from "@/assets/amai-logo-hero-new.png";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { X } from "lucide-react";
 
 interface SlideProps {
   children: React.ReactNode;
@@ -65,6 +66,7 @@ const SlideDivider = () => (
 const LiabilityLayer = () => {
   const { scrollYProgress } = useScroll();
   const isMobile = useIsMobile();
+  const [expandedImage, setExpandedImage] = useState<string | null>(null);
 
   return (
     <div className="bg-black min-h-svh md:min-h-screen overflow-x-hidden overscroll-y-contain touch-pan-y">
@@ -738,19 +740,53 @@ const LiabilityLayer = () => {
             The Sovereign Terminal.
           </motion.h2>
           
-          {/* Product Screenshot Placeholder */}
+          {/* Product Screenshots */}
           <motion.div
-            className="border border-white/10 rounded-lg p-8 md:p-12 mb-8 md:mb-12 text-center"
+            className="mb-8 md:mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            <p className="text-sm text-white/30 uppercase tracking-[0.2em]">
-              [Product Screenshot]
-            </p>
-            <p className="text-xs text-white/20 mt-2">
-              $75k Float • $114k Limit
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+              {/* Terminal 1: Enforcement Bonding */}
+              <div 
+                className="relative group cursor-pointer overflow-hidden rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300 bg-black/50"
+                onClick={() => setExpandedImage("/lovable-uploads/53e90b93-7fe0-4c2c-b053-df64d7a767d0.png")}
+              >
+                <img 
+                  src="/lovable-uploads/53e90b93-7fe0-4c2c-b053-df64d7a767d0.png" 
+                  alt="Enforcement Bonding Terminal" 
+                  className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+              
+              {/* Terminal 2: Network Swarm */}
+              <div 
+                className="relative group cursor-pointer overflow-hidden rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300 bg-black/50"
+                onClick={() => setExpandedImage("/lovable-uploads/4aff46bf-7135-435e-af82-c37542b446d7.png")}
+              >
+                <img 
+                  src="/lovable-uploads/4aff46bf-7135-435e-af82-c37542b446d7.png" 
+                  alt="Network Swarm Terminal" 
+                  className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+            </div>
+            
+            {/* Click to expand hint */}
+            <p className="text-[10px] text-white/30 uppercase tracking-[0.2em] text-center mt-4">
+              Click to expand
             </p>
           </motion.div>
           
@@ -998,6 +1034,52 @@ const LiabilityLayer = () => {
           </motion.div>
         </motion.div>
       </Slide>
+
+      {/* Image Expand Modal */}
+      <AnimatePresence>
+        {expandedImage && (
+          <motion.div
+            className="fixed inset-0 z-[200] flex items-center justify-center p-4 md:p-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            {/* Backdrop */}
+            <motion.div 
+              className="absolute inset-0 bg-black/95 backdrop-blur-sm"
+              onClick={() => setExpandedImage(null)}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            />
+            
+            {/* Image Container */}
+            <motion.div
+              className="relative z-10 max-w-[95vw] max-h-[90vh]"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <img 
+                src={expandedImage} 
+                alt="Expanded terminal view" 
+                className="max-w-full max-h-[85vh] object-contain rounded-lg border border-white/10"
+              />
+              
+              {/* Close Button */}
+              <button
+                onClick={() => setExpandedImage(null)}
+                className="absolute -top-12 right-0 md:top-4 md:right-4 flex items-center gap-2 px-3 py-1.5 bg-black/80 border border-white/20 rounded text-xs tracking-[0.1em] uppercase text-white/70 hover:text-white hover:border-white/40 transition-all duration-300"
+              >
+                <X className="w-4 h-4" />
+                Close
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
