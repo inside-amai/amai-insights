@@ -749,38 +749,30 @@ const LiabilityLayer = () => {
             viewport={{ once: true }}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-              {/* Terminal 1: Enforcement Bonding */}
+              {/* Terminal 1 */}
               <div 
-                className="relative group cursor-pointer overflow-hidden rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300 bg-black/50"
-                onClick={() => setExpandedImage("/lovable-uploads/53e90b93-7fe0-4c2c-b053-df64d7a767d0.png")}
+                className="relative group cursor-pointer overflow-hidden rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300 bg-black"
+                onClick={() => setExpandedImage("/images/terminal-preview-1.png")}
               >
                 <img 
-                  src="/lovable-uploads/53e90b93-7fe0-4c2c-b053-df64d7a767d0.png" 
-                  alt="Enforcement Bonding Terminal" 
-                  className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-500"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                  }}
+                  src="/images/terminal-preview-1.png" 
+                  alt="Sovereign Terminal Preview" 
+                  className="w-full h-auto object-contain group-hover:scale-[1.02] transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
               </div>
               
-              {/* Terminal 2: Network Swarm */}
+              {/* Terminal 2 */}
               <div 
-                className="relative group cursor-pointer overflow-hidden rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300 bg-black/50"
-                onClick={() => setExpandedImage("/lovable-uploads/4aff46bf-7135-435e-af82-c37542b446d7.png")}
+                className="relative group cursor-pointer overflow-hidden rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300 bg-black"
+                onClick={() => setExpandedImage("/images/terminal-preview-2.png")}
               >
                 <img 
-                  src="/lovable-uploads/4aff46bf-7135-435e-af82-c37542b446d7.png" 
-                  alt="Network Swarm Terminal" 
-                  className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-500"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                  }}
+                  src="/images/terminal-preview-2.png" 
+                  alt="Sovereign Terminal Preview" 
+                  className="w-full h-auto object-contain group-hover:scale-[1.02] transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
               </div>
             </div>
             
