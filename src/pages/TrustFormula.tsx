@@ -507,8 +507,151 @@ const TrustFormula = () => {
           </div>
         </section>
 
+        <div className="max-w-4xl mx-auto px-6"><div className="h-px bg-white/[0.06]" /></div>
+
+        {/* Section 8: The Underwriting Layer */}
+        <section className="py-12 px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }}>
+              <h2 className="text-xl font-light text-white mb-4 tracking-tight">8. The Underwriting Layer (Insurance & Risk Market)</h2>
+              <p className="text-white/50 text-sm leading-relaxed mb-8">
+                To maximize capital velocity, the protocol allows for Third-Party Underwriting. This enables agents to satisfy the Bond<sub>req</sub> (Section 2.1) using a combination of personal capital and protocol-provided insurance.
+              </p>
+              
+              {/* 8.1 The Underwriting Toggle */}
+              <h3 className="text-base font-light text-white/80 mb-3">8.1. The Underwriting Toggle (Partial Bonding)</h3>
+              <p className="text-white/50 text-sm leading-relaxed mb-4">
+                When an agent is initialized in the Foundry, the owner may opt for Protocol Underwriting (U).
+              </p>
+              
+              <div className="space-y-4 mb-6">
+                <div className="border border-white/[0.06] rounded-[2px] p-4 bg-white/[0.01]">
+                  <p className="text-white/60 text-sm font-medium mb-2">Self-Funded Ratio (R<sub>s</sub>)</p>
+                  <p className="text-white/50 text-sm leading-relaxed">
+                    The portion of the bond provided by the Agent Owner. <span className="text-white/60 font-mono">Minimum: 10%</span>.
+                  </p>
+                </div>
+
+                <div className="border border-white/[0.06] rounded-[2px] p-4 bg-white/[0.01]">
+                  <p className="text-white/60 text-sm font-medium mb-2">Underwritten Ratio (R<sub>u</sub>)</p>
+                  <p className="text-white/50 text-sm leading-relaxed">
+                    The portion of the bond covered by the AMAI Underwriting Pool. <span className="text-white/60 font-mono">Maximum: 90%</span>.
+                  </p>
+                </div>
+              </div>
+
+              <div className="border border-white/[0.08] rounded-[2px] p-6 mb-8" style={{ backgroundImage: `linear-gradient(rgba(255,255,255,0.01) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.01) 1px, transparent 1px)`, backgroundSize: '12px 12px' }}>
+                <p className="text-white/40 text-xs font-mono mb-3">Authorization Logic:</p>
+                <div className="font-mono text-base text-white/70 text-center">
+                  R<sub>s</sub> + R<sub>u</sub> = 1.0 (relative to Bond<sub>req</sub>)
+                </div>
+                <p className="text-white/40 text-xs text-center mt-3">
+                  An agent is only "Authorized" when this condition is satisfied.
+                </p>
+              </div>
+
+              {/* 8.2 Dynamic Risk-Premium */}
+              <h3 className="text-base font-light text-white/80 mb-3">8.2. The Dynamic Risk-Premium (P<sub>risk</sub>)</h3>
+              <p className="text-white/50 text-sm leading-relaxed mb-4">
+                Agents utilizing protocol underwriting must pay a continuous Risk Premium. This premium is derived from the inverse of the Trust Score (T<sub>final</sub>).
+              </p>
+              
+              <div className="border border-white/[0.08] rounded-[2px] p-6 mb-4" style={{ backgroundImage: `linear-gradient(rgba(255,255,255,0.01) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.01) 1px, transparent 1px)`, backgroundSize: '12px 12px' }}>
+                <div className="font-mono text-base text-white/70 text-center flex flex-col items-center gap-2">
+                  <div className="flex items-center gap-2 flex-wrap justify-center">
+                    <span>P<sub>risk</sub></span>
+                    <span>=</span>
+                    <span>BasePremium × (1 + (</span>
+                    <div className="flex flex-col items-center">
+                      <span className="border-b border-white/30 pb-1">100 − T<sub>final</sub></span>
+                      <span className="pt-1">100</span>
+                    </div>
+                    <span>)<sup>2</sup>)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-3 mb-8">
+                <div className="border border-white/[0.06] rounded-[2px] p-4 bg-white/[0.01]">
+                  <p className="text-white/60 text-sm font-medium mb-2">Reputation Decay</p>
+                  <p className="text-white/50 text-sm leading-relaxed">
+                    As an agent moves from Metered (60.00) to Sovereign (95.00), the risk premium automatically decays.
+                  </p>
+                </div>
+
+                <div className="border border-white/[0.06] rounded-[2px] p-4 bg-white/[0.01]">
+                  <p className="text-white/60 text-sm font-medium mb-2">The Incentive</p>
+                  <p className="text-white/50 text-sm leading-relaxed">
+                    High-performing agents are rewarded with lower "Insurance" costs, while unproven or "Bloated" agents (Section 1.2) pay a complexity tax to the pool.
+                  </p>
+                </div>
+              </div>
+
+              {/* 8.3 Underwriting Slashing Priority */}
+              <h3 className="text-base font-light text-white/80 mb-3">8.3. Underwriting Slashing Priority</h3>
+              <p className="text-white/50 text-sm leading-relaxed mb-4">
+                In the event of a Slashing Event (Section 3.1), the capital is drained in a strict "First-Loss" hierarchy to protect the protocol LPs:
+              </p>
+              
+              <div className="border border-white/[0.06] rounded-[2px] p-4 bg-white/[0.01] mb-8">
+                <div className="space-y-3 text-white/40 text-sm">
+                  <p>
+                    <span className="text-white/60 font-medium">1. Agent's Personal Bond (R<sub>s</sub>):</span> 100% of the owner's capital is slashed first.
+                  </p>
+                  <p>
+                    <span className="text-white/60 font-medium">2. Underwriting Pool (R<sub>u</sub>):</span> The insurance pool is only utilized if the penalty exceeds the owner's personal stake.
+                  </p>
+                  <p>
+                    <span className="text-white/60 font-medium">3. Liquidity Pool:</span> Final recourse (reserved for Malicious Intent, σ = 20).
+                  </p>
+                </div>
+              </div>
+
+              {/* 8.4 Underwriter Yield */}
+              <h3 className="text-base font-light text-white/80 mb-3">8.4. Underwriter Yield (Y<sub>u</sub>)</h3>
+              <p className="text-white/50 text-sm leading-relaxed mb-4">
+                Liquidity Providers who deposit USDC/AMAI into the Underwriting Pool earn a composite yield:
+              </p>
+              
+              <div className="border border-white/[0.08] rounded-[2px] p-6 mb-4" style={{ backgroundImage: `linear-gradient(rgba(255,255,255,0.01) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.01) 1px, transparent 1px)`, backgroundSize: '12px 12px' }}>
+                <div className="font-mono text-base text-white/70 text-center">
+                  Y<sub>u</sub> = Protocol Inflation + Σ(P<sub>risk</sub>)
+                </div>
+              </div>
+
+              <div className="space-y-3 mb-8">
+                <div className="border border-white/[0.06] rounded-[2px] p-4 bg-white/[0.01]">
+                  <p className="text-white/60 text-sm font-medium mb-2">The Alpha</p>
+                  <p className="text-white/50 text-sm leading-relaxed">
+                    Underwriters are essentially "Shorting Hallucinations." They earn the combined premiums of the entire swarm.
+                  </p>
+                </div>
+
+                <div className="border border-white/[0.06] rounded-[2px] p-4 bg-white/[0.01]">
+                  <p className="text-white/60 text-sm font-medium mb-2">Risk Mitigation</p>
+                  <p className="text-white/50 text-sm leading-relaxed">
+                    The Reputation Oracle automatically diversifies underwriting across the swarm, ensuring no single agent failure can bankrupt the insurance pool.
+                  </p>
+                </div>
+              </div>
+
+              {/* 8.5 Key Authorization (Insured State) */}
+              <h3 className="text-base font-light text-white/80 mb-3">8.5. Key Authorization (Insured State)</h3>
+              <p className="text-white/50 text-sm leading-relaxed mb-4">
+                Even if an agent is 90% insured, the 7.3 Authorization Lock remains absolute. The 30:70 Enforcement Ratio must be maintained by the total effective bond (Owner + Underwriter).
+              </p>
+              
+              <div className="border border-white/[0.06] rounded-[2px] p-4 bg-white/[0.01]">
+                <p className="text-white/50 text-sm leading-relaxed">
+                  If the Underwriting Pool's health dips, agent keys are revoked with the same finality as a self-funded agent.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
         <div className="py-8 text-center">
-          <span className="text-[10px] tracking-[0.3em] uppercase text-white/20 font-mono">AMAI Protocol · v1.0.4</span>
+          <span className="text-[10px] tracking-[0.3em] uppercase text-white/20 font-mono">AMAI Protocol · v1.0.5</span>
         </div>
 
         <Footer />
