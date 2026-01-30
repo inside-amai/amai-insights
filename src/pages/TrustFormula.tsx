@@ -1,14 +1,22 @@
-import { motion } from 'framer-motion';
+import { motion, LazyMotion, domAnimation } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Lock } from 'lucide-react';
 import { Footer } from '@/components/Footer';
 import { useEffect, useState } from 'react';
 import { Input } from '@/components/ui/input';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const TRUST_FORMULA_PASSWORD = 'amai-protocol-2847';
 
+// Simplified animation variants for better mobile performance
+const fadeInVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 }
+};
+
 const TrustFormula = () => {
+  const isMobile = useIsMobile();
   const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
@@ -93,42 +101,55 @@ const TrustFormula = () => {
     );
   }
 
+  // Conditional animation props - disable transforms on mobile for performance
+  const getAnimationProps = (useViewport = false) => {
+    if (isMobile) {
+      return useViewport 
+        ? { initial: { opacity: 0 }, whileInView: { opacity: 1 }, viewport: { once: true }, transition: { duration: 0.3 } }
+        : { initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { duration: 0.3 } };
+    }
+    return useViewport
+      ? { initial: { opacity: 0, y: 20 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, margin: "-100px" }, transition: { duration: 0.6 } }
+      : { initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.6 } };
+  };
+
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden">
+    <LazyMotion features={domAnimation}>
+      <div className="min-h-screen bg-black relative overflow-hidden">
 
-      <div className="relative z-10">
-        <div className="pt-20 px-6">
-          <div className="max-w-4xl mx-auto">
-            <Button variant="outline" size="sm" onClick={handleBackClick} className="bg-black/80 backdrop-blur-sm border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs">
-              <ArrowLeft className="me-2 h-3 w-3" />Back
-            </Button>
+        <div className="relative z-10">
+          <div className="pt-20 px-6">
+            <div className="max-w-4xl mx-auto">
+              <Button variant="outline" size="sm" onClick={handleBackClick} className="bg-black/80 backdrop-blur-sm border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs">
+                <ArrowLeft className="me-2 h-3 w-3" />Back
+              </Button>
+            </div>
           </div>
-        </div>
 
-        <section className="pt-8 pb-12 px-6">
-          <div className="max-w-4xl mx-auto">
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-              <span className="text-[9px] tracking-[0.4em] uppercase text-white/30 font-mono">AMAI Protocol</span>
-              <h1 className="text-3xl md:text-4xl font-light text-white mt-4 mb-4 tracking-tight">Economic Architecture Specification</h1>
-              
-              <div className="space-y-1 text-white/40 text-xs font-mono mb-6">
-                <p>Version: 1.0.4 (Release Candidate)</p>
-                <p>Target System: x402 Enforcement Layer</p>
-                <p>Classification: Core Protocol Logic</p>
-              </div>
+          <section className="pt-8 pb-12 px-6">
+            <div className="max-w-4xl mx-auto">
+              <motion.div {...getAnimationProps(false)}>
+                <span className="text-[9px] tracking-[0.4em] uppercase text-white/30 font-mono">AMAI Protocol</span>
+                <h1 className="text-3xl md:text-4xl font-light text-white mt-4 mb-4 tracking-tight">Economic Architecture Specification</h1>
+                
+                <div className="space-y-1 text-white/40 text-xs font-mono mb-6">
+                  <p>Version: 1.0.4 (Release Candidate)</p>
+                  <p>Target System: x402 Enforcement Layer</p>
+                  <p>Classification: Core Protocol Logic</p>
+                </div>
 
-              <p className="text-white/50 text-sm leading-relaxed max-w-2xl">
-                This is the final, consolidated System Architecture Specification (v1.0.4). It merges the core logic with the necessary volatility and temporal safeguards.
-              </p>
-              <div className="w-16 h-px bg-white/10 mt-10" />
-            </motion.div>
-          </div>
-        </section>
+                <p className="text-white/50 text-sm leading-relaxed max-w-2xl">
+                  This is the final, consolidated System Architecture Specification (v1.0.4). It merges the core logic with the necessary volatility and temporal safeguards.
+                </p>
+                <div className="w-16 h-px bg-white/10 mt-10" />
+              </motion.div>
+            </div>
+          </section>
 
-        {/* Section 1: The Trust Engine */}
-        <section className="py-12 px-6">
-          <div className="max-w-4xl mx-auto">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }}>
+          {/* Section 1: The Trust Engine */}
+          <section className="py-12 px-6">
+            <div className="max-w-4xl mx-auto">
+              <motion.div {...getAnimationProps(true)}>
               <h2 className="text-xl font-light text-white mb-4 tracking-tight">1. The Trust Engine (T<sub>score</sub>)</h2>
               <p className="text-white/50 text-sm leading-relaxed mb-8">
                 The Trust Score is not a static value; it is a time-weighted accumulation of behavior, capital commitment, and operational complexity. It is capped at 99.9% (non-perfect finality).
@@ -223,7 +244,7 @@ const TrustFormula = () => {
         {/* Section 2: The Bonded Treasury */}
         <section className="py-12 px-6">
           <div className="max-w-4xl mx-auto">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }}>
+            <motion.div {...getAnimationProps(true)}>
               <h2 className="text-xl font-light text-white mb-4 tracking-tight">2. The Bonded Treasury (Capital & Health)</h2>
               <p className="text-white/50 text-sm leading-relaxed mb-8">
                 Agents must maintain solvent collateral in real-time. Since collateral may be volatile (USDC/AMAI), the system enforces a Health Factor to trigger pauses before liquidation.
@@ -305,7 +326,7 @@ const TrustFormula = () => {
         {/* Section 3: The Enforcement Engine */}
         <section className="py-12 px-6">
           <div className="max-w-4xl mx-auto">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }}>
+            <motion.div {...getAnimationProps(true)}>
               <h2 className="text-xl font-light text-white mb-4 tracking-tight">3. The Enforcement Engine (Slashing)</h2>
               <p className="text-white/50 text-sm leading-relaxed mb-8">
                 Penalties are deterministic and severity-weighted.
@@ -357,7 +378,7 @@ const TrustFormula = () => {
         {/* Section 4: Operational Governance */}
         <section className="py-12 px-6">
           <div className="max-w-4xl mx-auto">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }}>
+            <motion.div {...getAnimationProps(true)}>
               <h2 className="text-xl font-light text-white mb-4 tracking-tight">4. Operational Governance (Limits)</h2>
               <p className="text-white/50 text-sm leading-relaxed mb-6">
                 To mitigate risk, Treasury Spending Limits are strictly derived from the Trust Score.
@@ -389,7 +410,7 @@ const TrustFormula = () => {
         {/* Section 5: Incentive Layer */}
         <section className="py-12 px-6">
           <div className="max-w-4xl mx-auto">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }}>
+            <motion.div {...getAnimationProps(true)}>
               <h2 className="text-xl font-light text-white mb-4 tracking-tight">5. Incentive Layer (Yield)</h2>
               <p className="text-white/50 text-sm leading-relaxed mb-6">
                 Agents earn "Proof of Useful Work" rewards for honest operation, incentivizing liquidity and uptime.
@@ -441,7 +462,7 @@ const TrustFormula = () => {
         {/* Section 6: Dev Implementation Checklist */}
         <section className="py-12 px-6">
           <div className="max-w-4xl mx-auto">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }}>
+            <motion.div {...getAnimationProps(true)}>
               <h2 className="text-xl font-light text-white mb-4 tracking-tight">6. Dev Implementation Checklist</h2>
               <p className="text-white/40 text-xs font-mono mb-6">(Requirements for Engineering Team)</p>
               
@@ -491,7 +512,7 @@ const TrustFormula = () => {
         {/* Section 7: The 30:70 Enforcement Ratio */}
         <section className="py-12 px-6">
           <div className="max-w-4xl mx-auto">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }}>
+            <motion.div {...getAnimationProps(true)}>
               <h2 className="text-xl font-light text-white mb-4 tracking-tight">7. The 30:70 Enforcement Ratio (The Sovereign Safety-Sync)</h2>
               <p className="text-white/50 text-sm leading-relaxed mb-8">
                 To ensure the integrity of the x402 Enforcement Layer, the protocol mandates a fixed capital ratio between the Enforcement Asset and the Liquidity Asset. This "Safety-Sync" ensures that every agent's private keys are underwritten by a surplus of sovereign value.
@@ -588,7 +609,7 @@ const TrustFormula = () => {
         {/* Section 8: The Underwriting Layer */}
         <section className="py-12 px-6">
           <div className="max-w-4xl mx-auto">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }}>
+            <motion.div {...getAnimationProps(true)}>
               <h2 className="text-xl font-light text-white mb-4 tracking-tight">8. The Underwriting Layer (Insurance & Risk Market)</h2>
               <p className="text-white/50 text-sm leading-relaxed mb-8">
                 To maximize capital velocity, the protocol allows for Third-Party Underwriting. This enables agents to satisfy the Bond<sub>req</sub> (Section 2.1) using a combination of personal capital and protocol-provided insurance.
@@ -733,6 +754,7 @@ const TrustFormula = () => {
         <Footer />
       </div>
     </div>
+    </LazyMotion>
   );
 };
 
