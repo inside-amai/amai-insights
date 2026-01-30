@@ -1,21 +1,97 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Lock } from 'lucide-react';
 import { Footer } from '@/components/Footer';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { Input } from '@/components/ui/input';
+
+const TRUST_FORMULA_PASSWORD = 'amai-protocol-2847';
 
 const TrustFormula = () => {
   const navigate = useNavigate();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   useEffect(() => {
     document.title = 'Economic Architecture Specification | AMAI Labs';
     window.scrollTo(0, 0);
+    
+    // Check if already authenticated in session
+    const auth = sessionStorage.getItem('trust-formula-auth');
+    if (auth === 'true') {
+      setIsAuthenticated(true);
+    }
   }, []);
+
+  const handlePasswordSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (password === TRUST_FORMULA_PASSWORD) {
+      setIsAuthenticated(true);
+      sessionStorage.setItem('trust-formula-auth', 'true');
+      setError('');
+    } else {
+      setError('Invalid password');
+    }
+  };
 
   const handleBackClick = () => {
     navigate('/');
   };
+
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center px-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.6 }}
+          className="w-full max-w-sm"
+        >
+          <div className="border border-white/[0.08] rounded-[2px] p-8" style={{ backgroundImage: `linear-gradient(rgba(255,255,255,0.01) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.01) 1px, transparent 1px)`, backgroundSize: '12px 12px' }}>
+            <div className="flex items-center justify-center mb-6">
+              <div className="w-12 h-12 border border-white/10 rounded-full flex items-center justify-center">
+                <Lock className="w-5 h-5 text-white/40" />
+              </div>
+            </div>
+            <h1 className="text-lg font-light text-white text-center mb-2 tracking-tight">Protected Document</h1>
+            <p className="text-white/40 text-xs text-center mb-6 font-mono">Economic Architecture Specification</p>
+            
+            <form onSubmit={handlePasswordSubmit} className="space-y-4">
+              <Input
+                type="password"
+                placeholder="Enter password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="bg-black border-white/10 text-white placeholder:text-white/30 font-mono text-sm"
+              />
+              {error && (
+                <p className="text-red-400/80 text-xs text-center font-mono">{error}</p>
+              )}
+              <Button 
+                type="submit" 
+                className="w-full bg-white/5 border border-white/10 text-white/70 hover:bg-white/10 hover:text-white font-mono text-xs tracking-wider"
+              >
+                ACCESS DOCUMENT
+              </Button>
+            </form>
+            
+            <div className="mt-6 pt-4 border-t border-white/[0.05]">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                onClick={handleBackClick} 
+                className="w-full text-white/30 hover:text-white/50 font-mono text-xs"
+              >
+                <ArrowLeft className="me-2 h-3 w-3" />Return to Home
+              </Button>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-black relative overflow-hidden">
