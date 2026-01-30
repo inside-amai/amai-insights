@@ -459,67 +459,17 @@ const TrustFormula = () => {
 
         <div className="max-w-4xl mx-auto px-6"><div className="h-px bg-white/[0.06]" /></div>
 
-        {/* Section 6: Dev Implementation Checklist */}
+        {/* Section 6: The 30:70 Enforcement Ratio */}
         <section className="py-12 px-6">
           <div className="max-w-4xl mx-auto">
             <motion.div {...getAnimationProps(true)}>
-              <h2 className="text-xl font-light text-white mb-4 tracking-tight">6. Dev Implementation Checklist</h2>
-              <p className="text-white/40 text-xs font-mono mb-6">(Requirements for Engineering Team)</p>
-              
-              <div className="space-y-6">
-                <div>
-                  <p className="text-white/60 text-sm font-medium mb-2">
-                    Oracle Feeds (P<sub>i</sub>):
-                  </p>
-                  <p className="text-white/50 text-sm leading-relaxed">
-                    Must integrate a low-latency Oracle (e.g., Pyth, Switchboard, or Stork) to provide the 30-minute TWAP for USDC/USDT/AMAI prices used in the Collateral Health Factor (H<sub>f</sub>).
-                  </p>
-                </div>
-
-                <div>
-                  <p className="text-white/60 text-sm font-medium mb-2">
-                    Attestation Signers:
-                  </p>
-                  <p className="text-white/50 text-sm leading-relaxed">
-                    Define the allowed <span className="font-mono text-white/60">public_keys</span> for the Reputation Oracle that can sign "SLASH" or "SCORE_UPDATE" payloads.
-                  </p>
-                </div>
-
-                <div>
-                  <p className="text-white/60 text-sm font-medium mb-2">
-                    Time-Locks:
-                  </p>
-                  <p className="text-white/50 text-sm leading-relaxed">
-                    Ensure the Hysteresis (λ) and <span className="font-mono text-white/60">BaseRate</span> variables are behind a 48-hour Timelock or Multi-Sig to prevent "Admin Key" attacks.
-                  </p>
-                </div>
-
-                <div>
-                  <p className="text-white/60 text-sm font-medium mb-2">
-                    Precision Handling:
-                  </p>
-                  <p className="text-white/50 text-sm leading-relaxed">
-                    All percentages (Trust Scores, Yields) should be stored with 18 decimals of precision (WAD) to prevent rounding errors in the Compound Trust Formula.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        <div className="max-w-4xl mx-auto px-6"><div className="h-px bg-white/[0.06]" /></div>
-
-        {/* Section 7: The 30:70 Enforcement Ratio */}
-        <section className="py-12 px-6">
-          <div className="max-w-4xl mx-auto">
-            <motion.div {...getAnimationProps(true)}>
-              <h2 className="text-xl font-light text-white mb-4 tracking-tight">7. The 30:70 Enforcement Ratio (The Sovereign Safety-Sync)</h2>
+              <h2 className="text-xl font-light text-white mb-4 tracking-tight">6. The 30:70 Enforcement Ratio (The Sovereign Safety-Sync)</h2>
               <p className="text-white/50 text-sm leading-relaxed mb-8">
                 To ensure the integrity of the x402 Enforcement Layer, the protocol mandates a fixed capital ratio between the Enforcement Asset and the Liquidity Asset. This "Safety-Sync" ensures that every agent's private keys are underwritten by a surplus of sovereign value.
               </p>
               
-              {/* 7.1 Asset Allocation & Weights */}
-              <h3 className="text-base font-light text-white/80 mb-3">7.1. Asset Allocation & Weights</h3>
+              {/* 6.1 Asset Allocation & Weights */}
+              <h3 className="text-base font-light text-white/80 mb-3">6.1. Asset Allocation & Weights</h3>
               <p className="text-white/50 text-sm leading-relaxed mb-4">
                 For every $1,000 of nominal capital deposited into an agent's bond, the system enforces a deterministic 30:70 split:
               </p>
@@ -546,8 +496,8 @@ const TrustFormula = () => {
                 </div>
               </div>
 
-              {/* 7.2 Effective Collateral & The Enforcement Premium */}
-              <h3 className="text-base font-light text-white/80 mb-3">7.2. Effective Collateral & The Enforcement Premium</h3>
+              {/* 6.2 Effective Collateral & The Enforcement Premium */}
+              <h3 className="text-base font-light text-white/80 mb-3">6.2. Effective Collateral & The Enforcement Premium</h3>
               <p className="text-white/50 text-sm leading-relaxed mb-4">
                 The 30:70 ratio creates an inherent "Enforcement Premium" through over-collateralization. This ensures the Health Factor (H<sub>f</sub>) remains resilient against market volatility and operational penalties.
               </p>
@@ -563,8 +513,8 @@ const TrustFormula = () => {
                 By providing $1,000 in nominal value to achieve $910 in effective health, the agent establishes a <span className="text-white/70 font-medium">9% Safety Buffer</span>. This buffer allows the agent to absorb minor Slashing events (σ = 1) or price fluctuations without the H<sub>f</sub> dropping below the 1.0 PAUSE threshold.
               </p>
 
-              {/* 7.3 Logic Gates for Key Authorization */}
-              <h3 className="text-base font-light text-white/80 mb-3">7.3. Logic Gates for Key Authorization</h3>
+              {/* 6.3 Logic Gates for Key Authorization */}
+              <h3 className="text-base font-light text-white/80 mb-3">6.3. Logic Gates for Key Authorization</h3>
               <p className="text-white/50 text-sm leading-relaxed mb-4">
                 The Enforcement Ratio is the primary governor for Execution Permissions.
               </p>
@@ -580,8 +530,8 @@ const TrustFormula = () => {
                 </div>
               </div>
 
-              {/* 7.4 Slashing Prioritization */}
-              <h3 className="text-base font-light text-white/80 mb-3">7.4. Slashing Prioritization</h3>
+              {/* 6.4 Slashing Prioritization */}
+              <h3 className="text-base font-light text-white/80 mb-3">6.4. Slashing Prioritization</h3>
               <p className="text-white/50 text-sm leading-relaxed mb-4">
                 In the event of an enforcement action (Section 3), penalties are settled in the following order:
               </p>
@@ -606,17 +556,17 @@ const TrustFormula = () => {
 
         <div className="max-w-4xl mx-auto px-6"><div className="h-px bg-white/[0.06]" /></div>
 
-        {/* Section 8: The Underwriting Layer */}
+        {/* Section 7: The Underwriting Layer */}
         <section className="py-12 px-6">
           <div className="max-w-4xl mx-auto">
             <motion.div {...getAnimationProps(true)}>
-              <h2 className="text-xl font-light text-white mb-4 tracking-tight">8. The Underwriting Layer (Insurance & Risk Market)</h2>
+              <h2 className="text-xl font-light text-white mb-4 tracking-tight">7. The Underwriting Layer (Insurance & Risk Market)</h2>
               <p className="text-white/50 text-sm leading-relaxed mb-8">
                 To maximize capital velocity, the protocol allows for Third-Party Underwriting. This enables agents to satisfy the Bond<sub>req</sub> (Section 2.1) using a combination of personal capital and protocol-provided insurance.
               </p>
               
-              {/* 8.1 The Underwriting Toggle */}
-              <h3 className="text-base font-light text-white/80 mb-3">8.1. The Underwriting Toggle (Partial Bonding)</h3>
+              {/* 7.1 The Underwriting Toggle */}
+              <h3 className="text-base font-light text-white/80 mb-3">7.1. The Underwriting Toggle (Partial Bonding)</h3>
               <p className="text-white/50 text-sm leading-relaxed mb-4">
                 When an agent is initialized in the Foundry, the owner may opt for Protocol Underwriting (U).
               </p>
@@ -647,8 +597,8 @@ const TrustFormula = () => {
                 </p>
               </div>
 
-              {/* 8.2 Dynamic Risk-Premium */}
-              <h3 className="text-base font-light text-white/80 mb-3">8.2. The Dynamic Risk-Premium (P<sub>risk</sub>)</h3>
+              {/* 7.2 Dynamic Risk-Premium */}
+              <h3 className="text-base font-light text-white/80 mb-3">7.2. The Dynamic Risk-Premium (P<sub>risk</sub>)</h3>
               <p className="text-white/50 text-sm leading-relaxed mb-4">
                 Agents utilizing protocol underwriting must pay a continuous Risk Premium. This premium is derived from the inverse of the Trust Score (T<sub>final</sub>).
               </p>
@@ -684,8 +634,8 @@ const TrustFormula = () => {
                 </div>
               </div>
 
-              {/* 8.3 Underwriting Slashing Priority */}
-              <h3 className="text-base font-light text-white/80 mb-3">8.3. Underwriting Slashing Priority</h3>
+              {/* 7.3 Underwriting Slashing Priority */}
+              <h3 className="text-base font-light text-white/80 mb-3">7.3. Underwriting Slashing Priority</h3>
               <p className="text-white/50 text-sm leading-relaxed mb-4">
                 In the event of a Slashing Event (Section 3.1), the capital is drained in a strict "First-Loss" hierarchy to protect the protocol LPs:
               </p>
@@ -704,8 +654,8 @@ const TrustFormula = () => {
                 </div>
               </div>
 
-              {/* 8.4 Underwriter Yield */}
-              <h3 className="text-base font-light text-white/80 mb-3">8.4. Underwriter Yield (Y<sub>u</sub>)</h3>
+              {/* 7.4 Underwriter Yield */}
+              <h3 className="text-base font-light text-white/80 mb-3">7.4. Underwriter Yield (Y<sub>u</sub>)</h3>
               <p className="text-white/50 text-sm leading-relaxed mb-4">
                 Liquidity Providers who deposit USDC/AMAI into the Underwriting Pool earn a composite yield:
               </p>
@@ -732,10 +682,10 @@ const TrustFormula = () => {
                 </div>
               </div>
 
-              {/* 8.5 Key Authorization (Insured State) */}
-              <h3 className="text-base font-light text-white/80 mb-3">8.5. Key Authorization (Insured State)</h3>
+              {/* 7.5 Key Authorization (Insured State) */}
+              <h3 className="text-base font-light text-white/80 mb-3">7.5. Key Authorization (Insured State)</h3>
               <p className="text-white/50 text-sm leading-relaxed mb-4">
-                Even if an agent is 90% insured, the 7.3 Authorization Lock remains absolute. The 30:70 Enforcement Ratio must be maintained by the total effective bond (Owner + Underwriter).
+                Even if an agent is 90% insured, the 6.3 Authorization Lock remains absolute. The 30:70 Enforcement Ratio must be maintained by the total effective bond (Owner + Underwriter).
               </p>
               
               <div className="border border-white/[0.06] rounded-[2px] p-4 bg-white/[0.01]">
