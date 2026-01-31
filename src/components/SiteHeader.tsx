@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { toast } from '@/hooks/use-toast';
 import { Copy, Check } from 'lucide-react';
 import { useState } from 'react';
+import headerIcon from '@/assets/amai-header-icon.png';
 
 const languages: { code: Language; label: string }[] = [
   { code: 'en', label: 'EN' },
@@ -66,7 +67,7 @@ export const SiteHeader = () => {
                 className="pointer-events-auto w-[48px] md:w-[64px] h-7 md:h-10 flex-shrink-0"
               >
                 <img 
-                  src="/amai-header-logo.png"
+                  src={headerIcon}
                   alt="AMAI" 
                   className="h-7 md:h-10 w-auto opacity-90 hover:opacity-100 transition-opacity"
                   loading="eager"
