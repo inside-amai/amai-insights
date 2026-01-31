@@ -99,7 +99,7 @@ const App = () => (
                   <Auth />
                 </AuthGuard>
               } />
-              <Route path="/technical-docs" element={<TechnicalDocs />} />
+              <Route path="/system-architecture" element={<TechnicalDocs />} />
               <Route path="/genesis-mint" element={<GenesisMint />} />
               <Route path="/founders-mint" element={<FoundersMint />} />
             
