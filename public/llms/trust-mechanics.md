@@ -35,6 +35,14 @@ T_raw = Σ T_i
 T_final = clamp(T_raw, 50%, 99.9%)
 ```
 
+Formal representation:
+- Tbase = baseline(c, v, p)
+- Tstake = logistic(bond)
+- Tquality = moduleQuality(q)
+- Toracle = weightedKPI
+- Traw = Σ Ti
+- Tfinal = clamp(Traw, 50%, 99.9%)
+
 These functions create a transparent, deterministic measure of reliability.
 
 ## System Effects
