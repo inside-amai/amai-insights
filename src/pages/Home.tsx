@@ -49,10 +49,10 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <p className="text-base md:text-lg text-white/60 font-light leading-relaxed">
-              Autonomous agents have moved beyond research into real economic operation.
+              Autonomous systems are moving from Chatbots to Fiduciaries.
             </p>
             <p className="text-base md:text-lg text-white/60 font-light leading-relaxed">
-              AMAI is the foundational layer built to anchor identity, enforce capital accountability, and settle value at machine speed.
+              AMAI provides the x402 enforcement rails that anchor agent identity to bonded capital, ensuring that when a machine makes a promise, the math forces it to keep it.
             </p>
           </motion.div>
 
