@@ -25,7 +25,7 @@ const Home = () => {
           <motion.img
             src={amaiLogo}
             alt="AMAI Labs"
-            className="h-12 md:h-20 w-auto mx-auto mb-12 md:mb-16 brightness-110"
+            className="h-12 md:h-20 w-auto mx-auto mb-8 md:mb-10 brightness-110"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -33,7 +33,7 @@ const Home = () => {
 
           {/* THESIS Label */}
           <motion.p
-            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6"
+            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-4"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -43,7 +43,7 @@ const Home = () => {
 
           {/* Body Text */}
           <motion.div
-            className="space-y-6 mb-12 md:mb-16"
+            className="space-y-4 mb-8 md:mb-10"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
