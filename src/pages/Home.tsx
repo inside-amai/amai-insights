@@ -2,11 +2,15 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import amaiLogo from "@/assets/amai-logo-hero-new.png";
 import homeBg from "@/assets/home-grid-bg.jpg";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 
 const Home = () => {
+  const { t, language } = useLanguage();
+  const isRtl = language === 'ar';
+
   return (
-    <div className="min-h-svh md:min-h-screen flex flex-col bg-black">
+    <div className="min-h-svh md:min-h-screen flex flex-col bg-black" dir={isRtl ? 'rtl' : 'ltr'}>
       {/* Black header spacer to prevent background bleed */}
       <div className="h-16 bg-black flex-shrink-0" />
       
@@ -38,7 +42,7 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            THESIS
+            {t('home.thesis')}
           </motion.p>
 
           {/* Body Text */}
@@ -49,10 +53,10 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <p className="text-sm md:text-base text-white/50 font-light leading-relaxed tracking-wide">
-              Autonomous systems are moving from Chatbots to Fiduciaries.
+              {t('home.headline')}
             </p>
             <p className="text-xs md:text-sm text-white/35 font-light leading-relaxed tracking-wide">
-              AMAI provides the x402 enforcement rails that anchor agent identity to bonded capital, ensuring that when a machine makes a promise, the math forces it to keep it.
+              {t('home.body')}
             </p>
           </motion.div>
 
@@ -67,13 +71,13 @@ const Home = () => {
               to="/"
               className="text-sm text-white/70 hover:text-white bg-black/50 border border-white/20 hover:border-white/40 px-6 py-3 rounded transition-all duration-300 uppercase tracking-[0.15em] text-center backdrop-blur-sm"
             >
-              View Architecture
+              {t('home.cta.architecture')}
             </Link>
             <Link
               to="/liability-layer"
               className="text-sm text-white/70 hover:text-white bg-black/50 border border-white/20 hover:border-white/40 px-6 py-3 rounded transition-all duration-300 uppercase tracking-[0.15em] text-center backdrop-blur-sm"
             >
-              Explore The Thesis
+              {t('home.cta.thesis')}
             </Link>
           </motion.div>
         </div>
@@ -83,10 +87,10 @@ const Home = () => {
       <footer className="py-6 bg-black border-t border-white/10">
         <div className="text-center space-y-1">
           <p className="text-muted-foreground text-sm font-light tracking-wide">
-            AMAI Labs · Infrastructure & Research
+            {t('footer.company')}
           </p>
           <p className="text-muted-foreground/60 text-xs font-light tracking-wide">
-            © 2026 AMAI Labs. All rights reserved.
+            {t('footer.copyright')}
           </p>
         </div>
       </footer>
