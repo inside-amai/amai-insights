@@ -641,6 +641,9 @@ const Deck = () => {
             </motion.p>
           </motion.div>
           <motion.div className={`flex flex-col sm:flex-row items-center justify-center gap-4 ${isRTL ? 'sm:flex-row-reverse' : ''}`} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }} viewport={{ once: true }}>
+            <a href="https://youtu.be/qLEnRNELErg" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-white/10 border border-white/30 rounded text-xs tracking-[0.15em] uppercase text-white hover:bg-white/20 hover:border-white/50 transition-all duration-300">
+              Watch Demo Video
+            </a>
             <a href="/" className="inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-black border border-white/20 rounded text-xs tracking-[0.15em] uppercase text-white/70 hover:text-white hover:border-white/40 transition-all duration-300">
               {t('deck.slide9.cta2')}<span>{isRTL ? '←' : '→'}</span>
             </a>
