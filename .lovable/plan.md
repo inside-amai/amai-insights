@@ -1,74 +1,84 @@
 
-# Admin Page for Pilot Access Requests
+# Mobile Performance Fix for /thesis Page
 
-## Overview
-Create a simple, secure admin page at `/admin/pilot-requests` that displays all pilot access request submissions from the `pilot_requests` table. The page will match the existing dark aesthetic of the site and include functionality to update request statuses.
+## Problem Summary
+Users are reporting the `/thesis` page (which renders `LiabilityLayer.tsx`) doesn't load properly on mobile devices, with broken scrolling and Safari showing error messages. This is caused by intensive Framer Motion animations that overwhelm mobile browsers.
 
-## What You'll Get
-- A clean admin view showing all pilot access requests in a table
-- Ability to see: Name, Organization, Use Case, Why AMAI, LinkedIn/Website, Status, and Date
-- Quick status update buttons (Pending → Approved/Rejected)
-- Sorted by newest first
-- Matching dark theme consistent with the rest of the site
+## Root Cause Analysis
+The page has 12 slides, each with 5-8 animated elements using `whileInView` with `y` transforms. This creates:
+- 60+ animated elements recalculating positions during scroll
+- Continuous `scrollYProgress` calculations via `useScroll`
+- Full Framer Motion bundle (instead of lighter alternatives)
+
+The session replay confirmed rapid `transform: translateY(...)` updates causing rendering bottlenecks.
+
+## Solution: Mobile-Optimized Animation Pattern
+
+Apply the same proven pattern already working on `/trust-formula`:
+
+### Key Changes
+
+**1. Use LazyMotion with domAnimation**
+Reduces the animation bundle size and uses more performant APIs:
+```text
+Before: import { motion, useScroll, AnimatePresence } from "framer-motion"
+After:  import { motion, LazyMotion, domAnimation, AnimatePresence } from "framer-motion"
+```
+
+**2. Create getAnimationProps() Helper**
+Conditionally disable y-axis transforms on mobile, using opacity-only fades:
+```text
+Mobile:  { opacity: 0 } → { opacity: 1 }
+Desktop: { opacity: 0, y: 20 } → { opacity: 1, y: 0 }
+```
+
+**3. Reduce Animation Duration on Mobile**
+Mobile devices benefit from shorter, snappier transitions:
+```text
+Mobile:  0.3s duration
+Desktop: 0.6-0.8s duration
+```
+
+**4. Remove scrollYProgress on Mobile**
+The scroll progress bar is already hidden on mobile, but the `useScroll` hook still runs. We'll conditionally skip the hook entirely.
 
 ---
 
-## Technical Details
+## Technical Implementation
 
-### 1. Create Admin Page Component
-**File:** `src/pages/admin/PilotRequests.tsx`
+### File: `src/pages/LiabilityLayer.tsx`
 
-The page will:
-- Fetch all records from `pilot_requests` table ordered by `created_at` descending
-- Display in a responsive table using existing UI components
-- Show status badges with color coding (pending=yellow, approved=green, rejected=red)
-- Include dropdown or buttons to update status
-- Use the existing site styling (dark background, white/gray text)
-
-### 2. Add Route to App.tsx
-Add the new route:
-```
-/admin/pilot-requests → <AdminPilotRequests />
-```
-
-### 3. RLS Policy Consideration
-Currently, the `pilot_requests` table likely allows public inserts but may restrict reads. You may need to:
-- Add an RLS policy for admin reads, OR
-- Temporarily access via Supabase Dashboard until roles are set up
-
-For now, I'll implement the page assuming read access is available. If you see no data, we'll need to check RLS policies.
-
-### 4. UI Layout
+**Change 1 - Update imports (line 2)**
 ```text
-┌──────────────────────────────────────────────────────────────────┐
-│  AMAI Labs · Pilot Requests Admin                                │
-├──────────────────────────────────────────────────────────────────┤
-│                                                                  │
-│  ┌────────────────────────────────────────────────────────────┐  │
-│  │ Name     │ Org    │ Use Case │ Status  │ Date    │ Actions │  │
-│  ├──────────┼────────┼──────────┼─────────┼─────────┼─────────┤  │
-│  │ John Doe │ Acme   │ Agent... │ PENDING │ Jan 30  │ ✓  ✗    │  │
-│  │ Jane Sm  │ Corp   │ AI pl... │ APPROVED│ Jan 29  │   ✗     │  │
-│  └────────────────────────────────────────────────────────────┘  │
-│                                                                  │
-│  Click row to expand and see full details                        │
-└──────────────────────────────────────────────────────────────────┘
+Before: import { motion, useScroll, AnimatePresence } from "framer-motion";
+After:  import { motion, useScroll, AnimatePresence, LazyMotion, domAnimation } from "framer-motion";
 ```
 
-### 5. Components Used
-- `Table`, `TableHeader`, `TableBody`, `TableRow`, `TableCell` (existing)
-- `Badge` for status display
-- `Button` for actions
-- `Card` for container styling
-- Loading spinner while fetching
+**Change 2 - Add animation helper function (after line 106)**
+Add a `getAnimationProps` function that returns different animation configurations based on device:
+- For mobile: opacity-only animations with shorter durations
+- For desktop: full y-transform animations with viewport margins
 
-### Files to Create/Modify
-1. **Create:** `src/pages/admin/PilotRequests.tsx` - Main admin page
-2. **Modify:** `src/App.tsx` - Add route
+**Change 3 - Wrap content in LazyMotion (line 109)**
+Wrap the entire page content in `<LazyMotion features={domAnimation}>` to use the optimized animation subset.
 
-### Security Note
-This is a simple admin view without authentication protection. For production, you should add:
-- Admin role checking via `user_roles` table
-- AuthGuard wrapper with admin verification
+**Change 4 - Replace hardcoded animations throughout the file**
+All `motion.div` and `motion.p` elements with `whileInView` animations will use the helper function instead of inline animation props. This affects approximately 40+ elements across all 12 slides.
 
-For now, the page will be accessible by URL for quick access to view submissions.
+**Change 5 - Conditional useScroll hook**
+Only create the scroll progress motion value on desktop devices.
+
+---
+
+## Expected Outcome
+- Smooth loading and scrolling on all mobile devices
+- No Safari error messages
+- Faster initial page render
+- Maintained desktop experience with full animations
+- Reduced JavaScript bundle executed on mobile
+
+## Risk Assessment
+**Low risk** - This exact pattern is already proven in `TrustFormula.tsx` and aligns with the documented mobile optimization approach in the project memory.
+
+## Files Modified
+- `src/pages/LiabilityLayer.tsx` - Single file with comprehensive animation refactor
