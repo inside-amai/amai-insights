@@ -40,6 +40,7 @@ import AgentLifecycle from "./pages/whitepaper/AgentLifecycle";
 import OperationalScenarios from "./pages/OperationalScenarios";
 import Research from "./pages/Research";
 import TrustFormula from "./pages/TrustFormula";
+import Home from "./pages/Home";
 
 
 
@@ -115,6 +116,7 @@ const App = () => (
             <Route path="/operational-scenarios" element={<OperationalScenarios />} />
             <Route path="/research" element={<Research />} />
             <Route path="/trust-formula" element={<TrustFormula />} />
+            <Route path="/home" element={<Home />} />
             
             <Route path="/deck" element={<Deck />} />
             <Route path="/tether" element={<Tether />} />
