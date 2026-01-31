@@ -1,32 +1,58 @@
 
 
-## Update Favicon with New Icon
+## Fix Header Icon Warping/Jittering
 
-Use the uploaded AMAI icon image as the new favicon for the site.
+### Problem
+The header icon appears slightly "off" or "warped" due to sub-pixel positioning fluctuations detected in the session replay. The browser is continuously applying tiny translateX/translateY transforms (less than 1 pixel), causing visual instability.
 
-### Implementation Steps
+### Solution
+Apply the following fixes to the header icon in `SiteHeader.tsx`:
 
-1. **Copy the uploaded image to the public directory**
-   - Copy `user-uploads://Screenshot_2026-01-31_at_4.54.48 PM.png` to `public/favicon.png`
+1. **Remove conflicting container dimensions** - The parent anchor has fixed width/height that conflicts with the image's `w-auto` sizing
+2. **Add GPU acceleration** - Use `will-change: transform` or `transform: translateZ(0)` to stabilize rendering
+3. **Use `image-rendering: crisp-edges`** - Prevent browser anti-aliasing from causing blur
+4. **Simplify the sizing model** - Let the image control its own dimensions without container constraints
 
-2. **Update index.html favicon references**
-   - Update all favicon link tags to point to the new `/favicon.png` file
-   - This replaces the current references to `amai-favicon-512x512.png`
+### Changes
+
+**File: `src/components/SiteHeader.tsx`**
+
+Update the logo container and image (lines 65-75):
+
+```tsx
+<a 
+  href="https://amai.net" 
+  className="pointer-events-auto flex-shrink-0"
+>
+  <img 
+    src={headerIcon}
+    alt="AMAI" 
+    className="h-7 md:h-10 w-auto opacity-90 hover:opacity-100 transition-opacity"
+    style={{ 
+      transform: 'translateZ(0)', 
+      imageRendering: 'crisp-edges',
+      backfaceVisibility: 'hidden'
+    }}
+    loading="eager"
+  />
+</a>
+```
+
+Key changes:
+- Remove fixed `w-[48px] md:w-[64px] h-7 md:h-10` from the anchor - let the image define its own size
+- Add inline `transform: translateZ(0)` to force GPU layer and prevent sub-pixel jitter
+- Add `imageRendering: crisp-edges` to prevent anti-aliasing blur
+- Add `backfaceVisibility: hidden` as additional render stabilization
+
+---
 
 ### Technical Details
 
-**File: index.html**
-```html
-<!-- Current -->
-<link rel="icon" type="image/png" sizes="512x512" href="/amai-favicon-512x512.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/amai-favicon-512x512.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/amai-favicon-512x512.png">
-<link rel="apple-touch-icon" href="/amai-favicon-512x512.png">
+| Property | Purpose |
+|----------|---------|
+| `translateZ(0)` | Creates a GPU-composited layer, preventing sub-pixel recalculation jitter |
+| `crisp-edges` | Tells browser to use nearest-neighbor scaling instead of smoothing |
+| `backfaceVisibility: hidden` | Reduces composite layer complexity and stabilizes 3D transforms |
 
-<!-- Updated -->
-<link rel="icon" type="image/png" href="/favicon.png">
-<link rel="apple-touch-icon" href="/favicon.png">
-```
-
-The new image will be used as the favicon across all browser tabs and bookmarks.
+This fix addresses the sub-pixel transforms (0.13px to 0.98px fluctuations) observed in the session replay by forcing the browser to treat the icon as a stable composited layer.
 
