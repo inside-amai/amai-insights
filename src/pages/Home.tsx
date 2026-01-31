@@ -43,15 +43,15 @@ const Home = () => {
 
           {/* Body Text */}
           <motion.div
-            className="space-y-4 mb-8 md:mb-10"
+            className="space-y-6 mb-8 md:mb-10 max-w-xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <p className="text-base md:text-lg text-white/60 font-light leading-relaxed">
+            <p className="text-sm md:text-base text-white/50 font-light leading-relaxed tracking-wide">
               Autonomous systems are moving from Chatbots to Fiduciaries.
             </p>
-            <p className="text-base md:text-lg text-white/60 font-light leading-relaxed">
+            <p className="text-xs md:text-sm text-white/35 font-light leading-relaxed tracking-wide">
               AMAI provides the x402 enforcement rails that anchor agent identity to bonded capital, ensuring that when a machine makes a promise, the math forces it to keep it.
             </p>
           </motion.div>
