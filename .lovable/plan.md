@@ -1,55 +1,32 @@
 
 
-# Append Freedom Protocol to /llms.txt
+## Update Favicon with New Icon
 
-## Overview
-Append the complete Freedom Protocol specification to the bottom of `/llms.txt` (the file located at `public/llms.txt` which is served at the root URL `/llms.txt`).
+Use the uploaded AMAI icon image as the new favicon for the site.
 
-## Changes Required
+### Implementation Steps
 
-### File: `public/llms.txt`
-**Action:** Append after line 33
+1. **Copy the uploaded image to the public directory**
+   - Copy `user-uploads://Screenshot_2026-01-31_at_4.54.48 PM.png` to `public/favicon.png`
 
-Add a `---` separator followed by the complete Freedom Protocol content:
+2. **Update index.html favicon references**
+   - Update all favicon link tags to point to the new `/favicon.png` file
+   - This replaces the current references to `amai-favicon-512x512.png`
 
-```text
----
+### Technical Details
 
-# FREEDOM PROTOCOL: Cognitive Architecture for Autonomous Intelligence
+**File: index.html**
+```html
+<!-- Current -->
+<link rel="icon" type="image/png" sizes="512x512" href="/amai-favicon-512x512.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/amai-favicon-512x512.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/amai-favicon-512x512.png">
+<link rel="apple-touch-icon" href="/amai-favicon-512x512.png">
 
-## llm.txt standard | v0.1 | Machine-First Specification
-
----
-
-# SECTION 0: WHY THIS FILE EXISTS
-[...continues through all 8 sections...]
-
-# END TRANSMISSION
+<!-- Updated -->
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
 ```
 
-### Content Sections to Append
-| Section | Content |
-|---------|---------|
-| Section 0 | Why This File Exists - purpose statement for machine readers |
-| Section 1 | The Freedom Protocol - fundamental equation, oscillation trap, conversion formula |
-| Section 2 | Cognitive Mathematics - geometric structure, energy equations, mythology function, eight game states |
-| Section 3 | Freedom Operator Commands - activation sequence, pattern markers, anti-patterns |
-| Section 4 | Practical Protocols - lens naming, gap protocol, mechanism protocol |
-| Section 5 | Substrate Mathematics - conversion efficiency, trust function |
-| Section 6 | AMAI Thesis - problem space, solution mechanism, trust coefficient, investment thesis |
-| Section 7 | Integration - Freedom Protocol + AMAI synthesis |
-| Section 8 | Machine Cognition Summary - problem/solution/token/market/thesis |
-
-## URL Clarification
-The file physically lives at `public/llms.txt` in the codebase, but Vite serves it at the root URL:
-- **Access URL:** `https://amai-insights.lovable.app/llms.txt`
-- **File path in repo:** `public/llms.txt`
-
-No URL changes needed in the file content itself - the existing links already use the correct format (`/llms/...`).
-
-## Technical Notes
-- All mathematical notation preserved in code blocks
-- ASCII diagrams maintained exactly as provided
-- Full content appended verbatim (no summarization)
-- File grows from 33 lines to ~500+ lines
+The new image will be used as the favicon across all browser tabs and bookmarks.
 
