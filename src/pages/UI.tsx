@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { cn } from "@/lib/utils";
 import { TierSelector, STAKE_TIERS } from "@/components/ui/tier-selector";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { PasswordGate } from "@/components/PasswordGate";
 
 const SKILL_CATALOG = [
   // Popular
@@ -86,6 +87,11 @@ const UI = () => {
   const tierColors = getTierColor(activeTierIndex);
 
   return (
+    <PasswordGate 
+      storageKey="ui-testing-auth" 
+      title="UI Testing" 
+      subtitle="Internal access only"
+    >
     <TooltipProvider delayDuration={200}>
       <div className="min-h-screen bg-black text-white">
         <div className="container mx-auto px-6 py-16 max-w-5xl">
@@ -181,6 +187,7 @@ const UI = () => {
         </div>
       </div>
     </TooltipProvider>
+    </PasswordGate>
   );
 };
 

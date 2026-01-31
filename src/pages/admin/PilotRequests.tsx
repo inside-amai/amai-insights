@@ -8,6 +8,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { Check, X, ExternalLink } from 'lucide-react';
 import { format } from 'date-fns';
 import { useToast } from '@/hooks/use-toast';
+import { PasswordGate } from '@/components/PasswordGate';
 
 interface PilotRequest {
   id: string;
@@ -99,6 +100,11 @@ const PilotRequests = () => {
   };
 
   return (
+    <PasswordGate 
+      storageKey="admin-pilot-auth" 
+      title="Admin Dashboard" 
+      subtitle="Internal access only"
+    >
     <div className="min-h-screen bg-background pt-24 pb-12 px-4">
       <div className="max-w-7xl mx-auto">
         <Card className="bg-card border-border">
@@ -207,6 +213,7 @@ const PilotRequests = () => {
         </Card>
       </div>
     </div>
+    </PasswordGate>
   );
 };
 

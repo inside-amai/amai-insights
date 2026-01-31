@@ -8,6 +8,7 @@ import { Header } from "@/components/Header";
 import { CountdownTimer } from "@/components/CountdownTimer";
 import { TermsModal } from "@/components/TermsModal";
 import { OptimizedImage } from "@/components/OptimizedImage";
+import { PasswordGate } from "@/components/PasswordGate";
 
 const GenesisMint = () => {
   const fadeInUp = {
@@ -142,6 +143,11 @@ const GenesisMint = () => {
   ];
 
   return (
+    <PasswordGate 
+      storageKey="genesis-mint-auth" 
+      title="Genesis Mint" 
+      subtitle="Internal access only"
+    >
     <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden dark">{/* Force dark theme */}
       <Header />
       <TermsModal />
@@ -684,6 +690,7 @@ const GenesisMint = () => {
         </div>
       </footer>
     </div>
+    </PasswordGate>
   );
 };
 
