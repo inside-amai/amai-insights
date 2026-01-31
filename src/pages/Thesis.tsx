@@ -69,64 +69,6 @@ const SlideDivider = () => (
   </div>
 );
 
-const GlowingButton = ({ href, children }: { href: string; children: React.ReactNode }) => {
-  return (
-    <a 
-      href={href} 
-      target="_blank" 
-      rel="noopener noreferrer" 
-      className="relative inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-white/10 border border-white/30 rounded text-xs tracking-[0.15em] uppercase text-white hover:bg-white/20 hover:border-white/50 transition-all duration-300"
-    >
-      {/* SVG tracer: reliable across browsers (no offset-path/mask dependencies) */}
-      <svg
-        className="pointer-events-none absolute inset-[-2px] overflow-visible"
-        viewBox="0 0 100 36"
-        preserveAspectRatio="none"
-        aria-hidden="true"
-      >
-        <defs>
-          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="2.2" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-
-        {/* Path approximates the button border */}
-        <path
-          id="tracePath"
-          d="M 10 2 H 90 Q 98 2 98 10 V 26 Q 98 34 90 34 H 10 Q 2 34 2 26 V 10 Q 2 2 10 2 Z"
-          fill="none"
-          stroke="transparent"
-        />
-
-        {/* Trail (blurred, delayed) */}
-        <circle r="2.6" fill="hsl(var(--primary) / 0.22)" filter="url(#glow)">
-          <animateMotion dur="4s" repeatCount="indefinite" keyTimes="0;1" keySplines="0.2 0 0.2 1" calcMode="spline" begin="-0.18s">
-            <mpath href="#tracePath" />
-          </animateMotion>
-        </circle>
-        <circle r="2.1" fill="hsl(var(--primary) / 0.35)" filter="url(#glow)">
-          <animateMotion dur="4s" repeatCount="indefinite" calcMode="linear" begin="-0.10s">
-            <mpath href="#tracePath" />
-          </animateMotion>
-        </circle>
-
-        {/* Head dot */}
-        <circle r="1.8" fill="hsl(var(--primary))" filter="url(#glow)">
-          <animateMotion dur="4s" repeatCount="indefinite" calcMode="linear">
-            <mpath href="#tracePath" />
-          </animateMotion>
-        </circle>
-      </svg>
-
-      {children}
-    </a>
-  );
-};
-
 const Thesis = () => {
   const { scrollYProgress } = useScroll();
   const { t, language } = useLanguage();
@@ -1109,9 +1051,9 @@ const Thesis = () => {
             </motion.p>
           </motion.div>
           <motion.div className={`flex flex-col sm:flex-row items-center justify-center gap-4 ${isRTL ? 'sm:flex-row-reverse' : ''}`} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }} viewport={{ once: true }}>
-            <GlowingButton href="https://youtu.be/qLEnRNELErg">
+            <a href="https://youtu.be/qLEnRNELErg" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-white/10 border border-white/30 rounded text-xs tracking-[0.15em] uppercase text-white hover:bg-white/20 hover:border-white/50 transition-all duration-300">
               Watch Demo Video
-            </GlowingButton>
+            </a>
             <a href="/" className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300">
               {t('tether.slide13.cta2')}<span>{isRTL ? '←' : '→'}</span>
             </a>
