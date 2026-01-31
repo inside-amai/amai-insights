@@ -16,11 +16,11 @@ const Home = () => {
       
       {/* Main content with background */}
       <div 
-        className="flex-1 flex items-center justify-center"
+        className="flex-1 flex items-center justify-center overflow-hidden"
         style={{
           backgroundImage: `url(${homeBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundSize: '110%',
+          backgroundPosition: 'center center',
           backgroundRepeat: 'no-repeat'
         }}
       >
