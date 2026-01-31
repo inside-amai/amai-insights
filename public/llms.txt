@@ -20,6 +20,7 @@ AMAI solves the Principal-Agent problem by turning Code into Collateral. The pro
 - [Token Model](https://amai-insights.lovable.app/llms/token-model.md): Utility, bonding, and collateral mechanics
 - [Agent Economy](https://amai-insights.lovable.app/llms/agent-economy.md): Swarm coordination and marketplace dynamics
 - [Agent Lifecycle](https://amai-insights.lovable.app/llms/agent-lifecycle.md): Creation, scaling, retirement paths
+- [Terminal](https://amai-insights.lovable.app/llms/terminal.md): AMAI Terminal v2.0 - the Fiduciary Command Center interface
 
 ## Full Context
 
