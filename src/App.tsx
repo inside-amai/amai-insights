@@ -117,9 +117,9 @@ const App = () => (
             
             <Route path="/deck" element={<Deck />} />
             <Route path="/tether" element={<Tether />} />
-            <Route path="/thesis" element={<Thesis />} />
+            <Route path="/thesis" element={<LiabilityLayer />} />
             <Route path="/briefing" element={<Briefing />} />
-            <Route path="/liability-layer" element={<LiabilityLayer />} />
+            <Route path="/liability-layer" element={<Thesis />} />
 
             <Route path="/diagram" element={<Diagram />} />
             <Route path="/ui" element={<UI />} />
