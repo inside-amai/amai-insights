@@ -94,7 +94,7 @@ export const SiteHeader = () => {
             {/* Navigation Link - hidden on /deck and /tether */}
             {!isDeckPage && (
               <Link 
-                to={isThesisPage ? "/" : "/thesis"}
+                to={isThesisPage ? "/system-architecture" : "/thesis"}
                 className="text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase"
               >
                 {isThesisPage ? "View Architecture" : "Explore The Thesis"}
