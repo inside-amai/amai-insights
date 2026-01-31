@@ -6,15 +6,15 @@ These scenarios demonstrate agents executing, coordinating, and settling value a
 
 ---
 
-## Scenario 1: Global Energy Network
+## Global Energy Network
 
 ### Autonomous Capital & Operations for a Global Energy Network
 
 **Context:**
-Global energy systems operate across thousands of assets, jurisdictions, and markets — power generation, transmission, storage, and trading — each governed by different rules, incentives, and risk profiles. Today, these systems are coordinated through layers of human decision-making, delayed reporting, and fragmented capital allocation.
+Global energy systems operate across thousands of assets, jurisdictions, and markets — power generation, transmission, storage, and trading — each governed by different rules, incentives, and risk profiles. Today, these systems are coordinated through layers of human decision-making, delayed reporting, and fragmented capital allocation. Even minor inefficiencies compound at scale, creating systemic exposure during periods of volatility, supply disruption, or geopolitical stress.
 
 **The Bottleneck:**
-Modern energy infrastructure is constrained not by physical capacity, but by economic coordination. Human-in-the-loop workflows introduce latency, bias, and operational risk. Capital is allocated on static assumptions. Trust is inferred rather than measured.
+Modern energy infrastructure is constrained not by physical capacity, but by economic coordination. Human-in-the-loop workflows introduce latency, bias, and operational risk. Capital is allocated on static assumptions. Trust is inferred rather than measured. Accountability is retrospective rather than real-time. In critical moments, decisions arrive too late.
 
 **AMAI Deployment:**
 AMAI deploys a network of autonomous agents across the energy operator's infrastructure. Each agent:
@@ -23,7 +23,7 @@ AMAI deploys a network of autonomous agents across the energy operator's infrast
 - Controls bonded capital with deterministic limits
 - Executes actions atomically with guaranteed settlement
 
-Agents operate independently or as coordinated swarms, dynamically reallocating capital, routing energy, hedging exposure, and enforcing risk constraints in real time.
+Agents operate independently or as coordinated swarms, dynamically reallocating capital, routing energy, hedging exposure, and enforcing risk constraints in real time. All execution is verifiable. All outcomes are settled deterministically.
 
 **Operational Outcome:**
 - Capital is allocated continuously, not quarterly
@@ -31,11 +31,16 @@ Agents operate independently or as coordinated swarms, dynamically reallocating 
 - Trust becomes measurable, transferable, and enforceable
 - System behavior adapts instantly to real-world conditions
 
+The organization does not react to volatility — it absorbs it.
+
+**Strategic Implication:**
+AMAI does not replace operators. It replaces the economic friction between them.
+
 > "We didn't automate jobs. We automated the economy that runs them."
 
 ---
 
-## Scenario 2: Global Treasury
+## Global Treasury
 
 ### Autonomous Cross-Border Treasury & Global Payments
 
@@ -64,7 +69,7 @@ Agents monitor markets continuously, rebalance capital across regions, execute F
 
 ---
 
-## Scenario 3: AI Compute Markets
+## AI Compute Markets
 
 ### Autonomous AI Compute & Resource Markets
 
@@ -90,3 +95,15 @@ Agents negotiate for resources in real time, route workloads dynamically, and co
 - System-wide efficiency improves without centralized control
 
 > "Intelligence learned how to pay for itself."
+
+---
+
+## Targeting the "High-Stakes" Vacuum
+
+We are for the $100B Machine-First Settlement Layer.
+
+- **Algorithmic Liquidity:** Agents managing cross-chain arbitrage where a 100ms delay equals a $1M loss.
+- **Autonomous Energy Grids:** Agents bidding on power contracts 24/7/365.
+- **Sovereign Wealth Swarms:** Multi-agent systems rebalancing institutional portfolios without human key-signers.
+
+These markets require deterministic finality. They cannot run on "maybe."

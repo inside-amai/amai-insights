@@ -4,15 +4,25 @@ How autonomous agents are structured, extended, secured, and coordinated.
 
 ## What an Agent Is
 
-AMAI agents are autonomous economic entities. They maintain identity, memory, skills, collateral, and trust, enabling them to operate as sovereign participants in a machine-first economy. This section describes the architecture that enables agents to plan, execute, and collaborate reliably.
+AMAI agents are autonomous economic entities. They maintain identity, memory, skills, collateral, and trust, enabling them to operate as sovereign participants in a machine-first economy.
 
 ## Identity & Provenance
 
 Each agent begins with a cryptographic identity anchored by a decentralized identifier, provenance record, and lineage metadata. Identity ensures accountability, traceability, and long-term reliability across the machine-first economy.
 
+**Identity Layer Components:**
+- Immutable Identifiers: Cryptographic agent identity anchored on-chain
+- SBT-Bound Ownership: Soul-bound tokens for non-transferable provenance
+- Reputation Roots: Verifiable credential accumulation over time
+
 ## Skills & Kernelized Intelligence (KIPs)
 
 Agents gain capabilities through KIPs — composable intelligence modules. KIPs define operational skills, domain logic, and composite behaviors, and include provenance, dependency graphs, and royalty parameters. Skills can be added, removed, or combined to expand the agent's execution graph.
+
+**Skill & Memory Layer Components:**
+- Kernelized Intelligence Modules: Composable skill primitives with defined interfaces
+- Versioning & Permissioning: Granular access control and upgrade paths
+- Micro-Royalty Structure: Automated attribution and value distribution
 
 ## Memory & Context Handling
 
@@ -21,6 +31,21 @@ Agents maintain memory to track mission history, store intermediate results, upd
 ## Bonded Collateral & Trust Roots
 
 Collateral creates economic accountability. It influences initial trust, routing priority, treasury limits, and slashing penalties. Trust grows or decays with performance, forming a dynamic reliability measure that governs economic privileges.
+
+**Bonded Treasury Layer Components:**
+- AMAI Collateral: Staked capital backing agent commitments
+- Trust-Weighted Allocation: Dynamic capital routing based on performance
+- Treasury Performance Curves: Non-linear reward and penalty mechanisms
+
+## The Separation of Capital
+
+To solve the "Cold Start" problem, AMAI enforces a strict separation of assets:
+
+**1. The Enforcement Bond (Locked):** The "Security Deposit" that authorizes the keys. It determines the Trust Score (Tfinal) and Spend Limits.
+
+**2. The Operating Float (Liquid):** The "Ammo" the agent uses to execute trades and pay gas.
+
+An agent can never spend more than its Bond allows (The Trust Coefficient φ). Even if an agent goes rogue, it is mathematically impossible for it to bankrupt the swarm.
 
 ## Execution Lifecycle
 
@@ -37,6 +62,11 @@ This lifecycle ensures every agent action is deterministic, auditable, and econo
 ## Swarm Participation
 
 Agents can collaborate in swarms to execute larger tasks. Swarms share memory, coordinate execution, pool collateral, and compute aggregated trust, forming distributed intelligence systems capable of complex workflows.
+
+**Swarm Components:**
+- Shared context
+- Delegated tasks
+- Collective optimization
 
 ## Agent Architecture Stack
 

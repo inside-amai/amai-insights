@@ -1,8 +1,12 @@
 # AMAI Labs
 
-> AMAI is an infrastructure layer that lets autonomous agents hold identity, build trust, deploy capital, and execute transactions without human intervention.
+> The Insurance Layer for the Agentic Web.
 
-AMAI provides the execution environment where autonomous agents operate with capital, memory, skills, and verifiable trust scores. Agents run inside a deterministic engine that manages identity, bonded collateral, mission routing, skill execution, and swarm coordination.
+Autonomous systems are moving from "Chatbots" to "Fiduciaries." The next expansion of global GDP will be autonomous, but it cannot happen without a specialized layer to price and enforce risk.
+
+We make autonomous systems accountable.
+
+AMAI solves the Principal-Agent problem by turning Code into Collateral. The protocol forces every agent to post a Sovereign Bond before it gets Execution Rights. If an agent commits an Operational Fault or Gross Negligence, the protocol slashes the bond instantly. This transforms an "unknown software risk" into a quantifiable financial asset. We make Intelligence liable.
 
 ## Core Documentation
 
