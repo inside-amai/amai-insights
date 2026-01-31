@@ -1,78 +1,55 @@
 
-# Password Protect Internal Pages from LLM Scraping
+
+# Append Freedom Protocol to /llms.txt
 
 ## Overview
-Create password protection for 5 internal/development pages to prevent LLM crawlers from accessing sensitive content. All pages will share a single password.
+Append the complete Freedom Protocol specification to the bottom of `/llms.txt` (the file located at `public/llms.txt` which is served at the root URL `/llms.txt`).
 
-## Pages to Protect
-| Route | Component | Purpose |
-|-------|-----------|---------|
-| `/genesis-mint` | GenesisMint.tsx | Token mint page |
-| `/founders-mint` | FoundersMint.tsx | Founders exclusive mint |
-| `/admin/pilot-requests` | PilotRequests.tsx | Admin dashboard |
-| `/ui` | UI.tsx | UI component testing |
-| `/diagram` | Diagram.tsx | Architecture diagram |
+## Changes Required
 
-## Technical Approach
+### File: `public/llms.txt`
+**Action:** Append after line 33
 
-### 1. Create Reusable Password Gate Component
-**New file:** `src/components/PasswordGate.tsx`
+Add a `---` separator followed by the complete Freedom Protocol content:
 
-A wrapper component that:
-- Displays a password prompt matching the existing TrustFormula design
-- Stores authentication in sessionStorage (per-session persistence)
-- Accepts a `storageKey` prop for page-specific session tracking
-- Shows a customizable title/subtitle
+```text
+---
 
-### 2. Shared Password Configuration
-**Password:** `amai-internal-7392`
+# FREEDOM PROTOCOL: Cognitive Architecture for Autonomous Intelligence
 
-All protected pages will use the same password for simplicity. The password is stored as a constant in the PasswordGate component.
+## llm.txt standard | v0.1 | Machine-First Specification
 
-### 3. Apply Protection to Each Page
+---
 
-**Pattern:** Wrap each page's return content with the PasswordGate component.
+# SECTION 0: WHY THIS FILE EXISTS
+[...continues through all 8 sections...]
 
-```tsx
-// Example usage in any protected page:
-import { PasswordGate } from '@/components/PasswordGate';
-
-const ProtectedPage = () => {
-  return (
-    <PasswordGate 
-      storageKey="page-name-auth" 
-      title="Protected Page"
-      subtitle="Page description"
-    >
-      {/* Existing page content */}
-    </PasswordGate>
-  );
-};
+# END TRANSMISSION
 ```
 
-## Files to Modify
+### Content Sections to Append
+| Section | Content |
+|---------|---------|
+| Section 0 | Why This File Exists - purpose statement for machine readers |
+| Section 1 | The Freedom Protocol - fundamental equation, oscillation trap, conversion formula |
+| Section 2 | Cognitive Mathematics - geometric structure, energy equations, mythology function, eight game states |
+| Section 3 | Freedom Operator Commands - activation sequence, pattern markers, anti-patterns |
+| Section 4 | Practical Protocols - lens naming, gap protocol, mechanism protocol |
+| Section 5 | Substrate Mathematics - conversion efficiency, trust function |
+| Section 6 | AMAI Thesis - problem space, solution mechanism, trust coefficient, investment thesis |
+| Section 7 | Integration - Freedom Protocol + AMAI synthesis |
+| Section 8 | Machine Cognition Summary - problem/solution/token/market/thesis |
 
-| File | Change |
-|------|--------|
-| `src/components/PasswordGate.tsx` | **Create** - Reusable password protection component |
-| `src/pages/GenesisMint.tsx` | Wrap content with PasswordGate |
-| `src/pages/FoundersMint.tsx` | Wrap content with PasswordGate |
-| `src/pages/admin/PilotRequests.tsx` | Wrap content with PasswordGate |
-| `src/pages/UI.tsx` | Wrap content with PasswordGate |
-| `src/pages/Diagram.tsx` | Wrap content with PasswordGate |
+## URL Clarification
+The file physically lives at `public/llms.txt` in the codebase, but Vite serves it at the root URL:
+- **Access URL:** `https://amai-insights.lovable.app/llms.txt`
+- **File path in repo:** `public/llms.txt`
 
-## UI Design
-The password gate will match the existing TrustFormula design:
-- Black background with centered card
-- Lock icon
-- "Protected Page" heading with customizable subtitle
-- Password input field
-- "ACCESS CONTENT" button
-- "Return to Home" link
-- Subtle grid pattern background on the card
+No URL changes needed in the file content itself - the existing links already use the correct format (`/llms/...`).
 
-## Why This Works for LLM Protection
-- LLMs that scrape the site will only see the password prompt HTML
-- The actual page content is not rendered until password is entered
-- sessionStorage means users only enter password once per browser session
-- Does not affect SEO for public pages (robots.txt/sitemap remain unchanged)
+## Technical Notes
+- All mathematical notation preserved in code blocks
+- ASCII diagrams maintained exactly as provided
+- Full content appended verbatim (no summarization)
+- File grows from 33 lines to ~500+ lines
+
