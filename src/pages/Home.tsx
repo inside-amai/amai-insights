@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 import amaiLogo from "@/assets/amai-logo-hero-new.png";
 import homeBg from "@/assets/home-grid-bg.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 
 const Home = () => {
   const { t, language } = useLanguage();
   const isRtl = language === 'ar';
+  const isMobile = useIsMobile();
 
   return (
     <div className="min-h-svh md:min-h-screen flex flex-col bg-black" dir={isRtl ? 'rtl' : 'ltr'}>
@@ -19,7 +21,7 @@ const Home = () => {
         className="flex-1 flex items-center justify-center overflow-hidden"
         style={{
           backgroundImage: `url(${homeBg})`,
-          backgroundSize: '110%',
+          backgroundSize: isMobile ? '100% 100%' : '110%',
           backgroundPosition: 'center center',
           backgroundRepeat: 'no-repeat'
         }}
