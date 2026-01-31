@@ -70,16 +70,16 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
           >
             <Link
-              to="/system-architecture"
-              className="text-sm text-white/70 hover:text-white bg-black/50 border border-white/20 hover:border-white/40 px-6 py-3 rounded transition-all duration-300 uppercase tracking-[0.15em] text-center backdrop-blur-sm"
-            >
-              {t('home.cta.architecture')}
-            </Link>
-            <Link
               to="/thesis"
               className="text-sm text-white/70 hover:text-white bg-black/50 border border-white/20 hover:border-white/40 px-6 py-3 rounded transition-all duration-300 uppercase tracking-[0.15em] text-center backdrop-blur-sm"
             >
               {t('home.cta.thesis')}
+            </Link>
+            <Link
+              to="/system-architecture"
+              className="text-sm text-white/70 hover:text-white bg-black/50 border border-white/20 hover:border-white/40 px-6 py-3 rounded transition-all duration-300 uppercase tracking-[0.15em] text-center backdrop-blur-sm"
+            >
+              {t('home.cta.architecture')}
             </Link>
           </motion.div>
         </div>
