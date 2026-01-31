@@ -462,7 +462,12 @@ All colors MUST be HSL.
 
 .glowing-button-wrapper {
   position: relative;
-  background: rgba(255, 255, 255, 0.1);
+  /* Ensure pseudo-elements render above the page background but behind content */
+  isolation: isolate;
+  z-index: 0;
+
+  background: hsl(var(--white) / 0.10);
+  border: 1px solid hsl(var(--white) / 0.30);
   border-radius: 4px;
 }
 
@@ -476,14 +481,15 @@ All colors MUST be HSL.
     from var(--border-angle),
     transparent 0%,
     transparent 25%,
-    #A6FCFC 30%,
-    #D6A6FC 35%,
-    #A6FCFC 40%,
+    hsl(var(--primary)) 30%,
+    hsl(var(--accent)) 35%,
+    hsl(var(--primary)) 40%,
     transparent 45%,
     transparent 100%
   );
   animation: border-rotate 4s linear infinite;
   z-index: -1;
+  pointer-events: none;
 }
 
 .glowing-button-wrapper::before {

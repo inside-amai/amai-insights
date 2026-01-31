@@ -75,7 +75,7 @@ const GlowingButton = ({ href, children }: { href: string; children: React.React
       href={href} 
       target="_blank" 
       rel="noopener noreferrer" 
-      className="glowing-button-wrapper relative inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-white/10 border border-transparent rounded text-xs tracking-[0.15em] uppercase text-white hover:bg-white/20 transition-all duration-300"
+      className="glowing-button-wrapper relative inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 rounded text-xs tracking-[0.15em] uppercase text-white hover:bg-white/20 transition-all duration-300"
     >
       {children}
     </a>
