@@ -1,4 +1,5 @@
 import React from "react";
+import { PasswordGate } from "@/components/PasswordGate";
 
 interface BoxProps {
   title: string;
@@ -28,6 +29,11 @@ const HorizontalConnector: React.FC = () => (
 
 const Diagram: React.FC = () => {
   return (
+    <PasswordGate 
+      storageKey="diagram-auth" 
+      title="Architecture Diagram" 
+      subtitle="Internal access only"
+    >
     <div className="min-h-screen bg-white py-20 px-8">
       <div className="max-w-4xl mx-auto">
         {/* User Input */}
@@ -109,6 +115,7 @@ const Diagram: React.FC = () => {
         </div>
       </div>
     </div>
+    </PasswordGate>
   );
 };
 

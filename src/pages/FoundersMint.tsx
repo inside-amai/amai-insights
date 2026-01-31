@@ -7,6 +7,7 @@ import { Crown, Feather, Users, Star, Zap, TrendingUp, Trophy } from "lucide-rea
 import { Header } from "@/components/Header";
 import { FoundersCountdownTimer } from "@/components/FoundersCountdownTimer";
 import { TermsModal } from "@/components/TermsModal";
+import { PasswordGate } from "@/components/PasswordGate";
 
 const FoundersMint = () => {
   useEffect(() => {
@@ -88,6 +89,11 @@ const FoundersMint = () => {
   ];
 
   return (
+    <PasswordGate 
+      storageKey="founders-mint-auth" 
+      title="Founders Mint" 
+      subtitle="Internal access only"
+    >
     <>
       <style dangerouslySetInnerHTML={{
         __html: `
@@ -426,6 +432,7 @@ const FoundersMint = () => {
      </div>
 
     </>
+    </PasswordGate>
   );
 };
 
