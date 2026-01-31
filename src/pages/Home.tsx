@@ -2,75 +2,85 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import amaiLogo from "@/assets/amai-logo-hero-new.png";
 import homeBg from "@/assets/home-grid-bg.jpg";
+import { Footer } from "@/components/Footer";
 
 const Home = () => {
   return (
-    <div 
-      className="min-h-svh md:min-h-screen w-full flex items-center justify-center bg-black"
-      style={{
-        backgroundImage: `url(${homeBg})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
-    >
-      <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
-        {/* AMAI Logo */}
-        <motion.img
-          src={amaiLogo}
-          alt="AMAI Labs"
-          className="h-12 md:h-20 w-auto mx-auto mb-12 md:mb-16 brightness-110"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        />
+    <div className="min-h-svh md:min-h-screen flex flex-col bg-black">
+      {/* Black header spacer to prevent background bleed */}
+      <div className="h-16 bg-black flex-shrink-0" />
+      
+      {/* Main content with background */}
+      <div 
+        className="flex-1 flex items-center justify-center"
+        style={{
+          backgroundImage: `url(${homeBg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
+          {/* AMAI Logo */}
+          <motion.img
+            src={amaiLogo}
+            alt="AMAI Labs"
+            className="h-12 md:h-20 w-auto mx-auto mb-12 md:mb-16 brightness-110"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          />
 
-        {/* THESIS Label */}
-        <motion.p
-          className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          THESIS
-        </motion.p>
-
-        {/* Body Text */}
-        <motion.div
-          className="space-y-6 mb-12 md:mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          <p className="text-base md:text-lg text-white/60 font-light leading-relaxed">
-            Autonomous agents have moved beyond research into real economic operation.
-          </p>
-          <p className="text-base md:text-lg text-white/60 font-light leading-relaxed">
-            AMAI is the foundational layer built to anchor identity, enforce capital accountability, and settle value at machine speed.
-          </p>
-        </motion.div>
-
-        {/* CTAs */}
-        <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-        >
-          <Link
-            to="/"
-            className="text-sm text-white/70 hover:text-white bg-black/50 border border-white/20 hover:border-white/40 px-6 py-3 rounded transition-all duration-300 uppercase tracking-[0.15em] text-center backdrop-blur-sm"
+          {/* THESIS Label */}
+          <motion.p
+            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
           >
-            View Architecture
-          </Link>
-          <Link
-            to="/liability-layer"
-            className="text-sm text-white/70 hover:text-white bg-black/50 border border-white/20 hover:border-white/40 px-6 py-3 rounded transition-all duration-300 uppercase tracking-[0.15em] text-center backdrop-blur-sm"
+            THESIS
+          </motion.p>
+
+          {/* Body Text */}
+          <motion.div
+            className="space-y-6 mb-12 md:mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Explore The Thesis
-          </Link>
-        </motion.div>
+            <p className="text-base md:text-lg text-white/60 font-light leading-relaxed">
+              Autonomous agents have moved beyond research into real economic operation.
+            </p>
+            <p className="text-base md:text-lg text-white/60 font-light leading-relaxed">
+              AMAI is the foundational layer built to anchor identity, enforce capital accountability, and settle value at machine speed.
+            </p>
+          </motion.div>
+
+          {/* CTAs */}
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+          >
+            <Link
+              to="/"
+              className="text-sm text-white/70 hover:text-white bg-black/50 border border-white/20 hover:border-white/40 px-6 py-3 rounded transition-all duration-300 uppercase tracking-[0.15em] text-center backdrop-blur-sm"
+            >
+              View Architecture
+            </Link>
+            <Link
+              to="/liability-layer"
+              className="text-sm text-white/70 hover:text-white bg-black/50 border border-white/20 hover:border-white/40 px-6 py-3 rounded transition-all duration-300 uppercase tracking-[0.15em] text-center backdrop-blur-sm"
+            >
+              Explore The Thesis
+            </Link>
+          </motion.div>
+        </div>
       </div>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
