@@ -49,8 +49,8 @@ const queryClient = new QueryClient();
 const ConditionalTermsModal = () => {
   const location = useLocation();
   
-  // Don't show terms modal on presentation pages
-  if (location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/thesis' || location.pathname === '/briefing' || location.pathname === '/liability-layer') {
+  // Only show terms modal on /system-architecture page
+  if (location.pathname !== '/system-architecture') {
     return null;
   }
   
