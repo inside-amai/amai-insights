@@ -446,3 +446,13 @@ All colors MUST be HSL.
   print-color-adjust: exact !important;
   color-adjust: exact !important;
 }
+
+/* Border tracer animation for highlight buttons */
+@keyframes border-trace {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
