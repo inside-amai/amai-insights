@@ -93,7 +93,7 @@ const App = () => (
             <ConditionalTermsModal />
             <SiteHeader />
             <Routes>
-              <Route path="/" element={<Index />} />
+              <Route path="/" element={<Home />} />
               <Route path="/auth" element={
                 <AuthGuard requireAuth={false}>
                   <Auth />
@@ -116,7 +116,7 @@ const App = () => (
             <Route path="/operational-scenarios" element={<OperationalScenarios />} />
             <Route path="/research" element={<Research />} />
             <Route path="/trust-formula" element={<TrustFormula />} />
-            <Route path="/home" element={<Home />} />
+            <Route path="/index" element={<Index />} />
             
             <Route path="/deck" element={<Deck />} />
             <Route path="/tether" element={<Tether />} />
