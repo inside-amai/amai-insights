@@ -55,7 +55,7 @@ const Slide = ({ children, className = "", align = "center", slideNumber, totalS
       )}
       
       {/* Footer branding */}
-      <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.2em] uppercase text-white/20 font-medium text-center max-w-[200px] md:max-none">
+      <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.2em] uppercase text-white/20 font-medium text-center whitespace-nowrap">
         {footerText}
       </div>
     </section>
