@@ -20,6 +20,7 @@ import FoundersMint from "./pages/FoundersMint";
 import Thesis from "./pages/Thesis";
 import Briefing from "./pages/Briefing";
 import LiabilityLayer from "./pages/LiabilityLayer";
+import AdminPilotRequests from "./pages/admin/PilotRequests";
 
 import Deck from "./pages/Deck";
 import Tether from "./pages/Tether";
@@ -123,6 +124,8 @@ const App = () => (
 
             <Route path="/diagram" element={<Diagram />} />
             <Route path="/ui" element={<UI />} />
+            {/* Admin routes */}
+            <Route path="/admin/pilot-requests" element={<AdminPilotRequests />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
