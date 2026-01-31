@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import amaiLogo from "@/assets/amai-logo-hero-new.png";
 import homeBg from "@/assets/home-grid-bg.jpg";
-import { Footer } from "@/components/Footer";
+
 
 const Home = () => {
   return (
@@ -79,8 +79,17 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Footer */}
-      <Footer />
+      {/* Footer - compact version for this page only */}
+      <footer className="py-6 bg-black border-t border-white/10">
+        <div className="text-center space-y-1">
+          <p className="text-muted-foreground text-sm font-light tracking-wide">
+            AMAI Labs · Infrastructure & Research
+          </p>
+          <p className="text-muted-foreground/60 text-xs font-light tracking-wide">
+            © 2026 AMAI Labs. All rights reserved.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
