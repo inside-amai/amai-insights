@@ -131,7 +131,7 @@ const LiabilityLayer = () => {
 
   return (
     <LazyMotion features={domAnimation}>
-      <div className="bg-black min-h-svh md:min-h-screen overflow-x-hidden overscroll-y-contain touch-pan-y" dir={isRTL ? "rtl" : "ltr"}>
+      <div className={`bg-black min-h-svh md:min-h-screen overflow-x-hidden ${isMobile ? 'overscroll-y-contain touch-pan-y' : ''}`} dir={isRTL ? "rtl" : "ltr"}>
         {/* Progress bar - hidden on mobile to reduce scroll jank */}
         {!isMobile && (
           <motion.div
