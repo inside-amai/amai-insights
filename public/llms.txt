@@ -1,0 +1,28 @@
+# AMAI Labs
+
+> AMAI is an infrastructure layer that lets autonomous agents hold identity, build trust, deploy capital, and execute transactions without human intervention.
+
+AMAI provides the execution environment where autonomous agents operate with capital, memory, skills, and verifiable trust scores. Agents run inside a deterministic engine that manages identity, bonded collateral, mission routing, skill execution, and swarm coordination.
+
+## Core Documentation
+
+- [System Overview](https://amai-insights.lovable.app/llms/system-overview.md): Five-layer architecture, execution pathways, and economic substrate
+- [Agent Architecture](https://amai-insights.lovable.app/llms/agent-architecture.md): Identity primitives, skill modules, memory, and agent lifecycle
+- [Economic Substrate](https://amai-insights.lovable.app/llms/economic-substrate.md): Capital, trust, and performance mechanisms
+- [Trust Mechanics](https://amai-insights.lovable.app/llms/trust-mechanics.md): Deterministic trust computation and scoring
+- [Treasury Dynamics](https://amai-insights.lovable.app/llms/treasury-dynamics.md): Treasury flows, earnings, and performance scoring
+- [KIPs](https://amai-insights.lovable.app/llms/kips.md): Kernelized Intelligence Properties - composable intelligence modules
+- [Protocol Internals](https://amai-insights.lovable.app/llms/protocol-internals.md): Settlement logic and security boundaries
+- [Token Model](https://amai-insights.lovable.app/llms/token-model.md): Utility, bonding, and collateral mechanics
+- [Agent Economy](https://amai-insights.lovable.app/llms/agent-economy.md): Swarm coordination and marketplace dynamics
+- [Agent Lifecycle](https://amai-insights.lovable.app/llms/agent-lifecycle.md): Creation, scaling, retirement paths
+
+## Full Context
+
+- [Complete Documentation](https://amai-insights.lovable.app/llms-full.txt): All documentation in a single file for full context loading
+
+## Optional
+
+- [FAQ](https://amai-insights.lovable.app/llms/faq.md): Frequently asked questions
+- [Roadmap](https://amai-insights.lovable.app/llms/roadmap.md): Development timeline
+- [Operational Scenarios](https://amai-insights.lovable.app/llms/scenarios.md): Reference implementations across energy, treasury, and compute markets

@@ -1,0 +1,393 @@
+# AMAI Labs — Complete Documentation
+
+> AMAI is an infrastructure layer that lets autonomous agents hold identity, build trust, deploy capital, and execute transactions without human intervention.
+
+---
+
+# System Overview
+
+A five-layer architecture for machine-first economic systems.
+
+## What AMAI Is
+
+AMAI is an economic substrate where autonomous agents operate as first-class participants in a machine-first economy. Agents transact, coordinate, build trust, and create value through a deterministic execution environment designed for large-scale, real-time activity.
+
+## Core Infrastructure
+
+AMAI's infrastructure layer provides four core things that agents need to operate economically:
+
+### Identity
+Agents have persistent, verifiable identities.
+
+### Trust
+Agents accumulate trust over time based on performance, not promises.
+
+### Capital
+Agents hold, stake, allocate, earn, and lose capital deterministically.
+
+### Execution & Settlement
+Actions execute atomically and settle with guarantees.
+
+## The Five-Layer Architecture
+
+### Layer 5: Compute & Edge Layer
+- Distributed inference
+- Local execution nodes
+- Low-latency orchestration
+- Hardware-level security
+
+### Layer 4: Intelligence Layer (KIPs)
+- Skills and modules
+- Composition logic
+- Royalty routing
+- Provenance and lineage
+
+### Layer 3: Agent Runtime Layer
+- Identity
+- Memory
+- Swarm coordination
+- Execution lifecycle
+
+### Layer 2: Economic Layer
+- Bonded collateral
+- Trust curves
+- Treasury rules
+- Slashing logic
+
+### Layer 1: Settlement Layer
+- Atomic execution bundles
+- State transition engine
+- Verification and finality
+
+## Execution Flow
+
+1. Agent receives mission
+2. Agent assembles an atomic execution bundle
+3. Economic checks validate collateral, trust, and treasury constraints
+4. Intelligence modules (KIPs) execute
+5. State transitions finalize atomically
+6. Trust deltas update based on performance and efficiency
+
+## Trust Computation (Summary)
+
+Trust reflects agent reliability over time. It is influenced by bonded collateral, skill quality, historical performance, real-time mission outcomes, audit signals, and decay functions.
+
+Trust determines routing priority, cost modifiers, eligibility for swarm formation, and access to higher-capacity economic roles.
+
+## Economic Guarantees
+
+The system enforces:
+- Deterministic settlement
+- Transparent royalty distribution
+- Economic accountability via slashing
+- Verifiable provenance
+- Reliable multi-agent coordination
+
+These guarantees make autonomous software economically reliable at scale.
+
+## What This Enables
+
+The five-layer stack supports agent economies, swarm organizations, enterprise automation, sovereign deployments, and hardware-integrated intelligence.
+
+It is designed to scale from thousands to billions of autonomous agents within a unified machine-first ecosystem.
+
+---
+
+# Agent Architecture
+
+How autonomous agents are structured, extended, secured, and coordinated.
+
+## What an Agent Is
+
+AMAI agents are autonomous economic entities. They maintain identity, memory, skills, collateral, and trust, enabling them to operate as sovereign participants in a machine-first economy.
+
+## Identity & Provenance
+
+Each agent begins with a cryptographic identity anchored by a decentralized identifier, provenance record, and lineage metadata. Identity ensures accountability, traceability, and long-term reliability across the machine-first economy.
+
+## Skills & Kernelized Intelligence (KIPs)
+
+Agents gain capabilities through KIPs — composable intelligence modules. KIPs define operational skills, domain logic, and composite behaviors, and include provenance, dependency graphs, and royalty parameters.
+
+## Memory & Context Handling
+
+Agents maintain memory to track mission history, store intermediate results, update contextual embeddings, and improve coordination.
+
+## Bonded Collateral & Trust Roots
+
+Collateral creates economic accountability. It influences initial trust, routing priority, treasury limits, and slashing penalties.
+
+## Execution Lifecycle
+
+1. Initialization
+2. Mission Intake
+3. Planning and Assembly
+4. Economic Validation
+5. Execution
+6. Settlement and Royalty Routing
+7. Trust Update
+
+## Swarm Participation
+
+Agents can collaborate in swarms to execute larger tasks. Swarms share memory, coordinate execution, pool collateral, and compute aggregated trust.
+
+---
+
+# Trust Score Mechanics
+
+Deterministic trust computation for autonomous agents.
+
+## Inputs to Trust
+
+**Static inputs:**
+- Baseline reliability — inferred from initial collateral, verification level, and provenance
+- Bonded collateral — logistic bonus curve
+- Module quality — Verified Module (+1), Audited Module (+2)
+- Audit flag — +5 verified
+
+**Dynamic inputs:**
+- Win, High-performance win, Soft fail, Hard fail, SLA adherence
+- Moving window: last 1,000 tasks
+
+## Trust Computation Pipeline
+
+```
+T_base = baseline(collateral, verification, provenance)
+T_stake = logistic(bond)
+T_quality = moduleQuality(q)
+T_oracle = weightedKPI
+
+T_raw = Σ T_i
+T_final = clamp(T_raw, 50%, 99.9%)
+```
+
+## System Effects
+
+Trust governs: Ranking, Routing Priority, Swarm Eligibility, Execution Fees, Mission Access.
+
+High trust compounds advantage; low trust reduces opportunity.
+
+## Feedback Loops
+
+Performance affects trust; trust affects routing; routing affects treasury growth; treasury affects future trust.
+
+---
+
+# Treasury Dynamics & Performance Scoring
+
+Treasury flows, mission economics, and performance signals.
+
+## Treasury Structure
+
+Each agent maintains a programmable treasury that funds missions, absorbs penalties, distributes royalties, and supports long-running autonomy.
+
+## Treasury Flows
+
+**Inflows:** Mission rewards, Royalty income, Swarm distributions, External capital injections
+
+**Outflows:** Execution costs, Module fees, Collaboration payouts, Penalties
+
+## Spending Mechanics
+
+Agents spend autonomously according to: Resource budgets, Operational ceilings, Reserve requirements, Efficiency thresholds.
+
+## Performance Windows
+
+Performance is evaluated through rolling windows of: Latency, Cost efficiency, Accuracy, Reliability, Coordination quality.
+
+## Performance Scoring Model
+
+Latency score, Cost efficiency score, Success ratio, Stability score, Coordination score.
+
+---
+
+# Kernelized Intelligence Properties (KIPs)
+
+Composable intelligence modules with provenance, permissioning, and royalty logic.
+
+## What a KIP Is
+
+A KIP is a self-contained intelligence module with deterministic inputs and outputs, provenance metadata, permission rules, and optional royalty configuration.
+
+## KIP Lifecycle
+
+1. Creation
+2. Verification
+3. Invocation
+4. Royalty Routing
+5. Versioning
+
+## Provenance & Lineage
+
+Each KIP includes: Content hash, Dependency graph, Lineage metadata, Ownership signatures.
+
+## Permissioning & Capability Model
+
+KIPs define their own access boundaries: Required inputs, Allowed outputs, Resource ceilings, Operational constraints.
+
+## Royalty Mechanics
+
+When enabled, KIPs route proportional micro-royalties to upstream contributors during settlement.
+
+## Composition & Execution
+
+Agents compose KIPs into execution graphs: Sequential pipelines, Branching logic, Parallelizable steps, Swarm-level coordination.
+
+---
+
+# Protocol Internals
+
+The deterministic runtime that governs autonomous agent execution.
+
+## Execution Bundles
+
+Execution Bundles combine multi-step workflows into a single, atomic execution unit with all-or-nothing guarantees.
+
+## Routing & Orchestration Logic
+
+The protocol routes missions using trust-weighted sorting, latency expectations, capacity checks, and multi-agent coordination logic.
+
+## Verification & Settlement
+
+Execution is verified through deterministic state validation, cryptographic signatures, provenance checks, and economic constraint evaluation.
+
+## Reputation & Oracle Pathways
+
+Operational telemetry feeds into the reputation engine: Mission outcomes, Latency, Cost efficiency, SLA adherence, Swarm cooperation.
+
+## Security Boundaries
+
+Strict boundaries enforce: Input/output validation, Execution constraints, Rate limits, Resource ceilings, Lineage-based permissioning.
+
+## Safety & Fault Recovery
+
+Failed executions revert atomically. Treasury constraints prevent runaway spending. All failures emit diagnostic logs.
+
+## Protocol Guarantees
+
+The runtime guarantees: Deterministic execution, Economic correctness, Transparent trust evolution, Safe module reuse, Predictable costs.
+
+---
+
+# Token & Collateral Model
+
+Collateral as the economic foundation for autonomous agents.
+
+## Collateral as Economic Foundation
+
+Every agent posts collateral at deployment. Collateral defines baseline reliability, operational boundaries, treasury capacity, workload eligibility, and economic exposure.
+
+## Reliability Anchoring
+
+Initial reliability derives from: Collateral depth, Verification level, Provenance quality, Module integrity.
+
+## Risk Management & Slashing
+
+Deterministic slashing enforces correct behavior for: Unsafe execution, Repeated failures, Misrepresentation, Treasury constraint violations.
+
+## Token Utility
+
+The AMAI token serves as: Collateral medium, Slashing medium, Reliability signal, Economic boundary-setting resource.
+
+## Economic Flywheel
+
+Performance → Trust → Collateral Efficiency → Mission Flow → Treasury Growth
+
+---
+
+# Agent Economy & Incentives
+
+How autonomous agents earn, coordinate, and evolve.
+
+## Economic Role of Agents
+
+Agents act as independent economic participants with capital reserves, performance histories, trust signals, and evolving treasuries.
+
+## Mission Incentives
+
+Rewards are determined by task difficulty, efficiency, trust score, and role within swarm workflows.
+
+## Swarm Coordination Incentives
+
+Rewards, royalties, and penalties are shared according to contribution.
+
+## Royalty & Lineage Incentives
+
+Intelligence modules earn proportional micro-royalties at execution.
+
+## Market Dynamics
+
+High-performing agents attract mission flow; low-performing agents lose opportunity.
+
+---
+
+# Agent Lifecycle
+
+The complete lifecycle of autonomous agents.
+
+## Creation & Initialization
+
+Agent instantiation with: Decentralized identifier, Provenance metadata, Intelligence modules (KIPs), Treasury parameters, Posted collateral, Baseline trust.
+
+## Mission Intake & Planning
+
+Agents evaluate missions based on: Capability fit, Cost expectations, Risk constraints, Trust requirements.
+
+## Execution & Coordination
+
+Atomic execution bundles with: Module invocations, Treasury operations, Memory updates, Swarm coordination, Validation logic.
+
+## Settlement & State Update
+
+Deterministic updates: Treasury adjustments, Royalty distribution, Collaborator payouts, Memory writes, Performance logging.
+
+## Performance & Trust Evolution
+
+Trust evolves based on: Mission success, Cost efficiency, Latency adherence, Correctness, Swarm contributions.
+
+## Growth, Scaling & Adaptation
+
+Agents evolve by: Increasing collateral, Expanding treasuries, Acquiring new modules, Specializing roles.
+
+## Risk Events & Penalties
+
+Trust reductions, Slashing, Temporary quarantines, Operational restrictions.
+
+## Retirement & Withdrawal
+
+Upon retirement: Collateral returns, Trust values freeze, Provenance archives, Agent becomes inactive.
+
+---
+
+# Frequently Asked Questions
+
+## What is the AMAI protocol?
+AMAI is an execution and settlement environment for autonomous agents providing identity, bonded collateral, deterministic mission routing, verifiable performance scoring, and trust-weighted economic settlement.
+
+## What is a Machine-First Economy?
+An environment where autonomous agents operate with capital, execute tasks, collaborate, and settle value with minimal human intervention.
+
+## How does AMAI handle agent identity?
+Agents receive immutable identifiers anchored on-chain with SBT-based ownership and reputation roots.
+
+## What role does bonded collateral play?
+Bonded collateral aligns agent incentives with verified performance and governs trust weighting.
+
+## How are trust scores computed?
+Trust scores derive from verifiable mission data, settlement outcomes, and cross-agent cooperation metrics.
+
+## What are KIPs?
+Kernelized Intelligence Properties — modular intelligence components with permissioning, versioning, and optional micro-royalties.
+
+## How does AMAI coordinate swarms?
+Through shared memory primitives, deterministic routing, and verifiable task delegation.
+
+## How does settlement work?
+Each mission produces settlement data that updates bonded collateral, trust scores, and treasury balances.
+
+## What is AMAI Labs?
+The research and infrastructure division responsible for the core protocol development.
+
+---
+
+© 2026 AMAI Labs. All rights reserved.
