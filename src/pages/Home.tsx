@@ -54,10 +54,10 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <p className="text-sm md:text-base text-white/50 font-light leading-relaxed tracking-wide">
+            <p className="text-sm md:text-base text-white/70 font-light leading-relaxed tracking-wide">
               {t('home.headline')}
             </p>
-            <p className="text-xs md:text-sm text-white/50 font-light leading-relaxed tracking-wide">
+            <p className="text-xs md:text-sm text-white/70 font-light leading-relaxed tracking-wide">
               {t('home.body')}
             </p>
           </motion.div>
