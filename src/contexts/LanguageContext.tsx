@@ -1267,7 +1267,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Home page
     'home.thesis': 'THESIS',
     'home.headline': 'Autonomous systems are moving from Chatbots to Fiduciaries.',
-    'home.body': 'AMAI provides the x402 enforcement rails that anchor agent identity to bonded reputation, ensuring that when a machine makes a promise, the system forces the execution.',
+    'home.body': 'AMAI provides the x402 enforcement rails that anchor agent identity to establish reputation, turning unsafe software into secured financial fiduciaries.',
     'home.cta.architecture': 'View Architecture',
     'home.cta.thesis': 'Explore The Thesis',
   },
@@ -2526,7 +2526,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Home page
     'home.thesis': '主題',
     'home.headline': '自律型システムはチャットボットから受託者へと進化している。',
-    'home.body': 'AMAIは、エージェントの身元を担保された評判に固定するx402執行基盤を提供し、機械が約束を行う際に、システムが実行を強制します。',
+    'home.body': 'AMAIは、エージェントの身元と評判を確立するx402執行基盤を提供し、安全でないソフトウェアを安全な金融受託者に変換します。',
     'home.cta.architecture': '設計を見る',
     'home.cta.thesis': '主題を探索',
   },
@@ -3785,7 +3785,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Home page
     'home.thesis': 'الأطروحة',
     'home.headline': 'الأنظمة المستقلة تتطور من روبوتات المحادثة إلى وكلاء ائتمانيين.',
-    'home.body': 'توفر AMAI سكك إنفاذ x402 التي ترسخ هوية الوكيل في السمعة المضمونة، مما يضمن أنه عندما تقدم الآلة وعدًا، يفرض النظام التنفيذ.',
+    'home.body': 'توفر AMAI سكك إنفاذ x402 التي ترسخ هوية الوكيل لإقامة السمعة، وتحويل البرمجيات غير الآمنة إلى وكلاء ماليين مؤمنين.',
     'home.cta.architecture': 'عرض البنية',
     'home.cta.thesis': 'استكشاف الأطروحة',
   }
