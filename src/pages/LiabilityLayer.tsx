@@ -922,7 +922,7 @@ const LiabilityLayer = () => {
                 Watch Demo Video
               </a>
               <a
-                href="/"
+                href="/system-architecture"
                 className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
               >
                 {t('liability.slide12.cta1')} <span>→</span>
