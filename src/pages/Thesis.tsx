@@ -1054,7 +1054,7 @@ const Thesis = () => {
             <a href="https://youtu.be/qLEnRNELErg" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-white/10 border border-white/30 rounded text-xs tracking-[0.15em] uppercase text-white hover:bg-white/20 hover:border-white/50 transition-all duration-300">
               Watch Demo Video
             </a>
-            <a href="/" className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300">
+            <a href="/system-architecture" className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300">
               {t('tether.slide13.cta2')}<span>{isRTL ? '←' : '→'}</span>
             </a>
           </motion.div>
