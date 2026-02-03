@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { useIsMobile } from '@/hooks/use-mobile';
 
-const TRUST_FORMULA_PASSWORD = 'amai-protocol-2847';
+const TRUST_FORMULA_PASSWORD = 'amai-spec-4821';
 
 // Simplified animation variants for better mobile performance
 const fadeInVariants = {
