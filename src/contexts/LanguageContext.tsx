@@ -1156,7 +1156,7 @@ const translations: Record<Language, Record<string, string>> = {
     'briefing.slide13.cta3': 'Contact',
     
     // Liability Layer Page
-    'liability.footer': 'AMAI Protocol v2.0 — The Liability Layer',
+    'liability.footer': 'AMAI Protocol v2.0',
     'liability.slide1.label': '01 // THE THESIS',
     'liability.slide1.headline1': 'The Insurance Layer',
     'liability.slide1.headline2': 'for the Agentic Web.',
@@ -2415,7 +2415,7 @@ const translations: Record<Language, Record<string, string>> = {
     'briefing.slide13.cta3': '連絡',
     
     // Liability Layer Page (Japanese)
-    'liability.footer': 'AMAI Protocol v2.0 — 責任層',
+    'liability.footer': 'AMAI Protocol v2.0',
     'liability.slide1.label': '01 // 論旨',
     'liability.slide1.headline1': '保険層',
     'liability.slide1.headline2': 'エージェント経済のための。',
@@ -3674,7 +3674,7 @@ const translations: Record<Language, Record<string, string>> = {
     'briefing.slide13.cta3': 'اتصال',
     
     // Liability Layer Page (Arabic)
-    'liability.footer': 'AMAI Protocol v2.0 — طبقة المسؤولية',
+    'liability.footer': 'AMAI Protocol v2.0',
     'liability.slide1.label': '01 // الأطروحة',
     'liability.slide1.headline1': 'طبقة التأمين',
     'liability.slide1.headline2': 'للويب الوكيلي.',
