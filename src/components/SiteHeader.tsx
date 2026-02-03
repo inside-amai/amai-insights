@@ -37,7 +37,7 @@ const CopyEmailButton = () => {
 export const SiteHeader = () => {
   const { language, setLanguage } = useLanguage();
   const location = useLocation();
-  const isDeckPage = location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/briefing' || location.pathname === '/liability-layer' || location.pathname === '/thesis';
+  const isDeckPage = location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/briefing' || location.pathname === '/liability-layer';
   const isThesisPage = location.pathname === '/thesis';
 
   const handleContactClick = () => {
@@ -61,7 +61,7 @@ export const SiteHeader = () => {
         <div className={`flex items-center ${isDeckPage ? 'justify-center' : 'justify-between'}`}>
           {/* Logo + Site Title - Hidden on /deck page */}
           {!isDeckPage && (
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 flex-shrink-0">
               <a 
                 href="https://amai.net" 
                 className="pointer-events-auto flex-shrink-0"
@@ -85,13 +85,13 @@ export const SiteHeader = () => {
           )}
 
           {/* Navigation + Language Selector */}
-          <div className="pointer-events-auto flex items-center gap-4 text-[11px] tracking-wide">
-            {/* Contact Link - hidden on /deck and /tether */}
+          <div className="pointer-events-auto flex items-center gap-2 sm:gap-4 text-[11px] tracking-wide flex-shrink-0 whitespace-nowrap">
+            {/* Contact Link - hidden on /deck and /tether, hidden on mobile */}
             {!isDeckPage && (
               <a 
                 href="mailto:team@amai.net?subject=Mission%20Briefing%20%2F%2F%20%5BOrganization%20Name%5D&body=To%20the%20AMAI%20Labs%20Team%2C%0A%0AWe%20are%20reaching%20out%20regarding%20the%20%5BThesis%20%2F%20Architecture%5D.%0A%0AName%3A%20%0AOrganization%3A%20%0AIntent%3A%20"
                 onClick={handleContactClick}
-                className="text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase"
+                className="hidden sm:block text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase"
               >
                 Contact
               </a>
