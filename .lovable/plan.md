@@ -1,60 +1,69 @@
 
-## Fix Header Logo Display on /thesis and Ensure Consistent Formatting
+## Fix Header for /thesis and Ensure Responsive Formatting
 
-### Problem
-On the `/thesis` page, the AMAI logo appears in the header when the browser window is not fully expanded. This causes layout issues. The same problem may affect `/system-architecture` and other pages.
+### Problem Summary
+1. **`/thesis` has wrong header**: My previous fix incorrectly added `/thesis` to `isDeckPage`, which hides the logo and navigation. The user wants `/thesis` to have the same full header as `/system-architecture`.
+2. **Responsive layout issues**: On smaller screens, the header elements can overflow and cause layout problems.
 
-### Root Cause Analysis
-In `SiteHeader.tsx`:
-- The `isDeckPage` check includes `/deck`, `/tether`, `/briefing`, `/liability-layer` but **excludes** `/thesis`
-- When `isDeckPage` is false, the logo and branding text are displayed
-- On smaller screens, the flex container doesn't have enough space for both logo section and navigation, causing layout breaks
+### Root Cause
+In `SiteHeader.tsx` line 40:
+```tsx
+const isDeckPage = location.pathname === '/deck' || location.pathname === '/tether' || 
+                   location.pathname === '/briefing' || location.pathname === '/liability-layer' || 
+                   location.pathname === '/thesis';  // <-- This is WRONG
+```
+
+The `/thesis` route was incorrectly added to `isDeckPage`, but it should have a full header like `/system-architecture`.
 
 ### Solution
 
-#### 1. Update SiteHeader.tsx to handle /thesis properly
-Add `/thesis` to the list of presentation routes where the logo should be hidden, or add mobile-specific hiding for the logo on `/thesis`.
+#### 1. Remove `/thesis` from `isDeckPage`
+Revert the change so `/thesis` shows the full header with logo, branding text, and navigation links:
 
-**Option A (Recommended)**: Hide logo on `/thesis` entirely (matching other presentation pages):
 ```tsx
-// Line 40: Add /thesis to isDeckPage check
 const isDeckPage = location.pathname === '/deck' || 
                    location.pathname === '/tether' || 
                    location.pathname === '/briefing' || 
-                   location.pathname === '/liability-layer' ||
-                   location.pathname === '/thesis';
+                   location.pathname === '/liability-layer';
 ```
 
-**Option B**: Hide logo only on mobile for `/thesis`:
+#### 2. Add responsive safeguards to prevent layout breaking
+Make the header flex container more robust at smaller screen sizes:
+
+- **Logo container**: Add `flex-shrink-0` to prevent the logo from shrinking
+- **Branding text**: Already uses `hidden sm:block` - keep this
+- **Navigation container**: Add `flex-shrink-0` and `whitespace-nowrap` to prevent wrapping
+- **Header wrapper**: Ensure proper flex behavior with `flex-wrap: nowrap` or use overflow handling
+
+#### 3. Consider hiding nav links on very small mobile screens
+If space is constrained, hide some nav items on mobile:
+
 ```tsx
-// Add conditional mobile hiding for the logo container
-{!isDeckPage && !(isThesisPage && isMobile) && (
-  <div className="flex items-center gap-4">
-    ...
-  </div>
+{!isDeckPage && (
+  <a 
+    href="mailto:..."
+    className="hidden sm:block text-white/60 hover:text-white/90..."
+  >
+    Contact
+  </a>
 )}
 ```
 
-#### 2. Add responsive safeguards to navigation
-Ensure the navigation items don't wrap or overflow on smaller screens by adding appropriate flex utilities:
-
-```tsx
-// Line 88: Add overflow and wrapping protection
-<div className="pointer-events-auto flex items-center gap-4 text-[11px] tracking-wide flex-shrink-0">
-```
-
-#### 3. Ensure consistent behavior across all presentation pages
-The following pages should be checked to ensure consistent header behavior:
-- `/thesis` - presentation, should hide logo
-- `/system-architecture` - documentation, logo should show but not break
-- `/deck`, `/tether`, `/briefing`, `/liability-layer` - presentations, already hide logo
-
 ### Files to Modify
+
 | File | Change |
 |------|--------|
-| `src/components/SiteHeader.tsx` | Add `/thesis` to `isDeckPage` check to hide logo on presentation pages |
+| `src/components/SiteHeader.tsx` | Remove `/thesis` from `isDeckPage`, add responsive utilities |
 
-### Technical Details
-The fix involves a single-line change to add `/thesis` to the `isDeckPage` route check. This ensures the `/thesis` presentation page matches the behavior of other presentation routes (`/deck`, `/tether`, `/briefing`, `/liability-layer`) where the logo and branding text are hidden.
+### Technical Implementation Details
 
-This is consistent with the existing design pattern where presentation-style pages (scrolling slide decks) have a minimal header, while documentation pages retain the full header with logo.
+The fix involves:
+1. Line 40: Remove `/thesis` from the `isDeckPage` check
+2. Line 64: Add `flex-shrink-0` to logo container 
+3. Line 88: Add `flex-shrink-0` to navigation container
+4. Potentially hide "Contact" link on mobile to reduce crowding
+
+This ensures:
+- `/thesis` has the same header as `/system-architecture` (logo + branding + nav)
+- Header doesn't break at smaller viewport sizes
+- Presentation pages (`/deck`, `/tether`, `/briefing`, `/liability-layer`) maintain minimal header
