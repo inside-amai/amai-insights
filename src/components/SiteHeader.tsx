@@ -40,6 +40,13 @@ export const SiteHeader = () => {
   const isDeckPage = location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/briefing' || location.pathname === '/liability-layer';
   const isThesisPage = location.pathname === '/thesis';
 
+  // Cycle through languages on mobile tap
+  const cycleLanguage = () => {
+    const currentIndex = languages.findIndex(l => l.code === language);
+    const nextIndex = (currentIndex + 1) % languages.length;
+    setLanguage(languages[nextIndex].code);
+  };
+
   const handleContactClick = () => {
     // Show toast after a brief delay to allow mailto to attempt opening
     setTimeout(() => {
@@ -101,20 +108,23 @@ export const SiteHeader = () => {
             {!isDeckPage && (
               <Link 
                 to={isThesisPage ? "/system-architecture" : "/thesis"}
-                className="text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase"
+                className="text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase mr-1 sm:mr-0"
               >
                 {isThesisPage ? "View Architecture" : "Explore The Thesis"}
               </Link>
             )}
             
             {/* Language Selector - Compact on mobile, full on desktop */}
-            {/* Mobile: Globe icon + current language code */}
-            <div className="sm:hidden flex items-center gap-1 text-white/60">
+            {/* Mobile: Globe icon + current language code - tappable to cycle */}
+            <button 
+              onClick={cycleLanguage}
+              className="sm:hidden flex items-center gap-1 text-white/60 hover:text-white/90 transition-opacity"
+            >
               <Globe className="h-3.5 w-3.5" />
               <span className="text-[10px] tracking-wider uppercase">
                 {language.toUpperCase()}
               </span>
-            </div>
+            </button>
             
             {/* Desktop: Full language selector */}
             <div className="hidden sm:flex items-center gap-1">
