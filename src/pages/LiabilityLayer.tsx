@@ -152,7 +152,7 @@ const LiabilityLayer = () => {
             <motion.img
               src={amaiLogo}
               alt="AMAI Labs"
-              className="h-10 md:h-20 w-auto brightness-110 mb-12 md:mb-24"
+              className="h-10 md:h-20 w-auto brightness-110 mt-8 md:mt-0 mb-12 md:mb-24"
               initial={isMobile ? { opacity: 0 } : { opacity: 0, scale: 0.8 }}
               animate={isMobile ? { opacity: 1 } : { opacity: 1, scale: 1 }}
               transition={{ duration: isMobile ? 0.3 : 0.8, delay: isMobile ? 0.1 : 0.2 }}
