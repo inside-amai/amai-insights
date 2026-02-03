@@ -1,7 +1,7 @@
 import { useLanguage, Language } from '@/contexts/LanguageContext';
 import { Link, useLocation } from 'react-router-dom';
 import { toast } from '@/hooks/use-toast';
-import { Copy, Check } from 'lucide-react';
+import { Copy, Check, Globe } from 'lucide-react';
 import { useState } from 'react';
 import headerIcon from '@/assets/amai-header-icon.png';
 
@@ -107,8 +107,17 @@ export const SiteHeader = () => {
               </Link>
             )}
             
-            {/* Language Selector */}
-            <div className="flex items-center gap-1">
+            {/* Language Selector - Compact on mobile, full on desktop */}
+            {/* Mobile: Globe icon + current language code */}
+            <div className="sm:hidden flex items-center gap-1 text-white/60">
+              <Globe className="h-3.5 w-3.5" />
+              <span className="text-[10px] tracking-wider uppercase">
+                {language.toUpperCase()}
+              </span>
+            </div>
+            
+            {/* Desktop: Full language selector */}
+            <div className="hidden sm:flex items-center gap-1">
               {languages.map((lang, index) => (
                 <span key={lang.code} className="flex items-center">
                   <button
