@@ -6,7 +6,7 @@ export const ExplainerHero = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="min-h-[85vh] flex items-center snap-start relative overflow-hidden">
+    <section className="min-h-[85vh] flex items-center snap-start relative overflow-hidden pt-20 md:pt-24">
       {/* Subtle blueprint background */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Faint grid lines */}
