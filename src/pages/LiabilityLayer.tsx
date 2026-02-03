@@ -141,7 +141,7 @@ const LiabilityLayer = () => {
         )}
 
         {/* Slide 1: The Thesis */}
-        <Slide align="left" slideNumber={1} isRTL={isRTL} footerText={t('liability.footer')}>
+        <Slide align="left" slideNumber={1} isRTL={isRTL} footerText={t('liability.footer')} className="pt-20 md:pt-24">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
