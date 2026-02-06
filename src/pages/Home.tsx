@@ -88,7 +88,7 @@ const Home = () => {
           <p className="text-muted-foreground text-sm font-light tracking-wide">
             {t('footer.company')}
           </p>
-          <p className="text-muted-foreground/60 text-xs font-light tracking-wide">
+          <p className="text-muted-foreground/60 text-[10px] font-light tracking-wide">
             {t('footer.copyright')}
           </p>
         </div>
