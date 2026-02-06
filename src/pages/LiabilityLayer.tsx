@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, useScroll, AnimatePresence, LazyMotion, domAnimation } from "framer-motion";
-import amaiLogo from "@/assets/amai-logo-hero-new.png";
+import amaiLogo from "@/assets/amai-logo-tm.png";
 import terminalPreview1 from "@/assets/terminal-preview-1.png";
 import terminalPreview2 from "@/assets/terminal-preview-2.png";
 import { useIsMobile } from "@/hooks/use-mobile";
