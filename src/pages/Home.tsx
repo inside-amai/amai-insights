@@ -37,14 +37,14 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           />
 
-          {/* THESIS Label */}
+          {/* Headline */}
           <motion.p
-            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-4"
+            className="text-base md:text-lg text-white/70 font-light leading-relaxed tracking-wide"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            {t('home.thesis')}
+            {t('home.headline')}
           </motion.p>
 
           {/* Body Text */}
@@ -54,12 +54,6 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <p className="text-sm md:text-base text-white/70 font-light leading-relaxed tracking-wide">
-              {t('home.headline')}
-            </p>
-            <p className="text-xs md:text-sm text-white/70 font-light leading-relaxed tracking-wide">
-              {t('home.body1')}
-            </p>
             <p className="text-xs md:text-sm text-white/70 font-light leading-relaxed tracking-wide">
               {t('home.body')}
             </p>
