@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import amaiLogo from '@/assets/amai-logo-home.png';
+import amaiLogo from '@/assets/amai-logo-hero-v2.png';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export const ExplainerHero = () => {
