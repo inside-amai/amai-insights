@@ -7,6 +7,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { X, Copy, Check } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Footer } from "@/components/Footer";
 
 interface SlideProps {
   children: React.ReactNode;
@@ -995,6 +996,9 @@ const LiabilityLayer = () => {
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* Footer */}
+        <Footer transparent />
       </div>
     </LazyMotion>
   );

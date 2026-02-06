@@ -202,7 +202,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Footer
     'footer.company': 'AMAI Labs · Infrastructure & Research',
-    'footer.copyright': '© 2026 AMAI Labs. All rights reserved.',
+    'footer.copyright': '© 2026 AMAI Labs Inc. • DE: 10494625 • Infrastructure & Research',
     
     // System Overview Page (SummaryVision)
     'overview.breadcrumb': 'Documentation / Overview',
@@ -1464,7 +1464,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Footer
     'footer.company': 'AMAI Labs · 基盤研究開発',
-    'footer.copyright': '© 2026 AMAI Labs. All rights reserved.',
+    'footer.copyright': '© 2026 AMAI Labs Inc. • DE: 10494625 • Infrastructure & Research',
     
     // System Overview Page (SummaryVision)
     'overview.breadcrumb': '文書 / 概要',
@@ -2723,7 +2723,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Footer
     'footer.company': 'AMAI Labs · البنية التحتية والأبحاث',
-    'footer.copyright': '© 2026 AMAI Labs. جميع الحقوق محفوظة.',
+    'footer.copyright': '© 2026 AMAI Labs Inc. • DE: 10494625 • Infrastructure & Research',
     
     // System Overview Page (SummaryVision)
     'overview.breadcrumb': 'الوثائق / النظرة الشاملة',
