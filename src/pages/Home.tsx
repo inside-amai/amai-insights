@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import amaiLogo from "@/assets/amai-logo-hero-new.png";
+import amaiLogo from "@/assets/amai-logo-home.png";
 import homeBg from "@/assets/home-grid-bg.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useIsMobile } from "@/hooks/use-mobile";
