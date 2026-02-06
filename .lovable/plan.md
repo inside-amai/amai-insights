@@ -1,34 +1,42 @@
 
 
-# Fix: Logo Not Updating on /thesis Page
+# Fix: Force Logo Update on /thesis via Cache-Busting Filename
 
-## Problem
-The `/thesis` page is not displaying the updated logo with the TM mark. Investigation reveals:
-- The code in `Thesis.tsx` line 3 correctly imports `amai-logo-hero-v2.png`
-- However, the browser network tab shows it's loading `amai-logo-hero-new.png` instead, suggesting a stale build
-- The logo element also uses `h-10 md:h-20` which could clip the TM superscript if the image has extra vertical space for it
+## Root Cause
+Confirmed via network inspector: the `/thesis` page is fetching `amai-logo-hero-new.png` (the old file) even though the source code says `amai-logo-hero-v2.png`. This is a Vite dev server module cache issue -- the import resolution is stale for this specific file. The home page and /system-architecture work because their modules were freshly invalidated.
 
 ## Solution
-Re-apply the import to force a fresh build, and ensure the `<img>` element won't clip any content that extends beyond the standard bounding box.
+Use a completely new filename that has never been used before, bypassing any cached resolution.
 
-## Technical Details
+## Steps
 
-### File: `src/pages/Thesis.tsx`
+### 1. Copy the uploaded logo to a fresh filename
+- Copy the current `src/assets/amai-logo-hero-v2.png` to a new file: `src/assets/amai-logo-tm.png`
+- This ensures a filename that has zero cache history in Vite's module graph
 
-1. **Re-write the logo import** (line 3) to ensure the build picks up the correct file:
-   ```tsx
-   import amaiLogo from "@/assets/amai-logo-hero-v2.png";
-   ```
-   This is already set, but will be re-applied to trigger a rebuild.
+### 2. Update all three pages to import the new filename
+This ensures consistency and prevents this issue from recurring on any page.
 
-2. **Add `object-contain` and `overflow-visible`** to the logo `<img>` element (line 110) to prevent any clipping of the TM mark:
-   ```tsx
-   className="h-10 md:h-20 w-auto object-contain brightness-110 mt-8 md:mt-0 mb-12 md:mb-24"
-   ```
+**`src/pages/Home.tsx`** (line 3):
+```tsx
+import amaiLogo from "@/assets/amai-logo-tm.png";
+```
 
-3. **Match sizing with home page** -- the home page uses `h-12 md:h-20`, while thesis uses `h-10 md:h-20`. Update to `h-12` for consistency on mobile.
+**`src/pages/Thesis.tsx`** (line 3):
+```tsx
+import amaiLogo from "@/assets/amai-logo-tm.png";
+```
 
-### Scope
-- Only `src/pages/Thesis.tsx` needs changes
-- No other pages affected (home and /system-architecture already working)
+**`src/components/ExplainerHero.tsx`** (line 2):
+```tsx
+import amaiLogo from '@/assets/amai-logo-tm.png';
+```
 
+### 3. No other changes needed
+- Logo sizing and styling remain unchanged
+- No layout or structural changes required
+
+## Scope
+- 1 new asset file (copy of existing)
+- 3 import line changes (one per page)
+- Zero visual or layout changes -- only the filename changes to force a fresh module resolution
