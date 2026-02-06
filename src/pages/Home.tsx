@@ -58,6 +58,9 @@ const Home = () => {
               {t('home.headline')}
             </p>
             <p className="text-xs md:text-sm text-white/70 font-light leading-relaxed tracking-wide">
+              {t('home.body1')}
+            </p>
+            <p className="text-xs md:text-sm text-white/70 font-light leading-relaxed tracking-wide">
               {t('home.body')}
             </p>
           </motion.div>
