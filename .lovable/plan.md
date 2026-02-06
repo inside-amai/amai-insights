@@ -1,42 +1,37 @@
 
 
-# Fix: Force Logo Update on /thesis via Cache-Busting Filename
+# Fix: Update Logo in the CORRECT File -- LiabilityLayer.tsx
 
 ## Root Cause
-Confirmed via network inspector: the `/thesis` page is fetching `amai-logo-hero-new.png` (the old file) even though the source code says `amai-logo-hero-v2.png`. This is a Vite dev server module cache issue -- the import resolution is stale for this specific file. The home page and /system-architecture work because their modules were freshly invalidated.
 
-## Solution
-Use a completely new filename that has never been used before, bypassing any cached resolution.
+The routing in `App.tsx` (lines 123-125) has the routes swapped:
+- `/thesis` renders **`LiabilityLayer`** (not `Thesis`)
+- `/liability-layer` renders **`Thesis`** (not `LiabilityLayer`)
 
-## Steps
+Every previous attempt updated `Thesis.tsx`, but that file is rendered at `/liability-layer`, not `/thesis`. The file that actually renders at `/thesis` is `LiabilityLayer.tsx`, and it still imports the OLD logo on line 3:
 
-### 1. Copy the uploaded logo to a fresh filename
-- Copy the current `src/assets/amai-logo-hero-v2.png` to a new file: `src/assets/amai-logo-tm.png`
-- This ensures a filename that has zero cache history in Vite's module graph
+```
+import amaiLogo from "@/assets/amai-logo-hero-new.png";
+```
 
-### 2. Update all three pages to import the new filename
-This ensures consistency and prevents this issue from recurring on any page.
+This is why home and /system-architecture worked (they were correctly updated) but /thesis never changed.
 
-**`src/pages/Home.tsx`** (line 3):
-```tsx
+## Fix
+
+One single line change in `src/pages/LiabilityLayer.tsx`, line 3:
+
+**Before:**
+```
+import amaiLogo from "@/assets/amai-logo-hero-new.png";
+```
+
+**After:**
+```
 import amaiLogo from "@/assets/amai-logo-tm.png";
 ```
 
-**`src/pages/Thesis.tsx`** (line 3):
-```tsx
-import amaiLogo from "@/assets/amai-logo-tm.png";
-```
-
-**`src/components/ExplainerHero.tsx`** (line 2):
-```tsx
-import amaiLogo from '@/assets/amai-logo-tm.png';
-```
-
-### 3. No other changes needed
-- Logo sizing and styling remain unchanged
-- No layout or structural changes required
+No other changes needed. The logo element styling in `LiabilityLayer.tsx` already has appropriate sizing (`h-12 md:h-16 lg:h-20`).
 
 ## Scope
-- 1 new asset file (copy of existing)
-- 3 import line changes (one per page)
-- Zero visual or layout changes -- only the filename changes to force a fresh module resolution
+- 1 file changed: `src/pages/LiabilityLayer.tsx` (line 3 only)
+- Zero layout or styling changes
