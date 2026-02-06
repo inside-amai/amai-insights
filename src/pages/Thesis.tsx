@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { motion, useScroll } from "framer-motion";
-import amaiLogo from "@/assets/amai-logo-hero-new.png";
+import amaiLogo from "@/assets/amai-logo-home.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useIsMobile } from "@/hooks/use-mobile";
 import TetherPartnershipVisualization from "@/components/TetherPartnershipVisualization";
