@@ -39,7 +39,7 @@ const Home = () => {
 
           {/* Headline */}
           <motion.p
-            className="text-base md:text-lg text-white/70 font-light leading-relaxed tracking-wide"
+            className="text-base md:text-lg text-white/70 font-light leading-relaxed tracking-wide mb-6"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -49,7 +49,7 @@ const Home = () => {
 
           {/* Body Text */}
           <motion.div
-            className="space-y-6 mb-8 md:mb-10 max-w-xl mx-auto"
+            className="mb-8 md:mb-10 max-w-xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
