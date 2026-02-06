@@ -1267,7 +1267,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Home page
     'home.thesis': 'THESIS',
     'home.headline': 'From Chatbots to Fiduciaries.',
-    'home.body': 'Autonomous software is currently "unsafe" and lacks the identity to be trusted with money. AMAI provides the x402 trust layer that makes them accountable.',
+    'home.body': 'Autonomous software is currently unsafe and lacks the identity to be trusted with money. AMAI provides the x402 trust layer that makes them accountable.',
     'home.cta.architecture': 'View Architecture',
     'home.cta.thesis': 'Explore The Thesis',
   },
