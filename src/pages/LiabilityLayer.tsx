@@ -795,7 +795,7 @@ const LiabilityLayer = () => {
               <div className="flex items-start gap-4">
                 <span className="text-white/30 text-sm font-medium mt-0.5 w-4">1.</span>
                 <p className="text-base text-white/50 font-light leading-relaxed">
-                  <span className="text-white/80 font-medium">The 30:70 Anchor:</span> By forcing agents to hold 70% USDC, the bond remains solvent even if the AMAI token creates volatility.
+                  <span className="text-white/80 font-medium">The 30:70 Anchor:</span> By forcing agents to hold 70% USDC, the bond remains solvent.
                 </p>
               </div>
               <div className="flex items-start gap-4">
