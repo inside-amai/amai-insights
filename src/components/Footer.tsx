@@ -115,9 +115,12 @@ export const Footer = ({ transparent = false }: FooterProps) => {
                   </button>
                 </li>
                 <li>
-                  <span className="text-sm text-white/25 font-light cursor-default">
+                  <Link
+                    to="/legal"
+                    className="text-sm text-white/50 hover:text-white transition-colors duration-200 font-light"
+                  >
                     {t('footer.nav.legalPrivacy')}
-                  </span>
+                  </Link>
                 </li>
               </ul>
             </div>
