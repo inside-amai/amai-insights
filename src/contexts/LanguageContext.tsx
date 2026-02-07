@@ -137,7 +137,7 @@ const translations: Record<Language, Record<string, string>> = {
     'docs.card7.category': 'EXECUTION',
     'docs.card7.title': 'Protocol Internals',
     'docs.card7.subtitle': 'Settlement logic, oracle routing, security boundaries, and performance benchmarks.',
-    'docs.card8.category': 'MODEL',
+    'docs.card8.category': 'TRUST UNIT',
     'docs.card8.title': 'AMAI & Collateral Model',
     'docs.card8.subtitle': 'Utility functions, bonding mechanics, and trust-weighted allocation across the AMAI network.',
     'docs.card9.category': 'INCENTIVES',
