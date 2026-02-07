@@ -1171,7 +1171,7 @@ const translations: Record<Language, Record<string, string>> = {
     'liability.slide2.risk2.desc': 'You cannot sue an LLM. You cannot punish a server. Because there is no recourse, institutional capital cannot deploy autonomous agents.',
     'liability.slide2.closing': 'Without an enforcement layer, agents remain toys. They are uninsurable.',
     'liability.slide3.label': '03 // THE SOLUTION',
-    'liability.slide3.headline': 'Programmatic Trust & Liability.',
+    'liability.slide3.headline': 'Enforcement-as-a-Service.',
     'liability.slide3.shift.title': 'The Shift:',
     'liability.slide3.shift.desc': 'AMAI transforms anonymous code into Fiduciary Entities by combining Identity with Collateral.',
     'liability.slide3.mechanism.title': 'The Mechanism:',
