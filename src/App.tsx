@@ -41,6 +41,7 @@ import OperationalScenarios from "./pages/OperationalScenarios";
 import Research from "./pages/Research";
 import TrustFormula from "./pages/TrustFormula";
 import Home from "./pages/Home";
+import Legal from "./pages/Legal";
 
 
 
@@ -116,6 +117,7 @@ const App = () => (
             <Route path="/operational-scenarios" element={<OperationalScenarios />} />
             <Route path="/research" element={<Research />} />
             <Route path="/trust-formula" element={<TrustFormula />} />
+            <Route path="/legal" element={<Legal />} />
             <Route path="/index" element={<Index />} />
             
             <Route path="/deck" element={<Deck />} />
