@@ -456,7 +456,7 @@ const Token = () => {
           </div>
         </div>
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-black mb-2" style={{ fontFamily: 'Arial, sans-serif' }}>Token & Collateral Model</h2>
+          <h2 className="text-2xl font-bold text-black mb-2" style={{ fontFamily: 'Arial, sans-serif' }}>AMAI & Collateral Model</h2>
           <p className="text-sm text-gray-600 italic mb-4">Collateral as the economic foundation for autonomous agents.</p>
           <div className="bg-gray-100 p-4 border-l-4 border-black">
             <p className="text-sm text-gray-700"><strong>Abstract:</strong> Specification of collateral mechanics including reliability anchoring, risk management, slashing rules, operational impacts, adjustment logic, token utility, and economic flywheel dynamics.</p>
