@@ -13,7 +13,7 @@ const footerLinks = {
     { key: 'footer.nav.systemOverview', to: '/system-overview' },
     { key: 'footer.nav.agentArchitecture', to: '/agent-architecture' },
     { key: 'footer.nav.trustMechanics', to: '/trust-mechanics' },
-    { key: 'footer.nav.protocolInternals', to: '/protocol-internals' },
+    { key: 'footer.nav.systemDemo', to: 'https://www.youtube.com/watch?v=qLEnRNELErg&feature=youtu.be', external: true },
   ],
   economics: [
     { key: 'footer.nav.economicSubstrate', to: '/economic-substrate' },
@@ -51,12 +51,23 @@ export const Footer = ({ transparent = false }: FooterProps) => {
               <ul className="space-y-3">
                 {footerLinks.protocol.map((link) => (
                   <li key={link.to}>
-                    <Link
-                      to={link.to}
-                      className="text-sm text-white/50 hover:text-white transition-colors duration-200 font-light"
-                    >
-                      {t(link.key)}
-                    </Link>
+                    {'external' in link && link.external ? (
+                      <a
+                        href={link.to}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-white/50 hover:text-white transition-colors duration-200 font-light"
+                      >
+                        {t(link.key)}
+                      </a>
+                    ) : (
+                      <Link
+                        to={link.to}
+                        className="text-sm text-white/50 hover:text-white transition-colors duration-200 font-light"
+                      >
+                        {t(link.key)}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
