@@ -4,6 +4,7 @@ import amaiLogo from "@/assets/amai-logo-tm.png";
 import homeBg from "@/assets/home-grid-bg.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { Footer } from "@/components/Footer";
 
 
 const Home = () => {
@@ -82,17 +83,8 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Footer - compact version for this page only */}
-      <footer className="py-6 bg-black border-t border-white/10">
-        <div className="text-center space-y-1">
-          <p className="text-muted-foreground text-sm font-light tracking-wide">
-            {t('footer.company')}
-          </p>
-          <p className="text-muted-foreground/60 text-[10px] font-light tracking-wide">
-            {t('footer.copyright')}
-          </p>
-        </div>
-      </footer>
+      {/* Institutional Footer */}
+      <Footer />
     </div>
   );
 };
