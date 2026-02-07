@@ -285,9 +285,20 @@ const LiabilityLayer = () => {
               </div>
               <div>
                 <p className="text-base text-white/80 font-medium mb-2">{t('liability.slide3.mechanism.title')}</p>
-                <p className="text-base text-white/50 font-light leading-relaxed">
-                  {t('liability.slide3.mechanism.desc')}
-                </p>
+                <div className="space-y-4 mt-3">
+                  <div className={`${isRTL ? 'border-r border-white/10 pr-4' : 'border-l border-white/10 pl-4'}`}>
+                    <p className="text-sm text-white/70 font-medium mb-1">{t('liability.slide3.mechanism.reputation.title')}</p>
+                    <p className="text-base text-white/50 font-light leading-relaxed">
+                      {t('liability.slide3.mechanism.reputation.desc')}
+                    </p>
+                  </div>
+                  <div className={`${isRTL ? 'border-r border-white/10 pr-4' : 'border-l border-white/10 pl-4'}`}>
+                    <p className="text-sm text-white/70 font-medium mb-1">{t('liability.slide3.mechanism.enforcement.title')}</p>
+                    <p className="text-base text-white/50 font-light leading-relaxed">
+                      {t('liability.slide3.mechanism.enforcement.desc')}
+                    </p>
+                  </div>
+                </div>
               </div>
               <div>
                 <p className="text-base text-white/80 font-medium mb-2">{t('liability.slide3.result.title')}</p>
