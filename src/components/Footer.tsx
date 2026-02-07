@@ -135,7 +135,7 @@ export const Footer = ({ transparent = false }: FooterProps) => {
             <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium">
               {t('footer.company')}
             </p>
-            <p className="text-[10px] text-white/25 font-light tracking-wide">
+            <p className="text-xs text-white/25 font-light tracking-wide">
               {t('footer.copyright')}
             </p>
           </div>
