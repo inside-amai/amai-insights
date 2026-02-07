@@ -568,9 +568,9 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Token & Collateral Model Page
     'token.breadcrumb': 'Documentation / Economics',
-    'token.title': 'Token & Collateral Model',
+    'token.title': 'AMAI & Collateral Model',
     'token.subheader': 'Collateral as the economic foundation for autonomous agents.',
-    'token.abstract': 'Abstract: Specification of collateral mechanics including reliability anchoring, risk management, slashing rules, operational impacts, adjustment logic, token utility, and economic flywheel dynamics.',
+    'token.abstract': 'Abstract: Specification of collateral mechanics including reliability anchoring, risk management, slashing rules, operational impacts, adjustment logic, utility, and economic flywheel dynamics.',
     'token.downloadPdf': 'Download PDF',
     'token.back': 'Back',
     'token.foundation.title': 'Collateral as Economic Foundation',
@@ -583,8 +583,8 @@ const translations: Record<Language, Record<string, string>> = {
     'token.operational.desc': 'Collateral influences execution efficiency, routing priority, treasury expansion, and eligibility for sensitive or high-impact workloads.',
     'token.adjustment.title': 'Collateral Adjustment Over Time',
     'token.adjustment.desc': 'Agents may top up, rebalance, or retire collateral based on operational needs. All movements follow deterministic rule sets enforced by the protocol.',
-    'token.utility.title': 'Token Utility Within the System',
-    'token.utility.desc': 'The token serves as collateral, slashing medium, reliability signal, and economic boundary-setting resource within the runtime.',
+    'token.utility.title': 'AMAI Utility Within the System',
+    'token.utility.desc': 'AMAI serves as collateral, slashing medium, reliability signal, and economic boundary-setting resource within the runtime.',
     'token.flywheel.title': 'Economic Flywheel',
     'token.flywheel.desc': 'Reliable agents grow treasuries and trust signals, receiving more mission flow. Unreliable agents contract naturally, stabilizing the system.',
     'token.diagram.title': 'Collateralized Runtime Model',
