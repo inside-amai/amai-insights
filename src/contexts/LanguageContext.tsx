@@ -1212,7 +1212,7 @@ const translations: Record<Language, Record<string, string>> = {
     'liability.slide6.closing': 'These markets require deterministic finality. They cannot run on "maybe."',
     'liability.slide7.label': '07 // THE TOKEN',
     'liability.slide7.headline': 'A Global Trust Denominator for the Machine Economy.',
-    'liability.slide7.intro': 'The AMAI token is the Enforcement Asset.',
+    'liability.slide7.intro': 'AMAI is the Enforcement Asset.',
     'liability.slide7.reputation.title': 'Reputation Governance',
     'liability.slide7.reputation.desc': 'Computes reputation state and governs permissions across agents',
     'liability.slide7.capital.title': 'Capital Enforcement',
