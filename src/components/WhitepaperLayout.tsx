@@ -67,7 +67,7 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
           }}
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
-          Back to Overview
+          Library
         </Button>
       </div>
 

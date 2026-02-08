@@ -98,7 +98,7 @@ const TrustFormula = () => {
                 onClick={handleBackClick} 
                 className="w-full text-white/30 hover:text-white/50 font-mono text-xs"
               >
-                <ArrowLeft className="me-2 h-3 w-3" />Return to Home
+                <ArrowLeft className="me-2 h-3 w-3" />Library
               </Button>
             </div>
           </div>
@@ -127,7 +127,7 @@ const TrustFormula = () => {
           <div className="pt-20 px-6">
             <div className="max-w-4xl mx-auto">
               <Button variant="outline" size="sm" onClick={handleBackClick} className="bg-black/80 backdrop-blur-sm border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs">
-                <ArrowLeft className="me-2 h-3 w-3" />Back
+                <ArrowLeft className="me-2 h-3 w-3" />Library
               </Button>
             </div>
           </div>
