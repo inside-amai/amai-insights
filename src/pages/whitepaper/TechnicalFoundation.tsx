@@ -89,7 +89,7 @@ const TechnicalFoundation = () => {
               className="bg-black/80 backdrop-blur-sm border-white/10 text-white/40 hover:bg-white/5 hover:text-white/60 hover:border-white/20 rounded-[2px] font-mono text-xs"
             >
               <ArrowLeft className="mr-2 h-3 w-3" />
-              Back
+              Library
             </Button>
           </div>
         </div>
