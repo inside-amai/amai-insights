@@ -118,7 +118,7 @@ const AgentArchitectureDiagram: React.FC = () => {
             <div className="flex items-center gap-2">
               <div className="w-4 h-px bg-white/20" />
               <Box 
-                title="On-Chain Missions" 
+                title="Missions" 
                 subtitle="Atomic Execution"
               />
             </div>
