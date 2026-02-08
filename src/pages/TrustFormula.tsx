@@ -45,7 +45,13 @@ const TrustFormula = () => {
   };
 
   const handleBackClick = () => {
-    navigate('/');
+    navigate('/system-architecture');
+    setTimeout(() => {
+      const element = document.getElementById('documentation-library');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
   };
 
   if (!isAuthenticated) {

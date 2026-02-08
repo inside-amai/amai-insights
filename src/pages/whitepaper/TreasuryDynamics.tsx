@@ -19,7 +19,7 @@ const TreasuryDynamics = () => {
   }, [t]);
 
   const handleBackClick = () => {
-    navigate('/');
+    navigate('/system-architecture');
     setTimeout(() => {
       const element = document.getElementById('documentation-library');
       if (element) {

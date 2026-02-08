@@ -19,7 +19,13 @@ const AgentLifecycle = () => {
   }, []);
 
   const handleBackClick = () => {
-    navigate('/?scrollTo=documentation-library');
+    navigate('/system-architecture');
+    setTimeout(() => {
+      const element = document.getElementById('documentation-library');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
   };
 
   const handleDownloadPdf = () => {

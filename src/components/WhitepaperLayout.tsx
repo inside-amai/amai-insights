@@ -57,9 +57,9 @@ export const WhitepaperLayout = ({ children, title, eyebrow }: WhitepaperLayoutP
           size="sm" 
           className="bg-gray-900/80 backdrop-blur-sm border-gray-700 text-white/50 hover:bg-gray-800 hover:text-white hover:border-gray-600 rounded-md font-roboto text-sm"
           onClick={() => {
-            navigate('/');
+            navigate('/system-architecture');
             setTimeout(() => {
-              const element = document.getElementById('technical-docs');
+              const element = document.getElementById('documentation-library');
               if (element) {
                 element.scrollIntoView({ behavior: 'smooth' });
               }
