@@ -140,7 +140,7 @@ const TrustFormula = () => {
                 
                 <div className="space-y-1 text-white/40 text-xs font-mono mb-6">
                   <p>Version: 1.0.4 (Release Candidate)</p>
-                  <p>Target System: x402 Enforcement Layer</p>
+                  <p>Target System: x702 Enforcement Layer</p>
                   <p>Classification: Core Protocol Logic</p>
                 </div>
 
@@ -471,7 +471,7 @@ const TrustFormula = () => {
             <motion.div {...getAnimationProps(true)}>
               <h2 className="text-xl font-light text-white mb-4 tracking-tight">6. The 30:70 Enforcement Ratio (The Sovereign Safety-Sync)</h2>
               <p className="text-white/50 text-sm leading-relaxed mb-8">
-                To ensure the integrity of the x402 Enforcement Layer, the protocol mandates a fixed capital ratio between the Enforcement Asset and the Liquidity Asset. This "Safety-Sync" ensures that every agent's private keys are underwritten by a surplus of sovereign value.
+                To ensure the integrity of the x702 Enforcement Layer, the protocol mandates a fixed capital ratio between the Enforcement Asset and the Liquidity Asset. This "Safety-Sync" ensures that every agent's private keys are underwritten by a surplus of sovereign value.
               </p>
               
               {/* 6.1 Asset Allocation & Weights */}

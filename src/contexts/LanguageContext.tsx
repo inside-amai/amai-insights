@@ -1314,7 +1314,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Home page
     'home.thesis': 'THESIS',
     'home.headline': 'From Chatbots to Fiduciaries.',
-    'home.body': 'Autonomous software is currently unsafe and lacks the identity to be trusted with capital. AMAI provides the x402 trust layer that makes them accountable.',
+    'home.body': 'Autonomous software is currently unsafe and lacks the identity to be trusted with capital. AMAI provides the x702 trust layer that makes them accountable.',
     'home.cta.architecture': 'View Architecture',
     'home.cta.thesis': 'Explore The Thesis',
   },
@@ -2620,7 +2620,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Home page
     'home.thesis': '主題',
     'home.headline': 'チャットボットから受託者へ。',
-    'home.body': '自律型ソフトウェアは現在「安全でない」存在であり、資金を託されるための身元を持っていない。AMAIはそれらを責任あるものにするx402信頼レイヤーを提供する。',
+    'home.body': '自律型ソフトウェアは現在「安全でない」存在であり、資金を託されるための身元を持っていない。AMAIはそれらを責任あるものにするx702信頼レイヤーを提供する。',
     'home.cta.architecture': '設計を見る',
     'home.cta.thesis': '主題を探索',
   },
@@ -3926,7 +3926,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Home page
     'home.thesis': 'الأطروحة',
     'home.headline': 'من روبوتات المحادثة إلى الوكلاء الائتمانيين.',
-    'home.body': 'البرمجيات المستقلة حالياً "غير آمنة" وتفتقر إلى الهوية اللازمة للوثوق بها في إدارة الأموال. توفر AMAI طبقة الثقة x402 التي تجعلها خاضعة للمساءلة.',
+    'home.body': 'البرمجيات المستقلة حالياً "غير آمنة" وتفتقر إلى الهوية اللازمة للوثوق بها في إدارة الأموال. توفر AMAI طبقة الثقة x702 التي تجعلها خاضعة للمساءلة.',
     'home.cta.architecture': 'عرض البنية',
     'home.cta.thesis': 'استكشاف الأطروحة',
   }

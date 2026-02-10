@@ -82,7 +82,7 @@ export const TrinaryClassificationSection = () => {
             The Trinary Classification Standard
           </h2>
           <p className="text-sm text-white/50 max-w-2xl mx-auto">
-            The x402 Layer enforces a strict 3-Tier Economic Model.
+            The x702 Layer enforces a strict 3-Tier Economic Model.
           </p>
         </motion.div>
 
