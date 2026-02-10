@@ -126,6 +126,16 @@ export const Footer = ({ transparent = false }: FooterProps) => {
                   </button>
                 </li>
                 <li>
+                  <a
+                    href="https://github.com/AMAI-LABS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-white/50 hover:text-white transition-colors duration-200 font-light"
+                  >
+                    GitHub
+                  </a>
+                </li>
+                <li>
                   <Link
                     to="/legal"
                     className="text-sm text-white/50 hover:text-white transition-colors duration-200 font-light"
