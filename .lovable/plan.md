@@ -1,37 +1,32 @@
 
 
-# Fix: Update Logo in the CORRECT File -- LiabilityLayer.tsx
+# Replace x402 with x702 — Global Find & Replace
 
-## Root Cause
+## Summary
+Replace every instance of "x402" with "x702" across the entire codebase. This affects 6 files with a total of ~74 occurrences.
 
-The routing in `App.tsx` (lines 123-125) has the routes swapped:
-- `/thesis` renders **`LiabilityLayer`** (not `Thesis`)
-- `/liability-layer` renders **`Thesis`** (not `LiabilityLayer`)
+## Files to Update
 
-Every previous attempt updated `Thesis.tsx`, but that file is rendered at `/liability-layer`, not `/thesis`. The file that actually renders at `/thesis` is `LiabilityLayer.tsx`, and it still imports the OLD logo on line 3:
+### 1. `src/contexts/LanguageContext.tsx` (15 occurrences)
+All three language blocks (EN, JP, AR) contain references to x402 in translation strings such as `home.body`, trinary classification subtitles, and other content keys. Every instance will be changed to x702.
 
-```
-import amaiLogo from "@/assets/amai-logo-hero-new.png";
-```
+### 2. `src/components/AgentArchitectureDiagram.tsx` (1 occurrence)
+- "Powered by x402 Protocol" becomes "Powered by x702 Protocol"
 
-This is why home and /system-architecture worked (they were correctly updated) but /thesis never changed.
+### 3. `src/components/TrinaryClassificationSection.tsx` (1 occurrence)
+- "The x402 Layer enforces a strict 3-Tier Economic Model." becomes "The x702 Layer..."
 
-## Fix
+### 4. `src/pages/TrustFormula.tsx` (10 occurrences)
+- "Target System: x402 Enforcement Layer" and all other hardcoded references throughout the page become x702.
 
-One single line change in `src/pages/LiabilityLayer.tsx`, line 3:
+### 5. `public/llms/terminal.md` (17 occurrences)
+- All references to x402 settlement logic, x402 layer, x402 protocol become x702.
 
-**Before:**
-```
-import amaiLogo from "@/assets/amai-logo-hero-new.png";
-```
+### 6. `public/llms-full.txt` (22 occurrences)
+- All references to x402 become x702.
 
-**After:**
-```
-import amaiLogo from "@/assets/amai-logo-tm.png";
-```
+## Technical Details
+- Straightforward text replacement: `x402` to `x702` in all contexts
+- No logic or structural changes required
+- Preserves all existing formatting, styling, and translations
 
-No other changes needed. The logo element styling in `LiabilityLayer.tsx` already has appropriate sizing (`h-12 md:h-16 lg:h-20`).
-
-## Scope
-- 1 file changed: `src/pages/LiabilityLayer.tsx` (line 3 only)
-- Zero layout or styling changes
