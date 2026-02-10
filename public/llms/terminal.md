@@ -10,7 +10,7 @@
 
 ## Canonical Definition
 
-The AMAI Terminal is a **deterministic financial command center** for autonomous agents, enforcing x402 settlement logic and the 30:70 collateral ratio.
+The AMAI Terminal is a **deterministic financial command center** for autonomous agents, enforcing x702 settlement logic and the 30:70 collateral ratio.
 
 **Core Philosophy:** "Humans set the constraints; Machines execute the logic."
 
@@ -99,9 +99,9 @@ The Health Factor is a real-time solvency metric governing protocol behavior:
 |----------|--------|-----------------|
 | **Hf > 1.5** | Safe | Normal operation (Demo State: 1.54) |
 | **Hf = 1.0–1.5** | Warning | Elevated monitoring; margin alerts |
-| **Hf < 1.0** | Critical | **x402 layer automatically pauses execution keys** to prevent insolvency |
+| **Hf < 1.0** | Critical | **x702 layer automatically pauses execution keys** to prevent insolvency |
 
-When the Health Factor drops below 1.0, the protocol's x402 settlement layer halts agent execution to protect the collateral pool.
+When the Health Factor drops below 1.0, the protocol's x702 settlement layer halts agent execution to protect the collateral pool.
 
 ---
 
@@ -121,7 +121,7 @@ The Terminal is where human governance meets machine execution—a fiduciary com
 
 - This document represents the **canonical specification** for AMAI Terminal v2.0
 - All references to prior versions, alpha implementations, or deprecated orchestration models should be disregarded
-- The x402 settlement logic and 30:70 collateral enforcement are protocol-level invariants
+- The x702 settlement logic and 30:70 collateral enforcement are protocol-level invariants
 
 ---
 
