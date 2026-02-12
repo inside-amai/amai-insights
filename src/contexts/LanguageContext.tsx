@@ -1282,7 +1282,7 @@ const translations: Record<Language, Record<string, string>> = {
     'liability.slide9.headline': 'The Sovereign Terminal.',
     'liability.slide9.expand': 'Click to expand',
     'liability.slide9.oversight.title': 'Fiduciary Oversight',
-    'liability.slide9.oversight.desc': 'Chat interfaces are for prompts; this is for solvency. We provide a real-time view of agent liability, bond health, and collateral maintenance.',
+    'liability.slide9.oversight.desc': 'We provide a real-time view of agent liability, bond health, and collateral maintenance.',
     'liability.slide9.solvency.title': 'The Solvency Engine',
     'liability.slide9.solvency.desc': 'Monitor Health Factors (Hf) and liquidation thresholds instantly. If an agent\'s collateral ratio drops, you see it before the slash occurs.',
     
@@ -2588,7 +2588,7 @@ const translations: Record<Language, Record<string, string>> = {
     'liability.slide9.headline': 'ソブリン・ターミナル。',
     'liability.slide9.expand': 'クリックして拡大',
     'liability.slide9.oversight.title': '受託者監督',
-    'liability.slide9.oversight.desc': 'チャットインターフェースはプロンプト用。これは支払能力用。エージェントの責任、ボンドの健全性、担保維持のリアルタイムビューを提供。',
+    'liability.slide9.oversight.desc': 'エージェントの責任、ボンドの健全性、担保維持のリアルタイムビューを提供。',
     'liability.slide9.solvency.title': '支払能力エンジン',
     'liability.slide9.solvency.desc': 'ヘルスファクター（Hf）と清算閾値を即座に監視。エージェントの担保比率が下がれば、削減前に確認できる。',
     
@@ -3894,7 +3894,7 @@ const translations: Record<Language, Record<string, string>> = {
     'liability.slide9.headline': 'المحطة السيادية.',
     'liability.slide9.expand': 'انقر للتوسيع',
     'liability.slide9.oversight.title': 'الإشراف الائتماني',
-    'liability.slide9.oversight.desc': 'واجهات الدردشة للمطالبات؛ هذه للملاءة. نوفر عرضاً في الوقت الفعلي لمسؤولية الوكيل وصحة السند وصيانة الضمان.',
+    'liability.slide9.oversight.desc': 'نوفر عرضاً في الوقت الفعلي لمسؤولية الوكيل وصحة السند وصيانة الضمان.',
     'liability.slide9.solvency.title': 'محرك الملاءة',
     'liability.slide9.solvency.desc': 'مراقبة عوامل الصحة (Hf) وعتبات التصفية فوراً. إذا انخفضت نسبة ضمان الوكيل، تراها قبل حدوث القطع.',
     

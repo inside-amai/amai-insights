@@ -750,7 +750,7 @@ const LiabilityLayer = () => {
               <div>
                 <p className="text-base text-white/80 font-medium mb-2">Fiduciary Oversight</p>
                 <p className="text-base text-white/50 font-light leading-relaxed">
-                  Chat interfaces are for prompts; this is for solvency. We provide a real-time view of agent liability, bond health, and collateral maintenance.
+                  We provide a real-time view of agent liability, bond health, and collateral maintenance.
                 </p>
               </div>
               <div>
