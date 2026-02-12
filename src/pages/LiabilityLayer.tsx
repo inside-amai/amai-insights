@@ -761,12 +761,6 @@ const LiabilityLayer = () => {
               </div>
             </motion.div>
             
-            <motion.p
-              className="text-lg text-white/70 font-normal leading-relaxed"
-              {...getAnimationProps(0.8)}
-            >
-              Operational Architecture. Not a mockup. The identity primitives and risk logic are fully functional.
-            </motion.p>
           </motion.div>
         </Slide>
 
