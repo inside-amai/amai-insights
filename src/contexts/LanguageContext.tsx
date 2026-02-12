@@ -1285,7 +1285,7 @@ const translations: Record<Language, Record<string, string>> = {
     'liability.slide9.oversight.desc': 'Chat interfaces are for prompts; this is for solvency. We provide a real-time view of agent liability, bond health, and collateral maintenance.',
     'liability.slide9.solvency.title': 'The Solvency Engine',
     'liability.slide9.solvency.desc': 'Monitor Health Factors (Hf) and liquidation thresholds instantly. If an agent\'s collateral ratio drops, you see it before the slash occurs.',
-    'liability.slide9.closing': 'Operational Architecture. Not a mockup. The identity primitives and risk logic are fully functional.',
+    
     'liability.slide10.label': '10 // RISK MANAGEMENT',
     'liability.slide10.headline': 'Volatility as a Feature.',
     'liability.slide10.intro': 'How does AMAI survive a market crash?',
@@ -2591,7 +2591,7 @@ const translations: Record<Language, Record<string, string>> = {
     'liability.slide9.oversight.desc': 'チャットインターフェースはプロンプト用。これは支払能力用。エージェントの責任、ボンドの健全性、担保維持のリアルタイムビューを提供。',
     'liability.slide9.solvency.title': '支払能力エンジン',
     'liability.slide9.solvency.desc': 'ヘルスファクター（Hf）と清算閾値を即座に監視。エージェントの担保比率が下がれば、削減前に確認できる。',
-    'liability.slide9.closing': '運用アーキテクチャ。モックアップではない。アイデンティティプリミティブとリスクロジックは完全に機能。',
+    
     'liability.slide10.label': '10 // リスク管理',
     'liability.slide10.headline': '機能としてのボラティリティ。',
     'liability.slide10.intro': 'AMAIは市場暴落をどう生き延びるか？',
@@ -3897,7 +3897,7 @@ const translations: Record<Language, Record<string, string>> = {
     'liability.slide9.oversight.desc': 'واجهات الدردشة للمطالبات؛ هذه للملاءة. نوفر عرضاً في الوقت الفعلي لمسؤولية الوكيل وصحة السند وصيانة الضمان.',
     'liability.slide9.solvency.title': 'محرك الملاءة',
     'liability.slide9.solvency.desc': 'مراقبة عوامل الصحة (Hf) وعتبات التصفية فوراً. إذا انخفضت نسبة ضمان الوكيل، تراها قبل حدوث القطع.',
-    'liability.slide9.closing': 'هندسة تشغيلية. ليس نموذجاً أولياً. بدائيات الهوية ومنطق المخاطر تعمل بالكامل.',
+    
     'liability.slide10.label': '10 // إدارة المخاطر',
     'liability.slide10.headline': 'التقلب كميزة.',
     'liability.slide10.intro': 'كيف ينجو AMAI من انهيار السوق؟',
