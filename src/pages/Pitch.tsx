@@ -228,16 +228,8 @@ const Pitch = () => {
           >
             Intelligence is now a commodity.
             <br />
-            <span className="text-white/60">It's cheap. It's everywhere.</span>
+            <span className="text-white/60">But Trust is at an all-time low.</span>
           </motion.h1>
-          <motion.p
-            className="text-xl md:text-2xl text-white/50 font-light leading-relaxed max-w-2xl mx-auto mb-10"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            But Trust is at an all-time low.
-          </motion.p>
           <motion.p
             className="text-base md:text-xl text-white/50 font-light leading-relaxed max-w-2xl mx-auto mb-10"
             initial={{ opacity: 0, y: 20 }}
