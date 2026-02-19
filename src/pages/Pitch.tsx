@@ -13,17 +13,14 @@ import {
 interface SlideProps {
   children: React.ReactNode;
   className?: string;
-  align?: "left" | "center";
   slideNumber?: number;
 }
 
 const TOTAL_SLIDES = 6;
 
-const Slide = ({ children, className = "", align = "center", slideNumber }: SlideProps) => (
+const Slide = ({ children, className = "", slideNumber }: SlideProps) => (
   <section
-    className={`relative min-h-svh md:min-h-screen w-full flex items-center overflow-x-hidden py-16 md:py-0 ${
-      align === "left" ? "justify-start" : "justify-center"
-    } ${className}`}
+    className={`relative min-h-svh md:min-h-screen w-full flex items-center justify-center overflow-x-hidden ${className}`}
   >
     {/* Grid */}
     <div
@@ -36,7 +33,7 @@ const Slide = ({ children, className = "", align = "center", slideNumber }: Slid
         backgroundSize: "80px 80px",
       }}
     />
-    <div className="relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-8 md:px-16 lg:px-24 pb-20 md:pb-16">
+    <div className="relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-8 md:px-16 lg:px-24 py-24 md:py-20">
       {children}
     </div>
     {slideNumber && (
@@ -61,7 +58,7 @@ const SlideDivider = () => (
 /* ─── Micro-label ─── */
 const MicroLabel = ({ children, delay = 0.2 }: { children: React.ReactNode; delay?: number }) => (
   <motion.p
-    className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8"
+    className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center"
     initial={{ opacity: 0, y: 10 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6, delay }}
@@ -212,12 +209,12 @@ const Pitch = () => {
       )}
 
       {/* ── SLIDE 1: THE HOOK ── */}
-      <Slide align="left" slideNumber={1}>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.2 }} className="max-w-4xl">
+      <Slide slideNumber={1}>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.2 }} className="max-w-4xl mx-auto text-center">
           <motion.img
             src={amaiLogo}
             alt="AMAI"
-            className="h-10 md:h-16 w-auto brightness-110 mb-10 md:mb-20"
+            className="h-10 md:h-16 w-auto brightness-110 mb-10 md:mb-20 mx-auto"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -234,7 +231,7 @@ const Pitch = () => {
             <span className="text-white/60">Trust is the Product.</span>
           </motion.h1>
           <motion.p
-            className="text-base md:text-xl text-white/50 font-light leading-relaxed max-w-2xl mb-10"
+            className="text-base md:text-xl text-white/50 font-light leading-relaxed max-w-2xl mx-auto mb-10"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
@@ -260,7 +257,7 @@ const Pitch = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
           viewport={{ once: true }}
-          className="max-w-3xl text-center"
+          className="max-w-4xl mx-auto text-center"
         >
           <MicroLabel>02 // THE PROBLEM</MicroLabel>
           <motion.h2
@@ -324,13 +321,13 @@ const Pitch = () => {
       <SlideDivider />
 
       {/* ── SLIDE 3: THE SOLUTION ── */}
-      <Slide align="left" slideNumber={3}>
+      <Slide slideNumber={3}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
           viewport={{ once: true }}
-          className="max-w-4xl"
+          className="max-w-4xl mx-auto text-center"
         >
           <MicroLabel>03 // THE SOLUTION</MicroLabel>
           <motion.h2
@@ -484,13 +481,13 @@ const Pitch = () => {
       <SlideDivider />
 
       {/* ── SLIDE 5: THE MOAT ── */}
-      <Slide align="left" slideNumber={5}>
+      <Slide slideNumber={5}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
           viewport={{ once: true }}
-          className="max-w-4xl"
+          className="max-w-4xl mx-auto text-center"
         >
           <MicroLabel>05 // THE MOAT</MicroLabel>
           <motion.h2
@@ -503,7 +500,7 @@ const Pitch = () => {
             The First Historical Ledger of Agent Behavior.
           </motion.h2>
           <motion.p
-            className="text-base md:text-lg text-white/50 font-light mb-10 max-w-2xl"
+            className="text-base md:text-lg text-white/50 font-light mb-10 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -514,7 +511,7 @@ const Pitch = () => {
 
           {/* Live trust score */}
           <motion.div
-            className="flex items-center gap-4 mb-8"
+            className="flex items-center justify-center gap-4 mb-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
