@@ -267,7 +267,7 @@ const Pitch = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.0 }}
             >
-              But Trust Is at an <em className="text-white not-italic font-normal">All-Time Low</em>
+              But Trust Has Been Lower
             </motion.p>
           </motion.div>
           <motion.p
