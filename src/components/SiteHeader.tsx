@@ -37,8 +37,12 @@ const CopyEmailButton = () => {
 export const SiteHeader = () => {
   const { language, setLanguage } = useLanguage();
   const location = useLocation();
+  const isPitchPage = location.pathname === '/pitch';
   const isDeckPage = location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/briefing' || location.pathname === '/liability-layer';
   const isThesisPage = location.pathname === '/thesis';
+
+  // Completely hide header on pitch page
+  if (isPitchPage) return null;
 
   // Cycle through languages on mobile tap
   const cycleLanguage = () => {
