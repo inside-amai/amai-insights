@@ -232,7 +232,7 @@ const Pitch = () => {
           >
             Intelligence is now a commodity.
             <br />
-            <span className="text-white/60">But Trust is at an all-time low.</span>
+            <span className="text-white/60">But Trust is at an <em>all-time low.</em></span>
           </motion.h1>
           <motion.p
             className="text-base md:text-xl text-white/50 font-light leading-relaxed max-w-2xl mx-auto mb-10"
