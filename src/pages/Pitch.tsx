@@ -244,7 +244,7 @@ const Pitch = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
           >
-            We are building the FICO Score and Surety Bond layer for the Autonomous Economy.
+            We are building the Reputation Layer for the Autonomous Economy.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
