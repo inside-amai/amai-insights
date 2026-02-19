@@ -343,7 +343,7 @@ const Pitch = () => {
         >
           <MicroLabel>03 // THE SOLUTION</MicroLabel>
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 leading-[1.15]"
+            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-10 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
