@@ -564,60 +564,85 @@ const Pitch = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 6: THE ASK ── */}
+      {/* ── SLIDE 6: CLOSING ── */}
       <Slide slideNumber={6}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 1.2 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto text-center"
+          className="max-w-3xl mx-auto text-center"
         >
-          <MicroLabel>06 // THE ASK</MicroLabel>
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-12 leading-[1.15]"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-10 md:mb-16 leading-[1.1]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Strategic Seed Round
+            Infrastructure Precedes Autonomy.
           </motion.h2>
-
-          {/* Deal cards */}
-          <motion.div
-            className="grid grid-cols-3 gap-4 md:gap-6"
+          
+          <motion.div 
+            className="mb-10 md:mb-16" 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            {[
-              { label: "Raise", value: "$3M", sub: "Post-Money SAFE" },
-              { label: "Valuation Cap", value: "$30M", sub: "" },
-              { label: "Discount", value: "20%", sub: "" },
-            ].map((card, i) => (
-              <div
-                key={i}
-                className="bg-black border border-white/10 rounded-lg p-5 md:p-6 flex flex-col items-center"
-              >
-                <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/30 mb-3">{card.label}</p>
-                <p className="text-2xl md:text-3xl text-white font-light mb-1">{card.value}</p>
-                {card.sub && <p className="text-[10px] md:text-xs text-white/40 font-light">{card.sub}</p>}
-              </div>
-            ))}
+            <div className="flex items-center justify-center gap-3 md:gap-5">
+              {['Accountability', 'Trust', 'Transparency'].map((word, i) => (
+                <motion.span
+                  key={word}
+                  className="text-sm md:text-base tracking-[0.2em] uppercase text-white/50 font-light"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.7 + i * 0.15 }}
+                  viewport={{ once: true }}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </div>
+            <motion.p 
+              className="mt-6 text-xl md:text-2xl text-white/70 font-medium"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
+              viewport={{ once: true }}
+            >
+              That is AMAI.
+            </motion.p>
           </motion.div>
-
-          {/* Contact */}
-          <motion.p
-            className="mt-12 text-sm text-white/30 font-light"
+          
+          <motion.div
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            team@amai.net
-          </motion.p>
+            <a
+              href="https://youtu.be/qLEnRNELErg"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-white/10 border border-white/30 rounded text-xs tracking-[0.15em] uppercase text-white hover:bg-white/20 hover:border-white/50 transition-all duration-300"
+            >
+              System Demo
+            </a>
+            <a
+              href="/system-architecture"
+              className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
+            >
+              Explore the Architecture <span>→</span>
+            </a>
+            <a
+              href="mailto:team@amai.net?subject=Mission%20Briefing%20%2F%2F%20%5BOrganization%20Name%5D&body=To%20the%20AMAI%20Labs%20Team%2C%0A%0AWe%20are%20reaching%20out%20regarding%20the%20%5BThesis%20%2F%20Architecture%5D.%0A%0AName%3A%20%0AOrganization%3A%20%0AIntent%3A%20"
+              className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
+            >
+              Contact
+            </a>
+          </motion.div>
         </motion.div>
       </Slide>
     </div>
