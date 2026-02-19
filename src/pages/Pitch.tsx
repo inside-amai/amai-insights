@@ -508,7 +508,7 @@ const Pitch = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            The Dual Capital Model
+            The Settlement Layer
           </motion.h2>
           <motion.p
             className="text-base md:text-lg text-white/50 font-light mb-12 text-center max-w-2xl mx-auto"
