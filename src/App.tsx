@@ -8,6 +8,7 @@ import { AuthProvider } from "@/hooks/useAuth";
 import { AuthGuard } from "@/components/AuthGuard";
 import { TermsModal } from "@/components/TermsModal";
 import { SiteHeader } from "@/components/SiteHeader";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
@@ -90,6 +91,7 @@ const App = () => (
           <Toaster />
           <Sonner />
         <BrowserRouter>
+            <ScrollToTop />
             <FullBleedRouteHandler />
             <ConditionalTermsModal />
             <SiteHeader />
