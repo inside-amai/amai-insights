@@ -385,7 +385,7 @@ const Pitch = () => {
                 <circle cx="60" cy="68" r="4" fill="rgba(166,252,252,0.3)" stroke="rgba(166,252,252,0.6)" strokeWidth="1.5" />
               </svg>
               <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-2">TRUST</p>
-              <p className="text-sm text-white/40 font-light">A Sovereign Agent capable of scaling.</p>
+              <p className="text-sm text-white/40 font-light">A Credit Worthy Sovereign Agent capable of scaling.</p>
             </div>
           </motion.div>
 
