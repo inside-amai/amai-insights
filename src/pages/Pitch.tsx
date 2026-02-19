@@ -1,0 +1,607 @@
+import React, { useState, useEffect, useRef } from "react";
+import { motion, useScroll } from "framer-motion";
+import amaiLogo from "@/assets/amai-logo-hero-new.png";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { Shield, AlertTriangle, Lock, Fingerprint, Landmark, Zap, Database, ChevronRight } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
+/* ─── Slide Shell ─── */
+interface SlideProps {
+  children: React.ReactNode;
+  className?: string;
+  align?: "left" | "center";
+  slideNumber?: number;
+}
+
+const TOTAL_SLIDES = 6;
+
+const Slide = ({ children, className = "", align = "center", slideNumber }: SlideProps) => (
+  <section
+    className={`relative min-h-svh md:min-h-screen w-full flex items-center overflow-x-hidden py-16 md:py-0 ${
+      align === "left" ? "justify-start" : "justify-center"
+    } ${className}`}
+  >
+    {/* Grid */}
+    <div
+      className="absolute inset-0 pointer-events-none"
+      style={{
+        backgroundImage: `
+          linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px)
+        `,
+        backgroundSize: "80px 80px",
+      }}
+    />
+    <div className="relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-8 md:px-16 lg:px-24 pb-20 md:pb-16">
+      {children}
+    </div>
+    {slideNumber && (
+      <div className="absolute bottom-4 md:bottom-10 right-4 md:right-12 text-[10px] tracking-[0.2em] text-white/50 font-medium">
+        {String(slideNumber).padStart(2, "0")} / {String(TOTAL_SLIDES).padStart(2, "0")}
+      </div>
+    )}
+    <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.2em] uppercase text-white/20 font-medium text-center whitespace-nowrap">
+      AMAI — Seed Pitch Deck
+    </div>
+  </section>
+);
+
+const SlideDivider = () => (
+  <div className="w-full flex justify-center">
+    <div className="w-full max-w-6xl px-6 sm:px-8 md:px-16 lg:px-24">
+      <div className="h-px bg-white/10" />
+    </div>
+  </div>
+);
+
+/* ─── Micro-label ─── */
+const MicroLabel = ({ children, delay = 0.2 }: { children: React.ReactNode; delay?: number }) => (
+  <motion.p
+    className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8"
+    initial={{ opacity: 0, y: 10 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, delay }}
+    viewport={{ once: true }}
+  >
+    {children}
+  </motion.p>
+);
+
+/* ─── Trust Score Counter (Slide 5) ─── */
+const TrustScoreCounter = () => {
+  const [score, setScore] = useState(847);
+  useEffect(() => {
+    const id = setInterval(() => {
+      setScore((s) => {
+        const next = s + Math.floor(Math.random() * 3) + 1;
+        return next > 9999 ? 847 : next;
+      });
+    }, 2200);
+    return () => clearInterval(id);
+  }, []);
+  return (
+    <span className="font-mono text-white tabular-nums">{score.toLocaleString()}</span>
+  );
+};
+
+/* ─── Audit Log (Slide 5) ─── */
+const auditEntries = [
+  { id: "AGENT-007", task: "ARBITRAGE", status: "SUCCESS", delta: "+5" },
+  { id: "AGENT-142", task: "COMPLIANCE CHECK", status: "SUCCESS", delta: "+3" },
+  { id: "AGENT-088", task: "DATA MIGRATION", status: "SUCCESS", delta: "+4" },
+  { id: "AGENT-331", task: "RISK ASSESSMENT", status: "SUCCESS", delta: "+6" },
+  { id: "AGENT-019", task: "SETTLEMENT", status: "PARTIAL", delta: "+1" },
+  { id: "AGENT-256", task: "AUDIT REVIEW", status: "SUCCESS", delta: "+5" },
+  { id: "AGENT-444", task: "KYC VERIFICATION", status: "SUCCESS", delta: "+7" },
+  { id: "AGENT-073", task: "PORTFOLIO REBAL.", status: "SUCCESS", delta: "+4" },
+];
+
+const ScrollingLog = () => {
+  const [visibleIdx, setVisibleIdx] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setVisibleIdx((i) => (i + 1) % auditEntries.length), 1800);
+    return () => clearInterval(id);
+  }, []);
+
+  const visible = Array.from({ length: 5 }, (_, i) => auditEntries[(visibleIdx + i) % auditEntries.length]);
+
+  return (
+    <div className="font-mono text-[10px] md:text-xs space-y-1.5 overflow-hidden">
+      {visible.map((e, i) => (
+        <motion.div
+          key={`${e.id}-${visibleIdx}-${i}`}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1 - i * 0.15, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="flex gap-2 md:gap-4 text-white/60"
+        >
+          <span className="text-white/80">{e.id}</span>
+          <span className="text-white/30">|</span>
+          <span>TASK: {e.task}</span>
+          <span className="text-white/30">|</span>
+          <span className={e.status === "SUCCESS" ? "text-green-400/80" : "text-yellow-400/80"}>
+            {e.status}
+          </span>
+          <span className="text-white/30">|</span>
+          <span className="text-white/90">TRUST: {e.delta}</span>
+        </motion.div>
+      ))}
+    </div>
+  );
+};
+
+/* ─── Hero Visual (Slide 1) ─── */
+const TrustFilterVisual = () => (
+  <div className="relative flex items-center justify-center gap-3 md:gap-6 py-8">
+    {/* Chaotic agents */}
+    <div className="flex flex-col items-center gap-2">
+      <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/30 mb-2">Free Agents</p>
+      <div className="relative w-20 md:w-28 h-20 md:h-28">
+        {[...Array(7)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-3 h-3 md:w-4 md:h-4 rounded-full border border-white/20 bg-white/5"
+            style={{
+              top: `${15 + Math.random() * 60}%`,
+              left: `${10 + Math.random() * 60}%`,
+            }}
+            animate={{
+              x: [0, (Math.random() - 0.5) * 16, 0],
+              y: [0, (Math.random() - 0.5) * 16, 0],
+              opacity: [0.3, 0.7, 0.3],
+            }}
+            transition={{ duration: 2 + Math.random() * 2, repeat: Infinity, ease: "easeInOut" }}
+          />
+        ))}
+      </div>
+    </div>
+
+    {/* Arrow */}
+    <ChevronRight className="w-5 h-5 text-white/20" />
+
+    {/* Shield filter */}
+    <div className="flex flex-col items-center gap-2">
+      <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/30 mb-2">AMAI Shield</p>
+      <motion.div
+        className="w-16 h-20 md:w-20 md:h-24 border border-white/20 rounded-lg bg-white/5 flex items-center justify-center"
+        animate={{ boxShadow: ["0 0 20px rgba(166,252,252,0.05)", "0 0 30px rgba(166,252,252,0.15)", "0 0 20px rgba(166,252,252,0.05)"] }}
+        transition={{ duration: 3, repeat: Infinity }}
+      >
+        <Shield className="w-8 h-8 md:w-10 md:h-10 text-white/40" />
+      </motion.div>
+    </div>
+
+    {/* Arrow */}
+    <ChevronRight className="w-5 h-5 text-white/20" />
+
+    {/* Verified stream */}
+    <div className="flex flex-col items-center gap-2">
+      <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/30 mb-2">Trusted Labor</p>
+      <div className="flex flex-col gap-1.5">
+        {[0, 1, 2].map((i) => (
+          <motion.div
+            key={i}
+            className="w-14 md:w-20 h-3 md:h-4 rounded bg-white/10 border border-white/15"
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: i * 0.3, duration: 0.6, repeat: Infinity, repeatDelay: 3 }}
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+);
+
+/* ─── Main Component ─── */
+const Pitch = () => {
+  const { scrollYProgress } = useScroll();
+  const isMobile = useIsMobile();
+
+  return (
+    <div className={`bg-black min-h-svh md:min-h-screen overflow-x-hidden ${isMobile ? "overscroll-y-contain touch-pan-y" : ""}`}>
+      {/* Progress bar */}
+      {!isMobile && (
+        <motion.div
+          className="fixed bottom-0 left-0 h-[3px] bg-white/30 origin-left z-50"
+          style={{ scaleX: scrollYProgress, width: "100%" }}
+        />
+      )}
+
+      {/* ── SLIDE 1: THE HOOK ── */}
+      <Slide align="left" slideNumber={1}>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.2 }} className="max-w-4xl">
+          <motion.img
+            src={amaiLogo}
+            alt="AMAI"
+            className="h-10 md:h-16 w-auto brightness-110 mb-10 md:mb-20"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          />
+          <MicroLabel delay={0.3}>01 // THE HOOK</MicroLabel>
+          <motion.h1
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-6 md:mb-8 leading-[1.1] font-light"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
+            Intelligence is a Commodity.
+            <br />
+            <span className="text-white/60">Trust is the Product.</span>
+          </motion.h1>
+          <motion.p
+            className="text-base md:text-xl text-white/50 font-light leading-relaxed max-w-2xl mb-10"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+          >
+            We are building the FICO Score and Surety Bond layer for the Autonomous Economy.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
+          >
+            <TrustFilterVisual />
+          </motion.div>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+      {/* ── SLIDE 2: THE PROBLEM ── */}
+      <Slide slideNumber={2}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="max-w-3xl text-center"
+        >
+          <MicroLabel>02 // THE PROBLEM</MicroLabel>
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-8 leading-[1.15]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            The Liability Gap
+          </motion.h2>
+          <motion.p
+            className="text-lg md:text-xl text-white/60 font-light leading-relaxed mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            LLMs are infinite, but they are anonymous. When an AI Agent makes a mistake, who pays?
+          </motion.p>
+
+          {/* Diagram: Bank → STOP → Agent */}
+          <motion.div
+            className="flex items-center justify-center gap-4 md:gap-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex flex-col items-center gap-2">
+              <div className="w-16 h-16 md:w-20 md:h-20 border border-white/20 rounded-lg bg-white/5 flex items-center justify-center">
+                <Landmark className="w-7 h-7 md:w-9 md:h-9 text-white/50" />
+              </div>
+              <span className="text-[10px] md:text-xs tracking-[0.15em] uppercase text-white/40">Enterprise</span>
+            </div>
+
+            {/* STOP connector */}
+            <div className="flex flex-col items-center gap-1">
+              <div className="h-px w-10 md:w-20 bg-red-500/40" />
+              <div className="px-3 py-1.5 border border-red-500/30 rounded bg-red-500/10">
+                <AlertTriangle className="w-5 h-5 text-red-400/80" />
+              </div>
+              <p className="text-[8px] md:text-[9px] tracking-[0.15em] uppercase text-red-400/60 text-center max-w-[120px] leading-tight mt-1">
+                Unlimited Liability
+                <br />
+                Zero Recourse
+              </p>
+              <div className="h-px w-10 md:w-20 bg-red-500/40" />
+            </div>
+
+            <div className="flex flex-col items-center gap-2">
+              <div className="w-16 h-16 md:w-20 md:h-20 border border-white/20 rounded-lg bg-white/5 flex items-center justify-center">
+                <Zap className="w-7 h-7 md:w-9 md:h-9 text-white/50" />
+              </div>
+              <span className="text-[10px] md:text-xs tracking-[0.15em] uppercase text-white/40">AI Agent</span>
+            </div>
+          </motion.div>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+      {/* ── SLIDE 3: THE SOLUTION ── */}
+      <Slide align="left" slideNumber={3}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="max-w-4xl"
+        >
+          <MicroLabel>03 // THE SOLUTION</MicroLabel>
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 leading-[1.15]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            Escrowed Identity
+          </motion.h2>
+          <motion.p
+            className="text-lg md:text-xl text-white/50 font-light mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            Identity + Collateral = Trust.
+          </motion.p>
+
+          {/* 3-step equation */}
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            {/* Identity */}
+            <div className="bg-black border border-white/10 rounded-lg p-6 flex flex-col items-center text-center">
+              <Fingerprint className="w-8 h-8 text-white/50 mb-4" />
+              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-2">Identity</p>
+              <p className="text-sm text-white/40 font-light">A digital passport recorded on an Immutable Ledger.</p>
+            </div>
+
+            {/* Collateral */}
+            <div className="bg-black border border-white/10 rounded-lg p-6 flex flex-col items-center text-center">
+              <Lock className="w-8 h-8 text-white/50 mb-4" />
+              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-2">Collateral</p>
+              <p className="text-sm text-white/40 font-light">A Performance Bond — cash &amp; assets held in escrow.</p>
+            </div>
+
+            {/* Result */}
+            <div className="bg-black border border-white/15 rounded-lg p-6 flex flex-col items-center text-center">
+              <Shield className="w-8 h-8 text-white/60 mb-4" />
+              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-2">Result</p>
+              <p className="text-sm text-white/40 font-light">A Sovereign Agent capable of holding liability.</p>
+            </div>
+          </motion.div>
+
+          {/* Plus / Equals glyphs on desktop */}
+          <div className="hidden md:flex justify-center -mt-[calc(50%+0px)] pointer-events-none">
+            {/* Handled visually by grid gap */}
+          </div>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+      {/* ── SLIDE 4: THE MECHANISM ── */}
+      <Slide slideNumber={4}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto"
+        >
+          <MicroLabel>04 // THE MECHANISM</MicroLabel>
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 text-center leading-[1.15]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            The Dual Capital Model
+          </motion.h2>
+          <motion.p
+            className="text-base md:text-lg text-white/50 font-light mb-12 text-center max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            Users convert fiat to AMAI Credits to power the network. Agents post Performance Collateral to insure their work. We tax the flow of trust.
+          </motion.p>
+
+          {/* Two cards with tooltips */}
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="bg-black border border-white/10 rounded-lg p-8 cursor-pointer hover:border-white/25 transition-colors group">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Zap className="w-6 h-6 text-white/50 group-hover:text-white/70 transition-colors" />
+                    <p className="text-[10px] tracking-[0.25em] uppercase text-white/30">The Fuel</p>
+                  </div>
+                  <p className="text-xl md:text-2xl text-white/90 font-light mb-2">AMAI Credits</p>
+                  <p className="text-sm text-white/40 font-light">Used for compute, routing, and access.</p>
+                </div>
+              </TooltipTrigger>
+              <TooltipContent side="bottom" className="bg-black border-white/20 text-white/80 text-sm max-w-[220px]">
+                <span className="font-medium text-white/90">Operational Fuel</span> — The unit of work inside the network. Powers every task, query, and settlement.
+              </TooltipContent>
+            </Tooltip>
+
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="bg-black border border-white/10 rounded-lg p-8 cursor-pointer hover:border-white/25 transition-colors group">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Lock className="w-6 h-6 text-white/50 group-hover:text-white/70 transition-colors" />
+                    <p className="text-[10px] tracking-[0.25em] uppercase text-white/30">The Safety</p>
+                  </div>
+                  <p className="text-xl md:text-2xl text-white/90 font-light mb-2">Performance Collateral</p>
+                  <p className="text-sm text-white/40 font-light">Capital locked in a vault to insure the task.</p>
+                </div>
+              </TooltipTrigger>
+              <TooltipContent side="bottom" className="bg-black border-white/20 text-white/80 text-sm max-w-[220px]">
+                <span className="font-medium text-white/90">Insurance</span> — Skin-in-the-game capital that guarantees agent performance. Slashed on failure, returned on success.
+              </TooltipContent>
+            </Tooltip>
+          </motion.div>
+
+          {/* Flow diagram */}
+          <motion.div
+            className="flex items-center justify-center gap-1.5 md:gap-2 text-[9px] md:text-[11px] text-white/70 flex-wrap md:flex-nowrap"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            viewport={{ once: true }}
+          >
+            {["Fiat In", "Credits Minted", "Task Routed", "Collateral Posted", "Settlement"].map((step, i, arr) => (
+              <React.Fragment key={i}>
+                <span className="px-2 md:px-3 py-1 md:py-1.5 border border-white/20 rounded bg-black whitespace-nowrap">
+                  {step}
+                </span>
+                {i < arr.length - 1 && <span className="text-white/30 text-[8px] md:text-xs">→</span>}
+              </React.Fragment>
+            ))}
+          </motion.div>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+      {/* ── SLIDE 5: THE MOAT ── */}
+      <Slide align="left" slideNumber={5}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="max-w-4xl"
+        >
+          <MicroLabel>05 // THE MOAT</MicroLabel>
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 leading-[1.15]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            The First Historical Ledger of Agent Behavior.
+          </motion.h2>
+          <motion.p
+            className="text-base md:text-lg text-white/50 font-light mb-10 max-w-2xl"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            While others build models, we are capturing the credit history of the digital workforce.
+          </motion.p>
+
+          {/* Live trust score */}
+          <motion.div
+            className="flex items-center gap-4 mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center gap-3 bg-black border border-white/10 rounded-lg px-5 py-3">
+              <Database className="w-5 h-5 text-white/40" />
+              <span className="text-[10px] tracking-[0.2em] uppercase text-white/40">Trust Events Recorded:</span>
+              <TrustScoreCounter />
+            </div>
+          </motion.div>
+
+          {/* Scrolling audit log */}
+          <motion.div
+            className="bg-black/60 border border-white/10 rounded-lg p-4 md:p-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-[9px] tracking-[0.2em] uppercase text-white/30 mb-3">Live Audit Trail</p>
+            <ScrollingLog />
+          </motion.div>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+      {/* ── SLIDE 6: THE ASK ── */}
+      <Slide slideNumber={6}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto text-center"
+        >
+          <MicroLabel>06 // THE ASK</MicroLabel>
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-12 leading-[1.15]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            Strategic Seed Round
+          </motion.h2>
+
+          {/* Deal cards */}
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            {[
+              { label: "Raise", value: "$3M", sub: "Post-Money SAFE" },
+              { label: "Valuation Cap", value: "$30M", sub: "" },
+              { label: "Strategic Anchor", value: "$500K", sub: "Allocation Reserved" },
+              { label: "Discount", value: "20%", sub: "" },
+            ].map((card, i) => (
+              <div
+                key={i}
+                className="bg-black border border-white/10 rounded-lg p-5 md:p-6 flex flex-col items-center"
+              >
+                <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/30 mb-3">{card.label}</p>
+                <p className="text-2xl md:text-3xl text-white font-light mb-1">{card.value}</p>
+                {card.sub && <p className="text-[10px] md:text-xs text-white/40 font-light">{card.sub}</p>}
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Contact */}
+          <motion.p
+            className="mt-12 text-sm text-white/30 font-light"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            viewport={{ once: true }}
+          >
+            team@amai.net
+          </motion.p>
+        </motion.div>
+      </Slide>
+    </div>
+  );
+};
+
+export default Pitch;
