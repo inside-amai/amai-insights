@@ -286,7 +286,7 @@ const Pitch = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.2 }}
           >
-            <svg viewBox="0 0 340 200" className="w-[300px] md:w-[400px] h-auto">
+             <svg viewBox="0 0 340 200" className="w-[300px] md:w-[400px] h-auto">
               {/* Glow filter for needle */}
               <defs>
                 <filter id="needleGlow" x="-50%" y="-50%" width="200%" height="200%">
@@ -298,27 +298,30 @@ const Pitch = () => {
                 </filter>
               </defs>
 
-              {/* Gauge arc segments — thicker, with gaps */}
-              <path d="M 48 170 A 125 125 0 0 1 78 78" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="28" strokeLinecap="butt" />
-              <path d="M 84 72 A 125 125 0 0 1 130 38" fill="none" stroke="rgba(255,255,255,0.14)" strokeWidth="28" strokeLinecap="butt" />
-              <path d="M 136 34 A 125 125 0 0 1 204 34" fill="none" stroke="rgba(255,255,255,0.22)" strokeWidth="28" strokeLinecap="butt" />
-              <path d="M 210 38 A 125 125 0 0 1 256 72" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="28" strokeLinecap="butt" />
-              <path d="M 262 78 A 125 125 0 0 1 292 170" fill="none" stroke="rgba(255,255,255,0.55)" strokeWidth="28" strokeLinecap="butt" />
+              {/* Gauge arc segments — 3 blocks with gaps */}
+              <path d="M 48 170 A 125 125 0 0 1 100 55" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="28" strokeLinecap="butt" />
+              <path d="M 108 46 A 125 125 0 0 1 232 46" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="28" strokeLinecap="butt" />
+              <path d="M 240 55 A 125 125 0 0 1 292 170" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="28" strokeLinecap="butt" />
 
               {/* Tier labels — outside the arc */}
-              <text x="28" y="130" fill="rgba(255,255,255,0.25)" fontSize="9" fontFamily="monospace" textAnchor="middle">POOR</text>
-              <text x="56" y="58" fill="rgba(255,255,255,0.25)" fontSize="9" fontFamily="monospace" textAnchor="middle">FAIR</text>
-              <text x="170" y="16" fill="rgba(255,255,255,0.3)" fontSize="9" fontFamily="monospace" textAnchor="middle">GOOD</text>
-              <text x="278" y="58" fill="rgba(255,255,255,0.35)" fontSize="9" fontFamily="monospace" textAnchor="start">VERY</text>
-              <text x="278" y="70" fill="rgba(255,255,255,0.35)" fontSize="9" fontFamily="monospace" textAnchor="start">GOOD</text>
-              <text x="306" y="130" fill="rgba(255,255,255,0.5)" fontSize="10" fontFamily="monospace" fontWeight="bold" textAnchor="middle">A+</text>
+              <text x="38" y="100" fill="rgba(255,255,255,0.3)" fontSize="10" fontFamily="monospace" textAnchor="middle">POOR</text>
+              <text x="170" y="14" fill="rgba(255,255,255,0.35)" fontSize="10" fontFamily="monospace" textAnchor="middle">GOOD</text>
+              <text x="302" y="100" fill="rgba(255,255,255,0.5)" fontSize="10" fontFamily="monospace" textAnchor="middle">EXCELLENT</text>
 
               {/* Range labels */}
-              <text x="28" y="142" fill="rgba(255,255,255,0.25)" fontSize="7" fontFamily="monospace" textAnchor="middle">300</text>
-              <text x="56" y="72" fill="rgba(255,255,255,0.25)" fontSize="7" fontFamily="monospace" textAnchor="middle">580</text>
-              <text x="170" y="26" fill="rgba(255,255,255,0.25)" fontSize="7" fontFamily="monospace" textAnchor="middle">670</text>
-              <text x="274" y="52" fill="rgba(255,255,255,0.25)" fontSize="7" fontFamily="monospace" textAnchor="middle">740</text>
-              <text x="306" y="142" fill="rgba(255,255,255,0.25)" fontSize="7" fontFamily="monospace" textAnchor="middle">850</text>
+              <text x="38" y="112" fill="rgba(255,255,255,0.2)" fontSize="7" fontFamily="monospace" textAnchor="middle">300</text>
+              <text x="170" y="26" fill="rgba(255,255,255,0.2)" fontSize="7" fontFamily="monospace" textAnchor="middle">580</text>
+              <text x="302" y="112" fill="rgba(255,255,255,0.2)" fontSize="7" fontFamily="monospace" textAnchor="middle">850</text>
+
+              {/* Agent bot icon — centered in semicircle, no circle border */}
+              <rect x="155" y="118" width="30" height="22" rx="4" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="2" />
+              <circle cx="164" cy="128" r="2.5" fill="rgba(255,255,255,0.55)" />
+              <circle cx="176" cy="128" r="2.5" fill="rgba(255,255,255,0.55)" />
+              <line x1="170" y1="117" x2="170" y2="108" stroke="rgba(255,255,255,0.45)" strokeWidth="2" />
+              <circle cx="170" cy="106" r="3" fill="rgba(255,255,255,0.4)" />
+              {/* Stand/base */}
+              <line x1="170" y1="140" x2="170" y2="146" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
+              <line x1="162" y1="146" x2="178" y2="146" stroke="rgba(255,255,255,0.4)" strokeWidth="2" strokeLinecap="round" />
 
               {/* Needle glow (behind) */}
               <motion.line
@@ -335,15 +338,6 @@ const Pitch = () => {
                 animate={{ x2: [270, 276, 270], y2: [102, 94, 102] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
-
-              {/* Center hub */}
-              <circle cx="170" cy="170" r="20" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.25)" strokeWidth="2" />
-              {/* Agent bot icon — monitor with eyes and antenna */}
-              <rect x="161" y="165" width="18" height="13" rx="2.5" fill="none" stroke="rgba(255,255,255,0.65)" strokeWidth="1.5" />
-              <circle cx="166.5" cy="171" r="1.5" fill="rgba(255,255,255,0.6)" />
-              <circle cx="173.5" cy="171" r="1.5" fill="rgba(255,255,255,0.6)" />
-              <line x1="170" y1="164" x2="170" y2="159" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
-              <circle cx="170" cy="158" r="1.8" fill="rgba(255,255,255,0.45)" />
             </svg>
           </motion.div>
         </motion.div>
