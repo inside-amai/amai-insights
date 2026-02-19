@@ -589,7 +589,7 @@ const Pitch = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            The First Historical Ledger of Agent Behavior.
+            The World's First Historical Ledger of Agent Behavior.
           </motion.h2>
           <motion.p
             className="text-base md:text-lg text-white/50 font-light mb-10 max-w-2xl mx-auto"
