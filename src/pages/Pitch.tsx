@@ -574,7 +574,7 @@ const Pitch = () => {
           className="max-w-3xl mx-auto text-center"
         >
           <motion.h2
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-10 md:mb-16 leading-[1.1]"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-10 md:mb-16 leading-[1.2]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -605,7 +605,7 @@ const Pitch = () => {
               ))}
             </div>
             <motion.p 
-              className="mt-6 text-xl md:text-2xl text-white/70 font-medium"
+              className="mt-6 text-base md:text-xl text-white/70 font-light"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 1.2 }}
