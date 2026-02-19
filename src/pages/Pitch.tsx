@@ -378,12 +378,8 @@ const Pitch = () => {
               <p className="text-sm text-white/40 font-light">A Sovereign Agent capable of holding liability.</p>
             </div>
           </motion.div>
-
-          {/* Plus / Equals glyphs on desktop */}
-          <div className="hidden md:flex justify-center -mt-[calc(50%+0px)] pointer-events-none">
-            {/* Handled visually by grid gap */}
-          </div>
         </motion.div>
+
       </Slide>
 
       <SlideDivider />
