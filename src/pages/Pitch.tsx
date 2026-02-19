@@ -286,7 +286,7 @@ const Pitch = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.2 }}
           >
-            <svg viewBox="0 0 340 200" className="w-[300px] md:w-[400px] h-auto">
+            <svg viewBox="0 0 360 230" className="w-[300px] md:w-[400px] h-auto">
               {/* Glow filter for needle */}
               <defs>
                 <filter id="needleGlow" x="-50%" y="-50%" width="200%" height="200%">
@@ -298,52 +298,70 @@ const Pitch = () => {
                 </filter>
               </defs>
 
-              {/* Gauge arc segments — thicker, with gaps */}
-              <path d="M 48 170 A 125 125 0 0 1 78 78" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="28" strokeLinecap="butt" />
-              <path d="M 84 72 A 125 125 0 0 1 130 38" fill="none" stroke="rgba(255,255,255,0.14)" strokeWidth="28" strokeLinecap="butt" />
-              <path d="M 136 34 A 125 125 0 0 1 204 34" fill="none" stroke="rgba(255,255,255,0.22)" strokeWidth="28" strokeLinecap="butt" />
-              <path d="M 210 38 A 125 125 0 0 1 256 72" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="28" strokeLinecap="butt" />
-              <path d="M 262 78 A 125 125 0 0 1 292 170" fill="none" stroke="rgba(255,255,255,0.55)" strokeWidth="28" strokeLinecap="butt" />
+              {/* Arc segments: 5 tiers across 180° semicircle, each 36°, centered at (180,175), r=120 */}
+              {/* POOR: 180° to 144° */}
+              <path d="M 60 175 A 120 120 0 0 1 89.46 82.64" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="30" strokeLinecap="butt" />
+              {/* FAIR: 141° to 105° */}
+              <path d="M 95.18 77.18 A 120 120 0 0 1 149.04 62.18" fill="none" stroke="rgba(255,255,255,0.14)" strokeWidth="30" strokeLinecap="butt" />
+              {/* GOOD: 102° to 78° */}
+              <path d="M 154.96 57.18 A 120 120 0 0 1 205.04 57.18" fill="none" stroke="rgba(255,255,255,0.22)" strokeWidth="30" strokeLinecap="butt" />
+              {/* VERY GOOD: 75° to 39° */}
+              <path d="M 210.96 62.18 A 120 120 0 0 1 264.82 77.18" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="30" strokeLinecap="butt" />
+              {/* EXCELLENT: 36° to 0° */}
+              <path d="M 270.54 82.64 A 120 120 0 0 1 300 175" fill="none" stroke="rgba(255,255,255,0.55)" strokeWidth="30" strokeLinecap="butt" />
 
-              {/* Tier labels — outside the arc */}
-              <text x="28" y="130" fill="rgba(255,255,255,0.25)" fontSize="9" fontFamily="monospace" textAnchor="middle">POOR</text>
-              <text x="56" y="58" fill="rgba(255,255,255,0.25)" fontSize="9" fontFamily="monospace" textAnchor="middle">FAIR</text>
-              <text x="170" y="16" fill="rgba(255,255,255,0.3)" fontSize="9" fontFamily="monospace" textAnchor="middle">GOOD</text>
-              <text x="278" y="58" fill="rgba(255,255,255,0.35)" fontSize="9" fontFamily="monospace" textAnchor="start">VERY</text>
-              <text x="278" y="70" fill="rgba(255,255,255,0.35)" fontSize="9" fontFamily="monospace" textAnchor="start">GOOD</text>
-              <text x="306" y="130" fill="rgba(255,255,255,0.5)" fontSize="10" fontFamily="monospace" fontWeight="bold" textAnchor="middle">A+</text>
+              {/* Labels centered on each arc segment midpoint */}
+              {/* POOR — midpoint ~162° */}
+              <text x="52" y="138" fill="rgba(255,255,255,0.3)" fontSize="10" fontFamily="monospace" textAnchor="middle" fontWeight="bold">POOR</text>
+              <text x="52" y="150" fill="rgba(255,255,255,0.2)" fontSize="8" fontFamily="monospace" textAnchor="middle">300</text>
 
-              {/* Range labels */}
-              <text x="28" y="142" fill="rgba(255,255,255,0.25)" fontSize="7" fontFamily="monospace" textAnchor="middle">300</text>
-              <text x="56" y="72" fill="rgba(255,255,255,0.25)" fontSize="7" fontFamily="monospace" textAnchor="middle">580</text>
-              <text x="170" y="26" fill="rgba(255,255,255,0.25)" fontSize="7" fontFamily="monospace" textAnchor="middle">670</text>
-              <text x="274" y="52" fill="rgba(255,255,255,0.25)" fontSize="7" fontFamily="monospace" textAnchor="middle">740</text>
-              <text x="306" y="142" fill="rgba(255,255,255,0.25)" fontSize="7" fontFamily="monospace" textAnchor="middle">850</text>
+              {/* FAIR — midpoint ~126° */}
+              <text x="96" y="60" fill="rgba(255,255,255,0.3)" fontSize="10" fontFamily="monospace" textAnchor="middle" fontWeight="bold">FAIR</text>
+              <text x="96" y="72" fill="rgba(255,255,255,0.2)" fontSize="8" fontFamily="monospace" textAnchor="middle">580</text>
+
+              {/* GOOD — midpoint ~90° (top center) */}
+              <text x="180" y="30" fill="rgba(255,255,255,0.35)" fontSize="10" fontFamily="monospace" textAnchor="middle" fontWeight="bold">GOOD</text>
+              <text x="180" y="42" fill="rgba(255,255,255,0.25)" fontSize="8" fontFamily="monospace" textAnchor="middle">670</text>
+
+              {/* VERY GOOD — midpoint ~54° */}
+              <text x="264" y="60" fill="rgba(255,255,255,0.4)" fontSize="10" fontFamily="monospace" textAnchor="middle" fontWeight="bold">VERY</text>
+              <text x="264" y="72" fill="rgba(255,255,255,0.4)" fontSize="10" fontFamily="monospace" textAnchor="middle" fontWeight="bold">GOOD</text>
+
+              {/* EXCELLENT — midpoint ~18° */}
+              <text x="312" y="138" fill="rgba(255,255,255,0.55)" fontSize="10" fontFamily="monospace" textAnchor="middle" fontWeight="bold">A+</text>
+              <text x="312" y="150" fill="rgba(255,255,255,0.3)" fontSize="8" fontFamily="monospace" textAnchor="middle">850</text>
 
               {/* Needle glow (behind) */}
               <motion.line
-                x1="170" y1="170" x2="272" y2="100"
+                x1="180" y1="175" x2="284" y2="105"
                 stroke="rgba(255,255,255,0.15)" strokeWidth="6" strokeLinecap="round"
                 filter="url(#needleGlow)"
-                animate={{ x2: [270, 276, 270], y2: [102, 94, 102] }}
+                animate={{ x2: [282, 288, 282], y2: [107, 99, 107] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
               {/* Needle (main) */}
               <motion.line
-                x1="170" y1="170" x2="272" y2="100"
+                x1="180" y1="175" x2="284" y2="105"
                 stroke="rgba(255,255,255,0.7)" strokeWidth="2.5" strokeLinecap="round"
-                animate={{ x2: [270, 276, 270], y2: [102, 94, 102] }}
+                animate={{ x2: [282, 288, 282], y2: [107, 99, 107] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
 
-              {/* Center hub */}
-              <circle cx="170" cy="170" r="20" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.25)" strokeWidth="2" />
-              {/* Agent bot icon — monitor with eyes and antenna */}
-              <rect x="161" y="165" width="18" height="13" rx="2.5" fill="none" stroke="rgba(255,255,255,0.65)" strokeWidth="1.5" />
-              <circle cx="166.5" cy="171" r="1.5" fill="rgba(255,255,255,0.6)" />
-              <circle cx="173.5" cy="171" r="1.5" fill="rgba(255,255,255,0.6)" />
-              <line x1="170" y1="164" x2="170" y2="159" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
-              <circle cx="170" cy="158" r="1.8" fill="rgba(255,255,255,0.45)" />
+              {/* Center hub — just the circle, no fill clutter */}
+              <circle cx="180" cy="175" r="4" fill="rgba(255,255,255,0.5)" />
+
+              {/* Agent bot icon — larger, centered below hub */}
+              <g transform="translate(180, 205)">
+                <circle cx="0" cy="0" r="18" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" />
+                {/* Monitor body */}
+                <rect x="-10" y="-7" width="20" height="14" rx="3" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="1.5" />
+                {/* Eyes */}
+                <circle cx="-4" cy="0" r="1.8" fill="rgba(255,255,255,0.6)" />
+                <circle cx="4" cy="0" r="1.8" fill="rgba(255,255,255,0.6)" />
+                {/* Antenna */}
+                <line x1="0" y1="-8" x2="0" y2="-14" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
+                <circle cx="0" cy="-15" r="2" fill="rgba(255,255,255,0.4)" />
+              </g>
             </svg>
           </motion.div>
         </motion.div>
