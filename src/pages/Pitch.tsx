@@ -566,7 +566,7 @@ const Pitch = () => {
 
           {/* Deal cards */}
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"
+            className="grid grid-cols-3 gap-4 md:gap-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
@@ -575,7 +575,6 @@ const Pitch = () => {
             {[
               { label: "Raise", value: "$3M", sub: "Post-Money SAFE" },
               { label: "Valuation Cap", value: "$30M", sub: "" },
-              { label: "Strategic Anchor", value: "$500K", sub: "Allocation Reserved" },
               { label: "Discount", value: "20%", sub: "" },
             ].map((card, i) => (
               <div
