@@ -110,7 +110,7 @@ export const SiteHeader = () => {
             {/* Navigation Link - hidden on /deck and /tether */}
             {!isDeckPage && (
               <Link 
-                to="/pitch"
+                to="/thesis"
                 className="text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase mr-1 sm:mr-0"
               >
                 Explore The Thesis
