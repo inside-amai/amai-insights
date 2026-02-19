@@ -533,31 +533,82 @@ const Pitch = () => {
             While others build models, we are capturing the credit history of the digital workforce.
           </motion.p>
 
-          {/* Live trust score */}
+          {/* Trust Matrix Panel */}
           <motion.div
-            className="flex items-center justify-center gap-4 mb-8"
+            className="bg-black border border-white/10 rounded-lg overflow-hidden"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center gap-3 bg-black border border-white/10 rounded-lg px-5 py-3">
-              <Database className="w-5 h-5 text-white/40" />
-              <span className="text-[10px] tracking-[0.2em] uppercase text-white/40">Trust Events Recorded:</span>
-              <TrustScoreCounter />
+            {/* Top Section: Agent Score */}
+            <div className="border-b border-white/10 px-5 md:px-8 py-5 md:py-6">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.5)]" />
+                  <span className="text-[10px] md:text-xs tracking-[0.2em] uppercase text-white/40 font-mono">AGENT-0B</span>
+                  <span className="text-[10px] tracking-[0.15em] text-white/20 font-mono">//</span>
+                  <span className="text-[10px] md:text-xs tracking-[0.15em] uppercase text-white/40 font-mono">TRUST RATING:</span>
+                  <span className="text-2xl md:text-3xl font-light text-white tracking-tight">842</span>
+                  <span className="text-[10px] tracking-[0.2em] uppercase text-emerald-400/80 font-mono border border-emerald-400/20 px-2 py-0.5 rounded">PRIME</span>
+                </div>
+                {/* Sparkline */}
+                <svg className="w-32 md:w-40 h-8" viewBox="0 0 160 32" fill="none">
+                  <defs>
+                    <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="rgba(52,211,153,0.3)" />
+                      <stop offset="100%" stopColor="rgba(52,211,153,0)" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M0,28 L12,26 L24,24 L36,25 L48,22 L60,20 L72,18 L84,19 L96,15 L108,12 L120,10 L132,8 L144,6 L156,4 L160,3" stroke="rgba(52,211,153,0.6)" strokeWidth="1.5" fill="none" />
+                  <path d="M0,28 L12,26 L24,24 L36,25 L48,22 L60,20 L72,18 L84,19 L96,15 L108,12 L120,10 L132,8 L144,6 L156,4 L160,3 L160,32 L0,32 Z" fill="url(#sparkGrad)" />
+                </svg>
+              </div>
             </div>
-          </motion.div>
 
-          {/* Scrolling audit log */}
-          <motion.div
-            className="bg-black/60 border border-white/10 rounded-lg p-4 md:p-6"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-[9px] tracking-[0.2em] uppercase text-white/30 mb-3">Live Audit Trail</p>
-            <ScrollingLog />
+            {/* Middle Section: Heatmap */}
+            <div className="border-b border-white/10 px-5 md:px-8 py-5 md:py-6">
+              <p className="text-[9px] tracking-[0.2em] uppercase text-white/30 mb-4 text-left font-mono">Performance History — 52 Weeks</p>
+              <div className="flex gap-[3px] md:gap-1 flex-wrap justify-center">
+                {Array.from({ length: 52 * 5 }, (_, i) => {
+                  const isFault = i === 187;
+                  const intensity = isFault ? 0 : Math.random();
+                  const opacity = isFault ? 1 : intensity < 0.15 ? 0.08 : intensity < 0.4 ? 0.2 : intensity < 0.7 ? 0.4 : 0.7;
+                  return (
+                    <div
+                      key={i}
+                      className="w-[6px] h-[6px] md:w-2 md:h-2 rounded-[1px]"
+                      style={{
+                        backgroundColor: isFault
+                          ? 'rgba(239,68,68,0.9)'
+                          : `rgba(52,211,153,${opacity})`,
+                        boxShadow: isFault
+                          ? '0 0 6px rgba(239,68,68,0.5)'
+                          : opacity > 0.5
+                            ? '0 0 4px rgba(52,211,153,0.3)'
+                            : 'none',
+                      }}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Bottom Section: Cumulative Metrics */}
+            <div className="px-5 md:px-8 py-5 md:py-6">
+              <div className="grid grid-cols-3 gap-4 md:gap-8">
+                {[
+                  { label: 'Lifetime Tasks', value: '4,192' },
+                  { label: 'Capital Secured', value: '$12.4M' },
+                  { label: 'Fault Rate', value: '0.02%' },
+                ].map((metric) => (
+                  <div key={metric.label} className="text-center">
+                    <p className="text-xl md:text-2xl text-white font-light tracking-tight mb-1">{metric.value}</p>
+                    <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono">{metric.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </motion.div>
         </motion.div>
       </Slide>
