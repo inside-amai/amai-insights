@@ -320,6 +320,31 @@ const Pitch = () => {
               Without a standardized Credit Score, an Agent is just a random script. It cannot borrow capital, it cannot sign contracts, and it cannot be trusted with a bank account.
             </p>
           </motion.div>
+
+          {/* FICO-style gauge */}
+          <motion.div
+            className="mt-10 flex justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <svg viewBox="0 0 280 130" className="w-[260px] md:w-[320px]">
+              {/* Gauge arcs */}
+              <path d="M 40 110 A 100 100 0 0 1 72 42" fill="none" stroke="rgba(239,68,68,0.5)" strokeWidth="10" strokeLinecap="round" />
+              <path d="M 78 37 A 100 100 0 0 1 130 15" fill="none" stroke="rgba(251,191,36,0.5)" strokeWidth="10" strokeLinecap="round" />
+              <path d="M 136 14 A 100 100 0 0 1 190 30" fill="none" stroke="rgba(250,204,21,0.5)" strokeWidth="10" strokeLinecap="round" />
+              <path d="M 196 34 A 100 100 0 0 1 240 110" fill="none" stroke="rgba(52,211,153,0.6)" strokeWidth="10" strokeLinecap="round" />
+              {/* Needle */}
+              <line x1="140" y1="115" x2="220" y2="60" stroke="rgba(166,252,252,0.8)" strokeWidth="2" strokeLinecap="round" />
+              <circle cx="140" cy="115" r="5" fill="rgba(166,252,252,0.3)" stroke="rgba(166,252,252,0.6)" strokeWidth="1.5" />
+              {/* Labels */}
+              <text x="30" y="125" fill="rgba(255,255,255,0.25)" fontSize="9" fontFamily="monospace" textAnchor="start">POOR</text>
+              <text x="80" y="18" fill="rgba(255,255,255,0.25)" fontSize="9" fontFamily="monospace" textAnchor="middle">FAIR</text>
+              <text x="190" y="18" fill="rgba(255,255,255,0.25)" fontSize="9" fontFamily="monospace" textAnchor="middle">GOOD</text>
+              <text x="252" y="125" fill="rgba(255,255,255,0.25)" fontSize="9" fontFamily="monospace" textAnchor="end">PRIME</text>
+            </svg>
+          </motion.div>
         </motion.div>
       </Slide>
 
