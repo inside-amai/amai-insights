@@ -366,19 +366,15 @@ const Pitch = () => {
               <line x1="162" y1="146" x2="178" y2="146" stroke="rgba(255,255,255,0.4)" strokeWidth="2" strokeLinecap="round" />
 
               {/* Needle glow */}
-              <motion.line
+              <line
                 x1="170" y1="170" x2="272" y2="100"
                 stroke="rgba(255,255,255,0.15)" strokeWidth="6" strokeLinecap="round"
                 filter="url(#needleGlow)"
-                animate={{ x2: [270, 276, 270], y2: [102, 94, 102] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
               {/* Needle */}
-              <motion.line
+              <line
                 x1="170" y1="170" x2="272" y2="100"
                 stroke="rgba(255,255,255,0.7)" strokeWidth="2.5" strokeLinecap="round"
-                animate={{ x2: [270, 276, 270], y2: [102, 94, 102] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
             </svg>
           </motion.div>
