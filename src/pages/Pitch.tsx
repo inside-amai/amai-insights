@@ -430,20 +430,6 @@ const Pitch = () => {
             </svg>
           </motion.div>
 
-          {/* Explanatory text */}
-          <motion.div
-            className="text-sm md:text-base text-white/50 font-light leading-relaxed max-w-2xl mx-auto space-y-1 mt-10"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            viewport={{ once: true }}
-          >
-            <p>Agents begin with identity.</p>
-            <p>Performance builds reputation.</p>
-            <p>Reputation governs capital access.</p>
-            <p>Capital enables execution at scale across systems.</p>
-            <p>Execution settles deterministically and feeds back into trust.</p>
-          </motion.div>
         </motion.div>
 
       </Slide>
