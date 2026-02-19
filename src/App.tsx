@@ -17,9 +17,7 @@ import UI from "./pages/UI";
 import TechnicalDocs from "./pages/TechnicalDocs";
 import GenesisMint from "./pages/GenesisMint";
 import FoundersMint from "./pages/FoundersMint";
-import Thesis from "./pages/Thesis";
 import Briefing from "./pages/Briefing";
-import LiabilityLayer from "./pages/LiabilityLayer";
 import AdminPilotRequests from "./pages/admin/PilotRequests";
 
 import Deck from "./pages/Deck";
@@ -43,6 +41,7 @@ import TrustFormula from "./pages/TrustFormula";
 import Home from "./pages/Home";
 import Legal from "./pages/Legal";
 import Pitch from "./pages/Pitch";
+import Thesis from "./pages/Thesis";
 
 
 
@@ -67,7 +66,7 @@ const FullBleedRouteHandler = () => {
     const root = document.getElementById('root');
     if (!root) return;
     
-    const isFullBleed = location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/thesis' || location.pathname === '/briefing' || location.pathname === '/liability-layer' || location.pathname === '/pitch';
+    const isFullBleed = location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/thesis' || location.pathname === '/briefing' || location.pathname === '/pitch';
     
     if (isFullBleed) {
       root.classList.add('full-bleed');
@@ -123,11 +122,10 @@ const App = () => (
             
             <Route path="/deck" element={<Deck />} />
             <Route path="/tether" element={<Tether />} />
-            <Route path="/thesis" element={<LiabilityLayer />} />
-            <Route path="/briefing" element={<Briefing />} />
-            <Route path="/liability-layer" element={<Thesis />} />
-
             <Route path="/pitch" element={<Pitch />} />
+            <Route path="/thesis" element={<Thesis />} />
+            <Route path="/briefing" element={<Briefing />} />
+
             <Route path="/diagram" element={<Diagram />} />
             <Route path="/ui" element={<UI />} />
             {/* Admin routes */}

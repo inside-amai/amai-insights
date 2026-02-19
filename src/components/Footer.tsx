@@ -22,7 +22,7 @@ const footerLinks = {
     { key: 'footer.nav.collateralModels', to: '/agent-economy' },
   ],
   research: [
-    { key: 'footer.nav.thesis', to: '/thesis' },
+    { key: 'footer.nav.thesis', to: '/pitch' },
     { key: 'footer.nav.conflictOfThought', to: '/research' },
     { key: 'footer.nav.kernelizedIntelligence', to: '/kernelized-intelligence' },
     { key: 'footer.nav.operationalScenarios', to: '/operational-scenarios' },
