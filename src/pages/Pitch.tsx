@@ -42,7 +42,7 @@ const Slide = ({ children, className = "", slideNumber }: SlideProps) => (
       </div>
     )}
     <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.2em] uppercase text-white/20 font-medium text-center whitespace-nowrap">
-      AMAI — Seed Pitch Deck
+      AMAI Labs · Infrastructure & Research
     </div>
   </section>
 );
