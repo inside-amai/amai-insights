@@ -342,9 +342,9 @@ const Pitch = () => {
               </defs>
 
               {/* Gauge arc segments — 3 blocks with gaps */}
-              <path d="M 48 170 A 125 125 0 0 1 100 55" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="28" strokeLinecap="butt" />
-              <path d="M 108 46 A 125 125 0 0 1 232 46" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="28" strokeLinecap="butt" />
-              <path d="M 240 55 A 125 125 0 0 1 292 170" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="28" strokeLinecap="butt" />
+              <path d="M 48 170 A 125 125 0 0 1 100 55" fill="none" stroke="rgba(200,120,50,0.25)" strokeWidth="28" strokeLinecap="butt" />
+              <path d="M 108 46 A 125 125 0 0 1 232 46" fill="none" stroke="rgba(200,180,60,0.3)" strokeWidth="28" strokeLinecap="butt" />
+              <path d="M 240 55 A 125 125 0 0 1 292 170" fill="none" stroke="rgba(80,180,100,0.35)" strokeWidth="28" strokeLinecap="butt" />
 
               {/* Tier labels */}
               <text x="38" y="100" fill="rgba(255,255,255,0.3)" fontSize="10" fontFamily="monospace" textAnchor="middle">POOR</text>
