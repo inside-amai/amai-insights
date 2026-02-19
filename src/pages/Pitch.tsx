@@ -396,7 +396,7 @@ const Pitch = () => {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto text-center"
         >
-          <MicroLabel>03 // THE SOLUTION</MicroLabel>
+          <MicroLabel>03 // AMAI</MicroLabel>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-10 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
