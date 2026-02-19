@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, useScroll } from "framer-motion";
 import amaiLogo from "@/assets/amai-logo-hero-new.png";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { SiteHeader } from "@/components/SiteHeader";
+import { Footer } from "@/components/Footer";
 import { Shield, AlertTriangle, Lock, Activity, Fingerprint, Landmark, Zap, Database, ChevronRight } from "lucide-react";
 import {
   Tooltip,
@@ -232,6 +234,7 @@ const Thesis = () => {
 
   return (
     <div className={`bg-black min-h-svh md:min-h-screen overflow-x-hidden ${isMobile ? "overscroll-y-contain touch-pan-y" : ""}`}>
+      <SiteHeader />
       {/* Progress bar */}
       {!isMobile && (
         <motion.div
@@ -764,6 +767,7 @@ const Thesis = () => {
           </motion.div>
         </motion.div>
       </Slide>
+      <Footer />
     </div>
   );
 };
