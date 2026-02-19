@@ -162,15 +162,35 @@ const TrustFilterVisual = () => (
       <ChevronRight className="w-5 h-5 text-white/20" />
     </div>
 
-    {/* Shield filter */}
+    {/* Credit Score Gauge */}
     <div className="flex flex-col items-center gap-2">
       <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/30 mb-2">AMAI Reputation</p>
       <motion.div
-        className="w-16 h-20 md:w-20 md:h-24 border border-white/20 rounded-lg bg-white/5 flex items-center justify-center"
-        animate={{ boxShadow: ["0 0 20px rgba(166,252,252,0.05)", "0 0 30px rgba(166,252,252,0.15)", "0 0 20px rgba(166,252,252,0.05)"] }}
+        className="w-20 h-16 md:w-28 md:h-20 flex items-center justify-center"
+        animate={{ opacity: [0.7, 1, 0.7] }}
         transition={{ duration: 3, repeat: Infinity }}
       >
-        <Shield className="w-8 h-8 md:w-10 md:h-10 text-white/40" />
+        <svg viewBox="0 0 120 75" className="w-full h-full">
+          {/* Gauge arc segments */}
+          <path d="M 15 65 A 50 50 0 0 1 35 25" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="6" strokeLinecap="round" />
+          <path d="M 37 23 A 50 50 0 0 1 60 15" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="6" strokeLinecap="round" />
+          <path d="M 62 15 A 50 50 0 0 1 85 23" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="6" strokeLinecap="round" />
+          <path d="M 87 25 A 50 50 0 0 1 105 65" fill="none" stroke="rgba(166,252,252,0.5)" strokeWidth="6" strokeLinecap="round" />
+          {/* Labels */}
+          <text x="18" y="58" fill="rgba(255,255,255,0.25)" fontSize="5" fontFamily="monospace">BAD</text>
+          <text x="30" y="30" fill="rgba(255,255,255,0.25)" fontSize="5" fontFamily="monospace">FAIR</text>
+          <text x="72" y="25" fill="rgba(255,255,255,0.3)" fontSize="5" fontFamily="monospace">GOOD</text>
+          <text x="85" y="50" fill="rgba(166,252,252,0.6)" fontSize="5" fontWeight="bold" fontFamily="monospace">A+</text>
+          {/* Needle pointing to Excellent */}
+          <motion.line
+            x1="60" y1="68" x2="92" y2="38"
+            stroke="rgba(166,252,252,0.8)" strokeWidth="2" strokeLinecap="round"
+            animate={{ x2: [90, 94, 90], y2: [40, 36, 40] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          />
+          {/* Center dot */}
+          <circle cx="60" cy="68" r="4" fill="rgba(166,252,252,0.3)" stroke="rgba(166,252,252,0.6)" strokeWidth="1.5" />
+        </svg>
       </motion.div>
     </div>
 
