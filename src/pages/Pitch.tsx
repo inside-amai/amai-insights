@@ -276,7 +276,7 @@ const Pitch = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
           >
-            We are building the Reputation Layer for the Autonomous Economy.
+            AMAI is the Reputation Layer for the Autonomous Economy.
           </motion.p>
 
           {/* Agent Credit Score Gauge */}
