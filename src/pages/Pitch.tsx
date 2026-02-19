@@ -391,7 +391,7 @@ const Pitch = () => {
             viewport={{ once: true }}
           >
             <div className="flex items-center justify-center gap-1.5 md:gap-2 text-[9px] md:text-[11px] text-white/70">
-              {['Credits', 'Task Routed', 'Collateral Posted', 'Settlement'].map((step, i, arr) => (
+              {['Identity', 'Reputation', 'Capital', 'Execution', 'Settlement'].map((step, i, arr) => (
                 <span key={i} className="flex items-center gap-1.5 md:gap-2">
                   <span className="px-2 md:px-3 py-1 md:py-1.5 border border-white/20 rounded bg-black whitespace-nowrap">
                     {step}
@@ -409,14 +409,15 @@ const Pitch = () => {
               fill="none"
             >
               <path 
-                d="M 380 0 L 380 18 Q 380 24 374 24 L 106 24 Q 100 24 100 18 L 100 0"
+                d="M 404 0 L 404 18 Q 404 24 398 24 L 78 24 Q 72 24 72 18 L 72 0"
                 stroke="rgba(255,255,255,0.15)"
                 strokeWidth="1"
               />
-              <polygon points="380,5 377,0 383,0" fill="rgba(255,255,255,0.25)" />
-              <polygon points="100,0 97,5 103,5" fill="rgba(255,255,255,0.25)" />
-              <polygon points="290,21 284,24 290,27" fill="rgba(255,255,255,0.25)" />
-              <polygon points="200,21 194,24 200,27" fill="rgba(255,255,255,0.25)" />
+              <polygon points="404,5 401,0 407,0" fill="rgba(255,255,255,0.25)" />
+              <polygon points="72,0 69,5 75,5" fill="rgba(255,255,255,0.25)" />
+              <polygon points="320,21 314,24 320,27" fill="rgba(255,255,255,0.25)" />
+              <polygon points="240,21 234,24 240,27" fill="rgba(255,255,255,0.25)" />
+              <polygon points="160,21 154,24 160,27" fill="rgba(255,255,255,0.25)" />
             </svg>
           </motion.div>
 
