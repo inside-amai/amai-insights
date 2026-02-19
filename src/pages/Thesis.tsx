@@ -4,6 +4,7 @@ import amaiLogo from "@/assets/amai-logo-hero-new.png";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Footer } from "@/components/Footer";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { Shield, AlertTriangle, Lock, Activity, Fingerprint, Landmark, Zap, Database, ChevronRight } from "lucide-react";
 import {
   Tooltip,
@@ -16,11 +17,12 @@ interface SlideProps {
   children: React.ReactNode;
   className?: string;
   slideNumber?: number;
+  footerText?: string;
 }
 
 const TOTAL_SLIDES = 6;
 
-const Slide = ({ children, className = "", slideNumber }: SlideProps) => (
+const Slide = ({ children, className = "", slideNumber, footerText = "AMAI Labs · Infrastructure & Research" }: SlideProps) => (
   <section
     className={`relative min-h-svh md:min-h-screen w-full flex items-center justify-center overflow-x-hidden ${className}`}
   >
@@ -44,7 +46,7 @@ const Slide = ({ children, className = "", slideNumber }: SlideProps) => (
       </div>
     )}
     <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.2em] uppercase text-white/20 font-medium text-center whitespace-nowrap">
-      AMAI Labs · Infrastructure & Research
+      {footerText}
     </div>
   </section>
 );
@@ -145,11 +147,11 @@ const AGENT_BUBBLES = [
 ];
 
 /* ─── Hero Visual (Slide 1) ─── */
-const TrustFilterVisual = () => (
+const TrustFilterVisual = ({ t }: { t: (key: string) => string }) => (
   <div className="relative flex items-start justify-center gap-3 md:gap-6 py-8">
     {/* Chaotic agents */}
     <div className="flex flex-col items-center gap-2">
-      <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/30 mb-2">Free Agents</p>
+      <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/30 mb-2">{t('tp.visual.free')}</p>
       <div className="relative w-20 md:w-28 h-20 md:h-28">
         {AGENT_BUBBLES.map((b, i) => (
           <motion.div
@@ -174,31 +176,27 @@ const TrustFilterVisual = () => (
 
     {/* Credit Score Gauge */}
     <div className="flex flex-col items-center gap-2">
-      <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/30 mb-2">AMAI Reputation</p>
+      <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/30 mb-2">{t('tp.visual.reputation')}</p>
       <motion.div
         className="w-28 h-20 md:w-40 md:h-28 flex items-center justify-center"
         animate={{ opacity: [0.7, 1, 0.7] }}
         transition={{ duration: 3, repeat: Infinity }}
       >
         <svg viewBox="0 0 120 75" className="w-full h-full">
-          {/* Gauge arc segments */}
           <path d="M 15 65 A 50 50 0 0 1 35 25" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="6" strokeLinecap="round" />
           <path d="M 37 23 A 50 50 0 0 1 60 15" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="6" strokeLinecap="round" />
           <path d="M 62 15 A 50 50 0 0 1 85 23" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="6" strokeLinecap="round" />
           <path d="M 87 25 A 50 50 0 0 1 105 65" fill="none" stroke="rgba(166,252,252,0.5)" strokeWidth="6" strokeLinecap="round" />
-          {/* Labels */}
           <text x="14" y="56" fill="rgba(255,255,255,0.3)" fontSize="7" fontFamily="monospace">BAD</text>
           <text x="27" y="28" fill="rgba(255,255,255,0.3)" fontSize="7" fontFamily="monospace">FAIR</text>
           <text x="70" y="23" fill="rgba(255,255,255,0.35)" fontSize="7" fontFamily="monospace">GOOD</text>
           <text x="88" y="50" fill="rgba(166,252,252,0.7)" fontSize="8" fontWeight="bold" fontFamily="monospace">A+</text>
-          {/* Needle pointing to Excellent */}
           <motion.line
             x1="60" y1="68" x2="92" y2="38"
             stroke="rgba(166,252,252,0.8)" strokeWidth="2" strokeLinecap="round"
             animate={{ x2: [90, 94, 90], y2: [40, 36, 40] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           />
-          {/* Center dot */}
           <circle cx="60" cy="68" r="4" fill="rgba(166,252,252,0.3)" stroke="rgba(166,252,252,0.6)" strokeWidth="1.5" />
         </svg>
       </motion.div>
@@ -211,7 +209,7 @@ const TrustFilterVisual = () => (
 
     {/* Verified stream */}
     <div className="flex flex-col items-center gap-2">
-      <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/30 mb-2">Trusted Labor</p>
+      <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/30 mb-2">{t('tp.visual.trusted')}</p>
       <div className="flex flex-col gap-1.5 mt-2">
         {[0, 1, 2].map((i) => (
           <motion.div
@@ -231,9 +229,14 @@ const TrustFilterVisual = () => (
 const Thesis = () => {
   const { scrollYProgress } = useScroll();
   const isMobile = useIsMobile();
+  const { t, language } = useLanguage();
+  const isRtl = language === 'ar';
+  const dir = isRtl ? 'rtl' : 'ltr';
+
+  const loopSteps = t('tp.s3.loop').split(',');
 
   return (
-    <div className={`bg-black min-h-svh md:min-h-screen overflow-x-hidden ${isMobile ? "overscroll-y-contain touch-pan-y" : ""}`}>
+    <div className={`bg-black min-h-svh md:min-h-screen overflow-x-hidden ${isMobile ? "overscroll-y-contain touch-pan-y" : ""}`} dir={dir}>
       <SiteHeader />
       {/* Progress bar */}
       {!isMobile && (
@@ -244,7 +247,7 @@ const Thesis = () => {
       )}
 
       {/* ── SLIDE 1: THE HOOK ── */}
-      <Slide slideNumber={1}>
+      <Slide slideNumber={1} footerText={t('tp.footer')}>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.2 }} className="max-w-4xl mx-auto text-center">
           <motion.img
             src={amaiLogo}
@@ -254,7 +257,7 @@ const Thesis = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           />
-          <MicroLabel delay={0.3}>01 // THE THESIS</MicroLabel>
+          <MicroLabel delay={0.3}>{t('tp.s1.label')}</MicroLabel>
           <motion.div
             className="mb-8 md:mb-10"
             initial={{ opacity: 0, y: 20 }}
@@ -262,7 +265,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
           >
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-[1.2] font-light">
-              Intelligence Is Everywhere
+              {t('tp.s1.h1')}
             </h1>
             <motion.p
               className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white/70 font-light mt-6 leading-[1.2]"
@@ -270,7 +273,7 @@ const Thesis = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.0 }}
             >
-              But Trust Has Never Been Lower
+              {t('tp.s1.h2')}
             </motion.p>
           </motion.div>
           <motion.p
@@ -279,7 +282,7 @@ const Thesis = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
           >
-            AMAI is the Reputation Layer for the Autonomous Economy.
+            {t('tp.s1.sub')}
           </motion.p>
 
         </motion.div>
@@ -288,7 +291,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 2: THE PROBLEM ── */}
-      <Slide slideNumber={2}>
+      <Slide slideNumber={2} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -296,7 +299,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto text-center"
         >
-          <MicroLabel>02 // THE LIMIT</MicroLabel>
+          <MicroLabel>{t('tp.s2.label')}</MicroLabel>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-8 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
@@ -304,24 +307,24 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Sketchy Agents Can't Scale
+            {t('tp.s2.h')}
           </motion.h2>
 
           <motion.div
-            className="text-left max-w-2xl mx-auto space-y-6"
+            className={`${isRtl ? 'text-right' : 'text-left'} max-w-2xl mx-auto space-y-6`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
             <p className="text-lg md:text-xl text-white/60 font-light leading-relaxed">
-              Humans have <span className="text-white font-normal">FICO</span>. Businesses have <span className="text-white font-normal">Dun & Bradstreet</span>.
+              {t('tp.s2.p1a')}<span className="text-white font-normal">{t('tp.s2.fico')}</span>{t('tp.s2.p1b')}<span className="text-white font-normal">{t('tp.s2.dnb')}</span>.
             </p>
             <p className="text-lg md:text-xl text-white/60 font-light leading-relaxed">
-              AI Agents have <span className="text-white font-normal">Nothing</span>.
+              {t('tp.s2.p2a')}<span className="text-white font-normal">{t('tp.s2.p2b')}</span>.
             </p>
             <p className="text-base md:text-lg text-white/40 font-light leading-relaxed">
-              Without a standardized Credit Score, an Agent is just a random script. It cannot borrow capital, it cannot sign contracts, and it cannot be trusted with a bank account.
+              {t('tp.s2.p3')}
             </p>
           </motion.div>
 
@@ -343,23 +346,15 @@ const Thesis = () => {
                   </feMerge>
                 </filter>
               </defs>
-
-              {/* Gauge arc segments — 3 blocks with gaps */}
               <path d="M 48 170 A 125 125 0 0 1 100 55" fill="none" stroke="rgba(200,120,50,0.25)" strokeWidth="28" strokeLinecap="butt" />
               <path d="M 108 46 A 125 125 0 0 1 232 46" fill="none" stroke="rgba(200,180,60,0.3)" strokeWidth="28" strokeLinecap="butt" />
               <path d="M 240 55 A 125 125 0 0 1 292 170" fill="none" stroke="rgba(80,180,100,0.35)" strokeWidth="28" strokeLinecap="butt" />
-
-              {/* Tier labels */}
               <text x="38" y="100" fill="rgba(255,255,255,0.3)" fontSize="10" fontFamily="monospace" textAnchor="middle">POOR</text>
               <text x="170" y="14" fill="rgba(255,255,255,0.35)" fontSize="10" fontFamily="monospace" textAnchor="middle">GOOD</text>
               <text x="302" y="100" fill="rgba(255,255,255,0.5)" fontSize="10" fontFamily="monospace" textAnchor="middle">EXCELLENT</text>
-
-              {/* Range labels */}
               <text x="38" y="112" fill="rgba(255,255,255,0.2)" fontSize="7" fontFamily="monospace" textAnchor="middle">300</text>
               <text x="170" y="26" fill="rgba(255,255,255,0.2)" fontSize="7" fontFamily="monospace" textAnchor="middle">580</text>
               <text x="302" y="112" fill="rgba(255,255,255,0.2)" fontSize="7" fontFamily="monospace" textAnchor="middle">850</text>
-
-              {/* Agent bot icon */}
               <rect x="155" y="118" width="30" height="22" rx="4" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="2" />
               <circle cx="164" cy="128" r="2.5" fill="rgba(255,255,255,0.55)" />
               <circle cx="176" cy="128" r="2.5" fill="rgba(255,255,255,0.55)" />
@@ -367,14 +362,11 @@ const Thesis = () => {
               <circle cx="170" cy="106" r="3" fill="rgba(255,255,255,0.4)" />
               <line x1="170" y1="140" x2="170" y2="146" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
               <line x1="162" y1="146" x2="178" y2="146" stroke="rgba(255,255,255,0.4)" strokeWidth="2" strokeLinecap="round" />
-
-              {/* Needle glow */}
               <line
                 x1="170" y1="170" x2="272" y2="100"
                 stroke="rgba(255,255,255,0.15)" strokeWidth="6" strokeLinecap="round"
                 filter="url(#needleGlow)"
               />
-              {/* Needle */}
               <line
                 x1="170" y1="170" x2="272" y2="100"
                 stroke="rgba(255,255,255,0.7)" strokeWidth="2.5" strokeLinecap="round"
@@ -387,7 +379,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 3: THE SOLUTION ── */}
-      <Slide slideNumber={3}>
+      <Slide slideNumber={3} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -395,7 +387,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto text-center"
         >
-          <MicroLabel>03 // AMAI</MicroLabel>
+          <MicroLabel>{t('tp.s3.label')}</MicroLabel>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-10 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
@@ -403,7 +395,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            How Trust Becomes Capital
+            {t('tp.s3.h')}
           </motion.h2>
 
           {/* 3-step equation */}
@@ -417,15 +409,15 @@ const Thesis = () => {
             {/* Identity */}
             <div className="bg-black border border-white/10 rounded-lg p-6 flex flex-col items-center text-center">
               <Fingerprint className="w-8 h-8 text-white/50 mb-4" />
-              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-2">Identity</p>
-              <p className="text-sm text-white/40 font-light">A digital passport recorded on an Immutable Ledger.</p>
+              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-2">{t('tp.s3.identity')}</p>
+              <p className="text-sm text-white/40 font-light">{t('tp.s3.identity.desc')}</p>
             </div>
 
             {/* Performance */}
             <div className="bg-black border border-white/10 rounded-lg p-6 flex flex-col items-center text-center">
               <Activity className="w-8 h-8 text-white/50 mb-4" />
-              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-2">Performance</p>
-              <p className="text-sm text-white/40 font-light">Real-world execution that builds a verifiable track record.</p>
+              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-2">{t('tp.s3.performance')}</p>
+              <p className="text-sm text-white/40 font-light">{t('tp.s3.performance.desc')}</p>
             </div>
 
             {/* Trust */}
@@ -438,8 +430,8 @@ const Thesis = () => {
                 <line x1="60" y1="68" x2="92" y2="38" stroke="rgba(166,252,252,0.8)" strokeWidth="2" strokeLinecap="round" />
                 <circle cx="60" cy="68" r="4" fill="rgba(166,252,252,0.3)" stroke="rgba(166,252,252,0.6)" strokeWidth="1.5" />
               </svg>
-              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-2">TRUST</p>
-              <p className="text-sm text-white/40 font-light">A Credit Worthy Sovereign Agent capable of scaling.</p>
+              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-2">{t('tp.s3.trust')}</p>
+              <p className="text-sm text-white/40 font-light">{t('tp.s3.trust.desc')}</p>
             </div>
           </motion.div>
 
@@ -452,13 +444,13 @@ const Thesis = () => {
             viewport={{ once: true }}
           >
             <div className="flex items-center justify-center gap-1.5 md:gap-2 text-[9px] md:text-[11px] text-white/70">
-              {['Identity', 'Reputation', 'Capital', 'Execution', 'Settlement'].map((step, i, arr) => (
+              {loopSteps.map((step, i, arr) => (
                 <span key={i} className="flex items-center gap-1.5 md:gap-2">
                   <span className="px-2 md:px-3 py-1 md:py-1.5 border border-white/20 rounded bg-black whitespace-nowrap">
                     {step}
                   </span>
                   {i < arr.length - 1 && (
-                    <span className="text-white/30 text-[8px] md:text-xs">→</span>
+                    <span className="text-white/30 text-[8px] md:text-xs">{isRtl ? '←' : '→'}</span>
                   )}
                 </span>
               ))}
@@ -482,8 +474,6 @@ const Thesis = () => {
             </svg>
           </motion.div>
 
-          {/* Explanatory text */}
-
         </motion.div>
 
       </Slide>
@@ -491,7 +481,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 4: THE MECHANISM ── */}
-      <Slide slideNumber={4}>
+      <Slide slideNumber={4} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -499,7 +489,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto"
         >
-          <MicroLabel>04 // THE MECHANISM</MicroLabel>
+          <MicroLabel>{t('tp.s4.label')}</MicroLabel>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 text-center leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
@@ -507,7 +497,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            The Settlement Layer
+            {t('tp.s4.h')}
           </motion.h2>
           <motion.p
             className="text-base md:text-lg text-white/50 font-light mb-12 text-center max-w-2xl mx-auto"
@@ -516,7 +506,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Users consume AMAI Credits to power the network. Agents post Performance Collateral to insure their work. We tax the flow of trust.
+            {t('tp.s4.sub')}
           </motion.p>
 
           {/* Two cards with tooltips */}
@@ -532,14 +522,14 @@ const Thesis = () => {
                 <div className="bg-black border border-white/10 rounded-lg p-8 cursor-pointer hover:border-white/25 transition-colors group">
                   <div className="flex items-center gap-3 mb-4">
                     <Zap className="w-6 h-6 text-white/50 group-hover:text-white/70 transition-colors" />
-                    <p className="text-[10px] tracking-[0.25em] uppercase text-white/30">The Fuel</p>
+                    <p className="text-[10px] tracking-[0.25em] uppercase text-white/30">{t('tp.s4.fuel.label')}</p>
                   </div>
-                  <p className="text-xl md:text-2xl text-white/90 font-light mb-2">AMAI Credits</p>
-                  <p className="text-sm text-white/40 font-light">Used for compute, routing, and access.</p>
+                  <p className="text-xl md:text-2xl text-white/90 font-light mb-2">{t('tp.s4.fuel.title')}</p>
+                  <p className="text-sm text-white/40 font-light">{t('tp.s4.fuel.desc')}</p>
                 </div>
               </TooltipTrigger>
               <TooltipContent side="bottom" className="bg-black border-white/20 text-white/80 text-sm max-w-[220px]">
-                <span className="font-medium text-white/90">Operational Fuel</span> — The unit of work inside the network. Powers every task, query, and settlement.
+                <span className="font-medium text-white/90">{t('tp.s4.fuel.tooltip.title')}</span>{t('tp.s4.fuel.tooltip.desc')}
               </TooltipContent>
             </Tooltip>
 
@@ -548,14 +538,14 @@ const Thesis = () => {
                 <div className="bg-black border border-white/10 rounded-lg p-8 cursor-pointer hover:border-white/25 transition-colors group">
                   <div className="flex items-center gap-3 mb-4">
                     <Lock className="w-6 h-6 text-white/50 group-hover:text-white/70 transition-colors" />
-                    <p className="text-[10px] tracking-[0.25em] uppercase text-white/30">The Safety</p>
+                    <p className="text-[10px] tracking-[0.25em] uppercase text-white/30">{t('tp.s4.safety.label')}</p>
                   </div>
-                  <p className="text-xl md:text-2xl text-white/90 font-light mb-2">Performance Collateral</p>
-                  <p className="text-sm text-white/40 font-light">Capital locked in a vault to insure the task.</p>
+                  <p className="text-xl md:text-2xl text-white/90 font-light mb-2">{t('tp.s4.safety.title')}</p>
+                  <p className="text-sm text-white/40 font-light">{t('tp.s4.safety.desc')}</p>
                 </div>
               </TooltipTrigger>
               <TooltipContent side="bottom" className="bg-black border-white/20 text-white/80 text-sm max-w-[220px]">
-                <span className="font-medium text-white/90">Insurance</span> — Skin-in-the-game capital that guarantees agent performance. Slashed on failure, returned on success.
+                <span className="font-medium text-white/90">{t('tp.s4.safety.tooltip.title')}</span>{t('tp.s4.safety.tooltip.desc')}
               </TooltipContent>
             </Tooltip>
           </motion.div>
@@ -567,7 +557,7 @@ const Thesis = () => {
             viewport={{ once: true }}
             className="text-sm text-white/40 font-light text-center tracking-wide mt-8"
           >
-            Powered by a closed-source, proprietary trust algorithm.
+            {t('tp.s4.algo')}
           </motion.p>
 
         </motion.div>
@@ -576,7 +566,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 5: THE MOAT ── */}
-      <Slide slideNumber={5}>
+      <Slide slideNumber={5} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -584,7 +574,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto text-center"
         >
-          <MicroLabel>05 // THE MOAT</MicroLabel>
+          <MicroLabel>{t('tp.s5.label')}</MicroLabel>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
@@ -592,7 +582,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            The World's First Historical Ledger of Agent Behavior.
+            {t('tp.s5.h')}
           </motion.h2>
           <motion.p
             className="text-base md:text-lg text-white/50 font-light mb-10 max-w-2xl mx-auto"
@@ -601,7 +591,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            While others build models, we are capturing the credit history of the digital workforce.
+            {t('tp.s5.sub')}
           </motion.p>
 
           {/* Trust Matrix Panel */}
@@ -619,9 +609,9 @@ const Thesis = () => {
                   <div className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.5)]" />
                   <span className="text-[10px] md:text-xs tracking-[0.2em] uppercase text-white/40 font-mono">AGENT-0B</span>
                   <span className="text-[10px] tracking-[0.15em] text-white/20 font-mono">//</span>
-                  <span className="text-[10px] md:text-xs tracking-[0.15em] uppercase text-white/40 font-mono">TRUST RATING:</span>
+                  <span className="text-[10px] md:text-xs tracking-[0.15em] uppercase text-white/40 font-mono">{t('tp.s5.rating')}</span>
                   <span className="text-2xl md:text-3xl font-light text-white tracking-tight">842</span>
-                  <span className="text-[10px] tracking-[0.2em] uppercase text-emerald-400/80 font-mono border border-emerald-400/20 px-2 py-0.5 rounded">PRIME</span>
+                  <span className="text-[10px] tracking-[0.2em] uppercase text-emerald-400/80 font-mono border border-emerald-400/20 px-2 py-0.5 rounded">{t('tp.s5.prime')}</span>
                 </div>
                 {/* Sparkline */}
                 <svg className="w-32 md:w-40 h-8" viewBox="0 0 160 32" fill="none">
@@ -639,7 +629,7 @@ const Thesis = () => {
 
             {/* Middle Section: Heatmap */}
             <div className="border-b border-white/10 px-5 md:px-8 py-5 md:py-6">
-              <p className="text-[9px] tracking-[0.2em] uppercase text-white/30 mb-4 text-left font-mono">Performance History — 52 Weeks</p>
+              <p className={`text-[9px] tracking-[0.2em] uppercase text-white/30 mb-4 ${isRtl ? 'text-right' : 'text-left'} font-mono`}>{t('tp.s5.history')}</p>
               <div className="flex gap-[3px] md:gap-1 flex-wrap justify-center">
                 {Array.from({ length: 52 * 5 }, (_, i) => {
                   const isFault = i === 187;
@@ -669,9 +659,9 @@ const Thesis = () => {
             <div className="px-5 md:px-8 py-5 md:py-6">
               <div className="grid grid-cols-3 gap-4 md:gap-8">
                 {[
-                  { label: 'Lifetime Tasks', value: '4,192' },
-                  { label: 'Capital Secured', value: '$12.4M' },
-                  { label: 'Fault Rate', value: '0.02%' },
+                  { label: t('tp.s5.tasks'), value: '4,192' },
+                  { label: t('tp.s5.capital'), value: '$12.4M' },
+                  { label: t('tp.s5.fault'), value: '0.02%' },
                 ].map((metric) => (
                   <div key={metric.label} className="text-center">
                     <p className="text-xl md:text-2xl text-white font-light tracking-tight mb-1">{metric.value}</p>
@@ -687,7 +677,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 6: CLOSING ── */}
-      <Slide slideNumber={6}>
+      <Slide slideNumber={6} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -702,7 +692,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Infrastructure Precedes Autonomy.
+            {t('tp.s6.h')}
           </motion.h2>
           
           <motion.div 
@@ -713,7 +703,7 @@ const Thesis = () => {
             viewport={{ once: true }}
           >
             <div className="flex items-center justify-center gap-3 md:gap-5">
-              {['Accountability', 'Trust', 'Transparency'].map((word, i) => (
+              {[t('tp.s6.word1'), t('tp.s6.word2'), t('tp.s6.word3')].map((word, i) => (
                 <motion.span
                   key={word}
                   className="text-sm md:text-base tracking-[0.2em] uppercase text-white/50 font-light"
@@ -733,7 +723,7 @@ const Thesis = () => {
               transition={{ duration: 0.8, delay: 1.2 }}
               viewport={{ once: true }}
             >
-              That is AMAI.
+              {t('tp.s6.tagline')}
             </motion.p>
           </motion.div>
           
@@ -750,19 +740,19 @@ const Thesis = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-white/10 border border-white/30 rounded text-xs tracking-[0.15em] uppercase text-white hover:bg-white/20 hover:border-white/50 transition-all duration-300"
             >
-              System Demo
+              {t('tp.s6.demo')}
             </a>
             <a
               href="/system-architecture"
               className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
             >
-              Explore the Architecture <span>→</span>
+              {t('tp.s6.arch')} <span>{isRtl ? '←' : '→'}</span>
             </a>
             <a
               href="mailto:team@amai.net?subject=Mission%20Briefing%20%2F%2F%20%5BOrganization%20Name%5D&body=To%20the%20AMAI%20Labs%20Team%2C%0A%0AWe%20are%20reaching%20out%20regarding%20the%20%5BThesis%20%2F%20Architecture%5D.%0A%0AName%3A%20%0AOrganization%3A%20%0AIntent%3A%20"
               className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
             >
-              Contact
+              {t('tp.s6.contact')}
             </a>
           </motion.div>
         </motion.div>
