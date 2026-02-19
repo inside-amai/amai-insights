@@ -1,17 +1,15 @@
-## Clean Route Swap: /pitch and /thesis — COMPLETED
 
-### Final State
 
-| Route | File | Content |
-|-------|------|---------|
-| `/pitch` | `Pitch.tsx` (12-slide liability layer presentation) | Was LiabilityLayer.tsx |
-| `/thesis` | `Thesis.tsx` (6-slide seed pitch deck) | Was Pitch.tsx |
-| `/liability-layer` | Deleted | Gone |
+## Fix: Homepage and Header "Thesis" Links
 
-### Changes Made
-- Pitch.tsx rewritten with LiabilityLayer content, component renamed to Pitch
-- Thesis.tsx rewritten with old Pitch content, component renamed to Thesis
-- LiabilityLayer.tsx deleted
-- App.tsx cleaned up: removed LiabilityLayer import, removed /liability-layer route
-- SiteHeader.tsx: header hidden on /thesis, /pitch added to isDeckPage, nav links point to /pitch
-- Footer, Home, Briefing, TrinaryClassificationSection: all /thesis links changed to /pitch
+The "thesis" button on the homepage and the "Explore The Thesis" link in the header both incorrectly point to `/pitch` (the 12-slide liability layer). They should point to `/thesis` (the 6-slide seed pitch deck).
+
+### Changes
+
+**1. `src/pages/Home.tsx`** (line 73)
+- Change `to="/pitch"` to `to="/thesis"`
+
+**2. `src/components/SiteHeader.tsx`** (line 113)
+- Change `to="/pitch"` to `to="/thesis"`
+
+That's it -- two one-line fixes.
