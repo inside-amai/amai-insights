@@ -561,6 +561,16 @@ const Pitch = () => {
             </Tooltip>
           </motion.div>
 
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            viewport={{ once: true }}
+            className="text-sm text-white/40 font-light text-center tracking-wide mt-8"
+          >
+            Powered by a closed-source, proprietary trust algorithm.
+          </motion.p>
+
         </motion.div>
       </Slide>
 
