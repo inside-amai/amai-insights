@@ -267,7 +267,7 @@ const Pitch = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.0 }}
             >
-              But Trust Has Been Lower
+              But Trust Has Never Been Lower
             </motion.p>
           </motion.div>
           <motion.p
