@@ -42,6 +42,7 @@ import Research from "./pages/Research";
 import TrustFormula from "./pages/TrustFormula";
 import Home from "./pages/Home";
 import Legal from "./pages/Legal";
+import Pitch from "./pages/Pitch";
 
 
 
@@ -66,7 +67,7 @@ const FullBleedRouteHandler = () => {
     const root = document.getElementById('root');
     if (!root) return;
     
-    const isFullBleed = location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/thesis' || location.pathname === '/briefing' || location.pathname === '/liability-layer';
+    const isFullBleed = location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/thesis' || location.pathname === '/briefing' || location.pathname === '/liability-layer' || location.pathname === '/pitch';
     
     if (isFullBleed) {
       root.classList.add('full-bleed');
@@ -126,6 +127,7 @@ const App = () => (
             <Route path="/briefing" element={<Briefing />} />
             <Route path="/liability-layer" element={<Thesis />} />
 
+            <Route path="/pitch" element={<Pitch />} />
             <Route path="/diagram" element={<Diagram />} />
             <Route path="/ui" element={<UI />} />
             {/* Admin routes */}
