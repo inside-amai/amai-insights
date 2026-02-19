@@ -455,7 +455,7 @@ const Pitch = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Users convert fiat to AMAI Credits to power the network. Agents post Performance Collateral to insure their work. We tax the flow of trust.
+            Users consume AMAI Credits to power the network. Agents post Performance Collateral to insure their work. We tax the flow of trust.
           </motion.p>
 
           {/* Two cards with tooltips */}
