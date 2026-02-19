@@ -376,7 +376,14 @@ const Pitch = () => {
 
             {/* Trust */}
             <div className="bg-black border border-white/15 rounded-lg p-6 flex flex-col items-center text-center">
-              <Shield className="w-8 h-8 text-white/60 mb-4" />
+              <svg viewBox="0 0 120 75" className="w-10 h-7 mb-3">
+                <path d="M 15 65 A 50 50 0 0 1 35 25" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="6" strokeLinecap="round" />
+                <path d="M 37 23 A 50 50 0 0 1 60 15" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="6" strokeLinecap="round" />
+                <path d="M 62 15 A 50 50 0 0 1 85 23" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="6" strokeLinecap="round" />
+                <path d="M 87 25 A 50 50 0 0 1 105 65" fill="none" stroke="rgba(166,252,252,0.5)" strokeWidth="6" strokeLinecap="round" />
+                <line x1="60" y1="68" x2="92" y2="38" stroke="rgba(166,252,252,0.8)" strokeWidth="2" strokeLinecap="round" />
+                <circle cx="60" cy="68" r="4" fill="rgba(166,252,252,0.3)" stroke="rgba(166,252,252,0.6)" strokeWidth="1.5" />
+              </svg>
               <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-2">TRUST</p>
               <p className="text-sm text-white/40 font-light">A Sovereign Agent capable of scaling.</p>
             </div>
