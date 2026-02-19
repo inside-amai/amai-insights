@@ -1,22 +1,62 @@
 
 
-## Add tagline below Slide 4 cards
+## Clean Route Swap: /pitch and /thesis
 
-A single line of text will be added after the two-card grid (after line 562) and before the closing `</motion.div>` on line 564.
+### Goal
 
-### What changes
+Eliminate the confusing route-component mismatch and the orphaned `/liability-layer` route. After this change, file names will match their routes cleanly.
 
-**File: `src/pages/Pitch.tsx`** (line ~563, between the card grid and the slide closing div)
+### Final State
 
-Add a new `motion.p` element styled consistently with the rest of the slide (centered, subtle white text, small tracking) displaying:
+| Route | File | Content |
+|-------|------|---------|
+| `/pitch` | `Pitch.tsx` (rewritten with current LiabilityLayer.tsx content) | 12-slide liability layer presentation |
+| `/thesis` | `Thesis.tsx` (rewritten with current Pitch.tsx content) | 6-slide seed pitch deck |
+| `/liability-layer` | Deleted | Gone |
 
-> Powered by a closed-source, proprietary trust algorithm.
+### Changes by File
 
-It will use the same animation pattern (fade-in from below) with a slightly later delay (0.7) to appear after the cards.
+**1. `src/pages/Pitch.tsx`** -- Overwrite with current LiabilityLayer.tsx content
+- Copy all content from `LiabilityLayer.tsx` into `Pitch.tsx`
+- Rename the exported component from `LiabilityLayer` to `Pitch`
 
-### Technical detail
+**2. `src/pages/Thesis.tsx`** -- Overwrite with current Pitch.tsx content
+- Copy all content from current `Pitch.tsx` into `Thesis.tsx`
+- Rename the exported component from `Pitch` to `Thesis`
 
-- Element: `<motion.p>` with classes like `text-sm text-white/40 font-light text-center tracking-wide`
-- Positioned between the card grid `</motion.div>` (line 562) and the slide's closing `</motion.div>` (line 564)
-- Animate with `initial={{ opacity: 0, y: 20 }}`, `whileInView={{ opacity: 1, y: 0 }}`, delay 0.7
+**3. `src/pages/LiabilityLayer.tsx`** -- Delete
+- File no longer needed
+
+**4. `src/App.tsx`** -- Clean up routes and imports
+- Remove `LiabilityLayer` import
+- Remove `Thesis` import (old one) since new Thesis.tsx will be the pitch deck
+- Import `Pitch` from `./pages/Pitch` and `Thesis` from `./pages/Thesis`
+- Route `/pitch` renders `<Pitch />`
+- Route `/thesis` renders `<Thesis />`
+- Delete the `/liability-layer` route entirely
+- Remove `/liability-layer` from the full-bleed handler list
+
+**5. `src/components/SiteHeader.tsx`** -- Update header logic
+- Header completely hidden on `/thesis` (was `/pitch`) since the 6-slide deck lives there now
+- Add `/pitch` to `isDeckPage` list (minimal header, since the liability layer presentation lives there now)
+- Remove `/liability-layer` from `isDeckPage` list
+- `isThesisPage` check no longer needed for nav toggle (the thesis page hides the header entirely)
+- Default nav link points to `/pitch` with label "Explore The Thesis"
+
+**6. `src/components/Footer.tsx`** -- Update link
+- Change `to: '/thesis'` to `to: '/pitch'` in the research links
+
+**7. `src/pages/Home.tsx`** -- Update CTA link
+- Change `to="/thesis"` to `to="/pitch"`
+
+**8. `src/pages/Briefing.tsx`** -- Update link
+- Change `href="/thesis"` to `href="/pitch"`
+
+**9. `src/components/TrinaryClassificationSection.tsx`** -- Update link
+- Change `to="/thesis"` to `to="/pitch"`
+
+### Summary
+- 3 files rewritten (Pitch.tsx, Thesis.tsx, App.tsx)
+- 1 file deleted (LiabilityLayer.tsx)
+- 5 files with link/logic updates (SiteHeader, Footer, Home, Briefing, TrinaryClassificationSection)
 
