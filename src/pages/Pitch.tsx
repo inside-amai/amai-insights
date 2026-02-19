@@ -162,7 +162,7 @@ const TrustFilterVisual = () => (
 
     {/* Shield filter */}
     <div className="flex flex-col items-center gap-2">
-      <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/30 mb-2">AMAI Shield</p>
+      <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/30 mb-2">AMAI Reputation</p>
       <motion.div
         className="w-16 h-20 md:w-20 md:h-24 border border-white/20 rounded-lg bg-white/5 flex items-center justify-center"
         animate={{ boxShadow: ["0 0 20px rgba(166,252,252,0.05)", "0 0 30px rgba(166,252,252,0.15)", "0 0 20px rgba(166,252,252,0.05)"] }}
