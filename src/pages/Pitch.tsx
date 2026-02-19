@@ -133,7 +133,7 @@ const ScrollingLog = () => {
 
 /* ─── Hero Visual (Slide 1) ─── */
 const TrustFilterVisual = () => (
-  <div className="relative flex items-center justify-center gap-3 md:gap-6 py-8">
+  <div className="relative flex items-start justify-center gap-3 md:gap-6 py-8">
     {/* Chaotic agents */}
     <div className="flex flex-col items-center gap-2">
       <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/30 mb-2">Free Agents</p>
@@ -141,7 +141,7 @@ const TrustFilterVisual = () => (
         {[...Array(7)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-3 h-3 md:w-4 md:h-4 rounded-full border border-white/20 bg-white/5"
+            className="absolute w-3 h-3 md:w-4 md:h-4 rounded-full border border-white/40 bg-white/15"
             style={{
               top: `${15 + Math.random() * 60}%`,
               left: `${10 + Math.random() * 60}%`,
@@ -149,7 +149,7 @@ const TrustFilterVisual = () => (
             animate={{
               x: [0, (Math.random() - 0.5) * 16, 0],
               y: [0, (Math.random() - 0.5) * 16, 0],
-              opacity: [0.3, 0.7, 0.3],
+              opacity: [0.5, 0.9, 0.5],
             }}
             transition={{ duration: 2 + Math.random() * 2, repeat: Infinity, ease: "easeInOut" }}
           />
@@ -158,7 +158,9 @@ const TrustFilterVisual = () => (
     </div>
 
     {/* Arrow */}
-    <ChevronRight className="w-5 h-5 text-white/20" />
+    <div className="flex items-center h-20 md:h-28 mt-6 md:mt-7">
+      <ChevronRight className="w-5 h-5 text-white/20" />
+    </div>
 
     {/* Shield filter */}
     <div className="flex flex-col items-center gap-2">
@@ -173,12 +175,14 @@ const TrustFilterVisual = () => (
     </div>
 
     {/* Arrow */}
-    <ChevronRight className="w-5 h-5 text-white/20" />
+    <div className="flex items-center h-20 md:h-28 mt-6 md:mt-7">
+      <ChevronRight className="w-5 h-5 text-white/20" />
+    </div>
 
     {/* Verified stream */}
     <div className="flex flex-col items-center gap-2">
       <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/30 mb-2">Trusted Labor</p>
-      <div className="flex flex-col gap-1.5">
+      <div className="flex flex-col gap-1.5 mt-2">
         {[0, 1, 2].map((i) => (
           <motion.div
             key={i}
@@ -221,7 +225,7 @@ const Pitch = () => {
           />
           <MicroLabel delay={0.3}>01 // THE HOOK</MicroLabel>
           <motion.h1
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-6 md:mb-8 leading-[1.1] font-light"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-8 md:mb-10 leading-[1.2] font-light"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
