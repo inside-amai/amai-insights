@@ -281,12 +281,11 @@ const Pitch = () => {
 
           {/* Agent Credit Score Gauge */}
           <motion.div
-            className="relative z-20 flex justify-center"
+            className="flex justify-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.2 }}
           >
-            <div className="relative bg-black rounded-lg p-4">
              <svg viewBox="0 0 340 200" className="w-[300px] md:w-[400px] h-auto">
               {/* Glow filter for needle */}
               <defs>
@@ -340,7 +339,6 @@ const Pitch = () => {
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
             </svg>
-            </div>
           </motion.div>
         </motion.div>
       </Slide>
