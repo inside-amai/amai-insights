@@ -240,7 +240,7 @@ export const TrinaryClassificationSection = () => {
           viewport={{ once: true }}
         >
           <Link 
-            to="/thesis"
+            to="/pitch"
             className="inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-white/60 hover:text-white transition-colors duration-300 group"
           >
             Explore The Thesis

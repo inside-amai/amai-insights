@@ -37,12 +37,11 @@ const CopyEmailButton = () => {
 export const SiteHeader = () => {
   const { language, setLanguage } = useLanguage();
   const location = useLocation();
-  const isPitchPage = location.pathname === '/pitch';
-  const isDeckPage = location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/briefing' || location.pathname === '/liability-layer';
   const isThesisPage = location.pathname === '/thesis';
+  const isDeckPage = location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/briefing' || location.pathname === '/pitch';
 
-  // Completely hide header on pitch page
-  if (isPitchPage) return null;
+  // Completely hide header on thesis page (6-slide seed pitch deck)
+  if (isThesisPage) return null;
 
   // Cycle through languages on mobile tap
   const cycleLanguage = () => {
@@ -111,10 +110,10 @@ export const SiteHeader = () => {
             {/* Navigation Link - hidden on /deck and /tether */}
             {!isDeckPage && (
               <Link 
-                to={isThesisPage ? "/system-architecture" : "/thesis"}
+                to="/pitch"
                 className="text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase mr-1 sm:mr-0"
               >
-                {isThesisPage ? "View Architecture" : "Explore The Thesis"}
+                Explore The Thesis
               </Link>
             )}
             

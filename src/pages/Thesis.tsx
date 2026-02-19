@@ -1,65 +1,51 @@
-import React, { useRef, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, useScroll } from "framer-motion";
-import amaiLogo from "@/assets/amai-logo-tm.png";
-import { useLanguage } from "@/contexts/LanguageContext";
+import amaiLogo from "@/assets/amai-logo-hero-new.png";
 import { useIsMobile } from "@/hooks/use-mobile";
-import TetherPartnershipVisualization from "@/components/TetherPartnershipVisualization";
-import ThesisPdfLayout from "@/components/ThesisPdfLayout";
-import { usePdfDownload } from "@/hooks/usePdfDownload";
+import { Shield, AlertTriangle, Lock, Activity, Fingerprint, Landmark, Zap, Database, ChevronRight } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
+/* ─── Slide Shell ─── */
 interface SlideProps {
   children: React.ReactNode;
   className?: string;
-  align?: "left" | "center";
   slideNumber?: number;
-  totalSlides?: number;
-  isRTL?: boolean;
 }
 
-const Slide = ({ children, className = "", align = "center", slideNumber, totalSlides = 12, isRTL = false, hideGrid = false }: SlideProps & { hideGrid?: boolean }) => {
-  const { t } = useLanguage();
-  
-  return (
-    <section 
-      className={`relative min-h-svh md:min-h-screen w-full flex items-center overflow-x-hidden py-16 md:py-0 ${
-        align === "left" ? "justify-start" : "justify-center"
-      } ${className}`}
-      dir={isRTL ? "rtl" : "ltr"}
-    >
-      {/* Grid background */}
-      {!hideGrid && (
-        <div 
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px),
-              linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px)
-            `,
-            backgroundSize: '80px 80px'
-          }}
-        />
-      )}
-      
-      <div className={`relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-8 md:px-16 lg:px-24 pb-20 md:pb-16 ${
-        align === "left" ? "" : ""
-      }`}>
-        {children}
+const TOTAL_SLIDES = 6;
+
+const Slide = ({ children, className = "", slideNumber }: SlideProps) => (
+  <section
+    className={`relative min-h-svh md:min-h-screen w-full flex items-center justify-center overflow-x-hidden ${className}`}
+  >
+    {/* Grid */}
+    <div
+      className="absolute inset-0 pointer-events-none"
+      style={{
+        backgroundImage: `
+          linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px)
+        `,
+        backgroundSize: "80px 80px",
+      }}
+    />
+    <div className="relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-8 md:px-16 lg:px-24 py-24 md:py-20">
+      {children}
+    </div>
+    {slideNumber && (
+      <div className="absolute bottom-4 md:bottom-10 right-4 md:right-12 text-[10px] tracking-[0.2em] text-white/50 font-medium">
+        {String(slideNumber).padStart(2, "0")} / {String(TOTAL_SLIDES).padStart(2, "0")}
       </div>
-      
-      {/* Page number */}
-      {slideNumber && (
-        <div className={`absolute bottom-4 md:bottom-10 ${isRTL ? 'left-4 md:left-12' : 'right-4 md:right-12'} text-[10px] tracking-[0.2em] text-white/50 font-medium`}>
-          {String(slideNumber).padStart(2, '0')} / {String(totalSlides).padStart(2, '0')}
-        </div>
-      )}
-      
-      {/* Footer branding */}
-      <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.2em] uppercase text-white/20 font-medium text-center max-w-[200px] md:max-w-none">
-        {t('tether.footer')}
-      </div>
-    </section>
-  );
-};
+    )}
+    <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.2em] uppercase text-white/20 font-medium text-center whitespace-nowrap">
+      AMAI Labs · Infrastructure & Research
+    </div>
+  </section>
+);
 
 const SlideDivider = () => (
   <div className="w-full flex justify-center">
@@ -69,945 +55,627 @@ const SlideDivider = () => (
   </div>
 );
 
-const Thesis = () => {
-  const { scrollYProgress } = useScroll();
-  const { t, language } = useLanguage();
-  const isRTL = language === 'ar';
-  const isMobile = useIsMobile();
-  const { pdfLayoutRef, downloadPdf, isGenerating } = usePdfDownload();
+/* ─── Micro-label ─── */
+const MicroLabel = ({ children, delay = 0.2 }: { children: React.ReactNode; delay?: number }) => (
+  <motion.p
+    className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center"
+    initial={{ opacity: 0, y: 10 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, delay }}
+    viewport={{ once: true }}
+  >
+    {children}
+  </motion.p>
+);
 
-  // Scroll to top on mount
+/* ─── Trust Score Counter (Slide 5) ─── */
+const TrustScoreCounter = () => {
+  const [score, setScore] = useState(847);
   useEffect(() => {
-    window.scrollTo(0, 0);
+    const id = setInterval(() => {
+      setScore((s) => {
+        const next = s + Math.floor(Math.random() * 3) + 1;
+        return next > 9999 ? 847 : next;
+      });
+    }, 2200);
+    return () => clearInterval(id);
   }, []);
-  const handleDownloadPdf = () => {
-    downloadPdf({ filename: 'amai-thesis.pdf', margin: 0 });
-  };
+  return (
+    <span className="font-mono text-white tabular-nums">{score.toLocaleString()}</span>
+  );
+};
+
+/* ─── Audit Log (Slide 5) ─── */
+const auditEntries = [
+  { id: "AGENT-007", task: "ARBITRAGE", status: "SUCCESS", delta: "+5" },
+  { id: "AGENT-142", task: "COMPLIANCE CHECK", status: "SUCCESS", delta: "+3" },
+  { id: "AGENT-088", task: "DATA MIGRATION", status: "SUCCESS", delta: "+4" },
+  { id: "AGENT-331", task: "RISK ASSESSMENT", status: "SUCCESS", delta: "+6" },
+  { id: "AGENT-019", task: "SETTLEMENT", status: "PARTIAL", delta: "+1" },
+  { id: "AGENT-256", task: "AUDIT REVIEW", status: "SUCCESS", delta: "+5" },
+  { id: "AGENT-444", task: "KYC VERIFICATION", status: "SUCCESS", delta: "+7" },
+  { id: "AGENT-073", task: "PORTFOLIO REBAL.", status: "SUCCESS", delta: "+4" },
+];
+
+const ScrollingLog = () => {
+  const [visibleIdx, setVisibleIdx] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setVisibleIdx((i) => (i + 1) % auditEntries.length), 1800);
+    return () => clearInterval(id);
+  }, []);
+
+  const visible = Array.from({ length: 5 }, (_, i) => auditEntries[(visibleIdx + i) % auditEntries.length]);
 
   return (
-    <div className="bg-black min-h-svh md:min-h-screen overflow-x-hidden overscroll-y-contain touch-pan-y" dir={isRTL ? "rtl" : "ltr"}>
-      {/* Hidden PDF Layout for download */}
-      <ThesisPdfLayout ref={pdfLayoutRef} />
-      {/* Progress bar - hidden on mobile to reduce scroll jank */}
+    <div className="font-mono text-[10px] md:text-xs space-y-1.5 overflow-hidden">
+      {visible.map((e, i) => (
+        <motion.div
+          key={`${e.id}-${visibleIdx}-${i}`}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1 - i * 0.15, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="flex gap-2 md:gap-4 text-white/60"
+        >
+          <span className="text-white/80">{e.id}</span>
+          <span className="text-white/30">|</span>
+          <span>TASK: {e.task}</span>
+          <span className="text-white/30">|</span>
+          <span className={e.status === "SUCCESS" ? "text-green-400/80" : "text-yellow-400/80"}>
+            {e.status}
+          </span>
+          <span className="text-white/30">|</span>
+          <span className="text-white/90">TRUST: {e.delta}</span>
+        </motion.div>
+      ))}
+    </div>
+  );
+};
+
+/* ─── Stable bubble positions for Free Agents ─── */
+const AGENT_BUBBLES = [
+  { top: 20, left: 15, dx: 6, dy: -7, dur: 2.4 },
+  { top: 45, left: 55, dx: -5, dy: 8, dur: 3.1 },
+  { top: 65, left: 25, dx: 7, dy: -4, dur: 2.8 },
+  { top: 30, left: 60, dx: -8, dy: 5, dur: 3.5 },
+  { top: 55, left: 40, dx: 4, dy: -6, dur: 2.6 },
+  { top: 15, left: 40, dx: -6, dy: 7, dur: 3.2 },
+  { top: 70, left: 60, dx: 5, dy: -5, dur: 2.9 },
+];
+
+/* ─── Hero Visual (Slide 1) ─── */
+const TrustFilterVisual = () => (
+  <div className="relative flex items-start justify-center gap-3 md:gap-6 py-8">
+    {/* Chaotic agents */}
+    <div className="flex flex-col items-center gap-2">
+      <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/30 mb-2">Free Agents</p>
+      <div className="relative w-20 md:w-28 h-20 md:h-28">
+        {AGENT_BUBBLES.map((b, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-3 h-3 md:w-4 md:h-4 rounded-full border border-white/40 bg-white/15"
+            style={{ top: `${b.top}%`, left: `${b.left}%` }}
+            animate={{
+              x: [0, b.dx, 0],
+              y: [0, b.dy, 0],
+              opacity: [0.5, 0.9, 0.5],
+            }}
+            transition={{ duration: b.dur, repeat: Infinity, ease: "easeInOut" }}
+          />
+        ))}
+      </div>
+    </div>
+
+    {/* Arrow */}
+    <div className="flex items-center h-20 md:h-28 mt-6 md:mt-7">
+      <ChevronRight className="w-5 h-5 text-white/20" />
+    </div>
+
+    {/* Credit Score Gauge */}
+    <div className="flex flex-col items-center gap-2">
+      <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/30 mb-2">AMAI Reputation</p>
+      <motion.div
+        className="w-28 h-20 md:w-40 md:h-28 flex items-center justify-center"
+        animate={{ opacity: [0.7, 1, 0.7] }}
+        transition={{ duration: 3, repeat: Infinity }}
+      >
+        <svg viewBox="0 0 120 75" className="w-full h-full">
+          {/* Gauge arc segments */}
+          <path d="M 15 65 A 50 50 0 0 1 35 25" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="6" strokeLinecap="round" />
+          <path d="M 37 23 A 50 50 0 0 1 60 15" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="6" strokeLinecap="round" />
+          <path d="M 62 15 A 50 50 0 0 1 85 23" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="6" strokeLinecap="round" />
+          <path d="M 87 25 A 50 50 0 0 1 105 65" fill="none" stroke="rgba(166,252,252,0.5)" strokeWidth="6" strokeLinecap="round" />
+          {/* Labels */}
+          <text x="14" y="56" fill="rgba(255,255,255,0.3)" fontSize="7" fontFamily="monospace">BAD</text>
+          <text x="27" y="28" fill="rgba(255,255,255,0.3)" fontSize="7" fontFamily="monospace">FAIR</text>
+          <text x="70" y="23" fill="rgba(255,255,255,0.35)" fontSize="7" fontFamily="monospace">GOOD</text>
+          <text x="88" y="50" fill="rgba(166,252,252,0.7)" fontSize="8" fontWeight="bold" fontFamily="monospace">A+</text>
+          {/* Needle pointing to Excellent */}
+          <motion.line
+            x1="60" y1="68" x2="92" y2="38"
+            stroke="rgba(166,252,252,0.8)" strokeWidth="2" strokeLinecap="round"
+            animate={{ x2: [90, 94, 90], y2: [40, 36, 40] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          />
+          {/* Center dot */}
+          <circle cx="60" cy="68" r="4" fill="rgba(166,252,252,0.3)" stroke="rgba(166,252,252,0.6)" strokeWidth="1.5" />
+        </svg>
+      </motion.div>
+    </div>
+
+    {/* Arrow */}
+    <div className="flex items-center h-20 md:h-28 mt-6 md:mt-7">
+      <ChevronRight className="w-5 h-5 text-white/20" />
+    </div>
+
+    {/* Verified stream */}
+    <div className="flex flex-col items-center gap-2">
+      <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/30 mb-2">Trusted Labor</p>
+      <div className="flex flex-col gap-1.5 mt-2">
+        {[0, 1, 2].map((i) => (
+          <motion.div
+            key={i}
+            className="w-14 md:w-20 h-3 md:h-4 rounded bg-white/10 border border-white/15"
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: i * 0.3, duration: 0.6, repeat: Infinity, repeatDelay: 3 }}
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+);
+
+/* ─── Main Component ─── */
+const Thesis = () => {
+  const { scrollYProgress } = useScroll();
+  const isMobile = useIsMobile();
+
+  return (
+    <div className={`bg-black min-h-svh md:min-h-screen overflow-x-hidden ${isMobile ? "overscroll-y-contain touch-pan-y" : ""}`}>
+      {/* Progress bar */}
       {!isMobile && (
         <motion.div
           className="fixed bottom-0 left-0 h-[3px] bg-white/30 origin-left z-50"
-          style={{ scaleX: scrollYProgress, width: '100%' }}
+          style={{ scaleX: scrollYProgress, width: "100%" }}
         />
       )}
-      {/* Slide 1: Title */}
-      <Slide align="left" slideNumber={1} isRTL={isRTL}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.2 }}
-          className="max-w-4xl relative z-10"
-        >
-          {/* Logo */}
+
+      {/* ── SLIDE 1: THE HOOK ── */}
+      <Slide slideNumber={1}>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.2 }} className="max-w-4xl mx-auto text-center">
           <motion.img
             src={amaiLogo}
-            alt="AMAI Labs"
-            className="h-12 md:h-20 w-auto object-contain brightness-110 mt-8 md:mt-0 mb-12 md:mb-24"
+            alt="AMAI"
+            className="h-10 md:h-16 w-auto brightness-110 mb-10 md:mb-20 mx-auto"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           />
-          
-          {/* Micro-label */}
+          <MicroLabel delay={0.3}>01 // THE THESIS</MicroLabel>
+          <motion.div
+            className="mb-8 md:mb-10"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-[1.2] font-light">
+              Intelligence Is Everywhere
+            </h1>
+            <motion.p
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white/70 font-light mt-6 leading-[1.2]"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.0 }}
+            >
+              But Trust Has Never Been Lower
+            </motion.p>
+          </motion.div>
           <motion.p
-            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6"
-            initial={{ opacity: 0, y: 10 }}
+            className="text-base md:text-xl text-white/50 font-light leading-relaxed max-w-2xl mx-auto mb-10"
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
           >
-            {t('thesis.slide1.label')}
+            AMAI is the Reputation Layer for the Autonomous Economy.
           </motion.p>
-          
-          {/* Headline */}
-          <motion.h1
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-8 md:mb-10 leading-[1.1]"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            {t('thesis.slide1.headline1')}<br />
-            {t('thesis.slide1.headline2')}
-          </motion.h1>
-          
-          {/* Subheadline */}
-          <motion.div
-            className="text-base md:text-xl text-white/50 font-light leading-relaxed max-w-2xl mb-10 md:mb-12 space-y-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            <p>{t('thesis.slide1.subheadline1')}</p>
-            <p>{t('thesis.slide1.subheadline2')}</p>
-          </motion.div>
-          
-          {/* CTAs */}
-          <motion.div
-            className={`flex flex-col sm:flex-row gap-4 ${isRTL ? 'sm:flex-row-reverse' : ''}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.0 }}
-          >
-            <a
-              href="#slide-2"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('slide-2')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="text-sm text-white/70 hover:text-white bg-black border border-white/20 hover:border-white/40 px-6 py-3 rounded transition-all duration-300 uppercase tracking-[0.15em] text-center"
-            >
-              {t('thesis.slide1.cta1')}
-            </a>
-            <button
-              onClick={handleDownloadPdf}
-              disabled={isGenerating}
-              className="text-sm text-white/50 hover:text-white/70 px-6 py-3 transition-all duration-300 uppercase tracking-[0.15em] text-center disabled:opacity-50 disabled:cursor-wait"
-            >
-              {isGenerating ? 'Generating...' : t('thesis.slide1.cta2')}
-            </button>
-          </motion.div>
+
         </motion.div>
       </Slide>
 
       <SlideDivider />
 
-      {/* Slide 2: The Infrastructure Gap */}
-      <div id="slide-2">
-        <Slide slideNumber={2} isRTL={isRTL}>
+      {/* ── SLIDE 2: THE PROBLEM ── */}
+      <Slide slideNumber={2}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          viewport={{ once: true, margin: "0px" }}
-          className="max-w-3xl"
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto text-center"
         >
-          {/* Micro-label */}
-          <motion.p
-            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            {t('thesis.slide2.label')}
-          </motion.p>
-          
-          {/* Headline */}
+          <MicroLabel>02 // THE LIMIT</MicroLabel>
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 leading-[1.15]"
+            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-8 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            {t('tether.slide2.headline')}
+            Sketchy Agents Can't Scale
           </motion.h2>
-          
-          {/* Intro paragraph */}
-          <motion.p
-            className="text-lg md:text-xl text-white/60 font-light leading-relaxed mb-12 md:mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            {t('tether.slide2.intro')}
-          </motion.p>
-          
-          {/* Body copy - numbered points */}
-          <motion.div
-            className={`space-y-8 ${isRTL ? 'text-right' : 'text-left'} max-w-2xl mx-auto`}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            viewport={{ once: true }}
-          >
-            {/* Point 1 */}
-            <div>
-              <p className="text-base text-white/80 font-medium mb-2">
-                {t('tether.slide2.point1.title')}
-              </p>
-              <p className="text-base text-white/60 font-light leading-relaxed">
-                {t('tether.slide2.point1.body')}
-              </p>
-            </div>
-            
-            {/* Point 2 */}
-            <div>
-              <p className="text-base text-white/80 font-medium mb-2">
-                {t('tether.slide2.point2.title')}
-              </p>
-              <p className="text-base text-white/60 font-light leading-relaxed">
-                {t('tether.slide2.point2.body')}
-              </p>
-            </div>
-            
-            {/* Point 3 */}
-            <div>
-              <p className="text-base text-white/80 font-medium mb-2">
-                {t('tether.slide2.point3.title')}
-              </p>
-              <p className="text-base text-white/60 font-light leading-relaxed">
-                {t('tether.slide2.point3.body')}
-              </p>
-            </div>
-          </motion.div>
-        </motion.div>
-      </Slide>
-      </div>
 
-      <SlideDivider />
-
-      {/* Slide 3: The Infrastructure Layer */}
-      <Slide align="left" slideNumber={3} isRTL={isRTL}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true, margin: "0px" }}
-          className="max-w-4xl"
-        >
-          {/* Micro-label */}
-          <motion.p
-            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            {t('thesis.slide3.label')}
-          </motion.p>
-          
-          {/* Headline */}
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 md:mb-12 leading-[1.15]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            {t('tether.slide3.headline')}
-          </motion.h2>
-          
-          {/* Body copy */}
           <motion.div
-            className="space-y-4 text-base md:text-lg text-white/50 font-light leading-relaxed mb-8 md:mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <p>{t('tether.slide3.body1')}</p>
-            <p>{t('tether.slide3.body2')}</p>
-          </motion.div>
-          
-          {/* Four pillars */}
-          <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8 mb-10 md:mb-16"
+            className="text-left max-w-2xl mx-auto space-y-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}>
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('tether.slide3.pillar1.title')}</p>
-              <p className="text-sm text-white/70 font-light leading-relaxed">
-                {t('tether.slide3.pillar1.desc')}
-              </p>
-            </div>
-            
-            <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}>
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('tether.slide3.pillar2.title')}</p>
-              <p className="text-sm text-white/70 font-light leading-relaxed">
-                {t('tether.slide3.pillar2.desc')}
-              </p>
-            </div>
-            
-            <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}>
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('tether.slide3.pillar3.title')}</p>
-              <p className="text-sm text-white/70 font-light leading-relaxed">
-                {t('tether.slide3.pillar3.desc')}
-              </p>
-            </div>
-            
-            <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}>
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('tether.slide3.pillar4.title')}</p>
-              <p className="text-sm text-white/70 font-light leading-relaxed">
-                {t('tether.slide3.pillar4.desc')}
-              </p>
-            </div>
+            <p className="text-lg md:text-xl text-white/60 font-light leading-relaxed">
+              Humans have <span className="text-white font-normal">FICO</span>. Businesses have <span className="text-white font-normal">Dun & Bradstreet</span>.
+            </p>
+            <p className="text-lg md:text-xl text-white/60 font-light leading-relaxed">
+              AI Agents have <span className="text-white font-normal">Nothing</span>.
+            </p>
+            <p className="text-base md:text-lg text-white/40 font-light leading-relaxed">
+              Without a standardized Credit Score, an Agent is just a random script. It cannot borrow capital, it cannot sign contracts, and it cannot be trusted with a bank account.
+            </p>
           </motion.div>
-          
-          {/* Closing line */}
-          <motion.p
-            className="text-lg text-white/70 font-normal leading-relaxed"
+
+          {/* Agent Credit Score Gauge */}
+          <motion.div
+            className="flex justify-center mt-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            transition={{ duration: 1, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            {t('tether.slide3.closing')}
-          </motion.p>
+            <svg viewBox="0 0 340 200" className="w-[300px] md:w-[400px] h-auto">
+              <defs>
+                <filter id="needleGlow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="3" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
+
+              {/* Gauge arc segments — 3 blocks with gaps */}
+              <path d="M 48 170 A 125 125 0 0 1 100 55" fill="none" stroke="rgba(200,120,50,0.25)" strokeWidth="28" strokeLinecap="butt" />
+              <path d="M 108 46 A 125 125 0 0 1 232 46" fill="none" stroke="rgba(200,180,60,0.3)" strokeWidth="28" strokeLinecap="butt" />
+              <path d="M 240 55 A 125 125 0 0 1 292 170" fill="none" stroke="rgba(80,180,100,0.35)" strokeWidth="28" strokeLinecap="butt" />
+
+              {/* Tier labels */}
+              <text x="38" y="100" fill="rgba(255,255,255,0.3)" fontSize="10" fontFamily="monospace" textAnchor="middle">POOR</text>
+              <text x="170" y="14" fill="rgba(255,255,255,0.35)" fontSize="10" fontFamily="monospace" textAnchor="middle">GOOD</text>
+              <text x="302" y="100" fill="rgba(255,255,255,0.5)" fontSize="10" fontFamily="monospace" textAnchor="middle">EXCELLENT</text>
+
+              {/* Range labels */}
+              <text x="38" y="112" fill="rgba(255,255,255,0.2)" fontSize="7" fontFamily="monospace" textAnchor="middle">300</text>
+              <text x="170" y="26" fill="rgba(255,255,255,0.2)" fontSize="7" fontFamily="monospace" textAnchor="middle">580</text>
+              <text x="302" y="112" fill="rgba(255,255,255,0.2)" fontSize="7" fontFamily="monospace" textAnchor="middle">850</text>
+
+              {/* Agent bot icon */}
+              <rect x="155" y="118" width="30" height="22" rx="4" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="2" />
+              <circle cx="164" cy="128" r="2.5" fill="rgba(255,255,255,0.55)" />
+              <circle cx="176" cy="128" r="2.5" fill="rgba(255,255,255,0.55)" />
+              <line x1="170" y1="117" x2="170" y2="108" stroke="rgba(255,255,255,0.45)" strokeWidth="2" />
+              <circle cx="170" cy="106" r="3" fill="rgba(255,255,255,0.4)" />
+              <line x1="170" y1="140" x2="170" y2="146" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
+              <line x1="162" y1="146" x2="178" y2="146" stroke="rgba(255,255,255,0.4)" strokeWidth="2" strokeLinecap="round" />
+
+              {/* Needle glow */}
+              <line
+                x1="170" y1="170" x2="272" y2="100"
+                stroke="rgba(255,255,255,0.15)" strokeWidth="6" strokeLinecap="round"
+                filter="url(#needleGlow)"
+              />
+              {/* Needle */}
+              <line
+                x1="170" y1="170" x2="272" y2="100"
+                stroke="rgba(255,255,255,0.7)" strokeWidth="2.5" strokeLinecap="round"
+              />
+            </svg>
+          </motion.div>
         </motion.div>
       </Slide>
 
       <SlideDivider />
 
-      {/* Slide 4: The Economic Loop */}
-      <Slide slideNumber={4} isRTL={isRTL}>
+      {/* ── SLIDE 3: THE SOLUTION ── */}
+      <Slide slideNumber={3}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          viewport={{ once: true, margin: "0px" }}
-          className="w-full max-w-4xl mx-auto text-center"
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto text-center"
         >
-          {/* Micro-label */}
-          <motion.p
-            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            {t('thesis.slide4.label')}
-          </motion.p>
-          
-          {/* Headline */}
+          <MicroLabel>03 // AMAI</MicroLabel>
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 md:mb-16 leading-[1.15]"
+            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-10 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            {t('tether.slide4.headline')}
+            How Trust Becomes Capital
           </motion.h2>
-          
-          {/* Diagram - uses flex-nowrap to keep all items in single row (matches landing page) */}
+
+          {/* 3-step equation */}
           <motion.div
-            className="relative mb-8 md:mb-16 px-4 md:px-0"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            {/* Main flow row - no wrap, items stay in single row, scales down on mobile */}
-            <div className={`flex items-center justify-center gap-1.5 md:gap-2 text-[9px] md:text-[11px] text-white/70 ${isRTL ? 'flex-row-reverse' : ''}`}>
-              {[
-                t('tether.slide4.step.identity'),
-                t('tether.slide4.step.reputation'),
-                t('tether.slide4.step.capital'),
-                t('tether.slide4.step.execution'),
-                t('tether.slide4.step.settlement')
-              ].map((step, i, arr) => (
-                <React.Fragment key={i}>
+            {/* Identity */}
+            <div className="bg-black border border-white/10 rounded-lg p-6 flex flex-col items-center text-center">
+              <Fingerprint className="w-8 h-8 text-white/50 mb-4" />
+              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-2">Identity</p>
+              <p className="text-sm text-white/40 font-light">A digital passport recorded on an Immutable Ledger.</p>
+            </div>
+
+            {/* Performance */}
+            <div className="bg-black border border-white/10 rounded-lg p-6 flex flex-col items-center text-center">
+              <Activity className="w-8 h-8 text-white/50 mb-4" />
+              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-2">Performance</p>
+              <p className="text-sm text-white/40 font-light">Real-world execution that builds a verifiable track record.</p>
+            </div>
+
+            {/* Trust */}
+            <div className="bg-black border border-white/15 rounded-lg p-6 flex flex-col items-center text-center">
+              <svg viewBox="0 0 120 75" className="w-10 h-7 mb-3">
+                <path d="M 15 65 A 50 50 0 0 1 35 25" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="6" strokeLinecap="round" />
+                <path d="M 37 23 A 50 50 0 0 1 60 15" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="6" strokeLinecap="round" />
+                <path d="M 62 15 A 50 50 0 0 1 85 23" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="6" strokeLinecap="round" />
+                <path d="M 87 25 A 50 50 0 0 1 105 65" fill="none" stroke="rgba(166,252,252,0.5)" strokeWidth="6" strokeLinecap="round" />
+                <line x1="60" y1="68" x2="92" y2="38" stroke="rgba(166,252,252,0.8)" strokeWidth="2" strokeLinecap="round" />
+                <circle cx="60" cy="68" r="4" fill="rgba(166,252,252,0.3)" stroke="rgba(166,252,252,0.6)" strokeWidth="1.5" />
+              </svg>
+              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-2">TRUST</p>
+              <p className="text-sm text-white/40 font-light">A Credit Worthy Sovereign Agent capable of scaling.</p>
+            </div>
+          </motion.div>
+
+          {/* Economic Loop Diagram */}
+          <motion.div
+            className="relative mt-10 px-4 md:px-0"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center justify-center gap-1.5 md:gap-2 text-[9px] md:text-[11px] text-white/70">
+              {['Identity', 'Reputation', 'Capital', 'Execution', 'Settlement'].map((step, i, arr) => (
+                <span key={i} className="flex items-center gap-1.5 md:gap-2">
                   <span className="px-2 md:px-3 py-1 md:py-1.5 border border-white/20 rounded bg-black whitespace-nowrap">
                     {step}
                   </span>
                   {i < arr.length - 1 && (
-                    <span className="text-white/30 text-[8px] md:text-xs">{isRTL ? '←' : '→'}</span>
+                    <span className="text-white/30 text-[8px] md:text-xs">→</span>
                   )}
-                </React.Fragment>
+                </span>
               ))}
             </div>
-
-            {/* SVG loop-back path */}
             <svg 
               className="w-full h-8 mt-1" 
               viewBox="0 0 480 32" 
               preserveAspectRatio="xMidYMid meet"
               fill="none"
             >
-              {/* Curved U-path from Settlement back to Trust */}
               <path 
-                d={isRTL 
-                  ? "M 72 0 L 72 18 Q 72 24 78 24 L 398 24 Q 404 24 404 18 L 404 0"
-                  : "M 404 0 L 404 18 Q 404 24 398 24 L 78 24 Q 72 24 72 18 L 72 0"
-                }
+                d="M 404 0 L 404 18 Q 404 24 398 24 L 78 24 Q 72 24 72 18 L 72 0"
                 stroke="rgba(255,255,255,0.15)"
                 strokeWidth="1"
               />
-              
-              {/* Vertical arrow under Settlement (pointing down) */}
-              {isRTL ? (
-                <polygon points="72,5 69,0 75,0" fill="rgba(255,255,255,0.25)" />
-              ) : (
-                <polygon points="404,5 401,0 407,0" fill="rgba(255,255,255,0.25)" />
-              )}
-              
-              {/* Vertical arrow into Trust (pointing up) */}
-              {isRTL ? (
-                <polygon points="404,0 401,5 407,5" fill="rgba(255,255,255,0.25)" />
-              ) : (
-                <polygon points="72,0 69,5 75,5" fill="rgba(255,255,255,0.25)" />
-              )}
-              
-              {/* Arrow markers along the bottom path */}
-              {isRTL ? (
-                <>
-                  <polygon points="160,21 166,24 160,27" fill="rgba(255,255,255,0.25)" />
-                  <polygon points="240,21 246,24 240,27" fill="rgba(255,255,255,0.25)" />
-                  <polygon points="320,21 326,24 320,27" fill="rgba(255,255,255,0.25)" />
-                </>
-              ) : (
-                <>
-                  <polygon points="320,21 314,24 320,27" fill="rgba(255,255,255,0.25)" />
-                  <polygon points="240,21 234,24 240,27" fill="rgba(255,255,255,0.25)" />
-                  <polygon points="160,21 154,24 160,27" fill="rgba(255,255,255,0.25)" />
-                </>
-              )}
+              <polygon points="404,5 401,0 407,0" fill="rgba(255,255,255,0.25)" />
+              <polygon points="72,0 69,5 75,5" fill="rgba(255,255,255,0.25)" />
+              <polygon points="320,21 314,24 320,27" fill="rgba(255,255,255,0.25)" />
+              <polygon points="240,21 234,24 240,27" fill="rgba(255,255,255,0.25)" />
+              <polygon points="160,21 154,24 160,27" fill="rgba(255,255,255,0.25)" />
             </svg>
           </motion.div>
-          
+
           {/* Explanatory text */}
-          <motion.div
-            className="text-sm md:text-base text-white/50 font-light leading-relaxed max-w-2xl mx-auto space-y-1"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <p>{t('tether.slide4.explanation1')}</p>
-            <p>{t('tether.slide4.explanation2')}</p>
-            <p>{t('tether.slide4.explanation3')}</p>
-            <p>{t('tether.slide4.explanation4')}</p>
-            <p>{t('tether.slide4.explanation5')}</p>
-          </motion.div>
-          
-          {/* Closing line */}
-          <motion.p
-            className="mt-10 text-lg text-white/70 font-normal leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            viewport={{ once: true }}
-          >
-            {t('tether.slide4.closing')}
-          </motion.p>
+
         </motion.div>
+
       </Slide>
 
       <SlideDivider />
 
-      {/* Slide 5: Autonomous Agent Swarms */}
-      <Slide align="left" slideNumber={5} isRTL={isRTL}>
+      {/* ── SLIDE 4: THE MECHANISM ── */}
+      <Slide slideNumber={4}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          viewport={{ once: true, margin: "0px" }}
-          className="max-w-3xl"
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto"
         >
-          <motion.p
-            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            {t('thesis.slide5.label')}
-          </motion.p>
-          
+          <MicroLabel>04 // THE MECHANISM</MicroLabel>
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-6 md:mb-8 leading-[1.15]"
+            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 text-center leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            {t('tether.slide5.headline')}
+            The Settlement Layer
           </motion.h2>
-          
-          <motion.div
-            className="space-y-4 text-base text-white/50 font-light leading-relaxed mb-6"
+          <motion.p
+            className="text-base md:text-lg text-white/50 font-light mb-12 text-center max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <p>{t('tether.slide5.body1')}</p>
-            <div className="h-6 md:h-8" />
-            <p className="text-white/70 font-normal">{t('tether.slide5.body2')}</p>
-          </motion.div>
-          
+            Users consume AMAI Credits to power the network. Agents post Performance Collateral to insure their work. We tax the flow of trust.
+          </motion.p>
+
+          {/* Two cards with tooltips */}
           <motion.div
-            className="space-y-4 mb-12"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            {[t('tether.slide5.point1'), t('tether.slide5.point2'), t('tether.slide5.point3')].map((item, i) => {
-              const colonIndex = item.indexOf(':');
-              const title = colonIndex > -1 ? item.slice(0, colonIndex + 1) : '';
-              const body = colonIndex > -1 ? item.slice(colonIndex + 1) : item;
-              return (
-                <div key={i} className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                  <span className="text-white/30 text-sm font-medium mt-0.5 w-4">{i + 1}.</span>
-                  <p className="text-base text-white/50 font-light leading-relaxed">
-                    {title && <span className="text-white/80 font-medium">{title}</span>}
-                    {body}
-                  </p>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="bg-black border border-white/10 rounded-lg p-8 cursor-pointer hover:border-white/25 transition-colors group">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Zap className="w-6 h-6 text-white/50 group-hover:text-white/70 transition-colors" />
+                    <p className="text-[10px] tracking-[0.25em] uppercase text-white/30">The Fuel</p>
+                  </div>
+                  <p className="text-xl md:text-2xl text-white/90 font-light mb-2">AMAI Credits</p>
+                  <p className="text-sm text-white/40 font-light">Used for compute, routing, and access.</p>
                 </div>
-              );
-            })}
+              </TooltipTrigger>
+              <TooltipContent side="bottom" className="bg-black border-white/20 text-white/80 text-sm max-w-[220px]">
+                <span className="font-medium text-white/90">Operational Fuel</span> — The unit of work inside the network. Powers every task, query, and settlement.
+              </TooltipContent>
+            </Tooltip>
+
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="bg-black border border-white/10 rounded-lg p-8 cursor-pointer hover:border-white/25 transition-colors group">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Lock className="w-6 h-6 text-white/50 group-hover:text-white/70 transition-colors" />
+                    <p className="text-[10px] tracking-[0.25em] uppercase text-white/30">The Safety</p>
+                  </div>
+                  <p className="text-xl md:text-2xl text-white/90 font-light mb-2">Performance Collateral</p>
+                  <p className="text-sm text-white/40 font-light">Capital locked in a vault to insure the task.</p>
+                </div>
+              </TooltipTrigger>
+              <TooltipContent side="bottom" className="bg-black border-white/20 text-white/80 text-sm max-w-[220px]">
+                <span className="font-medium text-white/90">Insurance</span> — Skin-in-the-game capital that guarantees agent performance. Slashed on failure, returned on success.
+              </TooltipContent>
+            </Tooltip>
           </motion.div>
-          
+
           <motion.p
-            className="mt-12 text-base text-white/70 font-normal leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
             viewport={{ once: true }}
+            className="text-sm text-white/40 font-light text-center tracking-wide mt-8"
           >
-            {t('tether.slide5.closing')}
+            Powered by a closed-source, proprietary trust algorithm.
           </motion.p>
+
         </motion.div>
       </Slide>
 
       <SlideDivider />
 
-      {/* Slide 6: Initial Users */}
-      <Slide align="left" slideNumber={6} isRTL={isRTL}>
+      {/* ── SLIDE 5: THE MOAT ── */}
+      <Slide slideNumber={5}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          viewport={{ once: true, margin: "0px" }}
-          className="max-w-3xl"
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto text-center"
         >
-          <motion.p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }}>{t('thesis.slide6.label')}</motion.p>
-          <motion.h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 md:mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>{t('tether.slide6.headline')}</motion.h2>
-          <motion.p className="text-base md:text-lg text-white/50 font-light leading-relaxed mb-6 md:mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} viewport={{ once: true }}>{t('tether.slide6.body')}</motion.p>
-          <motion.div className="space-y-5 mb-12" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
-            {[t('tether.slide6.point1'), t('tether.slide6.point2'), t('tether.slide6.point3')].map((item, i) => {
-              const colonIndex = item.indexOf(':');
-              const title = colonIndex > -1 ? item.slice(0, colonIndex + 1) : '';
-              const body = colonIndex > -1 ? item.slice(colonIndex + 1) : item;
-              return (
-                <div key={i} className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                  <span className="text-white/20 text-sm mt-0.5">—</span>
-                  <p className="text-base text-white/50 font-light leading-relaxed">
-                    {title && <span className="text-white/80 font-medium">{title}</span>}
-                    {body}
-                  </p>
-                </div>
-              );
-            })}
-          </motion.div>
-          <motion.p className="text-lg text-white/70 font-normal leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} viewport={{ once: true }}>{t('tether.slide6.closing')}</motion.p>
-        </motion.div>
-      </Slide>
-
-      <SlideDivider />
-
-      {/* Slide 7: Token Model */}
-      <Slide align="left" slideNumber={7} isRTL={isRTL}>
-        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true, margin: "0px" }} className="max-w-3xl">
-          <motion.p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }}>{t('thesis.slide7.label')}</motion.p>
-          <motion.h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 md:mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>{t('tether.slide7.headline')}</motion.h2>
-          <motion.div className="space-y-4 text-base md:text-lg text-white/50 font-light leading-relaxed mb-8 md:mb-12" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} viewport={{ once: true }}><p>{t('tether.slide7.body')}</p></motion.div>
-          <motion.div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8 mb-10 md:mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
-            <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}><p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('tether.slide7.pillar1.title')}</p><p className="text-sm text-white/70 font-light leading-relaxed">{t('tether.slide7.pillar1.desc')}</p></div>
-            <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}><p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('tether.slide7.pillar2.title')}</p><p className="text-sm text-white/70 font-light leading-relaxed">{t('tether.slide7.pillar2.desc')}</p></div>
-            <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}><p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('tether.slide7.pillar3.title')}</p><p className="text-sm text-white/70 font-light leading-relaxed">{t('tether.slide7.pillar3.desc')}</p></div>
-            <div className={`bg-black p-5 ${isRTL ? 'border-r border-white/10 pr-5' : 'border-l border-white/10 pl-5'}`}><p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-2">{t('tether.slide7.pillar4.title')}</p><p className="text-sm text-white/70 font-light leading-relaxed">{t('tether.slide7.pillar4.desc')}</p></div>
-          </motion.div>
-          <motion.p className="text-base md:text-lg text-white/50 font-light leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} viewport={{ once: true }}>{t('tether.slide7.closing')}</motion.p>
-        </motion.div>
-      </Slide>
-
-      <SlideDivider />
-
-      {/* Slide 8: Strategic Synergy */}
-      <Slide align="left" slideNumber={8} isRTL={isRTL}>
-        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true, margin: "0px" }} className="max-w-3xl">
-          <motion.p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }}>{t('thesis.slide8.label')}</motion.p>
-          <motion.h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 md:mb-12 leading-[1.15]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}>{t('thesis.slide8.headline')}</motion.h2>
-          
-          {/* Intro paragraph */}
-          <motion.p className="text-base md:text-lg text-white/50 font-light leading-relaxed mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} viewport={{ once: true }}>
-            {t('thesis.slide8.intro')}
-          </motion.p>
-          
-          {/* Sovereign Infrastructure */}
-          <motion.div className="mb-8" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.55 }} viewport={{ once: true }}>
-            <p className="text-base text-white/70 font-medium mb-2">{t('thesis.slide8.sovereign.title')}</p>
-            <p className="text-base text-white/50 font-light leading-relaxed">
-              {t('thesis.slide8.sovereign.desc')}
-            </p>
-          </motion.div>
-          
-          {/* Economic Skin-in-the-Game */}
-          <motion.div className="mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
-            <p className="text-base text-white/70 font-medium mb-2">{t('thesis.slide8.skin.title')}</p>
-            <p className="text-base text-white/50 font-light leading-relaxed">
-              {t('thesis.slide8.skin.desc')}
-            </p>
-          </motion.div>
-          
-          {/* The Resilience Loop */}
-          <motion.div className="mb-12" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.65 }} viewport={{ once: true }}>
-            <p className="text-base text-white/70 font-medium mb-4">{t('thesis.slide8.loop.title')}</p>
-            <div className="space-y-3">
-              <div className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                <span className="text-white/20 text-sm mt-0.5">—</span>
-                <p className="text-base text-white/50 font-light leading-relaxed"><span className="text-white/70">{t('thesis.slide8.loop.neutrality')}</span> {t('thesis.slide8.loop.neutrality.desc')}</p>
-              </div>
-              <div className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                <span className="text-white/20 text-sm mt-0.5">—</span>
-                <p className="text-base text-white/50 font-light leading-relaxed"><span className="text-white/70">{t('thesis.slide8.loop.continuity')}</span> {t('thesis.slide8.loop.continuity.desc')}</p>
-              </div>
-              <div className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                <span className="text-white/20 text-sm mt-0.5">—</span>
-                <p className="text-base text-white/50 font-light leading-relaxed"><span className="text-white/70">{t('thesis.slide8.loop.scalability')}</span> {t('thesis.slide8.loop.scalability.desc')}</p>
-              </div>
-            </div>
-          </motion.div>
-          
-          {/* Closing statement */}
-          <motion.p className="text-base md:text-lg text-white/70 font-normal leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.75 }} viewport={{ once: true }}>
-            {t('thesis.slide8.closing')}
-          </motion.p>
-        </motion.div>
-      </Slide>
-
-      <SlideDivider />
-
-      {/* Slide 9: The Missing Layer */}
-      <Slide align="left" slideNumber={9} isRTL={isRTL}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true, margin: "0px" }}
-          className="max-w-4xl"
-        >
-          {/* Micro-label */}
-          <motion.p
-            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            {t('thesis.slide9.label')}
-          </motion.p>
-          
-          {/* Headline */}
+          <MicroLabel>05 // THE MOAT</MicroLabel>
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 md:mb-12 leading-[1.15]"
+            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            {t('thesis.slide9.headline')}
+            The World's First Historical Ledger of Agent Behavior.
           </motion.h2>
-          
-          {/* Two-column layout */}
+          <motion.p
+            className="text-base md:text-lg text-white/50 font-light mb-10 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            While others build models, we are capturing the credit history of the digital workforce.
+          </motion.p>
+
+          {/* Trust Matrix Panel */}
           <motion.div
-            className={`grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 mb-10 md:mb-16 ${isRTL ? 'md:grid-flow-dense' : ''}`}
+            className="bg-black border border-white/10 rounded-lg overflow-hidden"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            {/* Left column - wider (3/5) */}
-            <div className={`md:col-span-3 ${isRTL ? 'md:col-start-3' : ''}`}>
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-4">{t('thesis.slide9.rails.title')}</p>
-              <div className="space-y-3">
-                {[
-                  t('tether.slide9.tether.item1'),
-                  t('tether.slide9.tether.item2'),
-                  t('tether.slide9.tether.item3'),
-                  t('tether.slide9.tether.item4')
-                ].map((item, i) => (
-                  <div key={i} className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                    <span className="text-white/20 text-sm mt-0.5">—</span>
-                    <p className="text-base text-white/50 font-light leading-relaxed">{item}</p>
-                  </div>
-                ))}
+            {/* Top Section: Agent Score */}
+            <div className="border-b border-white/10 px-5 md:px-8 py-5 md:py-6">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.5)]" />
+                  <span className="text-[10px] md:text-xs tracking-[0.2em] uppercase text-white/40 font-mono">AGENT-0B</span>
+                  <span className="text-[10px] tracking-[0.15em] text-white/20 font-mono">//</span>
+                  <span className="text-[10px] md:text-xs tracking-[0.15em] uppercase text-white/40 font-mono">TRUST RATING:</span>
+                  <span className="text-2xl md:text-3xl font-light text-white tracking-tight">842</span>
+                  <span className="text-[10px] tracking-[0.2em] uppercase text-emerald-400/80 font-mono border border-emerald-400/20 px-2 py-0.5 rounded">PRIME</span>
+                </div>
+                {/* Sparkline */}
+                <svg className="w-32 md:w-40 h-8" viewBox="0 0 160 32" fill="none">
+                  <defs>
+                    <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="rgba(52,211,153,0.3)" />
+                      <stop offset="100%" stopColor="rgba(52,211,153,0)" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M0,28 L12,26 L24,24 L36,25 L48,22 L60,20 L72,18 L84,19 L96,15 L108,12 L120,10 L132,8 L144,6 L156,4 L160,3" stroke="rgba(52,211,153,0.6)" strokeWidth="1.5" fill="none" />
+                  <path d="M0,28 L12,26 L24,24 L36,25 L48,22 L60,20 L72,18 L84,19 L96,15 L108,12 L120,10 L132,8 L144,6 L156,4 L160,3 L160,32 L0,32 Z" fill="url(#sparkGrad)" />
+                </svg>
               </div>
             </div>
-            
-            {/* Right column - narrower (2/5) */}
-            <div className={`md:col-span-2 ${isRTL ? 'md:col-start-1' : ''}`}>
-              <p className="text-xs tracking-[0.2em] uppercase text-white font-medium mb-4">{t('tether.slide9.missing.title')}</p>
-              <div className="space-y-3">
-                {[
-                  t('tether.slide9.missing.item1'),
-                  t('tether.slide9.missing.item2'),
-                  t('tether.slide9.missing.item3'),
-                  t('tether.slide9.missing.item4')
-                ].map((item, i) => (
-                  <div key={i} className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                    <span className="text-white/20 text-sm mt-0.5">—</span>
-                    <p className="text-base text-white/50 font-light leading-relaxed">{item}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-          
-          {/* Full-width divider line */}
-          <motion.div
-            className="w-full h-px bg-white/10 mb-8"
-            initial={{ opacity: 0, scaleX: 0 }}
-            whileInView={{ opacity: 1, scaleX: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
-          />
-          
-          {/* Bottom full-width text */}
-          <motion.p
-            className="text-lg md:text-xl text-white/70 font-normal leading-relaxed mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            viewport={{ once: true }}
-          >
-            {t('tether.slide9.callout')}
-          </motion.p>
-          
-          {/* Bottom callout - smaller text */}
-          <motion.div
-            className="text-base md:text-lg text-white/40 font-light leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <p>{t('tether.slide9.callout2.line1')}</p>
-            <p>{t('tether.slide9.callout2.line2')}</p>
-          </motion.div>
-        </motion.div>
-      </Slide>
 
-      <SlideDivider />
-
-      {/* Slide 10: Risk Mitigation Layer */}
-      <Slide align="left" slideNumber={10} isRTL={isRTL}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true, margin: "0px" }}
-          className="max-w-4xl"
-        >
-          {/* Micro-label */}
-          <motion.p
-            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            {t('thesis.slide10.label')}
-          </motion.p>
-          
-          {/* Headline */}
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-10 md:mb-16 leading-[1.15]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            {t('thesis.slide10.headline')}
-          </motion.h2>
-          
-          {/* Two-column risk/guardrail layout */}
-          <motion.div
-            className="space-y-8 md:space-y-10"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            viewport={{ once: true }}
-          >
-            {isMobile ? (
-              /* MOBILE: Paired card layout - each risk+guardrail grouped together */
-              <div className="space-y-8">
-                {/* Pair 1 */}
-                <div className="border-l-2 border-white/10 pl-4">
-                  <p className="text-[10px] tracking-[0.2em] uppercase text-white/40 mb-2">RISK</p>
-                  <p className="text-base text-white/70 font-medium mb-4">{t('tether.slide10.risk1')}</p>
-                  <p className="text-[10px] tracking-[0.2em] uppercase text-white/40 mb-2">GUARDRAIL</p>
-                  <p className="text-base text-white/70 font-medium mb-1">{t('tether.slide10.guardrail1.title')}</p>
-                  <p className="text-base text-white/50 font-light leading-relaxed">{t('tether.slide10.guardrail1.desc')}</p>
-                </div>
-                
-                {/* Pair 2 */}
-                <div className="border-l-2 border-white/10 pl-4">
-                  <p className="text-[10px] tracking-[0.2em] uppercase text-white/40 mb-2">RISK</p>
-                  <p className="text-base text-white/70 font-medium mb-4">{t('tether.slide10.risk2')}</p>
-                  <p className="text-[10px] tracking-[0.2em] uppercase text-white/40 mb-2">GUARDRAIL</p>
-                  <p className="text-base text-white/70 font-medium mb-1">{t('tether.slide10.guardrail2.title')}</p>
-                  <p className="text-base text-white/50 font-light leading-relaxed">{t('tether.slide10.guardrail2.desc')}</p>
-                </div>
-                
-                {/* Pair 3 */}
-                <div className="border-l-2 border-white/10 pl-4">
-                  <p className="text-[10px] tracking-[0.2em] uppercase text-white/40 mb-2">RISK</p>
-                  <p className="text-base text-white/70 font-medium mb-4">{t('tether.slide10.risk3')}</p>
-                  <p className="text-[10px] tracking-[0.2em] uppercase text-white/40 mb-2">GUARDRAIL</p>
-                  <p className="text-base text-white/70 font-medium mb-1">{t('tether.slide10.guardrail3.title')}</p>
-                  <p className="text-base text-white/50 font-light leading-relaxed">{t('tether.slide10.guardrail3.desc')}</p>
-                </div>
-                
-                {/* Pair 4 */}
-                <div className="border-l-2 border-white/10 pl-4">
-                  <p className="text-[10px] tracking-[0.2em] uppercase text-white/40 mb-2">RISK</p>
-                  <p className="text-base text-white/70 font-medium mb-4">{t('tether.slide10.risk4')}</p>
-                  <p className="text-[10px] tracking-[0.2em] uppercase text-white/40 mb-2">GUARDRAIL</p>
-                  <p className="text-base text-white/70 font-medium mb-1">{t('tether.slide10.guardrail4.title')}</p>
-                  <p className="text-base text-white/50 font-light leading-relaxed">{t('tether.slide10.guardrail4.desc')}</p>
-                </div>
-              </div>
-            ) : (
-              /* DESKTOP: Two-column grid layout */
-              <>
-                {/* Header row */}
-                <div className="grid grid-cols-2 gap-12">
-                  <p className="text-xs tracking-[0.2em] uppercase text-white/60 font-medium">{t('tether.slide10.col1.header')}</p>
-                  <p className="text-xs tracking-[0.2em] uppercase text-white/60 font-medium">{t('tether.slide10.col2.header')}</p>
-                </div>
-                
-                {/* Row 1 */}
-                <div className="grid grid-cols-2 gap-12">
-                  <p className="text-lg text-white/70 font-medium">{t('tether.slide10.risk1')}</p>
-                  <div>
-                    <p className="text-base text-white/70 font-medium mb-1">{t('tether.slide10.guardrail1.title')}</p>
-                    <p className="text-base text-white/50 font-light leading-relaxed">{t('tether.slide10.guardrail1.desc')}</p>
-                  </div>
-                </div>
-                
-                {/* Row 2 */}
-                <div className="grid grid-cols-2 gap-12">
-                  <p className="text-lg text-white/70 font-medium">{t('tether.slide10.risk2')}</p>
-                  <div>
-                    <p className="text-base text-white/70 font-medium mb-1">{t('tether.slide10.guardrail2.title')}</p>
-                    <p className="text-base text-white/50 font-light leading-relaxed">{t('tether.slide10.guardrail2.desc')}</p>
-                  </div>
-                </div>
-                
-                {/* Row 3 */}
-                <div className="grid grid-cols-2 gap-12">
-                  <p className="text-lg text-white/70 font-medium">{t('tether.slide10.risk3')}</p>
-                  <div>
-                    <p className="text-base text-white/70 font-medium mb-1">{t('tether.slide10.guardrail3.title')}</p>
-                    <p className="text-base text-white/50 font-light leading-relaxed">{t('tether.slide10.guardrail3.desc')}</p>
-                  </div>
-                </div>
-                
-                {/* Row 4 */}
-                <div className="grid grid-cols-2 gap-12">
-                  <p className="text-lg text-white/70 font-medium">{t('tether.slide10.risk4')}</p>
-                  <div>
-                    <p className="text-base text-white/70 font-medium mb-1">{t('tether.slide10.guardrail4.title')}</p>
-                    <p className="text-base text-white/50 font-light leading-relaxed">{t('tether.slide10.guardrail4.desc')}</p>
-                  </div>
-                </div>
-              </>
-            )}
-          </motion.div>
-        </motion.div>
-      </Slide>
-
-      <SlideDivider />
-
-      {/* Slide 11: Strategic Value */}
-      <Slide align="left" slideNumber={11} isRTL={isRTL}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true, margin: "0px" }}
-          className="max-w-4xl"
-        >
-          {/* Micro-label */}
-          <motion.p
-            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-8"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            {t('thesis.slide11.label')}
-          </motion.p>
-          
-          {/* Headline */}
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 md:mb-12 leading-[1.15]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            {t('tether.slide11.headline')}
-          </motion.h2>
-          
-          {/* Body intro - parse for highlight tags */}
-          <motion.p
-            className="text-base md:text-lg text-white/50 font-light leading-relaxed mb-8 md:mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            viewport={{ once: true }}
-          >
-            {t('thesis.slide11.intro').split('<highlight>').map((part, i) => {
-              if (i === 0) return part;
-              const [highlighted, rest] = part.split('</highlight>');
-              return (
-                <React.Fragment key={i}>
-                  <span className="text-white/70 font-medium">{highlighted}</span>
-                  {rest}
-                </React.Fragment>
-              );
-            })}
-          </motion.p>
-          
-          {/* Bullet points */}
-          <motion.div
-            className="space-y-6"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <div className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
-              <span className="text-white/30 text-lg mt-0.5">•</span>
-              <p className="text-base text-white/50 font-light leading-relaxed">
-                <span className="text-white/70 font-medium">{t('tether.slide11.point1.title')}</span> {t('tether.slide11.point1.desc')}
-              </p>
-            </div>
-            
-            <div className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
-              <span className="text-white/30 text-lg mt-0.5">•</span>
-              <p className="text-base text-white/50 font-light leading-relaxed">
-                <span className="text-white/70 font-medium">{t('tether.slide11.point2.title')}</span> {t('tether.slide11.point2.desc').split('<highlight>').map((part, i) => {
-                  if (i === 0) return part;
-                  const [highlighted, rest] = part.split('</highlight>');
+            {/* Middle Section: Heatmap */}
+            <div className="border-b border-white/10 px-5 md:px-8 py-5 md:py-6">
+              <p className="text-[9px] tracking-[0.2em] uppercase text-white/30 mb-4 text-left font-mono">Performance History — 52 Weeks</p>
+              <div className="flex gap-[3px] md:gap-1 flex-wrap justify-center">
+                {Array.from({ length: 52 * 5 }, (_, i) => {
+                  const isFault = i === 187;
+                  const intensity = isFault ? 0 : Math.random();
+                  const opacity = isFault ? 1 : intensity < 0.15 ? 0.08 : intensity < 0.4 ? 0.2 : intensity < 0.7 ? 0.4 : 0.7;
                   return (
-                    <React.Fragment key={i}>
-                      <span className="text-white/70 font-medium">{highlighted}</span>
-                      {rest}
-                    </React.Fragment>
+                    <div
+                      key={i}
+                      className="w-[6px] h-[6px] md:w-2 md:h-2 rounded-[1px]"
+                      style={{
+                        backgroundColor: isFault
+                          ? 'rgba(239,68,68,0.9)'
+                          : `rgba(52,211,153,${opacity})`,
+                        boxShadow: isFault
+                          ? '0 0 6px rgba(239,68,68,0.5)'
+                          : opacity > 0.5
+                            ? '0 0 4px rgba(52,211,153,0.3)'
+                            : 'none',
+                      }}
+                    />
                   );
                 })}
-              </p>
+              </div>
             </div>
-            
-            <div className={`flex items-start gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
-              <span className="text-white/30 text-lg mt-0.5">•</span>
-              <p className="text-base text-white/50 font-light leading-relaxed">
-                <span className="text-white/70 font-medium">{t('tether.slide11.point3.title')}</span> {t('tether.slide11.point3.desc')}
-              </p>
+
+            {/* Bottom Section: Cumulative Metrics */}
+            <div className="px-5 md:px-8 py-5 md:py-6">
+              <div className="grid grid-cols-3 gap-4 md:gap-8">
+                {[
+                  { label: 'Lifetime Tasks', value: '4,192' },
+                  { label: 'Capital Secured', value: '$12.4M' },
+                  { label: 'Fault Rate', value: '0.02%' },
+                ].map((metric) => (
+                  <div key={metric.label} className="text-center">
+                    <p className="text-xl md:text-2xl text-white font-light tracking-tight mb-1">{metric.value}</p>
+                    <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono">{metric.label}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </motion.div>
         </motion.div>
@@ -1015,19 +683,34 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* Slide 12: Closing */}
-      <Slide slideNumber={12} isRTL={isRTL}>
-        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1.2 }} viewport={{ once: true, margin: "0px" }} className="max-w-3xl mx-auto text-center">
-          <motion.h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-10 md:mb-16 leading-[1.1]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }} viewport={{ once: true }}>{t('tether.slide13.headline')}</motion.h2>
+      {/* ── SLIDE 6: CLOSING ── */}
+      <Slide slideNumber={6}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1.2 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto text-center"
+        >
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-10 md:mb-16 leading-[1.2]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            Infrastructure Precedes Autonomy.
+          </motion.h2>
+          
           <motion.div 
-            className="flex flex-col items-center gap-3 mb-10 md:mb-16" 
-            initial={{ opacity: 0 }} 
-            whileInView={{ opacity: 1 }} 
-            transition={{ duration: 0.8, delay: 0.6 }} 
+            className="mb-10 md:mb-16" 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
             <div className="flex items-center justify-center gap-3 md:gap-5">
-              {[t('tether.slide13.triad1'), t('tether.slide13.triad2'), t('tether.slide13.triad3')].map((word, i) => (
+              {['Accountability', 'Trust', 'Transparency'].map((word, i) => (
                 <motion.span
                   key={word}
                   className="text-sm md:text-base tracking-[0.2em] uppercase text-white/50 font-light"
@@ -1041,21 +724,42 @@ const Thesis = () => {
               ))}
             </div>
             <motion.p 
-              className="text-white/70 font-medium text-lg md:text-xl mt-4"
+              className="mt-6 text-base md:text-xl text-white/70 font-light"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 1.2 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
               viewport={{ once: true }}
             >
-              {t('tether.slide13.tagline')}
+              That is AMAI.
             </motion.p>
           </motion.div>
-          <motion.div className={`flex flex-col sm:flex-row items-center justify-center gap-4 ${isRTL ? 'sm:flex-row-reverse' : ''}`} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }} viewport={{ once: true }}>
-            <a href="https://youtu.be/qLEnRNELErg" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-white/10 border border-white/30 rounded text-xs tracking-[0.15em] uppercase text-white hover:bg-white/20 hover:border-white/50 transition-all duration-300">
-              Watch Demo Video
+          
+          <motion.div
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <a
+              href="https://youtu.be/qLEnRNELErg"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-white/10 border border-white/30 rounded text-xs tracking-[0.15em] uppercase text-white hover:bg-white/20 hover:border-white/50 transition-all duration-300"
+            >
+              System Demo
             </a>
-            <a href="/system-architecture" className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300">
-              {t('tether.slide13.cta2')}<span>{isRTL ? '←' : '→'}</span>
+            <a
+              href="/system-architecture"
+              className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
+            >
+              Explore the Architecture <span>→</span>
+            </a>
+            <a
+              href="mailto:team@amai.net?subject=Mission%20Briefing%20%2F%2F%20%5BOrganization%20Name%5D&body=To%20the%20AMAI%20Labs%20Team%2C%0A%0AWe%20are%20reaching%20out%20regarding%20the%20%5BThesis%20%2F%20Architecture%5D.%0A%0AName%3A%20%0AOrganization%3A%20%0AIntent%3A%20"
+              className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
+            >
+              Contact
             </a>
           </motion.div>
         </motion.div>

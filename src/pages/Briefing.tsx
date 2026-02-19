@@ -721,7 +721,7 @@ const Briefing = () => {
 
             <div className="mt-12 flex flex-row flex-wrap items-center justify-center gap-4">
               <a
-                href="/thesis"
+                href="/pitch"
                 className="text-sm text-white/70 hover:text-white border border-white/20 hover:border-white/40 px-5 py-2.5 rounded transition-all duration-300"
               >
                 {t('briefing.slide13.cta2')} →
