@@ -307,27 +307,8 @@ const Pitch = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            The Liability Gap
-          </motion.h2>
-          <motion.p
-            className="text-lg md:text-xl text-white/60 font-light leading-relaxed mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            LLMs are infinite, but they are anonymous. When an AI Agent makes a mistake, who pays?
-          </motion.p>
-
-          <motion.h3
-            className="text-2xl sm:text-3xl md:text-4xl font-light text-white mb-8 leading-[1.15]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            viewport={{ once: true }}
-          >
             Unvetted Agents Can't Scale
-          </motion.h3>
+          </motion.h2>
 
           <motion.div
             className="text-left max-w-2xl mx-auto space-y-6"
