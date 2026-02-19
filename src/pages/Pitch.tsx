@@ -251,7 +251,7 @@ const Pitch = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           />
-          <MicroLabel delay={0.3}>01 // THE HOOK</MicroLabel>
+          <MicroLabel delay={0.3}>01 // THE THESIS</MicroLabel>
           <motion.h1
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-8 md:mb-10 leading-[1.2] font-light"
             initial={{ opacity: 0, y: 20 }}
