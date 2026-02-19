@@ -320,31 +320,6 @@ const Pitch = () => {
               Without a standardized Credit Score, an Agent is just a random script. It cannot borrow capital, it cannot sign contracts, and it cannot be trusted with a bank account.
             </p>
           </motion.div>
-
-          {/* FICO-style gauge */}
-          <motion.div
-            className="mt-10 flex justify-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <svg viewBox="0 0 280 130" className="w-[260px] md:w-[320px]">
-              {/* Gauge arcs */}
-              <path d="M 40 110 A 100 100 0 0 1 72 42" fill="none" stroke="rgba(239,68,68,0.5)" strokeWidth="10" strokeLinecap="round" />
-              <path d="M 78 37 A 100 100 0 0 1 130 15" fill="none" stroke="rgba(251,191,36,0.5)" strokeWidth="10" strokeLinecap="round" />
-              <path d="M 136 14 A 100 100 0 0 1 190 30" fill="none" stroke="rgba(250,204,21,0.5)" strokeWidth="10" strokeLinecap="round" />
-              <path d="M 196 34 A 100 100 0 0 1 240 110" fill="none" stroke="rgba(52,211,153,0.6)" strokeWidth="10" strokeLinecap="round" />
-              {/* Needle */}
-              <line x1="140" y1="115" x2="220" y2="60" stroke="rgba(166,252,252,0.8)" strokeWidth="2" strokeLinecap="round" />
-              <circle cx="140" cy="115" r="5" fill="rgba(166,252,252,0.3)" stroke="rgba(166,252,252,0.6)" strokeWidth="1.5" />
-              {/* Labels */}
-              <text x="30" y="125" fill="rgba(255,255,255,0.25)" fontSize="9" fontFamily="monospace" textAnchor="start">POOR</text>
-              <text x="80" y="18" fill="rgba(255,255,255,0.25)" fontSize="9" fontFamily="monospace" textAnchor="middle">FAIR</text>
-              <text x="190" y="18" fill="rgba(255,255,255,0.25)" fontSize="9" fontFamily="monospace" textAnchor="middle">GOOD</text>
-              <text x="252" y="125" fill="rgba(255,255,255,0.25)" fontSize="9" fontFamily="monospace" textAnchor="end">PRIME</text>
-            </svg>
-          </motion.div>
         </motion.div>
       </Slide>
 
@@ -558,82 +533,31 @@ const Pitch = () => {
             While others build models, we are capturing the credit history of the digital workforce.
           </motion.p>
 
-          {/* Trust Matrix Panel */}
+          {/* Live trust score */}
           <motion.div
-            className="bg-black border border-white/10 rounded-lg overflow-hidden"
+            className="flex items-center justify-center gap-4 mb-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            {/* Top Section: Agent Score */}
-            <div className="border-b border-white/10 px-5 md:px-8 py-5 md:py-6">
-              <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.5)]" />
-                  <span className="text-[10px] md:text-xs tracking-[0.2em] uppercase text-white/40 font-mono">AGENT-0B</span>
-                  <span className="text-[10px] tracking-[0.15em] text-white/20 font-mono">//</span>
-                  <span className="text-[10px] md:text-xs tracking-[0.15em] uppercase text-white/40 font-mono">TRUST RATING:</span>
-                  <span className="text-2xl md:text-3xl font-light text-white tracking-tight">842</span>
-                  <span className="text-[10px] tracking-[0.2em] uppercase text-emerald-400/80 font-mono border border-emerald-400/20 px-2 py-0.5 rounded">PRIME</span>
-                </div>
-                {/* Sparkline */}
-                <svg className="w-32 md:w-40 h-8" viewBox="0 0 160 32" fill="none">
-                  <defs>
-                    <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="rgba(52,211,153,0.3)" />
-                      <stop offset="100%" stopColor="rgba(52,211,153,0)" />
-                    </linearGradient>
-                  </defs>
-                  <path d="M0,28 L12,26 L24,24 L36,25 L48,22 L60,20 L72,18 L84,19 L96,15 L108,12 L120,10 L132,8 L144,6 L156,4 L160,3" stroke="rgba(52,211,153,0.6)" strokeWidth="1.5" fill="none" />
-                  <path d="M0,28 L12,26 L24,24 L36,25 L48,22 L60,20 L72,18 L84,19 L96,15 L108,12 L120,10 L132,8 L144,6 L156,4 L160,3 L160,32 L0,32 Z" fill="url(#sparkGrad)" />
-                </svg>
-              </div>
+            <div className="flex items-center gap-3 bg-black border border-white/10 rounded-lg px-5 py-3">
+              <Database className="w-5 h-5 text-white/40" />
+              <span className="text-[10px] tracking-[0.2em] uppercase text-white/40">Trust Events Recorded:</span>
+              <TrustScoreCounter />
             </div>
+          </motion.div>
 
-            {/* Middle Section: Heatmap */}
-            <div className="border-b border-white/10 px-5 md:px-8 py-5 md:py-6">
-              <p className="text-[9px] tracking-[0.2em] uppercase text-white/30 mb-4 text-left font-mono">Performance History — 52 Weeks</p>
-              <div className="flex gap-[3px] md:gap-1 flex-wrap justify-center">
-                {Array.from({ length: 52 * 5 }, (_, i) => {
-                  const isFault = i === 187;
-                  const intensity = isFault ? 0 : Math.random();
-                  const opacity = isFault ? 1 : intensity < 0.15 ? 0.08 : intensity < 0.4 ? 0.2 : intensity < 0.7 ? 0.4 : 0.7;
-                  return (
-                    <div
-                      key={i}
-                      className="w-[6px] h-[6px] md:w-2 md:h-2 rounded-[1px]"
-                      style={{
-                        backgroundColor: isFault
-                          ? 'rgba(239,68,68,0.9)'
-                          : `rgba(52,211,153,${opacity})`,
-                        boxShadow: isFault
-                          ? '0 0 6px rgba(239,68,68,0.5)'
-                          : opacity > 0.5
-                            ? '0 0 4px rgba(52,211,153,0.3)'
-                            : 'none',
-                      }}
-                    />
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Bottom Section: Cumulative Metrics */}
-            <div className="px-5 md:px-8 py-5 md:py-6">
-              <div className="grid grid-cols-3 gap-4 md:gap-8">
-                {[
-                  { label: 'Lifetime Tasks', value: '4,192' },
-                  { label: 'Capital Secured', value: '$12.4M' },
-                  { label: 'Fault Rate', value: '0.02%' },
-                ].map((metric) => (
-                  <div key={metric.label} className="text-center">
-                    <p className="text-xl md:text-2xl text-white font-light tracking-tight mb-1">{metric.value}</p>
-                    <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono">{metric.label}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+          {/* Scrolling audit log */}
+          <motion.div
+            className="bg-black/60 border border-white/10 rounded-lg p-4 md:p-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-[9px] tracking-[0.2em] uppercase text-white/30 mb-3">Live Audit Trail</p>
+            <ScrollingLog />
           </motion.div>
         </motion.div>
       </Slide>
