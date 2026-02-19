@@ -278,13 +278,6 @@ const Pitch = () => {
           >
             We are building the Reputation Layer for the Autonomous Economy.
           </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-          >
-            <TrustFilterVisual />
-          </motion.div>
         </motion.div>
       </Slide>
 
