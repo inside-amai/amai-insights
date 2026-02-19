@@ -499,23 +499,6 @@ const Pitch = () => {
             </Tooltip>
           </motion.div>
 
-          {/* Flow diagram */}
-          <motion.div
-            className="flex items-center justify-center gap-1.5 md:gap-2 text-[9px] md:text-[11px] text-white/70 flex-wrap md:flex-nowrap"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            viewport={{ once: true }}
-          >
-            {["Fiat In", "Credits Minted", "Task Routed", "Collateral Posted", "Settlement"].map((step, i, arr) => (
-              <React.Fragment key={i}>
-                <span className="px-2 md:px-3 py-1 md:py-1.5 border border-white/20 rounded bg-black whitespace-nowrap">
-                  {step}
-                </span>
-                {i < arr.length - 1 && <span className="text-white/30 text-[8px] md:text-xs">→</span>}
-              </React.Fragment>
-            ))}
-          </motion.div>
         </motion.div>
       </Slide>
 
