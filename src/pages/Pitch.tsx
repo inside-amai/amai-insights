@@ -252,15 +252,32 @@ const Pitch = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           />
           <MicroLabel delay={0.3}>01 // THE THESIS</MicroLabel>
-          <motion.h1
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-8 md:mb-10 leading-[1.2] font-light"
+          <motion.div
+            className="mb-8 md:mb-10"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-            Intelligence is now a commodity
-            <span className="block mt-3 text-white/60">But Trust is at an <em>all-time low</em></span>
-          </motion.h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-[1.2] font-light">
+              Intelligence Is Now A Commodity
+            </h1>
+            <motion.p
+              className="text-lg sm:text-xl md:text-2xl text-white/40 font-light tracking-wide mt-3"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 1.0 }}
+            >
+              It's Cheap. It's Everywhere.
+            </motion.p>
+            <motion.p
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white/70 font-light mt-6 leading-[1.2]"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.4 }}
+            >
+              But Trust Is at an <em className="text-white not-italic font-normal">All-Time Low</em>
+            </motion.p>
+          </motion.div>
           <motion.p
             className="text-base md:text-xl text-white/50 font-light leading-relaxed max-w-2xl mx-auto mb-10"
             initial={{ opacity: 0, y: 20 }}
