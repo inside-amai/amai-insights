@@ -259,7 +259,7 @@ const Pitch = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
           >
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-[1.2] font-light">
-              Intelligence Is Everywhere.
+              Intelligence Is Everywhere
             </h1>
             <motion.p
               className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white/70 font-light mt-6 leading-[1.2]"
