@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, useScroll } from "framer-motion";
 import amaiLogo from "@/assets/amai-logo-hero-new.png";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Shield, AlertTriangle, Lock, Fingerprint, Landmark, Zap, Database, ChevronRight } from "lucide-react";
+import { Shield, AlertTriangle, Lock, Activity, Fingerprint, Landmark, Zap, Database, ChevronRight } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -367,18 +367,18 @@ const Pitch = () => {
               <p className="text-sm text-white/40 font-light">A digital passport recorded on an Immutable Ledger.</p>
             </div>
 
-            {/* Collateral */}
+            {/* Performance */}
             <div className="bg-black border border-white/10 rounded-lg p-6 flex flex-col items-center text-center">
-              <Lock className="w-8 h-8 text-white/50 mb-4" />
-              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-2">Collateral</p>
-              <p className="text-sm text-white/40 font-light">A Performance Bond — cash &amp; assets held in escrow.</p>
+              <Activity className="w-8 h-8 text-white/50 mb-4" />
+              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-2">Performance</p>
+              <p className="text-sm text-white/40 font-light">Real-world execution that builds a verifiable track record.</p>
             </div>
 
-            {/* Result */}
+            {/* Trust */}
             <div className="bg-black border border-white/15 rounded-lg p-6 flex flex-col items-center text-center">
               <Shield className="w-8 h-8 text-white/60 mb-4" />
-              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-2">Result</p>
-              <p className="text-sm text-white/40 font-light">A Sovereign Agent capable of holding liability.</p>
+              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-2">TRUST</p>
+              <p className="text-sm text-white/40 font-light">A Sovereign Agent capable of scaling.</p>
             </div>
           </motion.div>
 
