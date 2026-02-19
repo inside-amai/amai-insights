@@ -131,6 +131,17 @@ const ScrollingLog = () => {
   );
 };
 
+/* ─── Stable bubble positions for Free Agents ─── */
+const AGENT_BUBBLES = [
+  { top: 20, left: 15, dx: 6, dy: -7, dur: 2.4 },
+  { top: 45, left: 55, dx: -5, dy: 8, dur: 3.1 },
+  { top: 65, left: 25, dx: 7, dy: -4, dur: 2.8 },
+  { top: 30, left: 60, dx: -8, dy: 5, dur: 3.5 },
+  { top: 55, left: 40, dx: 4, dy: -6, dur: 2.6 },
+  { top: 15, left: 40, dx: -6, dy: 7, dur: 3.2 },
+  { top: 70, left: 60, dx: 5, dy: -5, dur: 2.9 },
+];
+
 /* ─── Hero Visual (Slide 1) ─── */
 const TrustFilterVisual = () => (
   <div className="relative flex items-start justify-center gap-3 md:gap-6 py-8">
@@ -138,20 +149,17 @@ const TrustFilterVisual = () => (
     <div className="flex flex-col items-center gap-2">
       <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/30 mb-2">Free Agents</p>
       <div className="relative w-20 md:w-28 h-20 md:h-28">
-        {[...Array(7)].map((_, i) => (
+        {AGENT_BUBBLES.map((b, i) => (
           <motion.div
             key={i}
             className="absolute w-3 h-3 md:w-4 md:h-4 rounded-full border border-white/40 bg-white/15"
-            style={{
-              top: `${15 + Math.random() * 60}%`,
-              left: `${10 + Math.random() * 60}%`,
-            }}
+            style={{ top: `${b.top}%`, left: `${b.left}%` }}
             animate={{
-              x: [0, (Math.random() - 0.5) * 16, 0],
-              y: [0, (Math.random() - 0.5) * 16, 0],
+              x: [0, b.dx, 0],
+              y: [0, b.dy, 0],
               opacity: [0.5, 0.9, 0.5],
             }}
-            transition={{ duration: 2 + Math.random() * 2, repeat: Infinity, ease: "easeInOut" }}
+            transition={{ duration: b.dur, repeat: Infinity, ease: "easeInOut" }}
           />
         ))}
       </div>
