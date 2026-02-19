@@ -174,7 +174,7 @@ const TrustFilterVisual = () => (
     <div className="flex flex-col items-center gap-2">
       <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/30 mb-2">AMAI Reputation</p>
       <motion.div
-        className="w-20 h-16 md:w-28 md:h-20 flex items-center justify-center"
+        className="w-28 h-20 md:w-40 md:h-28 flex items-center justify-center"
         animate={{ opacity: [0.7, 1, 0.7] }}
         transition={{ duration: 3, repeat: Infinity }}
       >
@@ -185,10 +185,10 @@ const TrustFilterVisual = () => (
           <path d="M 62 15 A 50 50 0 0 1 85 23" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="6" strokeLinecap="round" />
           <path d="M 87 25 A 50 50 0 0 1 105 65" fill="none" stroke="rgba(166,252,252,0.5)" strokeWidth="6" strokeLinecap="round" />
           {/* Labels */}
-          <text x="18" y="58" fill="rgba(255,255,255,0.25)" fontSize="5" fontFamily="monospace">BAD</text>
-          <text x="30" y="30" fill="rgba(255,255,255,0.25)" fontSize="5" fontFamily="monospace">FAIR</text>
-          <text x="72" y="25" fill="rgba(255,255,255,0.3)" fontSize="5" fontFamily="monospace">GOOD</text>
-          <text x="85" y="50" fill="rgba(166,252,252,0.6)" fontSize="5" fontWeight="bold" fontFamily="monospace">A+</text>
+          <text x="14" y="56" fill="rgba(255,255,255,0.3)" fontSize="7" fontFamily="monospace">BAD</text>
+          <text x="27" y="28" fill="rgba(255,255,255,0.3)" fontSize="7" fontFamily="monospace">FAIR</text>
+          <text x="70" y="23" fill="rgba(255,255,255,0.35)" fontSize="7" fontFamily="monospace">GOOD</text>
+          <text x="88" y="50" fill="rgba(166,252,252,0.7)" fontSize="8" fontWeight="bold" fontFamily="monospace">A+</text>
           {/* Needle pointing to Excellent */}
           <motion.line
             x1="60" y1="68" x2="92" y2="38"
