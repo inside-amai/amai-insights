@@ -1,39 +1,31 @@
 
 
-## Pitch Page Layout Overhaul -- Uniform Centering
+## Improve the Agent Credit Score Gauge on /pitch Slide 1
 
-### Problems Identified
-1. **Vertical misalignment**: Content sits near the bottom of slides because the inner container has `pb-20 md:pb-16` pushing content off-center, and some slides have more content weight at the bottom.
-2. **Horizontal inconsistency**: Slides 1, 3, 5 use `align="left"` while 2, 4, 6 use `align="center"` -- this creates a jarring shift when scrolling.
-3. **Varying max-widths**: Inner content uses `max-w-4xl`, `max-w-3xl`, and `max-w-2xl` inconsistently.
+### Changes to `src/pages/Pitch.tsx`
 
-### Solution
-Standardize the `Slide` component and all 6 slides to be uniformly centered (both vertically and horizontally):
+**1. Enlarge the SVG viewBox and overall gauge**
+- Increase viewBox to `0 0 340 200` to give more breathing room for labels outside the arc.
+- Increase rendered width from `w-[260px] md:w-[340px]` to `w-[300px] md:w-[400px]`.
 
-1. **Slide shell**: Remove the `align` prop entirely. All slides will use `items-center justify-center` (flex centering both axes). Replace the uneven `pb-20 md:pb-16` on the inner container with symmetric vertical padding so the footer text at the bottom does not push the content up.
+**2. Thicker, more distinct arc segments**
+- Increase strokeWidth from 22 to 28-30.
+- Add small gaps between segments (use `strokeDasharray` or simply space the arc paths with a 2-3 degree gap).
+- Make the opacity ramp more dramatic: 0.08, 0.14, 0.22, 0.35, 0.55.
 
-2. **Inner content**: All slides will use `text-center` and a consistent `max-w-4xl mx-auto` wrapper. Content that was previously left-aligned (slides 1, 3, 5) will be center-aligned to match slides 2, 4, 6.
+**3. Move labels outside the arc**
+- Position tier labels (POOR, FAIR, GOOD, VERY GOOD, A+) further out from the arc so they don't overlap.
+- Increase label font size from 8 to 9-10.
+- Bump range label opacity from 0.15 to 0.25 so they're actually readable.
 
-3. **Footer spacing**: The "AMAI -- Seed Pitch Deck" label and slide counter sit at `absolute bottom`. The inner content padding will be adjusted symmetrically (e.g., `py-24`) so content remains vertically centered without being pushed by footer overlap.
+**4. Larger center hub with visible agent icon**
+- Increase hub circle radius from 10 to 20.
+- Draw a proper bot/agent icon inside: a 16x12 "monitor" rectangle with two dot "eyes" and an antenna, all with strokeWidth 1.5 and opacity 0.6-0.7 so it's actually visible.
 
-### Technical Changes
+**5. Needle glow effect**
+- Add a second line behind the needle with strokeWidth 6, opacity 0.15, and a blur filter for a subtle glow.
+- Keep the main needle at strokeWidth 2.5.
 
-**File: `src/pages/Pitch.tsx`**
+**6. Keep everything monochrome**
+- All whites/greys only, no color. Consistent with the dark blueprint aesthetic.
 
-- **`Slide` component (lines 13-51)**: Remove `align` prop. Set flex to always `items-center justify-center`. Change inner div padding from `pb-20 md:pb-16` to `py-24 md:py-20` for symmetric vertical spacing.
-
-- **Slide 1 (line 215-252)**: Change `align="left"` to no align prop. Add `text-center` to the inner motion.div. Center the logo with `mx-auto`. Center the sub-headline with `mx-auto`.
-
-- **Slide 2 (lines 257-322)**: Already centered -- no major changes needed beyond ensuring `max-w-4xl` wrapper consistency.
-
-- **Slide 3 (lines 327-390)**: Remove `align="left"`. Add `text-center` to the wrapper. The 3-column card grid is already centered by nature of the grid layout.
-
-- **Slide 4 (lines 395-482)**: Already centered -- ensure `MicroLabel` is centered (add `text-center`).
-
-- **Slide 5 (lines 487-542)**: Remove `align="left"`. Center-align all text and the trust counter/audit log sections. Add `mx-auto` to the trust events bar and audit log container.
-
-- **Slide 6 (lines 547-602)**: Already centered -- no changes needed.
-
-- **`MicroLabel` component (line 62-72)**: Add `text-center` class so labels are always centered regardless of parent alignment.
-
-This ensures every slide has its content block dead-center both vertically and horizontally, creating a uniform presentation feel.
