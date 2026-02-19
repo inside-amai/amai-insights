@@ -369,7 +369,7 @@ const Pitch = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Escrowed Identity
+            How Trust Becomes Capital
           </motion.h2>
           <motion.p
             className="text-lg md:text-xl text-white/50 font-light mb-12"
@@ -409,6 +409,45 @@ const Pitch = () => {
               <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-2">Result</p>
               <p className="text-sm text-white/40 font-light">A Sovereign Agent capable of holding liability.</p>
             </div>
+          </motion.div>
+
+          {/* Economic Loop Diagram */}
+          <motion.div
+            className="relative mt-10 px-4 md:px-0"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center justify-center gap-1.5 md:gap-2 text-[9px] md:text-[11px] text-white/70">
+              {['Identity', 'Reputation', 'Capital', 'Execution', 'Settlement'].map((step, i, arr) => (
+                <span key={i} className="flex items-center gap-1.5 md:gap-2">
+                  <span className="px-2 md:px-3 py-1 md:py-1.5 border border-white/20 rounded bg-black whitespace-nowrap">
+                    {step}
+                  </span>
+                  {i < arr.length - 1 && (
+                    <span className="text-white/30 text-[8px] md:text-xs">→</span>
+                  )}
+                </span>
+              ))}
+            </div>
+            <svg 
+              className="w-full h-8 mt-1" 
+              viewBox="0 0 480 32" 
+              preserveAspectRatio="xMidYMid meet"
+              fill="none"
+            >
+              <path 
+                d="M 404 0 L 404 18 Q 404 24 398 24 L 78 24 Q 72 24 72 18 L 72 0"
+                stroke="rgba(255,255,255,0.15)"
+                strokeWidth="1"
+              />
+              <polygon points="404,5 401,0 407,0" fill="rgba(255,255,255,0.25)" />
+              <polygon points="72,0 69,5 75,5" fill="rgba(255,255,255,0.25)" />
+              <polygon points="320,21 314,24 320,27" fill="rgba(255,255,255,0.25)" />
+              <polygon points="240,21 234,24 240,27" fill="rgba(255,255,255,0.25)" />
+              <polygon points="160,21 154,24 160,27" fill="rgba(255,255,255,0.25)" />
+            </svg>
           </motion.div>
         </motion.div>
 
