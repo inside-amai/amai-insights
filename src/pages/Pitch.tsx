@@ -310,7 +310,7 @@ const Pitch = () => {
             The Liability Gap
           </motion.h2>
           <motion.p
-            className="text-lg md:text-xl text-white/60 font-light leading-relaxed mb-12"
+            className="text-lg md:text-xl text-white/60 font-light leading-relaxed mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -319,41 +319,32 @@ const Pitch = () => {
             LLMs are infinite, but they are anonymous. When an AI Agent makes a mistake, who pays?
           </motion.p>
 
-          {/* Diagram: Bank → STOP → Agent */}
+          <motion.h3
+            className="text-2xl sm:text-3xl md:text-4xl font-light text-white mb-8 leading-[1.15]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            Unvetted Agents Can't Scale
+          </motion.h3>
+
           <motion.div
-            className="flex items-center justify-center gap-4 md:gap-8"
+            className="text-left max-w-2xl mx-auto space-y-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="flex flex-col items-center gap-2">
-              <div className="w-16 h-16 md:w-20 md:h-20 border border-white/20 rounded-lg bg-white/5 flex items-center justify-center">
-                <Landmark className="w-7 h-7 md:w-9 md:h-9 text-white/50" />
-              </div>
-              <span className="text-[10px] md:text-xs tracking-[0.15em] uppercase text-white/40">Enterprise</span>
-            </div>
-
-            {/* STOP connector */}
-            <div className="flex flex-col items-center gap-1">
-              <div className="h-px w-10 md:w-20 bg-red-500/40" />
-              <div className="px-3 py-1.5 border border-red-500/30 rounded bg-red-500/10">
-                <AlertTriangle className="w-5 h-5 text-red-400/80" />
-              </div>
-              <p className="text-[8px] md:text-[9px] tracking-[0.15em] uppercase text-red-400/60 text-center max-w-[120px] leading-tight mt-1">
-                Unlimited Liability
-                <br />
-                Zero Recourse
-              </p>
-              <div className="h-px w-10 md:w-20 bg-red-500/40" />
-            </div>
-
-            <div className="flex flex-col items-center gap-2">
-              <div className="w-16 h-16 md:w-20 md:h-20 border border-white/20 rounded-lg bg-white/5 flex items-center justify-center">
-                <Zap className="w-7 h-7 md:w-9 md:h-9 text-white/50" />
-              </div>
-              <span className="text-[10px] md:text-xs tracking-[0.15em] uppercase text-white/40">AI Agent</span>
-            </div>
+            <p className="text-lg md:text-xl text-white/60 font-light leading-relaxed">
+              Humans have <span className="text-white font-normal">FICO</span>. Businesses have <span className="text-white font-normal">Dun & Bradstreet</span>.
+            </p>
+            <p className="text-lg md:text-xl text-white/60 font-light leading-relaxed">
+              AI Agents have <span className="text-white font-normal">Nothing</span>.
+            </p>
+            <p className="text-base md:text-lg text-white/40 font-light leading-relaxed">
+              Without a standardized Credit Score, an Agent is just a random script. It cannot borrow capital, it cannot sign contracts, and it cannot be trusted with a bank account.
+            </p>
           </motion.div>
         </motion.div>
       </Slide>
