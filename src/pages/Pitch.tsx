@@ -259,8 +259,7 @@ const Pitch = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
           >
             Intelligence is now a commodity.
-            <br />
-            <span className="text-white/60">But Trust is at an <em>all-time low.</em></span>
+            <span className="block mt-3 text-white/60">But Trust is at an <em>all-time low.</em></span>
           </motion.h1>
           <motion.p
             className="text-base md:text-xl text-white/50 font-light leading-relaxed max-w-2xl mx-auto mb-10"
