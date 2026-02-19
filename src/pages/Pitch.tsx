@@ -278,6 +278,55 @@ const Pitch = () => {
           >
             We are building the Reputation Layer for the Autonomous Economy.
           </motion.p>
+
+          {/* Agent Credit Score Gauge */}
+          <motion.div
+            className="flex justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1.2 }}
+          >
+            <svg viewBox="0 0 300 180" className="w-[260px] md:w-[340px] h-auto">
+              {/* Gauge arc segments */}
+              <path d="M 40 155 A 110 110 0 0 1 72 68" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="22" strokeLinecap="butt" />
+              <path d="M 76 63 A 110 110 0 0 1 122 32" fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="22" strokeLinecap="butt" />
+              <path d="M 126 30 A 110 110 0 0 1 174 30" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="22" strokeLinecap="butt" />
+              <path d="M 178 32 A 110 110 0 0 1 224 63" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="22" strokeLinecap="butt" />
+              <path d="M 228 68 A 110 110 0 0 1 260 155" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="22" strokeLinecap="butt" />
+
+              {/* Segment labels */}
+              <text x="38" y="118" fill="rgba(255,255,255,0.3)" fontSize="8" fontFamily="monospace" textAnchor="middle">POOR</text>
+              <text x="62" y="62" fill="rgba(255,255,255,0.3)" fontSize="8" fontFamily="monospace" textAnchor="middle">FAIR</text>
+              <text x="150" y="28" fill="rgba(255,255,255,0.35)" fontSize="8" fontFamily="monospace" textAnchor="middle">GOOD</text>
+              <text x="238" y="62" fill="rgba(255,255,255,0.4)" fontSize="8" fontFamily="monospace" textAnchor="middle">VERY</text>
+              <text x="238" y="72" fill="rgba(255,255,255,0.4)" fontSize="8" fontFamily="monospace" textAnchor="middle">GOOD</text>
+              <text x="264" y="118" fill="rgba(255,255,255,0.5)" fontSize="8" fontFamily="monospace" fontWeight="bold" textAnchor="middle">A+</text>
+
+              {/* Range labels */}
+              <text x="48" y="130" fill="rgba(255,255,255,0.15)" fontSize="7" fontFamily="monospace" textAnchor="middle">300-579</text>
+              <text x="72" y="78" fill="rgba(255,255,255,0.15)" fontSize="7" fontFamily="monospace" textAnchor="middle">580-669</text>
+              <text x="150" y="42" fill="rgba(255,255,255,0.15)" fontSize="7" fontFamily="monospace" textAnchor="middle">670-739</text>
+              <text x="228" y="78" fill="rgba(255,255,255,0.15)" fontSize="7" fontFamily="monospace" textAnchor="middle">740-799</text>
+              <text x="254" y="130" fill="rgba(255,255,255,0.15)" fontSize="7" fontFamily="monospace" textAnchor="middle">800-850</text>
+
+              {/* Needle pointing to "A+" / Excellent zone */}
+              <motion.line
+                x1="150" y1="155" x2="245" y2="90"
+                stroke="rgba(255,255,255,0.7)" strokeWidth="2.5" strokeLinecap="round"
+                animate={{ x2: [243, 248, 243], y2: [92, 86, 92] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              />
+
+              {/* Center hub */}
+              <circle cx="150" cy="155" r="10" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.3)" strokeWidth="2" />
+              {/* Agent icon in center (bot head) */}
+              <rect x="144" y="149" width="12" height="9" rx="2" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="1.2" />
+              <circle cx="147.5" cy="153" r="1" fill="rgba(255,255,255,0.5)" />
+              <circle cx="152.5" cy="153" r="1" fill="rgba(255,255,255,0.5)" />
+              <line x1="150" y1="148" x2="150" y2="146" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+              <circle cx="150" cy="145.5" r="0.8" fill="rgba(255,255,255,0.3)" />
+            </svg>
+          </motion.div>
         </motion.div>
       </Slide>
 
