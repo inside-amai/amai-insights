@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useScroll } from "framer-motion";
-import amaiLogo from "@/assets/amai-logo-hero-new.png";
+import amaiLogo from "@/assets/amai-logo-tm.png";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Footer } from "@/components/Footer";
