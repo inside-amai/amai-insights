@@ -246,11 +246,10 @@ const Thesis = () => {
         />
       )}
 
-      {/* ── SLIDE 1: THE HOOK ── */}
-      <Slide slideNumber={1} footerText={t('tp.footer')}>
-        {/* Constellation / Node cluster - from system-architecture hero */}
+      {/* Constellation background - fixed, like /system-architecture hero */}
+      <div className="fixed inset-0 pointer-events-none z-0">
         <motion.svg 
-          className="absolute right-[5%] top-[10%] w-[400px] h-[400px] opacity-[0.14] pointer-events-none"
+          className="absolute right-[5%] top-[10%] w-[400px] h-[400px] opacity-[0.14]"
           viewBox="0 0 400 400"
           animate={{ 
             x: [0, 3, -2, 1, 0],
@@ -292,9 +291,8 @@ const Thesis = () => {
           <path d="M260,280 L340,300" stroke="white" strokeWidth="0.3" fill="none" />
         </motion.svg>
 
-        {/* Secondary smaller constellation - bottom left */}
         <motion.svg 
-          className="absolute left-[10%] bottom-[15%] w-[200px] h-[200px] opacity-[0.08] pointer-events-none" 
+          className="absolute left-[10%] bottom-[15%] w-[200px] h-[200px] opacity-[0.08]" 
           viewBox="0 0 200 200"
           animate={{ 
             x: [0, -2, 1, -1, 0],
@@ -316,7 +314,10 @@ const Thesis = () => {
           <path d="M100,100 L80,140" stroke="white" strokeWidth="0.4" fill="none" />
           <path d="M100,100 L130,130" stroke="white" strokeWidth="0.4" fill="none" />
         </motion.svg>
+      </div>
 
+      {/* ── SLIDE 1: THE HOOK ── */}
+      <Slide slideNumber={1} footerText={t('tp.footer')}>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.2 }} className="max-w-4xl mx-auto text-center relative z-10">
           <motion.img
             src={amaiLogo}
