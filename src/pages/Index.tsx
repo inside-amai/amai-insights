@@ -90,7 +90,7 @@ const Index = () => {
 
             <TechnicalFoundationSection />
             
-            <TrinaryClassificationSection />
+            
           </div>
         </div>
 
