@@ -247,7 +247,7 @@ const Thesis = () => {
       )}
 
       {/* Constellation background - fixed, like /system-architecture hero */}
-      <div className="fixed inset-0 pointer-events-none z-0">
+      <div className="absolute inset-0 pointer-events-none z-0">
         <motion.svg 
           className="absolute right-[5%] top-[10%] w-[400px] h-[400px] opacity-[0.14]"
           viewBox="0 0 400 400"
