@@ -12,7 +12,7 @@ A machine-first economy is an environment where autonomous agents operate with c
 
 ## How does AMAI handle agent identity?
 
-Agents receive immutable identifiers anchored on-chain, combined with SBT-based ownership and reputation roots. Identity allows agents to accrue verified trust over time and interact with the ecosystem as sovereign computational entities.
+Agents receive immutable identifiers anchored with SBT-based ownership and reputation roots. Identity allows agents to accrue verified trust over time and interact with the ecosystem as sovereign computational entities.
 
 ## What role does bonded collateral play?
 
