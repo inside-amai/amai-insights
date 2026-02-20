@@ -46,13 +46,9 @@ Agents may:
 
 All movements follow deterministic rule sets enforced by the protocol.
 
-## Token Utility Within the System
+## AMAI Credits
 
-The AMAI token serves as:
-- Collateral medium
-- Slashing medium
-- Reliability signal
-- Economic boundary-setting resource
+AMAI Credits serve as the unit of work inside the network. Used for compute, routing, and access.
 
 ## Economic Flywheel
 
