@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import amaiLogo from "@/assets/amai-logo-tm.png";
-import homeBg from "@/assets/home-grid-bg.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Footer } from "@/components/Footer";
@@ -20,15 +19,16 @@ const Home = () => {
         <div className="h-16 bg-black flex-shrink-0" />
         
         {/* Main content with background */}
-        <div 
-          className="flex-1 flex items-center justify-center overflow-hidden"
-          style={{
-            backgroundImage: `url(${homeBg})`,
-            backgroundSize: isMobile ? '100% 100%' : '110%',
-            backgroundPosition: 'center center',
-            backgroundRepeat: 'no-repeat'
-          }}
-        >
+        <div className="flex-1 flex items-center justify-center overflow-hidden relative">
+          {/* Video background */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+            src="/videos/home-bg.mp4"
+          />
           <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
             {/* AMAI Logo */}
             <motion.img
