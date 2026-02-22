@@ -23,7 +23,7 @@ const Home = () => {
           {/* Video background */}
           <video
             autoPlay
-            loop
+            // no loop — stops on last frame
             muted
             playsInline
             className="absolute inset-0 w-full h-full object-cover"
