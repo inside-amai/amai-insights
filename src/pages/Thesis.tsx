@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, useScroll } from "framer-motion";
 import amaiLogo from "@/assets/amai-logo-tm.png";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { SiteHeader } from "@/components/SiteHeader";
+
 import { Footer } from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Shield, AlertTriangle, Lock, Activity, Fingerprint, Landmark, Zap, Database, ChevronRight } from "lucide-react";
@@ -237,7 +237,7 @@ const Thesis = () => {
 
   return (
     <div className={`bg-black min-h-svh md:min-h-screen overflow-x-hidden ${isMobile ? "overscroll-y-contain touch-pan-y" : ""}`} dir={dir}>
-      <SiteHeader />
+      
       {/* Progress bar */}
       {!isMobile && (
         <motion.div
