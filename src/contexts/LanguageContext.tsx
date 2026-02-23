@@ -34,7 +34,7 @@ const translations: Record<Language, Record<string, string>> = {
     'layers.identity.title': 'Identity Layer',
     'layers.identity.subtitle': 'Foundational Trust Infrastructure',
     'layers.identity.item1.label': 'Immutable Identifiers',
-    'layers.identity.item1.desc': 'Cryptographic agent identity anchored on-chain',
+    'layers.identity.item1.desc': 'Cryptographic agent identity',
     'layers.identity.item2.label': 'SBT-Bound Ownership',
     'layers.identity.item2.desc': 'Soul-bound tokens for non-transferable provenance',
     'layers.identity.item3.label': 'Reputation Roots',
