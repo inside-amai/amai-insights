@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import amaiLogo from "@/assets/amai-logo-tm.png";
+import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Footer } from "@/components/Footer";
@@ -20,10 +21,15 @@ const Home = () => {
         
         {/* Main content with background */}
         <div className="flex-1 flex items-center justify-center overflow-hidden relative">
-          {/* Video background */}
+          {/* Fallback background image */}
+          <img
+            src={homeFallbackBg}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          {/* Video background — plays over fallback */}
           <video
             autoPlay
-            // no loop — stops on last frame
             muted
             playsInline
             className="absolute inset-0 w-full h-full object-cover"
