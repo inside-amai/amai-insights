@@ -27,14 +27,6 @@ const Home = () => {
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
-          {/* Video background — plays over fallback */}
-          <video
-            autoPlay
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-            src="/videos/home-bg.mp4"
-          />
           <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
             {/* AMAI Logo */}
             <motion.img
