@@ -69,8 +69,8 @@ export const SiteHeader = () => {
           {/* Logo + Site Title - Hidden on /deck page */}
           {!isDeckPage && (
             <div className="flex items-center gap-4 flex-shrink-0">
-              <a 
-                href="https://amai.net" 
+              <Link 
+                to="/" 
                 className="pointer-events-auto flex-shrink-0"
               >
                 <img 
@@ -84,7 +84,7 @@ export const SiteHeader = () => {
                   }}
                   loading="eager"
                 />
-              </a>
+              </Link>
               <span className="hidden sm:block text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium">
                 AMAI Labs · Infrastructure & Research
               </span>
