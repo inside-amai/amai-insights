@@ -73,12 +73,14 @@ const Home = () => {
               >
                 {t('home.cta.thesis')}
               </Link>
-              <Link
-                to="/system-architecture"
+              <a
+                href="https://terminal.amai.net"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-sm text-white/70 hover:text-white bg-black/50 border border-white/20 hover:border-white/40 px-6 py-3 rounded transition-all duration-300 uppercase tracking-[0.15em] text-center backdrop-blur-sm"
               >
-                {t('home.cta.architecture')}
-              </Link>
+                ACCESS THE BUREAU
+              </a>
             </motion.div>
           </div>
         </div>
