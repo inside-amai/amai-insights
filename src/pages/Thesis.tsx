@@ -805,12 +805,12 @@ const Thesis = () => {
             viewport={{ once: true }}
           >
             <a
-              href="https://youtu.be/qLEnRNELErg"
+              href="https://terminal.amai.net"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-white/10 border border-white/30 rounded text-xs tracking-[0.15em] uppercase text-white hover:bg-white/20 hover:border-white/50 transition-all duration-300"
             >
-              {t('tp.s6.demo')}
+              ACCESS THE BUREAU
             </a>
             <a
               href="/system-architecture"
