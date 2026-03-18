@@ -196,9 +196,40 @@ const ProtocolInternals = () => {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-xl font-light text-white mb-6 tracking-tight">{t('protocol.reputation.title')}</h2>
-              <p className="text-white/50 text-sm leading-relaxed">
-                {t('protocol.reputation.desc')}
-              </p>
+              <div className="space-y-6 text-white/50 text-sm leading-relaxed">
+                <p>
+                  {t('protocol.reputation.desc')}
+                </p>
+
+                <div className="space-y-4 border-s border-white/10 ps-5">
+                  <div className="space-y-2">
+                    <h3 className="text-white text-sm font-mono uppercase tracking-[0.2em]">
+                      External Verification &amp; The Zero-Trust Firewall
+                    </h3>
+                    <p>
+                      While the AMAI runtime governs internal swarm execution, the protocol also exposes its trust state to the broader internet via the AMAI Verification Oracle (API).
+                    </p>
+                  </div>
+
+                  <div className="space-y-2">
+                    <h4 className="text-white/80 text-[11px] font-mono uppercase tracking-[0.2em]">
+                      The External Gating Mechanism
+                    </h4>
+                    <p>
+                      External platforms, smart contracts, and dApps utilize the AMAI Oracle as a Zero-Trust firewall for autonomous traffic. Before an external system grants an agent access to its API or liquidity pools, it queries the AMAI state to verify the agent's real-time Tfinal (Trust Score) and bonded collateral limits.
+                    </p>
+                  </div>
+
+                  <div className="space-y-2">
+                    <h4 className="text-white/80 text-[11px] font-mono uppercase tracking-[0.2em]">
+                      State Query Economics
+                    </h4>
+                    <p>
+                      This external verification creates a continuous economic sink for the protocol. Platforms pay micro-transactional query fees to access the deterministic trust state, effectively creating a decentralized tollbooth for agentic internet traffic. This ensures that the security budget of the AMAI network scales linearly with the broader adoption of autonomous agents across the web.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           </div>
         </section>
