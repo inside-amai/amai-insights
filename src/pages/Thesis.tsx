@@ -491,8 +491,8 @@ const Thesis = () => {
                 </svg>
               </div>
               <div className="text-center">
-                <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 font-medium">{t('tp.s3.legacy.label')}</p>
-                <p className="text-xs text-white/50 mt-1 font-light">{t('tp.s3.legacy.desc')}</p>
+                <p className="text-xs md:text-sm tracking-[0.2em] uppercase text-white/30 font-medium">{t('tp.s3.legacy.label')}</p>
+                <p className="text-sm md:text-base text-white/50 mt-1 font-light">{t('tp.s3.legacy.desc')}</p>
               </div>
             </div>
 
