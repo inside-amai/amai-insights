@@ -1104,7 +1104,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tp.s2.dnb': 'Dun & Bradstreet',
     'tp.s2.p2a': 'AI Agents have ',
     'tp.s2.p2b': 'Nothing',
-    'tp.s2.p3': 'Without a standardized Credit Score, an Agent is just a random script. It cannot borrow capital, it cannot sign contracts, and it cannot be trusted with a bank account.',
+    'tp.s2.p3': 'Without a standardized Credit Score, an Agent is just a random script that cannot be trusted with significant capital or sensitive data.',
     'tp.s3.label': '03 // AMAI',
     'tp.s3.h': 'How Trust Becomes Capital',
     'tp.s3.identity': 'Identity',
