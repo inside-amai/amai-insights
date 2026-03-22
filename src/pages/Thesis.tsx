@@ -574,18 +574,18 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 4: THE MECHANISM ── */}
+      {/* ── SLIDE 4: THE TRUST ORACLE ── */}
       <Slide slideNumber={4} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto"
+          className="w-full"
         >
           <MicroLabel>{t('tp.s4.label')}</MicroLabel>
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 text-center leading-[1.15]"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-3 text-center leading-[1.1] tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -594,7 +594,7 @@ const Thesis = () => {
             {t('tp.s4.h')}
           </motion.h2>
           <motion.p
-            className="text-base md:text-lg text-white/50 font-light mb-12 text-center max-w-2xl mx-auto"
+            className="text-base md:text-lg text-white/50 font-light mb-8 text-center max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -603,57 +603,20 @@ const Thesis = () => {
             {t('tp.s4.sub')}
           </motion.p>
 
-          {/* Two cards with tooltips */}
+          {/* NOC Dashboard Screenshot */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            className="w-full rounded-lg overflow-hidden border border-white/10 shadow-2xl"
+            initial={{ opacity: 0, y: 30, scale: 0.97 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 1, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <div className="bg-black border border-white/10 rounded-lg p-8 cursor-pointer hover:border-white/25 transition-colors group">
-                  <div className="flex items-center gap-3 mb-4">
-                    <Zap className="w-6 h-6 text-white/50 group-hover:text-white/70 transition-colors" />
-                    <p className="text-[10px] tracking-[0.25em] uppercase text-white/30">{t('tp.s4.fuel.label')}</p>
-                  </div>
-                  <p className="text-xl md:text-2xl text-white/90 font-light mb-2">{t('tp.s4.fuel.title')}</p>
-                  <p className="text-sm text-white/40 font-light">{t('tp.s4.fuel.desc')}</p>
-                </div>
-              </TooltipTrigger>
-              <TooltipContent side="bottom" className="bg-black border-white/20 text-white/80 text-sm max-w-[220px]">
-                <span className="font-medium text-white/90">{t('tp.s4.fuel.tooltip.title')}</span>{t('tp.s4.fuel.tooltip.desc')}
-              </TooltipContent>
-            </Tooltip>
-
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <div className="bg-black border border-white/10 rounded-lg p-8 cursor-pointer hover:border-white/25 transition-colors group">
-                  <div className="flex items-center gap-3 mb-4">
-                    <Lock className="w-6 h-6 text-white/50 group-hover:text-white/70 transition-colors" />
-                    <p className="text-[10px] tracking-[0.25em] uppercase text-white/30">{t('tp.s4.safety.label')}</p>
-                  </div>
-                  <p className="text-xl md:text-2xl text-white/90 font-light mb-2">{t('tp.s4.safety.title')}</p>
-                  <p className="text-sm text-white/40 font-light">{t('tp.s4.safety.desc')}</p>
-                </div>
-              </TooltipTrigger>
-              <TooltipContent side="bottom" className="bg-black border-white/20 text-white/80 text-sm max-w-[220px]">
-                <span className="font-medium text-white/90">{t('tp.s4.safety.tooltip.title')}</span>{t('tp.s4.safety.tooltip.desc')}
-              </TooltipContent>
-            </Tooltip>
+            <img
+              src="/images/amai-noc-dashboard.png"
+              alt="AMAI Global NOC — Network Operations Center showing real-time telemetry and threat isolation"
+              className="w-full h-auto"
+            />
           </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-            viewport={{ once: true }}
-            className="text-sm text-white/40 font-light text-center tracking-wide mt-8"
-          >
-            {t('tp.s4.algo')}
-          </motion.p>
-
         </motion.div>
       </Slide>
 
