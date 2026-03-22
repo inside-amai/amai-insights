@@ -505,14 +505,19 @@ const Thesis = () => {
 
             {/* AMAI: Shield on Vault */}
             <div className="relative flex flex-col items-center gap-4">
+              {/* AMAI Shield badge - centered above */}
+              <motion.div
+                className="bg-[rgba(166,252,252,0.08)] border border-[rgba(166,252,252,0.25)] rounded px-2 py-1 flex items-center gap-1.5"
+                animate={{ opacity: [0.7, 1, 0.7] }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                <ShieldCheck className="w-3 h-3 text-[rgba(166,252,252,0.7)]" />
+                <span className="text-[8px] md:text-[9px] font-mono text-[rgba(166,252,252,0.7)] tracking-wider">AMAI SDK</span>
+              </motion.div>
               <div className="relative w-32 h-32 md:w-40 md:h-40 flex items-center justify-center">
-                {/* Vault door */}
                 <svg viewBox="0 0 120 120" className="w-full h-full">
-                  {/* Vault body */}
                   <rect x="10" y="10" width="100" height="100" rx="8" fill="rgba(166,252,252,0.03)" stroke="rgba(166,252,252,0.2)" strokeWidth="2" />
-                  {/* Inner ring */}
                   <circle cx="60" cy="60" r="30" fill="none" stroke="rgba(166,252,252,0.15)" strokeWidth="2" />
-                  {/* Dial marks */}
                   {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => {
                     const rad = (angle * Math.PI) / 180;
                     const x1 = 60 + 26 * Math.cos(rad);
@@ -521,24 +526,13 @@ const Thesis = () => {
                     const y2 = 60 + 30 * Math.sin(rad);
                     return <line key={angle} x1={x1} y1={y1} x2={x2} y2={y2} stroke="rgba(166,252,252,0.25)" strokeWidth="1.5" />;
                   })}
-                  {/* Handle bar */}
                   <line x1="45" y1="60" x2="75" y2="60" stroke="rgba(166,252,252,0.3)" strokeWidth="3" strokeLinecap="round" />
                   <line x1="60" y1="45" x2="60" y2="75" stroke="rgba(166,252,252,0.3)" strokeWidth="3" strokeLinecap="round" />
-                  {/* Corner bolts */}
                   <circle cx="22" cy="22" r="3" fill="rgba(166,252,252,0.1)" stroke="rgba(166,252,252,0.2)" strokeWidth="1" />
                   <circle cx="98" cy="22" r="3" fill="rgba(166,252,252,0.1)" stroke="rgba(166,252,252,0.2)" strokeWidth="1" />
                   <circle cx="22" cy="98" r="3" fill="rgba(166,252,252,0.1)" stroke="rgba(166,252,252,0.2)" strokeWidth="1" />
                   <circle cx="98" cy="98" r="3" fill="rgba(166,252,252,0.1)" stroke="rgba(166,252,252,0.2)" strokeWidth="1" />
                 </svg>
-                {/* AMAI Shield badge */}
-                <motion.div
-                  className="absolute -top-2 -right-2 md:-top-3 md:-right-3 bg-[rgba(166,252,252,0.08)] border border-[rgba(166,252,252,0.25)] rounded px-2 py-1 flex items-center gap-1.5"
-                  animate={{ opacity: [0.7, 1, 0.7] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                >
-                  <ShieldCheck className="w-3 h-3 text-[rgba(166,252,252,0.7)]" />
-                  <span className="text-[8px] md:text-[9px] font-mono text-[rgba(166,252,252,0.7)] tracking-wider">AMAI SDK</span>
-                </motion.div>
               </div>
               <div className="text-center">
                 <p className="text-[10px] tracking-[0.2em] uppercase text-[rgba(166,252,252,0.5)] font-medium">{t('tp.s3.amai.label')}</p>
