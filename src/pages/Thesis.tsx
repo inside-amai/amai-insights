@@ -15,7 +15,7 @@ interface SlideProps {
   footerText?: string;
 }
 
-const TOTAL_SLIDES = 6;
+const TOTAL_SLIDES = 7;
 
 const Slide = ({ children, className = "", slideNumber, footerText = "AMAI Labs · Infrastructure & Research" }: SlideProps) => (
   <section
@@ -728,8 +728,65 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 6: CLOSING ── */}
+      {/* ── SLIDE 6: THE BUSINESS MODEL ── */}
       <Slide slideNumber={6} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="max-w-5xl mx-auto text-center"
+        >
+          <MicroLabel>{t('tp.s6.label')}</MicroLabel>
+          <motion.h2
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-3 leading-[1.1] tracking-tight"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            {t('tp.s6.h')}
+          </motion.h2>
+          <motion.p
+            className="text-base md:text-lg text-white/50 font-light mb-16 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            {t('tp.s6.sub')}
+          </motion.p>
+
+          {/* Equation Visual */}
+          <motion.div
+            className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="bg-black border border-white/10 rounded-lg px-6 md:px-10 py-5 md:py-6">
+              <p className="text-[9px] tracking-[0.25em] uppercase text-white/30 font-mono mb-2">{t('tp.s6.eq1.label')}</p>
+              <p className="text-xl md:text-2xl lg:text-3xl font-light text-white/80 tracking-tight">{t('tp.s6.eq1.value')}</p>
+            </div>
+            <span className="text-2xl md:text-4xl font-extralight text-white/30">+</span>
+            <div className="bg-black border border-white/10 rounded-lg px-6 md:px-10 py-5 md:py-6">
+              <p className="text-[9px] tracking-[0.25em] uppercase text-white/30 font-mono mb-2">{t('tp.s6.eq2.label')}</p>
+              <p className="text-xl md:text-2xl lg:text-3xl font-light text-white/80 tracking-tight">{t('tp.s6.eq2.value')}</p>
+            </div>
+            <span className="text-2xl md:text-4xl font-extralight text-white/30">=</span>
+            <div className="bg-black border border-[rgba(166,252,252,0.2)] rounded-lg px-6 md:px-10 py-5 md:py-6 shadow-[0_0_20px_rgba(166,252,252,0.05)]">
+              <p className="text-[9px] tracking-[0.25em] uppercase text-[rgba(166,252,252,0.5)] font-mono mb-2">{t('tp.s6.eq3.label')}</p>
+              <p className="text-xl md:text-2xl lg:text-3xl font-light text-[rgba(166,252,252,0.8)] tracking-tight">{t('tp.s6.eq3.value')}</p>
+            </div>
+          </motion.div>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+      {/* ── SLIDE 7: CLOSING ── */}
+      <Slide slideNumber={7} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -744,7 +801,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            {t('tp.s6.h')}
+            {t('tp.s7.h')}
           </motion.h2>
           
           <motion.div 
@@ -755,7 +812,7 @@ const Thesis = () => {
             viewport={{ once: true }}
           >
             <div className="flex items-center justify-center gap-3 md:gap-5">
-              {[t('tp.s6.word1'), t('tp.s6.word2'), t('tp.s6.word3')].map((word, i) => (
+              {[t('tp.s7.word1'), t('tp.s7.word2'), t('tp.s7.word3')].map((word, i) => (
                 <motion.span
                   key={word}
                   className="text-sm md:text-base tracking-[0.2em] uppercase text-white/50 font-light"
@@ -775,7 +832,7 @@ const Thesis = () => {
               transition={{ duration: 0.8, delay: 1.2 }}
               viewport={{ once: true }}
             >
-              {t('tp.s6.tagline')}
+              {t('tp.s7.tagline')}
             </motion.p>
           </motion.div>
           
@@ -798,13 +855,13 @@ const Thesis = () => {
               href="/system-architecture"
               className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
             >
-              {t('tp.s6.arch')} <span>{isRtl ? '←' : '→'}</span>
+              {t('tp.s7.arch')} <span>{isRtl ? '←' : '→'}</span>
             </a>
             <a
               href="mailto:team@amai.net?subject=Mission%20Briefing%20%2F%2F%20%5BOrganization%20Name%5D&body=To%20the%20AMAI%20Labs%20Team%2C%0A%0AWe%20are%20reaching%20out%20regarding%20the%20%5BThesis%20%2F%20Architecture%5D.%0A%0AName%3A%20%0AOrganization%3A%20%0AIntent%3A%20"
               className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
             >
-              {t('tp.s6.contact')}
+              {t('tp.s7.contact')}
             </a>
           </motion.div>
         </motion.div>
