@@ -5,7 +5,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 import { Footer } from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Shield, AlertTriangle, Lock, Activity, Fingerprint, Landmark, Zap, Database, ChevronRight } from "lucide-react";
+import { Shield, AlertTriangle, Lock, Activity, Fingerprint, Landmark, Zap, Database, ChevronRight, KeyRound, ShieldCheck } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
