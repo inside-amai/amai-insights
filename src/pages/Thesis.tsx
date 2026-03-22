@@ -602,6 +602,15 @@ const Thesis = () => {
               className="w-full h-auto"
             />
           </motion.div>
+          <motion.p
+            className="text-sm md:text-base text-white/50 font-light mt-6 text-center max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            viewport={{ once: true }}
+          >
+            Enterprise gateways ping our out-of-band network to verify behavioral sanity, isolating prompt injections and blocking rogue bots before the payload drops.
+          </motion.p>
         </motion.div>
       </Slide>
 
