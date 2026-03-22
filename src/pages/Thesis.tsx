@@ -448,7 +448,7 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 3: THE SOLUTION ── */}
+      {/* ── SLIDE 3: THE THREAT IS NHI ── */}
       <Slide slideNumber={3} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
@@ -468,84 +468,108 @@ const Thesis = () => {
             {t('tp.s3.h')}
           </motion.h2>
 
-          {/* 3-step equation */}
+          {/* NHI Diagram: API Key on Lock vs AMAI Shield on Vault */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            {/* Identity */}
-            <div className="bg-black border border-white/10 rounded-lg p-6 flex flex-col items-center text-center">
-              <Fingerprint className="w-8 h-8 text-white/50 mb-4" />
-              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-2">{t('tp.s3.identity')}</p>
-              <p className="text-sm text-white/40 font-light">{t('tp.s3.identity.desc')}</p>
+            {/* Legacy: API Key on a Lock */}
+            <div className="relative flex flex-col items-center gap-4">
+              <div className="relative w-32 h-32 md:w-40 md:h-40 flex items-center justify-center">
+                {/* Lock body */}
+                <svg viewBox="0 0 120 140" className="w-full h-full">
+                  {/* Lock shackle */}
+                  <path d="M 35 60 L 35 40 A 25 25 0 0 1 85 40 L 85 60" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="4" strokeLinecap="round" />
+                  {/* Lock body */}
+                  <rect x="25" y="58" width="70" height="52" rx="6" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" strokeWidth="2" />
+                  {/* Keyhole */}
+                  <circle cx="60" cy="78" r="6" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.25)" strokeWidth="1.5" />
+                  <rect x="58" y="82" width="4" height="12" rx="2" fill="rgba(255,255,255,0.15)" />
+                </svg>
+                {/* API Key badge */}
+                <motion.div
+                  className="absolute -top-2 -right-2 md:-top-3 md:-right-3 bg-white/5 border border-white/15 rounded px-2 py-1 flex items-center gap-1.5"
+                  animate={{ opacity: [0.6, 1, 0.6] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                >
+                  <KeyRound className="w-3 h-3 text-white/40" />
+                  <span className="text-[8px] md:text-[9px] font-mono text-white/40 tracking-wider">API_KEY</span>
+                </motion.div>
+              </div>
+              <div className="text-center">
+                <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 font-medium">{t('tp.s3.legacy.label')}</p>
+                <p className="text-xs text-white/50 mt-1 font-light">{t('tp.s3.legacy.desc')}</p>
+              </div>
             </div>
 
-            {/* Performance */}
-            <div className="bg-black border border-white/10 rounded-lg p-6 flex flex-col items-center text-center">
-              <Activity className="w-8 h-8 text-white/50 mb-4" />
-              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-2">{t('tp.s3.performance')}</p>
-              <p className="text-sm text-white/40 font-light">{t('tp.s3.performance.desc')}</p>
+            {/* VS divider */}
+            <div className="flex flex-col items-center gap-2">
+              <div className="w-px h-8 md:h-0 md:w-0 bg-white/10" />
+              <span className="text-xs tracking-[0.3em] uppercase text-white/20 font-medium">vs</span>
+              <div className="w-px h-8 md:h-0 md:w-0 bg-white/10" />
             </div>
 
-            {/* Trust */}
-            <div className="bg-black border border-white/15 rounded-lg p-6 flex flex-col items-center text-center">
-              <svg viewBox="0 0 120 75" className="w-10 h-7 mb-3">
-                <path d="M 15 65 A 50 50 0 0 1 35 25" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="6" strokeLinecap="round" />
-                <path d="M 37 23 A 50 50 0 0 1 60 15" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="6" strokeLinecap="round" />
-                <path d="M 62 15 A 50 50 0 0 1 85 23" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="6" strokeLinecap="round" />
-                <path d="M 87 25 A 50 50 0 0 1 105 65" fill="none" stroke="rgba(166,252,252,0.5)" strokeWidth="6" strokeLinecap="round" />
-                <line x1="60" y1="68" x2="92" y2="38" stroke="rgba(166,252,252,0.8)" strokeWidth="2" strokeLinecap="round" />
-                <circle cx="60" cy="68" r="4" fill="rgba(166,252,252,0.3)" stroke="rgba(166,252,252,0.6)" strokeWidth="1.5" />
-              </svg>
-              <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-2">{t('tp.s3.trust')}</p>
-              <p className="text-sm text-white/40 font-light">{t('tp.s3.trust.desc')}</p>
+            {/* AMAI: Shield on Vault */}
+            <div className="relative flex flex-col items-center gap-4">
+              <div className="relative w-32 h-32 md:w-40 md:h-40 flex items-center justify-center">
+                {/* Vault door */}
+                <svg viewBox="0 0 120 120" className="w-full h-full">
+                  {/* Vault body */}
+                  <rect x="10" y="10" width="100" height="100" rx="8" fill="rgba(166,252,252,0.03)" stroke="rgba(166,252,252,0.2)" strokeWidth="2" />
+                  {/* Inner ring */}
+                  <circle cx="60" cy="60" r="30" fill="none" stroke="rgba(166,252,252,0.15)" strokeWidth="2" />
+                  {/* Dial marks */}
+                  {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => {
+                    const rad = (angle * Math.PI) / 180;
+                    const x1 = 60 + 26 * Math.cos(rad);
+                    const y1 = 60 + 26 * Math.sin(rad);
+                    const x2 = 60 + 30 * Math.cos(rad);
+                    const y2 = 60 + 30 * Math.sin(rad);
+                    return <line key={angle} x1={x1} y1={y1} x2={x2} y2={y2} stroke="rgba(166,252,252,0.25)" strokeWidth="1.5" />;
+                  })}
+                  {/* Handle bar */}
+                  <line x1="45" y1="60" x2="75" y2="60" stroke="rgba(166,252,252,0.3)" strokeWidth="3" strokeLinecap="round" />
+                  <line x1="60" y1="45" x2="60" y2="75" stroke="rgba(166,252,252,0.3)" strokeWidth="3" strokeLinecap="round" />
+                  {/* Corner bolts */}
+                  <circle cx="22" cy="22" r="3" fill="rgba(166,252,252,0.1)" stroke="rgba(166,252,252,0.2)" strokeWidth="1" />
+                  <circle cx="98" cy="22" r="3" fill="rgba(166,252,252,0.1)" stroke="rgba(166,252,252,0.2)" strokeWidth="1" />
+                  <circle cx="22" cy="98" r="3" fill="rgba(166,252,252,0.1)" stroke="rgba(166,252,252,0.2)" strokeWidth="1" />
+                  <circle cx="98" cy="98" r="3" fill="rgba(166,252,252,0.1)" stroke="rgba(166,252,252,0.2)" strokeWidth="1" />
+                </svg>
+                {/* AMAI Shield badge */}
+                <motion.div
+                  className="absolute -top-2 -right-2 md:-top-3 md:-right-3 bg-[rgba(166,252,252,0.08)] border border-[rgba(166,252,252,0.25)] rounded px-2 py-1 flex items-center gap-1.5"
+                  animate={{ opacity: [0.7, 1, 0.7] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                >
+                  <ShieldCheck className="w-3 h-3 text-[rgba(166,252,252,0.7)]" />
+                  <span className="text-[8px] md:text-[9px] font-mono text-[rgba(166,252,252,0.7)] tracking-wider">AMAI SDK</span>
+                </motion.div>
+              </div>
+              <div className="text-center">
+                <p className="text-[10px] tracking-[0.2em] uppercase text-[rgba(166,252,252,0.5)] font-medium">{t('tp.s3.amai.label')}</p>
+                <p className="text-xs text-[rgba(166,252,252,0.4)] mt-1 font-light">{t('tp.s3.amai.desc')}</p>
+              </div>
             </div>
           </motion.div>
 
-          {/* Economic Loop Diagram */}
+          {/* Sub-text */}
           <motion.div
-            className="relative mt-10 px-4 md:px-0"
+            className={`${isRtl ? 'text-right' : 'text-left'} max-w-2xl mx-auto`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center justify-center gap-1.5 md:gap-2 text-[9px] md:text-[11px] text-white/70">
-              {loopSteps.map((step, i, arr) => (
-                <span key={i} className="flex items-center gap-1.5 md:gap-2">
-                  <span className="px-2 md:px-3 py-1 md:py-1.5 border border-white/20 rounded bg-black whitespace-nowrap">
-                    {step}
-                  </span>
-                  {i < arr.length - 1 && (
-                    <span className="text-white/30 text-[8px] md:text-xs">{isRtl ? '←' : '→'}</span>
-                  )}
-                </span>
-              ))}
-            </div>
-            <svg 
-              className="w-full h-8 mt-1" 
-              viewBox="0 0 480 32" 
-              preserveAspectRatio="xMidYMid meet"
-              fill="none"
-            >
-              <path 
-                d="M 404 0 L 404 18 Q 404 24 398 24 L 78 24 Q 72 24 72 18 L 72 0"
-                stroke="rgba(255,255,255,0.15)"
-                strokeWidth="1"
-              />
-              <polygon points="404,5 401,0 407,0" fill="rgba(255,255,255,0.25)" />
-              <polygon points="72,0 69,5 75,5" fill="rgba(255,255,255,0.25)" />
-              <polygon points="320,21 314,24 320,27" fill="rgba(255,255,255,0.25)" />
-              <polygon points="240,21 234,24 240,27" fill="rgba(255,255,255,0.25)" />
-              <polygon points="160,21 154,24 160,27" fill="rgba(255,255,255,0.25)" />
-            </svg>
+            <p className="text-base md:text-lg text-white/50 font-light leading-relaxed">
+              {t('tp.s3.sub')}
+            </p>
           </motion.div>
 
         </motion.div>
-
       </Slide>
 
       <SlideDivider />
