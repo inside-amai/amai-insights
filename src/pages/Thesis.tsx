@@ -233,7 +233,7 @@ const Thesis = () => {
   const isRtl = language === 'ar';
   const dir = isRtl ? 'rtl' : 'ltr';
 
-  const loopSteps = t('tp.s3.loop').split(',');
+  
 
   return (
     <div className={`bg-black min-h-svh md:min-h-screen overflow-x-hidden ${isMobile ? "overscroll-y-contain touch-pan-y" : ""}`} dir={dir}>
