@@ -5,12 +5,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 import { Footer } from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Shield, AlertTriangle, Lock, Activity, Fingerprint, Landmark, Zap, Database, ChevronRight, KeyRound, ShieldCheck } from "lucide-react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import { ChevronRight, KeyRound, ShieldCheck } from "lucide-react";
 
 /* ─── Slide Shell ─── */
 interface SlideProps {
