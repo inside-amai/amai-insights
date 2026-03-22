@@ -473,26 +473,22 @@ const Thesis = () => {
           >
             {/* Legacy: API Key on a Lock */}
             <div className="relative flex flex-col items-center gap-4">
+              {/* API Key badge - centered above */}
+              <motion.div
+                className="bg-white/5 border border-white/15 rounded px-2 py-1 flex items-center gap-1.5"
+                animate={{ opacity: [0.6, 1, 0.6] }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                <KeyRound className="w-3 h-3 text-white/40" />
+                <span className="text-[8px] md:text-[9px] font-mono text-white/40 tracking-wider">API_KEY</span>
+              </motion.div>
               <div className="relative w-32 h-32 md:w-40 md:h-40 flex items-center justify-center">
-                {/* Lock body */}
                 <svg viewBox="0 0 120 140" className="w-full h-full">
-                  {/* Lock shackle */}
                   <path d="M 35 60 L 35 40 A 25 25 0 0 1 85 40 L 85 60" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="4" strokeLinecap="round" />
-                  {/* Lock body */}
                   <rect x="25" y="58" width="70" height="52" rx="6" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" strokeWidth="2" />
-                  {/* Keyhole */}
                   <circle cx="60" cy="78" r="6" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.25)" strokeWidth="1.5" />
                   <rect x="58" y="82" width="4" height="12" rx="2" fill="rgba(255,255,255,0.15)" />
                 </svg>
-                {/* API Key badge */}
-                <motion.div
-                  className="absolute -top-2 -right-2 md:-top-3 md:-right-3 bg-white/5 border border-white/15 rounded px-2 py-1 flex items-center gap-1.5"
-                  animate={{ opacity: [0.6, 1, 0.6] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                >
-                  <KeyRound className="w-3 h-3 text-white/40" />
-                  <span className="text-[8px] md:text-[9px] font-mono text-white/40 tracking-wider">API_KEY</span>
-                </motion.div>
               </div>
               <div className="text-center">
                 <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 font-medium">{t('tp.s3.legacy.label')}</p>
