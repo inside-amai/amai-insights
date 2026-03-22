@@ -728,8 +728,65 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 6: CLOSING ── */}
+      {/* ── SLIDE 6: THE BUSINESS MODEL ── */}
       <Slide slideNumber={6} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="max-w-5xl mx-auto text-center"
+        >
+          <MicroLabel>{t('tp.s6.label')}</MicroLabel>
+          <motion.h2
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-3 leading-[1.1] tracking-tight"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            {t('tp.s6.h')}
+          </motion.h2>
+          <motion.p
+            className="text-base md:text-lg text-white/50 font-light mb-16 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            {t('tp.s6.sub')}
+          </motion.p>
+
+          {/* Equation Visual */}
+          <motion.div
+            className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="bg-black border border-white/10 rounded-lg px-6 md:px-10 py-5 md:py-6">
+              <p className="text-[9px] tracking-[0.25em] uppercase text-white/30 font-mono mb-2">{t('tp.s6.eq1.label')}</p>
+              <p className="text-xl md:text-2xl lg:text-3xl font-light text-white/80 tracking-tight">{t('tp.s6.eq1.value')}</p>
+            </div>
+            <span className="text-2xl md:text-4xl font-extralight text-white/30">+</span>
+            <div className="bg-black border border-white/10 rounded-lg px-6 md:px-10 py-5 md:py-6">
+              <p className="text-[9px] tracking-[0.25em] uppercase text-white/30 font-mono mb-2">{t('tp.s6.eq2.label')}</p>
+              <p className="text-xl md:text-2xl lg:text-3xl font-light text-white/80 tracking-tight">{t('tp.s6.eq2.value')}</p>
+            </div>
+            <span className="text-2xl md:text-4xl font-extralight text-white/30">=</span>
+            <div className="bg-black border border-[rgba(166,252,252,0.2)] rounded-lg px-6 md:px-10 py-5 md:py-6 shadow-[0_0_20px_rgba(166,252,252,0.05)]">
+              <p className="text-[9px] tracking-[0.25em] uppercase text-[rgba(166,252,252,0.5)] font-mono mb-2">{t('tp.s6.eq3.label')}</p>
+              <p className="text-xl md:text-2xl lg:text-3xl font-light text-[rgba(166,252,252,0.8)] tracking-tight">{t('tp.s6.eq3.value')}</p>
+            </div>
+          </motion.div>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+      {/* ── SLIDE 7: CLOSING ── */}
+      <Slide slideNumber={7} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
