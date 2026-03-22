@@ -801,7 +801,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            {t('tp.s6.h')}
+            {t('tp.s7.h')}
           </motion.h2>
           
           <motion.div 
@@ -812,7 +812,7 @@ const Thesis = () => {
             viewport={{ once: true }}
           >
             <div className="flex items-center justify-center gap-3 md:gap-5">
-              {[t('tp.s6.word1'), t('tp.s6.word2'), t('tp.s6.word3')].map((word, i) => (
+              {[t('tp.s7.word1'), t('tp.s7.word2'), t('tp.s7.word3')].map((word, i) => (
                 <motion.span
                   key={word}
                   className="text-sm md:text-base tracking-[0.2em] uppercase text-white/50 font-light"
@@ -832,7 +832,7 @@ const Thesis = () => {
               transition={{ duration: 0.8, delay: 1.2 }}
               viewport={{ once: true }}
             >
-              {t('tp.s6.tagline')}
+              {t('tp.s7.tagline')}
             </motion.p>
           </motion.div>
           
@@ -855,13 +855,13 @@ const Thesis = () => {
               href="/system-architecture"
               className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
             >
-              {t('tp.s6.arch')} <span>{isRtl ? '←' : '→'}</span>
+              {t('tp.s7.arch')} <span>{isRtl ? '←' : '→'}</span>
             </a>
             <a
               href="mailto:team@amai.net?subject=Mission%20Briefing%20%2F%2F%20%5BOrganization%20Name%5D&body=To%20the%20AMAI%20Labs%20Team%2C%0A%0AWe%20are%20reaching%20out%20regarding%20the%20%5BThesis%20%2F%20Architecture%5D.%0A%0AName%3A%20%0AOrganization%3A%20%0AIntent%3A%20"
               className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
             >
-              {t('tp.s6.contact')}
+              {t('tp.s7.contact')}
             </a>
           </motion.div>
         </motion.div>
