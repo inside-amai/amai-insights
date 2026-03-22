@@ -1111,7 +1111,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tp.s3.legacy.desc': 'Proves who it belongs to.',
     'tp.s3.amai.label': 'AMAI Runtime',
     'tp.s3.amai.desc': 'Proves it\'s sane right now.',
-    'tp.s3.sub': 'Legacy security treats agents like human employees. They verify who the agent belongs to. But an API key cannot prove if that trusted agent is currently hallucinating or has been hijacked via prompt injection. That blind spot is an enterprise disaster waiting to happen.',
+    'tp.s3.sub': 'Legacy security treats agents like human employees. But a static key cannot stop a trusted agent from hallucinating.',
     'tp.s4.label': '04 // THE SOLUTION',
     'tp.s4.h': 'The AMAI Trust Oracle',
     'tp.s4.sub': 'Zero-Trust Security for the Agentic Economy.',
