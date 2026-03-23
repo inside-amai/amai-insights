@@ -609,7 +609,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            Enterprise gateways ping our out-of-band network to verify behavioral sanity, isolating prompt injections and blocking rogue bots before the payload drops.
+            Enterprise gateways ping our out-of-band network to verify behavioral sanity, blocking malicious agents from ever accessing the internal network.
           </motion.p>
         </motion.div>
       </Slide>
