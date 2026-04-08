@@ -467,19 +467,19 @@ const Thesis = () => {
 
           {/* NHI Diagram: API Key on Lock vs AMAI Shield on Vault */}
           <motion.div
-            className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 mb-12"
+            className="mb-12 flex w-full flex-col items-center justify-center gap-8 md:flex-row md:gap-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
             {/* Legacy: Dull Padlock */}
-            <div className="relative flex flex-col items-center gap-4 w-52 md:w-60">
-              <div className="relative w-40 h-40 md:w-48 md:h-48 flex items-center justify-center">
+            <div className="relative mx-auto flex w-52 flex-none flex-col items-center gap-4 md:w-60">
+              <div className="relative mx-auto flex h-40 w-40 items-center justify-center md:h-48 md:w-48">
                 <motion.img
                   src={legacyPadlock}
                   alt="Legacy IAM padlock"
-                  className="w-full h-full object-contain opacity-60 grayscale"
+                  className="h-full w-full object-contain opacity-60 grayscale"
                   loading="lazy"
                   width={512}
                   height={512}
@@ -499,12 +499,12 @@ const Thesis = () => {
             </div>
 
             {/* AMAI: Brand Icon */}
-            <div className="relative flex flex-col items-center gap-4 w-52 md:w-60">
-              <div className="relative w-40 h-40 md:w-48 md:h-48 flex items-center justify-center">
+            <div className="relative mx-auto flex w-52 flex-none flex-col items-center gap-4 md:w-60">
+              <div className="relative mx-auto flex h-40 w-40 items-center justify-center md:h-48 md:w-48">
                 <motion.img
                   src={amaiCore}
                   alt="AMAI Runtime"
-                  className="w-full h-full object-contain drop-shadow-[0_0_20px_rgba(166,252,252,0.3)]"
+                  className="h-full w-full object-contain drop-shadow-[0_0_20px_rgba(166,252,252,0.3)]"
                   loading="lazy"
                   width={512}
                   height={512}
