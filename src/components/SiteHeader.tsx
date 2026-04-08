@@ -108,10 +108,10 @@ export const SiteHeader = () => {
             {/* Navigation Link - hidden on /deck and /tether */}
             {!isDeckPage && (
               <Link 
-                to={isThesisPage ? "/system-architecture" : "/thesis"}
+                to={(isThesisPage || isHomePage) ? "/system-architecture" : "/thesis"}
                 className="text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase mr-1 sm:mr-0"
               >
-                {isThesisPage ? "Explore The Architecture" : "Explore The Thesis"}
+                {(isThesisPage || isHomePage) ? "Explore The Architecture" : "Explore The Thesis"}
               </Link>
             )}
             
