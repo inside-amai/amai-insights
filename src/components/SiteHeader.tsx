@@ -38,6 +38,7 @@ export const SiteHeader = () => {
   const { language, setLanguage } = useLanguage();
   const location = useLocation();
   const isThesisPage = location.pathname === '/thesis';
+  const isHomePage = location.pathname === '/' || location.pathname === '/home';
   const isDeckPage = location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/briefing' || location.pathname === '/pitch';
 
   // Cycle through languages on mobile tap
