@@ -684,7 +684,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.9 }}
             viewport={{ once: true }}
           >
-            We don't <em className="text-white/70 not-italic font-normal">guess</em> if an agent is safe; we <em className="text-white/70 not-italic font-normal">mathematically prove it</em>. TARI distills chaotic autonomous behavior into a single, deterministic metric.
+            Instead of <em className="text-white/70 not-italic font-normal">guessing</em> if an agent is safe, we <em className="text-white/70 not-italic font-normal">mathematically prove it</em>. TARI distills chaotic autonomous behavior into a single, deterministic metric.
           </motion.p>
         </motion.div>
       </Slide>
