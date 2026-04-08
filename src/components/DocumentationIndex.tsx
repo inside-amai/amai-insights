@@ -10,7 +10,7 @@ const documentationCards = [
   { categoryKey: 'docs.card5.category', titleKey: 'docs.card5.title', subtitleKey: 'docs.card5.subtitle', slug: 'treasury-dynamics' },
   { categoryKey: 'docs.card6.category', titleKey: 'docs.card6.title', subtitleKey: 'docs.card6.subtitle', slug: 'kernelized-intelligence' },
   { categoryKey: 'docs.card7.category', titleKey: 'docs.card7.title', subtitleKey: 'docs.card7.subtitle', slug: 'protocol-internals' },
-  { categoryKey: 'docs.card8.category', titleKey: 'docs.card8.title', subtitleKey: 'docs.card8.subtitle', slug: 'token-model' },
+  
   { categoryKey: 'docs.card9.category', titleKey: 'docs.card9.title', subtitleKey: 'docs.card9.subtitle', slug: 'agent-economy' },
   { categoryKey: 'docs.card10.category', titleKey: 'docs.card10.title', subtitleKey: 'docs.card10.subtitle', slug: 'agent-lifecycle' },
   { categoryKey: 'docs.card11.category', titleKey: 'docs.card11.title', subtitleKey: 'docs.card11.subtitle', slug: 'operational-scenarios' },
