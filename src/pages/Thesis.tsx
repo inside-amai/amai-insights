@@ -576,7 +576,7 @@ const Thesis = () => {
             viewport={{ once: true }}
           >
             {/* LEFT: Data Inputs */}
-            <div className="flex flex-col items-end gap-4 w-full md:w-auto">
+            <div className="flex flex-col items-center md:items-end gap-4 w-full md:w-auto">
               {["Zero-Trust SDK & API", "AMAI Enterprise Platform", "Public Agent Bureau"].map((label, i) => (
                 <motion.div
                   key={label}
@@ -651,7 +651,7 @@ const Thesis = () => {
             </div>
 
             {/* RIGHT: Outputs */}
-            <div className="flex flex-col items-start gap-5 w-full md:w-auto">
+            <div className="flex flex-col items-center md:items-start gap-5 w-full md:w-auto">
               {[
                 { score: "TARI > 750:", result: "GRANTED", color: "text-emerald-400", pipeColor: "from-[rgba(166,252,252,0.6)] to-transparent" },
                 { score: "TARI < 750:", result: "DENIED", color: "text-red-400", pipeColor: "from-[rgba(220,80,60,0.6)] to-transparent" },
