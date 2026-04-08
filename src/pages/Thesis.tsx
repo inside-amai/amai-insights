@@ -804,7 +804,7 @@ const Thesis = () => {
               </h3>
               <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono mb-4">Free · Open · Frictionless</p>
               <p className="text-sm md:text-base text-white/50 font-light leading-relaxed">
-                The AMAI Zero-Trust SDK is completely free to install. Every AI agent secured at the source feeds behavioral data into the global ledger — creating the world's largest dataset of autonomous behavior without charging a dime.
+                The AMAI Zero-Trust SDK is completely free to install. Every AI agent secured at the source feeds behavioral data into the global ledger — creating the dataset of autonomous behavior.
               </p>
             </motion.div>
 
