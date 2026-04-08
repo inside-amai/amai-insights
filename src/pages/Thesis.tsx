@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useScroll } from "framer-motion";
 import amaiLogo from "@/assets/amai-logo-tm.png";
+import legacyPadlock from "@/assets/slide3-legacy-padlock.png";
+import amaiCore from "@/assets/slide3-amai-core.png";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 import { Footer } from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { ChevronRight, KeyRound, ShieldCheck } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
 /* ─── Slide Shell ─── */
 interface SlideProps {
@@ -471,28 +473,23 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            {/* Legacy: API Key on a Lock */}
+            {/* Legacy: Dull Padlock */}
             <div className="relative flex flex-col items-center gap-4">
-              {/* API Key badge - centered above */}
-              <motion.div
-                className="bg-white/5 border border-white/15 rounded px-2 py-1 flex items-center gap-1.5"
-                animate={{ opacity: [0.6, 1, 0.6] }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                <KeyRound className="w-3 h-3 text-white/40" />
-                <span className="text-[8px] md:text-[9px] font-mono text-white/40 tracking-wider">API_KEY</span>
-              </motion.div>
-              <div className="relative w-32 h-32 md:w-40 md:h-40 flex items-center justify-center">
-                <svg viewBox="0 0 120 140" className="w-full h-full">
-                  <path d="M 35 60 L 35 40 A 25 25 0 0 1 85 40 L 85 60" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="4" strokeLinecap="round" />
-                  <rect x="25" y="58" width="70" height="52" rx="6" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" strokeWidth="2" />
-                  <circle cx="60" cy="78" r="6" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.25)" strokeWidth="1.5" />
-                  <rect x="58" y="82" width="4" height="12" rx="2" fill="rgba(255,255,255,0.15)" />
-                </svg>
+              <div className="relative w-40 h-40 md:w-52 md:h-52 flex items-center justify-center">
+                <motion.img
+                  src={legacyPadlock}
+                  alt="Legacy IAM padlock"
+                  className="w-full h-full object-contain opacity-60 grayscale"
+                  loading="lazy"
+                  width={512}
+                  height={512}
+                  animate={{ opacity: [0.5, 0.65, 0.5] }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                />
               </div>
               <div className="text-center">
                 <p className="text-xs md:text-sm tracking-[0.2em] uppercase text-white/30 font-medium">{t('tp.s3.legacy.label')}</p>
-                <p className="text-sm md:text-base text-white/50 mt-1 font-light">{t('tp.s3.legacy.desc')}</p>
+                <p className="text-sm md:text-base text-white/50 mt-2 font-light">{t('tp.s3.legacy.desc')}</p>
               </div>
             </div>
 
@@ -503,47 +500,30 @@ const Thesis = () => {
               <div className="w-px h-8 md:h-0 md:w-0 bg-white/10" />
             </div>
 
-            {/* AMAI: Shield on Vault */}
+            {/* AMAI: Glowing Neural Core */}
             <div className="relative flex flex-col items-center gap-4">
-              {/* AMAI Shield badge - centered above */}
-              <motion.div
-                className="bg-[rgba(166,252,252,0.08)] border border-[rgba(166,252,252,0.25)] rounded px-2 py-1 flex items-center gap-1.5"
-                animate={{ opacity: [0.7, 1, 0.7] }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                <ShieldCheck className="w-3 h-3 text-[rgba(166,252,252,0.7)]" />
-                <span className="text-[8px] md:text-[9px] font-mono text-[rgba(166,252,252,0.7)] tracking-wider">AMAI SDK</span>
-              </motion.div>
-              <div className="relative w-32 h-32 md:w-40 md:h-40 flex items-center justify-center">
-                <svg viewBox="0 0 120 120" className="w-full h-full">
-                  <rect x="10" y="10" width="100" height="100" rx="8" fill="rgba(166,252,252,0.03)" stroke="rgba(166,252,252,0.2)" strokeWidth="2" />
-                  <circle cx="60" cy="60" r="30" fill="none" stroke="rgba(166,252,252,0.15)" strokeWidth="2" />
-                  {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => {
-                    const rad = (angle * Math.PI) / 180;
-                    const x1 = 60 + 26 * Math.cos(rad);
-                    const y1 = 60 + 26 * Math.sin(rad);
-                    const x2 = 60 + 30 * Math.cos(rad);
-                    const y2 = 60 + 30 * Math.sin(rad);
-                    return <line key={angle} x1={x1} y1={y1} x2={x2} y2={y2} stroke="rgba(166,252,252,0.25)" strokeWidth="1.5" />;
-                  })}
-                  <line x1="45" y1="60" x2="75" y2="60" stroke="rgba(166,252,252,0.3)" strokeWidth="3" strokeLinecap="round" />
-                  <line x1="60" y1="45" x2="60" y2="75" stroke="rgba(166,252,252,0.3)" strokeWidth="3" strokeLinecap="round" />
-                  <circle cx="22" cy="22" r="3" fill="rgba(166,252,252,0.1)" stroke="rgba(166,252,252,0.2)" strokeWidth="1" />
-                  <circle cx="98" cy="22" r="3" fill="rgba(166,252,252,0.1)" stroke="rgba(166,252,252,0.2)" strokeWidth="1" />
-                  <circle cx="22" cy="98" r="3" fill="rgba(166,252,252,0.1)" stroke="rgba(166,252,252,0.2)" strokeWidth="1" />
-                  <circle cx="98" cy="98" r="3" fill="rgba(166,252,252,0.1)" stroke="rgba(166,252,252,0.2)" strokeWidth="1" />
-                </svg>
+              <div className="relative w-40 h-40 md:w-52 md:h-52 flex items-center justify-center">
+                <motion.img
+                  src={amaiCore}
+                  alt="AMAI Runtime neural core"
+                  className="w-full h-full object-contain drop-shadow-[0_0_30px_rgba(166,252,252,0.4)]"
+                  loading="lazy"
+                  width={512}
+                  height={512}
+                  animate={{ scale: [1, 1.03, 1], opacity: [0.85, 1, 0.85] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                />
               </div>
               <div className="text-center">
                 <p className="text-xs md:text-sm tracking-[0.2em] uppercase text-[rgba(166,252,252,0.5)] font-medium">{t('tp.s3.amai.label')}</p>
-                <p className="text-sm md:text-base text-[rgba(166,252,252,0.4)] mt-1 font-light">{t('tp.s3.amai.desc')}</p>
+                <p className="text-sm md:text-base text-[rgba(166,252,252,0.4)] mt-2 font-light">{t('tp.s3.amai.desc')}</p>
               </div>
             </div>
           </motion.div>
 
           {/* Sub-text */}
           <motion.div
-            className={`${isRtl ? 'text-right' : 'text-left'} max-w-2xl mx-auto`}
+            className="text-center max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
