@@ -18,8 +18,8 @@ const footerLinks = {
   economics: [
     { key: 'footer.nav.economicSubstrate', to: '/economic-substrate' },
     { key: 'footer.nav.treasuryDynamics', to: '/treasury-dynamics' },
-    { key: 'footer.nav.trustUnit', to: '/token-model' },
-    { key: 'footer.nav.collateralModels', to: '/agent-economy' },
+    
+    
   ],
   research: [
     { key: 'footer.nav.thesis', to: '/thesis' },
