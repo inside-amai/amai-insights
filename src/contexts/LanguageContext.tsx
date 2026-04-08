@@ -1117,7 +1117,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tp.s4.sub': 'Zero-Trust Security for the Agentic Economy.',
     'tp.s5.label': '05 // THE MOAT',
     'tp.s5.h': 'The Ledger of Agentic Sanity',
-    'tp.s5.sub': 'The definitive, proprietary database of autonomous behavior.',
+    'tp.s5.sub': 'While others build models, we are capturing the credit history of the digital workforce.',
     'tp.s5.rating': 'TRUST RATING:',
     'tp.s5.prime': 'PRIME',
     'tp.s5.history': 'Performance History — 52 Weeks',
