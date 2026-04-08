@@ -516,7 +516,7 @@ const Thesis = () => {
               </div>
               <div className="text-center">
                 <p className="text-xs md:text-sm tracking-[0.2em] uppercase text-[rgba(166,252,252,0.5)] font-medium">{t('tp.s3.amai.label')}</p>
-                <p className="text-sm md:text-base text-[rgba(166,252,252,0.4)] mt-2 font-light">{t('tp.s3.amai.desc')}</p>
+                <p className="text-sm md:text-base text-[rgba(166,252,252,0.4)] mt-2 font-semibold">{t('tp.s3.amai.desc')}</p>
               </div>
             </div>
           </motion.div>
