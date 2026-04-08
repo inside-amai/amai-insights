@@ -502,15 +502,16 @@ const Thesis = () => {
 
             {/* AMAI: Glowing Neural Core */}
             <div className="relative flex flex-col items-center gap-4">
-              <div className="relative w-40 h-40 md:w-52 md:h-52 flex items-center justify-center">
+              <div className="relative w-32 h-32 md:w-40 md:h-40 flex items-center justify-center">
                 <motion.img
                   src={amaiCore}
-                  alt="AMAI Runtime neural core"
-                  className="w-full h-full object-contain drop-shadow-[0_0_30px_rgba(166,252,252,0.4)]"
+                  alt="AMAI Runtime"
+                  className="w-full h-full object-contain drop-shadow-[0_0_20px_rgba(166,252,252,0.3)]"
                   loading="lazy"
                   width={512}
                   height={512}
-                  animate={{ scale: [1, 1.03, 1], opacity: [0.85, 1, 0.85] }}
+                  style={{ transform: 'translateZ(0)', backfaceVisibility: 'hidden', imageRendering: 'crisp-edges' as any }}
+                  animate={{ opacity: [0.85, 1, 0.85] }}
                   transition={{ duration: 3, repeat: Infinity }}
                 />
               </div>
