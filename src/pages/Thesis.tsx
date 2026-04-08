@@ -7,7 +7,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 import { Footer } from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { ChevronRight, KeyRound, ShieldCheck } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
 /* ─── Slide Shell ─── */
 interface SlideProps {
