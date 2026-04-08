@@ -38,6 +38,7 @@ export const SiteHeader = () => {
   const { language, setLanguage } = useLanguage();
   const location = useLocation();
   const isThesisPage = location.pathname === '/thesis';
+  const isHomePage = location.pathname === '/' || location.pathname === '/home';
   const isDeckPage = location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/briefing' || location.pathname === '/pitch';
 
   // Cycle through languages on mobile tap
@@ -107,10 +108,10 @@ export const SiteHeader = () => {
             {/* Navigation Link - hidden on /deck and /tether */}
             {!isDeckPage && (
               <Link 
-                to={isThesisPage ? "/system-architecture" : "/thesis"}
+                to={(isThesisPage || isHomePage) ? "/system-architecture" : "/thesis"}
                 className="text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase mr-1 sm:mr-0"
               >
-                {isThesisPage ? "Explore The Architecture" : "Explore The Thesis"}
+                {(isThesisPage || isHomePage) ? "Explore The Architecture" : "Explore The Thesis"}
               </Link>
             )}
             
