@@ -467,15 +467,15 @@ const Thesis = () => {
 
           {/* NHI Diagram: API Key on Lock vs AMAI Shield on Vault */}
           <motion.div
-            className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 mb-12"
+            className="flex flex-col md:flex-row items-stretch justify-center gap-8 md:gap-16 mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
             {/* Legacy: Dull Padlock */}
-            <div className="relative flex flex-col items-center gap-4">
-              <div className="relative w-40 h-40 md:w-52 md:h-52 flex items-center justify-center">
+            <div className="relative flex flex-col items-center gap-4 w-52 md:w-60">
+              <div className="relative w-40 h-40 md:w-48 md:h-48 flex items-center justify-center">
                 <motion.img
                   src={legacyPadlock}
                   alt="Legacy IAM padlock"
@@ -493,20 +493,18 @@ const Thesis = () => {
               </div>
             </div>
 
-            {/* VS divider */}
-            <div className="flex flex-col items-center gap-2">
-              <div className="w-px h-8 md:h-0 md:w-0 bg-white/10" />
+            {/* VS divider — vertically centered with the image area */}
+            <div className="flex flex-col items-center justify-center self-center md:mt-[-1rem]">
               <span className="text-xs tracking-[0.3em] uppercase text-white/20 font-medium">vs</span>
-              <div className="w-px h-8 md:h-0 md:w-0 bg-white/10" />
             </div>
 
-            {/* AMAI: Glowing Neural Core */}
-            <div className="relative flex flex-col items-center gap-4">
-              <div className="relative w-32 h-32 md:w-40 md:h-40 flex items-center justify-center">
+            {/* AMAI: Brand Icon */}
+            <div className="relative flex flex-col items-center gap-4 w-52 md:w-60">
+              <div className="relative w-40 h-40 md:w-48 md:h-48 flex items-center justify-center">
                 <motion.img
                   src={amaiCore}
                   alt="AMAI Runtime"
-                  className="w-full h-full object-contain drop-shadow-[0_0_20px_rgba(166,252,252,0.3)]"
+                  className="w-3/4 h-3/4 object-contain drop-shadow-[0_0_20px_rgba(166,252,252,0.3)]"
                   loading="lazy"
                   width={512}
                   height={512}
