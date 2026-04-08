@@ -588,7 +588,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            Enterprise gateways ping our out-of-band network to verify behavioral sanity, blocking malicious agents from ever accessing the internal network.
+            The AMAI SDK freezes autonomous execution pre-flight, mathematically scoring and slashing malicious requests before a single packet ever reaches your network.
           </motion.p>
         </motion.div>
       </Slide>
