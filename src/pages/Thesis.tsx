@@ -523,7 +523,7 @@ const Thesis = () => {
 
           {/* Sub-text */}
           <motion.div
-            className={`${isRtl ? 'text-right' : 'text-left'} max-w-2xl mx-auto`}
+            className="text-center max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
