@@ -577,7 +577,7 @@ const Thesis = () => {
           >
             {/* LEFT: Data Inputs */}
             <div className="flex flex-col items-end gap-4 w-full md:w-auto">
-              {["Forensic Execution History", "Accountability Proof", "Real-Time Intent Mapping"].map((label, i) => (
+              {["Zero-Trust SDK & API", "AMAI Enterprise Platform", "Public Agent Bureau"].map((label, i) => (
                 <motion.div
                   key={label}
                   className="flex items-center gap-3"
