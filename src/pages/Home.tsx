@@ -38,15 +38,6 @@ const Home = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
             />
 
-            {/* Headline */}
-            <motion.p
-              className="text-base md:text-lg text-white/70 font-light leading-relaxed tracking-wide mb-6"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              {t('home.headline')}
-            </motion.p>
 
             {/* Body Text */}
             <motion.div
