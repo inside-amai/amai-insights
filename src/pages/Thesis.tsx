@@ -504,7 +504,7 @@ const Thesis = () => {
                 <motion.img
                   src={amaiCore}
                   alt="AMAI Runtime"
-                  className="w-3/4 h-3/4 object-contain drop-shadow-[0_0_20px_rgba(166,252,252,0.3)]"
+                  className="w-full h-full object-contain drop-shadow-[0_0_20px_rgba(166,252,252,0.3)]"
                   loading="lazy"
                   width={512}
                   height={512}
