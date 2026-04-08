@@ -576,7 +576,7 @@ const Thesis = () => {
             viewport={{ once: true }}
           >
             {/* LEFT: Data Inputs */}
-            <div className="flex flex-col items-end gap-4 w-full md:w-auto">
+            <div className="flex flex-col items-center md:items-end gap-4 w-full md:w-auto">
               {["Zero-Trust SDK & API", "AMAI Enterprise Platform", "Public Agent Bureau"].map((label, i) => (
                 <motion.div
                   key={label}
