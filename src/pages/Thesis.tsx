@@ -1241,11 +1241,7 @@ const Thesis = () => {
                 {/* Headshot */}
                 <div className="relative mb-6">
                   <div
-                    className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden"
-                    style={{
-                      border: '2px solid rgba(100,180,255,0.2)',
-                      boxShadow: '0 0 20px rgba(100,180,255,0.15), 0 0 40px rgba(100,180,255,0.08), 0 0 80px rgba(100,180,255,0.04)',
-                    }}
+                    className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border border-white/10"
                   >
                     <img
                       src={person.img}
@@ -1253,14 +1249,6 @@ const Thesis = () => {
                       className="w-full h-full object-cover grayscale"
                     />
                   </div>
-                  {/* Outer glow ring */}
-                  <div
-                    className="absolute -inset-1 rounded-full pointer-events-none"
-                    style={{
-                      border: '1px solid rgba(100,180,255,0.1)',
-                      boxShadow: '0 0 25px rgba(100,180,255,0.1)',
-                    }}
-                  />
                 </div>
 
                 {/* Name */}
