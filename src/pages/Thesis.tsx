@@ -17,7 +17,7 @@ interface SlideProps {
   footerText?: string;
 }
 
-const TOTAL_SLIDES = 8;
+const TOTAL_SLIDES = 9;
 
 const Slide = ({ children, className = "", slideNumber, footerText = "AMAI Labs · Infrastructure & Research" }: SlideProps) => (
   <section
@@ -1171,8 +1171,122 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 8: CLOSING ── */}
+      {/* ── SLIDE 8: THE TEAM ── */}
       <Slide slideNumber={8} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1.2 }}
+          viewport={{ once: true }}
+        >
+          <MicroLabel>08 // THE TEAM</MicroLabel>
+
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 md:mb-4 text-center leading-[1.1]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            The Team
+          </motion.h2>
+          <motion.p
+            className="text-sm md:text-base text-white/40 font-light mb-14 md:mb-20 max-w-2xl mx-auto text-center"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            Built by veterans of infrastructure, foundational AI, and enterprise defense.
+          </motion.p>
+
+          {/* Three profiles */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 max-w-4xl mx-auto">
+            {[
+              {
+                name: 'Denver Nunley',
+                title: 'Co-Founder & CEO',
+                line1: 'Lead Product & Systems Architect',
+                line2: '10+ Years Cryptographic & Growth Leadership',
+                img: '/images/denver.jpeg',
+              },
+              {
+                name: 'Scott Trowbridge',
+                title: 'Co-Founder & CBO',
+                line1: 'Ex-Stability AI Founding Team',
+                line2: 'Ex-Circle (USDC), WeWork',
+                img: '/images/scott.png',
+              },
+              {
+                name: 'Josh Sorbel',
+                title: 'Co-Founder & CTO',
+                line1: '25+ Years Enterprise Cybersecurity',
+                line2: 'Ex-SAIC, Incident Response Lead',
+                img: '/images/josh.png',
+              },
+            ].map((person, i) => (
+              <motion.div
+                key={person.name}
+                className="flex flex-col items-center text-center"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.5 + i * 0.15 }}
+                viewport={{ once: true }}
+              >
+                {/* Headshot */}
+                <div className="relative mb-6">
+                  <div
+                    className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border border-white/10"
+                    style={{
+                      boxShadow: '0 0 30px rgba(100,180,255,0.08), 0 0 60px rgba(100,180,255,0.04)',
+                    }}
+                  >
+                    <img
+                      src={person.img}
+                      alt={person.name}
+                      className="w-full h-full object-cover grayscale"
+                    />
+                  </div>
+                  {/* Subtle glow ring */}
+                  <div
+                    className="absolute inset-0 rounded-full pointer-events-none"
+                    style={{
+                      border: '1px solid rgba(100,180,255,0.12)',
+                      boxShadow: '0 0 20px rgba(100,180,255,0.06)',
+                    }}
+                  />
+                </div>
+
+                {/* Name */}
+                <h3 className="text-lg md:text-xl font-normal text-white tracking-wide mb-1">
+                  {person.name}
+                </h3>
+
+                {/* Title */}
+                <p className="text-xs tracking-[0.15em] uppercase text-white/50 mb-4">
+                  {person.title}
+                </p>
+
+                {/* Divider */}
+                <div className="w-8 h-px bg-white/10 mb-4" />
+
+                {/* Lines */}
+                <p className="text-sm text-white/40 font-light leading-relaxed">
+                  {person.line1}
+                </p>
+                <p className="text-sm text-white/30 font-light leading-relaxed mt-1">
+                  {person.line2}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+      {/* ── SLIDE 9: CLOSING ── */}
+      <Slide slideNumber={9} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
