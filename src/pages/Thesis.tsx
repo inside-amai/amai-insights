@@ -1274,7 +1274,7 @@ const Thesis = () => {
                 <p className="text-sm text-white/40 font-light leading-relaxed">
                   {person.line1}
                 </p>
-                <p className="text-sm text-white/30 font-light leading-relaxed mt-1">
+                <p className="text-sm text-white/40 font-light leading-relaxed mt-1">
                   {person.line2}
                 </p>
               </motion.div>
