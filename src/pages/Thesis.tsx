@@ -1227,7 +1227,12 @@ const Thesis = () => {
             ].map((person, i) => (
               <motion.div
                 key={person.name}
-                className="flex flex-col items-center text-center"
+                className="flex flex-col items-center text-center rounded-xl px-6 py-8 md:py-10"
+                style={{
+                  border: '1px solid rgba(255,255,255,0.07)',
+                  background: 'linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%)',
+                  boxShadow: '0 4px 30px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05)',
+                }}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.5 + i * 0.15 }}
@@ -1236,9 +1241,10 @@ const Thesis = () => {
                 {/* Headshot */}
                 <div className="relative mb-6">
                   <div
-                    className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border border-white/10"
+                    className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden"
                     style={{
-                      boxShadow: '0 0 30px rgba(100,180,255,0.08), 0 0 60px rgba(100,180,255,0.04)',
+                      border: '2px solid rgba(100,180,255,0.2)',
+                      boxShadow: '0 0 20px rgba(100,180,255,0.15), 0 0 40px rgba(100,180,255,0.08), 0 0 80px rgba(100,180,255,0.04)',
                     }}
                   >
                     <img
@@ -1247,12 +1253,12 @@ const Thesis = () => {
                       className="w-full h-full object-cover grayscale"
                     />
                   </div>
-                  {/* Subtle glow ring */}
+                  {/* Outer glow ring */}
                   <div
-                    className="absolute inset-0 rounded-full pointer-events-none"
+                    className="absolute -inset-1 rounded-full pointer-events-none"
                     style={{
-                      border: '1px solid rgba(100,180,255,0.12)',
-                      boxShadow: '0 0 20px rgba(100,180,255,0.06)',
+                      border: '1px solid rgba(100,180,255,0.1)',
+                      boxShadow: '0 0 25px rgba(100,180,255,0.1)',
                     }}
                   />
                 </div>
@@ -1268,7 +1274,7 @@ const Thesis = () => {
                 </p>
 
                 {/* Divider */}
-                <div className="w-8 h-px bg-white/10 mb-4" />
+                <div className="w-8 h-px bg-gradient-to-r from-transparent via-[rgba(100,180,255,0.3)] to-transparent mb-4" />
 
                 {/* Lines */}
                 <p className="text-sm text-white/40 font-light leading-relaxed">
