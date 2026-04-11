@@ -1230,7 +1230,7 @@ const Thesis = () => {
                 className="flex flex-col items-center text-center rounded-xl px-6 py-8 md:py-10"
                 style={{
                   border: '1px solid rgba(255,255,255,0.07)',
-                  background: 'linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%)',
+                  background: 'linear-gradient(180deg, rgba(10,10,10,1) 0%, rgba(5,5,5,1) 100%)',
                   boxShadow: '0 4px 30px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05)',
                 }}
                 initial={{ opacity: 0, y: 30 }}
