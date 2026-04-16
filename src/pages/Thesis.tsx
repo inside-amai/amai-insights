@@ -1191,7 +1191,7 @@ const Thesis = () => {
             The Team
           </motion.h2>
           <motion.p
-            className="text-sm md:text-base text-white/40 font-light mb-14 md:mb-20 max-w-2xl mx-auto text-center"
+            className="text-sm md:text-base text-white/40 font-light mb-8 md:mb-10 max-w-2xl mx-auto text-center"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -1200,8 +1200,8 @@ const Thesis = () => {
             Built by veterans of infrastructure, foundational AI, and enterprise defense.
           </motion.p>
 
-          {/* Three profiles */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 max-w-4xl mx-auto">
+          {/* Row 1: Co-Founders */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-4xl mx-auto">
             {[
               {
                 name: 'Denver Nunley',
@@ -1227,7 +1227,7 @@ const Thesis = () => {
             ].map((person, i) => (
               <motion.div
                 key={person.name}
-                className="flex flex-col items-center text-center rounded-xl px-6 py-8 md:py-10"
+                className="flex flex-col items-center text-center rounded-xl px-5 py-5 md:py-6"
                 style={{
                   border: '1px solid rgba(255,255,255,0.07)',
                   background: 'linear-gradient(180deg, rgba(10,10,10,1) 0%, rgba(5,5,5,1) 100%)',
@@ -1238,39 +1238,61 @@ const Thesis = () => {
                 transition={{ duration: 0.7, delay: 0.5 + i * 0.15 }}
                 viewport={{ once: true }}
               >
-                {/* Headshot */}
-                <div className="relative mb-6">
-                  <div
-                    className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border border-white/10"
-                  >
-                    <img
-                      src={person.img}
-                      alt={person.name}
-                      className="w-full h-full object-cover grayscale"
-                    />
+                <div className="relative mb-4">
+                  <div className="w-24 h-24 rounded-full overflow-hidden border border-white/10">
+                    <img src={person.img} alt={person.name} className="w-full h-full object-cover grayscale" />
                   </div>
                 </div>
+                <h3 className="text-base md:text-lg font-normal text-white tracking-wide mb-1">{person.name}</h3>
+                <p className="text-xs tracking-[0.15em] uppercase text-white/50 mb-3">{person.title}</p>
+                <div className="w-8 h-px bg-gradient-to-r from-transparent via-[rgba(100,180,255,0.3)] to-transparent mb-3" />
+                <p className="text-sm text-white/40 font-light leading-relaxed">{person.line1}</p>
+                <p className="text-sm text-white/40 font-light leading-relaxed mt-1">{person.line2}</p>
+              </motion.div>
+            ))}
+          </div>
 
-                {/* Name */}
-                <h3 className="text-lg md:text-xl font-normal text-white tracking-wide mb-1">
-                  {person.name}
-                </h3>
-
-                {/* Title */}
-                <p className="text-xs tracking-[0.15em] uppercase text-white/50 mb-4">
-                  {person.title}
-                </p>
-
-                {/* Divider */}
-                <div className="w-8 h-px bg-gradient-to-r from-transparent via-[rgba(100,180,255,0.3)] to-transparent mb-4" />
-
-                {/* Lines */}
-                <p className="text-sm text-white/40 font-light leading-relaxed">
-                  {person.line1}
-                </p>
-                <p className="text-sm text-white/40 font-light leading-relaxed mt-1">
-                  {person.line2}
-                </p>
+          {/* Row 2: Science & Research */}
+          <div className="flex flex-col md:flex-row justify-center gap-5 max-w-4xl mx-auto mt-5">
+            {[
+              {
+                name: 'Yu Xiong',
+                title: 'CHIEF SCIENTIST',
+                line1: 'Fellow, Academy of Social Sciences',
+                line2: 'Professor, University Of Surrey',
+                img: '/images/yu.jpeg',
+              },
+              {
+                name: 'Dr. Amit Jaiswal',
+                title: 'AI RESEARCHER',
+                line1: 'Ph.D. in Information Retrieval (MSCA)',
+                line2: 'Marie Curie & Former Surrey Research Fellow, Ex-UCL',
+                img: '/images/Amit.jpeg',
+              },
+            ].map((person, i) => (
+              <motion.div
+                key={person.name}
+                className="flex flex-col items-center text-center rounded-xl px-5 py-5 md:py-6 w-full md:w-[calc(33.333%-0.42rem)]"
+                style={{
+                  border: '1px solid rgba(255,255,255,0.07)',
+                  background: 'linear-gradient(180deg, rgba(10,10,10,1) 0%, rgba(5,5,5,1) 100%)',
+                  boxShadow: '0 4px 30px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05)',
+                }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.5 + i * 0.15 }}
+                viewport={{ once: true }}
+              >
+                <div className="relative mb-4">
+                  <div className="w-24 h-24 rounded-full overflow-hidden border border-white/10">
+                    <img src={person.img} alt={person.name} className="w-full h-full object-cover grayscale" />
+                  </div>
+                </div>
+                <h3 className="text-base md:text-lg font-normal text-white tracking-wide mb-1">{person.name}</h3>
+                <p className="text-xs tracking-[0.15em] uppercase text-white/50 mb-3">{person.title}</p>
+                <div className="w-8 h-px bg-gradient-to-r from-transparent via-[rgba(100,180,255,0.3)] to-transparent mb-3" />
+                <p className="text-sm text-white/40 font-light leading-relaxed">{person.line1}</p>
+                <p className="text-sm text-white/40 font-light leading-relaxed mt-1">{person.line2}</p>
               </motion.div>
             ))}
           </div>
