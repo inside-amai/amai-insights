@@ -1,42 +1,41 @@
 
+Goal: remove the ambiguous black rectangle in Stage 2 and replace it with a clearer, more professional visual treatment.
 
-## Adding Two New Team Members (Yu Xiong + Dr. Amit Jaiswal)
+What that element is now
+- The empty black rectangle in the middle of the red curved line appears to be an abstract placeholder for a “visibility gap” or “blind spot” in legacy security.
+- Because it has no label, no icon, and no explanatory framing, it reads like an accidental leftover block rather than an intentional part of the diagram.
 
-### The Layout Challenge
+Implementation plan
+1. Refine the Stage 2 bottom graphic in `src/pages/Trust.tsx`.
+   - Remove the unlabeled black rectangle from the SVG.
+   - Keep the red rogue-action path and blue dashed baseline only if they still communicate clearly without the block.
 
-Currently: 3 profiles in a `grid-cols-3` layout with large cards and 128px headshots. Five cards in a single row would be too cramped; stacking rows would push content off-screen.
+2. Replace the ambiguous shape with one of these more professional visual treatments:
+   - Preferred: a labeled “Unverified Runtime Intent” marker centered on the line.
+   - Alternative: a subtle dashed gap / interruption in the baseline with a small caption like “No sanity verification layer”.
+   - Alternative: a small shield-outline or warning-node badge instead of a solid black box.
 
-### Proposed Layout: 3-2 Staggered Grid
+3. Align the visual with the page’s institutional tone.
+   - Use the same typography, border language, and muted color system already used elsewhere on `/trust`.
+   - Avoid decorative abstraction that is not self-explanatory.
+   - Ensure the graphic reads as a risk-control diagram, not an illustration artifact.
 
-**Row 1 (top):** Denver, Scott, Josh -- the three co-founders, same as today but slightly more compact.
-**Row 2 (bottom, centered):** Yu Xiong, Dr. Amit Jaiswal -- centered beneath, creating a balanced pyramid/diamond composition.
+4. Tighten Stage 2 narrative clarity.
+   - Make the bottom visual explicitly support the card’s message:
+     - legacy permissions verify identity
+     - they do not verify runtime sanity
+     - the rogue path passes through an untrusted execution zone
 
-This is a classic pitch deck pattern for 5-person teams. It visually establishes hierarchy (founders on top, scientific advisors/researchers below) while keeping everything on one screen.
+5. QA at the current desktop viewport.
+   - Verify the revised element feels intentional at 1374px width.
+   - Check that nothing appears clipped, floating, or visually “orphaned” inside the card.
 
-### Design Adjustments
+Recommended final direction
+- Best option is to remove the black rectangle entirely and replace it with a small labeled interruption such as:
+  - “UNVERIFIED EXECUTION GAP”
+  - or “NO RUNTIME SANITY CHECK”
+- That preserves the meaning while making the diagram read much more professionally.
 
-- Reduce headshot size from 128px to ~96-104px on desktop
-- Reduce card padding from `px-6 py-10` to `px-5 py-6`
-- Tighten the gap between rows
-- Reduce top margin on headline/subheadline to reclaim vertical space
-- Row 2 uses `flex justify-center` with two cards matching the same card width as row 1
-
-### New Profiles (Row 2)
-
-**Position 4 -- Yu Xiong**
-- Title: CHIEF SCIENTIST
-- Line 1: Fellow, Academy of Social Sciences
-- Line 2: Professor, University Of Surrey
-- Image: `yu.jpeg` (copy to `/public/images/`)
-
-**Position 5 -- Dr. Amit Jaiswal**
-- Title: AI RESEARCHER
-- Line 1: Ph.D. in Information Retrieval (MSCA)
-- Line 2: Marie Curie & Former Surrey Research Fellow, Ex-UCL
-- Image: `Amit.jpeg` (copy to `/public/images/`)
-
-### Files Changed
-
-1. **Copy images** -- `yu.jpeg` and `Amit.jpeg` to `public/images/`
-2. **`src/pages/Thesis.tsx`** -- Restructure the team grid into two rows, add the two new profiles, and tighten spacing to fit all 5 on one screen
-
+Technical detail
+- The element comes from the Stage 2 inline SVG in `src/pages/Trust.tsx`, specifically the centered `<rect ... />` drawn between the two dashed blue path segments.
+- The implementation will update that SVG only; no route or layout changes are needed.
