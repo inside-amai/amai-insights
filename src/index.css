@@ -73,6 +73,17 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: var(--gray-900);
     --sidebar-border: var(--gray-200);
     --sidebar-ring: var(--cyan-accent);
+
+    /* Trust diagram palette */
+    --trust-blue: 214 78% 27%;
+    --trust-blue-soft: 210 55% 95%;
+    --trust-blue-ink: 214 70% 19%;
+    --trust-gray: 210 10% 46%;
+    --trust-gray-soft: 220 14% 96%;
+    --trust-green: 154 59% 38%;
+    --trust-green-soft: 154 47% 93%;
+    --trust-red: 0 72% 48%;
+    --trust-red-soft: 0 70% 95%;
   }
 
   .dark {
@@ -120,6 +131,16 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: var(--white);
     --sidebar-border: var(--gray-700);
     --sidebar-ring: var(--cyan-accent);
+
+    --trust-blue: 214 82% 64%;
+    --trust-blue-soft: 214 33% 14%;
+    --trust-blue-ink: 210 28% 92%;
+    --trust-gray: 220 10% 68%;
+    --trust-gray-soft: 220 14% 14%;
+    --trust-green: 154 65% 56%;
+    --trust-green-soft: 154 25% 16%;
+    --trust-red: 0 85% 64%;
+    --trust-red-soft: 0 28% 16%;
   }
 }
 
