@@ -149,8 +149,8 @@ const Trust = () => {
                 <div className="rounded-lg border border-[hsl(var(--trust-blue)/0.22)] bg-[linear-gradient(180deg,hsl(var(--background)),hsl(var(--trust-blue-soft)))] p-4 md:p-5">
                   <div className="mb-4 flex items-center justify-between gap-4">
                     <div className="flex items-center gap-3">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-[hsl(var(--trust-blue)/0.18)] bg-background">
-                        <img src={amaiLogo} alt="AMAI logo" className="h-6 w-auto opacity-90" />
+                      <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-[hsl(var(--trust-blue)/0.18)] bg-background text-xs font-medium tracking-[0.18em] text-[hsl(var(--trust-blue-ink))]">
+                        AMAI
                       </div>
                       <div>
                         <div className="text-[11px] uppercase tracking-[0.18em] text-foreground/45">TARI Engine</div>
