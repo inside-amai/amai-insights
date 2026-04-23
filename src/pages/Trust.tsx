@@ -83,7 +83,7 @@ const Trust = () => {
             <article className={`${stageCardClass} p-5 md:p-6 xl:col-span-3`}>
               <div className="mb-5">
                 <div className="text-[11px] uppercase tracking-[0.22em] text-foreground/45">Stage 2</div>
-                <h2 className="mt-2 text-2xl font-light text-[hsl(var(--trust-blue-ink))]">The Gaping Hole</h2>
+                <h2 className="mt-2 text-2xl font-light text-[hsl(var(--trust-blue-ink))]">The Security Gap</h2>
                 <p className="mt-2 text-sm uppercase tracking-[0.18em] text-foreground/55">Permission isn’t sanity</p>
               </div>
 
