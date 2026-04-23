@@ -113,11 +113,13 @@ const Trust = () => {
                 </div>
 
                 <svg className="mt-5 h-24 w-full" viewBox="0 0 360 112" fill="none" aria-hidden="true">
-                  <path d="M8 60H148" stroke="hsl(var(--trust-blue) / 0.55)" strokeWidth="2" strokeDasharray="6 6" />
-                  <path d="M212 60H352" stroke="hsl(var(--trust-blue) / 0.55)" strokeWidth="2" strokeDasharray="6 6" />
-                  <rect x="128" y="30" width="104" height="32" rx="16" fill="hsl(var(--background))" stroke="hsl(var(--trust-gray) / 0.28)" />
-                  <text x="180" y="50" textAnchor="middle" fill="hsl(var(--foreground) / 0.55)" fontSize="9" letterSpacing="2.4">UNVERIFIED GAP</text>
+                  <path d="M8 56H156" stroke="hsl(var(--trust-blue) / 0.55)" strokeWidth="2" strokeDasharray="6 6" />
+                  <path d="M204 56H352" stroke="hsl(var(--trust-blue) / 0.55)" strokeWidth="2" strokeDasharray="6 6" />
+                  <circle cx="180" cy="56" r="13" fill="hsl(var(--background))" stroke="hsl(var(--trust-red) / 0.45)" strokeWidth="1.5" />
+                  <path d="M180 48V58" stroke="hsl(var(--trust-red))" strokeWidth="2" strokeLinecap="round" />
+                  <circle cx="180" cy="63" r="1.8" fill="hsl(var(--trust-red))" />
                   <path d="M16 92C68 92 82 34 132 34C182 34 190 84 232 84C274 84 292 24 344 24" stroke="hsl(var(--trust-red))" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                  <text x="180" y="108" textAnchor="middle" fill="hsl(var(--foreground) / 0.5)" fontSize="9" letterSpacing="2.2">NO RUNTIME SANITY CHECK</text>
                 </svg>
               </div>
             </article>
