@@ -2,7 +2,7 @@ import React from "react";
 import { Shield, Bot, Database, TriangleAlert, CheckCircle2, XCircle, Building2, Cpu, Lock, Fingerprint, Wallet, Network } from "lucide-react";
 import amaiLogo from "@/assets/amai-logo-tm.png";
 
-const stageCardClass = "h-full rounded-lg border border-border bg-card shadow-[0_18px_60px_-28px_hsl(var(--trust-blue)/0.18)]";
+const stageCardClass = "h-full rounded-lg border border-white/10 bg-[linear-gradient(180deg,hsl(var(--black))_0%,hsl(var(--gray-900))_100%)] shadow-[0_18px_60px_-28px_hsl(var(--trust-blue)/0.18)]";
 
 const Badge = ({ children, tone = "blue" }: { children: React.ReactNode; tone?: "blue" | "gray" | "green" | "red" }) => {
   const toneClass = {
@@ -235,7 +235,7 @@ const Trust = () => {
             </article>
           </div>
 
-          <div className="mt-8 rounded-lg border border-[hsl(var(--trust-blue)/0.14)] bg-[linear-gradient(90deg,hsl(var(--trust-blue-ink)),hsl(var(--trust-blue)))] px-6 py-5 text-white shadow-[0_24px_70px_-36px_hsl(var(--trust-blue)/0.45)]">
+          <div className="mt-8 rounded-lg border border-white/10 bg-[linear-gradient(90deg,hsl(var(--black))_0%,hsl(var(--gray-900))_55%,hsl(var(--black))_100%)] px-6 py-5 text-white shadow-[0_24px_70px_-36px_hsl(var(--black)/0.55)]">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
               <div>
                 <div className="text-[11px] uppercase tracking-[0.22em] text-white/60">Diagram Key Principle</div>
