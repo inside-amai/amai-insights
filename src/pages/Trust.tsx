@@ -187,7 +187,7 @@ const Trust = () => {
               <div className="mb-5">
                 <div className="text-[11px] uppercase tracking-[0.22em] text-foreground/45">Stage 4</div>
                 <h2 className="mt-2 text-2xl font-light text-[hsl(var(--trust-blue-ink))]">The Kill-Switch</h2>
-                <p className="mt-2 text-sm uppercase tracking-[0.18em] text-foreground/55">The now what</p>
+                <p className="mt-2 text-sm uppercase tracking-[0.18em] text-foreground/55">Capital decisioning</p>
               </div>
 
               <div className="rounded-lg border border-[hsl(var(--trust-blue)/0.18)] bg-[linear-gradient(180deg,hsl(var(--background)),hsl(var(--trust-blue-soft)))] p-4 md:p-5">
