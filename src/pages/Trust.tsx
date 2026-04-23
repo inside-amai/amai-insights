@@ -1,6 +1,5 @@
 import React from "react";
 import { Shield, Bot, Database, TriangleAlert, CheckCircle2, XCircle, Building2, Cpu, Lock, Fingerprint, Wallet, Network } from "lucide-react";
-import amaiLogo from "@/assets/amai-logo-tm.png";
 
 const stageCardClass = "h-full rounded-lg border border-white/10 bg-[linear-gradient(180deg,hsl(var(--black))_0%,hsl(var(--gray-900))_100%)] shadow-[0_18px_60px_-28px_hsl(var(--trust-blue)/0.18)]";
 
@@ -20,16 +19,14 @@ const Trust = () => {
     <main className="min-h-screen bg-[hsl(var(--background))] text-foreground">
       <section className="relative overflow-hidden px-6 py-16 md:px-10 lg:px-14">
         <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(to_right,hsl(var(--trust-blue)/0.06)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--trust-blue)/0.06)_1px,transparent_1px)] bg-[size:64px_64px]" />
-        <div className="absolute inset-x-0 top-0 h-48 bg-[radial-gradient(circle_at_top,hsl(var(--trust-blue)/0.08),transparent_70%)] pointer-events-none" />
 
         <div className="relative mx-auto max-w-[1560px]">
           <div className="mb-10 flex flex-col gap-6 border-b border-border pb-8 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-4xl">
-              <img src={amaiLogo} alt="AMAI" className="mb-6 h-10 w-auto opacity-90" loading="eager" />
               <div className="mb-4">
                 <Badge tone="blue">Trust Diagram</Badge>
               </div>
-              <h1 className="max-w-5xl text-4xl font-light leading-tight text-[hsl(var(--trust-blue-ink))] md:text-5xl lg:text-6xl">
+              <h1 className="max-w-4xl text-3xl font-light leading-[1.05] text-[hsl(var(--trust-blue-ink))] md:text-4xl lg:text-5xl xl:text-[4.5rem]">
                 AMAI TRUST LAYER: SECURING PROGRAMMATIC CAPITAL
               </h1>
               <p className="mt-5 max-w-3xl text-base leading-relaxed text-foreground/70 md:text-lg">
@@ -152,8 +149,8 @@ const Trust = () => {
                 <div className="rounded-lg border border-[hsl(var(--trust-blue)/0.22)] bg-[linear-gradient(180deg,hsl(var(--background)),hsl(var(--trust-blue-soft)))] p-4 md:p-5">
                   <div className="mb-4 flex items-center justify-between gap-4">
                     <div className="flex items-center gap-3">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-[hsl(var(--trust-blue)/0.18)] bg-background">
-                        <img src={amaiLogo} alt="AMAI logo" className="h-6 w-auto opacity-90" />
+                      <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-[hsl(var(--trust-blue)/0.18)] bg-background text-xs font-medium tracking-[0.18em] text-[hsl(var(--trust-blue-ink))]">
+                        AMAI
                       </div>
                       <div>
                         <div className="text-[11px] uppercase tracking-[0.18em] text-foreground/45">TARI Engine</div>
