@@ -1188,7 +1188,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            The Team
+            Core Team
           </motion.h2>
           <motion.p
             className="text-sm md:text-base text-white/40 font-light mb-8 md:mb-10 max-w-2xl mx-auto text-center"
@@ -1221,7 +1221,7 @@ const Thesis = () => {
                 name: 'Josh Sorbel',
                 title: 'Co-Founder & CTO',
                 line1: '25+ Years Enterprise Cybersecurity',
-                line2: 'Ex-SAIC, Incident Response Lead',
+                line2: 'Ex-FBI Incident Response Lead',
                 img: '/images/josh.png',
               },
             ].map((person, i) => (
