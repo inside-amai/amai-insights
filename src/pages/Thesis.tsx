@@ -1179,7 +1179,7 @@ const Thesis = () => {
           transition={{ duration: 1.2 }}
           viewport={{ once: true }}
         >
-          <MicroLabel>08 // THE TEAM</MicroLabel>
+          <MicroLabel>{t('tp.s8t.label')}</MicroLabel>
 
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 md:mb-4 text-center leading-[1.1]"
@@ -1188,7 +1188,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Core Team
+            {t('tp.s8t.h')}
           </motion.h2>
           <motion.p
             className="text-sm md:text-base text-white/40 font-light mb-8 md:mb-10 max-w-2xl mx-auto text-center"
@@ -1197,7 +1197,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Built by veterans of infrastructure, foundational AI, and enterprise defense.
+            {t('tp.s8t.sub')}
           </motion.p>
 
           {/* Row 1: Co-Founders */}
