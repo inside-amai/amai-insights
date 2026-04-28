@@ -1010,14 +1010,14 @@ const Thesis = () => {
               </div>
 
               <p className="text-[10px] tracking-[0.25em] uppercase text-[rgba(214,166,252,0.6)] font-mono mb-3">
-                Fleet Visibility & Control
+                {t('tp.s6m.right.eyebrow')}
               </p>
               <h3 className="text-xl md:text-2xl font-light text-white mb-3">
-                Enterprise Intelligence
+                {t('tp.s6m.right.title')}
               </h3>
-              <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono mb-4">Paid SaaS · Premium · Real-Time</p>
+              <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono mb-4">{t('tp.s6m.right.tag')}</p>
               <p className="text-sm md:text-base text-white/50 font-light leading-relaxed">
-                Enterprises pay a premium subscription to access the global behavioral ledger, monitor massive agent fleets in real-time, enforce custom security policies, and gain threat intelligence no one else can see.
+                {t('tp.s6m.right.body')}
               </p>
             </motion.div>
 
