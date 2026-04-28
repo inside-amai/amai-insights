@@ -88,9 +88,9 @@ const Architecture = () => {
                     {t('thesis.eyebrow')}
                   </span>
                   <p className="text-sm text-white/50 text-center leading-relaxed">
-                    {t('thesis.line1')}
+                    Agent deployment is transitioning from heuristic prompt engineering to deterministic security models.
                     <br /><br />
-                    {t('thesis.line2')}
+                    Absolute, verifiable trust is the prerequisite for autonomous scale.
                   </p>
                 </motion.div>
 
