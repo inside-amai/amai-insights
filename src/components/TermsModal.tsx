@@ -127,7 +127,7 @@ export const TermsModal = () => {
                 ))}
               </div>
               <p className="text-white/50 mt-3 mb-3">
-                These Materials describe potential infrastructure for autonomous computational agents. They may contain early-stage ideas, experimental components, or draft specifications.
+                These Materials describe potential security infrastructure for autonomous computational agents. They may contain early-stage ideas, experimental components, or draft specifications.
               </p>
               <p className="text-white/40 text-xs uppercase tracking-wider mb-2">Access is provided solely for</p>
               <div className="space-y-2">
