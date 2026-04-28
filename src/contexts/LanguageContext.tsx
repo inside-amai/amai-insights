@@ -174,7 +174,7 @@ const translations: Record<Language, Record<string, string>> = {
     // FAQ Section
     'faq.eyebrow': 'Questions?',
     'faq.title': 'Frequently Asked Questions',
-    'faq.subtitle': "Concise explanations of AMAI's architecture, economic substrate, trust mechanics, and autonomous agent runtime.",
+    'faq.subtitle': "Concise explanations of AMAI's security architecture, deterministic trust scoring, payload interception, and cryptographic audit ledgers.",
     'faq.pilotAccess': 'Request Pilot Access',
     
     'faq.q1': 'What is the AMAI protocol?',
