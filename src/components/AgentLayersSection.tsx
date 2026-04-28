@@ -121,11 +121,11 @@ export const AgentLayersSection = ({
                     <div className="flex items-center gap-3 mb-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-white/70" />
                       <h3 className="text-lg font-medium text-white tracking-tight">
-                        {t(layer.titleKey)}
+                        {layer.title}
                       </h3>
                     </div>
                     <p className="text-xs text-white/40 uppercase tracking-wider">
-                      {t(layer.subtitleKey)}
+                      {layer.subtitle}
                     </p>
                   </div>
 
@@ -139,10 +139,10 @@ export const AgentLayersSection = ({
                         <div className="mt-1.5 w-4 h-px bg-white/20 group-hover/item:bg-white/40 transition-colors" />
                         <div>
                           <span className="text-sm text-white/80 font-medium">
-                            {t(item.labelKey)}
+                            {item.label}
                           </span>
                           <p className="text-xs text-white/40 mt-0.5 leading-relaxed">
-                            {t(item.descKey)}
+                            {item.desc}
                           </p>
                         </div>
                       </div>
