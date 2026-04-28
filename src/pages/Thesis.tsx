@@ -1154,14 +1154,14 @@ const Thesis = () => {
               viewport={{ once: true }}
             >
               <h4 className="text-lg md:text-xl font-light text-white mb-4 leading-snug">
-                The Trillion-Dollar Bottleneck
+                {t('tp.s7m.anchor.title')}
               </h4>
               <div className="w-10 h-px bg-gradient-to-r from-[#60b8ff]/40 to-transparent mb-5" />
               <p className="text-sm md:text-[15px] text-white/45 font-light leading-[1.75]">
-                Every major enterprise is deploying autonomous agents to capture this growth. But without a deterministic risk and reputation layer, deploying capital at this scale is an unacceptable security hazard.
+                {t('tp.s7m.anchor.p1')}
               </p>
               <p className="mt-4 text-sm md:text-[15px] text-white/55 font-light leading-[1.75]">
-                The market cannot scale until the risk can be underwritten.
+                {t('tp.s7m.anchor.p2')}
               </p>
             </motion.div>
 
