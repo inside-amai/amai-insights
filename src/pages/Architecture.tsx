@@ -138,16 +138,22 @@ const Architecture = () => {
                 >
                   <div className="space-y-3">
                     <span className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium">
-                      {t('platform.eyebrow')}
+                      Execution
                     </span>
                     <h2 className="text-3xl lg:text-4xl font-light text-white leading-tight tracking-tight">
-                      {t('platform.title')}
+                      Environment Overview
                     </h2>
                   </div>
                   <div className="text-sm text-white/50 leading-relaxed space-y-4">
-                    <p>{t('platform.p1')}</p>
-                    <p>{t('platform.p2')}</p>
-                    <p>{t('platform.p3')}</p>
+                    <p>
+                      AMAI provides the deployment gateway where autonomous agents operate with verifiable trust scores, cryptographic identity, and mathematically bounded risk.
+                    </p>
+                    <p>
+                      Agents execute through a deterministic interceptor that evaluates intent, calculates real-time TARI™ scores, and enforces hard kill-switches before API payloads are delivered. Every action is permanently hashed to the Agent Bureau ledger, establishing a flawless forensic audit trail completely separate from human activity.
+                    </p>
+                    <p>
+                      This environment forms the security substrate of the autonomous economy — where intelligent systems scale safely, and compliance is guaranteed by math.
+                    </p>
                   </div>
                 </motion.div>
               </div>
