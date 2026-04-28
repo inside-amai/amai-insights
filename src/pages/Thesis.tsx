@@ -946,7 +946,7 @@ const Thesis = () => {
                   animate={{ opacity: [0.3, 1, 0.3], scale: [0.8, 1.2, 0.8] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 />
-                <p className="text-[8px] tracking-[0.2em] uppercase text-white/30 font-mono">DATA FEEDS</p>
+                <p className="text-[8px] tracking-[0.2em] uppercase text-white/30 font-mono">{t('tp.s6m.bridge')}</p>
                 <motion.div
                   className="w-2 h-2 rounded-full bg-[rgba(166,252,252,0.5)]"
                   animate={{ opacity: [0.3, 1, 0.3], scale: [0.8, 1.2, 0.8] }}
