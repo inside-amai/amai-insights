@@ -1,41 +1,69 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-export const AgentLayersSection = () => {
+export interface AgentLayerItem {
+  label: string;
+  desc: string;
+}
+
+export interface AgentLayer {
+  id: string;
+  title: string;
+  subtitle: string;
+  items: AgentLayerItem[];
+}
+
+interface AgentLayersSectionProps {
+  layers?: AgentLayer[];
+  eyebrow?: string;
+  title?: string;
+  subtitle?: string;
+  bottomNote?: string;
+}
+
+export const AgentLayersSection = ({
+  layers: layersProp,
+  eyebrow,
+  title,
+  subtitle,
+  bottomNote,
+}: AgentLayersSectionProps = {}) => {
   const { t } = useLanguage();
 
-  const layers = [
+  const defaultLayers: AgentLayer[] = [
     {
       id: 'identity',
-      titleKey: 'layers.identity.title',
-      subtitleKey: 'layers.identity.subtitle',
+      title: t('layers.identity.title'),
+      subtitle: t('layers.identity.subtitle'),
       items: [
-        { labelKey: 'layers.identity.item1.label', descKey: 'layers.identity.item1.desc' },
-        { labelKey: 'layers.identity.item2.label', descKey: 'layers.identity.item2.desc' },
-        { labelKey: 'layers.identity.item3.label', descKey: 'layers.identity.item3.desc' },
+        { label: t('layers.identity.item1.label'), desc: t('layers.identity.item1.desc') },
+        { label: t('layers.identity.item2.label'), desc: t('layers.identity.item2.desc') },
+        { label: t('layers.identity.item3.label'), desc: t('layers.identity.item3.desc') },
       ],
     },
     {
       id: 'skill',
-      titleKey: 'layers.skill.title',
-      subtitleKey: 'layers.skill.subtitle',
+      title: t('layers.skill.title'),
+      subtitle: t('layers.skill.subtitle'),
       items: [
-        { labelKey: 'layers.skill.item1.label', descKey: 'layers.skill.item1.desc' },
-        { labelKey: 'layers.skill.item2.label', descKey: 'layers.skill.item2.desc' },
-        { labelKey: 'layers.skill.item3.label', descKey: 'layers.skill.item3.desc' },
+        { label: t('layers.skill.item1.label'), desc: t('layers.skill.item1.desc') },
+        { label: t('layers.skill.item2.label'), desc: t('layers.skill.item2.desc') },
+        { label: t('layers.skill.item3.label'), desc: t('layers.skill.item3.desc') },
       ],
     },
     {
       id: 'treasury',
-      titleKey: 'layers.treasury.title',
-      subtitleKey: 'layers.treasury.subtitle',
+      title: t('layers.treasury.title'),
+      subtitle: t('layers.treasury.subtitle'),
       items: [
-        { labelKey: 'layers.treasury.item1.label', descKey: 'layers.treasury.item1.desc' },
-        { labelKey: 'layers.treasury.item2.label', descKey: 'layers.treasury.item2.desc' },
-        { labelKey: 'layers.treasury.item3.label', descKey: 'layers.treasury.item3.desc' },
+        { label: t('layers.treasury.item1.label'), desc: t('layers.treasury.item1.desc') },
+        { label: t('layers.treasury.item2.label'), desc: t('layers.treasury.item2.desc') },
+        { label: t('layers.treasury.item3.label'), desc: t('layers.treasury.item3.desc') },
       ],
     },
   ];
+
+  const layers = layersProp ?? defaultLayers;
 
   return (
     <section id="architecture-section" className="relative py-24 overflow-hidden">
