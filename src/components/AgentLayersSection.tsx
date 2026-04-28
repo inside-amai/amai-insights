@@ -168,7 +168,7 @@ export const AgentLayersSection = ({
           className="mt-16 text-center"
         >
           <p className="text-xs text-white/40">
-            {t('layers.bottomNote')}
+            {bottomNote ?? t('layers.bottomNote')}
           </p>
         </motion.div>
       </div>
