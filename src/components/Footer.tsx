@@ -6,6 +6,7 @@ import amaiLogo from '@/assets/amai-logo-tm.png';
 
 interface FooterProps {
   transparent?: boolean;
+  compact?: boolean;
 }
 
 const footerLinks = {
@@ -29,7 +30,7 @@ const footerLinks = {
   ],
 };
 
-export const Footer = ({ transparent = false }: FooterProps) => {
+export const Footer = ({ transparent = false, compact = false }: FooterProps) => {
   const { t, language } = useLanguage();
   const isRtl = language === 'ar';
   const [isPilotFormOpen, setIsPilotFormOpen] = useState(false);
@@ -41,6 +42,7 @@ export const Footer = ({ transparent = false }: FooterProps) => {
         dir={isRtl ? 'rtl' : 'ltr'}
       >
         {/* Main footer grid */}
+        {!compact && (
         <div className="max-w-7xl mx-auto px-6 pt-14 pb-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8">
             {/* Column 1: Protocol */}
@@ -147,6 +149,7 @@ export const Footer = ({ transparent = false }: FooterProps) => {
             </div>
           </div>
         </div>
+        )}
 
         {/* Bottom bar */}
         <div className="border-t border-white/5">
