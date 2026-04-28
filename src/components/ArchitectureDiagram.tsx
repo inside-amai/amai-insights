@@ -37,16 +37,37 @@ const Layer: React.FC<LayerProps> = ({ title, items, isLast = false }) => (
   </div>
 );
 
-const ArchitectureDiagram: React.FC = () => {
+export interface ArchitectureLayer {
+  title: string;
+  items: string[];
+}
+
+interface ArchitectureDiagramProps {
+  eyebrow?: string;
+  title?: string;
+  subtitle?: string;
+  layers?: ArchitectureLayer[];
+  footer?: string;
+}
+
+const ArchitectureDiagram: React.FC<ArchitectureDiagramProps> = ({
+  eyebrow,
+  title,
+  subtitle,
+  layers: layersProp,
+  footer,
+}) => {
   const { t } = useLanguage();
 
-  const layers = [
-    { titleKey: 'arch.layer1.title', itemsKey: 'arch.layer1.items' },
-    { titleKey: 'arch.layer2.title', itemsKey: 'arch.layer2.items' },
-    { titleKey: 'arch.layer3.title', itemsKey: 'arch.layer3.items' },
-    { titleKey: 'arch.layer4.title', itemsKey: 'arch.layer4.items' },
-    { titleKey: 'arch.layer5.title', itemsKey: 'arch.layer5.items' },
+  const defaultLayers: ArchitectureLayer[] = [
+    { title: t('arch.layer1.title'), items: t('arch.layer1.items').split(',') },
+    { title: t('arch.layer2.title'), items: t('arch.layer2.items').split(',') },
+    { title: t('arch.layer3.title'), items: t('arch.layer3.items').split(',') },
+    { title: t('arch.layer4.title'), items: t('arch.layer4.items').split(',') },
+    { title: t('arch.layer5.title'), items: t('arch.layer5.items').split(',') },
   ];
+
+  const layers = layersProp ?? defaultLayers;
 
   return (
     <section className="relative py-20 md:py-28">
@@ -60,13 +81,13 @@ const ArchitectureDiagram: React.FC = () => {
           className="text-center mb-12 md:mb-16"
         >
           <span className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium">
-            {t('arch.eyebrow')}
+            {eyebrow ?? t('arch.eyebrow')}
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-light text-white tracking-tight">
-            {t('arch.title')}
+            {title ?? t('arch.title')}
           </h2>
           <p className="mt-4 text-white/50 text-sm max-w-lg mx-auto leading-relaxed text-center">
-            {t('arch.subtitle')}
+            {subtitle ?? t('arch.subtitle')}
           </p>
 
           {/* Economic Loop */}
@@ -77,13 +98,19 @@ const ArchitectureDiagram: React.FC = () => {
         <div className="max-w-2xl mx-auto">
           {layers.map((layer, index) => (
             <Layer
-              key={layer.titleKey}
-              title={t(layer.titleKey)}
-              items={t(layer.itemsKey).split(',')}
+              key={`${layer.title}-${index}`}
+              title={layer.title}
+              items={layer.items}
               isLast={index === layers.length - 1}
             />
           ))}
         </div>
+
+        {footer && (
+          <p className="mt-12 text-center text-xs md:text-sm text-white/40 leading-relaxed max-w-2xl mx-auto">
+            {footer}
+          </p>
+        )}
       </div>
     </section>
   );
