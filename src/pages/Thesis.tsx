@@ -802,8 +802,8 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 6: THE BUSINESS MODEL ── */}
-      <Slide slideNumber={6} footerText={t('tp.footer')}>
+      {/* ── SLIDE 7: THE BUSINESS MODEL ── */}
+      <Slide slideNumber={7} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1028,7 +1028,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 7: THE AUTONOMOUS ECONOMY (Market Sizing) ── */}
-      <Slide slideNumber={7} footerText={t('tp.footer')}>
+      <Slide slideNumber={8} footerText={t('tp.footer')}>
         {/* Abstract background: data streams */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           {/* Horizontal data stream lines */}
@@ -1172,7 +1172,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 8: THE TEAM ── */}
-      <Slide slideNumber={8} footerText={t('tp.footer')}>
+      <Slide slideNumber={9} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1302,7 +1302,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 9: CLOSING ── */}
-      <Slide slideNumber={9} footerText={t('tp.footer')}>
+      <Slide slideNumber={10} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
