@@ -101,7 +101,74 @@ const Architecture = () => {
               </div>
             </section>
 
-            <ArchitectureDiagram />
+            {/* Operational Outcome */}
+            <section className="relative py-20 md:py-28">
+              <div className="container mx-auto px-6">
+                <motion.div
+                  className="max-w-3xl mx-auto"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="text-center mb-12 md:mb-16">
+                    <span className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium">
+                      Operational Outcome
+                    </span>
+                    <h2 className="mt-4 text-3xl md:text-4xl font-light text-white tracking-tight">
+                      Security becomes a mathematical certainty.
+                    </h2>
+                  </div>
+
+                  <div className="border border-white/10 rounded-lg bg-gradient-to-b from-white/[0.04] to-white/[0.01] backdrop-blur-sm divide-y divide-white/5">
+                    {[
+                      {
+                        label: 'Deterministic Protection',
+                        desc: 'Enterprise data is shielded from non-deterministic LLM hallucinations.',
+                      },
+                      {
+                        label: 'Payload Interception',
+                        desc: 'Malicious intent and prompt injections are severed before execution.',
+                      },
+                      {
+                        label: 'Flawless Compliance',
+                        desc: 'Agent actions are permanently recorded on an immutable cryptographic ledger.',
+                      },
+                      {
+                        label: 'Unbounded Scale',
+                        desc: 'Organizations can finally deploy autonomous systems without compromising core infrastructure.',
+                      },
+                    ].map((item, i) => (
+                      <motion.div
+                        key={item.label}
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.4, delay: i * 0.08 }}
+                        viewport={{ once: true }}
+                        className="flex items-start gap-5 p-6 md:p-7"
+                      >
+                        <span className="text-[10px] text-white/30 font-mono mt-1 w-5 flex-shrink-0">
+                          0{i + 1}
+                        </span>
+                        <div className="w-4 h-px bg-white/20 mt-3 flex-shrink-0" />
+                        <div className="flex-1">
+                          <h3 className="text-sm md:text-base text-white/85 font-medium tracking-tight">
+                            {item.label}
+                          </h3>
+                          <p className="mt-1 text-xs md:text-sm text-white/45 leading-relaxed">
+                            {item.desc}
+                          </p>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  <p className="mt-10 text-center text-xs md:text-sm text-white/40 leading-relaxed">
+                    AI agents no longer operate in the dark—execution is bound by verifiable trust.
+                  </p>
+                </motion.div>
+              </div>
+            </section>
 
             {/* Platform Overview Section - Centered */}
             <section className="flex items-center justify-center relative overflow-hidden">
