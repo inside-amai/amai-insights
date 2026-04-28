@@ -226,9 +226,9 @@ export const TermsModal = () => {
             </section>
 
             <section>
-              <h3 className="text-sm font-medium text-white/80 mb-3">8. No Investment, Security, or Token Claims</h3>
+              <h3 className="text-sm font-medium text-white/80 mb-3">8. No Investment, Security, or Asset Claims</h3>
               <p className="text-white/50 mb-3">
-                Any descriptions of token mechanics, collateral models, trust-weighting, or economic substrates are purely conceptual and intended for research evaluation.
+                Any descriptions of cryptographic ledgers, trust-weighting, or decentralized audit systems are purely conceptual and intended for research evaluation.
               </p>
               <p className="text-white/40 text-xs uppercase tracking-wider mb-2">They</p>
               <div className="space-y-2">
