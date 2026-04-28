@@ -51,7 +51,7 @@ const CenterNode: React.FC<BoxProps> = ({ title, subtitle }) => (
     )}
     <div className="w-12 h-px bg-white/10 mx-auto mt-3" />
     <p className="text-[10px] text-white/40 uppercase tracking-wider mt-2">
-      Powered by x702 Protocol
+      Secured by AMAI Protocol
     </p>
   </div>
 );
@@ -88,22 +88,22 @@ const AgentArchitectureDiagram: React.FC = () => {
 
         <div className="relative z-10 space-y-4">
           
-          {/* Top: Trust Score */}
+          {/* Top: TARI Score */}
           <div className="flex flex-col items-center">
             <Box 
-              title="Trust Score Computation" 
-              subtitle="Reputation grows with verified missions"
+              title="TARI™ Score Computation" 
+              subtitle="Probabilistic risk distilled into deterministic metrics"
             />
             <ConnectionLine direction="vertical" length={16} />
           </div>
 
           {/* Middle Row */}
           <div className="flex items-center justify-center gap-3 lg:gap-6">
-            {/* Left: Collateral */}
+            {/* Left: Identity */}
             <div className="flex items-center gap-2">
             <Box 
-              title="Bonded Collateral" 
-              subtitle="AMAI"
+              title="Cryptographic Identity" 
+              subtitle="Ephemeral NHI Provisioning"
             />
               <div className="w-4 h-px bg-white/20" />
             </div>
@@ -111,15 +111,15 @@ const AgentArchitectureDiagram: React.FC = () => {
             {/* Center: Agent */}
             <CenterNode 
               title="Autonomous Agent" 
-              subtitle="Skills • Memory • Engine"
+              subtitle="LLM • Memory • Context"
             />
 
-            {/* Right: Missions */}
+            {/* Right: Payloads */}
             <div className="flex items-center gap-2">
               <div className="w-4 h-px bg-white/20" />
               <Box 
-                title="Missions" 
-                subtitle="Atomic Execution"
+                title="Enterprise Payloads" 
+                subtitle="Bounded by Outcome Envelopes"
               />
             </div>
           </div>
@@ -129,20 +129,20 @@ const AgentArchitectureDiagram: React.FC = () => {
             <ConnectionLine direction="vertical" length={16} />
           </div>
 
-          {/* Swarm */}
+          {/* Execution Gateway */}
           <div className="flex justify-center">
             <Box 
-              title="Swarm Coordination" 
-              subtitle="Shared context • Collective optimization"
+              title="The Execution Gateway" 
+              subtitle="Real-time interception • Deterministic kill-switches"
             />
           </div>
 
-          {/* Connection to Settlement */}
+          {/* Connection to Bureau */}
           <div className="flex justify-center">
             <ConnectionLine direction="vertical" length={16} />
           </div>
 
-          {/* Settlement Layer */}
+          {/* Agent Bureau */}
           <div className="flex justify-center">
             <div className="
               w-full max-w-md
@@ -155,10 +155,10 @@ const AgentArchitectureDiagram: React.FC = () => {
               text-center
             ">
               <span className="text-xs font-medium text-white/80 tracking-tight">
-                Settlement Layer
+                The Agent Bureau
               </span>
               <p className="text-[10px] text-white/40 mt-1">
-                Deterministic settlement • Performance verification
+                Immutable forensic audit trails • Cryptographic state resolution
               </p>
             </div>
           </div>
