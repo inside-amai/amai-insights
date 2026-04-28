@@ -12,7 +12,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 const faqs = [
   {
     question: 'What is the AMAI protocol?',
-    answer: 'AMAI is a deterministic security and identity protocol for autonomous agents. It provides non-human identity provisioning, real-time risk scoring, payload interception, and immutable cryptographic audit trails to safely scale enterprise AI.',
+    answer: 'AMAI is a deterministic security and identity protocol for autonomous agents. It provides non-human identity provisioning, real-time risk scoring, payload interception, and immutable cryptographic audit trails to safely scale AI.',
   },
   {
     question: 'What is the TARI™ Score?',
