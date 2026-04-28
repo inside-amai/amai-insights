@@ -1368,7 +1368,7 @@ const Thesis = () => {
               ACCESS THE BUREAU
             </a>
             <a
-              href="/system-architecture"
+              href="/architecture"
               className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
             >
               {t('tp.s7.arch')} <span>{isRtl ? '←' : '→'}</span>
