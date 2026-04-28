@@ -17,7 +17,7 @@ interface SlideProps {
   footerText?: string;
 }
 
-const TOTAL_SLIDES = 9;
+const TOTAL_SLIDES = 10;
 
 const Slide = ({ children, className = "", slideNumber, footerText = "AMAI Labs · Infrastructure & Research" }: SlideProps) => (
   <section
@@ -802,8 +802,164 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 6: THE BUSINESS MODEL ── */}
+      {/* ── SLIDE 6: THE CREDIT BUREAU ── */}
       <Slide slideNumber={6} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="max-w-6xl mx-auto"
+        >
+          <MicroLabel>Positioning</MicroLabel>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            {/* LEFT: Headline + search */}
+            <div>
+              <motion.h2
+                className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-5 leading-[1.15] tracking-tight"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                The Credit Bureau for the<br />Autonomous Economy.
+              </motion.h2>
+              <motion.p
+                className="text-base md:text-lg text-white/50 font-light mb-8 max-w-md leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                viewport={{ once: true }}
+              >
+                Verify agent trustworthiness, track real-time TARI™ scores, and unlock algorithmic lending.
+              </motion.p>
+
+              <motion.div
+                className="bg-black border border-white/10 rounded-md flex items-center overflow-hidden max-w-md"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <div className="pl-4 pr-2 text-white/30">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m20 20-3.5-3.5" />
+                  </svg>
+                </div>
+                <input
+                  type="text"
+                  disabled
+                  placeholder="Search by agent ID or wallet address…"
+                  className="flex-1 bg-transparent py-3 text-xs md:text-sm text-white/80 placeholder:text-white/25 font-mono focus:outline-none"
+                />
+                <button className="bg-white/10 hover:bg-white/15 transition-colors px-5 py-3 text-[10px] md:text-xs tracking-[0.2em] uppercase text-white/80 font-medium border-l border-white/10">
+                  Query
+                </button>
+              </motion.div>
+
+              <motion.p
+                className="text-[10px] tracking-[0.25em] uppercase text-white/30 font-mono mt-4"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                viewport={{ once: true }}
+              >
+                TARI™ — Trust &amp; Algorithmic Risk Index
+              </motion.p>
+            </div>
+
+            {/* RIGHT: Score gauge + reliability card */}
+            <motion.div
+              className="relative"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <div className="bg-black border border-white/10 rounded-lg p-6 md:p-7">
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-[10px] tracking-[0.25em] uppercase text-white/40 font-mono">
+                    Agent TARI™ Score
+                  </span>
+                  <span className="text-[10px] tracking-[0.2em] uppercase text-emerald-400/80 font-mono border border-emerald-400/20 px-2 py-0.5 rounded">
+                    Prime
+                  </span>
+                </div>
+
+                <div className="flex justify-center mb-4">
+                  <svg width="220" height="130" viewBox="0 0 220 130" fill="none">
+                    <path d="M20 110 A90 90 0 0 1 53 41" stroke="rgba(239,68,68,0.7)" strokeWidth="8" strokeLinecap="round" fill="none" />
+                    <path d="M58 36 A90 90 0 0 1 92 22" stroke="rgba(245,158,11,0.7)" strokeWidth="8" strokeLinecap="round" fill="none" />
+                    <path d="M97 21 A90 90 0 0 1 142 28" stroke="rgba(96,165,250,0.7)" strokeWidth="8" strokeLinecap="round" fill="none" />
+                    <path d="M147 31 A90 90 0 0 1 200 110" stroke="rgba(52,211,153,0.8)" strokeWidth="8" strokeLinecap="round" fill="none" />
+                    <line x1="110" y1="110" x2="170" y2="55" stroke="rgba(255,255,255,0.85)" strokeWidth="1.5" strokeLinecap="round" />
+                    <circle cx="110" cy="110" r="5" fill="rgba(255,255,255,0.9)" />
+                    <circle cx="110" cy="110" r="2" fill="black" />
+                    <text x="110" y="95" textAnchor="middle" fill="white" fontSize="34" fontWeight="300" letterSpacing="-1">742</text>
+                  </svg>
+                </div>
+
+                <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                  <span className="text-[9px] tracking-[0.2em] uppercase text-white/30 font-mono">Last updated</span>
+                  <span className="text-[9px] tracking-[0.2em] uppercase text-white/50 font-mono">Just now</span>
+                </div>
+              </div>
+
+              <div className="absolute -top-4 -right-2 md:-right-6 bg-black border border-white/10 rounded-lg px-4 py-3 max-w-[210px] shadow-xl">
+                <div className="flex items-start gap-2.5">
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1.5 shadow-[0_0_6px_rgba(52,211,153,0.6)]" />
+                  <div>
+                    <p className="text-[11px] text-white/80 font-light leading-tight mb-1">
+                      Agent TARI™ Score increased
+                    </p>
+                    <p className="text-[13px] text-emerald-400 font-light tracking-tight">+38 points</p>
+                    <p className="text-[9px] tracking-[0.2em] uppercase text-white/30 font-mono mt-1">2 min ago</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-black border border-white/10 rounded-lg px-5 py-4 mt-4 ml-0 md:ml-8">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-2">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(52,211,153,0.9)" strokeWidth="2">
+                      <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+                      <polyline points="16 7 22 7 22 13" />
+                    </svg>
+                    <span className="text-[10px] tracking-[0.2em] uppercase text-white/60 font-mono">Transaction Reliability</span>
+                  </div>
+                  <span className="text-sm text-emerald-400 font-light">92%</span>
+                </div>
+                <div className="h-1 bg-white/5 rounded-full overflow-hidden">
+                  <motion.div
+                    className="h-full bg-emerald-400/80"
+                    initial={{ width: 0 }}
+                    whileInView={{ width: '92%' }}
+                    transition={{ duration: 1.2, delay: 0.8, ease: 'easeOut' }}
+                    viewport={{ once: true }}
+                  />
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          <motion.p
+            className="text-[11px] md:text-xs text-white/40 font-light text-center mt-12 max-w-2xl mx-auto leading-relaxed"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            viewport={{ once: true }}
+          >
+            TARI™ is anchored to a verifiable public ledger — guaranteeing data immutability and decentralized agent identity.
+          </motion.p>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+      {/* ── SLIDE 7: THE BUSINESS MODEL ── */}
+      <Slide slideNumber={7} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1028,7 +1184,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 7: THE AUTONOMOUS ECONOMY (Market Sizing) ── */}
-      <Slide slideNumber={7} footerText={t('tp.footer')}>
+      <Slide slideNumber={8} footerText={t('tp.footer')}>
         {/* Abstract background: data streams */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           {/* Horizontal data stream lines */}
@@ -1172,7 +1328,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 8: THE TEAM ── */}
-      <Slide slideNumber={8} footerText={t('tp.footer')}>
+      <Slide slideNumber={9} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1302,7 +1458,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 9: CLOSING ── */}
-      <Slide slideNumber={9} footerText={t('tp.footer')}>
+      <Slide slideNumber={10} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
