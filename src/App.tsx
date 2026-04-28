@@ -53,8 +53,8 @@ const queryClient = new QueryClient();
 const ConditionalTermsModal = () => {
   const location = useLocation();
   
-  // Only show terms modal on /system-architecture page
-  if (location.pathname !== '/system-architecture') {
+  // Only show terms modal on architecture pages
+  if (location.pathname !== '/system-architecture' && location.pathname !== '/architecture') {
     return null;
   }
   
