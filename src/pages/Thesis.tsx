@@ -931,7 +931,7 @@ const Thesis = () => {
                 {/* Center label */}
                 <div className="relative bg-black border border-white/10 rounded px-2 py-1.5 z-10">
                   <p className="text-[8px] tracking-[0.2em] uppercase text-white/40 font-mono text-center leading-tight">
-                    DATA<br />FEEDS
+                    {t('tp.s6m.bridge')}
                   </p>
                 </div>
               </div>
