@@ -119,7 +119,7 @@ export const TermsModal = () => {
               <h3 className="text-sm font-medium text-white/80 mb-3">3. Purpose of AMAI Labs</h3>
               <p className="text-white/40 text-xs uppercase tracking-wider mb-2">AMAI Labs provides</p>
               <div className="space-y-2">
-                {["protocol research and conceptual frameworks", "architectural diagrams and technical primitives", "economic models and trust-scoring mechanics", "forward-looking development plans", "experimental specifications, prototypes, and tests"].map((item, i) => (
+                {["protocol research and conceptual frameworks", "architectural diagrams and technical primitives", "threat modeling and deterministic trust-scoring mechanics", "forward-looking development plans", "experimental specifications, prototypes, and tests"].map((item, i) => (
                   <div key={i} className="flex items-center gap-3 group">
                     <div className="w-4 h-px bg-white/20" />
                     <span className="text-xs text-white/50">{item}</span>
