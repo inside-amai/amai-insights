@@ -22,7 +22,16 @@ const Architecture = () => {
         <div className="relative bg-perspective-grid">
           {/* Hero */}
           <div className="relative z-10">
-            <ExplainerHero />
+            <ExplainerHero
+              headline={
+                <span className="font-light">The Reputation Layer for the Autonomous Economy.</span>
+              }
+              subtext={
+                <p>
+                  A vertically integrated protocol for scoring agent risk, intercepting malicious payloads, and enforcing accountability via an immutable cryptographic ledger.
+                </p>
+              }
+            />
           </div>
 
           {/* Main Content Sections */}
