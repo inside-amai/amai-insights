@@ -1112,11 +1112,11 @@ const Thesis = () => {
                     backgroundClip: 'text',
                   }}
                 >
-                  $4.4 Trillion
+                  {t('tp.s7m.dp1.value')}
                 </h3>
                 <p className="text-xs md:text-sm text-white/40 font-light leading-relaxed max-w-md">
-                  Projected annual global GDP impact of Agentic AI by 2030.{' '}
-                  <span className="text-white/25 font-mono text-[10px]">(Source: PwC)</span>
+                  {t('tp.s7m.dp1.desc')}{' '}
+                  <span className="text-white/25 font-mono text-[10px]">{t('tp.s7m.dp1.src')}</span>
                 </p>
               </motion.div>
 
