@@ -246,9 +246,9 @@ export const TermsModal = () => {
 
             <section>
               <h3 className="text-sm font-medium text-white/80 mb-3">9. Risk of Digital and Autonomous Systems</h3>
-              <p className="text-white/40 text-xs uppercase tracking-wider mb-2">Research into autonomous agents and decentralized infrastructure involves risks including</p>
+              <p className="text-white/40 text-xs uppercase tracking-wider mb-2">Research into autonomous agents and security infrastructure involves risks including</p>
               <div className="space-y-2">
-                {["computational failures", "unpredictable agent behavior", "economic model instability", "adversarial interactions", "vulnerabilities in cryptographic or distributed systems", "network disruptions", "regulatory constraints"].map((item, i) => (
+                {["computational failures", "unpredictable agent behavior (hallucinations)", "deterministic kill-switch failures", "adversarial interactions and prompt injections", "vulnerabilities in cryptographic or distributed systems", "network disruptions", "regulatory constraints"].map((item, i) => (
                   <div key={i} className="flex items-center gap-3 group">
                     <div className="w-4 h-px bg-white/20" />
                     <span className="text-xs text-white/50">{item}</span>
