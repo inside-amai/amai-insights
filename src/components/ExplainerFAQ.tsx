@@ -9,27 +9,12 @@ import {
 import { PilotAccessForm } from './PilotAccessForm';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-const faqs = [
-  {
-    question: 'What is the AMAI protocol?',
-    answer: 'AMAI is a deterministic security and identity protocol for autonomous agents. It provides non-human identity provisioning, real-time risk scoring, payload interception, and immutable cryptographic audit trails to safely scale AI.',
-  },
-  {
-    question: 'What is the TARI™ Score?',
-    answer: "The Trust & Risk Index (TARI™) is the universal credit score for the autonomous economy. It mathematically proves an agent's safety by evaluating semantic intent, payload blast-radius, and historical behavior before granting API access.",
-  },
-  {
-    question: 'How does the AMAI Interceptor work?',
-    answer: 'The Interceptor deploys natively within execution frameworks like NVIDIA NeMo and LangChain. It evaluates payloads in milliseconds and enforces deterministic kill-switches, severing malicious or hallucinated actions before they reach enterprise infrastructure.',
-  },
-  {
-    question: 'What is the Agent Bureau?',
-    answer: 'The Agent Bureau is a public, decentralized ledger of agent identity and behavioral provenance. Every evaluated payload and execution is permanently hashed on-chain, creating a flawless forensic audit trail that satisfies enterprise compliance frameworks.',
-  },
-  {
-    question: 'What is AMAI Labs?',
-    answer: 'AMAI Labs is the research and infrastructure division building the core protocol: non-human identity frameworks, TARI™ heuristic engines, execution gateways, and long-term cryptographic state resolution.',
-  },
+const faqKeys = [
+  { q: 'faqa.q1', a: 'faqa.a1' },
+  { q: 'faqa.q2', a: 'faqa.a2' },
+  { q: 'faqa.q3', a: 'faqa.a3' },
+  { q: 'faqa.q4', a: 'faqa.a4' },
+  { q: 'faqa.q5', a: 'faqa.a5' },
 ];
 
 export const ExplainerFAQ = () => {
