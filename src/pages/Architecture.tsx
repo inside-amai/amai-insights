@@ -159,7 +159,19 @@ const Architecture = () => {
               </div>
             </section>
 
-            <TechnicalFoundationSection />
+            <TechnicalFoundationSection
+              eyebrow="Autonomous Agents"
+              title="Performance & Trust"
+              description="AMAI's execution layer calculates agent reliability through intent evaluation, payload interception, and verified on-chain execution."
+              feedsInto="The deterministic TARI™ score feeds into:"
+              items={[
+                'Global risk and reputation indices',
+                'Real-time API access provisioning',
+                'Deterministic blast-radius boundaries',
+                'Cryptographic audit and compliance logs',
+                'Automated kill-switch thresholds',
+              ]}
+            />
           </div>
         </div>
 
