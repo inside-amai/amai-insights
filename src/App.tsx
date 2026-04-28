@@ -44,6 +44,7 @@ import Legal from "./pages/Legal";
 import Pitch from "./pages/Pitch";
 import Thesis from "./pages/Thesis";
 import Trust from "./pages/Trust";
+import Architecture from "./pages/Architecture";
 
 
 
@@ -104,6 +105,7 @@ const App = () => (
                 </AuthGuard>
               } />
               <Route path="/system-architecture" element={<TechnicalDocs />} />
+              <Route path="/architecture" element={<Architecture />} />
               <Route path="/genesis-mint" element={<GenesisMint />} />
               <Route path="/founders-mint" element={<FoundersMint />} />
             
