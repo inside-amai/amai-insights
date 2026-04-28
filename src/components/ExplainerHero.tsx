@@ -2,7 +2,12 @@ import { motion } from 'framer-motion';
 import amaiLogo from '@/assets/amai-logo-tm.png';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-export const ExplainerHero = () => {
+interface ExplainerHeroProps {
+  headline?: React.ReactNode;
+  subtext?: React.ReactNode;
+}
+
+export const ExplainerHero = ({ headline, subtext }: ExplainerHeroProps = {}) => {
   const { t } = useLanguage();
 
   return (
@@ -140,8 +145,12 @@ export const ExplainerHero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-white leading-tight tracking-tight"
           >
-            <span className="font-light">Agents Are</span>
-            <span className="block font-light">Entering the Economy.</span>
+            {headline ?? (
+              <>
+                <span className="font-light">Agents Are</span>
+                <span className="block font-light">Entering the Economy.</span>
+              </>
+            )}
           </motion.h1>
 
           {/* Subtitle - translated */}
@@ -151,8 +160,12 @@ export const ExplainerHero = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-sm md:text-base text-white/50 max-w-xl leading-relaxed space-y-3"
           >
-            <p>{t('hero.subheader1')}</p>
-            <p>{t('hero.subheader2')}</p>
+            {subtext ?? (
+              <>
+                <p>{t('hero.subheader1')}</p>
+                <p>{t('hero.subheader2')}</p>
+              </>
+            )}
           </motion.div>
 
           {/* CTAs */}
