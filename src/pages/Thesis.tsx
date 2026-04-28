@@ -1070,7 +1070,7 @@ const Thesis = () => {
           transition={{ duration: 1.2 }}
           viewport={{ once: true }}
         >
-          <MicroLabel>07 // THE AUTONOMOUS ECONOMY</MicroLabel>
+          <MicroLabel>{t('tp.s7m.label')}</MicroLabel>
 
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 md:mb-4 text-center leading-[1.1]"
@@ -1079,7 +1079,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            The Autonomous Economy
+            {t('tp.s7m.h')}
           </motion.h2>
           <motion.p
             className="text-sm md:text-base text-white/40 font-light mb-14 md:mb-20 max-w-xl mx-auto text-center"
@@ -1088,7 +1088,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Capital is flooding the agentic layer. But capital requires trust.
+            {t('tp.s7m.sub')}
           </motion.p>
 
           {/* Two-column: Data Points (left) + Narrative Anchor (right) */}
