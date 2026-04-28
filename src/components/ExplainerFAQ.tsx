@@ -50,17 +50,17 @@ export const ExplainerFAQ = () => {
             viewport={{ once: true }}
           >
             <Accordion type="single" collapsible defaultValue="item-0" className="space-y-0">
-              {faqs.map((faq, index) => (
+              {faqKeys.map((faq, index) => (
                 <AccordionItem 
                   key={index} 
                   value={`item-${index}`}
                   className="border-0 border-b border-border/30 last:border-b-0"
                 >
                   <AccordionTrigger className="text-left font-light text-base py-5 text-foreground hover:no-underline hover:text-foreground/80 transition-colors [&>svg]:text-muted-foreground">
-                    {faq.question}
+                    {t(faq.q)}
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground pb-5 pt-0 leading-snug text-sm font-light">
-                    {faq.answer}
+                    {t(faq.a)}
                   </AccordionContent>
                 </AccordionItem>
               ))}
