@@ -819,9 +819,9 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Bottom-Up Adoption.
+            {t('tp.s6m.h1')}
             <br />
-            <span className="text-white/60">Top-Down Monetization.</span>
+            <span className="text-white/60">{t('tp.s6m.h2')}</span>
           </motion.h2>
           <motion.p
             className="text-sm md:text-base text-white/40 font-light mb-14 md:mb-20 max-w-xl mx-auto text-center"
@@ -830,7 +830,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Capture the data layer for free. Monetize the intelligence at scale.
+            {t('tp.s6m.sub')}
           </motion.p>
 
           {/* Two-pillar layout with bridge */}
