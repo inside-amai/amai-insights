@@ -92,7 +92,7 @@ export const TermsModal = () => {
                 By accessing this portal, its documentation, research materials, conceptual descriptions, diagrams, prototypes, or any related content (collectively, the "Materials"), you acknowledge and agree to the following Terms & Conditions ("Terms").
               </p>
               <p className="text-white/50 mb-3">
-                AMAI Labs is a research division responsible for describing, evaluating, and exploring a decentralized computational infrastructure for autonomous agents (the "AMAI Protocol"). Accessing this portal indicates your understanding that AMAI Labs does not provide a commercial product, and that all Materials are offered solely for informational, educational, and experimental purposes.
+                AMAI Labs is a research division responsible for describing, evaluating, and exploring deterministic security and identity infrastructure for autonomous agents (the "AMAI Protocol"). Accessing this portal indicates your understanding that AMAI Labs does not provide a commercial product, and that all Materials are offered solely for informational, educational, and experimental purposes.
               </p>
               <p className="text-white/50">
                 If you do not agree with these Terms, you must discontinue use immediately.
