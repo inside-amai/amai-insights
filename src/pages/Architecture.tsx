@@ -101,6 +101,8 @@ const Architecture = () => {
               </div>
             </section>
 
+            <ArchitectureDiagram />
+
             {/* Operational Outcome */}
             <section className="relative py-20 md:py-28">
               <div className="container mx-auto px-6">
