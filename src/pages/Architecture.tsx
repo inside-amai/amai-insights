@@ -36,7 +36,40 @@ const Architecture = () => {
 
           {/* Main Content Sections */}
           <div className="relative z-10">
-            <AgentLayersSection />
+            <AgentLayersSection
+              layers={[
+                {
+                  id: 'identity',
+                  title: 'Identity Layer',
+                  subtitle: 'Non-Human Identity Provisioning',
+                  items: [
+                    { label: 'Immutable Identifiers', desc: 'Cryptographic agent identity anchored on a public blockchain.' },
+                    { label: 'Dynamic Provenance', desc: 'Replace static API keys with dynamic intent signatures.' },
+                    { label: 'Least Privilege', desc: 'Ephemeral access eliminates "Excessive Autonomy" vulnerabilities.' },
+                  ],
+                },
+                {
+                  id: 'gateway',
+                  title: 'The Execution Gateway',
+                  subtitle: 'The TARI™ Interceptor',
+                  items: [
+                    { label: 'Real-Time Scoring', desc: 'Decouples intelligence from execution payloads in milliseconds.' },
+                    { label: 'Edge Hook Integration', desc: 'Deploys natively within NeMo, LangChain, and AutoGen.' },
+                    { label: 'Deterministic Kill-Switches', desc: 'Mathematically bounds blast radius before API execution.' },
+                  ],
+                },
+                {
+                  id: 'ledger',
+                  title: 'The Audit Ledger',
+                  subtitle: 'Cryptographic State Resolution',
+                  items: [
+                    { label: 'The Agent Bureau', desc: 'A public, decentralized record of all autonomous actions.' },
+                    { label: 'SOC2 Verification', desc: 'Flawless forensic trails completely separate from human activity.' },
+                    { label: 'Absolute Accountability', desc: 'Trust is enforced by decentralized consensus, not corporate promises.' },
+                  ],
+                },
+              ]}
+            />
 
             {/* Architecture Intro */}
             <section className="py-20 md:py-28">
