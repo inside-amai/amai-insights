@@ -92,7 +92,7 @@ export const TermsModal = () => {
                 By accessing this portal, its documentation, research materials, conceptual descriptions, diagrams, prototypes, or any related content (collectively, the "Materials"), you acknowledge and agree to the following Terms & Conditions ("Terms").
               </p>
               <p className="text-white/50 mb-3">
-                AMAI Labs is a research division responsible for describing, evaluating, and exploring a decentralized computational infrastructure for autonomous agents (the "AMAI Protocol"). Accessing this portal indicates your understanding that AMAI Labs does not provide a commercial product, and that all Materials are offered solely for informational, educational, and experimental purposes.
+                AMAI Labs is a research division responsible for describing, evaluating, and exploring deterministic security and identity infrastructure for autonomous agents (the "AMAI Protocol"). Accessing this portal indicates your understanding that AMAI Labs does not provide a commercial product, and that all Materials are offered solely for informational, educational, and experimental purposes.
               </p>
               <p className="text-white/50">
                 If you do not agree with these Terms, you must discontinue use immediately.
@@ -119,7 +119,7 @@ export const TermsModal = () => {
               <h3 className="text-sm font-medium text-white/80 mb-3">3. Purpose of AMAI Labs</h3>
               <p className="text-white/40 text-xs uppercase tracking-wider mb-2">AMAI Labs provides</p>
               <div className="space-y-2">
-                {["protocol research and conceptual frameworks", "architectural diagrams and technical primitives", "economic models and trust-scoring mechanics", "forward-looking development plans", "experimental specifications, prototypes, and tests"].map((item, i) => (
+                {["protocol research and conceptual frameworks", "architectural diagrams and technical primitives", "threat modeling and deterministic trust-scoring mechanics", "forward-looking development plans", "experimental specifications, prototypes, and tests"].map((item, i) => (
                   <div key={i} className="flex items-center gap-3 group">
                     <div className="w-4 h-px bg-white/20" />
                     <span className="text-xs text-white/50">{item}</span>
@@ -127,7 +127,7 @@ export const TermsModal = () => {
                 ))}
               </div>
               <p className="text-white/50 mt-3 mb-3">
-                These Materials describe potential infrastructure for autonomous computational agents. They may contain early-stage ideas, experimental components, or draft specifications.
+                These Materials describe potential security infrastructure for autonomous computational agents. They may contain early-stage ideas, experimental components, or draft specifications.
               </p>
               <p className="text-white/40 text-xs uppercase tracking-wider mb-2">Access is provided solely for</p>
               <div className="space-y-2">
@@ -147,7 +147,7 @@ export const TermsModal = () => {
               <h3 className="text-sm font-medium text-white/80 mb-3">4. Forward-Looking Statements</h3>
               <p className="text-white/40 text-xs uppercase tracking-wider mb-2">Materials may include forward-looking statements such as</p>
               <div className="space-y-2">
-                {["anticipated architecture", "proposed features", "conceptual economic models", "trust-scoring methodologies", "potential integrations", "long-term ecosystem trajectories"].map((item, i) => (
+                {["anticipated architecture", "proposed security features", "payload interception frameworks", "trust-scoring methodologies", "potential integrations", "long-term ecosystem trajectories"].map((item, i) => (
                   <div key={i} className="flex items-center gap-3 group">
                     <div className="w-4 h-px bg-white/20" />
                     <span className="text-xs text-white/50">{item}</span>
@@ -186,7 +186,7 @@ export const TermsModal = () => {
                 ))}
               </div>
               <p className="text-white/50 mt-3">
-                The AMAI Protocol, if deployed, may contain defects, design limitations, or risks inherent to decentralized, distributed, or autonomous computational systems. You assume all responsibility for your interpretation and use of the Materials.
+                The AMAI Protocol, if deployed, may contain defects, design limitations, or risks inherent to automated, deterministic, or autonomous computational systems. You assume all responsibility for your interpretation and use of the Materials.
               </p>
             </section>
 
@@ -226,9 +226,9 @@ export const TermsModal = () => {
             </section>
 
             <section>
-              <h3 className="text-sm font-medium text-white/80 mb-3">8. No Investment, Security, or Token Claims</h3>
+              <h3 className="text-sm font-medium text-white/80 mb-3">8. No Investment, Security, or Asset Claims</h3>
               <p className="text-white/50 mb-3">
-                Any descriptions of token mechanics, collateral models, trust-weighting, or economic substrates are purely conceptual and intended for research evaluation.
+                Any descriptions of cryptographic ledgers, trust-weighting, or decentralized audit systems are purely conceptual and intended for research evaluation.
               </p>
               <p className="text-white/40 text-xs uppercase tracking-wider mb-2">They</p>
               <div className="space-y-2">
@@ -246,9 +246,9 @@ export const TermsModal = () => {
 
             <section>
               <h3 className="text-sm font-medium text-white/80 mb-3">9. Risk of Digital and Autonomous Systems</h3>
-              <p className="text-white/40 text-xs uppercase tracking-wider mb-2">Research into autonomous agents and decentralized infrastructure involves risks including</p>
+              <p className="text-white/40 text-xs uppercase tracking-wider mb-2">Research into autonomous agents and security infrastructure involves risks including</p>
               <div className="space-y-2">
-                {["computational failures", "unpredictable agent behavior", "economic model instability", "adversarial interactions", "vulnerabilities in cryptographic or distributed systems", "network disruptions", "regulatory constraints"].map((item, i) => (
+                {["computational failures", "unpredictable agent behavior (hallucinations)", "deterministic kill-switch failures", "adversarial interactions and prompt injections", "vulnerabilities in cryptographic or distributed systems", "network disruptions", "regulatory constraints"].map((item, i) => (
                   <div key={i} className="flex items-center gap-3 group">
                     <div className="w-4 h-px bg-white/20" />
                     <span className="text-xs text-white/50">{item}</span>
