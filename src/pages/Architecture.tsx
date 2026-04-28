@@ -18,57 +18,48 @@ const Architecture = () => {
   return (
     <>
       <div className="overflow-x-hidden">
-        {/* Main content with perspective grid background */}
         <div className="relative bg-perspective-grid">
-          {/* Hero */}
           <div className="relative z-10">
             <ExplainerHero
-              headline={
-                <span className="font-light">The Reputation Layer for the Autonomous Economy.</span>
-              }
-              subtext={
-                <p>
-                  A vertically integrated protocol for scoring agent risk, intercepting malicious payloads, and enforcing accountability via an immutable cryptographic ledger.
-                </p>
-              }
+              headline={<span className="font-light">{t('archp.hero.headline')}</span>}
+              subtext={<p>{t('archp.hero.subtext')}</p>}
             />
           </div>
 
-          {/* Main Content Sections */}
           <div className="relative z-10">
             <AgentLayersSection
-              eyebrow="AMAI Protocol Architecture"
-              title="The Deterministic Trust Substrate"
-              subtitle="A vertically integrated architecture for scoring agent risk, intercepting malicious payloads, and enforcing accountability via an immutable cryptographic ledger."
+              eyebrow={t('archp.layers.eyebrow')}
+              title={t('archp.layers.title')}
+              subtitle={t('archp.layers.subtitle')}
               layers={[
                 {
                   id: 'identity',
-                  title: 'Identity Layer',
-                  subtitle: 'Non-Human Identity Provisioning',
+                  title: t('archp.layers.identity.title'),
+                  subtitle: t('archp.layers.identity.subtitle'),
                   items: [
-                    { label: 'Immutable Identifiers', desc: 'Cryptographic agent identity anchored on a public ledger.' },
-                    { label: 'Dynamic Provenance', desc: 'Replace static API keys with dynamic intent signatures.' },
-                    { label: 'Least Privilege', desc: 'Ephemeral access eliminates "Excessive Autonomy" vulnerabilities.' },
+                    { label: t('archp.layers.identity.i1.label'), desc: t('archp.layers.identity.i1.desc') },
+                    { label: t('archp.layers.identity.i2.label'), desc: t('archp.layers.identity.i2.desc') },
+                    { label: t('archp.layers.identity.i3.label'), desc: t('archp.layers.identity.i3.desc') },
                   ],
                 },
                 {
                   id: 'gateway',
-                  title: 'The Execution Gateway',
-                  subtitle: 'The TARI™ Interceptor',
+                  title: t('archp.layers.gateway.title'),
+                  subtitle: t('archp.layers.gateway.subtitle'),
                   items: [
-                    { label: 'Real-Time Scoring', desc: 'Decouples intelligence from execution payloads in milliseconds.' },
-                    { label: 'Edge Hook Integration', desc: 'Deploys natively within NeMo, LangChain, and AutoGen.' },
-                    { label: 'Deterministic Kill-Switches', desc: 'Mathematically bounds blast radius before API execution.' },
+                    { label: t('archp.layers.gateway.i1.label'), desc: t('archp.layers.gateway.i1.desc') },
+                    { label: t('archp.layers.gateway.i2.label'), desc: t('archp.layers.gateway.i2.desc') },
+                    { label: t('archp.layers.gateway.i3.label'), desc: t('archp.layers.gateway.i3.desc') },
                   ],
                 },
                 {
                   id: 'ledger',
-                  title: 'The Audit Ledger',
-                  subtitle: 'Cryptographic State Resolution',
+                  title: t('archp.layers.ledger.title'),
+                  subtitle: t('archp.layers.ledger.subtitle'),
                   items: [
-                    { label: 'The Agent Bureau', desc: 'A public, decentralized record of all autonomous actions.' },
-                    { label: 'SOC2 Verification', desc: 'Flawless forensic trails completely separate from human activity.' },
-                    { label: 'Absolute Accountability', desc: 'Trust is enforced by decentralized consensus, not corporate promises.' },
+                    { label: t('archp.layers.ledger.i1.label'), desc: t('archp.layers.ledger.i1.desc') },
+                    { label: t('archp.layers.ledger.i2.label'), desc: t('archp.layers.ledger.i2.desc') },
+                    { label: t('archp.layers.ledger.i3.label'), desc: t('archp.layers.ledger.i3.desc') },
                   ],
                 },
               ]}
@@ -88,13 +79,12 @@ const Architecture = () => {
                     {t('thesis.eyebrow')}
                   </span>
                   <p className="text-sm text-white/50 text-center leading-relaxed">
-                    Agent deployment is transitioning from heuristic prompt engineering to deterministic security models.
+                    {t('archp.intro.p1')}
                     <br /><br />
-                    Absolute, verifiable trust is the prerequisite for autonomous scale.
+                    {t('archp.intro.p2')}
                   </p>
                 </motion.div>
 
-                {/* Micro break */}
                 <div className="flex justify-center pt-10">
                   <div className="w-8 h-px bg-white/10" />
                 </div>
@@ -102,31 +92,19 @@ const Architecture = () => {
             </section>
 
             <ArchitectureDiagram
-              eyebrow="Operational Outcome"
-              title="Security becomes a mathematical certainty."
-              subtitle="The protocol turns autonomous execution into a verifiable, auditable substrate."
+              eyebrow={t('archp.diagram.eyebrow')}
+              title={t('archp.diagram.title')}
+              subtitle={t('archp.diagram.subtitle')}
               layers={[
-                {
-                  title: 'Deterministic Protection',
-                  items: ['Enterprise data is shielded from non-deterministic LLM hallucinations.'],
-                },
-                {
-                  title: 'Payload Interception',
-                  items: ['Malicious intent and prompt injections are severed before execution.'],
-                },
-                {
-                  title: 'Flawless Compliance',
-                  items: ['Agent actions are permanently recorded on an immutable cryptographic ledger.'],
-                },
-                {
-                  title: 'Unbounded Scale',
-                  items: ['Organizations can finally deploy autonomous systems without compromising core infrastructure.'],
-                },
+                { title: t('archp.diagram.l1.title'), items: [t('archp.diagram.l1.item')] },
+                { title: t('archp.diagram.l2.title'), items: [t('archp.diagram.l2.item')] },
+                { title: t('archp.diagram.l3.title'), items: [t('archp.diagram.l3.item')] },
+                { title: t('archp.diagram.l4.title'), items: [t('archp.diagram.l4.item')] },
               ]}
-              footer="AI agents no longer operate in the dark — execution is bound by verifiable trust."
+              footer={t('archp.diagram.footer')}
             />
 
-            {/* Platform Overview Section - Centered */}
+            {/* Environment Overview */}
             <section className="flex items-center justify-center relative overflow-hidden">
               <div className="container mx-auto px-6 py-16 relative z-10">
                 <motion.div
@@ -138,47 +116,38 @@ const Architecture = () => {
                 >
                   <div className="space-y-3">
                     <span className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium">
-                      Execution
+                      {t('archp.env.eyebrow')}
                     </span>
                     <h2 className="text-3xl lg:text-4xl font-light text-white leading-tight tracking-tight">
-                      Environment Overview
+                      {t('archp.env.title')}
                     </h2>
                   </div>
                   <div className="text-sm text-white/50 leading-relaxed space-y-4">
-                    <p>
-                      AMAI provides the deployment gateway where autonomous agents operate with verifiable trust scores, cryptographic identity, and mathematically bounded risk.
-                    </p>
-                    <p>
-                      Agents execute through a deterministic interceptor that evaluates intent, calculates real-time TARI™ scores, and enforces hard kill-switches before API payloads are delivered. Every action is permanently hashed to the Agent Bureau ledger, establishing a flawless forensic audit trail completely separate from human activity.
-                    </p>
-                    <p>
-                      This environment forms the security substrate of the autonomous economy — where intelligent systems scale safely, and compliance is guaranteed by math.
-                    </p>
+                    <p>{t('archp.env.p1')}</p>
+                    <p>{t('archp.env.p2')}</p>
+                    <p>{t('archp.env.p3')}</p>
                   </div>
                 </motion.div>
               </div>
             </section>
 
             <TechnicalFoundationSection
-              eyebrow="Autonomous Agents"
-              title="Performance & Trust"
-              description="AMAI's execution layer calculates agent reliability through intent evaluation, payload interception, and verified on-chain execution."
-              feedsInto="The deterministic TARI™ score feeds into:"
+              eyebrow={t('archp.tech.eyebrow')}
+              title={t('archp.tech.title')}
+              description={t('archp.tech.description')}
+              feedsInto={t('archp.tech.feedsInto')}
               items={[
-                'Global risk and reputation indices',
-                'Real-time API access provisioning',
-                'Deterministic blast-radius boundaries',
-                'Cryptographic audit and compliance logs',
-                'Automated kill-switch thresholds',
+                t('archp.tech.i1'),
+                t('archp.tech.i2'),
+                t('archp.tech.i3'),
+                t('archp.tech.i4'),
+                t('archp.tech.i5'),
               ]}
             />
           </div>
         </div>
 
-        {/* FAQ Section */}
         <ExplainerFAQ />
-
-        {/* Footer */}
         <Footer compact />
       </div>
     </>
