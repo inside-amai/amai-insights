@@ -77,6 +77,9 @@ export const TechnicalFoundationSection = ({
                 ))}
               </div>
             </div>
+          </motion.div>
+        </div>
+      </div>
     </section>
   );
 };
