@@ -1136,11 +1136,11 @@ const Thesis = () => {
                     backgroundClip: 'text',
                   }}
                 >
-                  $1 Trillion
+                  {t('tp.s7m.dp2.value')}
                 </h3>
                 <p className="text-xs md:text-sm text-white/40 font-light leading-relaxed max-w-md">
-                  Projected agent-driven revenue by 2027.{' '}
-                  <span className="text-white/25 font-mono text-[10px]">(Source: Nvidia CEO, GTC Keynote)</span>
+                  {t('tp.s7m.dp2.desc')}{' '}
+                  <span className="text-white/25 font-mono text-[10px]">{t('tp.s7m.dp2.src')}</span>
                 </p>
               </motion.div>
             </div>
