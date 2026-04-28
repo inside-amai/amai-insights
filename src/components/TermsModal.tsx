@@ -186,7 +186,7 @@ export const TermsModal = () => {
                 ))}
               </div>
               <p className="text-white/50 mt-3">
-                The AMAI Protocol, if deployed, may contain defects, design limitations, or risks inherent to decentralized, distributed, or autonomous computational systems. You assume all responsibility for your interpretation and use of the Materials.
+                The AMAI Protocol, if deployed, may contain defects, design limitations, or risks inherent to automated, deterministic, or autonomous computational systems. You assume all responsibility for your interpretation and use of the Materials.
               </p>
             </section>
 
