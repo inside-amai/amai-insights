@@ -51,7 +51,7 @@ const CenterNode: React.FC<BoxProps> = ({ title, subtitle }) => (
     )}
     <div className="w-12 h-px bg-white/10 mx-auto mt-3" />
     <p className="text-[10px] text-white/40 uppercase tracking-wider mt-2">
-      Powered by x702 Protocol
+      Secured by AMAI Protocol
     </p>
   </div>
 );
