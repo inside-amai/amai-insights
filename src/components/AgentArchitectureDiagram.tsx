@@ -71,6 +71,7 @@ const ConnectionLine: React.FC<{ direction: "vertical" | "horizontal"; length?: 
 );
 
 const AgentArchitectureDiagram: React.FC = () => {
+  const { t } = useLanguage();
   return (
     <div className="w-full py-6">
       {/* Container with subtle grid */}
