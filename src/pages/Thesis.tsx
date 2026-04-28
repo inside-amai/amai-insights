@@ -684,7 +684,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.9 }}
             viewport={{ once: true }}
           >
-            Instead of <em className="text-white/70 not-italic font-normal">guessing</em> if an agent is safe, we <em className="text-white/70 not-italic font-normal">mathematically prove it</em>. TARI distills chaotic autonomous behavior into a single, deterministic metric.
+            <span dangerouslySetInnerHTML={{ __html: t('tp.s4.proof').replace(/<em>/g, '<em class="text-white/70 not-italic font-normal">') }} />
           </motion.p>
         </motion.div>
       </Slide>
@@ -819,9 +819,9 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Bottom-Up Adoption.
+            {t('tp.s6m.h1')}
             <br />
-            <span className="text-white/60">Top-Down Monetization.</span>
+            <span className="text-white/60">{t('tp.s6m.h2')}</span>
           </motion.h2>
           <motion.p
             className="text-sm md:text-base text-white/40 font-light mb-14 md:mb-20 max-w-xl mx-auto text-center"
@@ -830,7 +830,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Capture the data layer for free. Monetize the intelligence at scale.
+            {t('tp.s6m.sub')}
           </motion.p>
 
           {/* Two-pillar layout with bridge */}
@@ -893,14 +893,14 @@ const Thesis = () => {
               </div>
 
               <p className="text-[10px] tracking-[0.25em] uppercase text-[rgba(166,252,252,0.5)] font-mono mb-3">
-                The Developer Standard
+                {t('tp.s6m.left.eyebrow')}
               </p>
               <h3 className="text-xl md:text-2xl font-light text-white mb-3">
-                Ubiquitous Distribution
+                {t('tp.s6m.left.title')}
               </h3>
-              <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono mb-4">Free · Open · Frictionless</p>
+              <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono mb-4">{t('tp.s6m.left.tag')}</p>
               <p className="text-sm md:text-base text-white/50 font-light leading-relaxed">
-                The AMAI Zero-Trust SDK is completely free to install. Every AI agent secured at the source feeds behavioral data into the global ledger — creating the dataset of autonomous behavior.
+                {t('tp.s6m.left.body')}
               </p>
             </motion.div>
 
@@ -931,7 +931,7 @@ const Thesis = () => {
                 {/* Center label */}
                 <div className="relative bg-black border border-white/10 rounded px-2 py-1.5 z-10">
                   <p className="text-[8px] tracking-[0.2em] uppercase text-white/40 font-mono text-center leading-tight">
-                    DATA<br />FEEDS
+                    {t('tp.s6m.bridge')}
                   </p>
                 </div>
               </div>
@@ -946,7 +946,7 @@ const Thesis = () => {
                   animate={{ opacity: [0.3, 1, 0.3], scale: [0.8, 1.2, 0.8] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 />
-                <p className="text-[8px] tracking-[0.2em] uppercase text-white/30 font-mono">DATA FEEDS</p>
+                <p className="text-[8px] tracking-[0.2em] uppercase text-white/30 font-mono">{t('tp.s6m.bridge')}</p>
                 <motion.div
                   className="w-2 h-2 rounded-full bg-[rgba(166,252,252,0.5)]"
                   animate={{ opacity: [0.3, 1, 0.3], scale: [0.8, 1.2, 0.8] }}
@@ -1010,14 +1010,14 @@ const Thesis = () => {
               </div>
 
               <p className="text-[10px] tracking-[0.25em] uppercase text-[rgba(214,166,252,0.6)] font-mono mb-3">
-                Fleet Visibility & Control
+                {t('tp.s6m.right.eyebrow')}
               </p>
               <h3 className="text-xl md:text-2xl font-light text-white mb-3">
-                Enterprise Intelligence
+                {t('tp.s6m.right.title')}
               </h3>
-              <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono mb-4">Paid SaaS · Premium · Real-Time</p>
+              <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono mb-4">{t('tp.s6m.right.tag')}</p>
               <p className="text-sm md:text-base text-white/50 font-light leading-relaxed">
-                Enterprises pay a premium subscription to access the global behavioral ledger, monitor massive agent fleets in real-time, enforce custom security policies, and gain threat intelligence no one else can see.
+                {t('tp.s6m.right.body')}
               </p>
             </motion.div>
 
@@ -1070,7 +1070,7 @@ const Thesis = () => {
           transition={{ duration: 1.2 }}
           viewport={{ once: true }}
         >
-          <MicroLabel>07 // THE AUTONOMOUS ECONOMY</MicroLabel>
+          <MicroLabel>{t('tp.s7m.label')}</MicroLabel>
 
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 md:mb-4 text-center leading-[1.1]"
@@ -1079,7 +1079,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            The Autonomous Economy
+            {t('tp.s7m.h')}
           </motion.h2>
           <motion.p
             className="text-sm md:text-base text-white/40 font-light mb-14 md:mb-20 max-w-xl mx-auto text-center"
@@ -1088,7 +1088,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Capital is flooding the agentic layer. But capital requires trust.
+            {t('tp.s7m.sub')}
           </motion.p>
 
           {/* Two-column: Data Points (left) + Narrative Anchor (right) */}
@@ -1112,11 +1112,11 @@ const Thesis = () => {
                     backgroundClip: 'text',
                   }}
                 >
-                  $4.4 Trillion
+                  {t('tp.s7m.dp1.value')}
                 </h3>
                 <p className="text-xs md:text-sm text-white/40 font-light leading-relaxed max-w-md">
-                  Projected annual global GDP impact of Agentic AI by 2030.{' '}
-                  <span className="text-white/25 font-mono text-[10px]">(Source: PwC)</span>
+                  {t('tp.s7m.dp1.desc')}{' '}
+                  <span className="text-white/25 font-mono text-[10px]">{t('tp.s7m.dp1.src')}</span>
                 </p>
               </motion.div>
 
@@ -1136,11 +1136,11 @@ const Thesis = () => {
                     backgroundClip: 'text',
                   }}
                 >
-                  $1 Trillion
+                  {t('tp.s7m.dp2.value')}
                 </h3>
                 <p className="text-xs md:text-sm text-white/40 font-light leading-relaxed max-w-md">
-                  Projected agent-driven revenue by 2027.{' '}
-                  <span className="text-white/25 font-mono text-[10px]">(Source: Nvidia CEO, GTC Keynote)</span>
+                  {t('tp.s7m.dp2.desc')}{' '}
+                  <span className="text-white/25 font-mono text-[10px]">{t('tp.s7m.dp2.src')}</span>
                 </p>
               </motion.div>
             </div>
@@ -1154,14 +1154,14 @@ const Thesis = () => {
               viewport={{ once: true }}
             >
               <h4 className="text-lg md:text-xl font-light text-white mb-4 leading-snug">
-                The Trillion-Dollar Bottleneck
+                {t('tp.s7m.anchor.title')}
               </h4>
               <div className="w-10 h-px bg-gradient-to-r from-[#60b8ff]/40 to-transparent mb-5" />
               <p className="text-sm md:text-[15px] text-white/45 font-light leading-[1.75]">
-                Every major enterprise is deploying autonomous agents to capture this growth. But without a deterministic risk and reputation layer, deploying capital at this scale is an unacceptable security hazard.
+                {t('tp.s7m.anchor.p1')}
               </p>
               <p className="mt-4 text-sm md:text-[15px] text-white/55 font-light leading-[1.75]">
-                The market cannot scale until the risk can be underwritten.
+                {t('tp.s7m.anchor.p2')}
               </p>
             </motion.div>
 
@@ -1179,7 +1179,7 @@ const Thesis = () => {
           transition={{ duration: 1.2 }}
           viewport={{ once: true }}
         >
-          <MicroLabel>08 // THE TEAM</MicroLabel>
+          <MicroLabel>{t('tp.s8t.label')}</MicroLabel>
 
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 md:mb-4 text-center leading-[1.1]"
@@ -1188,7 +1188,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Core Team
+            {t('tp.s8t.h')}
           </motion.h2>
           <motion.p
             className="text-sm md:text-base text-white/40 font-light mb-8 md:mb-10 max-w-2xl mx-auto text-center"
@@ -1197,7 +1197,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Built by veterans of infrastructure, foundational AI, and enterprise defense.
+            {t('tp.s8t.sub')}
           </motion.p>
 
           {/* Row 1: Co-Founders */}

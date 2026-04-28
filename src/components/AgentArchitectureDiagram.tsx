@@ -1,4 +1,5 @@
 import React from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface BoxProps {
   title: string;
@@ -29,32 +30,35 @@ const Box: React.FC<BoxProps> = ({ title, subtitle, isCenter = false }) => (
   </div>
 );
 
-const CenterNode: React.FC<BoxProps> = ({ title, subtitle }) => (
-  <div className="
-    relative
-    bg-gradient-to-b from-white/[0.12] to-white/[0.04]
-    border border-white/20
-    rounded-lg
-    backdrop-blur-sm
-    px-6 py-5
-    transition-all duration-500
-    hover:border-white/30
-    text-center
-  ">
-    <span className="text-sm font-medium text-white tracking-tight">
-      {title}
-    </span>
-    {subtitle && (
-      <p className="text-[10px] text-white/50 uppercase tracking-wider mt-1">
-        {subtitle}
+const CenterNode: React.FC<BoxProps> = ({ title, subtitle }) => {
+  const { t } = useLanguage();
+  return (
+    <div className="
+      relative
+      bg-gradient-to-b from-white/[0.12] to-white/[0.04]
+      border border-white/20
+      rounded-lg
+      backdrop-blur-sm
+      px-6 py-5
+      transition-all duration-500
+      hover:border-white/30
+      text-center
+    ">
+      <span className="text-sm font-medium text-white tracking-tight">
+        {title}
+      </span>
+      {subtitle && (
+        <p className="text-[10px] text-white/50 uppercase tracking-wider mt-1">
+          {subtitle}
+        </p>
+      )}
+      <div className="w-12 h-px bg-white/10 mx-auto mt-3" />
+      <p className="text-[10px] text-white/40 uppercase tracking-wider mt-2">
+        {t('aad.center.footer')}
       </p>
-    )}
-    <div className="w-12 h-px bg-white/10 mx-auto mt-3" />
-    <p className="text-[10px] text-white/40 uppercase tracking-wider mt-2">
-      Secured by AMAI Protocol
-    </p>
-  </div>
-);
+    </div>
+  );
+};
 
 const ConnectionLine: React.FC<{ direction: "vertical" | "horizontal"; length?: number }> = ({ 
   direction, 
@@ -67,6 +71,7 @@ const ConnectionLine: React.FC<{ direction: "vertical" | "horizontal"; length?: 
 );
 
 const AgentArchitectureDiagram: React.FC = () => {
+  const { t } = useLanguage();
   return (
     <div className="w-full py-6">
       {/* Container with subtle grid */}
@@ -91,58 +96,51 @@ const AgentArchitectureDiagram: React.FC = () => {
           {/* Top: TARI Score */}
           <div className="flex flex-col items-center">
             <Box 
-              title="TARI™ Score Computation" 
-              subtitle="Probabilistic risk distilled into deterministic metrics"
+              title={t('aad.top.title')}
+              subtitle={t('aad.top.subtitle')}
             />
             <ConnectionLine direction="vertical" length={16} />
           </div>
 
           {/* Middle Row */}
           <div className="flex items-center justify-center gap-3 lg:gap-6">
-            {/* Left: Identity */}
             <div className="flex items-center gap-2">
-            <Box 
-              title="Cryptographic Identity" 
-              subtitle="Ephemeral NHI Provisioning"
-            />
+              <Box 
+                title={t('aad.left.title')}
+                subtitle={t('aad.left.subtitle')}
+              />
               <div className="w-4 h-px bg-white/20" />
             </div>
 
-            {/* Center: Agent */}
             <CenterNode 
-              title="Autonomous Agent" 
-              subtitle="LLM • Memory • Context"
+              title={t('aad.center.title')}
+              subtitle={t('aad.center.subtitle')}
             />
 
-            {/* Right: Payloads */}
             <div className="flex items-center gap-2">
               <div className="w-4 h-px bg-white/20" />
               <Box 
-                title="Enterprise Payloads" 
-                subtitle="Bounded by Outcome Envelopes"
+                title={t('aad.right.title')}
+                subtitle={t('aad.right.subtitle')}
               />
             </div>
           </div>
 
-          {/* Arrow down */}
           <div className="flex justify-center">
             <ConnectionLine direction="vertical" length={16} />
           </div>
 
-          {/* Execution Gateway */}
           <div className="flex justify-center">
             <Box 
-              title="The Execution Gateway" 
-              subtitle="Real-time interception • Deterministic kill-switches"
+              title={t('aad.gateway.title')}
+              subtitle={t('aad.gateway.subtitle')}
             />
           </div>
 
-          {/* Connection to Bureau */}
           <div className="flex justify-center">
             <ConnectionLine direction="vertical" length={16} />
           </div>
 
-          {/* Agent Bureau */}
           <div className="flex justify-center">
             <div className="
               w-full max-w-md
@@ -155,10 +153,10 @@ const AgentArchitectureDiagram: React.FC = () => {
               text-center
             ">
               <span className="text-xs font-medium text-white/80 tracking-tight">
-                The Agent Bureau
+                {t('aad.bureau.title')}
               </span>
               <p className="text-[10px] text-white/40 mt-1">
-                Immutable forensic audit trails • Cryptographic state resolution
+                {t('aad.bureau.subtitle')}
               </p>
             </div>
           </div>
