@@ -9,18 +9,27 @@ import {
 import { PilotAccessForm } from './PilotAccessForm';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-const faqKeys = [
-  { questionKey: 'faq.q1', answerKey: 'faq.a1' },
-  { questionKey: 'faq.q2', answerKey: 'faq.a2' },
-  { questionKey: 'faq.q3', answerKey: 'faq.a3' },
-  { questionKey: 'faq.q4', answerKey: 'faq.a4' },
-  { questionKey: 'faq.q5', answerKey: 'faq.a5' },
-  { questionKey: 'faq.q6', answerKey: 'faq.a6' },
-  { questionKey: 'faq.q7', answerKey: 'faq.a7' },
-  { questionKey: 'faq.q8', answerKey: 'faq.a8' },
-  { questionKey: 'faq.q9', answerKey: 'faq.a9' },
-  { questionKey: 'faq.q10', answerKey: 'faq.a10' },
-  { questionKey: 'faq.q11', answerKey: 'faq.a11' },
+const faqs = [
+  {
+    question: 'What is the AMAI protocol?',
+    answer: 'AMAI is a deterministic security and identity protocol for autonomous agents. It provides non-human identity provisioning, real-time risk scoring, payload interception, and immutable cryptographic audit trails to safely scale enterprise AI.',
+  },
+  {
+    question: 'What is the TARI™ Score?',
+    answer: "The Trust & Risk Index (TARI™) is the universal credit score for the autonomous economy. It mathematically proves an agent's safety by evaluating semantic intent, payload blast-radius, and historical behavior before granting API access.",
+  },
+  {
+    question: 'How does the AMAI Interceptor work?',
+    answer: 'The Interceptor deploys natively within execution frameworks like NVIDIA NeMo and LangChain. It evaluates payloads in milliseconds and enforces deterministic kill-switches, severing malicious or hallucinated actions before they reach enterprise infrastructure.',
+  },
+  {
+    question: 'What is the Agent Bureau?',
+    answer: 'The Agent Bureau is a public, decentralized ledger of agent identity and behavioral provenance. Every evaluated payload and execution is permanently hashed on-chain, creating a flawless forensic audit trail that satisfies enterprise compliance frameworks.',
+  },
+  {
+    question: 'What is AMAI Labs?',
+    answer: 'AMAI Labs is the research and infrastructure division building the core protocol: non-human identity frameworks, TARI™ heuristic engines, execution gateways, and long-term cryptographic state resolution.',
+  },
 ];
 
 export const ExplainerFAQ = () => {
