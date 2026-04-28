@@ -96,58 +96,51 @@ const AgentArchitectureDiagram: React.FC = () => {
           {/* Top: TARI Score */}
           <div className="flex flex-col items-center">
             <Box 
-              title="TARI™ Score Computation" 
-              subtitle="Probabilistic risk distilled into deterministic metrics"
+              title={t('aad.top.title')}
+              subtitle={t('aad.top.subtitle')}
             />
             <ConnectionLine direction="vertical" length={16} />
           </div>
 
           {/* Middle Row */}
           <div className="flex items-center justify-center gap-3 lg:gap-6">
-            {/* Left: Identity */}
             <div className="flex items-center gap-2">
-            <Box 
-              title="Cryptographic Identity" 
-              subtitle="Ephemeral NHI Provisioning"
-            />
+              <Box 
+                title={t('aad.left.title')}
+                subtitle={t('aad.left.subtitle')}
+              />
               <div className="w-4 h-px bg-white/20" />
             </div>
 
-            {/* Center: Agent */}
             <CenterNode 
-              title="Autonomous Agent" 
-              subtitle="LLM • Memory • Context"
+              title={t('aad.center.title')}
+              subtitle={t('aad.center.subtitle')}
             />
 
-            {/* Right: Payloads */}
             <div className="flex items-center gap-2">
               <div className="w-4 h-px bg-white/20" />
               <Box 
-                title="Enterprise Payloads" 
-                subtitle="Bounded by Outcome Envelopes"
+                title={t('aad.right.title')}
+                subtitle={t('aad.right.subtitle')}
               />
             </div>
           </div>
 
-          {/* Arrow down */}
           <div className="flex justify-center">
             <ConnectionLine direction="vertical" length={16} />
           </div>
 
-          {/* Execution Gateway */}
           <div className="flex justify-center">
             <Box 
-              title="The Execution Gateway" 
-              subtitle="Real-time interception • Deterministic kill-switches"
+              title={t('aad.gateway.title')}
+              subtitle={t('aad.gateway.subtitle')}
             />
           </div>
 
-          {/* Connection to Bureau */}
           <div className="flex justify-center">
             <ConnectionLine direction="vertical" length={16} />
           </div>
 
-          {/* Agent Bureau */}
           <div className="flex justify-center">
             <div className="
               w-full max-w-md
@@ -160,10 +153,10 @@ const AgentArchitectureDiagram: React.FC = () => {
               text-center
             ">
               <span className="text-xs font-medium text-white/80 tracking-tight">
-                The Agent Bureau
+                {t('aad.bureau.title')}
               </span>
               <p className="text-[10px] text-white/40 mt-1">
-                Immutable forensic audit trails • Cryptographic state resolution
+                {t('aad.bureau.subtitle')}
               </p>
             </div>
           </div>
