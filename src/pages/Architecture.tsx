@@ -167,7 +167,7 @@ const Architecture = () => {
         <ExplainerFAQ />
 
         {/* Footer */}
-        <Footer />
+        <Footer compact />
       </div>
     </>
   );
