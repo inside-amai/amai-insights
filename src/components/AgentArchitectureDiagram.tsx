@@ -30,32 +30,35 @@ const Box: React.FC<BoxProps> = ({ title, subtitle, isCenter = false }) => (
   </div>
 );
 
-const CenterNode: React.FC<BoxProps> = ({ title, subtitle }) => (
-  <div className="
-    relative
-    bg-gradient-to-b from-white/[0.12] to-white/[0.04]
-    border border-white/20
-    rounded-lg
-    backdrop-blur-sm
-    px-6 py-5
-    transition-all duration-500
-    hover:border-white/30
-    text-center
-  ">
-    <span className="text-sm font-medium text-white tracking-tight">
-      {title}
-    </span>
-    {subtitle && (
-      <p className="text-[10px] text-white/50 uppercase tracking-wider mt-1">
-        {subtitle}
+const CenterNode: React.FC<BoxProps> = ({ title, subtitle }) => {
+  const { t } = useLanguage();
+  return (
+    <div className="
+      relative
+      bg-gradient-to-b from-white/[0.12] to-white/[0.04]
+      border border-white/20
+      rounded-lg
+      backdrop-blur-sm
+      px-6 py-5
+      transition-all duration-500
+      hover:border-white/30
+      text-center
+    ">
+      <span className="text-sm font-medium text-white tracking-tight">
+        {title}
+      </span>
+      {subtitle && (
+        <p className="text-[10px] text-white/50 uppercase tracking-wider mt-1">
+          {subtitle}
+        </p>
+      )}
+      <div className="w-12 h-px bg-white/10 mx-auto mt-3" />
+      <p className="text-[10px] text-white/40 uppercase tracking-wider mt-2">
+        {t('aad.center.footer')}
       </p>
-    )}
-    <div className="w-12 h-px bg-white/10 mx-auto mt-3" />
-    <p className="text-[10px] text-white/40 uppercase tracking-wider mt-2">
-      Secured by AMAI Protocol
-    </p>
-  </div>
-);
+    </div>
+  );
+};
 
 const ConnectionLine: React.FC<{ direction: "vertical" | "horizontal"; length?: number }> = ({ 
   direction, 
