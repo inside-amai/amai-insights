@@ -37,6 +37,9 @@ const Architecture = () => {
           {/* Main Content Sections */}
           <div className="relative z-10">
             <AgentLayersSection
+              eyebrow="AMAI Protocol Architecture"
+              title="The Deterministic Trust Substrate"
+              subtitle="A vertically integrated architecture for scoring agent risk, intercepting malicious payloads, and enforcing accountability via an immutable cryptographic ledger."
               layers={[
                 {
                   id: 'identity',
