@@ -43,7 +43,7 @@ const Architecture = () => {
                   title: 'Identity Layer',
                   subtitle: 'Non-Human Identity Provisioning',
                   items: [
-                    { label: 'Immutable Identifiers', desc: 'Cryptographic agent identity anchored on a public blockchain.' },
+                    { label: 'Immutable Identifiers', desc: 'Cryptographic agent identity anchored on a public ledger.' },
                     { label: 'Dynamic Provenance', desc: 'Replace static API keys with dynamic intent signatures.' },
                     { label: 'Least Privilege', desc: 'Ephemeral access eliminates "Excessive Autonomy" vulnerabilities.' },
                   ],
