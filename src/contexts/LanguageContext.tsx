@@ -27,7 +27,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Agent Layers Section
     'layers.eyebrow': 'AMAI Protocol Architecture',
     'layers.title': 'Agent Infrastructure Stack',
-    'layers.subtitle': 'A vertically integrated architecture for autonomous agent deployment and economic coordination.',
+    'layers.subtitle': 'A vertically integrated security and identity stack for autonomous agents.',
     'layers.bottomNote': 'Each layer operates independently while maintaining cryptographic coherence across the stack.',
     
     // Layer 1: Identity
@@ -1507,7 +1507,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Agent Layers Section
     'layers.eyebrow': 'AMAI 基盤設計',
     'layers.title': 'エージェント基盤構成',
-    'layers.subtitle': '自律型エージェントの展開と経済調整を実現する垂直統合型設計。',
+    'layers.subtitle': '自律エージェントのための垂直統合型セキュリティ・アイデンティティスタック。',
     'layers.bottomNote': '各層は独立動作しつつ、全体で暗号学的整合性を維持。',
     
     // Layer 1: Identity
@@ -2984,7 +2984,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Agent Layers Section
     'layers.eyebrow': 'البنية المعمارية لبروتوكول AMAI',
     'layers.title': 'المكدس التحتي للوكلاء',
-    'layers.subtitle': 'بنية متكاملة رأسياً لنشر الوكلاء المستقلين وتنسيقهم الاقتصادي.',
+    'layers.subtitle': 'حزمة أمن وهوية متكاملة رأسياً للوكلاء المستقلين.',
     'layers.bottomNote': 'تعمل كل طبقة باستقلالية تامة مع الحفاظ على التماسك التشفيري عبر المكدس.',
     
     // Layer 1: Identity
