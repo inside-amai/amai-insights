@@ -186,17 +186,6 @@ export const ExplainerHero = ({ headline, subtext }: ExplainerHeroProps = {}) =>
               >
                 {t('hero.cta.architecture')}
               </a>
-              
-              <a 
-                href="#documentation-library"
-                onClick={(e) => {
-                  e.preventDefault();
-                document.getElementById('documentation-library')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="text-sm text-white/50 hover:text-white/70 transition-all duration-300"
-              >
-                <span className="hidden md:inline">{t('hero.cta.documentation.prefix')}</span>{t('hero.cta.documentation')}
-              </a>
             </div>
             
             {/* Micro-label */}
