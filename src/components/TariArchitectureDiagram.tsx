@@ -253,10 +253,9 @@ export default function TariArchitectureDiagram() {
             initial={{ opacity: 0, scale: 0.96, y: 8 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.05 }}
-            className="relative flex h-full w-full flex-col items-center justify-center rounded-[20px] border-2 text-center"
+            className="relative flex h-full w-full flex-col items-center justify-center rounded-[20px] border-2 bg-black text-center"
             style={{
               borderColor: 'rgba(166,252,252,0.5)',
-              backgroundColor: 'rgba(166,252,252,0.04)',
             }}
           >
             <motion.div
@@ -276,7 +275,7 @@ export default function TariArchitectureDiagram() {
             initial={{ opacity: 0, scale: 0.96, y: 8 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.1 }}
-            className="flex h-full w-full flex-col items-center justify-center rounded-[18px] border border-white/20 bg-white/[0.03] text-center"
+            className="flex h-full w-full flex-col items-center justify-center rounded-[18px] border border-white/20 bg-black text-center"
           >
             <Gauge className="mb-2 h-5 w-5" style={{ color: 'rgba(166,252,252,0.8)' }} />
             <div className="text-[10px] font-medium uppercase tracking-[0.14em] text-white/45">Score Output</div>
@@ -291,7 +290,7 @@ export default function TariArchitectureDiagram() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.15 }}
-            className="flex h-full w-full items-center justify-center rounded-xl border border-white/20 bg-white/[0.04] text-center"
+            className="flex h-full w-full items-center justify-center rounded-xl border border-white/20 bg-black text-center"
           >
             <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/85">Interceptor</span>
           </motion.div>
@@ -310,7 +309,7 @@ export default function TariArchitectureDiagram() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.45, delay: 0.2 }}
-            className="flex h-full w-full flex-col items-center justify-center rounded-xl border border-dashed border-white/25 bg-transparent text-center"
+            className="flex h-full w-full flex-col items-center justify-center rounded-xl border border-dashed border-white/25 bg-black text-center"
           >
             <div className="text-[9px] font-semibold uppercase tracking-[0.12em] text-white/65">Continuous Feedback Loop</div>
             <div className="mt-2 text-[8px] font-medium text-white/40">All outcomes → Immutable Record</div>
