@@ -4,6 +4,7 @@ import amaiLogo from "@/assets/amai-logo-tm.png";
 import legacyPadlock from "@/assets/slide3-legacy-padlock.png";
 import amaiCore from "@/assets/amai-header-icon.png";
 import { useIsMobile } from "@/hooks/use-mobile";
+import TariArchitectureDiagram from "@/components/TariArchitectureDiagram";
 
 import { Footer } from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -17,7 +18,7 @@ interface SlideProps {
   footerText?: string;
 }
 
-const TOTAL_SLIDES = 9;
+const TOTAL_SLIDES = 10;
 
 const Slide = ({ children, className = "", slideNumber, footerText = "AMAI Labs · Infrastructure & Research" }: SlideProps) => (
   <section
