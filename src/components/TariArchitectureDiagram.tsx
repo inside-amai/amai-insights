@@ -58,17 +58,17 @@ const NodeBox = ({
 }) => {
   const accentClasses =
     accent === 'destructive'
-      ? 'border-red-500/40 bg-red-500/[0.04] text-red-400/90'
+      ? 'border-red-500/40 text-red-400/90'
       : accent === 'success'
-        ? 'border-emerald-500/40 bg-emerald-500/[0.04] text-emerald-400/90'
-        : 'border-white/20 bg-white/[0.03] text-white/85';
+        ? 'border-emerald-500/40 text-emerald-400/90'
+        : 'border-white/20 text-white/85';
 
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.96, y: 8 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 0.45 }}
-      className={`relative flex h-full w-full flex-col items-center justify-center rounded-xl border px-3 text-center ${accentClasses} ${className}`}
+      className={`relative flex h-full w-full flex-col items-center justify-center rounded-xl border bg-black px-3 text-center ${accentClasses} ${className}`}
     >
       <Icon className="mb-2 h-5 w-5" />
       <div className="text-[11px] font-semibold tracking-[0.12em] uppercase">{label}</div>
