@@ -1,41 +1,66 @@
+## Diagnosis
 
-Goal: remove the ambiguous black rectangle in Stage 2 and replace it with a clearer, more professional visual treatment.
+You're right — the current diagram is unbalanced. The only chromatic moments are at the very end of the flow (green Approved / red Slashed), so the eye gets pulled to the *outcome* and the *cause* (the trust intelligence itself) reads as inert white-on-black. There's no visual hierarchy signaling "this is the brain."
 
-What that element is now
-- The empty black rectangle in the middle of the red curved line appears to be an abstract placeholder for a “visibility gap” or “blind spot” in legacy security.
-- Because it has no label, no icon, and no explanatory framing, it reads like an accidental leftover block rather than an intentional part of the diagram.
+Looking at the rest of `/thesis`, there's already a quiet brand accent in play: the soft cyan (`rgba(166,252,252,…)`) used on the credit-score gauges in Slide 1 and Slide 2. We should reuse that — not introduce a new color.
 
-Implementation plan
-1. Refine the Stage 2 bottom graphic in `src/pages/Trust.tsx`.
-   - Remove the unlabeled black rectangle from the SVG.
-   - Keep the red rogue-action path and blue dashed baseline only if they still communicate clearly without the block.
+## Color Logic (semantic, not decorative)
 
-2. Replace the ambiguous shape with one of these more professional visual treatments:
-   - Preferred: a labeled “Unverified Runtime Intent” marker centered on the line.
-   - Alternative: a subtle dashed gap / interruption in the baseline with a small caption like “No sanity verification layer”.
-   - Alternative: a small shield-outline or warning-node badge instead of a solid black box.
+Three tonal zones mapped to what each region *does*:
 
-3. Align the visual with the page’s institutional tone.
-   - Use the same typography, border language, and muted color system already used elsewhere on `/trust`.
-   - Avoid decorative abstraction that is not self-explanatory.
-   - Ensure the graphic reads as a risk-control diagram, not an illustration artifact.
+```text
+INGESTION          INTELLIGENCE          ENFORCEMENT          LEDGER
+(neutral white) →  (cyan accent)     →   (green / red)    →   (neutral white)
+   inputs            the "brain"          the decision         the record
+```
 
-4. Tighten Stage 2 narrative clarity.
-   - Make the bottom visual explicitly support the card’s message:
-     - legacy permissions verify identity
-     - they do not verify runtime sanity
-     - the rogue path passes through an untrusted execution zone
+Cyan = trust / computation. Green+Red = binary outcome. White = passive infrastructure. This gives the diagram a left-to-right tonal arc instead of a flat monochrome with two colored dots at the end.
 
-5. QA at the current desktop viewport.
-   - Verify the revised element feels intentional at 1374px width.
-   - Check that nothing appears clipped, floating, or visually “orphaned” inside the card.
+## Specific Changes
 
-Recommended final direction
-- Best option is to remove the black rectangle entirely and replace it with a small labeled interruption such as:
-  - “UNVERIFIED EXECUTION GAP”
-  - or “NO RUNTIME SANITY CHECK”
-- That preserves the meaning while making the diagram read much more professionally.
+**1. TARI™ Trust Engine (the centerpiece)**
+- Border: white/30 → cyan/50 (slightly thicker glow ring)
+- Brain icon: white/85 → cyan
+- "TARI™ TRUST ENGINE" text: white → cyan
+- Inner pulsing ring: white/10 → cyan/20
+- *Rationale: this is the product. It should be the chromatic anchor of the whole diagram.*
 
-Technical detail
-- The element comes from the Stage 2 inline SVG in `src/pages/Trust.tsx`, specifically the centered `<rect ... />` drawn between the two dashed blue path segments.
-- The implementation will update that SVG only; no route or layout changes are needed.
+**2. Score Output card (TARI: 780)**
+- Gauge icon: white/80 → cyan/80
+- "TARI: 780" number: white → cyan
+- Border stays neutral so it doesn't compete with the engine
+- *Rationale: the score is an output of the cyan brain — same family, lower intensity.*
+
+**3. Data Pillars (Intent / Guardrails / Ledger feeds)**
+- Pillar bars: white/10 fill → cyan/15 fill, white/20 border → cyan/25 border
+- *Rationale: these are inputs feeding the engine — subtle cyan tint signals "trust signal data."*
+
+**4. Connector arrows (selective, not all of them)**
+- Score → Interceptor vertical line: white → cyan/45
+- Engine → Interceptor "ENFORCEMENT" arrow: stays white (handoff to enforcement zone)
+- All other arrows stay white
+- *Rationale: only the line carrying the trust verdict gets colored.*
+
+**5. Section title "TARI™ Engine"**
+- White/80 → cyan/80
+- Other section titles (Ingestion / Enforcement / Agent Bureau) stay white
+- *Rationale: labels the cyan zone.*
+
+**6. Legend**
+- Add a 5th chip: cyan square + "Trust intelligence"
+- Keeps the legend honest about the new color's meaning
+
+## What stays unchanged
+
+- Approved (emerald) and Slashed (red) — untouched
+- Autonomous Agent, Zero-Trust SDK, Interceptor, Agent Bureau boxes — neutral white
+- Continuous Feedback Loop dashed box — neutral white
+- Background grid, page header, sub-headline — untouched
+
+## Result
+
+Cyan in the middle third, white on both sides, green/red at the decision fork. The eye now travels: **white inputs → cyan computation → green/red verdict → white record.** The diagram tells the story chromatically, and the green/red no longer feels like the only color in the room.
+
+## Files
+
+- `src/components/TariArchitectureDiagram.tsx` — single file, targeted className/stroke swaps as listed above.
