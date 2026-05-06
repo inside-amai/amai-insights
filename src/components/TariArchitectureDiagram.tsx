@@ -10,14 +10,17 @@ import {
   XCircle,
 } from 'lucide-react';
 
-type Accent = 'neutral' | 'success' | 'destructive';
+type Accent = 'neutral' | 'success' | 'destructive' | 'cyan';
 
 const NEUTRAL_STROKE = 'rgba(255,255,255,0.45)';
 const NEUTRAL_FILL = 'rgba(255,255,255,0.7)';
+const CYAN = 'rgba(166,252,252,0.7)';
+const CYAN_SOFT = 'rgba(166,252,252,0.45)';
 const SUCCESS = 'rgba(52,211,153,0.6)';
 const DESTRUCTIVE = 'rgba(239,68,68,0.6)';
 
 const sectionTitleClass = 'text-xs font-semibold tracking-[0.18em] uppercase text-white/80 text-center';
+const sectionTitleCyan = 'text-xs font-semibold tracking-[0.18em] uppercase text-center' ;
 
 const DataPillar = ({ label }: { label: string }) => (
   <div className="flex flex-col items-center gap-1">
@@ -25,7 +28,11 @@ const DataPillar = ({ label }: { label: string }) => (
       {[0, 1, 2].map((index) => (
         <motion.div
           key={index}
-          className="h-1.5 w-10 rounded-full border border-white/20 bg-white/10"
+          className="h-1.5 w-10 rounded-full border"
+          style={{
+            borderColor: 'rgba(166,252,252,0.25)',
+            backgroundColor: 'rgba(166,252,252,0.15)',
+          }}
           animate={{ opacity: [0.5, 1, 0.5] }}
           transition={{ duration: 2.2, delay: index * 0.15, repeat: Infinity }}
         />
@@ -156,10 +163,10 @@ export default function TariArchitectureDiagram() {
           />
           <polygon points="593,187 605,193 593,199" fill={NEUTRAL_FILL} />
 
-          {/* Score → Firewall vertical */}
+          {/* Score → Firewall vertical (carries trust verdict — cyan) */}
           <motion.path
             d="M 693 129 V 173"
-            stroke={NEUTRAL_STROKE}
+            stroke={CYAN_SOFT}
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -218,7 +225,7 @@ export default function TariArchitectureDiagram() {
           <div className={sectionTitleClass}>Ingestion</div>
         </div>
         <div className="absolute" style={placement.engineTitle as CSSProperties}>
-          <div className={sectionTitleClass}>TARI™ Engine</div>
+          <div className={sectionTitleCyan} style={{ color: CYAN }}>TARI™ Engine</div>
         </div>
         <div className="absolute" style={placement.enforcementTitle as CSSProperties}>
           <div className={sectionTitleClass}>Enforcement</div>
@@ -246,15 +253,20 @@ export default function TariArchitectureDiagram() {
             initial={{ opacity: 0, scale: 0.96, y: 8 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.05 }}
-            className="relative flex h-full w-full flex-col items-center justify-center rounded-[20px] border-2 border-white/30 bg-white/[0.04] text-center"
+            className="relative flex h-full w-full flex-col items-center justify-center rounded-[20px] border-2 text-center"
+            style={{
+              borderColor: 'rgba(166,252,252,0.5)',
+              backgroundColor: 'rgba(166,252,252,0.04)',
+            }}
           >
             <motion.div
-              className="absolute inset-0 rounded-[20px] border border-white/10"
+              className="absolute inset-0 rounded-[20px] border"
+              style={{ borderColor: 'rgba(166,252,252,0.2)' }}
               animate={{ opacity: [0.3, 0.6, 0.3] }}
               transition={{ duration: 3, repeat: Infinity }}
             />
-            <Brain className="mb-3 h-8 w-8 text-white/85" />
-            <div className="text-[13px] font-bold tracking-[0.12em] text-white">TARI™ TRUST ENGINE</div>
+            <Brain className="mb-3 h-8 w-8" style={{ color: CYAN }} />
+            <div className="text-[13px] font-bold tracking-[0.12em]" style={{ color: CYAN }}>TARI™ TRUST ENGINE</div>
             <div className="mt-2 text-[10px] font-medium tracking-[0.14em] text-white/45 uppercase">Milliseconds Latency</div>
           </motion.div>
         </div>
@@ -266,9 +278,9 @@ export default function TariArchitectureDiagram() {
             transition={{ duration: 0.45, delay: 0.1 }}
             className="flex h-full w-full flex-col items-center justify-center rounded-[18px] border border-white/20 bg-white/[0.03] text-center"
           >
-            <Gauge className="mb-2 h-5 w-5 text-white/80" />
+            <Gauge className="mb-2 h-5 w-5" style={{ color: 'rgba(166,252,252,0.8)' }} />
             <div className="text-[10px] font-medium uppercase tracking-[0.14em] text-white/45">Score Output</div>
-            <div className="mt-2 text-[20px] font-black tracking-[0.08em] text-white">
+            <div className="mt-2 text-[20px] font-black tracking-[0.08em]" style={{ color: CYAN }}>
               TARI: 780
             </div>
           </motion.div>
@@ -320,6 +332,13 @@ export default function TariArchitectureDiagram() {
           <div className="flex items-center gap-2">
             <div className="h-0.5 w-5 bg-white/60" />
             <span>Data stream (real-time)</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div
+              className="h-3 w-3 rounded border"
+              style={{ borderColor: 'rgba(166,252,252,0.5)', backgroundColor: 'rgba(166,252,252,0.08)' }}
+            />
+            <span>Trust intelligence</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="h-3 w-3 rounded border border-emerald-500/50 bg-emerald-500/[0.06]" />
