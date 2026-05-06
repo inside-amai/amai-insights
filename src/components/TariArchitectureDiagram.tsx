@@ -10,9 +10,14 @@ import {
   XCircle,
 } from 'lucide-react';
 
-type Accent = 'primary' | 'success' | 'destructive';
+type Accent = 'neutral' | 'success' | 'destructive';
 
-const sectionTitleClass = 'text-xs font-semibold tracking-[0.18em] uppercase text-foreground text-center';
+const NEUTRAL_STROKE = 'rgba(255,255,255,0.45)';
+const NEUTRAL_FILL = 'rgba(255,255,255,0.7)';
+const SUCCESS = 'rgba(52,211,153,0.6)';
+const DESTRUCTIVE = 'rgba(239,68,68,0.6)';
+
+const sectionTitleClass = 'text-xs font-semibold tracking-[0.18em] uppercase text-white/80 text-center';
 
 const DataPillar = ({ label }: { label: string }) => (
   <div className="flex flex-col items-center gap-1">
@@ -20,13 +25,13 @@ const DataPillar = ({ label }: { label: string }) => (
       {[0, 1, 2].map((index) => (
         <motion.div
           key={index}
-          className="h-1.5 w-10 rounded-full border border-primary/30 bg-primary/20"
+          className="h-1.5 w-10 rounded-full border border-white/20 bg-white/10"
           animate={{ opacity: [0.5, 1, 0.5] }}
           transition={{ duration: 2.2, delay: index * 0.15, repeat: Infinity }}
         />
       ))}
     </div>
-    <span className="max-w-[84px] text-center text-[9px] font-medium leading-tight text-foreground/60">{label}</span>
+    <span className="max-w-[84px] text-center text-[9px] font-medium leading-tight text-white/50">{label}</span>
   </div>
 );
 
@@ -34,7 +39,7 @@ const NodeBox = ({
   icon: Icon,
   label,
   sublabel,
-  accent = 'primary',
+  accent = 'neutral',
   className = '',
 }: {
   icon: ElementType;
@@ -46,10 +51,10 @@ const NodeBox = ({
 }) => {
   const accentClasses =
     accent === 'destructive'
-      ? 'border-destructive/50 bg-destructive/[0.04] text-destructive'
+      ? 'border-red-500/40 bg-red-500/[0.04] text-red-400/90'
       : accent === 'success'
-        ? 'border-emerald-500/50 bg-emerald-500/[0.04] text-emerald-400'
-        : 'border-primary/40 bg-primary/[0.03] text-primary';
+        ? 'border-emerald-500/40 bg-emerald-500/[0.04] text-emerald-400/90'
+        : 'border-white/20 bg-white/[0.03] text-white/85';
 
   return (
     <motion.div
@@ -60,7 +65,7 @@ const NodeBox = ({
     >
       <Icon className="mb-2 h-5 w-5" />
       <div className="text-[11px] font-semibold tracking-[0.12em] uppercase">{label}</div>
-      {sublabel ? <div className="mt-1 text-[9px] font-medium text-foreground/50">{sublabel}</div> : null}
+      {sublabel ? <div className="mt-1 text-[9px] font-medium text-white/45">{sublabel}</div> : null}
     </motion.div>
   );
 };
@@ -106,55 +111,55 @@ export default function TariArchitectureDiagram() {
           {/* Agent → Pre-flight intercept */}
           <motion.path
             d="M 121 133 V 168"
-            stroke="hsl(var(--primary))"
+            stroke={NEUTRAL_STROKE}
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
             animate={{ opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 2.2, repeat: Infinity }}
           />
-          <polygon points="115,162 127,162 121,174" fill="hsl(var(--primary))" fillOpacity="0.85" />
+          <polygon points="115,162 127,162 121,174" fill={NEUTRAL_FILL} />
 
           {/* Pre-flight intercept → Zero-Trust SDK */}
           <motion.path
             d="M 121 206 V 242"
-            stroke="hsl(var(--primary))"
+            stroke={NEUTRAL_STROKE}
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
             animate={{ opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 2.2, repeat: Infinity }}
           />
-          <polygon points="115,236 127,236 121,248" fill="hsl(var(--primary))" fillOpacity="0.85" />
+          <polygon points="115,236 127,236 121,248" fill={NEUTRAL_FILL} />
 
           {/* Evaluation: SDK right → Engine bottom center */}
           <motion.path
             d="M 242 294 H 407 V 248"
-            stroke="hsl(var(--primary))"
+            stroke={NEUTRAL_STROKE}
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
             animate={{ opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 2.2, repeat: Infinity }}
           />
-          <polygon points="402,256 412,256 407,246" fill="hsl(var(--primary))" fillOpacity="0.85" />
+          <polygon points="402,256 412,256 407,246" fill={NEUTRAL_FILL} />
 
           {/* Enforcement: Engine right → Firewall left */}
           <motion.path
             d="M 506 193 H 599"
-            stroke="hsl(var(--primary))"
+            stroke={NEUTRAL_STROKE}
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
             animate={{ opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 2.2, repeat: Infinity }}
           />
-          <polygon points="593,187 605,193 593,199" fill="hsl(var(--primary))" fillOpacity="0.85" />
+          <polygon points="593,187 605,193 593,199" fill={NEUTRAL_FILL} />
 
           {/* Score → Firewall vertical */}
           <motion.path
             d="M 693 129 V 173"
-            stroke="hsl(var(--primary))"
+            stroke={NEUTRAL_STROKE}
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -165,8 +170,7 @@ export default function TariArchitectureDiagram() {
           {/* Firewall fork → Approved / Slashed */}
           <motion.path
             d="M 693 213 V 240 H 630 V 271"
-            stroke="#34d399"
-            strokeOpacity="0.55"
+            stroke={SUCCESS}
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -175,8 +179,7 @@ export default function TariArchitectureDiagram() {
           />
           <motion.path
             d="M 693 213 V 240 H 756 V 271"
-            stroke="#f87171"
-            strokeOpacity="0.55"
+            stroke={DESTRUCTIVE}
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -187,26 +190,26 @@ export default function TariArchitectureDiagram() {
           {/* Firewall → Bureau (single ledger arrow) */}
           <motion.path
             d="M 781 193 H 854"
-            stroke="hsl(var(--primary))"
+            stroke={NEUTRAL_STROKE}
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
             animate={{ opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 2.2, repeat: Infinity }}
           />
-          <polygon points="850,187 862,193 850,199" fill="hsl(var(--primary))" fillOpacity="0.85" />
+          <polygon points="850,187 862,193 850,199" fill={NEUTRAL_FILL} />
 
           {/* Labels */}
-          <text x="121" y="195" textAnchor="middle" fontSize="9" style={{ ...layerTextStyle, fill: 'hsl(var(--primary) / 0.55)' }}>
+          <text x="121" y="195" textAnchor="middle" fontSize="9" style={{ ...layerTextStyle, fill: 'rgba(255,255,255,0.4)' }}>
             PRE-FLIGHT INTERCEPT
           </text>
-          <text x="320" y="312" textAnchor="middle" fontSize="9" style={{ ...layerTextStyle, fill: 'hsl(var(--primary) / 0.55)' }}>
+          <text x="320" y="312" textAnchor="middle" fontSize="9" style={{ ...layerTextStyle, fill: 'rgba(255,255,255,0.4)' }}>
             EVALUATION
           </text>
-          <text x="553" y="208" textAnchor="middle" fontSize="9" style={{ ...layerTextStyle, fill: 'hsl(var(--primary) / 0.55)' }}>
+          <text x="553" y="208" textAnchor="middle" fontSize="9" style={{ ...layerTextStyle, fill: 'rgba(255,255,255,0.4)' }}>
             ENFORCEMENT
           </text>
-          <text x="820" y="208" textAnchor="middle" fontSize="9" style={{ ...layerTextStyle, fill: 'hsl(var(--primary) / 0.45)' }}>
+          <text x="820" y="208" textAnchor="middle" fontSize="9" style={{ ...layerTextStyle, fill: 'rgba(255,255,255,0.35)' }}>
             LEDGER
           </text>
         </svg>
@@ -243,16 +246,16 @@ export default function TariArchitectureDiagram() {
             initial={{ opacity: 0, scale: 0.96, y: 8 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.05 }}
-            className="relative flex h-full w-full flex-col items-center justify-center rounded-[20px] border-2 border-primary/50 bg-primary/[0.04] text-center"
+            className="relative flex h-full w-full flex-col items-center justify-center rounded-[20px] border-2 border-white/30 bg-white/[0.04] text-center"
           >
             <motion.div
-              className="absolute inset-0 rounded-[20px] border border-primary/15"
+              className="absolute inset-0 rounded-[20px] border border-white/10"
               animate={{ opacity: [0.3, 0.6, 0.3] }}
               transition={{ duration: 3, repeat: Infinity }}
             />
-            <Brain className="mb-3 h-8 w-8 text-primary" />
-            <div className="text-[13px] font-bold tracking-[0.12em] text-primary">TARI™ TRUST ENGINE</div>
-            <div className="mt-2 text-[10px] font-medium tracking-[0.14em] text-foreground/50 uppercase">Milliseconds Latency</div>
+            <Brain className="mb-3 h-8 w-8 text-white/85" />
+            <div className="text-[13px] font-bold tracking-[0.12em] text-white">TARI™ TRUST ENGINE</div>
+            <div className="mt-2 text-[10px] font-medium tracking-[0.14em] text-white/45 uppercase">Milliseconds Latency</div>
           </motion.div>
         </div>
 
@@ -261,11 +264,11 @@ export default function TariArchitectureDiagram() {
             initial={{ opacity: 0, scale: 0.96, y: 8 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.1 }}
-            className="flex h-full w-full flex-col items-center justify-center rounded-[18px] border border-primary/40 bg-primary/[0.03] text-center"
+            className="flex h-full w-full flex-col items-center justify-center rounded-[18px] border border-white/20 bg-white/[0.03] text-center"
           >
-            <Gauge className="mb-2 h-5 w-5 text-primary" />
-            <div className="text-[10px] font-medium uppercase tracking-[0.14em] text-foreground/50">Score Output</div>
-            <div className="mt-2 text-[20px] font-black tracking-[0.08em] text-primary">
+            <Gauge className="mb-2 h-5 w-5 text-white/80" />
+            <div className="text-[10px] font-medium uppercase tracking-[0.14em] text-white/45">Score Output</div>
+            <div className="mt-2 text-[20px] font-black tracking-[0.08em] text-white">
               TARI: 780
             </div>
           </motion.div>
@@ -276,9 +279,9 @@ export default function TariArchitectureDiagram() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.15 }}
-            className="flex h-full w-full items-center justify-center rounded-xl border border-primary/30 bg-muted/10 text-center"
+            className="flex h-full w-full items-center justify-center rounded-xl border border-white/20 bg-white/[0.04] text-center"
           >
-            <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-primary">Interceptor</span>
+            <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/85">Interceptor</span>
           </motion.div>
         </div>
 
@@ -295,10 +298,10 @@ export default function TariArchitectureDiagram() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.45, delay: 0.2 }}
-            className="flex h-full w-full flex-col items-center justify-center rounded-xl border border-dashed border-primary/35 bg-transparent text-center"
+            className="flex h-full w-full flex-col items-center justify-center rounded-xl border border-dashed border-white/25 bg-transparent text-center"
           >
-            <div className="text-[9px] font-semibold uppercase tracking-[0.12em] text-primary/75">Continuous Feedback Loop</div>
-            <div className="mt-2 text-[8px] font-medium text-foreground/45">All outcomes → Immutable Record</div>
+            <div className="text-[9px] font-semibold uppercase tracking-[0.12em] text-white/65">Continuous Feedback Loop</div>
+            <div className="mt-2 text-[8px] font-medium text-white/40">All outcomes → Immutable Record</div>
           </motion.div>
         </div>
 
@@ -311,11 +314,11 @@ export default function TariArchitectureDiagram() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.25 }}
-        className="-mt-2 rounded-xl border border-border/40 p-3 text-[10px] text-foreground/50"
+        className="-mt-2 rounded-xl border border-white/10 p-3 text-[10px] text-white/45"
       >
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
           <div className="flex items-center gap-2">
-            <div className="h-0.5 w-5 bg-primary" />
+            <div className="h-0.5 w-5 bg-white/60" />
             <span>Data stream (real-time)</span>
           </div>
           <div className="flex items-center gap-2">
@@ -323,11 +326,11 @@ export default function TariArchitectureDiagram() {
             <span>Execution approved</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="h-3 w-3 rounded border border-destructive/50 bg-destructive/[0.06]" />
+            <div className="h-3 w-3 rounded border border-red-500/50 bg-red-500/[0.06]" />
             <span>Request slashed</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="h-3 w-3 rounded border border-primary/50 bg-primary/[0.06]" />
+            <div className="h-3 w-3 rounded border border-white/30 bg-white/[0.06]" />
             <span>Processing node</span>
           </div>
         </div>
