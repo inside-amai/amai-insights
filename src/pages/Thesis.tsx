@@ -624,10 +624,6 @@ const Thesis = () => {
                   <path d="M 30 150 A 105 105 0 0 1 230 150" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="20" strokeLinecap="round" />
                   {/* Gauge arc colored */}
                   <path d="M 30 150 A 105 105 0 0 1 230 150" fill="none" stroke="url(#tariGaugeGrad)" strokeWidth="20" strokeLinecap="round" />
-                  {/* Tick marks */}
-                  <text x="20" y="165" fill="rgba(255,255,255,0.25)" fontSize="8" fontFamily="monospace">300</text>
-                  <text x="120" y="30" fill="rgba(255,255,255,0.25)" fontSize="8" fontFamily="monospace" textAnchor="middle">600</text>
-                  <text x="235" y="165" fill="rgba(255,255,255,0.3)" fontSize="8" fontFamily="monospace">900</text>
                   {/* Needle pointing to ~824 (about 87% of the arc) */}
                   <motion.line
                     x1="130" y1="150" x2="215" y2="85"
