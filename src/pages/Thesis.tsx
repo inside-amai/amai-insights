@@ -692,8 +692,50 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 5: THE MOAT ── */}
+      {/* ── SLIDE 5: DETERMINISTIC ENFORCEMENT ── */}
       <Slide slideNumber={5} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="max-w-6xl mx-auto text-center"
+        >
+          <MicroLabel>Pipeline Architecture</MicroLabel>
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-6 leading-[1.15]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            Deterministic Enforcement at the Network Edge.
+          </motion.h2>
+          <motion.p
+            className="text-base md:text-lg text-white/50 font-light mb-12 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            An end-to-end cryptographic pipeline transforming raw agent telemetry into active perimeter defense and programmatic quarantine.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <TariArchitectureDiagram />
+          </motion.div>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+      {/* ── SLIDE 6: THE MOAT ── */}
+      <Slide slideNumber={6} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
