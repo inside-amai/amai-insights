@@ -4,6 +4,7 @@ import amaiLogo from "@/assets/amai-logo-tm.png";
 import legacyPadlock from "@/assets/slide3-legacy-padlock.png";
 import amaiCore from "@/assets/amai-header-icon.png";
 import { useIsMobile } from "@/hooks/use-mobile";
+import TariArchitectureDiagram from "@/components/TariArchitectureDiagram";
 
 import { Footer } from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -17,7 +18,7 @@ interface SlideProps {
   footerText?: string;
 }
 
-const TOTAL_SLIDES = 9;
+const TOTAL_SLIDES = 10;
 
 const Slide = ({ children, className = "", slideNumber, footerText = "AMAI Labs · Infrastructure & Research" }: SlideProps) => (
   <section
@@ -691,8 +692,50 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 5: THE MOAT ── */}
+      {/* ── SLIDE 5: DETERMINISTIC ENFORCEMENT ── */}
       <Slide slideNumber={5} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="max-w-6xl mx-auto text-center"
+        >
+          <MicroLabel>Pipeline Architecture</MicroLabel>
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-6 leading-[1.15]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            Deterministic Enforcement at the Network Edge.
+          </motion.h2>
+          <motion.p
+            className="text-base md:text-lg text-white/50 font-light mb-12 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            An end-to-end cryptographic pipeline transforming raw agent telemetry into active perimeter defense and programmatic quarantine.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <TariArchitectureDiagram />
+          </motion.div>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+      {/* ── SLIDE 6: THE MOAT ── */}
+      <Slide slideNumber={6} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -803,7 +846,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 6: THE BUSINESS MODEL ── */}
-      <Slide slideNumber={6} footerText={t('tp.footer')}>
+      <Slide slideNumber={7} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1028,7 +1071,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 7: THE AUTONOMOUS ECONOMY (Market Sizing) ── */}
-      <Slide slideNumber={7} footerText={t('tp.footer')}>
+      <Slide slideNumber={8} footerText={t('tp.footer')}>
         {/* Abstract background: data streams */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           {/* Horizontal data stream lines */}
@@ -1172,7 +1215,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 8: THE TEAM ── */}
-      <Slide slideNumber={8} footerText={t('tp.footer')}>
+      <Slide slideNumber={9} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1302,7 +1345,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 9: CLOSING ── */}
-      <Slide slideNumber={9} footerText={t('tp.footer')}>
+      <Slide slideNumber={10} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
