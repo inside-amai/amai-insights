@@ -709,7 +709,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Deterministic Enforcement at the Network Edge.
+            {t('tp.s5p.h')}
           </motion.h2>
           <motion.p
             className="text-base md:text-lg text-white/50 font-light mb-12 max-w-3xl mx-auto"
@@ -718,7 +718,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            An end-to-end cryptographic pipeline transforming raw agent telemetry into active perimeter defense and programmatic quarantine.
+            {t('tp.s5p.sub')}
           </motion.p>
 
           <motion.div
