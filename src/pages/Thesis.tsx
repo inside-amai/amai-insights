@@ -701,7 +701,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto text-center"
         >
-          <MicroLabel>Pipeline Architecture</MicroLabel>
+          <MicroLabel>{t('tp.s5p.label')}</MicroLabel>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-6 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
