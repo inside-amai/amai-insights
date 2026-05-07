@@ -1457,7 +1457,7 @@ const Thesis = () => {
 
           {/* Stat row */}
           <motion.div
-            className="mt-14 md:mt-20 grid grid-cols-2 md:grid-cols-4 divide-y divide-x divide-white/10 md:divide-y-0 border border-white/10"
+            className="mt-14 md:mt-20 grid grid-cols-2 md:grid-cols-4 bg-black border border-white/10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
@@ -1468,12 +1468,17 @@ const Thesis = () => {
               { label: 'POST-MONEY CAP', value: '$26.5M' },
               { label: 'DISCOUNT', value: '20%' },
               { label: 'CLOSE', value: 'MAY 25' },
-            ].map((s) => (
-              <div key={s.label} className="px-4 py-6 md:py-8 flex flex-col items-center gap-3">
+            ].map((s, i) => (
+              <div
+                key={s.label}
+                className={`bg-black px-4 py-6 md:py-8 flex flex-col items-center gap-3 ${
+                  i === 1 || i === 3 ? 'border-l border-white/10' : ''
+                } ${i >= 2 ? 'border-t md:border-t-0 md:border-l border-white/10' : ''}`}
+              >
                 <span className="text-[10px] md:text-xs tracking-[0.2em] uppercase text-white/40 font-light">
                   {s.label}
                 </span>
-                <span className="text-3xl md:text-5xl lg:text-[64px] font-light text-cyan-accent leading-none">
+                <span className="whitespace-nowrap text-3xl md:text-4xl lg:text-5xl xl:text-[56px] font-light text-cyan-accent leading-none">
                   {s.value}
                 </span>
               </div>
