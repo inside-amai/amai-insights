@@ -18,7 +18,7 @@ interface SlideProps {
   footerText?: string;
 }
 
-const TOTAL_SLIDES = 12;
+const TOTAL_SLIDES = 13;
 
 const Slide = ({ children, className = "", slideNumber, footerText = "AMAI Labs · Infrastructure & Research" }: SlideProps) => (
   <section
@@ -847,8 +847,117 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 6: THE BUSINESS MODEL ── */}
+      {/* ── SLIDE 7: COMPETITIVE LANDSCAPE ── */}
       <Slide slideNumber={7} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="max-w-6xl mx-auto w-full"
+        >
+          <MicroLabel>07 // THE LANDSCAPE</MicroLabel>
+
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 leading-[1.1] tracking-tight text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            The Conflict-of-Interest Gap.
+          </motion.h2>
+
+          <motion.p
+            className="text-base md:text-lg text-white/50 font-light mb-12 md:mb-16 max-w-3xl mx-auto text-center leading-relaxed"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            Native vendors can't audit their own agents. Point solutions defend single layers. AMAI is the only independent, cross-organizational behavioral bureau.
+          </motion.p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 border rounded-md overflow-hidden bg-black" style={{ borderColor: '#222222' }}>
+            {[
+              {
+                label: 'NATIVE / FIRST-PARTY',
+                char: 'Auditing their own agents',
+                companies: ['Microsoft Entra Agent ID', 'NVIDIA NeMo Guardrails', 'OpenAI', 'Anthropic'],
+                summary: 'Structural conflict of interest. Cannot serve as third-party arbiter.',
+                highlight: false,
+              },
+              {
+                label: 'POINT SOLUTIONS',
+                char: 'Single-layer defense',
+                companies: ['CalypsoAI', 'Lakera', 'Lasso Security', 'Protect AI', 'HiddenLayer'],
+                summary: 'Prompt injection, model security, individual layers. No cross-org behavioral ledger.',
+                highlight: false,
+              },
+              {
+                label: 'THE INDEPENDENT BUREAU',
+                char: 'Cross-organizational standard',
+                companies: ['AMAI Labs'],
+                summary: 'Mathematically deterministic. Vendor-agnostic. The only independent third-party trust layer for the autonomous economy.',
+                highlight: true,
+              },
+            ].map((col, i) => (
+              <motion.div
+                key={col.label}
+                className={`p-7 md:p-10 flex flex-col ${i > 0 ? 'md:border-l' : ''} ${col.highlight ? 'relative' : ''}`}
+                style={{
+                  borderColor: col.highlight ? 'rgba(91,217,197,0.4)' : '#222222',
+                  background: col.highlight ? 'rgba(91,217,197,0.03)' : 'transparent',
+                  ...(col.highlight ? { boxShadow: 'inset 0 0 0 1px rgba(91,217,197,0.4)' } : {}),
+                }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 + i * 0.15 }}
+                viewport={{ once: true }}
+              >
+                <p
+                  className={`text-[10px] md:text-[11px] tracking-[0.25em] uppercase font-medium mb-3 ${col.highlight ? 'text-[#5BD9C5]' : 'text-white/40'}`}
+                >
+                  {col.label}
+                </p>
+                <p className="italic text-sm text-white/40 mb-8 font-light">{col.char}</p>
+
+                <div className={`flex-1 flex flex-col gap-3 mb-8 ${col.highlight ? 'justify-center items-center text-center' : ''}`}>
+                  {col.companies.map((c) => (
+                    <p
+                      key={c}
+                      className={`text-white font-normal ${col.highlight ? 'text-2xl md:text-[24px] tracking-tight' : 'text-[17px] md:text-[18px]'}`}
+                    >
+                      {c}
+                    </p>
+                  ))}
+                </div>
+
+                <p
+                  className={`text-sm leading-relaxed font-light pt-6 border-t ${col.highlight ? 'text-white border-[#5BD9C5]/20' : 'text-white/55 border-white/10'}`}
+                >
+                  {col.summary}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.p
+            className="italic text-sm md:text-[15px] text-white/45 font-light text-center mt-10 md:mt-12 max-w-3xl mx-auto"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 1.1 }}
+            viewport={{ once: true }}
+          >
+            FICO is independent of every bank. D&amp;B is independent of every business. The autonomous economy needs the same.
+          </motion.p>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+      {/* ── SLIDE 8: THE BUSINESS MODEL ── */}
+      <Slide slideNumber={8} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
