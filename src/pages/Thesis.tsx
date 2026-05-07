@@ -1334,7 +1334,7 @@ const Thesis = () => {
           transition={{ duration: 1.2 }}
           viewport={{ once: true }}
         >
-          <MicroLabel>09 // WHY NOW</MicroLabel>
+          <MicroLabel>10 // WHY NOW</MicroLabel>
 
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 md:mb-4 text-center leading-[1.1]"
@@ -1550,7 +1550,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto w-full px-6 md:px-16 text-center"
         >
-          <MicroLabel>11 // THE ASK</MicroLabel>
+          <MicroLabel>12 // THE ASK</MicroLabel>
 
           <motion.h2
             className="mt-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white leading-[1.1] tracking-tight"
