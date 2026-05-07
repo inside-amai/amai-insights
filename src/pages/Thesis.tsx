@@ -1374,7 +1374,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            $4M raise · $26.5M cap · 20% discount · Hard close May 25, 2026
+            $4M raise · $26.5M cap · 20% discount
           </motion.p>
 
           {/* Stat row */}
