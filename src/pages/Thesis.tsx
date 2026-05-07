@@ -1690,7 +1690,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto w-full px-6 md:px-16 text-center"
         >
-          <MicroLabel>13 // THE ASK</MicroLabel>
+          <MicroLabel>13 // THE ROUND</MicroLabel>
 
           <motion.h2
             className="mt-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white leading-[1.1] tracking-tight"
