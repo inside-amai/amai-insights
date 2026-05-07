@@ -1346,92 +1346,8 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 9: CLOSING ── */}
+      {/* ─── Slide 10 · The Ask ─── */}
       <Slide slideNumber={10} footerText={t('tp.footer')}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.2 }}
-          viewport={{ once: true }}
-          className="max-w-3xl mx-auto text-center"
-        >
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-10 md:mb-16 leading-[1.2]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            {t('tp.s7.h')}
-          </motion.h2>
-          
-          <motion.div 
-            className="mb-10 md:mb-16" 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <div className="flex items-center justify-center gap-3 md:gap-5">
-              {[t('tp.s7.word1'), t('tp.s7.word2'), t('tp.s7.word3')].map((word, i) => (
-                <motion.span
-                  key={word}
-                  className="text-sm md:text-base tracking-[0.2em] uppercase text-white/50 font-light"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.7 + i * 0.15 }}
-                  viewport={{ once: true }}
-                >
-                  {word}
-                </motion.span>
-              ))}
-            </div>
-            <motion.p 
-              className="mt-6 text-base md:text-xl text-white/70 font-light"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-              viewport={{ once: true }}
-            >
-              {t('tp.s7.tagline')}
-            </motion.p>
-          </motion.div>
-          
-          <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <a
-              href="https://terminal.amai.net"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-white/10 border border-white/30 rounded text-xs tracking-[0.15em] uppercase text-white hover:bg-white/20 hover:border-white/50 transition-all duration-300"
-            >
-              ACCESS THE BUREAU
-            </a>
-            <a
-              href="/architecture"
-              className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
-            >
-              {t('tp.s7.arch')} <span>{isRtl ? '←' : '→'}</span>
-            </a>
-            <a
-              href="mailto:team@amai.net?subject=Mission%20Briefing%20%2F%2F%20%5BOrganization%20Name%5D&body=To%20the%20AMAI%20Labs%20Team%2C%0A%0AWe%20are%20reaching%20out%20regarding%20the%20%5BThesis%20%2F%20Architecture%5D.%0A%0AName%3A%20%0AOrganization%3A%20%0AIntent%3A%20"
-              className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
-            >
-              {t('tp.s7.contact')}
-            </a>
-          </motion.div>
-        </motion.div>
-      </Slide>
-
-      <SlideDivider />
-
-      {/* ─── Slide 11 · The Ask ─── */}
-      <Slide slideNumber={11} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1439,7 +1355,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto w-full px-6 md:px-16 text-center"
         >
-          <MicroLabel>11 // THE ASK</MicroLabel>
+          <MicroLabel>10 // THE ASK</MicroLabel>
 
           <motion.h2
             className="mt-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white leading-[1.1] tracking-tight"
@@ -1522,6 +1438,90 @@ const Thesis = () => {
                 </div>
               ))}
             </div>
+          </motion.div>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+      {/* ── SLIDE 11: CLOSING ── */}
+      <Slide slideNumber={11} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1.2 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto text-center"
+        >
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-10 md:mb-16 leading-[1.2]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            {t('tp.s7.h')}
+          </motion.h2>
+          
+          <motion.div 
+            className="mb-10 md:mb-16" 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center justify-center gap-3 md:gap-5">
+              {[t('tp.s7.word1'), t('tp.s7.word2'), t('tp.s7.word3')].map((word, i) => (
+                <motion.span
+                  key={word}
+                  className="text-sm md:text-base tracking-[0.2em] uppercase text-white/50 font-light"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.7 + i * 0.15 }}
+                  viewport={{ once: true }}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </div>
+            <motion.p 
+              className="mt-6 text-base md:text-xl text-white/70 font-light"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
+              viewport={{ once: true }}
+            >
+              {t('tp.s7.tagline')}
+            </motion.p>
+          </motion.div>
+          
+          <motion.div
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <a
+              href="https://terminal.amai.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-white/10 border border-white/30 rounded text-xs tracking-[0.15em] uppercase text-white hover:bg-white/20 hover:border-white/50 transition-all duration-300"
+            >
+              ACCESS THE BUREAU
+            </a>
+            <a
+              href="/architecture"
+              className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
+            >
+              {t('tp.s7.arch')} <span>{isRtl ? '←' : '→'}</span>
+            </a>
+            <a
+              href="mailto:team@amai.net?subject=Mission%20Briefing%20%2F%2F%20%5BOrganization%20Name%5D&body=To%20the%20AMAI%20Labs%20Team%2C%0A%0AWe%20are%20reaching%20out%20regarding%20the%20%5BThesis%20%2F%20Architecture%5D.%0A%0AName%3A%20%0AOrganization%3A%20%0AIntent%3A%20"
+              className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
+            >
+              {t('tp.s7.contact')}
+            </a>
           </motion.div>
         </motion.div>
       </Slide>
