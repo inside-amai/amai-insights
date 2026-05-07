@@ -1433,7 +1433,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ─── Slide 10 · The Ask ─── */}
-      <Slide slideNumber={10} footerText={t('tp.footer')}>
+      <Slide slideNumber={11} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1441,7 +1441,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto w-full px-6 md:px-16 text-center"
         >
-          <MicroLabel>10 // THE ASK</MicroLabel>
+          <MicroLabel>11 // THE ASK</MicroLabel>
 
           <motion.h2
             className="mt-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white leading-[1.1] tracking-tight"
