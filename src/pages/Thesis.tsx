@@ -541,14 +541,14 @@ const Thesis = () => {
 
       {/* ── SLIDE 8: THE TEAM ── */}
       {/* ── SLIDE 9: WHY NOW ── */}
-      <Slide slideNumber={10} footerText={t('tp.footer')}>
+      <Slide slideNumber={4} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1.2 }}
           viewport={{ once: true }}
         >
-          <MicroLabel>10 // WHY NOW</MicroLabel>
+          <MicroLabel>04 // WHY NOW</MicroLabel>
 
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 md:mb-4 text-center leading-[1.1]"
@@ -626,7 +626,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 4: THE TARI ENGINE ── */}
-      <Slide slideNumber={4} footerText={t('tp.footer')}>
+      <Slide slideNumber={5} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -775,7 +775,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 5: DETERMINISTIC ENFORCEMENT ── */}
-      <Slide slideNumber={5} footerText={t('tp.footer')}>
+      <Slide slideNumber={6} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -926,7 +926,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 6: THE MOAT ── */}
-      <Slide slideNumber={6} footerText={t('tp.footer')}>
+      <Slide slideNumber={8} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1043,7 +1043,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 8: THE BUSINESS MODEL ── */}
-      <Slide slideNumber={8} footerText={t('tp.footer')}>
+      <Slide slideNumber={9} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1268,7 +1268,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 7: THE AUTONOMOUS ECONOMY (Market Sizing) ── */}
-      <Slide slideNumber={9} footerText={t('tp.footer')}>
+      <Slide slideNumber={10} footerText={t('tp.footer')}>
         {/* Abstract background: data streams */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           {/* Horizontal data stream lines */}
@@ -1542,7 +1542,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 11: CLOSING ── */}
-      <Slide slideNumber={13} footerText={t('tp.footer')}>
+      <Slide slideNumber={12} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1626,7 +1626,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ─── Slide 10 · The Ask ─── */}
-      <Slide slideNumber={12} footerText={t('tp.footer')}>
+      <Slide slideNumber={13} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1634,7 +1634,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto w-full px-6 md:px-16 text-center"
         >
-          <MicroLabel>12 // THE ASK</MicroLabel>
+          <MicroLabel>13 // THE ASK</MicroLabel>
 
           <motion.h2
             className="mt-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white leading-[1.1] tracking-tight"
