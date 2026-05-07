@@ -847,6 +847,12 @@ const Thesis = () => {
                   </div>
                 ))}
               </div>
+              <p
+                className="text-center italic mt-5"
+                style={{ color: '#666666', fontSize: '12px' }}
+              >
+                Illustrative — Agent Bureau view, GA Q4 2026.
+              </p>
             </div>
           </motion.div>
         </motion.div>
