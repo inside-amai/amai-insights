@@ -539,8 +539,94 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 4: THE TARI ENGINE ── */}
+      {/* ── SLIDE 8: THE TEAM ── */}
+      {/* ── SLIDE 9: WHY NOW ── */}
       <Slide slideNumber={4} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1.2 }}
+          viewport={{ once: true }}
+        >
+          <MicroLabel>04 // WHY NOW</MicroLabel>
+
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 md:mb-4 text-center leading-[1.1]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            The Risk Is No Longer Theoretical.
+          </motion.h2>
+          <motion.p
+            className="text-sm md:text-base text-white/40 font-light mb-12 md:mb-16 max-w-2xl mx-auto text-center leading-relaxed"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            Four converging signals from the last 12 months — and the window for the independent arbiter is closing.
+          </motion.p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+            {[
+              {
+                tag: 'MARCH 2026 · INCIDENT',
+                title: 'The PocketOS Wipe',
+                body: 'A Claude Opus agent running in Cursor autonomously deleted a production database and all backups in under 9 seconds. Months of operational data erased — without authorization.',
+                src: 'AI Incident Database, Report #7167',
+              },
+              {
+                tag: '2025 · RESEARCH',
+                title: 'Multi-Agent Hijacking Proven',
+                body: 'Up to 97% success rates against AutoGen, CrewAI, and MetaGPT. Malicious instructions laundered through trusted agent outputs — invisible to existing intrusion detection systems.',
+                src: 'arXiv:2503.12188',
+              },
+              {
+                tag: '2026 · MARKET',
+                title: 'Microsoft Validates The Category',
+                body: "Entra Agent ID launches identity, authorization, and access governance — but only for Microsoft's own agents. The structural conflict of interest creates the independent arbiter gap.",
+                src: 'Microsoft Security',
+              },
+              {
+                tag: '2026 · REGULATORY',
+                title: 'EU AI Act Enforcement Begins',
+                body: 'Core high-risk AI obligations enter into force August 2, 2026. Non-compliance penalties reach up to €15M or 3% of global revenue. Mandatory traceability, logging, and human oversight requirements  make verifiable audit infrastructure the new enterprise standard.',
+                src: 'Regulation (EU) 2024/1689',
+              },
+            ].map((card, i) => (
+              <motion.div
+                key={card.title}
+                className="border rounded-md p-7 md:p-8 flex flex-col bg-black"
+                style={{ borderColor: '#222222' }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.5 + i * 0.12 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-[11px] tracking-[0.25em] uppercase font-medium mb-4" style={{ color: '#7fd6d6' }}>
+                  {card.tag}
+                </p>
+                <h3 className="text-lg md:text-[22px] font-medium text-white mb-3 leading-snug">
+                  {card.title}
+                </h3>
+                <p className="text-[13px] md:text-[15px] text-white/55 font-light leading-[1.5] mb-5 flex-1">
+                  {card.body}
+                </p>
+                <p className="text-[11px] italic text-white/30 font-light">
+                  {card.src}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+      {/* ── SLIDE 4: THE TARI ENGINE ── */}
+      <Slide slideNumber={5} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -689,7 +775,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 5: DETERMINISTIC ENFORCEMENT ── */}
-      <Slide slideNumber={5} footerText={t('tp.footer')}>
+      <Slide slideNumber={6} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -724,123 +810,6 @@ const Thesis = () => {
             viewport={{ once: true }}
           >
             <TariArchitectureDiagram />
-          </motion.div>
-        </motion.div>
-      </Slide>
-
-      <SlideDivider />
-
-      {/* ── SLIDE 6: THE MOAT ── */}
-      <Slide slideNumber={6} footerText={t('tp.footer')}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-          className="max-w-4xl mx-auto text-center"
-        >
-          <MicroLabel>{t('tp.s5.label')}</MicroLabel>
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 leading-[1.15]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            {t('tp.s5.h')}
-          </motion.h2>
-          <motion.p
-            className="text-base md:text-lg text-white/50 font-light mb-10 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            {t('tp.s5.sub')}
-          </motion.p>
-
-          {/* Trust Matrix Panel */}
-          <motion.div
-            className="bg-black border border-white/10 rounded-lg overflow-hidden"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            viewport={{ once: true }}
-          >
-            {/* Top Section: Agent Score */}
-            <div className="border-b border-white/10 px-5 md:px-8 py-5 md:py-6">
-              <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.5)]" />
-                  <span className="text-[10px] md:text-xs tracking-[0.2em] uppercase text-white/40 font-mono">AGENT-0B</span>
-                  <span className="text-[10px] tracking-[0.15em] text-white/20 font-mono">//</span>
-                  <span className="text-[10px] md:text-xs tracking-[0.15em] uppercase text-white/40 font-mono">{t('tp.s5.rating')}</span>
-                  <span className="text-2xl md:text-3xl font-light text-white tracking-tight">842</span>
-                  <span className="text-[10px] tracking-[0.2em] uppercase text-emerald-400/80 font-mono border border-emerald-400/20 px-2 py-0.5 rounded">{t('tp.s5.prime')}</span>
-                </div>
-                {/* Sparkline */}
-                <svg className="w-32 md:w-40 h-8" viewBox="0 0 160 32" fill="none">
-                  <defs>
-                    <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="rgba(52,211,153,0.3)" />
-                      <stop offset="100%" stopColor="rgba(52,211,153,0)" />
-                    </linearGradient>
-                  </defs>
-                  <path d="M0,28 L12,26 L24,24 L36,25 L48,22 L60,20 L72,18 L84,19 L96,15 L108,12 L120,10 L132,8 L144,6 L156,4 L160,3" stroke="rgba(52,211,153,0.6)" strokeWidth="1.5" fill="none" />
-                  <path d="M0,28 L12,26 L24,24 L36,25 L48,22 L60,20 L72,18 L84,19 L96,15 L108,12 L120,10 L132,8 L144,6 L156,4 L160,3 L160,32 L0,32 Z" fill="url(#sparkGrad)" />
-                </svg>
-              </div>
-            </div>
-
-            {/* Middle Section: Heatmap */}
-            <div className="border-b border-white/10 px-5 md:px-8 py-5 md:py-6">
-              <p className={`text-[9px] tracking-[0.2em] uppercase text-white/30 mb-4 ${isRtl ? 'text-right' : 'text-left'} font-mono`}>{t('tp.s5.history')}</p>
-              <div className="flex gap-[3px] md:gap-1 flex-wrap justify-center">
-                {Array.from({ length: 52 * 5 }, (_, i) => {
-                  const isFault = i === 187;
-                  const intensity = isFault ? 0 : Math.random();
-                  const opacity = isFault ? 1 : intensity < 0.15 ? 0.08 : intensity < 0.4 ? 0.2 : intensity < 0.7 ? 0.4 : 0.7;
-                  return (
-                    <div
-                      key={i}
-                      className="w-[6px] h-[6px] md:w-2 md:h-2 rounded-[1px]"
-                      style={{
-                        backgroundColor: isFault
-                          ? 'rgba(239,68,68,0.9)'
-                          : `rgba(52,211,153,${opacity})`,
-                        boxShadow: isFault
-                          ? '0 0 6px rgba(239,68,68,0.5)'
-                          : opacity > 0.5
-                            ? '0 0 4px rgba(52,211,153,0.3)'
-                            : 'none',
-                      }}
-                    />
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Bottom Section: Cumulative Metrics */}
-            <div className="px-5 md:px-8 py-5 md:py-6">
-              <div className="grid grid-cols-3 gap-4 md:gap-8">
-                {[
-                  { label: t('tp.s5.tasks'), value: '4,192' },
-                  { label: t('tp.s5.capital'), value: '$12.4M' },
-                  { label: t('tp.s5.fault'), value: '0.02%' },
-                ].map((metric) => (
-                  <div key={metric.label} className="text-center">
-                    <p className="text-xl md:text-2xl text-white font-light tracking-tight mb-1">{metric.value}</p>
-                    <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono">{metric.label}</p>
-                  </div>
-                ))}
-              </div>
-              <p
-                className="text-center italic mt-5"
-                style={{ color: '#666666', fontSize: '12px' }}
-              >
-                Illustrative — Agent Bureau view, GA Q4 2026.
-              </p>
-            </div>
           </motion.div>
         </motion.div>
       </Slide>
@@ -956,8 +925,125 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 8: THE BUSINESS MODEL ── */}
+      {/* ── SLIDE 6: THE MOAT ── */}
       <Slide slideNumber={8} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto text-center"
+        >
+          <MicroLabel>{t('tp.s5.label')}</MicroLabel>
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 leading-[1.15]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            {t('tp.s5.h')}
+          </motion.h2>
+          <motion.p
+            className="text-base md:text-lg text-white/50 font-light mb-10 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            {t('tp.s5.sub')}
+          </motion.p>
+
+          {/* Trust Matrix Panel */}
+          <motion.div
+            className="bg-black border border-white/10 rounded-lg overflow-hidden"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            {/* Top Section: Agent Score */}
+            <div className="border-b border-white/10 px-5 md:px-8 py-5 md:py-6">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.5)]" />
+                  <span className="text-[10px] md:text-xs tracking-[0.2em] uppercase text-white/40 font-mono">AGENT-0B</span>
+                  <span className="text-[10px] tracking-[0.15em] text-white/20 font-mono">//</span>
+                  <span className="text-[10px] md:text-xs tracking-[0.15em] uppercase text-white/40 font-mono">{t('tp.s5.rating')}</span>
+                  <span className="text-2xl md:text-3xl font-light text-white tracking-tight">842</span>
+                  <span className="text-[10px] tracking-[0.2em] uppercase text-emerald-400/80 font-mono border border-emerald-400/20 px-2 py-0.5 rounded">{t('tp.s5.prime')}</span>
+                </div>
+                {/* Sparkline */}
+                <svg className="w-32 md:w-40 h-8" viewBox="0 0 160 32" fill="none">
+                  <defs>
+                    <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="rgba(52,211,153,0.3)" />
+                      <stop offset="100%" stopColor="rgba(52,211,153,0)" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M0,28 L12,26 L24,24 L36,25 L48,22 L60,20 L72,18 L84,19 L96,15 L108,12 L120,10 L132,8 L144,6 L156,4 L160,3" stroke="rgba(52,211,153,0.6)" strokeWidth="1.5" fill="none" />
+                  <path d="M0,28 L12,26 L24,24 L36,25 L48,22 L60,20 L72,18 L84,19 L96,15 L108,12 L120,10 L132,8 L144,6 L156,4 L160,3 L160,32 L0,32 Z" fill="url(#sparkGrad)" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Middle Section: Heatmap */}
+            <div className="border-b border-white/10 px-5 md:px-8 py-5 md:py-6">
+              <p className={`text-[9px] tracking-[0.2em] uppercase text-white/30 mb-4 ${isRtl ? 'text-right' : 'text-left'} font-mono`}>{t('tp.s5.history')}</p>
+              <div className="flex gap-[3px] md:gap-1 flex-wrap justify-center">
+                {Array.from({ length: 52 * 5 }, (_, i) => {
+                  const isFault = i === 187;
+                  const intensity = isFault ? 0 : Math.random();
+                  const opacity = isFault ? 1 : intensity < 0.15 ? 0.08 : intensity < 0.4 ? 0.2 : intensity < 0.7 ? 0.4 : 0.7;
+                  return (
+                    <div
+                      key={i}
+                      className="w-[6px] h-[6px] md:w-2 md:h-2 rounded-[1px]"
+                      style={{
+                        backgroundColor: isFault
+                          ? 'rgba(239,68,68,0.9)'
+                          : `rgba(52,211,153,${opacity})`,
+                        boxShadow: isFault
+                          ? '0 0 6px rgba(239,68,68,0.5)'
+                          : opacity > 0.5
+                            ? '0 0 4px rgba(52,211,153,0.3)'
+                            : 'none',
+                      }}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Bottom Section: Cumulative Metrics */}
+            <div className="px-5 md:px-8 py-5 md:py-6">
+              <div className="grid grid-cols-3 gap-4 md:gap-8">
+                {[
+                  { label: t('tp.s5.tasks'), value: '4,192' },
+                  { label: t('tp.s5.capital'), value: '$12.4M' },
+                  { label: t('tp.s5.fault'), value: '0.02%' },
+                ].map((metric) => (
+                  <div key={metric.label} className="text-center">
+                    <p className="text-xl md:text-2xl text-white font-light tracking-tight mb-1">{metric.value}</p>
+                    <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono">{metric.label}</p>
+                  </div>
+                ))}
+              </div>
+              <p
+                className="text-center italic mt-5"
+                style={{ color: '#666666', fontSize: '12px' }}
+              >
+                Illustrative — Agent Bureau view, GA Q4 2026.
+              </p>
+            </div>
+          </motion.div>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+      {/* ── SLIDE 8: THE BUSINESS MODEL ── */}
+      <Slide slideNumber={9} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1182,7 +1268,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 7: THE AUTONOMOUS ECONOMY (Market Sizing) ── */}
-      <Slide slideNumber={9} footerText={t('tp.footer')}>
+      <Slide slideNumber={10} footerText={t('tp.footer')}>
         {/* Abstract background: data streams */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           {/* Horizontal data stream lines */}
@@ -1325,92 +1411,6 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 8: THE TEAM ── */}
-      {/* ── SLIDE 9: WHY NOW ── */}
-      <Slide slideNumber={10} footerText={t('tp.footer')}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.2 }}
-          viewport={{ once: true }}
-        >
-          <MicroLabel>10 // WHY NOW</MicroLabel>
-
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 md:mb-4 text-center leading-[1.1]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            The Risk Is No Longer Theoretical.
-          </motion.h2>
-          <motion.p
-            className="text-sm md:text-base text-white/40 font-light mb-12 md:mb-16 max-w-2xl mx-auto text-center leading-relaxed"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            Four converging signals from the last 12 months — and the window for the independent arbiter is closing.
-          </motion.p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-            {[
-              {
-                tag: 'MARCH 2026 · INCIDENT',
-                title: 'The PocketOS Wipe',
-                body: 'A Claude Opus agent running in Cursor autonomously deleted a production database and all backups in under 9 seconds. Months of operational data erased — without authorization.',
-                src: 'AI Incident Database, Report #7167',
-              },
-              {
-                tag: '2025 · RESEARCH',
-                title: 'Multi-Agent Hijacking Proven',
-                body: 'Up to 97% success rates against AutoGen, CrewAI, and MetaGPT. Malicious instructions laundered through trusted agent outputs — invisible to existing intrusion detection systems.',
-                src: 'arXiv:2503.12188',
-              },
-              {
-                tag: '2026 · MARKET',
-                title: 'Microsoft Validates The Category',
-                body: "Entra Agent ID launches identity, authorization, and access governance — but only for Microsoft's own agents. The structural conflict of interest creates the independent arbiter gap.",
-                src: 'Microsoft Security',
-              },
-              {
-                tag: '2026 · REGULATORY',
-                title: 'EU AI Act Enforcement Begins',
-                body: 'Core high-risk AI obligations enter into force August 2, 2026. Non-compliance penalties reach up to €15M or 3% of global revenue. Mandatory traceability, logging, and human oversight requirements  make verifiable audit infrastructure the new enterprise standard.',
-                src: 'Regulation (EU) 2024/1689',
-              },
-            ].map((card, i) => (
-              <motion.div
-                key={card.title}
-                className="border rounded-md p-7 md:p-8 flex flex-col bg-black"
-                style={{ borderColor: '#222222' }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.5 + i * 0.12 }}
-                viewport={{ once: true }}
-              >
-                <p className="text-[11px] tracking-[0.25em] uppercase font-medium mb-4" style={{ color: '#7fd6d6' }}>
-                  {card.tag}
-                </p>
-                <h3 className="text-lg md:text-[22px] font-medium text-white mb-3 leading-snug">
-                  {card.title}
-                </h3>
-                <p className="text-[13px] md:text-[15px] text-white/55 font-light leading-[1.5] mb-5 flex-1">
-                  {card.body}
-                </p>
-                <p className="text-[11px] italic text-white/30 font-light">
-                  {card.src}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </Slide>
-
-      <SlideDivider />
-
       {/* ── SLIDE 10: THE TEAM ── */}
       <Slide slideNumber={11} footerText={t('tp.footer')}>
         <motion.div
@@ -1541,8 +1541,92 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ─── Slide 10 · The Ask ─── */}
+      {/* ── SLIDE 11: CLOSING ── */}
       <Slide slideNumber={12} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1.2 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto text-center"
+        >
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-10 md:mb-16 leading-[1.2]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            {t('tp.s7.h')}
+          </motion.h2>
+          
+          <motion.div 
+            className="mb-10 md:mb-16" 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center justify-center gap-3 md:gap-5">
+              {[t('tp.s7.word1'), t('tp.s7.word2'), t('tp.s7.word3')].map((word, i) => (
+                <motion.span
+                  key={word}
+                  className="text-sm md:text-base tracking-[0.2em] uppercase text-white/50 font-light"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.7 + i * 0.15 }}
+                  viewport={{ once: true }}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </div>
+            <motion.p 
+              className="mt-6 text-base md:text-xl text-white/70 font-light"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
+              viewport={{ once: true }}
+            >
+              {t('tp.s7.tagline')}
+            </motion.p>
+          </motion.div>
+          
+          <motion.div
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <a
+              href="https://terminal.amai.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-white/10 border border-white/30 rounded text-xs tracking-[0.15em] uppercase text-white hover:bg-white/20 hover:border-white/50 transition-all duration-300"
+            >
+              ACCESS THE BUREAU
+            </a>
+            <a
+              href="/architecture"
+              className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
+            >
+              {t('tp.s7.arch')} <span>{isRtl ? '←' : '→'}</span>
+            </a>
+            <a
+              href="mailto:team@amai.net?subject=Mission%20Briefing%20%2F%2F%20%5BOrganization%20Name%5D&body=To%20the%20AMAI%20Labs%20Team%2C%0A%0AWe%20are%20reaching%20out%20regarding%20the%20%5BThesis%20%2F%20Architecture%5D.%0A%0AName%3A%20%0AOrganization%3A%20%0AIntent%3A%20"
+              className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
+            >
+              {t('tp.s7.contact')}
+            </a>
+          </motion.div>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+      {/* ─── Slide 10 · The Ask ─── */}
+      <Slide slideNumber={13} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1550,7 +1634,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto w-full px-6 md:px-16 text-center"
         >
-          <MicroLabel>12 // THE ASK</MicroLabel>
+          <MicroLabel>13 // THE ASK</MicroLabel>
 
           <motion.h2
             className="mt-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white leading-[1.1] tracking-tight"
@@ -1633,90 +1717,6 @@ const Thesis = () => {
                 </div>
               ))}
             </div>
-          </motion.div>
-        </motion.div>
-      </Slide>
-
-      <SlideDivider />
-
-      {/* ── SLIDE 11: CLOSING ── */}
-      <Slide slideNumber={13} footerText={t('tp.footer')}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.2 }}
-          viewport={{ once: true }}
-          className="max-w-3xl mx-auto text-center"
-        >
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-10 md:mb-16 leading-[1.2]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            {t('tp.s7.h')}
-          </motion.h2>
-          
-          <motion.div 
-            className="mb-10 md:mb-16" 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <div className="flex items-center justify-center gap-3 md:gap-5">
-              {[t('tp.s7.word1'), t('tp.s7.word2'), t('tp.s7.word3')].map((word, i) => (
-                <motion.span
-                  key={word}
-                  className="text-sm md:text-base tracking-[0.2em] uppercase text-white/50 font-light"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.7 + i * 0.15 }}
-                  viewport={{ once: true }}
-                >
-                  {word}
-                </motion.span>
-              ))}
-            </div>
-            <motion.p 
-              className="mt-6 text-base md:text-xl text-white/70 font-light"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-              viewport={{ once: true }}
-            >
-              {t('tp.s7.tagline')}
-            </motion.p>
-          </motion.div>
-          
-          <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <a
-              href="https://terminal.amai.net"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-white/10 border border-white/30 rounded text-xs tracking-[0.15em] uppercase text-white hover:bg-white/20 hover:border-white/50 transition-all duration-300"
-            >
-              ACCESS THE BUREAU
-            </a>
-            <a
-              href="/architecture"
-              className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
-            >
-              {t('tp.s7.arch')} <span>{isRtl ? '←' : '→'}</span>
-            </a>
-            <a
-              href="mailto:team@amai.net?subject=Mission%20Briefing%20%2F%2F%20%5BOrganization%20Name%5D&body=To%20the%20AMAI%20Labs%20Team%2C%0A%0AWe%20are%20reaching%20out%20regarding%20the%20%5BThesis%20%2F%20Architecture%5D.%0A%0AName%3A%20%0AOrganization%3A%20%0AIntent%3A%20"
-              className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
-            >
-              {t('tp.s7.contact')}
-            </a>
           </motion.div>
         </motion.div>
       </Slide>
