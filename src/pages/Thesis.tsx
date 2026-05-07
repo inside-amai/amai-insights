@@ -1461,7 +1461,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Pre-Seed. Memorial Day.
+            Closing The Round.
           </motion.h2>
 
           <motion.p
