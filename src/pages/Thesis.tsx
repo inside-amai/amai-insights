@@ -1275,7 +1275,7 @@ const Thesis = () => {
             ].map((card, i) => (
               <motion.div
                 key={card.title}
-                className="border rounded-md p-7 md:p-8 flex flex-col"
+                className="border rounded-md p-7 md:p-8 flex flex-col bg-black"
                 style={{ borderColor: '#222222' }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
