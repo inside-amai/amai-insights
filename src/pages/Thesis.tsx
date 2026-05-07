@@ -18,7 +18,7 @@ interface SlideProps {
   footerText?: string;
 }
 
-const TOTAL_SLIDES = 10;
+const TOTAL_SLIDES = 12;
 
 const Slide = ({ children, className = "", slideNumber, footerText = "AMAI Labs · Infrastructure & Research" }: SlideProps) => (
   <section
@@ -1217,7 +1217,93 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 8: THE TEAM ── */}
+      {/* ── SLIDE 9: WHY NOW ── */}
       <Slide slideNumber={9} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1.2 }}
+          viewport={{ once: true }}
+        >
+          <MicroLabel>09 // WHY NOW</MicroLabel>
+
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 md:mb-4 text-center leading-[1.1]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            The Risk Is No Longer Theoretical.
+          </motion.h2>
+          <motion.p
+            className="text-sm md:text-base text-white/40 font-light mb-12 md:mb-16 max-w-2xl mx-auto text-center leading-relaxed"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            Four converging signals from the last 12 months — and the window for the independent arbiter is closing.
+          </motion.p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+            {[
+              {
+                tag: 'MARCH 2026 · INCIDENT',
+                title: 'The PocketOS Wipe',
+                body: 'A Claude Opus agent running in Cursor autonomously deleted a production database and all backups in under 9 seconds. Months of operational data erased — without authorization.',
+                src: 'AI Incident Database, Report #7167',
+              },
+              {
+                tag: '2025 · RESEARCH',
+                title: 'Multi-Agent Hijacking Proven',
+                body: 'Up to 97% success rates against AutoGen, CrewAI, and MetaGPT. Malicious instructions laundered through trusted agent outputs — invisible to existing intrusion detection systems.',
+                src: 'arXiv:2503.12188',
+              },
+              {
+                tag: '2026 · MARKET',
+                title: 'Microsoft Validates The Category',
+                body: "Entra Agent ID launches identity, authorization, and access governance — but only for Microsoft's own agents. The structural conflict of interest creates the independent arbiter gap.",
+                src: 'Microsoft Security',
+              },
+              {
+                tag: '2026 · REGULATORY',
+                title: 'EU AI Act Enforcement Begins',
+                body: 'High-risk AI obligations enter force. Enterprises face penalties up to €35M or 7% of global revenue for unaudited autonomous systems. Cryptographic auditability becomes mandatory.',
+                src: 'Regulation (EU) 2024/1689',
+              },
+            ].map((card, i) => (
+              <motion.div
+                key={card.title}
+                className="border rounded-md p-7 md:p-8 flex flex-col"
+                style={{ borderColor: '#222222' }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.5 + i * 0.12 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-[11px] tracking-[0.25em] uppercase font-medium mb-4" style={{ color: '#7fd6d6' }}>
+                  {card.tag}
+                </p>
+                <h3 className="text-lg md:text-[22px] font-medium text-white mb-3 leading-snug">
+                  {card.title}
+                </h3>
+                <p className="text-[13px] md:text-[15px] text-white/55 font-light leading-[1.5] mb-5 flex-1">
+                  {card.body}
+                </p>
+                <p className="text-[11px] italic text-white/30 font-light">
+                  {card.src}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+      {/* ── SLIDE 10: THE TEAM ── */}
+      <Slide slideNumber={10} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
