@@ -1269,7 +1269,7 @@ const Thesis = () => {
               {
                 tag: '2026 · REGULATORY',
                 title: 'EU AI Act Enforcement Begins',
-                body: 'High-risk AI obligations enter force. Enterprises face penalties up to €35M or 7% of global revenue for unaudited autonomous systems. Cryptographic auditability becomes mandatory.',
+                body: 'Core high-risk AI obligations enter into force August 2, 2026. Non-compliance penalties reach up to €15M or 3% of global revenue. Mandatory traceability, logging, and human oversight requirements  make verifiable audit infrastructure the new enterprise standard.',
                 src: 'Regulation (EU) 2024/1689',
               },
             ].map((card, i) => (
