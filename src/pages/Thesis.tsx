@@ -1597,6 +1597,15 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-3xl mx-auto text-center"
         >
+          <motion.img
+            src={amaiLogo}
+            alt="AMAI"
+            className="h-10 md:h-16 w-auto brightness-110 mb-10 md:mb-20 mx-auto"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          />
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-10 md:mb-16 leading-[1.2]"
             initial={{ opacity: 0, y: 20 }}
