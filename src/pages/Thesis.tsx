@@ -1543,6 +1543,53 @@ const Thesis = () => {
 
       {/* ── SLIDE 11: CLOSING ── */}
       <Slide slideNumber={12} footerText={t('tp.footer')}>
+        {/* Constellation accent — same as hero */}
+        <div className="absolute inset-0 pointer-events-none z-0">
+          <motion.svg
+            className="absolute right-[8%] top-[12%] w-[280px] h-[280px] opacity-[0.12]"
+            viewBox="0 0 400 400"
+            animate={{ x: [0, 3, -2, 1, 0], y: [0, -2, 3, -1, 0] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <circle cx="200" cy="180" r="3" fill="white" />
+            <circle cx="280" cy="120" r="2" fill="white" />
+            <circle cx="320" cy="200" r="2.5" fill="white" />
+            <circle cx="260" cy="280" r="2" fill="white" />
+            <circle cx="140" cy="240" r="2.5" fill="white" />
+            <circle cx="100" cy="140" r="2" fill="white" />
+            <circle cx="180" cy="320" r="1.5" fill="white" />
+            <circle cx="340" cy="300" r="1.5" fill="white" />
+            <circle cx="80" cy="280" r="1.5" fill="white" />
+            <circle cx="220" cy="80" r="1.5" fill="white" />
+            <path d="M200,180 L280,120" stroke="white" strokeWidth="0.5" fill="none" />
+            <path d="M200,180 L320,200" stroke="white" strokeWidth="0.5" fill="none" />
+            <path d="M200,180 L260,280" stroke="white" strokeWidth="0.5" fill="none" />
+            <path d="M200,180 L140,240" stroke="white" strokeWidth="0.5" fill="none" />
+            <path d="M200,180 L100,140" stroke="white" strokeWidth="0.5" fill="none" />
+            <path d="M280,120 L320,200" stroke="white" strokeWidth="0.3" fill="none" />
+            <path d="M320,200 L260,280" stroke="white" strokeWidth="0.3" fill="none" />
+            <path d="M260,280 L180,320" stroke="white" strokeWidth="0.3" fill="none" />
+            <path d="M140,240 L80,280" stroke="white" strokeWidth="0.3" fill="none" />
+            <path d="M100,140 L220,80" stroke="white" strokeWidth="0.3" fill="none" />
+            <path d="M280,120 L220,80" stroke="white" strokeWidth="0.3" fill="none" />
+          </motion.svg>
+          <motion.svg
+            className="absolute left-[8%] bottom-[18%] w-[180px] h-[180px] opacity-[0.08]"
+            viewBox="0 0 200 200"
+            animate={{ x: [0, -2, 1, -1, 0], y: [0, 1, -2, 2, 0] }}
+            transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <circle cx="100" cy="100" r="2" fill="white" />
+            <circle cx="60" cy="70" r="1.5" fill="white" />
+            <circle cx="140" cy="80" r="1.5" fill="white" />
+            <circle cx="80" cy="140" r="1.5" fill="white" />
+            <circle cx="130" cy="130" r="1" fill="white" />
+            <path d="M100,100 L60,70" stroke="white" strokeWidth="0.4" fill="none" />
+            <path d="M100,100 L140,80" stroke="white" strokeWidth="0.4" fill="none" />
+            <path d="M100,100 L80,140" stroke="white" strokeWidth="0.4" fill="none" />
+            <path d="M100,100 L130,130" stroke="white" strokeWidth="0.4" fill="none" />
+          </motion.svg>
+        </div>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
