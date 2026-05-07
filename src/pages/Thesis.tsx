@@ -539,6 +539,92 @@ const Thesis = () => {
 
       <SlideDivider />
 
+      {/* ── SLIDE 8: THE TEAM ── */}
+      {/* ── SLIDE 9: WHY NOW ── */}
+      <Slide slideNumber={10} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1.2 }}
+          viewport={{ once: true }}
+        >
+          <MicroLabel>10 // WHY NOW</MicroLabel>
+
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 md:mb-4 text-center leading-[1.1]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            The Risk Is No Longer Theoretical.
+          </motion.h2>
+          <motion.p
+            className="text-sm md:text-base text-white/40 font-light mb-12 md:mb-16 max-w-2xl mx-auto text-center leading-relaxed"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            Four converging signals from the last 12 months — and the window for the independent arbiter is closing.
+          </motion.p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+            {[
+              {
+                tag: 'MARCH 2026 · INCIDENT',
+                title: 'The PocketOS Wipe',
+                body: 'A Claude Opus agent running in Cursor autonomously deleted a production database and all backups in under 9 seconds. Months of operational data erased — without authorization.',
+                src: 'AI Incident Database, Report #7167',
+              },
+              {
+                tag: '2025 · RESEARCH',
+                title: 'Multi-Agent Hijacking Proven',
+                body: 'Up to 97% success rates against AutoGen, CrewAI, and MetaGPT. Malicious instructions laundered through trusted agent outputs — invisible to existing intrusion detection systems.',
+                src: 'arXiv:2503.12188',
+              },
+              {
+                tag: '2026 · MARKET',
+                title: 'Microsoft Validates The Category',
+                body: "Entra Agent ID launches identity, authorization, and access governance — but only for Microsoft's own agents. The structural conflict of interest creates the independent arbiter gap.",
+                src: 'Microsoft Security',
+              },
+              {
+                tag: '2026 · REGULATORY',
+                title: 'EU AI Act Enforcement Begins',
+                body: 'Core high-risk AI obligations enter into force August 2, 2026. Non-compliance penalties reach up to €15M or 3% of global revenue. Mandatory traceability, logging, and human oversight requirements  make verifiable audit infrastructure the new enterprise standard.',
+                src: 'Regulation (EU) 2024/1689',
+              },
+            ].map((card, i) => (
+              <motion.div
+                key={card.title}
+                className="border rounded-md p-7 md:p-8 flex flex-col bg-black"
+                style={{ borderColor: '#222222' }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.5 + i * 0.12 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-[11px] tracking-[0.25em] uppercase font-medium mb-4" style={{ color: '#7fd6d6' }}>
+                  {card.tag}
+                </p>
+                <h3 className="text-lg md:text-[22px] font-medium text-white mb-3 leading-snug">
+                  {card.title}
+                </h3>
+                <p className="text-[13px] md:text-[15px] text-white/55 font-light leading-[1.5] mb-5 flex-1">
+                  {card.body}
+                </p>
+                <p className="text-[11px] italic text-white/30 font-light">
+                  {card.src}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
       {/* ── SLIDE 4: THE TARI ENGINE ── */}
       <Slide slideNumber={4} footerText={t('tp.footer')}>
         <motion.div
@@ -730,6 +816,115 @@ const Thesis = () => {
 
       <SlideDivider />
 
+      {/* ── SLIDE 7: COMPETITIVE LANDSCAPE ── */}
+      <Slide slideNumber={7} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="max-w-6xl mx-auto w-full"
+        >
+          <MicroLabel>07 // THE LANDSCAPE</MicroLabel>
+
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 leading-[1.1] tracking-tight text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            The Conflict-of-Interest Gap.
+          </motion.h2>
+
+          <motion.p
+            className="text-base md:text-lg text-white/50 font-light mb-12 md:mb-16 max-w-3xl mx-auto text-center leading-relaxed"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            Native vendors can't audit their own agents. Point solutions defend single layers. AMAI is the only independent, cross-organizational behavioral bureau.
+          </motion.p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 border rounded-md overflow-hidden bg-black" style={{ borderColor: '#222222' }}>
+            {[
+              {
+                label: 'NATIVE / FIRST-PARTY',
+                char: 'Auditing their own agents',
+                companies: ['Microsoft Entra Agent ID', 'NVIDIA NeMo Guardrails', 'OpenAI', 'Anthropic'],
+                summary: 'Structural conflict of interest. Cannot serve as third-party arbiter.',
+                highlight: false,
+              },
+              {
+                label: 'POINT SOLUTIONS',
+                char: 'Single-layer defense',
+                companies: ['CalypsoAI', 'Lakera', 'Lasso Security', 'Protect AI', 'HiddenLayer'],
+                summary: 'Prompt injection, model security, individual layers. No cross-org behavioral ledger.',
+                highlight: false,
+              },
+              {
+                label: 'THE INDEPENDENT BUREAU',
+                char: 'Cross-organizational standard',
+                companies: ['AMAI Labs'],
+                summary: 'Mathematically deterministic. Vendor-agnostic. The only independent third-party trust layer for the autonomous economy.',
+                highlight: true,
+              },
+            ].map((col, i) => (
+              <motion.div
+                key={col.label}
+                className={`p-7 md:p-10 flex flex-col ${i > 0 ? 'md:border-l' : ''} ${col.highlight ? 'relative' : ''}`}
+                style={{
+                  borderColor: col.highlight ? 'rgba(91,217,197,0.4)' : '#222222',
+                  background: col.highlight ? 'rgba(91,217,197,0.03)' : 'transparent',
+                  ...(col.highlight ? { boxShadow: 'inset 0 0 0 1px rgba(91,217,197,0.4)' } : {}),
+                }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 + i * 0.15 }}
+                viewport={{ once: true }}
+              >
+                <p
+                  className={`text-[10px] md:text-[11px] tracking-[0.25em] uppercase font-medium mb-3 ${col.highlight ? 'text-[#5BD9C5]' : 'text-white/40'}`}
+                >
+                  {col.label}
+                </p>
+                <p className="italic text-sm text-white/40 mb-8 font-light">{col.char}</p>
+
+                <div className={`flex-1 flex flex-col gap-3 mb-8 ${col.highlight ? 'justify-center items-center text-center' : ''}`}>
+                  {col.companies.map((c) => (
+                    <p
+                      key={c}
+                      className={`text-white font-normal ${col.highlight ? 'text-2xl md:text-[24px] tracking-tight' : 'text-[17px] md:text-[18px]'}`}
+                    >
+                      {c}
+                    </p>
+                  ))}
+                </div>
+
+                <p
+                  className={`text-sm leading-relaxed font-light pt-6 border-t ${col.highlight ? 'text-white border-[#5BD9C5]/20' : 'text-white/55 border-white/10'}`}
+                >
+                  {col.summary}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.p
+            className="italic text-sm md:text-[15px] text-white/45 font-light text-center mt-10 md:mt-12 max-w-3xl mx-auto"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 1.1 }}
+            viewport={{ once: true }}
+          >
+            FICO is independent of every bank. D&amp;B is independent of every business. The autonomous economy needs the same.
+          </motion.p>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
       {/* ── SLIDE 6: THE MOAT ── */}
       <Slide slideNumber={6} footerText={t('tp.footer')}>
         <motion.div
@@ -842,115 +1037,6 @@ const Thesis = () => {
               </p>
             </div>
           </motion.div>
-        </motion.div>
-      </Slide>
-
-      <SlideDivider />
-
-      {/* ── SLIDE 7: COMPETITIVE LANDSCAPE ── */}
-      <Slide slideNumber={7} footerText={t('tp.footer')}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-          className="max-w-6xl mx-auto w-full"
-        >
-          <MicroLabel>07 // THE LANDSCAPE</MicroLabel>
-
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 leading-[1.1] tracking-tight text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            The Conflict-of-Interest Gap.
-          </motion.h2>
-
-          <motion.p
-            className="text-base md:text-lg text-white/50 font-light mb-12 md:mb-16 max-w-3xl mx-auto text-center leading-relaxed"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            Native vendors can't audit their own agents. Point solutions defend single layers. AMAI is the only independent, cross-organizational behavioral bureau.
-          </motion.p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 border rounded-md overflow-hidden bg-black" style={{ borderColor: '#222222' }}>
-            {[
-              {
-                label: 'NATIVE / FIRST-PARTY',
-                char: 'Auditing their own agents',
-                companies: ['Microsoft Entra Agent ID', 'NVIDIA NeMo Guardrails', 'OpenAI', 'Anthropic'],
-                summary: 'Structural conflict of interest. Cannot serve as third-party arbiter.',
-                highlight: false,
-              },
-              {
-                label: 'POINT SOLUTIONS',
-                char: 'Single-layer defense',
-                companies: ['CalypsoAI', 'Lakera', 'Lasso Security', 'Protect AI', 'HiddenLayer'],
-                summary: 'Prompt injection, model security, individual layers. No cross-org behavioral ledger.',
-                highlight: false,
-              },
-              {
-                label: 'THE INDEPENDENT BUREAU',
-                char: 'Cross-organizational standard',
-                companies: ['AMAI Labs'],
-                summary: 'Mathematically deterministic. Vendor-agnostic. The only independent third-party trust layer for the autonomous economy.',
-                highlight: true,
-              },
-            ].map((col, i) => (
-              <motion.div
-                key={col.label}
-                className={`p-7 md:p-10 flex flex-col ${i > 0 ? 'md:border-l' : ''} ${col.highlight ? 'relative' : ''}`}
-                style={{
-                  borderColor: col.highlight ? 'rgba(91,217,197,0.4)' : '#222222',
-                  background: col.highlight ? 'rgba(91,217,197,0.03)' : 'transparent',
-                  ...(col.highlight ? { boxShadow: 'inset 0 0 0 1px rgba(91,217,197,0.4)' } : {}),
-                }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 + i * 0.15 }}
-                viewport={{ once: true }}
-              >
-                <p
-                  className={`text-[10px] md:text-[11px] tracking-[0.25em] uppercase font-medium mb-3 ${col.highlight ? 'text-[#5BD9C5]' : 'text-white/40'}`}
-                >
-                  {col.label}
-                </p>
-                <p className="italic text-sm text-white/40 mb-8 font-light">{col.char}</p>
-
-                <div className={`flex-1 flex flex-col gap-3 mb-8 ${col.highlight ? 'justify-center items-center text-center' : ''}`}>
-                  {col.companies.map((c) => (
-                    <p
-                      key={c}
-                      className={`text-white font-normal ${col.highlight ? 'text-2xl md:text-[24px] tracking-tight' : 'text-[17px] md:text-[18px]'}`}
-                    >
-                      {c}
-                    </p>
-                  ))}
-                </div>
-
-                <p
-                  className={`text-sm leading-relaxed font-light pt-6 border-t ${col.highlight ? 'text-white border-[#5BD9C5]/20' : 'text-white/55 border-white/10'}`}
-                >
-                  {col.summary}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.p
-            className="italic text-sm md:text-[15px] text-white/45 font-light text-center mt-10 md:mt-12 max-w-3xl mx-auto"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.1 }}
-            viewport={{ once: true }}
-          >
-            FICO is independent of every bank. D&amp;B is independent of every business. The autonomous economy needs the same.
-          </motion.p>
         </motion.div>
       </Slide>
 
@@ -1325,92 +1411,6 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 8: THE TEAM ── */}
-      {/* ── SLIDE 9: WHY NOW ── */}
-      <Slide slideNumber={10} footerText={t('tp.footer')}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.2 }}
-          viewport={{ once: true }}
-        >
-          <MicroLabel>10 // WHY NOW</MicroLabel>
-
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 md:mb-4 text-center leading-[1.1]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            The Risk Is No Longer Theoretical.
-          </motion.h2>
-          <motion.p
-            className="text-sm md:text-base text-white/40 font-light mb-12 md:mb-16 max-w-2xl mx-auto text-center leading-relaxed"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            Four converging signals from the last 12 months — and the window for the independent arbiter is closing.
-          </motion.p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-            {[
-              {
-                tag: 'MARCH 2026 · INCIDENT',
-                title: 'The PocketOS Wipe',
-                body: 'A Claude Opus agent running in Cursor autonomously deleted a production database and all backups in under 9 seconds. Months of operational data erased — without authorization.',
-                src: 'AI Incident Database, Report #7167',
-              },
-              {
-                tag: '2025 · RESEARCH',
-                title: 'Multi-Agent Hijacking Proven',
-                body: 'Up to 97% success rates against AutoGen, CrewAI, and MetaGPT. Malicious instructions laundered through trusted agent outputs — invisible to existing intrusion detection systems.',
-                src: 'arXiv:2503.12188',
-              },
-              {
-                tag: '2026 · MARKET',
-                title: 'Microsoft Validates The Category',
-                body: "Entra Agent ID launches identity, authorization, and access governance — but only for Microsoft's own agents. The structural conflict of interest creates the independent arbiter gap.",
-                src: 'Microsoft Security',
-              },
-              {
-                tag: '2026 · REGULATORY',
-                title: 'EU AI Act Enforcement Begins',
-                body: 'Core high-risk AI obligations enter into force August 2, 2026. Non-compliance penalties reach up to €15M or 3% of global revenue. Mandatory traceability, logging, and human oversight requirements  make verifiable audit infrastructure the new enterprise standard.',
-                src: 'Regulation (EU) 2024/1689',
-              },
-            ].map((card, i) => (
-              <motion.div
-                key={card.title}
-                className="border rounded-md p-7 md:p-8 flex flex-col bg-black"
-                style={{ borderColor: '#222222' }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.5 + i * 0.12 }}
-                viewport={{ once: true }}
-              >
-                <p className="text-[11px] tracking-[0.25em] uppercase font-medium mb-4" style={{ color: '#7fd6d6' }}>
-                  {card.tag}
-                </p>
-                <h3 className="text-lg md:text-[22px] font-medium text-white mb-3 leading-snug">
-                  {card.title}
-                </h3>
-                <p className="text-[13px] md:text-[15px] text-white/55 font-light leading-[1.5] mb-5 flex-1">
-                  {card.body}
-                </p>
-                <p className="text-[11px] italic text-white/30 font-light">
-                  {card.src}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </Slide>
-
-      <SlideDivider />
-
       {/* ── SLIDE 10: THE TEAM ── */}
       <Slide slideNumber={11} footerText={t('tp.footer')}>
         <motion.div
@@ -1541,6 +1541,90 @@ const Thesis = () => {
 
       <SlideDivider />
 
+      {/* ── SLIDE 11: CLOSING ── */}
+      <Slide slideNumber={13} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1.2 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto text-center"
+        >
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-10 md:mb-16 leading-[1.2]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            {t('tp.s7.h')}
+          </motion.h2>
+          
+          <motion.div 
+            className="mb-10 md:mb-16" 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center justify-center gap-3 md:gap-5">
+              {[t('tp.s7.word1'), t('tp.s7.word2'), t('tp.s7.word3')].map((word, i) => (
+                <motion.span
+                  key={word}
+                  className="text-sm md:text-base tracking-[0.2em] uppercase text-white/50 font-light"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.7 + i * 0.15 }}
+                  viewport={{ once: true }}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </div>
+            <motion.p 
+              className="mt-6 text-base md:text-xl text-white/70 font-light"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
+              viewport={{ once: true }}
+            >
+              {t('tp.s7.tagline')}
+            </motion.p>
+          </motion.div>
+          
+          <motion.div
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <a
+              href="https://terminal.amai.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-white/10 border border-white/30 rounded text-xs tracking-[0.15em] uppercase text-white hover:bg-white/20 hover:border-white/50 transition-all duration-300"
+            >
+              ACCESS THE BUREAU
+            </a>
+            <a
+              href="/architecture"
+              className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
+            >
+              {t('tp.s7.arch')} <span>{isRtl ? '←' : '→'}</span>
+            </a>
+            <a
+              href="mailto:team@amai.net?subject=Mission%20Briefing%20%2F%2F%20%5BOrganization%20Name%5D&body=To%20the%20AMAI%20Labs%20Team%2C%0A%0AWe%20are%20reaching%20out%20regarding%20the%20%5BThesis%20%2F%20Architecture%5D.%0A%0AName%3A%20%0AOrganization%3A%20%0AIntent%3A%20"
+              className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
+            >
+              {t('tp.s7.contact')}
+            </a>
+          </motion.div>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
       {/* ─── Slide 10 · The Ask ─── */}
       <Slide slideNumber={12} footerText={t('tp.footer')}>
         <motion.div
@@ -1633,90 +1717,6 @@ const Thesis = () => {
                 </div>
               ))}
             </div>
-          </motion.div>
-        </motion.div>
-      </Slide>
-
-      <SlideDivider />
-
-      {/* ── SLIDE 11: CLOSING ── */}
-      <Slide slideNumber={13} footerText={t('tp.footer')}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.2 }}
-          viewport={{ once: true }}
-          className="max-w-3xl mx-auto text-center"
-        >
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-10 md:mb-16 leading-[1.2]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            {t('tp.s7.h')}
-          </motion.h2>
-          
-          <motion.div 
-            className="mb-10 md:mb-16" 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <div className="flex items-center justify-center gap-3 md:gap-5">
-              {[t('tp.s7.word1'), t('tp.s7.word2'), t('tp.s7.word3')].map((word, i) => (
-                <motion.span
-                  key={word}
-                  className="text-sm md:text-base tracking-[0.2em] uppercase text-white/50 font-light"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.7 + i * 0.15 }}
-                  viewport={{ once: true }}
-                >
-                  {word}
-                </motion.span>
-              ))}
-            </div>
-            <motion.p 
-              className="mt-6 text-base md:text-xl text-white/70 font-light"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-              viewport={{ once: true }}
-            >
-              {t('tp.s7.tagline')}
-            </motion.p>
-          </motion.div>
-          
-          <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <a
-              href="https://terminal.amai.net"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-white/10 border border-white/30 rounded text-xs tracking-[0.15em] uppercase text-white hover:bg-white/20 hover:border-white/50 transition-all duration-300"
-            >
-              ACCESS THE BUREAU
-            </a>
-            <a
-              href="/architecture"
-              className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
-            >
-              {t('tp.s7.arch')} <span>{isRtl ? '←' : '→'}</span>
-            </a>
-            <a
-              href="mailto:team@amai.net?subject=Mission%20Briefing%20%2F%2F%20%5BOrganization%20Name%5D&body=To%20the%20AMAI%20Labs%20Team%2C%0A%0AWe%20are%20reaching%20out%20regarding%20the%20%5BThesis%20%2F%20Architecture%5D.%0A%0AName%3A%20%0AOrganization%3A%20%0AIntent%3A%20"
-              className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
-            >
-              {t('tp.s7.contact')}
-            </a>
           </motion.div>
         </motion.div>
       </Slide>
