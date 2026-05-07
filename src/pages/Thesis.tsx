@@ -778,17 +778,30 @@ const Thesis = () => {
                   <span className="text-2xl md:text-3xl font-light text-white tracking-tight">842</span>
                   <span className="text-[10px] tracking-[0.2em] uppercase text-emerald-400/80 font-mono border border-emerald-400/20 px-2 py-0.5 rounded">{t('tp.s5.prime')}</span>
                 </div>
-                {/* Sparkline */}
-                <svg className="w-32 md:w-40 h-8" viewBox="0 0 160 32" fill="none">
-                  <defs>
-                    <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="rgba(52,211,153,0.3)" />
-                      <stop offset="100%" stopColor="rgba(52,211,153,0)" />
-                    </linearGradient>
-                  </defs>
-                  <path d="M0,28 L12,26 L24,24 L36,25 L48,22 L60,20 L72,18 L84,19 L96,15 L108,12 L120,10 L132,8 L144,6 L156,4 L160,3" stroke="rgba(52,211,153,0.6)" strokeWidth="1.5" fill="none" />
-                  <path d="M0,28 L12,26 L24,24 L36,25 L48,22 L60,20 L72,18 L84,19 L96,15 L108,12 L120,10 L132,8 L144,6 L156,4 L160,3 L160,32 L0,32 Z" fill="url(#sparkGrad)" />
-                </svg>
+                {/* Sparkline + Illustrative tag */}
+                <div className="flex items-center gap-3">
+                  <svg className="w-32 md:w-40 h-8" viewBox="0 0 160 32" fill="none">
+                    <defs>
+                      <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="rgba(52,211,153,0.3)" />
+                        <stop offset="100%" stopColor="rgba(52,211,153,0)" />
+                      </linearGradient>
+                    </defs>
+                    <path d="M0,28 L12,26 L24,24 L36,25 L48,22 L60,20 L72,18 L84,19 L96,15 L108,12 L120,10 L132,8 L144,6 L156,4 L160,3" stroke="rgba(52,211,153,0.6)" strokeWidth="1.5" fill="none" />
+                    <path d="M0,28 L12,26 L24,24 L36,25 L48,22 L60,20 L72,18 L84,19 L96,15 L108,12 L120,10 L132,8 L144,6 L156,4 L160,3 L160,32 L0,32 Z" fill="url(#sparkGrad)" />
+                  </svg>
+                  <span
+                    className="font-mono uppercase tracking-[0.2em] rounded"
+                    style={{
+                      fontSize: '10px',
+                      color: '#888888',
+                      border: '1px solid #666666',
+                      padding: '2px 6px',
+                    }}
+                  >
+                    ILLUSTRATIVE
+                  </span>
+                </div>
               </div>
             </div>
 
