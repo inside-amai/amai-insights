@@ -634,7 +634,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="w-full max-w-5xl mx-auto"
         >
-          <MicroLabel>05 // THE SOLUTION</MicroLabel>
+          <MicroLabel>{t('tp.s4.label')}</MicroLabel>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-2 text-center leading-[1.1] tracking-tight"
             initial={{ opacity: 0, y: 20 }}
@@ -783,7 +783,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto text-center"
         >
-          <MicroLabel>06 // THE PIPELINE</MicroLabel>
+          <MicroLabel>{t('tp.s5p.label')}</MicroLabel>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-6 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
@@ -934,7 +934,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto text-center"
         >
-          <MicroLabel>08 // THE MOAT</MicroLabel>
+          <MicroLabel>{t('tp.s5.label')}</MicroLabel>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
@@ -1051,7 +1051,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto"
         >
-          <MicroLabel>09 // THE BUSINESS MODEL</MicroLabel>
+          <MicroLabel>{t('tp.s6.label')}</MicroLabel>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 leading-[1.1] tracking-tight text-center"
             initial={{ opacity: 0, y: 20 }}
@@ -1310,7 +1310,7 @@ const Thesis = () => {
           transition={{ duration: 1.2 }}
           viewport={{ once: true }}
         >
-          <MicroLabel>10 // THE AUTONOMOUS ECONOMY</MicroLabel>
+          <MicroLabel>{t('tp.s7m.label')}</MicroLabel>
 
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 md:mb-4 text-center leading-[1.1]"
@@ -1419,7 +1419,7 @@ const Thesis = () => {
           transition={{ duration: 1.2 }}
           viewport={{ once: true }}
         >
-          <MicroLabel>11 // THE TEAM</MicroLabel>
+          <MicroLabel>{t('tp.s8t.label')}</MicroLabel>
 
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 md:mb-4 text-center leading-[1.1]"
