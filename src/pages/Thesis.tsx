@@ -566,7 +566,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Four converging signals from the last 12 months — and the window for the independent arbiter is closing.
+            Four converging signals from the last 12 months.
           </motion.p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
