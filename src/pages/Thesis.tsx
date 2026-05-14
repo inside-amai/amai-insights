@@ -850,10 +850,10 @@ const Thesis = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 border rounded-md overflow-hidden bg-black" style={{ borderColor: '#222222' }}>
             {[
               {
-                label: 'NATIVE / FIRST-PARTY',
-                char: 'Auditing their own agents',
+                label: 'CONTROL PLANE (INTERNAL)',
+                char: 'Single-organization governance',
                 companies: ['Microsoft Entra Agent ID', 'NVIDIA NeMo Guardrails', 'OpenAI', 'Anthropic'],
-                summary: 'Structural conflict of interest. Cannot serve as third-party arbiter.',
+                summary: 'Cannot serve as independent third-party arbiter — even when extended to cross-vendor scope.',
                 highlight: false,
               },
               {
