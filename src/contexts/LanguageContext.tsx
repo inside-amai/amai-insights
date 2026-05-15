@@ -1372,7 +1372,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Home page
     'home.thesis': 'THESIS',
     'home.headline': '',
-    'home.body': 'Humans have FICO. Businesses have D&B.\nAI agents have TARI™',
+    'home.body': 'Humans have FICO. Businesses have D&B.\nAI Agents have TARI™',
     'home.cta.architecture': 'View Architecture',
     'home.cta.thesis': 'Explore The Thesis',
 
