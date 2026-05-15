@@ -1755,8 +1755,8 @@ const Thesis = () => {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
               {[
-                { pct: '55%', title: 'Engineering & Research', desc: 'Senior infrastructure + AI research hires' },
-                { pct: '20%', title: 'Platform GA', desc: 'SDK launch + Enterprise Interceptor production release' },
+                { pct: '60%', title: 'Engineering & Research', desc: 'Senior infrastructure + AI research hires' },
+                { pct: '15%', title: 'Platform GA', desc: 'SDK launch + Enterprise Interceptor production release' },
                 { pct: '15%', title: 'Design Partners', desc: '3 enterprise pilots + GTM motion' },
                 { pct: '10%', title: 'Operations & Runway', desc: 'G&A + buffer to Series A milestones' },
               ].map((f) => (
