@@ -359,3 +359,114 @@ export default function TariArchitectureDiagram() {
     </div>
   );
 }
+
+// ───────────────────────── MOBILE STACKED VARIANT ─────────────────────────
+
+const MobileChevron = () => (
+  <div className="flex justify-center py-1.5" aria-hidden="true">
+    <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
+      <path d="M1 1 L7 8 L13 1" stroke="rgba(255,255,255,0.35)" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  </div>
+);
+
+const MobileNode = ({
+  icon: Icon,
+  label,
+  sublabel,
+  accent = 'neutral',
+}: {
+  icon: ElementType;
+  label: string;
+  sublabel?: string;
+  accent?: 'neutral' | 'success' | 'destructive' | 'cyan';
+}) => {
+  const tone =
+    accent === 'destructive'
+      ? 'border-red-500/40 text-red-400/90'
+      : accent === 'success'
+        ? 'border-emerald-500/40 text-emerald-400/90'
+        : accent === 'cyan'
+          ? 'text-white/90'
+          : 'border-white/15 text-white/85';
+  const style =
+    accent === 'cyan'
+      ? { borderColor: 'rgba(166,252,252,0.45)', backgroundColor: 'rgba(166,252,252,0.04)' }
+      : undefined;
+  return (
+    <div
+      className={`flex items-center gap-3 rounded-lg border bg-black px-3 py-2.5 ${tone}`}
+      style={style}
+    >
+      <Icon className="h-4 w-4 shrink-0" style={accent === 'cyan' ? { color: CYAN } : undefined} />
+      <div className="min-w-0 flex-1">
+        <div className="text-[11px] font-semibold uppercase tracking-[0.12em]">{label}</div>
+        {sublabel ? <div className="mt-0.5 text-[9px] font-medium text-white/45">{sublabel}</div> : null}
+      </div>
+    </div>
+  );
+};
+
+const MobileStage = ({
+  index,
+  title,
+  cyan = false,
+  children,
+}: {
+  index: string;
+  title: string;
+  cyan?: boolean;
+  children: React.ReactNode;
+}) => (
+  <div className="rounded-xl border border-white/10 bg-white/[0.015] p-3">
+    <div className="mb-2.5 flex items-center gap-2">
+      <span className="text-[9px] font-semibold tracking-[0.18em] text-white/30">{index}</span>
+      <span
+        className="text-[10px] font-semibold uppercase tracking-[0.18em]"
+        style={{ color: cyan ? CYAN : 'rgba(255,255,255,0.8)' }}
+      >
+        {title}
+      </span>
+    </div>
+    <div className="space-y-2">{children}</div>
+  </div>
+);
+
+function MobileTariStack() {
+  return (
+    <div className="mx-auto w-full max-w-md space-y-1.5 lg:hidden">
+      <MobileStage index="01" title="Ingestion">
+        <MobileNode icon={Bot} label="Autonomous Agent" sublabel="Initiates request" />
+        <MobileChevron />
+        <MobileNode icon={Shield} label="Zero-Trust SDK" sublabel="Pre-flight cryptographic gate" />
+      </MobileStage>
+
+      <MobileChevron />
+
+      <MobileStage index="02" title="TARI™ Engine" cyan>
+        <MobileNode icon={Brain} label="TARI™ Trust Engine" sublabel="Evaluates intent · guardrails · ledger · ms latency" accent="cyan" />
+      </MobileStage>
+
+      <MobileChevron />
+
+      <MobileStage index="03" title="Enforcement">
+        <MobileNode icon={Gauge} label="Score Output · TARI: 780" sublabel="Trust verdict" accent="cyan" />
+        <MobileChevron />
+        <MobileNode icon={Shield} label="Interceptor" sublabel="Routes verdict" />
+        <div className="grid grid-cols-2 gap-2 pt-1">
+          <MobileNode icon={CheckCircle} label="Approved" sublabel="Target infra" accent="success" />
+          <MobileNode icon={XCircle} label="Slashed" sublabel="Kill switch" accent="destructive" />
+        </div>
+      </MobileStage>
+
+      <MobileChevron />
+
+      <MobileStage index="04" title="Agent Bureau">
+        <MobileNode icon={Database} label="Agent Bureau" sublabel="Global credit ledger of autonomous behavior" />
+        <div className="rounded-md border border-dashed border-white/20 px-3 py-1.5 text-center text-[9px] uppercase tracking-[0.14em] text-white/45">
+          Continuous feedback loop
+        </div>
+      </MobileStage>
+    </div>
+  );
+}
