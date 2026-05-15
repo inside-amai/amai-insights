@@ -193,7 +193,7 @@ const Methodology = () => {
                   <SectionTitle>Two independent witnesses. Zero room for divergence.</SectionTitle>
                   <p className="mt-6 text-sm md:text-base font-light leading-relaxed text-white/55">
                     Every TARI score is anchored by Double-Blind Verification — Web2 telemetry
-                    parity-checked against an immutable on-chain commitment. Any divergence flags
+                    parity-checked against a tamper-evident cryptographic commitment. Any divergence flags
                     the agent as compromised and the score is degraded.
                   </p>
                 </motion.div>
