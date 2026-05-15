@@ -416,7 +416,7 @@ const MobileStage = ({
   index: string;
   title: string;
   cyan?: boolean;
-  children: React.ReactNode;
+  children: ReactNode;
 }) => (
   <div className="rounded-xl border border-white/10 bg-white/[0.015] p-3">
     <div className="mb-2.5 flex items-center gap-2">
