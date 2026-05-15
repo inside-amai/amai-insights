@@ -328,7 +328,7 @@ export default function TariArchitectureDiagram() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.25 }}
-        className="-mt-2 rounded-xl border border-white/10 p-3 text-[10px] text-white/45"
+        className="-mt-2 hidden rounded-xl border border-white/10 p-3 text-[10px] text-white/45 lg:block"
       >
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
           <div className="flex items-center gap-2">
