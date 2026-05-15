@@ -1092,7 +1092,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tp.s1.label': '01 // THE THESIS',
     'tp.s1.h1': 'Intelligence Is Everywhere',
     'tp.s1.h2': 'But Trust Has Never Been Lower',
-    'tp.s1.sub': 'The Credit Bureau for the Autonomous Economy.',
+    'tp.s1.sub': 'The Reputation Layer for the Autonomous Economy.',
     'tp.visual.free': 'Free Agents',
     'tp.visual.reputation': 'AMAI Reputation',
     'tp.visual.trusted': 'Trusted Labor',
