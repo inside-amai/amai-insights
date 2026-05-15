@@ -114,6 +114,16 @@ export const SiteHeader = () => {
                 {(isThesisPage || isHomePage) ? "Explore The Architecture" : "Explore The Thesis"}
               </Link>
             )}
+
+            {/* Methodology Link */}
+            {!isDeckPage && (
+              <Link
+                to="/methodology"
+                className="hidden sm:block text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase"
+              >
+                Methodology
+              </Link>
+            )}
             
             {/* Language Selector - Compact on mobile, full on desktop */}
             {/* Mobile: Globe icon + current language code - tappable to cycle */}
