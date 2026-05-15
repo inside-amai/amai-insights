@@ -228,7 +228,9 @@ const Methodology = () => {
                   {t('meth.cta.eyebrow')}
                 </span>
                 <a
-                  href="/"
+                  href="https://bureau.amai.net"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-white text-black text-sm font-medium tracking-wide hover:bg-white/90 transition-colors"
                 >
                   {t('meth.cta.button')}
