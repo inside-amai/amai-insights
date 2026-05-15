@@ -1775,7 +1775,7 @@ const Thesis = () => {
             </div>
           </motion.div>
         </motion.div>
-      </Slide>
+      </Slide> </> )}
 
       <Footer />
     </div>
