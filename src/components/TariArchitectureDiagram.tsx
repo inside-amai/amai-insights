@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import type { CSSProperties, ElementType } from 'react';
+import type { CSSProperties, ElementType, ReactNode } from 'react';
 import {
   Bot,
   Shield,
