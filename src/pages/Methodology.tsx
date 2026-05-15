@@ -309,13 +309,6 @@ const Methodology = () => {
                   ))}
                 </div>
 
-                <div className="mt-14 pt-6 border-t border-white/10">
-                  <p className="text-xs text-white/45 font-light">
-                    For the complete technical architecture, see{' '}
-                    <span className="font-mono text-white/70">/architecture</span>{' '}
-                    <span className="text-white/35">(coming soon)</span>.
-                  </p>
-                </div>
               </div>
             </section>
 
