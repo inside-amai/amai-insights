@@ -107,7 +107,10 @@ const placement = {
 export default function TariArchitectureDiagram() {
   return (
     <div className="space-y-8">
-      <div className="relative mx-auto w-full max-w-[1400px] aspect-[1400/460]">
+      {/* Mobile: vertical stacked stages */}
+      <MobileTariStack />
+
+      <div className="relative mx-auto hidden w-full max-w-[1400px] aspect-[1400/460] lg:block">
         <svg
           className="pointer-events-none absolute inset-0 h-full w-full"
           viewBox="0 0 1100 460"
