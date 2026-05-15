@@ -1,8 +1,8 @@
 import { useLanguage, Language } from '@/contexts/LanguageContext';
 import { Link, useLocation } from 'react-router-dom';
 import { toast } from '@/hooks/use-toast';
-import { Copy, Check, Globe } from 'lucide-react';
-import { useState } from 'react';
+import { Copy, Check, Globe, Menu, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import headerIcon from '@/assets/amai-header-icon.png';
 
 const languages: { code: Language; label: string }[] = [
@@ -40,16 +40,27 @@ export const SiteHeader = () => {
   const isThesisPage = location.pathname === '/thesis';
   const isHomePage = location.pathname === '/' || location.pathname === '/home';
   const isDeckPage = location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/briefing' || location.pathname === '/pitch';
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-  // Cycle through languages on mobile tap
-  const cycleLanguage = () => {
-    const currentIndex = languages.findIndex(l => l.code === language);
-    const nextIndex = (currentIndex + 1) % languages.length;
-    setLanguage(languages[nextIndex].code);
-  };
+  // Close menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
+
+  // Lock body scroll when open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileOpen]);
+
+  const exploreTo = (isThesisPage || isHomePage) ? '/architecture' : '/thesis';
+  const exploreLabel = (isThesisPage || isHomePage) ? 'Explore The Architecture' : 'Explore The Thesis';
 
   const handleContactClick = () => {
-    // Show toast after a brief delay to allow mailto to attempt opening
     setTimeout(() => {
       toast({
         title: "Email not opening?",
@@ -62,6 +73,8 @@ export const SiteHeader = () => {
       });
     }, 500);
   };
+
+  const mailto = "mailto:team@amai.net?subject=Mission%20Briefing%20%2F%2F%20%5BOrganization%20Name%5D&body=To%20the%20AMAI%20Labs%20Team%2C%0A%0AWe%20are%20reaching%20out%20regarding%20the%20%5BThesis%20%2F%20Architecture%5D.%0A%0AName%3A%20%0AOrganization%3A%20%0AIntent%3A%20";
 
   return (
     <header className="absolute top-0 left-0 right-0 z-50 pointer-events-none">
@@ -92,53 +105,34 @@ export const SiteHeader = () => {
             </div>
           )}
 
-          {/* Navigation + Language Selector */}
-          <div className="pointer-events-auto flex items-center gap-2 sm:gap-4 text-[11px] tracking-wide flex-shrink-0 whitespace-nowrap">
-            {/* Contact Link - hidden on /deck and /tether, hidden on mobile */}
+          {/* Desktop Nav */}
+          <div className="pointer-events-auto hidden sm:flex items-center gap-4 text-[11px] tracking-wide flex-shrink-0 whitespace-nowrap">
             {!isDeckPage && (
               <a 
-                href="mailto:team@amai.net?subject=Mission%20Briefing%20%2F%2F%20%5BOrganization%20Name%5D&body=To%20the%20AMAI%20Labs%20Team%2C%0A%0AWe%20are%20reaching%20out%20regarding%20the%20%5BThesis%20%2F%20Architecture%5D.%0A%0AName%3A%20%0AOrganization%3A%20%0AIntent%3A%20"
+                href={mailto}
                 onClick={handleContactClick}
-                className="hidden sm:block text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase"
+                className="text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase"
               >
                 Contact
               </a>
             )}
-            
-            {/* Navigation Link - hidden on /deck and /tether */}
             {!isDeckPage && (
               <Link 
-                to={(isThesisPage || isHomePage) ? "/architecture" : "/thesis"}
-                className="text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase mr-1 sm:mr-0"
+                to={exploreTo}
+                className="text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase"
               >
-                {(isThesisPage || isHomePage) ? "Explore The Architecture" : "Explore The Thesis"}
+                {exploreLabel}
               </Link>
             )}
-
-            {/* Methodology Link */}
             {!isDeckPage && (
               <Link
                 to="/methodology"
-                className="hidden sm:block text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase"
+                className="text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase"
               >
                 Methodology
               </Link>
             )}
-            
-            {/* Language Selector - Compact on mobile, full on desktop */}
-            {/* Mobile: Globe icon + current language code - tappable to cycle */}
-            <button 
-              onClick={cycleLanguage}
-              className="sm:hidden flex items-center gap-1 text-white/60 hover:text-white/90 transition-opacity"
-            >
-              <Globe className="h-3.5 w-3.5" />
-              <span className="text-[10px] tracking-wider uppercase">
-                {language.toUpperCase()}
-              </span>
-            </button>
-            
-            {/* Desktop: Full language selector */}
-            <div className="hidden sm:flex items-center gap-1">
+            <div className="flex items-center gap-1">
               {languages.map((lang, index) => (
                 <span key={lang.code} className="flex items-center">
                   <button
@@ -158,8 +152,89 @@ export const SiteHeader = () => {
               ))}
             </div>
           </div>
+
+          {/* Mobile Hamburger */}
+          {!isDeckPage && (
+            <button
+              onClick={() => setMobileOpen(true)}
+              aria-label="Open menu"
+              className="pointer-events-auto sm:hidden flex items-center justify-center w-10 h-10 -mr-2 text-white/80 hover:text-white transition-colors"
+            >
+              <Menu className="h-5 w-5" strokeWidth={1.5} />
+            </button>
+          )}
         </div>
       </div>
+
+      {/* Mobile Overlay Menu */}
+      {mobileOpen && (
+        <div className="pointer-events-auto sm:hidden fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex flex-col">
+          <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+            <img 
+              src={headerIcon}
+              alt="AMAI" 
+              className="h-7 w-auto opacity-90"
+              style={{ transform: 'translateZ(0)', imageRendering: 'crisp-edges', backfaceVisibility: 'hidden' }}
+            />
+            <button
+              onClick={() => setMobileOpen(false)}
+              aria-label="Close menu"
+              className="flex items-center justify-center w-10 h-10 -mr-2 text-white/80 hover:text-white transition-colors"
+            >
+              <X className="h-5 w-5" strokeWidth={1.5} />
+            </button>
+          </div>
+
+          <nav className="flex-1 flex flex-col justify-center px-8 gap-2">
+            <Link
+              to="/"
+              className="block py-4 text-2xl font-light text-white/90 hover:text-white tracking-tight border-b border-white/10"
+            >
+              Home
+            </Link>
+            <Link
+              to={exploreTo}
+              className="block py-4 text-2xl font-light text-white/90 hover:text-white tracking-tight border-b border-white/10"
+            >
+              {exploreLabel}
+            </Link>
+            <Link
+              to="/methodology"
+              className="block py-4 text-2xl font-light text-white/90 hover:text-white tracking-tight border-b border-white/10"
+            >
+              Methodology
+            </Link>
+            <a
+              href={mailto}
+              onClick={() => { setMobileOpen(false); handleContactClick(); }}
+              className="block py-4 text-2xl font-light text-white/90 hover:text-white tracking-tight border-b border-white/10"
+            >
+              Contact
+            </a>
+          </nav>
+
+          <div className="px-8 pb-12 pt-6">
+            <div className="text-[10px] tracking-[0.3em] uppercase text-white/40 mb-4 flex items-center gap-2">
+              <Globe className="h-3 w-3" /> Language
+            </div>
+            <div className="flex items-center gap-4">
+              {languages.map((lang) => (
+                <button
+                  key={lang.code}
+                  onClick={() => setLanguage(lang.code)}
+                  className={`text-sm tracking-wide transition-opacity ${
+                    language === lang.code 
+                      ? 'text-white' 
+                      : 'text-white/40 hover:text-white/70'
+                  }`}
+                >
+                  {lang.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 };
