@@ -318,6 +318,22 @@ const Methodology = () => {
                 </div>
               </div>
             </section>
+
+            {/* CTA */}
+            <section className="py-20 md:py-28 border-t border-white/5">
+              <div className="container mx-auto px-6 max-w-5xl text-center">
+                <span className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium block mb-8">
+                  Ready To Use It
+                </span>
+                <a
+                  href="/"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-white text-black text-sm font-medium tracking-wide hover:bg-white/90 transition-colors"
+                >
+                  Pull a TARI™ Report
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </section>
           </div>
         </div>
 
