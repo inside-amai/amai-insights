@@ -32,11 +32,11 @@ const Methodology = () => {
       <div className="overflow-x-hidden">
         <div className="relative bg-perspective-grid">
           <div className="relative z-10">
-            <ExplainerHero
+              <ExplainerHero
               headline={
                 <>
-                  <span className="font-light">How the TARI™ Trust &amp; Risk</span>
-                  <span className="block font-light">Index Is Calculated.</span>
+                  <span className="font-light">How the TARI™ Score</span>
+                  <span className="block font-light">Is Calculated.</span>
                 </>
               }
               subtext={
