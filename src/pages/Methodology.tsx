@@ -32,11 +32,11 @@ const Methodology = () => {
       <div className="overflow-x-hidden">
         <div className="relative bg-perspective-grid">
           <div className="relative z-10">
-            <ExplainerHero
+              <ExplainerHero
               headline={
                 <>
-                  <span className="font-light">How the TARI™ Trust &amp; Risk</span>
-                  <span className="block font-light">Index Is Calculated.</span>
+                  <span className="font-light">How the TARI™ Score</span>
+                  <span className="block font-light">Is Calculated.</span>
                 </>
               }
               subtext={
@@ -193,7 +193,7 @@ const Methodology = () => {
                   <SectionTitle>Two independent witnesses. Zero room for divergence.</SectionTitle>
                   <p className="mt-6 text-sm md:text-base font-light leading-relaxed text-white/55">
                     Every TARI score is anchored by Double-Blind Verification — Web2 telemetry
-                    parity-checked against an immutable on-chain commitment. Any divergence flags
+                    parity-checked against a tamper-evident cryptographic commitment. Any divergence flags
                     the agent as compromised and the score is degraded.
                   </p>
                 </motion.div>
@@ -316,6 +316,22 @@ const Methodology = () => {
                     <span className="text-white/35">(coming soon)</span>.
                   </p>
                 </div>
+              </div>
+            </section>
+
+            {/* CTA */}
+            <section className="py-20 md:py-28 border-t border-white/5">
+              <div className="container mx-auto px-6 max-w-5xl text-center">
+                <span className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium block mb-8">
+                  Ready To Use It
+                </span>
+                <a
+                  href="/"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-white text-black text-sm font-medium tracking-wide hover:bg-white/90 transition-colors"
+                >
+                  Pull a TARI™ Report
+                  <span aria-hidden="true">→</span>
+                </a>
               </div>
             </section>
           </div>
