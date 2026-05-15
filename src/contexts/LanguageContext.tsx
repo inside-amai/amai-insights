@@ -1529,7 +1529,7 @@ const translations: Record<Language, Record<string, string>> = {
     'meth.s06.label': '06 // What The Score Does Not Do',
     'meth.s06.title': 'Disclaimers.',
     'meth.s06.d1': 'Past performance is not a guarantee of future agent behavior.',
-    'meth.s06.d2': 'Scores reflect observed behavior, not declared intent.',
+    'meth.s06.d2': 'Scores reflect verified actions, not self-declared capabilities.',
     'meth.s06.d3': 'New agents start at baseline scores and compound with verified history.',
     'meth.cta.eyebrow': 'Ready To Use It',
     'meth.cta.button': 'Pull a TARI™ Report',
