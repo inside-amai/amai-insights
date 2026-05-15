@@ -729,7 +729,7 @@ const Thesis = () => {
                 animate={{ boxShadow: ["0 0 10px rgba(52,211,153,0.15)", "0 0 25px rgba(52,211,153,0.3)", "0 0 10px rgba(52,211,153,0.15)"] }}
                 transition={{ duration: 2.5, repeat: Infinity }}
               >
-                <span className="text-xs md:text-sm tracking-[0.25em] uppercase text-emerald-400 font-mono font-semibold">TRUSTED</span>
+                <span className="text-xs md:text-sm tracking-[0.25em] uppercase text-emerald-400 font-mono font-semibold">PRIME</span>
               </motion.div>
             </div>
 
