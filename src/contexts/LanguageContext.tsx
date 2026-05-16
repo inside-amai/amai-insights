@@ -1432,7 +1432,7 @@ const translations: Record<Language, Record<string, string>> = {
     'archp.tech.i1': 'Global risk and reputation indices',
     'archp.tech.i2': 'Real-time API access provisioning',
     'archp.tech.i3': 'Deterministic blast-radius boundaries',
-    'archp.tech.i4': 'Cryptographic audit and compliance logs',
+    'archp.tech.i4': 'Verified audit and compliance logs',
     'archp.tech.i5': 'Automated kill-switch thresholds',
 
     // Agent Architecture Diagram (TARI cross-shaped diagram)
