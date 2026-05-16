@@ -1714,7 +1714,7 @@ const Thesis = () => {
 
           {/* Stat row */}
           <motion.div
-            className="mt-14 md:mt-20 grid grid-cols-2 md:grid-cols-4 bg-black border border-white/10"
+            className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-3 bg-black border border-white/10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
@@ -1728,8 +1728,8 @@ const Thesis = () => {
               <div
                 key={s.label}
                 className={`bg-black px-4 py-6 md:py-8 flex flex-col items-center gap-3 ${
-                  i === 1 || i === 3 ? 'border-l border-white/10' : ''
-                } ${i >= 2 ? 'border-t md:border-t-0 md:border-l border-white/10' : ''}`}
+                  i > 0 ? 'border-t md:border-t-0 md:border-l border-white/10' : ''
+                }`}
               >
                 <span className="text-[10px] md:text-xs tracking-[0.2em] uppercase text-white/40 font-light">
                   {s.label}
