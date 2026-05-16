@@ -2970,7 +2970,7 @@ const translations: Record<Language, Record<string, string>> = {
     'aad.gateway.title': '実行ゲートウェイ',
     'aad.gateway.subtitle': 'リアルタイム遮断 • 決定論的キルスイッチ',
     'aad.bureau.title': 'エージェントビューロー',
-    'aad.bureau.subtitle': '改竄不可能な法廷監査証跡 • 暗号化状態解決',
+    'aad.bureau.subtitle': '改竄不可能な法廷監査証跡 • 検証済み状態解決',
 
     // FAQ on /architecture
     'faqa.q1': 'AMAIプロトコルとは？',
