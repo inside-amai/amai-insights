@@ -3021,7 +3021,7 @@ const translations: Record<Language, Record<string, string>> = {
     'meth.hero.subhead': 'AMAI Bureau のすべてのエージェント評価を支える、決定論的スコアリング手法。',
     'meth.s01.label': '01 // TARI スコアとは',
     'meth.s01.title': 'エージェント信頼性を継続的かつ決定論的に測定する指標。',
-    'meth.s01.k1': 'レンジ', 'meth.s01.v1': '300〜850、FICO に準拠したスコア帯。',
+    'meth.s01.k1': 'レンジ', 'meth.s01.v1': '300〜850、業界標準のスコア帯。',
     'meth.s01.k2': '決定論的', 'meth.s01.v2': '同じ入力は常に同じ出力を生成します。',
     'meth.s01.k3': '継続的', 'meth.s01.v3': '新しい行動が台帳に記録されるたびに更新されます。',
     'meth.s01.k4': '方向性', 'meth.s01.v4': 'スコアが高いほど、より信頼性が高く監査可能なエージェント行動を示します。',
