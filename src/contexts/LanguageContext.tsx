@@ -4476,7 +4476,7 @@ const translations: Record<Language, Record<string, string>> = {
     'archp.tech.i1': 'مؤشرات المخاطر والسمعة العالمية',
     'archp.tech.i2': 'إصدار وصول API لحظي',
     'archp.tech.i3': 'حدود نطاق ضرر حتمية',
-    'archp.tech.i4': 'سجلات تدقيق وامتثال مشفّرة',
+    'archp.tech.i4': 'سجلات تدقيق وامتثال موثَّقة',
     'archp.tech.i5': 'عتبات مفاتيح إيقاف آلية',
 
     // Agent Architecture Diagram
