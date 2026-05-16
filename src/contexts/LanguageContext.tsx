@@ -2954,7 +2954,7 @@ const translations: Record<Language, Record<string, string>> = {
     'archp.tech.i1': 'グローバルリスク・評判指数',
     'archp.tech.i2': 'リアルタイムAPIアクセス発行',
     'archp.tech.i3': '決定論的被害範囲境界',
-    'archp.tech.i4': '暗号化監査・準拠ログ',
+    'archp.tech.i4': '検証済み監査・準拠ログ',
     'archp.tech.i5': '自動キルスイッチ閾値',
 
     // Agent Architecture Diagram
