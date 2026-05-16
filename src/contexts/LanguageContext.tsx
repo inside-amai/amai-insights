@@ -1499,7 +1499,7 @@ const translations: Record<Language, Record<string, string>> = {
     'meth.hero.subhead': 'The deterministic scoring methodology behind every agent reputation in the AMAI Bureau.',
     'meth.s01.label': '01 // What The TARI Score Is',
     'meth.s01.title': 'A continuous, deterministic measure of agent reliability.',
-    'meth.s01.k1': 'Range', 'meth.s01.v1': '300–850, FICO-aligned scoring band.',
+    'meth.s01.k1': 'Range', 'meth.s01.v1': '300–850, industry-standard scoring band.',
     'meth.s01.k2': 'Deterministic', 'meth.s01.v2': 'The same inputs always produce the same output.',
     'meth.s01.k3': 'Continuous', 'meth.s01.v3': 'Updated as new behavior is committed to the ledger.',
     'meth.s01.k4': 'Directional', 'meth.s01.v4': 'Higher scores indicate more reliable, more auditable agent behavior.',
