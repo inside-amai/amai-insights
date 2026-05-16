@@ -2900,7 +2900,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // /architecture page
     'archp.hero.headline': '自律型経済のための信用層。',
-    'archp.hero.subtext': 'エージェントのリスクを評価し、悪意あるペイロードを遮断し、改竄不可能な暗号化台帳を通じて説明責任を執行する垂直統合型プロトコル。',
+    'archp.hero.subtext': 'エージェントのリスクを評価し、悪意あるペイロードを遮断し、改竄不可能な監査台帳を通じて説明責任を執行する垂直統合型プロトコル。',
     'archp.layers.eyebrow': 'AMAIプロトコル設計',
     'archp.layers.title': 'エージェントインフラスタック',
     'archp.layers.subtitle': '自律エージェントのための垂直統合型セキュリティ・アイデンティティスタック。',
