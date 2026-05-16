@@ -147,6 +147,68 @@ const Architecture = () => {
           </div>
         </div>
 
+        {/* Engagement — Three paths into the protocol */}
+        <section className="relative py-20 md:py-28 bg-perspective-grid">
+          <div className="container mx-auto px-6 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center mb-12 md:mb-16"
+            >
+              <span className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium">
+                Engagement
+              </span>
+              <h2 className="mt-4 text-3xl md:text-4xl font-light text-white tracking-tight">
+                Three paths into the protocol.
+              </h2>
+              <p className="mt-4 text-white/50 text-sm max-w-lg mx-auto leading-relaxed">
+                The AMAI substrate is open to developers, enterprises, and the public.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto">
+              {[
+                {
+                  eyebrow: 'Developers',
+                  title: 'Free SDK',
+                  body: 'Every agent you build is secured at the source. 10,000 evaluations per month at no cost. Behavioral telemetry feeds the global ledger.',
+                },
+                {
+                  eyebrow: 'Enterprises',
+                  title: 'Real-Time API',
+                  body: 'Allow/deny enforcement at the network edge. Filter, rate-limit, and hard-block autonomous traffic based on live TARI™ scores.',
+                },
+                {
+                  eyebrow: 'The Public',
+                  title: 'The Bureau',
+                  body: 'Look up any autonomous agent. Free, verified, instant. The credit bureau for the autonomous economy.',
+                },
+              ].map((card, i) => (
+                <motion.div
+                  key={card.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                  className="border border-white/20 rounded-lg p-6 md:p-8 bg-black flex flex-col"
+                >
+                  <span className="text-[10px] md:text-xs tracking-[0.25em] uppercase text-white/40 font-medium">
+                    {card.eyebrow}
+                  </span>
+                  <h3 className="mt-3 text-lg md:text-xl font-light text-white tracking-tight">
+                    {card.title}
+                  </h3>
+                  <p className="mt-4 text-sm text-white/55 font-light leading-relaxed">
+                    {card.body}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <ExplainerFAQ />
         <Footer compact />
       </div>
