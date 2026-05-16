@@ -4449,7 +4449,7 @@ const translations: Record<Language, Record<string, string>> = {
     'archp.layers.ledger.i2.label': 'تحقق SOC2',
     'archp.layers.ledger.i2.desc': 'مسارات جنائية لا تشوبها شائبة، منفصلة تماماً عن النشاط البشري.',
     'archp.layers.ledger.i3.label': 'مساءلة مطلقة',
-    'archp.layers.ledger.i3.desc': 'تُفرض الثقة بإجماع لامركزي، لا بوعود الشركات.',
+    'archp.layers.ledger.i3.desc': 'تُفرض الثقة بالتحقق المستقل، لا بوعود الشركات.',
     'archp.intro.p1': 'ينتقل نشر الوكلاء من هندسة الموجّهات الاستدلالية إلى نماذج أمنية حتمية.',
     'archp.intro.p2': 'الثقة المطلقة القابلة للتحقق هي شرط مسبق للتوسع المستقل.',
     'archp.diagram.eyebrow': 'النتيجة التشغيلية',
