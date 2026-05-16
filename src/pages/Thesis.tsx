@@ -1724,7 +1724,6 @@ const Thesis = () => {
               { label: 'ROUND', value: '$4M' },
               { label: 'POST-MONEY CAP', value: '$26.5M' },
               { label: 'DISCOUNT', value: '20%' },
-              { label: 'CLOSE', value: 'MAY 25' },
             ].map((s, i) => (
               <div
                 key={s.label}
