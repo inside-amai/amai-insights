@@ -18,7 +18,7 @@ interface SlideProps {
   footerText?: string;
 }
 
-const TOTAL_SLIDES = 12;
+const TOTAL_SLIDES = 13;
 
 const Slide = ({ children, className = "", slideNumber, footerText = "AMAI Labs · Infrastructure & Research" }: SlideProps) => (
   <section
@@ -1679,7 +1679,7 @@ const Thesis = () => {
         </motion.div>
       </Slide>
 
-      {false && (<> <SlideDivider />
+      <SlideDivider />
 
       {/* ─── Slide 10 · The Ask ─── */}
       <Slide slideNumber={13} footerText={t('tp.footer')}>
@@ -1775,7 +1775,7 @@ const Thesis = () => {
             </div>
           </motion.div>
         </motion.div>
-      </Slide> </> )}
+      </Slide>
 
       <Footer />
     </div>
