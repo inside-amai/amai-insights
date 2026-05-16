@@ -1385,7 +1385,7 @@ const translations: Record<Language, Record<string, string>> = {
     'archp.layers.identity.title': 'Identity Layer',
     'archp.layers.identity.subtitle': 'Non-Human Identity Provisioning',
     'archp.layers.identity.i1.label': 'Immutable Identifiers',
-    'archp.layers.identity.i1.desc': 'Cryptographic agent identity anchored on a public ledger.',
+    'archp.layers.identity.i1.desc': 'Verified agent identity anchored on a tamper-evident audit ledger.',
     'archp.layers.identity.i2.label': 'Dynamic Provenance',
     'archp.layers.identity.i2.desc': 'Replace static API keys with dynamic intent signatures.',
     'archp.layers.identity.i3.label': 'Least Privilege',
