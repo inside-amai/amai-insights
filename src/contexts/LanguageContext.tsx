@@ -1401,7 +1401,7 @@ const translations: Record<Language, Record<string, string>> = {
     'archp.layers.ledger.title': 'The Audit Ledger',
     'archp.layers.ledger.subtitle': 'Verified State Resolution',
     'archp.layers.ledger.i1.label': 'The Agent Bureau',
-    'archp.layers.ledger.i1.desc': 'A public, decentralized record of all autonomous actions.',
+    'archp.layers.ledger.i1.desc': 'An independent, verified record of all autonomous actions.',
     'archp.layers.ledger.i2.label': 'SOC2 Verification',
     'archp.layers.ledger.i2.desc': 'Flawless forensic trails completely separate from human activity.',
     'archp.layers.ledger.i3.label': 'Absolute Accountability',
