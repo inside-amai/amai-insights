@@ -132,6 +132,16 @@ export const SiteHeader = () => {
                 Methodology
               </Link>
             )}
+            {!isDeckPage && (
+              <a
+                href="https://bureau.amai.net"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase"
+              >
+                Bureau
+              </a>
+            )}
             <div className="flex items-center gap-1">
               {languages.map((lang, index) => (
                 <span key={lang.code} className="flex items-center">
@@ -204,6 +214,14 @@ export const SiteHeader = () => {
             >
               Methodology
             </Link>
+            <a
+              href="https://bureau.amai.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block py-4 text-2xl font-light text-white/90 hover:text-white tracking-tight border-b border-white/10"
+            >
+              Bureau
+            </a>
             <a
               href={mailto}
               onClick={() => { setMobileOpen(false); handleContactClick(); }}
