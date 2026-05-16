@@ -4492,7 +4492,7 @@ const translations: Record<Language, Record<string, string>> = {
     'aad.gateway.title': 'بوابة التنفيذ',
     'aad.gateway.subtitle': 'اعتراض لحظي • مفاتيح إيقاف حتمية',
     'aad.bureau.title': 'مكتب الوكلاء',
-    'aad.bureau.subtitle': 'مسارات تدقيق جنائية غير قابلة للتعديل • حل الحالة التشفيرية',
+    'aad.bureau.subtitle': 'مسارات تدقيق جنائية غير قابلة للتعديل • حل الحالة الموثَّق',
 
     // FAQ on /architecture
     'faqa.q1': 'ما هو بروتوكول AMAI؟',
