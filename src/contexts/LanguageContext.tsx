@@ -2921,7 +2921,7 @@ const translations: Record<Language, Record<string, string>> = {
     'archp.layers.gateway.i3.label': '決定論的キルスイッチ',
     'archp.layers.gateway.i3.desc': 'API実行前に被害範囲を数学的に制限。',
     'archp.layers.ledger.title': '監査台帳',
-    'archp.layers.ledger.subtitle': '暗号化状態解決',
+    'archp.layers.ledger.subtitle': '検証済み状態解決',
     'archp.layers.ledger.i1.label': 'エージェントビューロー',
     'archp.layers.ledger.i1.desc': '全自律行動の公開・分散記録。',
     'archp.layers.ledger.i2.label': 'SOC2検証',
