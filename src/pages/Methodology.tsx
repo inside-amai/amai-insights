@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ExplainerHero } from '@/components/ExplainerHero';
 import { Footer } from '@/components/Footer';
@@ -195,7 +196,7 @@ const Methodology = () => {
                   <div className="border-l border-white/10 pl-6">
                     <p className="text-sm font-light text-white/60 leading-relaxed">
                       {t('meth.s05.note.pre')}
-                      <span className="font-mono text-white/85">/methodology/changelog</span>
+                      <Link to="/methodology/changelog" className="font-mono text-white/85 hover:text-white underline-offset-4 hover:underline transition-colors">/methodology/changelog</Link>
                     </p>
                   </div>
                 </div>

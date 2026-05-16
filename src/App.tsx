@@ -46,6 +46,7 @@ import Thesis from "./pages/Thesis";
 import Trust from "./pages/Trust";
 import Architecture from "./pages/Architecture";
 import Methodology from "./pages/Methodology";
+import MethodologyChangelog from "./pages/MethodologyChangelog";
 
 
 
@@ -133,6 +134,7 @@ const App = () => (
             <Route path="/briefing" element={<Briefing />} />
             <Route path="/trust" element={<Trust />} />
             <Route path="/methodology" element={<Methodology />} />
+            <Route path="/methodology/changelog" element={<MethodologyChangelog />} />
 
             <Route path="/diagram" element={<Diagram />} />
             <Route path="/ui" element={<UI />} />
