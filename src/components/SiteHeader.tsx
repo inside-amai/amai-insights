@@ -215,6 +215,14 @@ export const SiteHeader = () => {
               Methodology
             </Link>
             <a
+              href="https://bureau.amai.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block py-4 text-2xl font-light text-white/90 hover:text-white tracking-tight border-b border-white/10"
+            >
+              Bureau
+            </a>
+            <a
               href={mailto}
               onClick={() => { setMobileOpen(false); handleContactClick(); }}
               className="block py-4 text-2xl font-light text-white/90 hover:text-white tracking-tight border-b border-white/10"
