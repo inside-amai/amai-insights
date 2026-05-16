@@ -1423,7 +1423,7 @@ const translations: Record<Language, Record<string, string>> = {
     'archp.env.eyebrow': 'Execution',
     'archp.env.title': 'Environment Overview',
     'archp.env.p1': 'AMAI provides the deployment gateway where autonomous agents operate with verifiable trust scores, cryptographic identity, and mathematically bounded risk.',
-    'archp.env.p2': 'Agents execute through a deterministic interceptor that evaluates intent, calculates real-time TARI™ scores, and enforces hard kill-switches before API payloads are delivered. Every action is permanently hashed to the Agent Bureau ledger, establishing a flawless forensic audit trail completely separate from human activity.',
+    'archp.env.p2': 'Agents execute through a deterministic interceptor that evaluates intent, calculates real-time TARI™ scores, and enforces hard kill-switches before API payloads are delivered. Every action is permanently recorded to the Agent Bureau ledger, establishing a flawless forensic audit trail completely separate from human activity.',
     'archp.env.p3': 'This environment forms the security substrate of the autonomous economy — where intelligent systems scale safely, and compliance is guaranteed by math.',
     'archp.tech.eyebrow': 'Autonomous Agents',
     'archp.tech.title': 'Performance & Trust',
