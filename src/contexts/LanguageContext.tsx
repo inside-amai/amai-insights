@@ -2927,7 +2927,7 @@ const translations: Record<Language, Record<string, string>> = {
     'archp.layers.ledger.i2.label': 'SOC2検証',
     'archp.layers.ledger.i2.desc': '人間活動から完全分離された完璧な法廷証跡。',
     'archp.layers.ledger.i3.label': '絶対的説明責任',
-    'archp.layers.ledger.i3.desc': '信用は企業の約束ではなく分散合意により執行。',
+    'archp.layers.ledger.i3.desc': '信用は企業の約束ではなく独立検証により執行。',
     'archp.intro.p1': 'エージェント展開はヒューリスティックなプロンプト工学から決定論的セキュリティモデルへ移行している。',
     'archp.intro.p2': '絶対的かつ検証可能な信用が自律拡張の前提条件である。',
     'archp.diagram.eyebrow': '運用成果',
