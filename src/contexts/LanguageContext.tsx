@@ -4422,7 +4422,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // /architecture page
     'archp.hero.headline': 'طبقة السمعة لاقتصاد الوكلاء المستقلين.',
-    'archp.hero.subtext': 'بروتوكول متكامل رأسياً لتقييم مخاطر الوكلاء، واعتراض الحمولات الخبيثة، وإنفاذ المساءلة عبر سجل تشفيري غير قابل للتعديل.',
+    'archp.hero.subtext': 'بروتوكول متكامل رأسياً لتقييم مخاطر الوكلاء، واعتراض الحمولات الخبيثة، وإنفاذ المساءلة عبر سجل تدقيق غير قابل للتعديل.',
     'archp.layers.eyebrow': 'بنية بروتوكول AMAI',
     'archp.layers.title': 'حزمة بنية الوكلاء',
     'archp.layers.subtitle': 'حزمة أمن وهوية متكاملة رأسياً للوكلاء المستقلين.',
