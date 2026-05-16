@@ -2923,7 +2923,7 @@ const translations: Record<Language, Record<string, string>> = {
     'archp.layers.ledger.title': '監査台帳',
     'archp.layers.ledger.subtitle': '検証済み状態解決',
     'archp.layers.ledger.i1.label': 'エージェントビューロー',
-    'archp.layers.ledger.i1.desc': '全自律行動の公開・分散記録。',
+    'archp.layers.ledger.i1.desc': '全自律行動の独立検証済み記録。',
     'archp.layers.ledger.i2.label': 'SOC2検証',
     'archp.layers.ledger.i2.desc': '人間活動から完全分離された完璧な法廷証跡。',
     'archp.layers.ledger.i3.label': '絶対的説明責任',
