@@ -1427,7 +1427,7 @@ const translations: Record<Language, Record<string, string>> = {
     'archp.env.p3': 'This environment forms the security substrate of the autonomous economy — where intelligent systems scale safely, and compliance is guaranteed by math.',
     'archp.tech.eyebrow': 'Autonomous Agents',
     'archp.tech.title': 'Performance & Trust',
-    'archp.tech.description': "AMAI's execution layer calculates agent reliability through intent evaluation, payload interception, and verified on-chain execution.",
+    'archp.tech.description': "AMAI's execution layer calculates agent reliability through intent evaluation, payload interception, and verified runtime execution.",
     'archp.tech.feedsInto': 'The deterministic TARI™ score feeds into:',
     'archp.tech.i1': 'Global risk and reputation indices',
     'archp.tech.i2': 'Real-time API access provisioning',
