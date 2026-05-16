@@ -3075,7 +3075,7 @@ const translations: Record<Language, Record<string, string>> = {
     'layers.eyebrow': 'البنية المعمارية لبروتوكول AMAI',
     'layers.title': 'المكدس التحتي للوكلاء',
     'layers.subtitle': 'حزمة أمن وهوية متكاملة رأسياً للوكلاء المستقلين.',
-    'layers.bottomNote': 'تعمل كل طبقة باستقلالية تامة مع الحفاظ على التماسك التشفيري عبر المكدس.',
+    'layers.bottomNote': 'تعمل كل طبقة باستقلالية تامة مع الحفاظ على التماسك الموثَّق عبر المكدس.',
     
     // Layer 1: Identity
     'layers.identity.title': 'طبقة الهوية',
