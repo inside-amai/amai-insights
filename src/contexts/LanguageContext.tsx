@@ -1553,7 +1553,7 @@ const translations: Record<Language, Record<string, string>> = {
     'layers.eyebrow': 'AMAI 基盤設計',
     'layers.title': 'エージェント基盤構成',
     'layers.subtitle': '自律エージェントのための垂直統合型セキュリティ・アイデンティティスタック。',
-    'layers.bottomNote': '各層は独立動作しつつ、全体で暗号学的整合性を維持。',
+    'layers.bottomNote': '各層は独立動作しつつ、全体で検証済みの整合性を維持。',
     
     // Layer 1: Identity
     'layers.identity.title': '身元層',
