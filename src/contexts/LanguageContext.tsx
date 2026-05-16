@@ -2938,7 +2938,7 @@ const translations: Record<Language, Record<string, string>> = {
     'archp.diagram.l2.title': 'ペイロード遮断',
     'archp.diagram.l2.item': '悪意ある意図とプロンプトインジェクションを実行前に切断。',
     'archp.diagram.l3.title': '完璧な準拠',
-    'archp.diagram.l3.item': 'エージェント行動を改竄不可能な暗号化台帳に永続記録。',
+    'archp.diagram.l3.item': 'エージェント行動を改竄不可能な監査台帳に永続記録。',
     'archp.diagram.l4.title': '無制限の拡張',
     'archp.diagram.l4.item': '組織は中核基盤を犠牲にせず自律システムを展開可能。',
     'archp.diagram.footer': 'AIエージェントは闇の中で稼働しなくなる — 実行は検証可能な信用に拘束される。',
