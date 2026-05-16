@@ -2907,7 +2907,7 @@ const translations: Record<Language, Record<string, string>> = {
     'archp.layers.identity.title': '身元層',
     'archp.layers.identity.subtitle': '非人間身元発行',
     'archp.layers.identity.i1.label': '不変識別子',
-    'archp.layers.identity.i1.desc': '公開台帳に固定された暗号化エージェント身元。',
+    'archp.layers.identity.i1.desc': '改竄検知可能な監査台帳に固定された検証済みエージェント身元。',
     'archp.layers.identity.i2.label': '動的来歴',
     'archp.layers.identity.i2.desc': '静的APIキーを動的意図署名に置換。',
     'archp.layers.identity.i3.label': '最小権限',
