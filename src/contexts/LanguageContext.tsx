@@ -1378,7 +1378,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // /architecture page (new)
     'archp.hero.headline': 'The Reputation Layer for the Autonomous Economy.',
-    'archp.hero.subtext': 'A vertically integrated protocol for scoring agent risk, intercepting malicious payloads, and enforcing accountability via an immutable cryptographic ledger.',
+    'archp.hero.subtext': 'A vertically integrated protocol for scoring agent risk, intercepting malicious payloads, and enforcing accountability via an immutable audit ledger.',
     'archp.layers.eyebrow': 'AMAI Protocol Architecture',
     'archp.layers.title': 'Agent Infrastructure Stack',
     'archp.layers.subtitle': 'A vertically integrated security and identity stack for autonomous agents.',
