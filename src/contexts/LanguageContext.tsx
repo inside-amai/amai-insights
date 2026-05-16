@@ -4445,7 +4445,7 @@ const translations: Record<Language, Record<string, string>> = {
     'archp.layers.ledger.title': 'سجل التدقيق',
     'archp.layers.ledger.subtitle': 'حل الحالة الموثَّق',
     'archp.layers.ledger.i1.label': 'مكتب الوكلاء',
-    'archp.layers.ledger.i1.desc': 'سجل عام ولامركزي لجميع الإجراءات المستقلة.',
+    'archp.layers.ledger.i1.desc': 'سجل مستقل وموثَّق لجميع الإجراءات المستقلة.',
     'archp.layers.ledger.i2.label': 'تحقق SOC2',
     'archp.layers.ledger.i2.desc': 'مسارات جنائية لا تشوبها شائبة، منفصلة تماماً عن النشاط البشري.',
     'archp.layers.ledger.i3.label': 'مساءلة مطلقة',
