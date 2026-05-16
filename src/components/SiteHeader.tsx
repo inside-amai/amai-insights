@@ -132,6 +132,16 @@ export const SiteHeader = () => {
                 Methodology
               </Link>
             )}
+            {!isDeckPage && (
+              <a
+                href="https://bureau.amai.net"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase"
+              >
+                Bureau
+              </a>
+            )}
             <div className="flex items-center gap-1">
               {languages.map((lang, index) => (
                 <span key={lang.code} className="flex items-center">
