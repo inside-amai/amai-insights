@@ -3029,7 +3029,7 @@ const translations: Record<Language, Record<string, string>> = {
     'meth.s02.title': '3つの独立シグナル。1つの統合スコア。',
     'meth.s02.p1.tag': '柱 A', 'meth.s02.p1.title': '意図とブラスト半径', 'meth.s02.p1.desc': 'リアルタイムのペイロード解析。実行重み付け + 意味的ドリフト検知。',
     'meth.s02.p2.tag': '柱 B', 'meth.s02.p2.title': '業界ガードレール', 'meth.s02.p2.desc': 'エンドポイントごとの文脈的信頼。同一エージェントでも DeFi と医療では異なるスコア。',
-    'meth.s02.p3.tag': '柱 C', 'meth.s02.p3.title': '不変の出自', 'meth.s02.p3.desc': 'エージェント履歴の暗号学的検証。過去の行動がスコアに複利的に蓄積されます。',
+    'meth.s02.p3.tag': '柱 C', 'meth.s02.p3.title': '出自', 'meth.s02.p3.desc': 'エージェント履歴の検証。過去の行動がスコアに複利的に蓄積されます。',
     'meth.s03.label': '03 // スコア構成',
     'meth.s03.title': 'スコア配合 — 40 / 30 / 30。',
     'meth.s03.c1.label': '行動リスク', 'meth.s03.c1.desc': 'リアルタイムの意図 + ブラスト半径',
