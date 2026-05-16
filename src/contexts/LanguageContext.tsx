@@ -1507,7 +1507,7 @@ const translations: Record<Language, Record<string, string>> = {
     'meth.s02.title': 'Three independent signals. One unified score.',
     'meth.s02.p1.tag': 'Pillar A', 'meth.s02.p1.title': 'Intent & Blast Radius', 'meth.s02.p1.desc': 'Real-time payload analysis. Execution weighting + semantic drift detection.',
     'meth.s02.p2.tag': 'Pillar B', 'meth.s02.p2.title': 'Industry Guardrails', 'meth.s02.p2.desc': 'Contextual trust per endpoint. Same agent, different scores for DeFi vs healthcare.',
-    'meth.s02.p3.tag': 'Pillar C', 'meth.s02.p3.title': 'Immutable Provenance', 'meth.s02.p3.desc': 'Cryptographic verification of agent history. Past behavior compounds into the score.',
+    'meth.s02.p3.tag': 'Pillar C', 'meth.s02.p3.title': 'Provenance', 'meth.s02.p3.desc': 'Verification of agent history. Past behavior compounds into the score.',
     'meth.s03.label': '03 // Score Composition',
     'meth.s03.title': 'Score Ingredients — 40 / 30 / 30.',
     'meth.s03.c1.label': 'Behavioral Risk', 'meth.s03.c1.desc': 'Real-time intent + blast radius',
