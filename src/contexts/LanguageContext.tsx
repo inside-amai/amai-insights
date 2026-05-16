@@ -4460,7 +4460,7 @@ const translations: Record<Language, Record<string, string>> = {
     'archp.diagram.l2.title': 'اعتراض الحمولات',
     'archp.diagram.l2.item': 'تُقطع النوايا الخبيثة وحقن الموجّهات قبل التنفيذ.',
     'archp.diagram.l3.title': 'امتثال لا تشوبه شائبة',
-    'archp.diagram.l3.item': 'تُسجّل إجراءات الوكلاء بشكل دائم على سجل تشفيري غير قابل للتعديل.',
+    'archp.diagram.l3.item': 'تُسجّل إجراءات الوكلاء بشكل دائم على سجل تدقيق غير قابل للتعديل.',
     'archp.diagram.l4.title': 'توسع غير محدود',
     'archp.diagram.l4.item': 'يمكن للمؤسسات أخيراً نشر الأنظمة المستقلة دون المساس بالبنية الأساسية.',
     'archp.diagram.footer': 'لم تعد وكلاء الذكاء الاصطناعي تعمل في الظلام — التنفيذ مقيّد بثقة قابلة للتحقق.',
