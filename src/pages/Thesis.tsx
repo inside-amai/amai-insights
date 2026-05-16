@@ -1679,7 +1679,7 @@ const Thesis = () => {
         </motion.div>
       </Slide>
 
-      {false && (<> <SlideDivider />
+      <SlideDivider />
 
       {/* ─── Slide 10 · The Ask ─── */}
       <Slide slideNumber={13} footerText={t('tp.footer')}>
