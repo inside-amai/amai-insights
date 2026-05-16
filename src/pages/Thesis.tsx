@@ -18,7 +18,7 @@ interface SlideProps {
   footerText?: string;
 }
 
-const TOTAL_SLIDES = 13;
+const TOTAL_SLIDES = 12;
 
 const Slide = ({ children, className = "", slideNumber, footerText = "AMAI Labs · Infrastructure & Research" }: SlideProps) => (
   <section
@@ -1669,102 +1669,6 @@ const Thesis = () => {
         </motion.div>
       </Slide>
 
-      <SlideDivider />
-
-      {/* ─── Slide 10 · The Ask ─── */}
-      <Slide slideNumber={13} footerText={t('tp.footer')}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.2 }}
-          viewport={{ once: true }}
-          className="max-w-6xl mx-auto w-full px-6 md:px-16 text-center"
-        >
-          <MicroLabel>13 // THE ROUND</MicroLabel>
-
-          <motion.h2
-            className="mt-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white leading-[1.1] tracking-tight"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            Closing The Round.
-          </motion.h2>
-
-          <motion.p
-            className="mt-6 text-base md:text-lg lg:text-[22px] text-white/60 font-light"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            viewport={{ once: true }}
-          >
-            $4M raise · $26.5M cap · 20% discount
-          </motion.p>
-
-          {/* Stat row */}
-          <motion.div
-            className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-3 bg-black border border-white/10"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            viewport={{ once: true }}
-          >
-            {[
-              { label: 'ROUND', value: '$4M' },
-              { label: 'POST-MONEY CAP', value: '$26.5M' },
-              { label: 'DISCOUNT', value: '20%' },
-            ].map((s, i) => (
-              <div
-                key={s.label}
-                className={`bg-black px-4 py-6 md:py-8 flex flex-col items-center gap-3 ${
-                  i > 0 ? 'border-t md:border-t-0 md:border-l border-white/10' : ''
-                }`}
-              >
-                <span className="text-[10px] md:text-xs tracking-[0.2em] uppercase text-white/40 font-light">
-                  {s.label}
-                </span>
-                <span className="whitespace-nowrap text-3xl md:text-4xl lg:text-5xl xl:text-[56px] font-light text-cyan-accent leading-none">
-                  {s.value}
-                </span>
-              </div>
-            ))}
-          </motion.div>
-
-          {/* Use of Funds */}
-          <motion.div
-            className="mt-14 md:mt-20"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            viewport={{ once: true }}
-          >
-            <div className="text-[10px] md:text-xs tracking-[0.25em] uppercase text-white/40 font-light mb-8 md:mb-10">
-              USE OF FUNDS
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
-              {[
-                { pct: '60%', title: 'Engineering & Research', desc: 'Senior infrastructure + AI research hires' },
-                { pct: '15%', title: 'Platform GA', desc: 'SDK launch + Enterprise Interceptor production release' },
-                { pct: '15%', title: 'Design Partners', desc: '3 enterprise pilots + GTM motion' },
-                { pct: '10%', title: 'Operations & Runway', desc: 'G&A + buffer to Series A milestones' },
-              ].map((f) => (
-                <div key={f.title} className="flex flex-col items-center text-center px-2">
-                  <span className="text-3xl md:text-4xl lg:text-5xl font-light text-cyan-accent leading-none">
-                    {f.pct}
-                  </span>
-                  <span className="mt-4 text-sm md:text-base text-white font-light tracking-wide">
-                    {f.title}
-                  </span>
-                  <span className="mt-2 text-xs md:text-sm text-white/50 font-light leading-snug">
-                    {f.desc}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </motion.div>
-      </Slide>
 
       <Footer />
     </div>
