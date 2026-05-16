@@ -1416,7 +1416,7 @@ const translations: Record<Language, Record<string, string>> = {
     'archp.diagram.l2.title': 'Payload Interception',
     'archp.diagram.l2.item': 'Malicious intent and prompt injections are severed before execution.',
     'archp.diagram.l3.title': 'Flawless Compliance',
-    'archp.diagram.l3.item': 'Agent actions are permanently recorded on an immutable cryptographic ledger.',
+    'archp.diagram.l3.item': 'Agent actions are permanently recorded on an immutable audit ledger.',
     'archp.diagram.l4.title': 'Unbounded Scale',
     'archp.diagram.l4.item': 'Organizations can finally deploy autonomous systems without compromising core infrastructure.',
     'archp.diagram.footer': 'AI agents no longer operate in the dark — execution is bound by verifiable trust.',
