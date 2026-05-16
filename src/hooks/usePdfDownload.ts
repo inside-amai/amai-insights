@@ -31,7 +31,7 @@ export const usePdfDownload = () => {
       }
 
       const opt = {
-        margin: [margin, margin, margin, margin],
+        margin: [margin, margin, margin, margin] as [number, number, number, number],
         filename: filename,
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { 
