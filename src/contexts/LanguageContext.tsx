@@ -1399,7 +1399,7 @@ const translations: Record<Language, Record<string, string>> = {
     'archp.layers.gateway.i3.label': 'Deterministic Kill-Switches',
     'archp.layers.gateway.i3.desc': 'Mathematically bounds blast radius before API execution.',
     'archp.layers.ledger.title': 'The Audit Ledger',
-    'archp.layers.ledger.subtitle': 'Cryptographic State Resolution',
+    'archp.layers.ledger.subtitle': 'Verified State Resolution',
     'archp.layers.ledger.i1.label': 'The Agent Bureau',
     'archp.layers.ledger.i1.desc': 'A public, decentralized record of all autonomous actions.',
     'archp.layers.ledger.i2.label': 'SOC2 Verification',
