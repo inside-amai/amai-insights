@@ -28,7 +28,7 @@ const translations: Record<Language, Record<string, string>> = {
     'layers.eyebrow': 'AMAI Protocol Architecture',
     'layers.title': 'Agent Infrastructure Stack',
     'layers.subtitle': 'A vertically integrated security and identity stack for autonomous agents.',
-    'layers.bottomNote': 'Each layer operates independently while maintaining cryptographic coherence across the stack.',
+    'layers.bottomNote': 'Each layer operates independently while maintaining verified coherence across the stack.',
     
     // Layer 1: Identity
     'layers.identity.title': 'Identity Layer',
