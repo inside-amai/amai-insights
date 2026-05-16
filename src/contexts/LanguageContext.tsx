@@ -1448,7 +1448,7 @@ const translations: Record<Language, Record<string, string>> = {
     'aad.gateway.title': 'The Execution Gateway',
     'aad.gateway.subtitle': 'Real-time interception • Deterministic kill-switches',
     'aad.bureau.title': 'The Agent Bureau',
-    'aad.bureau.subtitle': 'Immutable forensic audit trails • Cryptographic state resolution',
+    'aad.bureau.subtitle': 'Immutable forensic audit trails • Verified state resolution',
 
     // FAQ on /architecture (5 entries)
     'faqa.q1': 'What is the AMAI protocol?',
