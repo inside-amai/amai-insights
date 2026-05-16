@@ -1405,7 +1405,7 @@ const translations: Record<Language, Record<string, string>> = {
     'archp.layers.ledger.i2.label': 'SOC2 Verification',
     'archp.layers.ledger.i2.desc': 'Flawless forensic trails completely separate from human activity.',
     'archp.layers.ledger.i3.label': 'Absolute Accountability',
-    'archp.layers.ledger.i3.desc': 'Trust is enforced by decentralized consensus, not corporate promises.',
+    'archp.layers.ledger.i3.desc': 'Trust is enforced by independent verification, not corporate promises.',
     'archp.intro.p1': 'Agent deployment is transitioning from heuristic prompt engineering to deterministic security models.',
     'archp.intro.p2': 'Absolute, verifiable trust is the prerequisite for autonomous scale.',
     'archp.diagram.eyebrow': 'Operational Outcome',
