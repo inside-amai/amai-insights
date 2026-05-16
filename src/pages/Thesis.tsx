@@ -245,19 +245,14 @@ const Thesis = () => {
       )}
 
       {/* Constellation background - fixed, like /system-architecture hero */}
-      <div className="absolute inset-0 pointer-events-none z-0">
+      <div className="fixed inset-0 pointer-events-none z-0">
         <motion.svg 
           className="absolute right-[5%] top-[10%] w-[400px] h-[400px] opacity-[0.14]"
           viewBox="0 0 400 400"
-          animate={{ 
-            x: [0, 3, -2, 1, 0],
-            y: [0, -2, 3, -1, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
+          {...(!isMobile && {
+            animate: { x: [0, 3, -2, 1, 0], y: [0, -2, 3, -1, 0] },
+            transition: { duration: 20, repeat: Infinity, ease: "easeInOut" },
+          })}
         >
           <circle cx="200" cy="180" r="3" fill="white" />
           <circle cx="280" cy="120" r="2" fill="white" />
@@ -292,15 +287,10 @@ const Thesis = () => {
         <motion.svg 
           className="absolute left-[10%] bottom-[15%] w-[200px] h-[200px] opacity-[0.08]" 
           viewBox="0 0 200 200"
-          animate={{ 
-            x: [0, -2, 1, -1, 0],
-            y: [0, 1, -2, 2, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
+          {...(!isMobile && {
+            animate: { x: [0, -2, 1, -1, 0], y: [0, 1, -2, 2, 0] },
+            transition: { duration: 25, repeat: Infinity, ease: "easeInOut" },
+          })}
         >
           <circle cx="100" cy="100" r="2" fill="white" />
           <circle cx="60" cy="70" r="1.5" fill="white" />
