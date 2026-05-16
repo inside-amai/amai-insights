@@ -4443,7 +4443,7 @@ const translations: Record<Language, Record<string, string>> = {
     'archp.layers.gateway.i3.label': 'مفاتيح إيقاف حتمية',
     'archp.layers.gateway.i3.desc': 'يحدد نطاق الضرر رياضياً قبل تنفيذ API.',
     'archp.layers.ledger.title': 'سجل التدقيق',
-    'archp.layers.ledger.subtitle': 'حل الحالة التشفيرية',
+    'archp.layers.ledger.subtitle': 'حل الحالة الموثَّق',
     'archp.layers.ledger.i1.label': 'مكتب الوكلاء',
     'archp.layers.ledger.i1.desc': 'سجل عام ولامركزي لجميع الإجراءات المستقلة.',
     'archp.layers.ledger.i2.label': 'تحقق SOC2',
