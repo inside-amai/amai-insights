@@ -1452,7 +1452,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // FAQ on /architecture (5 entries)
     'faqa.q1': 'What is the AMAI protocol?',
-    'faqa.a1': 'AMAI is a deterministic security and identity protocol for autonomous agents. It provides non-human identity provisioning, real-time risk scoring, payload interception, and immutable cryptographic audit trails to safely scale AI.',
+    'faqa.a1': 'AMAI is a deterministic security and identity protocol for autonomous agents. It provides non-human identity provisioning, real-time risk scoring, payload interception, and immutable audit trails to safely scale AI.',
     'faqa.q2': 'What is the TARI™ Score?',
     'faqa.a2': "The Trust & Risk Index (TARI™) is the universal credit score for the autonomous economy. It mathematically proves an agent's safety by evaluating semantic intent, payload blast-radius, and historical behavior before granting API access.",
     'faqa.q3': 'How does the AMAI Interceptor work?',
