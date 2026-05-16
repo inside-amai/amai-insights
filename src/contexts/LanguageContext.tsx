@@ -4429,7 +4429,7 @@ const translations: Record<Language, Record<string, string>> = {
     'archp.layers.identity.title': 'طبقة الهوية',
     'archp.layers.identity.subtitle': 'إصدار هوية غير بشرية',
     'archp.layers.identity.i1.label': 'معرّفات غير قابلة للتعديل',
-    'archp.layers.identity.i1.desc': 'هوية وكيل مشفّرة مرسّخة على سجل عام.',
+    'archp.layers.identity.i1.desc': 'هوية وكيل موثَّقة مرسّخة على سجل تدقيق مقاوم للعبث.',
     'archp.layers.identity.i2.label': 'منشأ ديناميكي',
     'archp.layers.identity.i2.desc': 'استبدال مفاتيح API الثابتة بتوقيعات نوايا ديناميكية.',
     'archp.layers.identity.i3.label': 'الحد الأدنى من الامتيازات',
