@@ -78,8 +78,8 @@ export const PartnershipDiagram: React.FC<{ idForExport?: string }> = ({ idForEx
 
   // Column 1 (NVIDIA)
   const col1Boxes = [
-    { title: "Nemoclaw", sub: "agent spawn" },
-    { title: "NeMo Framework", sub: "" },
+    { title: "Nemoclaw", sub: "" },
+    { title: "NeMo Guardrails", sub: "" },
     { title: "NeMo Microservices", sub: "" },
   ];
   // Column 2 (AMAI integration) — order aligned to spec mapping
