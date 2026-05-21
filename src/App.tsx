@@ -14,6 +14,7 @@ import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import Explainer from "./pages/Explainer";
 import Diagram from "./pages/Diagram";
+import Diagram2 from "./pages/Diagram2";
 import UI from "./pages/UI";
 import TechnicalDocs from "./pages/TechnicalDocs";
 import GenesisMint from "./pages/GenesisMint";
@@ -137,6 +138,7 @@ const App = () => (
             <Route path="/methodology/changelog" element={<MethodologyChangelog />} />
 
             <Route path="/diagram" element={<Diagram />} />
+            <Route path="/diagram2" element={<Diagram2 />} />
             <Route path="/ui" element={<UI />} />
             {/* Admin routes */}
             <Route path="/admin/pilot-requests" element={<AdminPilotRequests />} />
