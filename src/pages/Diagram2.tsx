@@ -78,8 +78,8 @@ export const PartnershipDiagram: React.FC<{ idForExport?: string }> = ({ idForEx
 
   // Column 1 (NVIDIA)
   const col1Boxes = [
-    { title: "Nemoclaw", sub: "agent spawn" },
-    { title: "NeMo Framework", sub: "" },
+    { title: "Nemoclaw", sub: "" },
+    { title: "NeMo Guardrails", sub: "" },
     { title: "NeMo Microservices", sub: "" },
   ];
   // Column 2 (AMAI integration) — order aligned to spec mapping
@@ -176,34 +176,38 @@ export const PartnershipDiagram: React.FC<{ idForExport?: string }> = ({ idForEx
         );
       })}
 
-      {/* Top curved arrow — Behavioral telemetry (left to right) */}
+      {/* Top curved arrow — Behavioral telemetry: Zero-Trust SDK → Global Ledger */}
       {(() => {
-        const sx = col2X + boxW / 2;
-        const sy = rowYs[0] - 20;
-        const ex = bureauX + bureauW / 2;
-        const ey = rowYs[0] - 20;
-        const path = `M ${sx} ${sy} C ${sx + 100} ${sy - 50}, ${ex - 100} ${ey - 50}, ${ex} ${ey}`;
+        const rowH = bureauH / 3;
+        const sx = col2X + boxW;
+        const sy = rowYs[0] + boxH / 2;
+        const ex = bureauX;
+        const ey = bureauY + rowH / 2;
+        const apexY = sy - 70;
+        const path = `M ${sx} ${sy} C ${sx + 80} ${apexY}, ${ex - 80} ${apexY}, ${ex} ${ey}`;
         return (
           <g>
             <path d={path} fill="none" stroke={AMAI} strokeWidth={1} markerEnd="url(#arrTeal)" />
-            <text x={(sx + ex) / 2} y={sy - 40} textAnchor="middle" fontFamily={SANS} fontSize={11} fill={AMAI}>
+            <text x={(sx + ex) / 2} y={apexY - 6} textAnchor="middle" fontFamily={SANS} fontSize={11} fill={AMAI}>
               Behavioral telemetry
             </text>
           </g>
         );
       })()}
 
-      {/* Bottom curved arrow — TARI score + enforcement (right to left) */}
+      {/* Bottom curved arrow — TARI score + enforcement: Cross-vendor Reputation Lookup → TARI Interceptor */}
       {(() => {
-        const sx = bureauX + bureauW / 2;
-        const sy = rowYs[2] + boxH + 25;
-        const ex = col2X + boxW / 2;
-        const ey = rowYs[2] + boxH + 25;
-        const path = `M ${sx} ${sy} C ${sx - 100} ${sy + 50}, ${ex + 100} ${ey + 50}, ${ex} ${ey}`;
+        const rowH = bureauH / 3;
+        const sx = bureauX;
+        const sy = bureauY + rowH * 2 + rowH / 2;
+        const ex = col2X + boxW;
+        const ey = rowYs[2] + boxH / 2;
+        const apexY = Math.max(sy, ey) + 70;
+        const path = `M ${sx} ${sy} C ${sx - 80} ${apexY}, ${ex + 80} ${apexY}, ${ex} ${ey}`;
         return (
           <g>
             <path d={path} fill="none" stroke={NVIDIA} strokeWidth={1} markerEnd="url(#arrGreen)" />
-            <text x={(sx + ex) / 2} y={sy + 50} textAnchor="middle" fontFamily={SANS} fontSize={11} fill={NVIDIA}>
+            <text x={(sx + ex) / 2} y={apexY + 16} textAnchor="middle" fontFamily={SANS} fontSize={11} fill={NVIDIA}>
               TARI score + enforcement decision
             </text>
           </g>
