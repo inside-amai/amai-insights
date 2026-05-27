@@ -898,8 +898,8 @@ const Thesis = () => {
               style={{
                 gridTemplateColumns: "240px 480px 240px",
                 gridTemplateRows: "auto 480px auto",
-                rowGap: "32px",
-                columnGap: "40px",
+                rowGap: "0px",
+                columnGap: "8px",
                 width: "max-content",
               }}
             >
