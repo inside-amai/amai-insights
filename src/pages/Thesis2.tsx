@@ -1612,7 +1612,7 @@ const Thesis = () => {
               {
                 date: '2025 · STANDARDS',
                 title: 'AP2 Standardizes Agent Payments',
-                body: "Google's Agent Payments Protocol launched with Mastercard, PayPal, Adyen, and 60+ industry partners. Agent-initiated transactions now have a standard cryptographic authorization format.",
+                body: 'Google, Mastercard, PayPal, Adyen, and 60+ partners agree on the cryptographic format for agent-initiated transactions.',
                 source: 'Google Cloud, Sep 2025',
               },
               {
