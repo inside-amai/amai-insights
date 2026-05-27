@@ -895,7 +895,7 @@ const Thesis = () => {
             Every agent-to-agent transaction issues a signed Trust Receipt. The receipts compound the network.
           </motion.p>
 
-          <div className="flex flex-col md:flex-row items-stretch md:items-start justify-between gap-6 md:gap-3 mb-12 text-left">
+          <div className="flex flex-col md:flex-row items-stretch justify-between gap-6 md:gap-3 mb-12 text-left">
             {[
               {
                 step: 'STEP 01',
@@ -915,7 +915,7 @@ const Thesis = () => {
             ].map((s, i, arr) => (
               <React.Fragment key={s.step}>
                 <motion.div
-                  className="flex-1 border rounded-md p-6 md:p-7 bg-black"
+                  className="flex-1 h-full border rounded-md p-6 md:p-7 bg-black"
                   style={{ borderColor: '#222222' }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
