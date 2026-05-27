@@ -1900,15 +1900,6 @@ const Thesis = () => {
             </p>
           </motion.div>
 
-          <motion.p
-            className="mt-16 md:mt-24 text-[11px] md:text-xs tracking-[0.25em] uppercase text-white/35 font-light italic"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.1 }}
-            viewport={{ once: true }}
-          >
-            Visible to no one.  ·  Indispensable to everyone.
-          </motion.p>
         </motion.div>
       </Slide>
 
