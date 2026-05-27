@@ -1351,12 +1351,17 @@ const Thesis = () => {
                 THE VERIFICATION RAIL
               </p>
               <h3 className="text-xl md:text-2xl font-light text-white mb-3">
-                Usage-Scaled Subscription
+                Developer Subscription + Enterprise Platform
               </h3>
-              <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono mb-4">PAID · SUBSCRIPTION · SCALES WITH USAGE</p>
-              <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">
-                Once an agent exceeds 10,000 evaluations per month, the developer moves to a paid subscription tier. Tiers scale with verification volume — predictable MRR that compounds with the customer's agent fleet.
-              </p>
+              <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono mb-4">PAID · TWO TIERS · SCALES WITH USAGE</p>
+              <div className="text-sm md:text-base text-white/60 font-light leading-relaxed space-y-3">
+                <p>
+                  <span className="text-white/80">Developer tier</span> — once an agent exceeds 10,000 evaluations per month, the developer converts to a paid subscription that scales with usage volume. Predictable MRR per agent fleet.
+                </p>
+                <p>
+                  <span className="text-white/80">Enterprise tier</span> — treasury, compliance, and ops teams pay a separate platform subscription for fleet monitoring, policy enforcement, and compliance dashboards.
+                </p>
+              </div>
             </motion.div>
 
           </div>
@@ -1369,7 +1374,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.9 }}
             viewport={{ once: true }}
           >
-            The free tier captures the data. The subscription tier monetizes it. <span className="text-white">Revenue compounds with every agent deployed.</span>
+            Free tier captures the data. Two paid tiers monetize the rail. <span className="text-white">Revenue compounds with every agent deployed.</span>
           </motion.p>
         </motion.div>
       </Slide>
