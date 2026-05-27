@@ -876,7 +876,7 @@ const Thesis = () => {
             How the Network Grows Itself.
           </motion.h2>
           <motion.p
-            className="text-base md:text-lg text-white/50 font-light mb-14 max-w-3xl mx-auto"
+            className="text-base md:text-lg text-white/50 font-light mb-12 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -885,54 +885,122 @@ const Thesis = () => {
             Every agent-to-agent transaction issues a signed Trust Receipt. The receipts compound the network.
           </motion.p>
 
-          <div className="flex flex-col md:flex-row items-stretch justify-between gap-6 md:gap-3 mb-12 text-left">
-            {[
-              {
-                step: 'STEP 01',
-                title: 'TRANSACTION',
-                body: 'Agent A pays, borrows, or delegates to Agent B.',
-              },
-              {
-                step: 'STEP 02',
-                title: 'RECEIPT',
-                body: "AMAI signs a Trust Receipt attesting to the agent's behavior — paid on time, completed the task, no policy violations.",
-              },
-              {
-                step: 'STEP 03',
-                title: 'COMPOUND',
-                body: "If Agent B is in the Bureau, the receipt strengthens its TARI score. If not, the operator is pulled in to claim the agent and start building reputation.",
-              },
-            ].map((s, i, arr) => (
-              <React.Fragment key={s.step}>
+          <div className="grid grid-cols-1 md:grid-cols-[55fr_45fr] gap-6 md:gap-8 mb-10 text-left items-stretch">
+            {/* LEFT: Trust Receipt artifact */}
+            <motion.div
+              className="bg-black border rounded-lg overflow-hidden flex flex-col"
+              style={{ borderColor: '#222222' }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <div className="border-b border-white/10 px-5 md:px-7 py-4 md:py-5 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-[#7fd6d6] shadow-[0_0_8px_rgba(127,214,214,0.5)]" />
+                  <span className="text-[10px] md:text-xs tracking-[0.2em] uppercase text-white/50 font-mono">
+                    TRUST RECEIPT · TR-9F2A8K
+                  </span>
+                </div>
+                <span className="hidden md:inline text-[10px] tracking-[0.15em] uppercase text-white/30 font-mono">
+                  Issued 2026-05-27 14:23 UTC
+                </span>
+              </div>
+              <div className="md:hidden px-5 pt-2 pb-3">
+                <span className="text-[10px] tracking-[0.15em] uppercase text-white/30 font-mono">
+                  Issued 2026-05-27 14:23 UTC
+                </span>
+              </div>
+
+              <div className="px-5 md:px-7 py-7 md:py-9 border-b border-white/10 text-center">
+                <p className="text-[9px] tracking-[0.3em] uppercase text-white/30 font-mono mb-3">
+                  Agent-to-Agent
+                </p>
+                <p className="text-2xl md:text-4xl text-white font-light tracking-tight">
+                  <span className="text-white">AGENT-0B</span>
+                  <span className="text-white/40 mx-2 md:mx-3">→</span>
+                  <span className="text-white">AGENT-7K</span>
+                </p>
+              </div>
+
+              <div className="px-5 md:px-7 py-5 md:py-6 border-b border-white/10 divide-y divide-white/5">
+                {[
+                  { label: 'Action', value: 'Payment, $4,200 USDC' },
+                  { label: 'Outcome', value: 'Settled on time' },
+                  { label: 'Policy violations', value: 'None' },
+                  { label: 'Behavior tag', value: 'PRIME', pill: true },
+                ].map((f) => (
+                  <div key={f.label} className="flex items-center justify-between py-2.5">
+                    <span className="text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-white/40 font-mono">
+                      {f.label}
+                    </span>
+                    {f.pill ? (
+                      <span className="text-[10px] tracking-[0.2em] uppercase text-emerald-400/90 font-mono border border-emerald-400/25 px-2 py-0.5 rounded">
+                        {f.value}
+                      </span>
+                    ) : (
+                      <span className="text-sm md:text-[15px] text-white/85 font-light">
+                        {f.value}
+                      </span>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              <div className="px-5 md:px-7 py-4 md:py-5 flex items-center justify-between mt-auto">
+                <span className="text-sm md:text-base text-[#7fd6d6] font-light tracking-tight">
+                  Score delta: <span className="text-white">+12 TARI</span>
+                </span>
+                <span className="text-[10px] md:text-[11px] tracking-[0.15em] uppercase text-white/40 font-mono">
+                  Signed by AMAI Bureau <span className="text-emerald-400">✓</span>
+                </span>
+              </div>
+            </motion.div>
+
+            {/* RIGHT: outcome cards with connectors */}
+            <div className="relative flex flex-col justify-between gap-5 md:gap-6">
+              {/* Connector lines (desktop only) */}
+              <svg
+                className="hidden md:block absolute -left-8 top-0 h-full w-8 pointer-events-none"
+                viewBox="0 0 32 100"
+                preserveAspectRatio="none"
+              >
+                <path d="M0,50 C16,50 16,20 32,20" stroke="rgba(127,214,214,0.35)" strokeWidth="0.5" fill="none" />
+                <path d="M0,50 C16,50 16,80 32,80" stroke="rgba(127,214,214,0.35)" strokeWidth="0.5" fill="none" />
+              </svg>
+
+              {[
+                {
+                  tag: 'RECIPIENT IN BUREAU',
+                  body: "Agent-7K's TARI score updates immediately. The receipt becomes part of their permanent reputation ledger.",
+                },
+                {
+                  tag: 'RECIPIENT NOT IN BUREAU',
+                  body: "Agent-7K's operator is notified to claim the agent and verify. A new identity joins the network. Reputation begins.",
+                },
+              ].map((c, i) => (
                 <motion.div
-                  className="flex-1 border rounded-md p-6 md:p-7 bg-black min-h-[260px] md:h-[260px] flex flex-col"
+                  key={c.tag}
+                  className="flex-1 border rounded-md p-6 md:p-7 bg-black flex flex-col"
                   style={{ borderColor: '#222222' }}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7, delay: 0.5 + i * 0.15 }}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.7, delay: 0.7 + i * 0.15 }}
                   viewport={{ once: true }}
                 >
                   <p className="text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-[#7fd6d6] font-medium mb-3">
-                    {s.step}
-                  </p>
-                  <p className="text-lg md:text-xl text-white font-light mb-3 tracking-wide">
-                    {s.title}
+                    {c.tag}
                   </p>
                   <p className="text-sm md:text-[15px] text-white/65 font-light leading-relaxed">
-                    {s.body}
+                    {c.body}
                   </p>
                 </motion.div>
-                {i < arr.length - 1 && (
-                  <div className="hidden md:flex items-center justify-center self-center text-white/30 text-xl px-1">
-                    →
-                  </div>
-                )}
-              </React.Fragment>
-            ))}
+              ))}
+            </div>
           </div>
 
           <motion.p
-            className="text-sm md:text-base text-white/55 font-light max-w-3xl mx-auto leading-relaxed italic"
+            className="text-sm md:text-base text-white/55 font-light max-w-3xl mx-auto leading-relaxed italic text-center"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
