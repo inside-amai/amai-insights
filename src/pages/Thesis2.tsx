@@ -1854,6 +1854,16 @@ const Thesis = () => {
             14 // THE VISION
           </motion.p>
 
+          <motion.img
+            src={amaiLogo}
+            alt="AMAI"
+            className="h-10 md:h-14 w-auto brightness-110 mx-auto mb-12 md:mb-16"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, delay: 0.3 }}
+            viewport={{ once: true }}
+          />
+
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white leading-[1.15] tracking-tight mb-20 md:mb-28"
             initial={{ opacity: 0, y: 20 }}
