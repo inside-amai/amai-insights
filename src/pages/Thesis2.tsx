@@ -1044,9 +1044,99 @@ const Thesis = () => {
         </motion.div>
       </Slide>
 
+      <SlideDivider />
 
-      {/* ── SLIDE 8: THE BUSINESS MODEL ── */}
+      {/* ── SLIDE 9: THE CUSTOMERS ── */}
       <Slide slideNumber={9} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="max-w-6xl mx-auto w-full"
+        >
+          <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
+            09 // THE CUSTOMERS
+          </p>
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 leading-[1.1] tracking-tight text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            Who Pays for the Trust Rail.
+          </motion.h2>
+          <motion.p
+            className="text-sm md:text-base lg:text-lg text-white/50 font-light mb-12 md:mb-16 max-w-2xl mx-auto text-center leading-relaxed"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            Every counterparty in an agent transaction needs to verify the other side. Four wedges. One rail.
+          </motion.p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+            {[
+              {
+                header: 'CREDIT ISSUERS',
+                subhead: 'Banks, fintechs, BNPL',
+                body: 'TARI surfaces inside the underwriting pipeline. Approve, decline, cap, or price based on principal + agent + behavior.',
+              },
+              {
+                header: 'MARKETPLACES',
+                subhead: 'Platforms, embedded payments',
+                body: 'The shared risk oracle for agent buyers. Green auto-approves; amber and red route to step-up auth or manual review.',
+              },
+              {
+                header: 'DEFI PROTOCOLS',
+                subhead: 'Undercollateralized lending pools',
+                body: 'On-chain credit oracle for agent borrowers — the Goldfinch / Maple pattern. One governance vote brings integration live.',
+              },
+              {
+                header: 'INTERNAL TREASURY',
+                subhead: 'Enterprise CFOs, working capital',
+                body: "Gates the agent's authority over AR/AP, vendor payments, and balance sheet exposure.",
+              },
+            ].map((card, i) => (
+              <motion.div
+                key={card.header}
+                className="bg-black border rounded-md p-6 md:p-8 flex flex-col"
+                style={{ borderColor: '#222222' }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 + i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-[10px] md:text-[11px] tracking-[0.25em] uppercase text-white font-medium mb-2">
+                  {card.header}
+                </p>
+                <p className="italic text-sm text-white/40 mb-5 font-light">{card.subhead}</p>
+                <p className="text-sm md:text-[15px] text-white/70 leading-[1.7] font-light">
+                  {card.body}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.p
+            className="text-center text-sm md:text-base text-white/50 font-light mt-10 md:mt-14 tracking-wide"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 1 }}
+            viewport={{ once: true }}
+          >
+            Same TARI score. Four buyers. One rail.
+          </motion.p>
+        </motion.div>
+      </Slide>
+
+
+      <SlideDivider />
+
+      {/* ── SLIDE 10: THE BUSINESS MODEL ── */}
+      <Slide slideNumber={10} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1271,8 +1361,8 @@ const Thesis = () => {
       <SlideDivider />
 
 
-      {/* ── SLIDE 10: THE TEAM ── */}
-      <Slide slideNumber={10} footerText={t('tp.footer')}>
+      {/* ── SLIDE 11: THE TEAM ── */}
+      <Slide slideNumber={11} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1401,8 +1491,8 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 11: CLOSING ── */}
-      <Slide slideNumber={11} footerText={t('tp.footer')}>
+      {/* ── SLIDE 12: CLOSING ── */}
+      <Slide slideNumber={12} footerText={t('tp.footer')}>
         {/* Constellation accent — same as hero */}
         <div className="absolute inset-0 pointer-events-none z-0">
           <motion.svg
