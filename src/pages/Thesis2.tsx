@@ -964,7 +964,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto w-full"
         >
-          <MicroLabel>07 // THE LANDSCAPE</MicroLabel>
+          <MicroLabel>08 // THE LANDSCAPE</MicroLabel>
 
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 leading-[1.1] tracking-tight text-center"
@@ -983,16 +983,16 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Native vendors can't audit their own agents. Point solutions defend single layers. AMAI is the only independent, cross-organizational behavioral bureau.
+            FICO is independent of every bank. D&amp;B is independent of every business. The autonomous economy needs the same.
           </motion.p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 border rounded-md overflow-hidden bg-black" style={{ borderColor: '#222222' }}>
             {[
               {
-                label: 'CONTROL PLANE (INTERNAL)',
-                char: 'Single-organization governance',
+                label: 'NATIVE / FIRST-PARTY',
+                char: 'Auditing their own agents',
                 companies: ['Microsoft Entra Agent ID', 'NVIDIA NeMo Guardrails', 'OpenAI', 'Anthropic'],
-                summary: 'Cannot serve as independent third-party arbiter — even when extended to cross-vendor scope.',
+                summary: 'Structural conflict of interest. Cannot serve as third-party arbiter.',
                 highlight: false,
               },
               {
@@ -1050,15 +1050,6 @@ const Thesis = () => {
             ))}
           </div>
 
-          <motion.p
-            className="italic text-sm md:text-[15px] text-white/45 font-light text-center mt-10 md:mt-12 max-w-3xl mx-auto"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.1 }}
-            viewport={{ once: true }}
-          >
-            FICO is independent of every bank. D&amp;B is independent of every business. The autonomous economy needs the same.
-          </motion.p>
         </motion.div>
       </Slide>
 
