@@ -1541,20 +1541,15 @@ const Thesis = () => {
               </div>
 
               <p className="text-[10px] tracking-[0.25em] uppercase text-[rgba(214,166,252,0.6)] font-mono mb-3">
-                THE VERIFICATION RAIL
+                THE ENTERPRISE
               </p>
               <h3 className="text-xl md:text-2xl font-light text-white mb-3">
-                Developer Subscription + Enterprise Platform
+                Platform Subscription
               </h3>
-              <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono mb-4">PAID · TWO TIERS · SCALES WITH USAGE</p>
-              <div className="text-sm md:text-base text-white/60 font-light leading-relaxed space-y-3">
-                <p>
-                  <span className="text-white/80">Developer tier</span> — once an agent exceeds 10,000 evaluations per month, the developer converts to a paid subscription that scales with usage volume. Predictable MRR per agent fleet.
-                </p>
-                <p>
-                  <span className="text-white/80">Enterprise tier</span> — treasury, compliance, and ops teams pay a separate platform subscription for fleet monitoring, policy enforcement, and compliance dashboards.
-                </p>
-              </div>
+              <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono mb-4">PAID · FLEET-WIDE · COMPLIANCE</p>
+              <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">
+                Treasury, compliance, and ops teams subscribe to the AMAI platform for fleet monitoring, policy enforcement, and compliance dashboards.
+              </p>
             </motion.div>
 
           </div>
