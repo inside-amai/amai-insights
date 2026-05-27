@@ -901,8 +901,8 @@ const Thesis = () => {
                 rowGap: "0px",
                 columnGap: "0px",
                 width: "max-content",
-                marginTop: "-60px",
-                marginBottom: "-60px",
+                marginTop: "-20px",
+                marginBottom: "-20px",
               }}
             >
               {/* Row 1 — empty | 01 TRANSACTION | empty */}
@@ -1033,7 +1033,7 @@ const Thesis = () => {
 
 
           <motion.p
-            className="text-sm md:text-base text-white/55 font-light max-w-3xl mx-auto leading-relaxed italic text-center"
+            className="text-sm md:text-base text-white/55 font-light max-w-3xl mx-auto leading-relaxed italic text-center mt-16 md:mt-20"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
