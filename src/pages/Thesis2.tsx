@@ -1774,7 +1774,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 13: CLOSING ── */}
-      <Slide slideNumber={13} footerText={t('tp.footer')}>
+      <Slide slideNumber={14} footerText={t('tp.footer')}>
         {/* Constellation accent — same as hero */}
         <div className="absolute inset-0 pointer-events-none z-0">
           <motion.svg
