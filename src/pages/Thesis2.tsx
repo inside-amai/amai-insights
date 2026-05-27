@@ -464,37 +464,24 @@ const Thesis = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
           viewport={{ once: true }}
-          className="w-full text-left pl-2 sm:pl-6 md:pl-12 lg:pl-20 pr-4 max-w-3xl"
+          className="w-full text-center max-w-4xl mx-auto px-4"
         >
-          <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-10 md:mb-14 text-center">
+          <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-14 md:mb-20">
             03 // THE LIMIT
           </p>
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-16 md:mb-20 leading-[1.15] text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            Sketchy Agents Can't Scale
-          </motion.h2>
-
 
           <motion.div
-            className="space-y-10 md:space-y-12"
+            className="space-y-10 md:space-y-14"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <p className="text-lg md:text-xl text-white/60 font-light leading-[1.8]">
+            <p className="text-lg md:text-xl lg:text-2xl text-white/60 font-light leading-[1.6]">
               Humans have <span className="text-white font-normal">FICO</span>. Businesses have <span className="text-white font-normal">Dun &amp; Bradstreet</span>.
             </p>
-            <p className="text-3xl sm:text-4xl md:text-5xl text-white font-light leading-[1.2] tracking-tight">
+            <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-light leading-[1.15] tracking-tight">
               AI Agents have <span className="font-normal">Nothing</span>.
-            </p>
-            <p className="text-base md:text-lg text-white/40 font-light leading-[1.9] max-w-2xl">
-              Without a standardized Credit Score, an Agent is just a random script that cannot be trusted with significant capital or sensitive data.
             </p>
           </motion.div>
         </motion.div>
