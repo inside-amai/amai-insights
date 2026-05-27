@@ -348,8 +348,116 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 2: THE PROBLEM ── */}
+      {/* ── SLIDE 2: THE AUTONOMOUS ECONOMY ── */}
       <Slide slideNumber={2} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="max-w-5xl mx-auto"
+        >
+          <MicroLabel>02 // THE AUTONOMOUS ECONOMY</MicroLabel>
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 leading-[1.15] text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            The Autonomous Economy
+          </motion.h2>
+          <motion.p
+            className="text-base md:text-lg text-white/50 font-light text-center max-w-2xl mx-auto mb-14 md:mb-20"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.35 }}
+            viewport={{ once: true }}
+          >
+            Capital is flooding the agentic layer. But capital requires trust.
+          </motion.p>
+
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-10 md:gap-12 items-start">
+            {/* LEFT: Two stacked stats */}
+            <div className="md:col-span-3 flex flex-col gap-12 md:gap-16">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <h3
+                  className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight tracking-tight leading-none mb-3"
+                  style={{
+                    background: 'linear-gradient(135deg, #a0d2ff 0%, #60b8ff 40%, #c0e0ff 70%, #a0d2ff 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                  }}
+                >
+                  $4.4 Trillion
+                </h3>
+                <p className="text-xs md:text-sm text-white/40 font-light leading-relaxed max-w-md">
+                  Projected annual global GDP impact of Agentic AI by 2030.{' '}
+                  <span className="text-white/25 font-mono text-[10px]">(Source: PwC)</span>
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.7 }}
+                viewport={{ once: true }}
+              >
+                <h3
+                  className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight tracking-tight leading-none mb-3"
+                  style={{
+                    background: 'linear-gradient(135deg, #80c0ff 0%, #4da8ff 40%, #b0d8ff 70%, #80c0ff 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                  }}
+                >
+                  $1 Trillion
+                </h3>
+                <p className="text-xs md:text-sm text-white/40 font-light leading-relaxed max-w-md">
+                  Projected agent-driven revenue by 2027.{' '}
+                  <span className="text-white/25 font-mono text-[10px]">(Source: NVIDIA, GTC Keynote)</span>
+                </p>
+              </motion.div>
+            </div>
+
+            {/* RIGHT: Narrative panel */}
+            <motion.div
+              className="md:col-span-2 bg-white/[0.03] border border-white/[0.08] rounded-xl p-6 md:p-8 backdrop-blur-sm"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.9 }}
+              viewport={{ once: true }}
+            >
+              <h4 className="text-lg md:text-xl font-light text-white mb-4 leading-snug">
+                The Trillion-Dollar Bottleneck
+              </h4>
+              <div className="w-10 h-px bg-gradient-to-r from-[#60b8ff]/40 to-transparent mb-5" />
+              <p className="text-sm md:text-[15px] text-white/45 font-light leading-[1.75]">
+                Capital is flooding the agentic layer. MoonPay just gave agents Mastercards backed by stablecoin reserves. AP2 standardized agent payment rails. Microsoft shipped Agent 365.
+              </p>
+              <p className="mt-4 text-sm md:text-[15px] text-white/55 font-light leading-[1.75]">
+                What's missing: the trust layer that decides which agents you let transact with you.
+              </p>
+              <p className="mt-4 text-sm md:text-[15px] text-white font-light leading-[1.75]">
+                The market cannot scale until the agent can be underwritten.
+              </p>
+            </motion.div>
+          </div>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+
+      {/* ── SLIDE 2: THE PROBLEM ── */}
+      <Slide slideNumber={3} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -437,7 +545,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 3: THE THREAT IS NHI ── */}
-      <Slide slideNumber={3} footerText={t('tp.footer')}>
+      <Slide slideNumber={4} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -531,7 +639,7 @@ const Thesis = () => {
 
       {/* ── SLIDE 8: THE TEAM ── */}
       {/* ── SLIDE 9: WHY NOW ── */}
-      <Slide slideNumber={4} footerText={t('tp.footer')}>
+      <Slide slideNumber={5} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -616,7 +724,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 4: THE TARI ENGINE ── */}
-      <Slide slideNumber={5} footerText={t('tp.footer')}>
+      <Slide slideNumber={6} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -765,7 +873,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 5: DETERMINISTIC ENFORCEMENT ── */}
-      <Slide slideNumber={6} footerText={t('tp.footer')}>
+      <Slide slideNumber={7} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -807,7 +915,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 7: COMPETITIVE LANDSCAPE ── */}
-      <Slide slideNumber={7} footerText={t('tp.footer')}>
+      <Slide slideNumber={8} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -916,7 +1024,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 6: THE MOAT ── */}
-      <Slide slideNumber={8} footerText={t('tp.footer')}>
+      <Slide slideNumber={9} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1033,7 +1141,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 8: THE BUSINESS MODEL ── */}
-      <Slide slideNumber={9} footerText={t('tp.footer')}>
+      <Slide slideNumber={10} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1257,149 +1365,6 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 7: THE AUTONOMOUS ECONOMY (Market Sizing) ── */}
-      <Slide slideNumber={10} footerText={t('tp.footer')}>
-        {/* Abstract background: data streams */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {/* Horizontal data stream lines */}
-          {Array.from({ length: 12 }, (_, i) => (
-            <motion.div
-              key={`stream-${i}`}
-              className="absolute h-px"
-              style={{
-                top: `${8 + i * 8}%`,
-                left: '-10%',
-                width: `${30 + Math.random() * 40}%`,
-                background: `linear-gradient(90deg, transparent, rgba(100,180,255,${0.03 + Math.random() * 0.06}), transparent)`,
-              }}
-              animate={{ x: ['0%', '120%'] }}
-              transition={{ duration: 8 + Math.random() * 12, repeat: Infinity, delay: Math.random() * 5, ease: 'linear' }}
-            />
-          ))}
-          {/* Scattered light dots (world map suggestion) */}
-          {Array.from({ length: 40 }, (_, i) => (
-            <motion.div
-              key={`dot-${i}`}
-              className="absolute rounded-full"
-              style={{
-                width: 2 + Math.random() * 2,
-                height: 2 + Math.random() * 2,
-                top: `${10 + Math.random() * 80}%`,
-                left: `${5 + Math.random() * 90}%`,
-                background: `rgba(100,180,255,${0.05 + Math.random() * 0.1})`,
-              }}
-              animate={{ opacity: [0.2, 0.8, 0.2] }}
-              transition={{ duration: 3 + Math.random() * 4, repeat: Infinity, delay: Math.random() * 3 }}
-            />
-          ))}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.2 }}
-          viewport={{ once: true }}
-        >
-          <MicroLabel>{t('tp.s7m.label')}</MicroLabel>
-
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 md:mb-4 text-center leading-[1.1]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            {t('tp.s7m.h')}
-          </motion.h2>
-          <motion.p
-            className="text-sm md:text-base text-white/40 font-light mb-14 md:mb-20 max-w-xl mx-auto text-center"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            {t('tp.s7m.sub')}
-          </motion.p>
-
-          {/* Two-column: Data Points (left) + Narrative Anchor (right) */}
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-10 md:gap-12 items-start">
-            
-            {/* LEFT: Massive data callouts — 3 cols */}
-            <div className="md:col-span-3 flex flex-col gap-12 md:gap-16">
-              {/* Data Point 1 */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-                viewport={{ once: true }}
-              >
-                <h3
-                  className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight tracking-tight leading-none mb-3"
-                  style={{
-                    background: 'linear-gradient(135deg, #a0d2ff 0%, #60b8ff 40%, #c0e0ff 70%, #a0d2ff 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                  }}
-                >
-                  {t('tp.s7m.dp1.value')}
-                </h3>
-                <p className="text-xs md:text-sm text-white/40 font-light leading-relaxed max-w-md">
-                  {t('tp.s7m.dp1.desc')}{' '}
-                  <span className="text-white/25 font-mono text-[10px]">{t('tp.s7m.dp1.src')}</span>
-                </p>
-              </motion.div>
-
-              {/* Data Point 2 */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.7 }}
-                viewport={{ once: true }}
-              >
-                <h3
-                  className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight tracking-tight leading-none mb-3"
-                  style={{
-                    background: 'linear-gradient(135deg, #80c0ff 0%, #4da8ff 40%, #b0d8ff 70%, #80c0ff 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                  }}
-                >
-                  {t('tp.s7m.dp2.value')}
-                </h3>
-                <p className="text-xs md:text-sm text-white/40 font-light leading-relaxed max-w-md">
-                  {t('tp.s7m.dp2.desc')}{' '}
-                  <span className="text-white/25 font-mono text-[10px]">{t('tp.s7m.dp2.src')}</span>
-                </p>
-              </motion.div>
-            </div>
-
-            {/* RIGHT: Narrative anchor — 2 cols */}
-            <motion.div
-              className="md:col-span-2 bg-white/[0.03] border border-white/[0.08] rounded-xl p-6 md:p-8 backdrop-blur-sm"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
-              viewport={{ once: true }}
-            >
-              <h4 className="text-lg md:text-xl font-light text-white mb-4 leading-snug">
-                {t('tp.s7m.anchor.title')}
-              </h4>
-              <div className="w-10 h-px bg-gradient-to-r from-[#60b8ff]/40 to-transparent mb-5" />
-              <p className="text-sm md:text-[15px] text-white/45 font-light leading-[1.75]">
-                {t('tp.s7m.anchor.p1')}
-              </p>
-              <p className="mt-4 text-sm md:text-[15px] text-white/55 font-light leading-[1.75]">
-                {t('tp.s7m.anchor.p2')}
-              </p>
-            </motion.div>
-
-          </div>
-        </motion.div>
-      </Slide>
-
-      <SlideDivider />
 
       {/* ── SLIDE 10: THE TEAM ── */}
       <Slide slideNumber={11} footerText={t('tp.footer')}>
