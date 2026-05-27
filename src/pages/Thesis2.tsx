@@ -456,7 +456,7 @@ const Thesis = () => {
       <SlideDivider />
 
 
-      {/* ── SLIDE 2: THE PROBLEM ── */}
+      {/* ── SLIDE 3: THE LIMIT ── */}
       <Slide slideNumber={3} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
@@ -465,82 +465,37 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto text-center"
         >
-          <MicroLabel>{t('tp.s2.label')}</MicroLabel>
+          <MicroLabel>03 // THE LIMIT</MicroLabel>
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-8 leading-[1.15]"
+            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-10 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            {t('tp.s2.h')}
+            Sketchy Agents Can't Scale
           </motion.h2>
 
           <motion.div
-            className={`${isRtl ? 'text-right' : 'text-left'} max-w-2xl mx-auto space-y-6`}
+            className="max-w-2xl mx-auto space-y-6 text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
             <p className="text-lg md:text-xl text-white/60 font-light leading-relaxed">
-              {t('tp.s2.p1a')}<span className="text-white font-normal">{t('tp.s2.fico')}</span>{t('tp.s2.p1b')}<span className="text-white font-normal">{t('tp.s2.dnb')}</span>.
+              Humans have <span className="text-white font-normal">FICO</span>. Businesses have <span className="text-white font-normal">Dun &amp; Bradstreet</span>.
             </p>
             <p className="text-lg md:text-xl text-white/60 font-light leading-relaxed">
-              {t('tp.s2.p2a')}<span className="text-white font-normal">{t('tp.s2.p2b')}</span>.
+              AI Agents have <span className="text-white font-normal">Nothing</span>.
             </p>
             <p className="text-base md:text-lg text-white/40 font-light leading-relaxed">
-              {t('tp.s2.p3')}
+              Without a standardized Credit Score, an Agent is just a random script that cannot be trusted with significant capital or sensitive data.
             </p>
-          </motion.div>
-
-          {/* Agent Credit Score Gauge */}
-          <motion.div
-            className="flex justify-center mt-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <svg viewBox="0 0 340 200" className="w-[300px] md:w-[400px] h-auto">
-              <defs>
-                <filter id="needleGlow" x="-50%" y="-50%" width="200%" height="200%">
-                  <feGaussianBlur stdDeviation="3" result="blur" />
-                  <feMerge>
-                    <feMergeNode in="blur" />
-                    <feMergeNode in="SourceGraphic" />
-                  </feMerge>
-                </filter>
-              </defs>
-              <path d="M 48 170 A 125 125 0 0 1 100 55" fill="none" stroke="rgba(200,120,50,0.25)" strokeWidth="28" strokeLinecap="butt" />
-              <path d="M 108 46 A 125 125 0 0 1 232 46" fill="none" stroke="rgba(200,180,60,0.3)" strokeWidth="28" strokeLinecap="butt" />
-              <path d="M 240 55 A 125 125 0 0 1 292 170" fill="none" stroke="rgba(80,180,100,0.35)" strokeWidth="28" strokeLinecap="butt" />
-              <text x="38" y="100" fill="rgba(255,255,255,0.3)" fontSize="10" fontFamily="monospace" textAnchor="middle">POOR</text>
-              <text x="170" y="14" fill="rgba(255,255,255,0.35)" fontSize="10" fontFamily="monospace" textAnchor="middle">GOOD</text>
-              <text x="302" y="100" fill="rgba(255,255,255,0.5)" fontSize="10" fontFamily="monospace" textAnchor="middle">EXCELLENT</text>
-              <text x="38" y="112" fill="rgba(255,255,255,0.2)" fontSize="7" fontFamily="monospace" textAnchor="middle">300</text>
-              <text x="170" y="26" fill="rgba(255,255,255,0.2)" fontSize="7" fontFamily="monospace" textAnchor="middle">580</text>
-              <text x="302" y="112" fill="rgba(255,255,255,0.2)" fontSize="7" fontFamily="monospace" textAnchor="middle">850</text>
-              <rect x="155" y="118" width="30" height="22" rx="4" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="2" />
-              <circle cx="164" cy="128" r="2.5" fill="rgba(255,255,255,0.55)" />
-              <circle cx="176" cy="128" r="2.5" fill="rgba(255,255,255,0.55)" />
-              <line x1="170" y1="117" x2="170" y2="108" stroke="rgba(255,255,255,0.45)" strokeWidth="2" />
-              <circle cx="170" cy="106" r="3" fill="rgba(255,255,255,0.4)" />
-              <line x1="170" y1="140" x2="170" y2="146" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
-              <line x1="162" y1="146" x2="178" y2="146" stroke="rgba(255,255,255,0.4)" strokeWidth="2" strokeLinecap="round" />
-              <line
-                x1="170" y1="170" x2="272" y2="100"
-                stroke="rgba(255,255,255,0.15)" strokeWidth="6" strokeLinecap="round"
-                filter="url(#needleGlow)"
-              />
-              <line
-                x1="170" y1="170" x2="272" y2="100"
-                stroke="rgba(255,255,255,0.7)" strokeWidth="2.5" strokeLinecap="round"
-              />
-            </svg>
           </motion.div>
         </motion.div>
       </Slide>
+
 
       <SlideDivider />
 
