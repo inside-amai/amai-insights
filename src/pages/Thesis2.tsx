@@ -1914,7 +1914,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 14: THE ROUND ── */}
-      <Slide slideNumber={14} footerText={t('tp.footer')}>
+      <Slide slideNumber={15} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
