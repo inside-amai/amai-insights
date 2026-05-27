@@ -896,11 +896,13 @@ const Thesis = () => {
             <div
               className="grid mx-auto"
               style={{
-                gridTemplateColumns: "240px 480px 240px",
+                gridTemplateColumns: "200px 480px 200px",
                 gridTemplateRows: "auto 480px auto",
                 rowGap: "0px",
-                columnGap: "8px",
+                columnGap: "0px",
                 width: "max-content",
+                marginTop: "-60px",
+                marginBottom: "-60px",
               }}
             >
               {/* Row 1 — empty | 01 TRANSACTION | empty */}
