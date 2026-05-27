@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useScroll } from "framer-motion";
 import amaiLogo from "@/assets/amai-logo-tm.png";
+import visaLogo from "@/assets/visa-logo.png";
 import legacyPadlock from "@/assets/slide3-legacy-padlock.png";
 import amaiCore from "@/assets/amai-header-icon.png";
 import { useIsMobile } from "@/hooks/use-mobile";
