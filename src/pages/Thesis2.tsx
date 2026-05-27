@@ -463,11 +463,13 @@ const Thesis = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto text-center"
+          className="w-full text-left pl-2 sm:pl-6 md:pl-12 lg:pl-20 pr-4 max-w-3xl"
         >
-          <MicroLabel>03 // THE LIMIT</MicroLabel>
+          <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-10 md:mb-14">
+            03 // THE LIMIT
+          </p>
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-10 leading-[1.15]"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-16 md:mb-20 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -477,23 +479,24 @@ const Thesis = () => {
           </motion.h2>
 
           <motion.div
-            className="max-w-2xl mx-auto space-y-6 text-center"
+            className="space-y-10 md:space-y-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            <p className="text-lg md:text-xl text-white/60 font-light leading-relaxed">
+            <p className="text-lg md:text-xl text-white/60 font-light leading-[1.8]">
               Humans have <span className="text-white font-normal">FICO</span>. Businesses have <span className="text-white font-normal">Dun &amp; Bradstreet</span>.
             </p>
-            <p className="text-lg md:text-xl text-white/60 font-light leading-relaxed">
-              AI Agents have <span className="text-white font-normal">Nothing</span>.
+            <p className="text-3xl sm:text-4xl md:text-5xl text-white font-light leading-[1.2] tracking-tight">
+              AI Agents have <span className="font-normal">Nothing</span>.
             </p>
-            <p className="text-base md:text-lg text-white/40 font-light leading-relaxed">
+            <p className="text-base md:text-lg text-white/40 font-light leading-[1.9] max-w-2xl">
               Without a standardized Credit Score, an Agent is just a random script that cannot be trusted with significant capital or sensitive data.
             </p>
           </motion.div>
         </motion.div>
+
       </Slide>
 
 
