@@ -1841,10 +1841,10 @@ const Thesis = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1.4 }}
           viewport={{ once: true }}
-          className="max-w-3xl mx-auto text-center px-6"
+          className="max-w-2xl mx-auto text-center px-6"
         >
           <motion.p
-            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-16 md:mb-24"
+            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-14 md:mb-20"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -1856,15 +1856,15 @@ const Thesis = () => {
           <motion.img
             src={amaiLogo}
             alt="AMAI"
-            className="h-10 md:h-14 w-auto brightness-110 mx-auto mb-12 md:mb-16"
+            className="h-9 md:h-12 w-auto brightness-110 mx-auto mb-10 md:mb-14 opacity-90"
             initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            whileInView={{ opacity: 0.9, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.3 }}
             viewport={{ once: true }}
           />
 
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white leading-[1.15] tracking-tight mb-20 md:mb-28"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-light text-white leading-[1.1] tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
@@ -1873,32 +1873,41 @@ const Thesis = () => {
             The Standard for Autonomous Commerce.
           </motion.h2>
 
+          {/* Hairline divider */}
           <motion.div
-            className="space-y-7 md:space-y-9 mb-20 md:mb-28 text-left"
-            initial={{ opacity: 0, y: 20 }}
+            className="mx-auto my-12 md:my-16 h-px w-16 bg-white/15"
+            initial={{ opacity: 0, scaleX: 0 }}
+            whileInView={{ opacity: 1, scaleX: 1 }}
+            transition={{ duration: 0.9, delay: 0.6 }}
+            viewport={{ once: true }}
+          />
+
+          <motion.div
+            className="space-y-5 md:space-y-6"
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.7 }}
+            transition={{ duration: 1, delay: 0.75 }}
             viewport={{ once: true }}
           >
-            <p className="text-lg md:text-xl lg:text-2xl text-white/75 font-light leading-relaxed">
+            <p className="text-base md:text-lg text-white/60 font-light leading-[1.6] max-w-xl mx-auto">
               By 2030, trillions of dollars will move between agents and counterparties — every minute, every market.
             </p>
-            <p className="text-lg md:text-xl lg:text-2xl text-white/75 font-light leading-relaxed">
+            <p className="text-base md:text-lg text-white/55 font-light leading-[1.6]">
               None of it works without a trust rail.
             </p>
-            <p className="text-lg md:text-xl lg:text-2xl text-white/75 font-light leading-relaxed">
+            <p className="text-base md:text-lg text-white/85 font-light leading-[1.6] tracking-tight">
               AMAI is building that rail.
             </p>
           </motion.div>
 
           <motion.p
-            className="text-sm md:text-base text-white/45 font-light italic tracking-wide"
+            className="mt-16 md:mt-24 text-[11px] md:text-xs tracking-[0.25em] uppercase text-white/35 font-light italic"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.1 }}
             viewport={{ once: true }}
           >
-            Visible to no one. Indispensable to everyone.
+            Visible to no one.  ·  Indispensable to everyone.
           </motion.p>
         </motion.div>
       </Slide>
