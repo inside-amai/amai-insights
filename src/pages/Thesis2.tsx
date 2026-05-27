@@ -895,7 +895,7 @@ const Thesis = () => {
             Every agent-to-agent transaction issues a signed Trust Receipt. The receipts compound the network.
           </motion.p>
 
-          <div className="flex flex-col md:flex-row items-stretch md:items-start justify-between gap-6 md:gap-3 mb-12 text-left">
+          <div className="flex flex-col md:flex-row items-stretch justify-between gap-6 md:gap-3 mb-12 text-left">
             {[
               {
                 step: 'STEP 01',
