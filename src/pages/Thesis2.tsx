@@ -989,7 +989,7 @@ const Thesis = () => {
                     AMAI · HUB
                   </p>
                   <p className="text-2xl md:text-4xl text-white font-light tracking-[0.15em]">
-                    TARI
+                    TARI<sup className="text-[0.4em] tracking-normal ml-0.5 align-super">™</sup>
                   </p>
                   <div className="mx-auto mt-2 h-px w-10 bg-[#7fd6d6]/40" />
                 </div>
