@@ -1363,7 +1363,7 @@ const Thesis = () => {
 
           {/* Kicker */}
           <motion.p
-            className="text-center text-sm md:text-base lg:text-lg text-white/60 font-light mt-12 md:mt-16 max-w-3xl mx-auto leading-relaxed tracking-tight"
+            className="text-center text-sm md:text-base lg:text-lg text-white/60 font-light mt-6 md:mt-8 max-w-3xl mx-auto leading-relaxed tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
