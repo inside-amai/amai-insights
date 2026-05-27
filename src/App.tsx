@@ -73,7 +73,7 @@ const FullBleedRouteHandler = () => {
     const root = document.getElementById('root');
     if (!root) return;
     
-    const isFullBleed = location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/thesis' || location.pathname === '/briefing' || location.pathname === '/pitch' || location.pathname === '/trust';
+    const isFullBleed = location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/thesis' || location.pathname === '/thesis2' || location.pathname === '/briefing' || location.pathname === '/pitch' || location.pathname === '/trust';
     
     if (isFullBleed) {
       root.classList.add('full-bleed');
