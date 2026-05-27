@@ -18,7 +18,7 @@ interface SlideProps {
   footerText?: string;
 }
 
-const TOTAL_SLIDES = 12;
+const TOTAL_SLIDES = 11;
 
 const Slide = ({ children, className = "", slideNumber, footerText = "AMAI Labs · Infrastructure & Research" }: SlideProps) => (
   <section
@@ -648,102 +648,10 @@ const Thesis = () => {
       </Slide>
 
 
-      {/* ── SLIDE 3: THE THREAT IS NHI ── */}
-      <Slide slideNumber={5} footerText={t('tp.footer')}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-          className="max-w-4xl mx-auto text-center"
-        >
-          <MicroLabel>{t('tp.s3.label')}</MicroLabel>
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-10 leading-[1.15]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            {t('tp.s3.h')}
-          </motion.h2>
-
-          {/* NHI Diagram: API Key on Lock vs AMAI Shield on Vault */}
-          <motion.div
-            className="mb-12 flex w-full flex-col items-center justify-center gap-8 md:flex-row md:gap-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            viewport={{ once: true }}
-          >
-            {/* Legacy: Dull Padlock */}
-            <div className="relative mx-auto flex w-52 flex-none flex-col items-center gap-4 md:w-60">
-              <div className="relative mx-auto flex h-40 w-40 items-center justify-center md:h-48 md:w-48">
-                <motion.img
-                  src={legacyPadlock}
-                  alt="Legacy IAM padlock"
-                  className="h-full w-full object-contain opacity-60 grayscale"
-                  loading="lazy"
-                  width={512}
-                  height={512}
-                  animate={{ opacity: [0.5, 0.65, 0.5] }}
-                  transition={{ duration: 4, repeat: Infinity }}
-                />
-              </div>
-              <div className="text-center">
-                <p className="text-xs md:text-sm tracking-[0.2em] uppercase text-white/30 font-medium">{t('tp.s3.legacy.label')}</p>
-                <p className="text-sm md:text-base text-white/50 mt-2 font-light">{t('tp.s3.legacy.desc')}</p>
-              </div>
-            </div>
-
-            {/* VS divider — vertically centered with the image area */}
-            <div className="flex flex-col items-center justify-center self-center md:mt-[-1rem]">
-              <span className="text-xs tracking-[0.3em] uppercase text-white/20 font-medium">vs</span>
-            </div>
-
-            {/* AMAI: Brand Icon */}
-            <div className="relative mx-auto flex w-52 flex-none flex-col items-center gap-4 md:w-60">
-              <div className="relative mx-auto flex h-40 w-40 items-center justify-center md:h-48 md:w-48">
-                <motion.img
-                  src={amaiCore}
-                  alt="AMAI Runtime"
-                  className="h-full w-full object-contain drop-shadow-[0_0_20px_rgba(166,252,252,0.3)]"
-                  loading="lazy"
-                  width={512}
-                  height={512}
-                  style={{ transform: 'translateZ(0)', backfaceVisibility: 'hidden', imageRendering: 'crisp-edges' as any }}
-                  animate={{ opacity: [0.85, 1, 0.85] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                />
-              </div>
-              <div className="text-center">
-                <p className="text-xs md:text-sm tracking-[0.2em] uppercase text-[#7fd6d6] font-medium">{t('tp.s3.amai.label')}</p>
-                <p className="text-sm md:text-base text-[#7fd6d6] mt-2 font-light">{t('tp.s3.amai.desc')}</p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Sub-text */}
-          <motion.div
-            className="text-center max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-base md:text-lg text-white/50 font-light leading-relaxed">
-              {t('tp.s3.sub')}
-            </p>
-          </motion.div>
-
-        </motion.div>
-      </Slide>
-
-      <SlideDivider />
 
       {/* ── SLIDE 8: THE TEAM ── */}
       {/* ── SLIDE 9: WHY NOW ── */}
-      <Slide slideNumber={6} footerText={t('tp.footer')}>
+      <Slide slideNumber={5} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -829,7 +737,7 @@ const Thesis = () => {
 
 
       {/* ── SLIDE 5: DETERMINISTIC ENFORCEMENT ── */}
-      <Slide slideNumber={7} footerText={t('tp.footer')}>
+      <Slide slideNumber={6} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -871,7 +779,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 7: COMPETITIVE LANDSCAPE ── */}
-      <Slide slideNumber={8} footerText={t('tp.footer')}>
+      <Slide slideNumber={7} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -980,7 +888,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 6: THE MOAT ── */}
-      <Slide slideNumber={9} footerText={t('tp.footer')}>
+      <Slide slideNumber={8} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1097,7 +1005,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 8: THE BUSINESS MODEL ── */}
-      <Slide slideNumber={10} footerText={t('tp.footer')}>
+      <Slide slideNumber={9} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1323,7 +1231,7 @@ const Thesis = () => {
 
 
       {/* ── SLIDE 10: THE TEAM ── */}
-      <Slide slideNumber={11} footerText={t('tp.footer')}>
+      <Slide slideNumber={10} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1453,7 +1361,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 11: CLOSING ── */}
-      <Slide slideNumber={12} footerText={t('tp.footer')}>
+      <Slide slideNumber={11} footerText={t('tp.footer')}>
         {/* Constellation accent — same as hero */}
         <div className="absolute inset-0 pointer-events-none z-0">
           <motion.svg
