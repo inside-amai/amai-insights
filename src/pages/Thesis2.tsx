@@ -1606,25 +1606,25 @@ const Thesis = () => {
               {
                 date: '2025 · COMMERCE',
                 title: 'MoonPay Issues Agent Cards',
-                body: 'MoonPay shipped Mastercards specifically for AI agents. Agents now spend with real credit-card rails, drawing from stablecoin reserves. Agents are economic actors with their own capital.',
+                body: 'Agents now spend with real credit-card rails, drawing from stablecoin reserves.',
                 source: 'MoonPay press release',
               },
               {
                 date: '2025 · STANDARDS',
                 title: 'AP2 Standardizes Agent Payments',
-                body: "Google's Agent Payments Protocol launched with Mastercard, PayPal, Adyen, and 60+ industry partners. Agent-initiated transactions now have a standard cryptographic authorization format.",
+                body: 'Google, Mastercard, PayPal, Adyen, and 60+ partners agree on the cryptographic format for agent-initiated transactions.',
                 source: 'Google Cloud, Sep 2025',
               },
               {
                 date: '2026 · MARKET',
                 title: 'Microsoft Validates The Category',
-                body: "Entra Agent ID ships identity, authorization, and access governance — but only for Microsoft's own agents. The structural conflict of interest creates the independent arbiter gap.",
+                body: "Entra Agent ID launches identity and access governance — but only for Microsoft's own agents. The independent arbiter gap forms.",
                 source: 'Microsoft Security',
               },
               {
                 date: '2026 · REGULATORY',
                 title: 'EU AI Act Enforcement Begins',
-                body: 'Core high-risk AI obligations enter force August 2, 2026. Non-compliance penalties reach €15M or 3% of global revenue. Mandatory traceability, logging, and human oversight make verifiable audit infrastructure the new enterprise standard.',
+                body: 'August 2, 2026: high-risk AI obligations take force. €15M penalties. Verifiable audit infrastructure becomes the standard.',
                 source: 'Regulation (EU) 2024/1689',
               },
             ].map((card, i) => (
