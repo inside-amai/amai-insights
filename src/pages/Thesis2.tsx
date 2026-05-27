@@ -892,10 +892,52 @@ const Thesis = () => {
             transition={{ duration: 0.9, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            {/* Ring centered, labels absolutely positioned around it so the ring shares the same center axis as the title */}
-            <div className="relative mx-auto w-[480px] h-[640px] md:h-[700px]">
-              {/* Ring — vertically centered within the wrapper */}
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] md:w-[480px] md:h-[480px]">
+            {/* 3x3 grid: ring in center cell, labels in N/E/S/W cells. Fixed column widths so ring stays rigidly centered. */}
+            <div
+              className="grid mx-auto"
+              style={{
+                gridTemplateColumns: "240px 480px 240px",
+                gridTemplateRows: "auto 480px auto",
+                rowGap: "32px",
+                columnGap: "40px",
+                width: "max-content",
+              }}
+            >
+              {/* Row 1 — empty | 01 TRANSACTION | empty */}
+              <div />
+              <motion.div
+                className="self-end text-center"
+                initial={{ opacity: 0, y: 6 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-[#7fd6d6] font-mono mb-2">
+                  01 — TRANSACTION
+                </p>
+                <p className="text-[12px] md:text-[13px] text-white/65 font-light leading-snug">
+                  An agent transacts with a counterparty — merchant, marketplace, lender, or another agent.
+                </p>
+              </motion.div>
+              <div />
+
+              {/* Row 2 — 04 COMPOUND | ring | 02 RECEIPT */}
+              <motion.div
+                className="self-center text-right"
+                initial={{ opacity: 0, y: 6 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.04 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-[#7fd6d6] font-mono mb-2">
+                  04 — COMPOUND
+                </p>
+                <p className="text-[12px] md:text-[13px] text-white/65 font-light leading-snug">
+                  Every receipt sharpens the score. Every check makes the rail harder to bypass.
+                </p>
+              </motion.div>
+
+              <div className="relative w-[480px] h-[480px]">
                 <svg viewBox="0 0 600 600" className="absolute inset-0 w-full h-full" fill="none">
                   <defs>
                     <marker
@@ -950,25 +992,8 @@ const Thesis = () => {
                 </div>
               </div>
 
-              {/* 01 — TRANSACTION (top, centered above ring) */}
               <motion.div
-                className="absolute left-1/2 -translate-x-1/2 top-0 w-[280px] text-center"
-                initial={{ opacity: 0, y: 6 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-                viewport={{ once: true }}
-              >
-                <p className="text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-[#7fd6d6] font-mono mb-2">
-                  01 — TRANSACTION
-                </p>
-                <p className="text-[12px] md:text-[13px] text-white/65 font-light leading-snug">
-                  An agent transacts with a counterparty — merchant, marketplace, lender, or another agent.
-                </p>
-              </motion.div>
-
-              {/* 02 — RECEIPT (right) */}
-              <motion.div
-                className="absolute top-1/2 -translate-y-1/2 left-[calc(100%+32px)] md:left-[calc(100%+56px)] w-[220px] md:w-[240px] text-left"
+                className="self-center text-left"
                 initial={{ opacity: 0, y: 6 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.92 }}
@@ -982,9 +1007,10 @@ const Thesis = () => {
                 </p>
               </motion.div>
 
-              {/* 03 — VALIDATION (bottom, centered below ring) */}
+              {/* Row 3 — empty | 03 VALIDATION | empty */}
+              <div />
               <motion.div
-                className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[280px] text-center"
+                className="self-start text-center"
                 initial={{ opacity: 0, y: 6 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.16 }}
@@ -997,22 +1023,7 @@ const Thesis = () => {
                   The next counterparty checks the agent's TARI before authorizing. New counterparties join the rail.
                 </p>
               </motion.div>
-
-              {/* 04 — COMPOUND (left) */}
-              <motion.div
-                className="absolute top-1/2 -translate-y-1/2 right-[calc(100%+32px)] md:right-[calc(100%+56px)] w-[220px] md:w-[240px] text-right"
-                initial={{ opacity: 0, y: 6 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.04 }}
-                viewport={{ once: true }}
-              >
-                <p className="text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-[#7fd6d6] font-mono mb-2">
-                  04 — COMPOUND
-                </p>
-                <p className="text-[12px] md:text-[13px] text-white/65 font-light leading-snug">
-                  Every receipt sharpens the score. Every check makes the rail harder to bypass.
-                </p>
-              </motion.div>
+              <div />
             </div>
           </motion.div>
 
