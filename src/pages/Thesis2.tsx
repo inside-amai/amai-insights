@@ -896,17 +896,20 @@ const Thesis = () => {
             <div
               className="grid mx-auto"
               style={{
-                gridTemplateColumns: "240px 480px 240px",
+                gridTemplateColumns: "200px 480px 200px",
                 gridTemplateRows: "auto 480px auto",
                 rowGap: "0px",
-                columnGap: "8px",
+                columnGap: "0px",
                 width: "max-content",
+                marginTop: "-60px",
+                marginBottom: "-60px",
               }}
             >
               {/* Row 1 — empty | 01 TRANSACTION | empty */}
               <div />
               <motion.div
                 className="self-end text-center"
+                style={{ marginBottom: "-70px" }}
                 initial={{ opacity: 0, y: 6 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
@@ -1011,6 +1014,7 @@ const Thesis = () => {
               <div />
               <motion.div
                 className="self-start text-center"
+                style={{ marginTop: "-70px" }}
                 initial={{ opacity: 0, y: 6 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.16 }}
