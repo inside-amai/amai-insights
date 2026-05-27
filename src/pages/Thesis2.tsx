@@ -1618,7 +1618,7 @@ const Thesis = () => {
               {
                 date: '2026 · MARKET',
                 title: 'Microsoft Validates The Category',
-                body: "Entra Agent ID ships identity, authorization, and access governance — but only for Microsoft's own agents. The structural conflict of interest creates the independent arbiter gap.",
+                body: "Entra Agent ID launches identity and access governance — but only for Microsoft's own agents. The independent arbiter gap forms.",
                 source: 'Microsoft Security',
               },
               {
