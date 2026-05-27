@@ -882,7 +882,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Every agent-to-agent transaction issues a signed Trust Receipt. The receipts compound the network.
+            Every transaction an agent makes issues a signed Trust Receipt. The receipts compound the network.
           </motion.p>
 
           <motion.div
@@ -907,7 +907,7 @@ const Thesis = () => {
                   01 — TRANSACTION
                 </p>
                 <p className="text-[12px] md:text-[13px] text-white/65 font-light leading-snug">
-                  An agent transacts with another agent.
+                  An agent transacts with a counterparty — merchant, marketplace, lender, or another agent.
                 </p>
               </motion.div>
               <div />
@@ -924,7 +924,7 @@ const Thesis = () => {
                   04 — COMPOUND
                 </p>
                 <p className="text-[12px] md:text-[13px] text-white/65 font-light leading-snug">
-                  Network density grows. Every new agent makes the next score sharper and the network harder to leave.
+                  Every receipt sharpens the score. Every check makes the rail harder to bypass.
                 </p>
               </motion.div>
 
@@ -994,7 +994,7 @@ const Thesis = () => {
                   02 — RECEIPT
                 </p>
                 <p className="text-[12px] md:text-[13px] text-white/65 font-light leading-snug">
-                  AMAI signs a Trust Receipt attesting to the behavior.
+                  AMAI signs a Trust Receipt attesting to the agent's behavior.
                 </p>
               </motion.div>
 
@@ -1011,7 +1011,7 @@ const Thesis = () => {
                   03 — VALIDATION
                 </p>
                 <p className="text-[12px] md:text-[13px] text-white/65 font-light leading-snug">
-                  If the counterparty is in the Bureau, its score updates. If not, its operator is pulled in to claim and verify.
+                  The next counterparty checks the agent's TARI before authorizing. New counterparties join the rail.
                 </p>
               </motion.div>
               <div />
