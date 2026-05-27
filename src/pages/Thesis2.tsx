@@ -1923,7 +1923,7 @@ const Thesis = () => {
           className="max-w-6xl mx-auto w-full px-6 md:px-16 text-center"
         >
           <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium text-center">
-            14 // THE ROUND
+            15 // THE ROUND
           </p>
 
           <motion.h2
