@@ -133,6 +133,7 @@ const App = () => (
             <Route path="/tether" element={<Tether />} />
             <Route path="/pitch" element={<Pitch />} />
             <Route path="/thesis" element={<Thesis />} />
+            <Route path="/thesis2" element={<Thesis2 />} />
             <Route path="/briefing" element={<Briefing />} />
             <Route path="/trust" element={<Trust />} />
             <Route path="/methodology" element={<Methodology />} />
