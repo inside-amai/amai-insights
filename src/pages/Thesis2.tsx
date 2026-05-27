@@ -1043,7 +1043,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Five distribution layers, stacked over 24 months. Each compounds the last.
+            Five distribution layers, stacked. Each compounds the last.
           </motion.p>
 
           <div className="border rounded-md bg-black overflow-hidden text-left" style={{ borderColor: '#222222' }}>
@@ -1052,41 +1052,31 @@ const Thesis = () => {
                 n: '01',
                 title: 'Design Partners + Benchmark Set',
                 wedge: 'Launch with lighthouse enterprises plus a seeded benchmark of public agents and known attack patterns.',
-                time: 'Months 0–6',
-                volume: '~10K agents',
               },
               {
                 n: '02',
                 title: 'Free Developer Dashboard',
                 wedge: 'The Datadog playbook. Devs install for their own monitoring; reputation accrues as a side effect.',
-                time: 'Months 6–12',
-                volume: '~100K agents',
               },
               {
                 n: '03',
                 title: 'CISO Enterprise Mandate',
                 wedge: 'One Fortune 1000 contract = thousands of installs. EU AI Act enforcement makes this the path of least resistance.',
-                time: 'Months 12–18',
-                volume: '~1M agents',
               },
               {
                 n: '04',
                 title: 'Framework Default Integrations',
                 wedge: 'AMAI ships as opt-in default in LangChain, CrewAI, AutoGen, NeMo Guardrails. OpenTelemetry-style distribution.',
-                time: 'Months 12–24',
-                volume: '~5M agents',
               },
               {
                 n: '05',
                 title: 'Public Bureau Lookup API',
                 wedge: '"Check TARI" becomes the new "check VirusTotal." Pull-side demand compounds the network.',
-                time: 'Months 18+',
-                volume: '50M+ agents',
               },
             ].map((layer, i, arr) => (
               <motion.div
                 key={layer.n}
-                className={`grid grid-cols-[auto_1fr_auto] gap-4 md:gap-8 items-center px-5 md:px-8 py-5 md:py-6 ${i < arr.length - 1 ? 'border-b border-white/10' : ''}`}
+                className={`grid grid-cols-[auto_1fr] gap-5 md:gap-10 items-center px-5 md:px-8 py-5 md:py-6 ${i < arr.length - 1 ? 'border-b border-white/10' : ''}`}
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 + i * 0.1 }}
@@ -1100,10 +1090,6 @@ const Thesis = () => {
                   <p className="text-base md:text-xl text-white font-light mb-1 leading-tight">{layer.title}</p>
                   <p className="text-xs md:text-sm text-white/55 font-light leading-relaxed">{layer.wedge}</p>
                 </div>
-                <div className="text-right shrink-0">
-                  <p className="text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-white/40 font-mono mb-1">{layer.time}</p>
-                  <p className="text-sm md:text-base text-[#7fd6d6] font-light tracking-tight tabular-nums">{layer.volume}</p>
-                </div>
               </motion.div>
             ))}
           </div>
@@ -1115,7 +1101,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 1.1 }}
             viewport={{ once: true }}
           >
-            By month 18, querying the Bureau becomes the standard. Density compounds when the layers stack.
+            Each layer activates the next. Stacked, they get us to standard-level scale.
           </motion.p>
         </motion.div>
       </Slide>
