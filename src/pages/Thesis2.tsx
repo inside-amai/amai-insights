@@ -1606,7 +1606,7 @@ const Thesis = () => {
               {
                 date: '2025 · COMMERCE',
                 title: 'MoonPay Issues Agent Cards',
-                body: 'MoonPay shipped Mastercards specifically for AI agents. Agents now spend with real credit-card rails, drawing from stablecoin reserves. Agents are economic actors with their own capital.',
+                body: 'Agents now spend with real credit-card rails, drawing from stablecoin reserves.',
                 source: 'MoonPay press release',
               },
               {
