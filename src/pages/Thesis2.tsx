@@ -649,89 +649,100 @@ const Thesis = () => {
 
 
 
-      {/* ── SLIDE 8: THE TEAM ── */}
-      {/* ── SLIDE 9: WHY NOW ── */}
+      {/* ── SLIDE 5: THE VISA ANALOGY ── */}
       <Slide slideNumber={5} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1.2 }}
           viewport={{ once: true }}
+          className="w-full max-w-6xl mx-auto"
         >
-          <MicroLabel>04 // WHY NOW</MicroLabel>
-
+          <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
+            05 // THE CATEGORY
+          </p>
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 md:mb-4 text-center leading-[1.1]"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 text-center leading-[1.1]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            The Risk Is No Longer Theoretical.
+            The Visa Analogy
           </motion.h2>
           <motion.p
-            className="text-sm md:text-base text-white/40 font-light mb-12 md:mb-16 max-w-2xl mx-auto text-center leading-relaxed"
+            className="text-sm md:text-base text-white/50 font-light mb-12 md:mb-16 max-w-3xl mx-auto text-center leading-relaxed"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Four converging signals from the last 12 months.
+            Visa is worth $550 billion and never touches a dollar of transaction value. AMAI is building the same trust rail for every agent-to-agent transaction.
           </motion.p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 mb-10 md:mb-12">
             {[
               {
-                tag: 'MARCH 2026 · INCIDENT',
-                title: 'The PocketOS Wipe',
-                body: 'A Claude Opus agent running in Cursor autonomously deleted a production database and all backups in under 9 seconds. Months of operational data erased — without authorization.',
-                src: 'AI Incident Database, Report #7167',
+                header: 'VISA',
+                accent: 'text-white/60',
+                rows: [
+                  { k: 'What flows through it', v: 'Dollars' },
+                  { k: 'What it owns', v: 'The trust rail between issuer and merchant' },
+                  { k: 'Who pays', v: 'Banks, merchants, processors' },
+                  { k: 'Position', v: '$550B+ market cap. Never holds a dollar.' },
+                ],
               },
               {
-                tag: '2025 · RESEARCH',
-                title: 'Multi-Agent Hijacking Proven',
-                body: 'Up to 97% success rates against AutoGen, CrewAI, and MetaGPT. Malicious instructions laundered through trusted agent outputs — invisible to existing intrusion detection systems.',
-                src: 'arXiv:2503.12188',
+                header: 'AMAI',
+                accent: 'text-[#7fd6d6]',
+                rows: [
+                  { k: 'What flows through it', v: 'Trust signals' },
+                  { k: 'What it owns', v: 'The trust rail between agent and counterparty' },
+                  { k: 'Who pays', v: 'Credit issuers, marketplaces, DeFi protocols, treasury' },
+                  { k: 'Position', v: 'The next category-defining trust infrastructure.' },
+                ],
               },
-              {
-                tag: '2026 · MARKET',
-                title: 'Microsoft Validates The Category',
-                body: "Entra Agent ID launches identity, authorization, and access governance — but only for Microsoft's own agents. The structural conflict of interest creates the independent arbiter gap.",
-                src: 'Microsoft Security',
-              },
-              {
-                tag: '2026 · REGULATORY',
-                title: 'EU AI Act Enforcement Begins',
-                body: 'Core high-risk AI obligations enter into force August 2, 2026. Non-compliance penalties reach up to €15M or 3% of global revenue. Mandatory traceability, logging, and human oversight requirements  make verifiable audit infrastructure the new enterprise standard.',
-                src: 'Regulation (EU) 2024/1689',
-              },
-            ].map((card, i) => (
+            ].map((panel, i) => (
               <motion.div
-                key={card.title}
-                className="border rounded-md p-7 md:p-8 flex flex-col bg-black"
+                key={panel.header}
+                className="border rounded-md p-7 md:p-9 flex flex-col bg-black"
                 style={{ borderColor: '#222222' }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.5 + i * 0.12 }}
+                transition={{ duration: 0.7, delay: 0.5 + i * 0.15 }}
                 viewport={{ once: true }}
               >
-                <p className="text-[11px] tracking-[0.25em] uppercase font-medium mb-4" style={{ color: '#7fd6d6' }}>
-                  {card.tag}
+                <p className={`text-xs md:text-sm tracking-[0.35em] uppercase font-medium mb-6 ${panel.accent}`}>
+                  {panel.header}
                 </p>
-                <h3 className="text-lg md:text-[22px] font-medium text-white mb-3 leading-snug">
-                  {card.title}
-                </h3>
-                <p className="text-[13px] md:text-[15px] text-white/55 font-light leading-[1.5] mb-5 flex-1">
-                  {card.body}
-                </p>
-                <p className="text-[11px] italic text-white/30 font-light">
-                  {card.src}
-                </p>
+                <div className="flex flex-col divide-y divide-white/[0.07]">
+                  {panel.rows.map((row) => (
+                    <div key={row.k} className="py-4 first:pt-0 last:pb-0">
+                      <p className="text-[11px] tracking-[0.2em] uppercase text-white/35 font-medium mb-1.5">
+                        {row.k}
+                      </p>
+                      <p className="text-sm md:text-[15px] text-white/80 font-light leading-snug">
+                        {row.v}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </motion.div>
             ))}
           </div>
+
+          <motion.p
+            className="text-sm md:text-base text-white/55 font-light text-center max-w-3xl mx-auto leading-relaxed italic"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
+            viewport={{ once: true }}
+          >
+            Every dollar that moves agent-to-agent will need a rail like this. The question is who owns it.
+          </motion.p>
         </motion.div>
       </Slide>
+
 
       <SlideDivider />
 
