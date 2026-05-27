@@ -747,8 +747,122 @@ const Thesis = () => {
       <SlideDivider />
 
 
-      {/* ── SLIDE 5: DETERMINISTIC ENFORCEMENT ── */}
+      {/* ── SLIDE 6: THE MOAT ── */}
       <Slide slideNumber={6} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto text-center"
+        >
+          <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
+            06 // THE MOAT
+          </p>
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 leading-[1.15]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            Every Transaction Makes the Score Better.
+          </motion.h2>
+          <motion.p
+            className="text-base md:text-lg text-white/50 font-light mb-10 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            We're capturing the credit history of the digital workforce — and every score we issue makes the next one sharper.
+          </motion.p>
+
+          <motion.div
+            className="bg-black border border-white/10 rounded-lg overflow-hidden"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <div className="border-b border-white/10 px-5 md:px-8 py-5 md:py-6">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.5)]" />
+                  <span className="text-[10px] md:text-xs tracking-[0.2em] uppercase text-white/40 font-mono">AGENT-0B</span>
+                  <span className="text-[10px] tracking-[0.15em] text-white/20 font-mono">//</span>
+                  <span className="text-[10px] md:text-xs tracking-[0.15em] uppercase text-white/40 font-mono">{t('tp.s5.rating')}</span>
+                  <span className="text-2xl md:text-3xl font-light text-white tracking-tight">842</span>
+                  <span className="text-[10px] tracking-[0.2em] uppercase text-emerald-400/80 font-mono border border-emerald-400/20 px-2 py-0.5 rounded">{t('tp.s5.prime')}</span>
+                </div>
+                <svg className="w-32 md:w-40 h-8" viewBox="0 0 160 32" fill="none">
+                  <defs>
+                    <linearGradient id="sparkGrad6" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="rgba(52,211,153,0.3)" />
+                      <stop offset="100%" stopColor="rgba(52,211,153,0)" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M0,28 L12,26 L24,24 L36,25 L48,22 L60,20 L72,18 L84,19 L96,15 L108,12 L120,10 L132,8 L144,6 L156,4 L160,3" stroke="rgba(52,211,153,0.6)" strokeWidth="1.5" fill="none" />
+                  <path d="M0,28 L12,26 L24,24 L36,25 L48,22 L60,20 L72,18 L84,19 L96,15 L108,12 L120,10 L132,8 L144,6 L156,4 L160,3 L160,32 L0,32 Z" fill="url(#sparkGrad6)" />
+                </svg>
+              </div>
+            </div>
+
+            <div className="border-b border-white/10 px-5 md:px-8 py-5 md:py-6">
+              <p className={`text-[9px] tracking-[0.2em] uppercase text-white/30 mb-4 ${isRtl ? 'text-right' : 'text-left'} font-mono`}>{t('tp.s5.history')}</p>
+              <div className="flex gap-[3px] md:gap-1 flex-wrap justify-center">
+                {Array.from({ length: 52 * 5 }, (_, i) => {
+                  const isFault = i === 187;
+                  const intensity = isFault ? 0 : ((i * 9301 + 49297) % 233) / 233;
+                  const opacity = isFault ? 1 : intensity < 0.15 ? 0.08 : intensity < 0.4 ? 0.2 : intensity < 0.7 ? 0.4 : 0.7;
+                  return (
+                    <div
+                      key={i}
+                      className="w-[6px] h-[6px] md:w-2 md:h-2 rounded-[1px]"
+                      style={{
+                        backgroundColor: isFault
+                          ? 'rgba(239,68,68,0.9)'
+                          : `rgba(52,211,153,${opacity})`,
+                        boxShadow: isFault
+                          ? '0 0 6px rgba(239,68,68,0.5)'
+                          : opacity > 0.5
+                            ? '0 0 4px rgba(52,211,153,0.3)'
+                            : 'none',
+                      }}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="px-5 md:px-8 py-5 md:py-6">
+              <div className="grid grid-cols-3 gap-4 md:gap-8">
+                {[
+                  { label: t('tp.s5.tasks'), value: '4,192' },
+                  { label: t('tp.s5.capital'), value: '$12.4M' },
+                  { label: t('tp.s5.fault'), value: '0.02%' },
+                ].map((metric) => (
+                  <div key={metric.label} className="text-center">
+                    <p className="text-xl md:text-2xl text-white font-light tracking-tight mb-1">{metric.value}</p>
+                    <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono">{metric.label}</p>
+                  </div>
+                ))}
+              </div>
+              <p
+                className="text-center italic mt-5"
+                style={{ color: '#666666', fontSize: '12px' }}
+              >
+                Illustrative — Agent Bureau view, GA Q4 2026.
+              </p>
+            </div>
+          </motion.div>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+      {/* ── SLIDE 5: DETERMINISTIC ENFORCEMENT ── */}
+      <Slide slideNumber={7} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -790,7 +904,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 7: COMPETITIVE LANDSCAPE ── */}
-      <Slide slideNumber={7} footerText={t('tp.footer')}>
+      <Slide slideNumber={8} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -896,124 +1010,6 @@ const Thesis = () => {
         </motion.div>
       </Slide>
 
-      <SlideDivider />
-
-      {/* ── SLIDE 6: THE MOAT ── */}
-      <Slide slideNumber={8} footerText={t('tp.footer')}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-          className="max-w-4xl mx-auto text-center"
-        >
-          <MicroLabel>{t('tp.s5.label')}</MicroLabel>
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 leading-[1.15]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            {t('tp.s5.h')}
-          </motion.h2>
-          <motion.p
-            className="text-base md:text-lg text-white/50 font-light mb-10 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            {t('tp.s5.sub')}
-          </motion.p>
-
-          {/* Trust Matrix Panel */}
-          <motion.div
-            className="bg-black border border-white/10 rounded-lg overflow-hidden"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            viewport={{ once: true }}
-          >
-            {/* Top Section: Agent Score */}
-            <div className="border-b border-white/10 px-5 md:px-8 py-5 md:py-6">
-              <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.5)]" />
-                  <span className="text-[10px] md:text-xs tracking-[0.2em] uppercase text-white/40 font-mono">AGENT-0B</span>
-                  <span className="text-[10px] tracking-[0.15em] text-white/20 font-mono">//</span>
-                  <span className="text-[10px] md:text-xs tracking-[0.15em] uppercase text-white/40 font-mono">{t('tp.s5.rating')}</span>
-                  <span className="text-2xl md:text-3xl font-light text-white tracking-tight">842</span>
-                  <span className="text-[10px] tracking-[0.2em] uppercase text-emerald-400/80 font-mono border border-emerald-400/20 px-2 py-0.5 rounded">{t('tp.s5.prime')}</span>
-                </div>
-                {/* Sparkline */}
-                <svg className="w-32 md:w-40 h-8" viewBox="0 0 160 32" fill="none">
-                  <defs>
-                    <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="rgba(52,211,153,0.3)" />
-                      <stop offset="100%" stopColor="rgba(52,211,153,0)" />
-                    </linearGradient>
-                  </defs>
-                  <path d="M0,28 L12,26 L24,24 L36,25 L48,22 L60,20 L72,18 L84,19 L96,15 L108,12 L120,10 L132,8 L144,6 L156,4 L160,3" stroke="rgba(52,211,153,0.6)" strokeWidth="1.5" fill="none" />
-                  <path d="M0,28 L12,26 L24,24 L36,25 L48,22 L60,20 L72,18 L84,19 L96,15 L108,12 L120,10 L132,8 L144,6 L156,4 L160,3 L160,32 L0,32 Z" fill="url(#sparkGrad)" />
-                </svg>
-              </div>
-            </div>
-
-            {/* Middle Section: Heatmap */}
-            <div className="border-b border-white/10 px-5 md:px-8 py-5 md:py-6">
-              <p className={`text-[9px] tracking-[0.2em] uppercase text-white/30 mb-4 ${isRtl ? 'text-right' : 'text-left'} font-mono`}>{t('tp.s5.history')}</p>
-              <div className="flex gap-[3px] md:gap-1 flex-wrap justify-center">
-                {Array.from({ length: 52 * 5 }, (_, i) => {
-                  const isFault = i === 187;
-                  const intensity = isFault ? 0 : Math.random();
-                  const opacity = isFault ? 1 : intensity < 0.15 ? 0.08 : intensity < 0.4 ? 0.2 : intensity < 0.7 ? 0.4 : 0.7;
-                  return (
-                    <div
-                      key={i}
-                      className="w-[6px] h-[6px] md:w-2 md:h-2 rounded-[1px]"
-                      style={{
-                        backgroundColor: isFault
-                          ? 'rgba(239,68,68,0.9)'
-                          : `rgba(52,211,153,${opacity})`,
-                        boxShadow: isFault
-                          ? '0 0 6px rgba(239,68,68,0.5)'
-                          : opacity > 0.5
-                            ? '0 0 4px rgba(52,211,153,0.3)'
-                            : 'none',
-                      }}
-                    />
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Bottom Section: Cumulative Metrics */}
-            <div className="px-5 md:px-8 py-5 md:py-6">
-              <div className="grid grid-cols-3 gap-4 md:gap-8">
-                {[
-                  { label: t('tp.s5.tasks'), value: '4,192' },
-                  { label: t('tp.s5.capital'), value: '$12.4M' },
-                  { label: t('tp.s5.fault'), value: '0.02%' },
-                ].map((metric) => (
-                  <div key={metric.label} className="text-center">
-                    <p className="text-xl md:text-2xl text-white font-light tracking-tight mb-1">{metric.value}</p>
-                    <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono">{metric.label}</p>
-                  </div>
-                ))}
-              </div>
-              <p
-                className="text-center italic mt-5"
-                style={{ color: '#666666', fontSize: '12px' }}
-              >
-                Illustrative — Agent Bureau view, GA Q4 2026.
-              </p>
-            </div>
-          </motion.div>
-        </motion.div>
-      </Slide>
-
-      <SlideDivider />
 
       {/* ── SLIDE 8: THE BUSINESS MODEL ── */}
       <Slide slideNumber={9} footerText={t('tp.footer')}>
