@@ -887,15 +887,48 @@ const Thesis = () => {
 
           <motion.div
             className="relative mx-auto mb-10"
-            style={{ width: '100%', maxWidth: 1040 }}
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            <div className="relative mx-auto h-[520px] md:h-[560px] w-full">
-              {/* Ring + hub — fixed square, centered */}
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] md:w-[480px] md:h-[480px]">
+            {/* 3x3 grid: ring in middle cell, labels in the 4 cardinal cells */}
+            <div className="grid grid-cols-[1fr_auto_1fr] gap-x-6 md:gap-x-10 items-center justify-items-center max-w-5xl mx-auto">
+              {/* Row 1 */}
+              <div />
+              <motion.div
+                className="w-[240px] text-center"
+                initial={{ opacity: 0, y: 6 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-[#7fd6d6] font-mono mb-2">
+                  01 — TRANSACTION
+                </p>
+                <p className="text-[12px] md:text-[13px] text-white/65 font-light leading-snug">
+                  An agent transacts with another agent.
+                </p>
+              </motion.div>
+              <div />
+
+              {/* Row 2 — left label, ring, right label */}
+              <motion.div
+                className="w-[220px] md:w-[240px] text-left justify-self-end"
+                initial={{ opacity: 0, y: 6 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.04 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-[#7fd6d6] font-mono mb-2">
+                  04 — COMPOUND
+                </p>
+                <p className="text-[12px] md:text-[13px] text-white/65 font-light leading-snug">
+                  Network density grows. Every new agent makes the next score sharper and the network harder to leave.
+                </p>
+              </motion.div>
+
+              <div className="relative w-[420px] h-[420px] md:w-[480px] md:h-[480px]">
                 <svg viewBox="0 0 600 600" className="absolute inset-0 w-full h-full" fill="none">
                   <defs>
                     <marker
@@ -921,13 +954,11 @@ const Thesis = () => {
                   <circle cx="300" cy="300" r="90" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
                   <circle cx="300" cy="300" r="90" fill="url(#hubGlow)" />
 
-                  {/* Clockwise arc arrows */}
                   <path d="M 360,135 A 200,200 0 0 1 465,240" stroke="rgba(127,214,214,0.5)" strokeWidth="1.2" markerEnd="url(#flywheelArrow)" />
                   <path d="M 465,360 A 200,200 0 0 1 360,465" stroke="rgba(127,214,214,0.5)" strokeWidth="1.2" markerEnd="url(#flywheelArrow)" />
                   <path d="M 240,465 A 200,200 0 0 1 135,360" stroke="rgba(127,214,214,0.5)" strokeWidth="1.2" markerEnd="url(#flywheelArrow)" />
                   <path d="M 135,240 A 200,200 0 0 1 240,135" stroke="rgba(127,214,214,0.5)" strokeWidth="1.2" markerEnd="url(#flywheelArrow)" />
 
-                  {/* Stage nodes on ring */}
                   {[
                     { cx: 300, cy: 100 },
                     { cx: 500, cy: 300 },
@@ -941,7 +972,6 @@ const Thesis = () => {
                   ))}
                 </svg>
 
-                {/* Center hub */}
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
                   <p className="text-[9px] md:text-[10px] tracking-[0.35em] uppercase text-white/40 font-mono mb-1">
                     AMAI · HUB
@@ -953,55 +983,41 @@ const Thesis = () => {
                 </div>
               </div>
 
-              {/* Stage labels — placed OUTSIDE the ring, uniform width, left-aligned */}
-              {[
-                {
-                  n: '01',
-                  title: 'TRANSACTION',
-                  body: 'An agent transacts with another agent.',
-                  // top center, above the ring
-                  pos: 'left-1/2 -translate-x-1/2 top-0 text-center items-center',
-                },
-                {
-                  n: '02',
-                  title: 'RECEIPT',
-                  body: 'AMAI signs a Trust Receipt attesting to the behavior.',
-                  // right of ring, vertically centered
-                  pos: 'right-0 top-1/2 -translate-y-1/2 text-left items-start',
-                },
-                {
-                  n: '03',
-                  title: 'VALIDATION',
-                  body: 'If the counterparty is in the Bureau, its score updates. If not, its operator is pulled in to claim and verify.',
-                  // bottom center
-                  pos: 'left-1/2 -translate-x-1/2 bottom-0 text-center items-center',
-                },
-                {
-                  n: '04',
-                  title: 'COMPOUND',
-                  body: 'Network density grows. Every new agent makes the next score sharper and the network harder to leave.',
-                  // left of ring, vertically centered
-                  pos: 'left-0 top-1/2 -translate-y-1/2 text-left items-start',
-                },
-              ].map((s, i) => (
-                <motion.div
-                  key={s.n}
-                  className={`absolute ${s.pos} flex flex-col w-[220px] md:w-[240px]`}
-                  initial={{ opacity: 0, y: 6 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.8 + i * 0.12 }}
-                  viewport={{ once: true }}
-                >
-                  <p className="text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-[#7fd6d6] font-mono mb-2">
-                    {s.n} — {s.title}
-                  </p>
-                  <p className="text-[12px] md:text-[13px] text-white/65 font-light leading-snug">
-                    {s.body}
-                  </p>
-                </motion.div>
-              ))}
+              <motion.div
+                className="w-[220px] md:w-[240px] text-left justify-self-start"
+                initial={{ opacity: 0, y: 6 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.92 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-[#7fd6d6] font-mono mb-2">
+                  02 — RECEIPT
+                </p>
+                <p className="text-[12px] md:text-[13px] text-white/65 font-light leading-snug">
+                  AMAI signs a Trust Receipt attesting to the behavior.
+                </p>
+              </motion.div>
+
+              {/* Row 3 */}
+              <div />
+              <motion.div
+                className="w-[280px] text-center"
+                initial={{ opacity: 0, y: 6 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.16 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-[#7fd6d6] font-mono mb-2">
+                  03 — VALIDATION
+                </p>
+                <p className="text-[12px] md:text-[13px] text-white/65 font-light leading-snug">
+                  If the counterparty is in the Bureau, its score updates. If not, its operator is pulled in to claim and verify.
+                </p>
+              </motion.div>
+              <div />
             </div>
           </motion.div>
+
 
           <motion.p
             className="text-sm md:text-base text-white/55 font-light max-w-3xl mx-auto leading-relaxed italic text-center"
