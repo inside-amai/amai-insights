@@ -44,6 +44,7 @@ import Home from "./pages/Home";
 import Legal from "./pages/Legal";
 import Pitch from "./pages/Pitch";
 import Thesis from "./pages/Thesis";
+import Thesis2 from "./pages/Thesis2";
 import Trust from "./pages/Trust";
 import Architecture from "./pages/Architecture";
 import Methodology from "./pages/Methodology";
@@ -72,7 +73,7 @@ const FullBleedRouteHandler = () => {
     const root = document.getElementById('root');
     if (!root) return;
     
-    const isFullBleed = location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/thesis' || location.pathname === '/briefing' || location.pathname === '/pitch' || location.pathname === '/trust';
+    const isFullBleed = location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/thesis' || location.pathname === '/thesis2' || location.pathname === '/briefing' || location.pathname === '/pitch' || location.pathname === '/trust';
     
     if (isFullBleed) {
       root.classList.add('full-bleed');
@@ -132,6 +133,7 @@ const App = () => (
             <Route path="/tether" element={<Tether />} />
             <Route path="/pitch" element={<Pitch />} />
             <Route path="/thesis" element={<Thesis />} />
+            <Route path="/thesis2" element={<Thesis2 />} />
             <Route path="/briefing" element={<Briefing />} />
             <Route path="/trust" element={<Trust />} />
             <Route path="/methodology" element={<Methodology />} />
