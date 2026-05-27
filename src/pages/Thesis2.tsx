@@ -893,7 +893,7 @@ const Thesis = () => {
             viewport={{ once: true }}
           >
             {/* Ring centered, labels absolutely positioned around it so the ring shares the same center axis as the title */}
-            <div className="relative mx-auto w-[480px] md:w-[480px] h-[760px] md:h-[820px]">
+            <div className="relative mx-auto w-[480px] h-[640px] md:h-[700px]">
               {/* Ring — vertically centered within the wrapper */}
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] md:w-[480px] md:h-[480px]">
                 <svg viewBox="0 0 600 600" className="absolute inset-0 w-full h-full" fill="none">
