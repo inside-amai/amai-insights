@@ -901,8 +901,8 @@ const Thesis = () => {
                 rowGap: "0px",
                 columnGap: "0px",
                 width: "max-content",
-                marginTop: "-60px",
-                marginBottom: "-60px",
+                marginTop: "-20px",
+                marginBottom: "-20px",
               }}
             >
               {/* Row 1 — empty | 01 TRANSACTION | empty */}
