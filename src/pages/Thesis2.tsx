@@ -1018,14 +1018,18 @@ const Thesis = () => {
                 <p className="italic text-sm text-white/40 mb-8 font-light">{col.char}</p>
 
                 <div className={`flex-1 flex flex-col gap-3 mb-8 ${col.highlight ? 'justify-center items-center text-center' : ''}`}>
-                  {col.companies.map((c) => (
-                    <p
-                      key={c}
-                      className={`text-white font-normal ${col.highlight ? 'text-2xl md:text-[24px] tracking-tight' : 'text-[17px] md:text-[18px]'}`}
-                    >
-                      {c}
-                    </p>
-                  ))}
+                  {col.highlight ? (
+                    <img src={amaiLogo} alt="AMAI" className="h-10 md:h-12 w-auto brightness-110" />
+                  ) : (
+                    col.companies.map((c) => (
+                      <p
+                        key={c}
+                        className="text-white font-normal text-[17px] md:text-[18px]"
+                      >
+                        {c}
+                      </p>
+                    ))
+                  )}
                 </div>
 
                 <p
