@@ -1231,14 +1231,14 @@ const Thesis = () => {
               </div>
 
               <p className="text-[10px] tracking-[0.25em] uppercase text-[rgba(166,252,252,0.5)] font-mono mb-3">
-                {t('tp.s6m.left.eyebrow')}
+                THE DEVELOPER STANDARD
               </p>
               <h3 className="text-xl md:text-2xl font-light text-white mb-3">
-                {t('tp.s6m.left.title')}
+                Ubiquitous Distribution
               </h3>
-              <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono mb-4">{t('tp.s6m.left.tag')}</p>
-              <p className="text-sm md:text-base text-white/50 font-light leading-relaxed">
-                {t('tp.s6m.left.body')}
+              <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono mb-4">FREE · OPEN · FRICTIONLESS</p>
+              <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">
+                The AMAI Zero-Trust SDK is free to install. Every AI agent instruments itself at the source, feeding behavioral data into the global ledger — the dataset of autonomous behavior, built by the network itself.
               </p>
             </motion.div>
 
