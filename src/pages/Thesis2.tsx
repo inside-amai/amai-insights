@@ -686,7 +686,7 @@ const Thesis = () => {
               {
                 header: 'VISA',
                 logo: visaLogo,
-                logoClass: 'h-7 md:h-9 w-auto brightness-0 invert opacity-70',
+                logoClass: 'h-7 md:h-9 w-auto',
                 accent: 'text-white/60',
                 rows: [
                   { k: 'What flows through it', v: 'Dollars' },
