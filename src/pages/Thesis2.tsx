@@ -685,6 +685,8 @@ const Thesis = () => {
             {[
               {
                 header: 'VISA',
+                logo: visaLogo,
+                logoClass: 'h-7 md:h-9 w-auto brightness-0 invert opacity-70',
                 accent: 'text-white/60',
                 rows: [
                   { k: 'What flows through it', v: 'Dollars' },
@@ -695,6 +697,8 @@ const Thesis = () => {
               },
               {
                 header: 'AMAI',
+                logo: amaiLogo,
+                logoClass: 'h-6 md:h-8 w-auto brightness-110',
                 accent: 'text-[#7fd6d6]',
                 rows: [
                   { k: 'What flows through it', v: 'Trust signals' },
@@ -713,9 +717,9 @@ const Thesis = () => {
                 transition={{ duration: 0.7, delay: 0.5 + i * 0.15 }}
                 viewport={{ once: true }}
               >
-                <p className={`text-xs md:text-sm tracking-[0.35em] uppercase font-medium mb-6 ${panel.accent}`}>
-                  {panel.header}
-                </p>
+                <div className="mb-6 h-9 md:h-11 flex items-center">
+                  <img src={panel.logo} alt={panel.header} className={panel.logoClass} />
+                </div>
                 <div className="flex flex-col divide-y divide-white/[0.07]">
                   {panel.rows.map((row) => (
                     <div key={row.k} className="py-4 first:pt-0 last:pb-0">
