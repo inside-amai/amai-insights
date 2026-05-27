@@ -1377,8 +1377,95 @@ const Thesis = () => {
       <SlideDivider />
 
 
-      {/* ── SLIDE 11: THE TEAM ── */}
+      {/* ── SLIDE 11: WHY NOW ── */}
       <Slide slideNumber={11} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="max-w-6xl mx-auto w-full"
+        >
+          <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
+            11 // WHY NOW
+          </p>
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 leading-[1.1] tracking-tight text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            The Agent Commerce Stack Is Shipping.
+          </motion.h2>
+          <motion.p
+            className="text-sm md:text-base lg:text-lg text-white/50 font-light mb-12 md:mb-16 max-w-2xl mx-auto text-center leading-relaxed"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            Four converging signals from the last 12 months.
+          </motion.p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+            {[
+              {
+                date: '2025 · COMMERCE',
+                title: 'MoonPay Issues Agent Cards',
+                body: 'MoonPay shipped Mastercards specifically for AI agents. Agents now spend with real credit-card rails, drawing from stablecoin reserves. Agents are economic actors with their own capital.',
+                source: 'MoonPay press release',
+              },
+              {
+                date: '2025 · STANDARDS',
+                title: 'AP2 Standardizes Agent Payments',
+                body: "Google's Agent Payments Protocol launched with Mastercard, PayPal, Adyen, and 60+ industry partners. Agent-initiated transactions now have a standard cryptographic authorization format.",
+                source: 'Google Cloud, Sep 2025',
+              },
+              {
+                date: '2026 · MARKET',
+                title: 'Microsoft Validates The Category',
+                body: "Entra Agent ID ships identity, authorization, and access governance — but only for Microsoft's own agents. The structural conflict of interest creates the independent arbiter gap.",
+                source: 'Microsoft Security',
+              },
+              {
+                date: '2026 · REGULATORY',
+                title: 'EU AI Act Enforcement Begins',
+                body: 'Core high-risk AI obligations enter force August 2, 2026. Non-compliance penalties reach €15M or 3% of global revenue. Mandatory traceability, logging, and human oversight make verifiable audit infrastructure the new enterprise standard.',
+                source: 'Regulation (EU) 2024/1689',
+              },
+            ].map((card, i) => (
+              <motion.div
+                key={card.title}
+                className="bg-black border rounded-md p-6 md:p-8 flex flex-col"
+                style={{ borderColor: '#222222' }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 + i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-[10px] md:text-[11px] tracking-[0.25em] uppercase text-[rgba(166,252,252,0.6)] font-mono mb-3">
+                  {card.date}
+                </p>
+                <h3 className="text-lg md:text-xl font-light text-white mb-4 tracking-tight leading-snug">
+                  {card.title}
+                </h3>
+                <p className="text-sm md:text-[15px] text-white/65 leading-[1.7] font-light flex-1">
+                  {card.body}
+                </p>
+                <p className="italic text-xs text-white/35 mt-5 pt-4 border-t border-white/10 font-light">
+                  {card.source}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+      {/* ── SLIDE 12: THE TEAM ── */}
+      <Slide slideNumber={12} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1507,8 +1594,8 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 12: CLOSING ── */}
-      <Slide slideNumber={12} footerText={t('tp.footer')}>
+      {/* ── SLIDE 13: CLOSING ── */}
+      <Slide slideNumber={13} footerText={t('tp.footer')}>
         {/* Constellation accent — same as hero */}
         <div className="absolute inset-0 pointer-events-none z-0">
           <motion.svg
