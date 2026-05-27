@@ -1840,89 +1840,57 @@ const Thesis = () => {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.2 }}
+          transition={{ duration: 1.4 }}
           viewport={{ once: true }}
-          className="max-w-3xl mx-auto text-center"
+          className="max-w-3xl mx-auto text-center px-6"
         >
-          <motion.img
-            src={amaiLogo}
-            alt="AMAI"
-            className="h-10 md:h-16 w-auto brightness-110 mb-10 md:mb-20 mx-auto"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+          <motion.p
+            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-16 md:mb-24"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-          />
+          >
+            14 // THE VISION
+          </motion.p>
+
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-10 md:mb-16 leading-[1.2]"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white leading-[1.15] tracking-tight mb-20 md:mb-28"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 1, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            {t('tp.s7.h')}
+            The Standard for Autonomous Commerce.
           </motion.h2>
-          
-          <motion.div 
-            className="mb-10 md:mb-16" 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <div className="flex items-center justify-center gap-3 md:gap-5">
-              {[t('tp.s7.word1'), t('tp.s7.word2'), t('tp.s7.word3')].map((word, i) => (
-                <motion.span
-                  key={word}
-                  className="text-sm md:text-base tracking-[0.2em] uppercase text-white/50 font-light"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.7 + i * 0.15 }}
-                  viewport={{ once: true }}
-                >
-                  {word}
-                </motion.span>
-              ))}
-            </div>
-            <motion.p 
-              className="mt-6 text-base md:text-xl text-white/70 font-light"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-              viewport={{ once: true }}
-            >
-              {t('tp.s7.tagline')}
-            </motion.p>
-          </motion.div>
-          
+
           <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="space-y-7 md:space-y-9 mb-20 md:mb-28"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            transition={{ duration: 1, delay: 0.7 }}
             viewport={{ once: true }}
           >
-            <a
-              href="https://terminal.amai.net"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-white/10 border border-white/30 rounded text-xs tracking-[0.15em] uppercase text-white hover:bg-white/20 hover:border-white/50 transition-all duration-300"
-            >
-              ACCESS THE BUREAU
-            </a>
-            <a
-              href="/architecture"
-              className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
-            >
-              {t('tp.s7.arch')} <span>{isRtl ? '←' : '→'}</span>
-            </a>
-            <a
-              href="mailto:team@amai.net?subject=Mission%20Briefing%20%2F%2F%20%5BOrganization%20Name%5D&body=To%20the%20AMAI%20Labs%20Team%2C%0A%0AWe%20are%20reaching%20out%20regarding%20the%20%5BThesis%20%2F%20Architecture%5D.%0A%0AName%3A%20%0AOrganization%3A%20%0AIntent%3A%20"
-              className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
-            >
-              {t('tp.s7.contact')}
-            </a>
+            <p className="text-lg md:text-xl lg:text-2xl text-white/75 font-light leading-relaxed">
+              By 2030, trillions of dollars will move between agents and counterparties — every minute, every market.
+            </p>
+            <p className="text-lg md:text-xl lg:text-2xl text-white/75 font-light leading-relaxed">
+              None of it works without a trust rail.
+            </p>
+            <p className="text-lg md:text-xl lg:text-2xl text-white/75 font-light leading-relaxed">
+              AMAI is building that rail.
+            </p>
           </motion.div>
+
+          <motion.p
+            className="text-sm md:text-base text-white/45 font-light italic tracking-wide"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.1 }}
+            viewport={{ once: true }}
+          >
+            Visible to no one. Indispensable to everyone.
+          </motion.p>
         </motion.div>
       </Slide>
 
