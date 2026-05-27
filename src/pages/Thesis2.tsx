@@ -1651,7 +1651,7 @@ const Thesis = () => {
           transition={{ duration: 1.2 }}
           viewport={{ once: true }}
         >
-          <MicroLabel>{t('tp.s8t.label')}</MicroLabel>
+          <MicroLabel>13 // THE TEAM</MicroLabel>
 
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 md:mb-4 text-center leading-[1.1]"
