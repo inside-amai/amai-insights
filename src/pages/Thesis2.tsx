@@ -1562,7 +1562,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.9 }}
             viewport={{ once: true }}
           >
-            Free tier captures the data. Subscription tiers monetize the rail. <span className="text-white">Revenue compounds with every agent deployed.</span>
+            Free tier captures the data. Subscription tiers monetize the rail.<br /><span className="text-white">Revenue compounds with every agent deployed.</span>
           </motion.p>
         </motion.div>
       </Slide>
