@@ -866,7 +866,7 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 5: DETERMINISTIC ENFORCEMENT ── */}
+      {/* ── SLIDE 7: THE FLYWHEEL ── */}
       <Slide slideNumber={7} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
@@ -875,7 +875,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto text-center"
         >
-          <MicroLabel>{t('tp.s5p.label')}</MicroLabel>
+          <MicroLabel>07 // THE FLYWHEEL</MicroLabel>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-6 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
@@ -883,26 +883,73 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            {t('tp.s5p.h')}
+            How the Network Grows Itself.
           </motion.h2>
           <motion.p
-            className="text-base md:text-lg text-white/50 font-light mb-12 max-w-3xl mx-auto"
+            className="text-base md:text-lg text-white/50 font-light mb-14 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            {t('tp.s5p.sub')}
+            Every agent-to-agent transaction issues a signed Trust Receipt. The receipts compound the network.
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
+          <div className="flex flex-col md:flex-row items-stretch md:items-start justify-between gap-6 md:gap-3 mb-12 text-left">
+            {[
+              {
+                step: 'STEP 01',
+                title: 'TRANSACTION',
+                body: 'Agent A pays, borrows, or delegates to Agent B.',
+              },
+              {
+                step: 'STEP 02',
+                title: 'RECEIPT',
+                body: "AMAI signs a Trust Receipt attesting to the agent's behavior — paid on time, completed the task, no policy violations.",
+              },
+              {
+                step: 'STEP 03',
+                title: 'COMPOUND',
+                body: "If Agent B is in the Bureau, the receipt strengthens its TARI score. If not, the operator is pulled in to claim the agent and start building reputation.",
+              },
+            ].map((s, i, arr) => (
+              <React.Fragment key={s.step}>
+                <motion.div
+                  className="flex-1 border rounded-md p-6 md:p-7 bg-black"
+                  style={{ borderColor: '#222222' }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.5 + i * 0.15 }}
+                  viewport={{ once: true }}
+                >
+                  <p className="text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-[#7fd6d6] font-medium mb-3">
+                    {s.step}
+                  </p>
+                  <p className="text-lg md:text-xl text-white font-light mb-3 tracking-wide">
+                    {s.title}
+                  </p>
+                  <p className="text-sm md:text-[15px] text-white/65 font-light leading-relaxed">
+                    {s.body}
+                  </p>
+                </motion.div>
+                {i < arr.length - 1 && (
+                  <div className="hidden md:flex items-center justify-center self-center text-white/30 text-xl px-1">
+                    →
+                  </div>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
+
+          <motion.p
+            className="text-sm md:text-base text-white/55 font-light max-w-3xl mx-auto leading-relaxed italic"
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            transition={{ duration: 0.8, delay: 1 }}
             viewport={{ once: true }}
           >
-            <TariArchitectureDiagram />
-          </motion.div>
+            Every transaction is a customer acquisition event. The network grows itself.
+          </motion.p>
         </motion.div>
       </Slide>
 
