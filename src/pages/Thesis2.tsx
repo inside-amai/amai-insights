@@ -887,152 +887,115 @@ const Thesis = () => {
 
           <motion.div
             className="relative mx-auto mb-10"
-            style={{ width: '100%', maxWidth: 720 }}
+            style={{ width: '100%', maxWidth: 1040 }}
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            <div className="relative w-full" style={{ aspectRatio: '1 / 1' }}>
-              {/* Flywheel SVG: rings + curved arrows + hub */}
-              <svg
-                viewBox="0 0 600 600"
-                className="absolute inset-0 w-full h-full"
-                fill="none"
-              >
-                <defs>
-                  <marker
-                    id="flywheelArrow"
-                    viewBox="0 0 10 10"
-                    refX="6"
-                    refY="5"
-                    markerWidth="5"
-                    markerHeight="5"
-                    orient="auto-start-reverse"
-                  >
-                    <path d="M0,0 L10,5 L0,10 z" fill="rgba(127,214,214,0.7)" />
-                  </marker>
-                  <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="rgba(127,214,214,0.18)" />
-                    <stop offset="60%" stopColor="rgba(127,214,214,0.04)" />
-                    <stop offset="100%" stopColor="rgba(127,214,214,0)" />
-                  </radialGradient>
-                </defs>
+            <div className="relative mx-auto h-[520px] md:h-[560px] w-full">
+              {/* Ring + hub — fixed square, centered */}
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] md:w-[480px] md:h-[480px]">
+                <svg viewBox="0 0 600 600" className="absolute inset-0 w-full h-full" fill="none">
+                  <defs>
+                    <marker
+                      id="flywheelArrow"
+                      viewBox="0 0 10 10"
+                      refX="6"
+                      refY="5"
+                      markerWidth="5"
+                      markerHeight="5"
+                      orient="auto-start-reverse"
+                    >
+                      <path d="M0,0 L10,5 L0,10 z" fill="rgba(127,214,214,0.7)" />
+                    </marker>
+                    <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stopColor="rgba(127,214,214,0.18)" />
+                      <stop offset="60%" stopColor="rgba(127,214,214,0.04)" />
+                      <stop offset="100%" stopColor="rgba(127,214,214,0)" />
+                    </radialGradient>
+                  </defs>
 
-                {/* faint outer ring */}
-                <circle cx="300" cy="300" r="240" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
-                {/* main flywheel ring */}
-                <circle
-                  cx="300"
-                  cy="300"
-                  r="200"
-                  stroke="rgba(127,214,214,0.18)"
-                  strokeWidth="1"
-                  strokeDasharray="2 4"
-                />
-                {/* inner ring */}
-                <circle cx="300" cy="300" r="90" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
-                {/* hub glow */}
-                <circle cx="300" cy="300" r="90" fill="url(#hubGlow)" />
+                  <circle cx="300" cy="300" r="240" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
+                  <circle cx="300" cy="300" r="200" stroke="rgba(127,214,214,0.18)" strokeWidth="1" strokeDasharray="2 4" />
+                  <circle cx="300" cy="300" r="90" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+                  <circle cx="300" cy="300" r="90" fill="url(#hubGlow)" />
 
-                {/* Four clockwise arc arrows between stages (top→right→bottom→left→top) */}
-                {/* top to right */}
-                <path
-                  d="M 360,135 A 200,200 0 0 1 465,240"
-                  stroke="rgba(127,214,214,0.5)"
-                  strokeWidth="1.2"
-                  markerEnd="url(#flywheelArrow)"
-                />
-                {/* right to bottom */}
-                <path
-                  d="M 465,360 A 200,200 0 0 1 360,465"
-                  stroke="rgba(127,214,214,0.5)"
-                  strokeWidth="1.2"
-                  markerEnd="url(#flywheelArrow)"
-                />
-                {/* bottom to left */}
-                <path
-                  d="M 240,465 A 200,200 0 0 1 135,360"
-                  stroke="rgba(127,214,214,0.5)"
-                  strokeWidth="1.2"
-                  markerEnd="url(#flywheelArrow)"
-                />
-                {/* left to top */}
-                <path
-                  d="M 135,240 A 200,200 0 0 1 240,135"
-                  stroke="rgba(127,214,214,0.5)"
-                  strokeWidth="1.2"
-                  markerEnd="url(#flywheelArrow)"
-                />
+                  {/* Clockwise arc arrows */}
+                  <path d="M 360,135 A 200,200 0 0 1 465,240" stroke="rgba(127,214,214,0.5)" strokeWidth="1.2" markerEnd="url(#flywheelArrow)" />
+                  <path d="M 465,360 A 200,200 0 0 1 360,465" stroke="rgba(127,214,214,0.5)" strokeWidth="1.2" markerEnd="url(#flywheelArrow)" />
+                  <path d="M 240,465 A 200,200 0 0 1 135,360" stroke="rgba(127,214,214,0.5)" strokeWidth="1.2" markerEnd="url(#flywheelArrow)" />
+                  <path d="M 135,240 A 200,200 0 0 1 240,135" stroke="rgba(127,214,214,0.5)" strokeWidth="1.2" markerEnd="url(#flywheelArrow)" />
 
-                {/* stage nodes (dots on the ring) */}
-                {[
-                  { cx: 300, cy: 100 },
-                  { cx: 500, cy: 300 },
-                  { cx: 300, cy: 500 },
-                  { cx: 100, cy: 300 },
-                ].map((p, i) => (
-                  <g key={i}>
-                    <circle cx={p.cx} cy={p.cy} r="6" fill="#0a0a0a" stroke="rgba(127,214,214,0.7)" strokeWidth="1" />
-                    <circle cx={p.cx} cy={p.cy} r="2" fill="rgba(127,214,214,0.9)" />
-                  </g>
-                ))}
-              </svg>
+                  {/* Stage nodes on ring */}
+                  {[
+                    { cx: 300, cy: 100 },
+                    { cx: 500, cy: 300 },
+                    { cx: 300, cy: 500 },
+                    { cx: 100, cy: 300 },
+                  ].map((p, i) => (
+                    <g key={i}>
+                      <circle cx={p.cx} cy={p.cy} r="6" fill="#0a0a0a" stroke="rgba(127,214,214,0.7)" strokeWidth="1" />
+                      <circle cx={p.cx} cy={p.cy} r="2" fill="rgba(127,214,214,0.9)" />
+                    </g>
+                  ))}
+                </svg>
 
-              {/* Center hub */}
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
-                <p className="text-[9px] md:text-[10px] tracking-[0.35em] uppercase text-white/40 font-mono mb-1">
-                  AMAI · HUB
-                </p>
-                <p className="text-2xl md:text-4xl text-white font-light tracking-[0.15em]">
-                  TARI
-                </p>
-                <div className="mx-auto mt-2 h-px w-10 bg-[#7fd6d6]/40" />
+                {/* Center hub */}
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+                  <p className="text-[9px] md:text-[10px] tracking-[0.35em] uppercase text-white/40 font-mono mb-1">
+                    AMAI · HUB
+                  </p>
+                  <p className="text-2xl md:text-4xl text-white font-light tracking-[0.15em]">
+                    TARI
+                  </p>
+                  <div className="mx-auto mt-2 h-px w-10 bg-[#7fd6d6]/40" />
+                </div>
               </div>
 
-              {/* Stage labels — positioned around perimeter */}
+              {/* Stage labels — placed OUTSIDE the ring, uniform width, left-aligned */}
               {[
                 {
                   n: '01',
                   title: 'TRANSACTION',
                   body: 'An agent transacts with another agent.',
-                  pos: 'left-1/2 -translate-x-1/2 -top-1 md:-top-2 text-center',
-                  align: 'items-center',
+                  // top center, above the ring
+                  pos: 'left-1/2 -translate-x-1/2 top-0 text-center items-center',
                 },
                 {
                   n: '02',
                   title: 'RECEIPT',
                   body: 'AMAI signs a Trust Receipt attesting to the behavior.',
-                  pos: 'right-0 top-1/2 -translate-y-1/2 text-right',
-                  align: 'items-end',
+                  // right of ring, vertically centered
+                  pos: 'right-0 top-1/2 -translate-y-1/2 text-left items-start',
                 },
                 {
                   n: '03',
                   title: 'VALIDATION',
                   body: 'If the counterparty is in the Bureau, its score updates. If not, its operator is pulled in to claim and verify.',
-                  pos: 'left-1/2 -translate-x-1/2 -bottom-1 md:-bottom-2 text-center',
-                  align: 'items-center',
+                  // bottom center
+                  pos: 'left-1/2 -translate-x-1/2 bottom-0 text-center items-center',
                 },
                 {
                   n: '04',
                   title: 'COMPOUND',
                   body: 'Network density grows. Every new agent makes the next score sharper and the network harder to leave.',
-                  pos: 'left-0 top-1/2 -translate-y-1/2 text-left',
-                  align: 'items-start',
+                  // left of ring, vertically centered
+                  pos: 'left-0 top-1/2 -translate-y-1/2 text-left items-start',
                 },
               ].map((s, i) => (
                 <motion.div
                   key={s.n}
-                  className={`absolute ${s.pos} flex flex-col ${s.align} w-[44%] md:w-[34%] max-w-[220px]`}
+                  className={`absolute ${s.pos} flex flex-col w-[220px] md:w-[240px]`}
                   initial={{ opacity: 0, y: 6 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.8 + i * 0.12 }}
                   viewport={{ once: true }}
                 >
-                  <p className="text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-[#7fd6d6] font-mono mb-1">
+                  <p className="text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-[#7fd6d6] font-mono mb-2">
                     {s.n} — {s.title}
                   </p>
-                  <p className="text-[11px] md:text-[13px] text-white/65 font-light leading-snug">
+                  <p className="text-[12px] md:text-[13px] text-white/65 font-light leading-snug">
                     {s.body}
                   </p>
                 </motion.div>
