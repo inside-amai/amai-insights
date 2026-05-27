@@ -1348,18 +1348,33 @@ const Thesis = () => {
               </div>
 
               <p className="text-[10px] tracking-[0.25em] uppercase text-[rgba(214,166,252,0.6)] font-mono mb-3">
-                {t('tp.s6m.right.eyebrow')}
+                THE VERIFICATION RAIL
               </p>
               <h3 className="text-xl md:text-2xl font-light text-white mb-3">
-                {t('tp.s6m.right.title')}
+                Per-Call API + Enterprise Platform
               </h3>
-              <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono mb-4">{t('tp.s6m.right.tag')}</p>
-              <p className="text-sm md:text-base text-white/50 font-light leading-relaxed">
-                {t('tp.s6m.right.body')}
+              <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono mb-4">PAID · USAGE + SUBSCRIPTION</p>
+              <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">
+                Issuers, marketplaces, DeFi protocols, and treasury teams pay per TARI verification served — plus an enterprise tier for fleet monitoring, policy enforcement, and compliance dashboards.
               </p>
             </motion.div>
 
           </div>
+
+          {/* Math block */}
+          <motion.div
+            className="mt-12 md:mt-16 mx-auto max-w-3xl border border-white/10 rounded-md bg-black/50 px-6 md:px-10 py-6 md:py-7 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-sm md:text-base lg:text-lg text-white font-light leading-[1.7] tracking-tight">
+              <span className="font-mono text-white/80">$0.001 per verification × 100M monthly verifications = $100K MRR per major customer.</span>
+              <br />
+              <span className="text-white/50">The verification rail scales with the agent economy.</span>
+            </p>
+          </motion.div>
         </motion.div>
       </Slide>
 
