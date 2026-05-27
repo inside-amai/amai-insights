@@ -1424,14 +1424,14 @@ const Thesis = () => {
               </div>
 
               <p className="text-[10px] tracking-[0.25em] uppercase text-[rgba(166,252,252,0.5)] font-mono mb-3">
-                THE DEVELOPER STANDARD
+                THE DEVELOPER
               </p>
               <h3 className="text-xl md:text-2xl font-light text-white mb-3">
-                Ubiquitous Distribution
+                SDK + Usage Subscription
               </h3>
-              <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono mb-4">FREE · OPEN · FRICTIONLESS</p>
+              <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono mb-4">FREE TIER · USAGE-SCALED</p>
               <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">
-                The AMAI Zero-Trust SDK is free to install. Every agent gets 10,000 free evaluations per month — enough to integrate, test, and scale without friction. Every transaction feeds the global ledger.
+                Zero-Trust SDK is free to install. Every agent gets 10,000 evaluations per month. Beyond that, developers convert to a usage-scaled subscription.
               </p>
             </motion.div>
 
