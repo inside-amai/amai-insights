@@ -465,11 +465,11 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="w-full text-left pl-2 sm:pl-6 md:pl-12 lg:pl-20 pr-4 max-w-3xl"
         >
-          <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-10 md:mb-14">
+          <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-10 md:mb-14 text-center">
             03 // THE LIMIT
           </p>
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-16 md:mb-20 leading-[1.15]"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-16 md:mb-20 leading-[1.15] text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -477,6 +477,7 @@ const Thesis = () => {
           >
             Sketchy Agents Can't Scale
           </motion.h2>
+
 
           <motion.div
             className="space-y-10 md:space-y-12"
@@ -502,8 +503,153 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 3: THE THREAT IS NHI ── */}
+      {/* ── SLIDE 4: THE SOLUTION (TARI) ── */}
       <Slide slideNumber={4} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="w-full max-w-6xl mx-auto"
+        >
+          <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
+            04 // THE SOLUTION
+          </p>
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 text-center leading-[1.1] tracking-tight"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            TARI™ <span className="text-white/50">(Trust &amp; Algorithmic Risk Index)</span>
+          </motion.h2>
+          <motion.p
+            className="text-base md:text-lg text-white/50 font-light mb-12 md:mb-16 text-center max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            The universal credit score for the autonomous economy.
+          </motion.p>
+
+          <motion.div
+            className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-14 mb-12 md:mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            {/* LEFT: Prominent product stack */}
+            <div className="flex flex-col items-center md:items-end gap-5 md:gap-6 w-full md:w-auto">
+              {["Zero-Trust SDK & API", "AMAI Enterprise Platform", "Public Agent Bureau"].map((label, i) => (
+                <motion.div
+                  key={label}
+                  className="flex items-center gap-4"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.6 + i * 0.15 }}
+                  viewport={{ once: true }}
+                >
+                  <span className="text-lg md:text-xl lg:text-2xl text-white font-light tracking-tight text-right">
+                    {label}
+                  </span>
+                  <motion.div
+                    className="w-10 md:w-16 h-px bg-gradient-to-r from-transparent to-[rgba(166,252,252,0.6)]"
+                    animate={{ opacity: [0.4, 1, 0.4] }}
+                    transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
+                  />
+                </motion.div>
+              ))}
+            </div>
+
+            {/* CENTER: TARI Gauge */}
+            <div className="relative flex flex-col items-center">
+              <motion.div
+                className="relative"
+                animate={{ filter: ["drop-shadow(0 0 20px rgba(166,252,252,0.15))", "drop-shadow(0 0 40px rgba(166,252,252,0.3))", "drop-shadow(0 0 20px rgba(166,252,252,0.15))"] }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                <svg viewBox="0 0 260 180" className="w-[220px] md:w-[300px] h-auto">
+                  <defs>
+                    <linearGradient id="tariGaugeGrad4" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stopColor="rgba(200,80,60,0.5)" />
+                      <stop offset="35%" stopColor="rgba(220,180,60,0.5)" />
+                      <stop offset="65%" stopColor="rgba(100,200,120,0.5)" />
+                      <stop offset="100%" stopColor="rgba(166,252,252,0.7)" />
+                    </linearGradient>
+                    <filter id="tariGlow4">
+                      <feGaussianBlur stdDeviation="4" result="blur" />
+                      <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  <path d="M 30 150 A 105 105 0 0 1 230 150" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="20" strokeLinecap="round" />
+                  <path d="M 30 150 A 105 105 0 0 1 230 150" fill="none" stroke="url(#tariGaugeGrad4)" strokeWidth="20" strokeLinecap="round" />
+                  <motion.line
+                    x1="130" y1="150" x2="215" y2="85"
+                    stroke="rgba(166,252,252,0.9)" strokeWidth="2.5" strokeLinecap="round"
+                    filter="url(#tariGlow4)"
+                    animate={{ x2: [213, 217, 213], y2: [87, 83, 87] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                  <circle cx="130" cy="150" r="5" fill="rgba(166,252,252,0.3)" stroke="rgba(166,252,252,0.6)" strokeWidth="1.5" />
+                  <text x="130" y="125" fill="white" fontSize="32" fontFamily="monospace" fontWeight="bold" textAnchor="middle">824</text>
+                </svg>
+              </motion.div>
+              <motion.div
+                className="mt-2 px-4 py-1.5 rounded-full border border-emerald-400/40 bg-emerald-400/10"
+                animate={{ boxShadow: ["0 0 10px rgba(52,211,153,0.15)", "0 0 25px rgba(52,211,153,0.3)", "0 0 10px rgba(52,211,153,0.15)"] }}
+                transition={{ duration: 2.5, repeat: Infinity }}
+              >
+                <span className="text-xs md:text-sm tracking-[0.25em] uppercase text-emerald-400 font-mono font-semibold">TRUSTED</span>
+              </motion.div>
+            </div>
+
+            {/* RIGHT: Thresholds */}
+            <div className="flex flex-col items-center md:items-start gap-5 w-full md:w-auto">
+              {[
+                { score: "TARI > 750:", result: "GRANTED", color: "text-emerald-400", pipeColor: "from-[rgba(166,252,252,0.6)] to-transparent" },
+                { score: "TARI < 750:", result: "DENIED", color: "text-red-400", pipeColor: "from-[rgba(220,80,60,0.6)] to-transparent" },
+              ].map((item, i) => (
+                <motion.div
+                  key={item.result}
+                  className="flex items-center gap-3"
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.7 + i * 0.15 }}
+                  viewport={{ once: true }}
+                >
+                  <motion.div
+                    className={`w-8 md:w-12 h-px bg-gradient-to-r ${item.pipeColor}`}
+                    animate={{ opacity: [0.4, 1, 0.4] }}
+                    transition={{ duration: 2, repeat: Infinity, delay: i * 0.4 }}
+                  />
+                  <span className="text-xs md:text-sm font-mono text-white/60 tracking-wide">{item.score}</span>
+                  <span className={`text-xs md:text-sm font-mono font-bold tracking-[0.15em] ${item.color}`}>✦ {item.result}</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.p
+            className="text-sm md:text-base text-white/50 font-light text-center max-w-3xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
+            viewport={{ once: true }}
+          >
+            Instead of guessing if an agent is safe, we mathematically prove it. TARI distills chaotic autonomous behavior into a single, deterministic metric.
+          </motion.p>
+        </motion.div>
+      </Slide>
+
+
+      {/* ── SLIDE 3: THE THREAT IS NHI ── */}
+      <Slide slideNumber={5} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -597,7 +743,7 @@ const Thesis = () => {
 
       {/* ── SLIDE 8: THE TEAM ── */}
       {/* ── SLIDE 9: WHY NOW ── */}
-      <Slide slideNumber={5} footerText={t('tp.footer')}>
+      <Slide slideNumber={6} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -681,154 +827,6 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 4: THE TARI ENGINE ── */}
-      <Slide slideNumber={6} footerText={t('tp.footer')}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-          className="w-full max-w-5xl mx-auto"
-        >
-          <MicroLabel>{t('tp.s4.label')}</MicroLabel>
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-2 text-center leading-[1.1] tracking-tight"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            TARI™ <span className="text-white/50">(Trust & Risk Index)</span>
-          </motion.h2>
-          <motion.p
-            className="text-base md:text-lg text-white/50 font-light mb-12 md:mb-16 text-center max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            The universal credit score for the autonomous economy.
-          </motion.p>
-
-          {/* TARI Visual: Inputs → Gauge → Outputs */}
-          <motion.div
-            className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 mb-12 md:mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            viewport={{ once: true }}
-          >
-            {/* LEFT: Data Inputs */}
-            <div className="flex flex-col items-center md:items-end gap-4 w-full md:w-auto">
-              {["Zero-Trust SDK & API", "AMAI Enterprise Platform", "Public Agent Bureau"].map((label, i) => (
-                <motion.div
-                  key={label}
-                  className="flex items-center gap-3"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.6 + i * 0.15 }}
-                  viewport={{ once: true }}
-                >
-                  <span className="text-xs md:text-sm text-white/60 font-mono tracking-wide text-right">{label}</span>
-                  <motion.div
-                    className="w-8 md:w-12 h-px bg-gradient-to-r from-transparent to-[rgba(166,252,252,0.6)]"
-                    animate={{ opacity: [0.4, 1, 0.4] }}
-                    transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
-                  />
-                </motion.div>
-              ))}
-            </div>
-
-            {/* CENTER: TARI Gauge */}
-            <div className="relative flex flex-col items-center">
-              <motion.div
-                className="relative"
-                animate={{ filter: ["drop-shadow(0 0 20px rgba(166,252,252,0.15))", "drop-shadow(0 0 40px rgba(166,252,252,0.3))", "drop-shadow(0 0 20px rgba(166,252,252,0.15))"] }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                <svg viewBox="0 0 260 180" className="w-[220px] md:w-[300px] h-auto">
-                  <defs>
-                    <linearGradient id="tariGaugeGrad" x1="0" y1="0" x2="1" y2="0">
-                      <stop offset="0%" stopColor="rgba(200,80,60,0.5)" />
-                      <stop offset="35%" stopColor="rgba(220,180,60,0.5)" />
-                      <stop offset="65%" stopColor="rgba(100,200,120,0.5)" />
-                      <stop offset="100%" stopColor="rgba(166,252,252,0.7)" />
-                    </linearGradient>
-                    <filter id="tariGlow">
-                      <feGaussianBlur stdDeviation="4" result="blur" />
-                      <feMerge>
-                        <feMergeNode in="blur" />
-                        <feMergeNode in="SourceGraphic" />
-                      </feMerge>
-                    </filter>
-                  </defs>
-                  {/* Gauge arc background */}
-                  <path d="M 30 150 A 105 105 0 0 1 230 150" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="20" strokeLinecap="round" />
-                  {/* Gauge arc colored */}
-                  <path d="M 30 150 A 105 105 0 0 1 230 150" fill="none" stroke="url(#tariGaugeGrad)" strokeWidth="20" strokeLinecap="round" />
-                  {/* Needle pointing to ~824 (about 87% of the arc) */}
-                  <motion.line
-                    x1="130" y1="150" x2="215" y2="85"
-                    stroke="rgba(166,252,252,0.9)" strokeWidth="2.5" strokeLinecap="round"
-                    filter="url(#tariGlow)"
-                    animate={{ x2: [213, 217, 213], y2: [87, 83, 87] }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  />
-                  <circle cx="130" cy="150" r="5" fill="rgba(166,252,252,0.3)" stroke="rgba(166,252,252,0.6)" strokeWidth="1.5" />
-                  {/* Score text */}
-                  <text x="130" y="125" fill="white" fontSize="32" fontFamily="monospace" fontWeight="bold" textAnchor="middle">824</text>
-                </svg>
-              </motion.div>
-              {/* TRUSTED badge */}
-              <motion.div
-                className="mt-2 px-4 py-1.5 rounded-full border border-emerald-400/40 bg-emerald-400/10"
-                animate={{ boxShadow: ["0 0 10px rgba(52,211,153,0.15)", "0 0 25px rgba(52,211,153,0.3)", "0 0 10px rgba(52,211,153,0.15)"] }}
-                transition={{ duration: 2.5, repeat: Infinity }}
-              >
-                <span className="text-xs md:text-sm tracking-[0.25em] uppercase text-emerald-400 font-mono font-semibold">PRIME</span>
-              </motion.div>
-            </div>
-
-            {/* RIGHT: Outputs */}
-            <div className="flex flex-col items-center md:items-start gap-5 w-full md:w-auto">
-              {[
-                { score: "TARI > 750:", result: "GRANTED", color: "text-emerald-400", pipeColor: "from-[rgba(166,252,252,0.6)] to-transparent" },
-                { score: "TARI < 750:", result: "DENIED", color: "text-red-400", pipeColor: "from-[rgba(220,80,60,0.6)] to-transparent" },
-              ].map((item, i) => (
-                <motion.div
-                  key={item.result}
-                  className="flex items-center gap-3"
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.7 + i * 0.15 }}
-                  viewport={{ once: true }}
-                >
-                  <motion.div
-                    className={`w-8 md:w-12 h-px bg-gradient-to-r ${item.pipeColor}`}
-                    animate={{ opacity: [0.4, 1, 0.4] }}
-                    transition={{ duration: 2, repeat: Infinity, delay: i * 0.4 }}
-                  />
-                  <span className="text-xs md:text-sm font-mono text-white/60 tracking-wide">{item.score}</span>
-                  <span className={`text-xs md:text-sm font-mono font-bold tracking-[0.15em] ${item.color}`}>✦ {item.result}</span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Subtext */}
-          <motion.p
-            className="text-sm md:text-base text-white/50 font-light text-center max-w-3xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            viewport={{ once: true }}
-          >
-            <span dangerouslySetInnerHTML={{ __html: t('tp.s4.proof').replace(/<em>/g, '<em class="text-white/70 not-italic font-normal">') }} />
-          </motion.p>
-        </motion.div>
-      </Slide>
-
-      <SlideDivider />
 
       {/* ── SLIDE 5: DETERMINISTIC ENFORCEMENT ── */}
       <Slide slideNumber={7} footerText={t('tp.footer')}>
