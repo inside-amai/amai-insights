@@ -1147,26 +1147,28 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto"
         >
-          <MicroLabel>{t('tp.s6.label')}</MicroLabel>
+          <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
+            10 // THE BUSINESS MODEL
+          </p>
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 leading-[1.1] tracking-tight text-center"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 leading-[1.1] tracking-tight text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            {t('tp.s6m.h1')}
+            Bottom-Up Adoption.
             <br />
-            <span className="text-white/60">{t('tp.s6m.h2')}</span>
+            <span className="text-white/60">Top-Down Monetization.</span>
           </motion.h2>
           <motion.p
-            className="text-sm md:text-base text-white/40 font-light mb-14 md:mb-20 max-w-xl mx-auto text-center"
+            className="text-sm md:text-base lg:text-lg text-white/50 font-light mb-14 md:mb-20 max-w-2xl mx-auto text-center leading-relaxed"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            {t('tp.s6m.sub')}
+            Capture the data layer for free. Monetize the verification rail at scale.
           </motion.p>
 
           {/* Two-pillar layout with bridge */}
