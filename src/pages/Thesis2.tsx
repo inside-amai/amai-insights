@@ -915,7 +915,7 @@ const Thesis = () => {
             ].map((s, i, arr) => (
               <React.Fragment key={s.step}>
                 <motion.div
-                  className="flex-1 border rounded-md p-6 md:p-7 bg-black md:h-[212px] flex flex-col"
+                  className="flex-1 border rounded-md p-6 md:p-7 bg-black min-h-[260px] md:h-[260px] flex flex-col"
                   style={{ borderColor: '#222222' }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
