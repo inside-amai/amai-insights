@@ -668,7 +668,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Visa is worth $550 billion and never holds a dollar of transaction value.<br /><br />AMAI is building the same trust rail for every transaction an agent makes.
+            Visa is worth $550 billion and never holds a dollar of transaction value.<br />AMAI is building the same trust rail for every transaction an agent makes.
           </motion.p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 mb-10 md:mb-12">
