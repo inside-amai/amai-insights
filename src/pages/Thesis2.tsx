@@ -635,6 +635,17 @@ const Thesis = () => {
           >
             Instead of guessing if an agent is safe, we mathematically prove it. TARI distills chaotic autonomous behavior into a single, deterministic metric.
           </motion.p>
+
+          <motion.p
+            className="mt-8 text-[10px] md:text-[11px] tracking-[0.25em] uppercase text-white/35 font-mono text-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 1 }}
+            viewport={{ once: true }}
+          >
+            Methodology · v2.4 · amai.net/methodology
+          </motion.p>
+
         </motion.div>
       </Slide>
 
