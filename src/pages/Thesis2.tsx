@@ -513,7 +513,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            TARI™ <span className="text-white/50">(Trust &amp; Algorithmic Risk Index)</span>
+            TARI™ <span className="block text-white/50">(Trust &amp; Algorithmic Risk Index)</span>
           </motion.h2>
           <motion.p
             className="text-base md:text-lg text-white/50 font-light mb-12 md:mb-16 text-center max-w-2xl mx-auto"
