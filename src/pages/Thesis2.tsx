@@ -761,7 +761,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Every Transaction Makes the Score Better.
+            The Behavioral Ledger Compounds.
           </motion.h2>
           <motion.p
             className="text-base md:text-lg text-white/50 font-light mb-10 max-w-2xl mx-auto"
@@ -770,7 +770,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            We're capturing the credit history of the digital workforce — and every score we issue makes the next one sharper.
+            We're building the credit history of the digital workforce — every observation sharpens the score, every score widens the gap from any competitor.
           </motion.p>
 
           <motion.div
