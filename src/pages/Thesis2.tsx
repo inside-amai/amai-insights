@@ -526,14 +526,14 @@ const Thesis = () => {
           </motion.p>
 
           <motion.div
-            className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-14 mb-12 md:mb-16"
+            className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center justify-items-center gap-10 md:gap-14 mb-12 md:mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
             viewport={{ once: true }}
           >
             {/* LEFT: Prominent product stack */}
-            <div className="flex flex-col items-center md:items-end gap-5 md:gap-6 w-full md:w-auto">
+            <div className="flex flex-col items-center md:items-end gap-5 md:gap-6 w-full md:w-auto md:justify-self-end">
               {["Zero-Trust SDK & API", "Enterprise & Developer Platform", "Public Agent Bureau"].map((label, i) => (
                 <motion.div
                   key={label}
