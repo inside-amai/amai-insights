@@ -513,7 +513,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            TARI™ <span className="block text-white/50">(Trust &amp; Algorithmic Risk Index)</span>
+            TARI™ <span className="block text-white/50">(Trust &amp; Risk Index)</span>
           </motion.h2>
           <motion.p
             className="text-base md:text-lg text-white/50 font-light mb-12 md:mb-16 text-center max-w-2xl mx-auto"
@@ -603,8 +603,8 @@ const Thesis = () => {
             {/* RIGHT: Thresholds */}
             <div className="flex flex-col items-center md:items-start gap-5 w-full md:w-auto">
               {[
-                { score: "TARI > 750:", result: "GRANTED", color: "text-emerald-400", pipeColor: "from-[rgba(166,252,252,0.6)] to-transparent" },
-                { score: "TARI < 750:", result: "DENIED", color: "text-red-400", pipeColor: "from-[rgba(220,80,60,0.6)] to-transparent" },
+                { score: "TARI™ > 750:", result: "GRANTED", color: "text-emerald-400", pipeColor: "from-[rgba(166,252,252,0.6)] to-transparent" },
+                { score: "TARI™ < 750:", result: "DENIED", color: "text-red-400", pipeColor: "from-[rgba(220,80,60,0.6)] to-transparent" },
               ].map((item, i) => (
                 <motion.div
                   key={item.result}
@@ -633,7 +633,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.9 }}
             viewport={{ once: true }}
           >
-            Instead of guessing if an agent is safe, we mathematically prove it. TARI distills chaotic autonomous behavior into a single, deterministic metric.
+            Instead of guessing if an agent is safe, we mathematically prove it. TARI™ distills chaotic autonomous behavior into a single, deterministic metric.
           </motion.p>
 
           <motion.p
@@ -1035,7 +1035,7 @@ const Thesis = () => {
                   03 — VALIDATION
                 </p>
                 <p className="text-[12px] md:text-[13px] text-white/65 font-light leading-snug">
-                  The next counterparty checks the agent's TARI before authorizing. New counterparties join the rail.
+                  The next counterparty checks the agent's TARI™ before authorizing. New counterparties join the rail.
                 </p>
               </motion.div>
               <div />
@@ -1111,7 +1111,7 @@ const Thesis = () => {
               {
                 n: '05',
                 title: 'Public Bureau Lookup API',
-                wedge: '"Check TARI" becomes the new "check VirusTotal." Pull-side demand compounds the network.',
+                wedge: '"Check TARI™" becomes the new "check VirusTotal." Pull-side demand compounds the network.',
               },
             ].map((layer, i, arr) => (
               <motion.div
@@ -1289,7 +1289,7 @@ const Thesis = () => {
               {
                 header: 'CREDIT ISSUERS',
                 subhead: 'Banks, fintechs, BNPL',
-                body: 'TARI surfaces inside the underwriting pipeline. Approve, decline, cap, or price based on principal + agent + behavior.',
+                body: 'TARI™ surfaces inside the underwriting pipeline. Approve, decline, cap, or price based on principal + agent + behavior.',
               },
               {
                 header: 'MARKETPLACES',
@@ -1334,7 +1334,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 1 }}
             viewport={{ once: true }}
           >
-            Same TARI score. Four buyers. One rail.
+            Same TARI™ score. Four buyers. One rail.
           </motion.p>
         </motion.div>
       </Slide>
