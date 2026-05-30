@@ -534,7 +534,7 @@ const Thesis = () => {
           >
             {/* LEFT: Prominent product stack */}
             <div className="flex flex-col items-center md:items-end gap-5 md:gap-6 w-full md:w-auto md:justify-self-end">
-              {["Zero-Trust SDK & API", "Enterprise & Developer Platform", "Public Agent Bureau"].map((label, i) => (
+              {["Public Agent Bureau", "Zero-Trust SDK & API", "Enterprise & Developer Platform"].map((label, i) => (
                 <motion.div
                   key={label}
                   className="flex items-center gap-4"
@@ -543,9 +543,10 @@ const Thesis = () => {
                   transition={{ duration: 0.6, delay: 0.6 + i * 0.15 }}
                   viewport={{ once: true }}
                 >
-                  <span className="text-lg md:text-xl lg:text-2xl text-white font-light tracking-tight text-right">
+                  <span className="text-sm md:text-base lg:text-lg text-white/70 font-light tracking-tight text-right whitespace-nowrap">
                     {label}
                   </span>
+
                   <motion.div
                     className="w-10 md:w-16 h-px bg-gradient-to-r from-transparent to-[rgba(166,252,252,0.6)]"
                     animate={{ opacity: [0.4, 1, 0.4] }}
