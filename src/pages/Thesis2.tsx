@@ -522,7 +522,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            The universal credit score for the autonomous economy.
+            A deterministic behavioral credit score for any AI Agent
           </motion.p>
 
           <motion.div
