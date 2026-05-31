@@ -894,7 +894,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Every transaction an agent makes issues a signed Trust Receipt. The receipts compound the network.
+            Every agent action becomes a data point. Every data point makes the network more valuable.
           </motion.p>
 
           <motion.div
