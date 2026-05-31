@@ -522,7 +522,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            A deterministic behavioral credit score for any AI Agent
+            A deterministic behavioral credit score for <strong>any AI Agent</strong>
           </motion.p>
 
           <motion.div
