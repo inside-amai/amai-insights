@@ -534,7 +534,7 @@ const Thesis = () => {
           >
             {/* LEFT: Prominent product stack */}
             <div className="flex flex-col items-center md:items-end gap-5 md:gap-6 w-full md:w-auto md:justify-self-end">
-              {["Public Agent Bureau", "Zero-Trust SDK & API", "Enterprise & Developer Platform"].map((label, i) => (
+              {["Public Agent Bureau", "Developer SDK & API", "Enterprise & Developer Platform"].map((label, i) => (
                 <motion.div
                   key={label}
                   className="flex items-center gap-4"
