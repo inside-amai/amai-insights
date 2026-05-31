@@ -634,7 +634,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.9 }}
             viewport={{ once: true }}
           >
-            Every agent has behavior — tasks completed, errors, anomalies, rule compliance. TARI™ converts it into one number, 300–850, that any protocol, enterprise, or regulator can check before trusting an agent.
+            Every agent has behavior: tasks completed, errors, anomalies, rule compliance. TARI™ converts it into one number, 300–850, that any protocol, enterprise, or regulator can check before trusting an agent.
           </motion.p>
 
           <motion.p
