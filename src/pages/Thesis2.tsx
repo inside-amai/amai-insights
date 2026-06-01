@@ -1636,7 +1636,7 @@ const Thesis = () => {
               {
                 date: '2026 · REGULATORY',
                 title: 'EU AI Act Enforcement Begins',
-                body: 'August 2, 2026: high-risk AI obligations take force. €15M penalties. Verifiable audit infrastructure becomes the standard.',
+                body: 'High-risk AI obligations are confirmed and approaching, with the regulatory direction now set. Verifiable audit infrastructure becomes the standard.',
                 source: 'Regulation (EU) 2024/1689',
               },
             ].map((card, i) => (
