@@ -5,9 +5,10 @@ import { useLanguage } from '@/contexts/LanguageContext';
 interface ExplainerHeroProps {
   headline?: React.ReactNode;
   subtext?: React.ReactNode;
+  ctaHref?: string;
 }
 
-export const ExplainerHero = ({ headline, subtext }: ExplainerHeroProps = {}) => {
+export const ExplainerHero = ({ headline, subtext, ctaHref = '#architecture-section' }: ExplainerHeroProps = {}) => {
   const { t } = useLanguage();
 
   return (
