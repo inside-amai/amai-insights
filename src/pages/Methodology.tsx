@@ -243,6 +243,30 @@ const Methodology = () => {
               </div>
             </section>
 
+            {/* System Architecture */}
+            <section id="architecture-section" className="py-20 md:py-28 border-t border-white/5 scroll-mt-24">
+              <div className="container mx-auto px-6 max-w-5xl">
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="max-w-3xl">
+                  <Eyebrow>07 // System Architecture</Eyebrow>
+                  <SectionTitle>System Architecture.</SectionTitle>
+                </motion.div>
+
+                <div className="mt-14 max-w-3xl mx-auto space-y-4">
+                  {[
+                    { tag: 'Layer 01', title: 'Identity Layer', desc: 'Agent identity and ownership resolution.' },
+                    { tag: 'Layer 02', title: 'Execution Layer', desc: 'Real-time telemetry capture at agent runtime.' },
+                    { tag: 'Layer 03', title: 'Settlement Layer', desc: 'Tamper-evident provenance commitment to the bureau ledger.' },
+                  ].map((l) => (
+                    <div key={l.tag} className="border border-white/10 bg-black p-6 md:p-8">
+                      <div className="text-[10px] tracking-[0.28em] uppercase text-white/40 mb-2 font-mono">{l.tag}</div>
+                      <h3 className="text-lg md:text-xl font-light text-white tracking-tight">{l.title}</h3>
+                      <p className="mt-2 text-sm font-light text-white/55 leading-relaxed">{l.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
             {/* CTA */}
             <section className="py-20 md:py-28 border-t border-white/5">
               <div className="container mx-auto px-6 max-w-5xl text-center">
