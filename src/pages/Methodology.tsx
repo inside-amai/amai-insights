@@ -85,6 +85,27 @@ const Methodology = () => {
                     </div>
                   ))}
                 </div>
+
+                {/* Rating Bands */}
+                <div className="mt-16">
+                  <div className="text-[10px] tracking-[0.28em] uppercase text-white/40 mb-5 font-mono">Rating Bands</div>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10 border border-white/10">
+                    {[
+                      { label: 'Poor', range: '300–579', dot: 'bg-red-500/80', text: 'text-red-300/90' },
+                      { label: 'Fair', range: '580–669', dot: 'bg-orange-400/80', text: 'text-orange-300/90' },
+                      { label: 'Good', range: '670–739', dot: 'bg-green-500/80', text: 'text-green-300/90' },
+                      { label: 'Excellent', range: '740–850', dot: 'bg-teal-400/80', text: 'text-teal-300/90' },
+                    ].map((b) => (
+                      <div key={b.label} className="bg-black p-5">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className={`inline-block h-2 w-2 rounded-full ${b.dot}`} />
+                          <span className={`text-[10px] tracking-[0.28em] uppercase font-mono ${b.text}`}>{b.label}</span>
+                        </div>
+                        <div className="text-lg font-light text-white tracking-tight">{b.range}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </section>
 
