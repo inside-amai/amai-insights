@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useScroll } from "framer-motion";
 import amaiLogo from "@/assets/amai-logo-tm.png";
+import visaLogo from "@/assets/visa-logo.png";
 import legacyPadlock from "@/assets/slide3-legacy-padlock.png";
 import amaiCore from "@/assets/amai-header-icon.png";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -18,7 +19,7 @@ interface SlideProps {
   footerText?: string;
 }
 
-const TOTAL_SLIDES = 12;
+const TOTAL_SLIDES = 14;
 
 const Slide = ({ children, className = "", slideNumber, footerText = "AMAI Labs · Infrastructure & Research" }: SlideProps) => (
   <section
@@ -348,291 +349,171 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 2: THE PROBLEM ── */}
+      {/* ── SLIDE 2: THE AUTONOMOUS ECONOMY ── */}
       <Slide slideNumber={2} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto text-center"
+          className="max-w-5xl mx-auto"
         >
-          <MicroLabel>{t('tp.s2.label')}</MicroLabel>
+          <MicroLabel>02 // THE AUTONOMOUS ECONOMY</MicroLabel>
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-8 leading-[1.15]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            {t('tp.s2.h')}
-          </motion.h2>
-
-          <motion.div
-            className={`${isRtl ? 'text-right' : 'text-left'} max-w-2xl mx-auto space-y-6`}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-lg md:text-xl text-white/60 font-light leading-relaxed">
-              {t('tp.s2.p1a')}<span className="text-white font-normal">{t('tp.s2.fico')}</span>{t('tp.s2.p1b')}<span className="text-white font-normal">{t('tp.s2.dnb')}</span>.
-            </p>
-            <p className="text-lg md:text-xl text-white/60 font-light leading-relaxed">
-              {t('tp.s2.p2a')}<span className="text-white font-normal">{t('tp.s2.p2b')}</span>.
-            </p>
-            <p className="text-base md:text-lg text-white/40 font-light leading-relaxed">
-              {t('tp.s2.p3')}
-            </p>
-          </motion.div>
-
-          {/* Agent Credit Score Gauge */}
-          <motion.div
-            className="flex justify-center mt-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <svg viewBox="0 0 340 200" className="w-[300px] md:w-[400px] h-auto">
-              <defs>
-                <filter id="needleGlow" x="-50%" y="-50%" width="200%" height="200%">
-                  <feGaussianBlur stdDeviation="3" result="blur" />
-                  <feMerge>
-                    <feMergeNode in="blur" />
-                    <feMergeNode in="SourceGraphic" />
-                  </feMerge>
-                </filter>
-              </defs>
-              <path d="M 48 170 A 125 125 0 0 1 100 55" fill="none" stroke="rgba(200,120,50,0.25)" strokeWidth="28" strokeLinecap="butt" />
-              <path d="M 108 46 A 125 125 0 0 1 232 46" fill="none" stroke="rgba(200,180,60,0.3)" strokeWidth="28" strokeLinecap="butt" />
-              <path d="M 240 55 A 125 125 0 0 1 292 170" fill="none" stroke="rgba(80,180,100,0.35)" strokeWidth="28" strokeLinecap="butt" />
-              <text x="38" y="100" fill="rgba(255,255,255,0.3)" fontSize="10" fontFamily="monospace" textAnchor="middle">POOR</text>
-              <text x="170" y="14" fill="rgba(255,255,255,0.35)" fontSize="10" fontFamily="monospace" textAnchor="middle">GOOD</text>
-              <text x="302" y="100" fill="rgba(255,255,255,0.5)" fontSize="10" fontFamily="monospace" textAnchor="middle">EXCELLENT</text>
-              <text x="38" y="112" fill="rgba(255,255,255,0.2)" fontSize="7" fontFamily="monospace" textAnchor="middle">300</text>
-              <text x="170" y="26" fill="rgba(255,255,255,0.2)" fontSize="7" fontFamily="monospace" textAnchor="middle">580</text>
-              <text x="302" y="112" fill="rgba(255,255,255,0.2)" fontSize="7" fontFamily="monospace" textAnchor="middle">850</text>
-              <rect x="155" y="118" width="30" height="22" rx="4" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="2" />
-              <circle cx="164" cy="128" r="2.5" fill="rgba(255,255,255,0.55)" />
-              <circle cx="176" cy="128" r="2.5" fill="rgba(255,255,255,0.55)" />
-              <line x1="170" y1="117" x2="170" y2="108" stroke="rgba(255,255,255,0.45)" strokeWidth="2" />
-              <circle cx="170" cy="106" r="3" fill="rgba(255,255,255,0.4)" />
-              <line x1="170" y1="140" x2="170" y2="146" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
-              <line x1="162" y1="146" x2="178" y2="146" stroke="rgba(255,255,255,0.4)" strokeWidth="2" strokeLinecap="round" />
-              <line
-                x1="170" y1="170" x2="272" y2="100"
-                stroke="rgba(255,255,255,0.15)" strokeWidth="6" strokeLinecap="round"
-                filter="url(#needleGlow)"
-              />
-              <line
-                x1="170" y1="170" x2="272" y2="100"
-                stroke="rgba(255,255,255,0.7)" strokeWidth="2.5" strokeLinecap="round"
-              />
-            </svg>
-          </motion.div>
-        </motion.div>
-      </Slide>
-
-      <SlideDivider />
-
-      {/* ── SLIDE 3: THE THREAT IS NHI ── */}
-      <Slide slideNumber={3} footerText={t('tp.footer')}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-          className="max-w-4xl mx-auto text-center"
-        >
-          <MicroLabel>{t('tp.s3.label')}</MicroLabel>
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-10 leading-[1.15]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            {t('tp.s3.h')}
-          </motion.h2>
-
-          {/* NHI Diagram: API Key on Lock vs AMAI Shield on Vault */}
-          <motion.div
-            className="mb-12 flex w-full flex-col items-center justify-center gap-8 md:flex-row md:gap-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            viewport={{ once: true }}
-          >
-            {/* Legacy: Dull Padlock */}
-            <div className="relative mx-auto flex w-52 flex-none flex-col items-center gap-4 md:w-60">
-              <div className="relative mx-auto flex h-40 w-40 items-center justify-center md:h-48 md:w-48">
-                <motion.img
-                  src={legacyPadlock}
-                  alt="Legacy IAM padlock"
-                  className="h-full w-full object-contain opacity-60 grayscale"
-                  loading="lazy"
-                  width={512}
-                  height={512}
-                  animate={{ opacity: [0.5, 0.65, 0.5] }}
-                  transition={{ duration: 4, repeat: Infinity }}
-                />
-              </div>
-              <div className="text-center">
-                <p className="text-xs md:text-sm tracking-[0.2em] uppercase text-white/30 font-medium">{t('tp.s3.legacy.label')}</p>
-                <p className="text-sm md:text-base text-white/50 mt-2 font-light">{t('tp.s3.legacy.desc')}</p>
-              </div>
-            </div>
-
-            {/* VS divider — vertically centered with the image area */}
-            <div className="flex flex-col items-center justify-center self-center md:mt-[-1rem]">
-              <span className="text-xs tracking-[0.3em] uppercase text-white/20 font-medium">vs</span>
-            </div>
-
-            {/* AMAI: Brand Icon */}
-            <div className="relative mx-auto flex w-52 flex-none flex-col items-center gap-4 md:w-60">
-              <div className="relative mx-auto flex h-40 w-40 items-center justify-center md:h-48 md:w-48">
-                <motion.img
-                  src={amaiCore}
-                  alt="AMAI Runtime"
-                  className="h-full w-full object-contain drop-shadow-[0_0_20px_rgba(166,252,252,0.3)]"
-                  loading="lazy"
-                  width={512}
-                  height={512}
-                  style={{ transform: 'translateZ(0)', backfaceVisibility: 'hidden', imageRendering: 'crisp-edges' as any }}
-                  animate={{ opacity: [0.85, 1, 0.85] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                />
-              </div>
-              <div className="text-center">
-                <p className="text-xs md:text-sm tracking-[0.2em] uppercase text-[#7fd6d6] font-medium">{t('tp.s3.amai.label')}</p>
-                <p className="text-sm md:text-base text-[#7fd6d6] mt-2 font-light">{t('tp.s3.amai.desc')}</p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Sub-text */}
-          <motion.div
-            className="text-center max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-base md:text-lg text-white/50 font-light leading-relaxed">
-              {t('tp.s3.sub')}
-            </p>
-          </motion.div>
-
-        </motion.div>
-      </Slide>
-
-      <SlideDivider />
-
-      {/* ── SLIDE 8: THE TEAM ── */}
-      {/* ── SLIDE 9: WHY NOW ── */}
-      <Slide slideNumber={4} footerText={t('tp.footer')}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.2 }}
-          viewport={{ once: true }}
-        >
-          <MicroLabel>04 // WHY NOW</MicroLabel>
-
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 md:mb-4 text-center leading-[1.1]"
+            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 leading-[1.15] text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            The Risk Is No Longer Theoretical.
+            The Autonomous Economy
           </motion.h2>
           <motion.p
-            className="text-sm md:text-base text-white/40 font-light mb-12 md:mb-16 max-w-2xl mx-auto text-center leading-relaxed"
+            className="text-base md:text-lg text-white/50 font-light text-center max-w-2xl mx-auto mb-14 md:mb-20"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.35 }}
             viewport={{ once: true }}
           >
-            Four converging signals from the last 12 months.
+            Capital is flooding the agentic layer. But capital requires trust.
           </motion.p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-            {[
-              {
-                tag: 'MARCH 2026 · INCIDENT',
-                title: 'The PocketOS Wipe',
-                body: 'A Claude Opus agent running in Cursor autonomously deleted a production database and all backups in under 9 seconds. Months of operational data erased — without authorization.',
-                src: 'AI Incident Database, Report #7167',
-              },
-              {
-                tag: '2025 · RESEARCH',
-                title: 'Multi-Agent Hijacking Proven',
-                body: 'Up to 97% success rates against AutoGen, CrewAI, and MetaGPT. Malicious instructions laundered through trusted agent outputs — invisible to existing intrusion detection systems.',
-                src: 'arXiv:2503.12188',
-              },
-              {
-                tag: '2026 · MARKET',
-                title: 'Microsoft Validates The Category',
-                body: "Entra Agent ID launches identity, authorization, and access governance — but only for Microsoft's own agents. The structural conflict of interest creates the independent arbiter gap.",
-                src: 'Microsoft Security',
-              },
-              {
-                tag: '2026 · REGULATORY',
-                title: 'EU AI Act Enforcement Begins',
-                body: 'Core high-risk AI obligations enter into force August 2, 2026. Non-compliance penalties reach up to €15M or 3% of global revenue. Mandatory traceability, logging, and human oversight requirements  make verifiable audit infrastructure the new enterprise standard.',
-                src: 'Regulation (EU) 2024/1689',
-              },
-            ].map((card, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-10 md:gap-12 items-start">
+            {/* LEFT: Two stacked stats */}
+            <div className="md:col-span-3 flex flex-col gap-12 md:gap-16">
               <motion.div
-                key={card.title}
-                className="border rounded-md p-7 md:p-8 flex flex-col bg-black"
-                style={{ borderColor: '#222222' }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.5 + i * 0.12 }}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
                 viewport={{ once: true }}
               >
-                <p className="text-[11px] tracking-[0.25em] uppercase font-medium mb-4" style={{ color: '#7fd6d6' }}>
-                  {card.tag}
-                </p>
-                <h3 className="text-lg md:text-[22px] font-medium text-white mb-3 leading-snug">
-                  {card.title}
+                <h3
+                  className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight tracking-tight leading-none mb-3"
+                  style={{
+                    background: 'linear-gradient(135deg, #a0d2ff 0%, #60b8ff 40%, #c0e0ff 70%, #a0d2ff 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                  }}
+                >
+                  $3–5 Trillion
                 </h3>
-                <p className="text-[13px] md:text-[15px] text-white/55 font-light leading-[1.5] mb-5 flex-1">
-                  {card.body}
-                </p>
-                <p className="text-[11px] italic text-white/30 font-light">
-                  {card.src}
+                <p className="text-xs md:text-sm text-white/40 font-light leading-relaxed max-w-md">
+                  Projected global agentic commerce orchestrated by AI agents by 2030.{' '}
+                  <span className="text-white/25 font-mono text-[10px]">(Source: McKinsey)</span>
                 </p>
               </motion.div>
-            ))}
+
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.7 }}
+                viewport={{ once: true }}
+              >
+                <h3
+                  className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight tracking-tight leading-none mb-3"
+                  style={{
+                    background: 'linear-gradient(135deg, #80c0ff 0%, #4da8ff 40%, #b0d8ff 70%, #80c0ff 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                  }}
+                >
+                  $1 Trillion
+                </h3>
+                <p className="text-xs md:text-sm text-white/40 font-light leading-relaxed max-w-md">
+                  Projected U.S. B2C retail revenue orchestrated by AI agents by 2030.{' '}
+                  <span className="text-white/25 font-mono text-[10px]">(Source: ICSC & McKinsey)</span>
+                </p>
+              </motion.div>
+            </div>
+
+            {/* RIGHT: Narrative panel */}
+            <motion.div
+              className="md:col-span-2 bg-white/[0.03] border border-white/[0.08] rounded-xl p-6 md:p-8 backdrop-blur-sm"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.9 }}
+              viewport={{ once: true }}
+            >
+              <h4 className="text-lg md:text-xl font-light text-white mb-4 leading-snug">
+                The Trillion-Dollar Bottleneck
+              </h4>
+              <div className="w-10 h-px bg-gradient-to-r from-[#60b8ff]/40 to-transparent mb-5" />
+              <p className="text-sm md:text-[15px] text-white/45 font-light leading-[1.75]">
+                MoonPay just gave agents Mastercards backed by stablecoin reserves. AP2 standardized agent payment rails. Microsoft shipped Agent 365.
+              </p>
+              <p className="mt-4 text-sm md:text-[15px] text-white/55 font-light leading-[1.75]">
+                What's missing: the trust layer that decides which agents you let transact with you.
+              </p>
+              <p className="mt-4 text-sm md:text-[15px] text-white font-light leading-[1.75]">
+                The market cannot scale until the agent can be underwritten.
+              </p>
+            </motion.div>
           </div>
         </motion.div>
       </Slide>
 
       <SlideDivider />
 
-      {/* ── SLIDE 4: THE TARI ENGINE ── */}
-      <Slide slideNumber={5} footerText={t('tp.footer')}>
+
+      {/* ── SLIDE 3: THE LIMIT ── */}
+      <Slide slideNumber={3} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
           viewport={{ once: true }}
-          className="w-full max-w-5xl mx-auto"
+          className="w-full text-center max-w-4xl mx-auto px-4"
         >
-          <MicroLabel>{t('tp.s4.label')}</MicroLabel>
+          <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-14 md:mb-20">
+            03 // THE LIMIT
+          </p>
+
+          <motion.div
+            className="space-y-10 md:space-y-14"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-lg md:text-xl lg:text-2xl text-white/60 font-light leading-[1.6]">
+              Humans have <span className="text-white font-normal">FICO</span>. Businesses have <span className="text-white font-normal">Dun &amp; Bradstreet</span>.
+            </p>
+            <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-light leading-[1.15] tracking-tight">
+              AI Agents have <span className="font-normal">Nothing</span>.
+            </p>
+            <p className="text-base md:text-lg text-white/40 font-light leading-[1.9] max-w-2xl mx-auto">
+              Without a standardized Credit Score, an Agent is just a random script that cannot be trusted with significant capital or sensitive data.
+            </p>
+          </motion.div>
+        </motion.div>
+
+      </Slide>
+
+
+      <SlideDivider />
+
+      {/* ── SLIDE 4: THE SOLUTION (TARI) ── */}
+      <Slide slideNumber={4} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="w-full max-w-6xl mx-auto"
+        >
+          <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
+            04 // THE SOLUTION
+          </p>
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-2 text-center leading-[1.1] tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 text-center leading-[1.1] tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            TARI™ <span className="text-white/50">(Trust & Risk Index)</span>
+            TARI™ <span className="block text-white/50">(Trust &amp; Risk Index)</span>
           </motion.h2>
           <motion.p
             className="text-base md:text-lg text-white/50 font-light mb-12 md:mb-16 text-center max-w-2xl mx-auto"
@@ -641,31 +522,33 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            The universal credit score for the autonomous economy.
+            A consistent, auditable behavioral credit score for <strong>any AI Agent</strong>
           </motion.p>
 
-          {/* TARI Visual: Inputs → Gauge → Outputs */}
           <motion.div
-            className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 mb-12 md:mb-16"
+            className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center justify-items-center gap-10 md:gap-14 mb-12 md:mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            {/* LEFT: Data Inputs */}
-            <div className="flex flex-col items-center md:items-end gap-4 w-full md:w-auto">
-              {["Zero-Trust SDK & API", "AMAI Enterprise Platform", "Public Agent Bureau"].map((label, i) => (
+            {/* LEFT: Prominent product stack */}
+            <div className="flex flex-col items-center md:items-end gap-5 md:gap-6 w-full md:w-auto md:justify-self-end">
+              {["Public Agent Bureau", "Developer SDK & API", "Enterprise & Developer Platform"].map((label, i) => (
                 <motion.div
                   key={label}
-                  className="flex items-center gap-3"
+                  className="flex items-center gap-4"
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.6 + i * 0.15 }}
                   viewport={{ once: true }}
                 >
-                  <span className="text-xs md:text-sm text-white/60 font-mono tracking-wide text-right">{label}</span>
+                  <span className="text-sm md:text-base lg:text-lg text-white/70 font-light tracking-tight text-right whitespace-nowrap">
+                    {label}
+                  </span>
+
                   <motion.div
-                    className="w-8 md:w-12 h-px bg-gradient-to-r from-transparent to-[rgba(166,252,252,0.6)]"
+                    className="w-10 md:w-16 h-px bg-gradient-to-r from-transparent to-[rgba(166,252,252,0.6)]"
                     animate={{ opacity: [0.4, 1, 0.4] }}
                     transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
                   />
@@ -682,13 +565,13 @@ const Thesis = () => {
               >
                 <svg viewBox="0 0 260 180" className="w-[220px] md:w-[300px] h-auto">
                   <defs>
-                    <linearGradient id="tariGaugeGrad" x1="0" y1="0" x2="1" y2="0">
+                    <linearGradient id="tariGaugeGrad4" x1="0" y1="0" x2="1" y2="0">
                       <stop offset="0%" stopColor="rgba(200,80,60,0.5)" />
                       <stop offset="35%" stopColor="rgba(220,180,60,0.5)" />
                       <stop offset="65%" stopColor="rgba(100,200,120,0.5)" />
                       <stop offset="100%" stopColor="rgba(166,252,252,0.7)" />
                     </linearGradient>
-                    <filter id="tariGlow">
+                    <filter id="tariGlow4">
                       <feGaussianBlur stdDeviation="4" result="blur" />
                       <feMerge>
                         <feMergeNode in="blur" />
@@ -696,38 +579,36 @@ const Thesis = () => {
                       </feMerge>
                     </filter>
                   </defs>
-                  {/* Gauge arc background */}
                   <path d="M 30 150 A 105 105 0 0 1 230 150" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="20" strokeLinecap="round" />
-                  {/* Gauge arc colored */}
-                  <path d="M 30 150 A 105 105 0 0 1 230 150" fill="none" stroke="url(#tariGaugeGrad)" strokeWidth="20" strokeLinecap="round" />
-                  {/* Needle pointing to ~824 (about 87% of the arc) */}
+                  <path d="M 30 150 A 105 105 0 0 1 230 150" fill="none" stroke="url(#tariGaugeGrad4)" strokeWidth="20" strokeLinecap="round" />
                   <motion.line
                     x1="130" y1="150" x2="215" y2="85"
                     stroke="rgba(166,252,252,0.9)" strokeWidth="2.5" strokeLinecap="round"
-                    filter="url(#tariGlow)"
+                    filter="url(#tariGlow4)"
                     animate={{ x2: [213, 217, 213], y2: [87, 83, 87] }}
                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                   />
                   <circle cx="130" cy="150" r="5" fill="rgba(166,252,252,0.3)" stroke="rgba(166,252,252,0.6)" strokeWidth="1.5" />
-                  {/* Score text */}
                   <text x="130" y="125" fill="white" fontSize="32" fontFamily="monospace" fontWeight="bold" textAnchor="middle">824</text>
                 </svg>
               </motion.div>
-              {/* TRUSTED badge */}
               <motion.div
                 className="mt-2 px-4 py-1.5 rounded-full border border-emerald-400/40 bg-emerald-400/10"
                 animate={{ boxShadow: ["0 0 10px rgba(52,211,153,0.15)", "0 0 25px rgba(52,211,153,0.3)", "0 0 10px rgba(52,211,153,0.15)"] }}
                 transition={{ duration: 2.5, repeat: Infinity }}
               >
-                <span className="text-xs md:text-sm tracking-[0.25em] uppercase text-emerald-400 font-mono font-semibold">PRIME</span>
+                <span className="text-xs md:text-sm tracking-[0.25em] uppercase text-emerald-400 font-mono font-semibold">TRUSTED</span>
               </motion.div>
+              <p className="text-center italic mt-3" style={{ color: '#666666', fontSize: '12px' }}>
+                Illustrative
+              </p>
             </div>
 
-            {/* RIGHT: Outputs */}
-            <div className="flex flex-col items-center md:items-start gap-5 w-full md:w-auto">
+            {/* RIGHT: Thresholds */}
+            <div className="flex flex-col items-center md:items-start gap-5 w-full md:w-auto md:justify-self-start">
               {[
-                { score: "TARI > 750:", result: "GRANTED", color: "text-emerald-400", pipeColor: "from-[rgba(166,252,252,0.6)] to-transparent" },
-                { score: "TARI < 750:", result: "DENIED", color: "text-red-400", pipeColor: "from-[rgba(220,80,60,0.6)] to-transparent" },
+                { score: "TARI™ > 750:", result: "GRANTED", color: "text-emerald-400", pipeColor: "from-[rgba(166,252,252,0.6)] to-transparent" },
+                { score: "TARI™ < 750:", result: "DENIED", color: "text-red-400", pipeColor: "from-[rgba(220,80,60,0.6)] to-transparent" },
               ].map((item, i) => (
                 <motion.div
                   key={item.result}
@@ -749,7 +630,6 @@ const Thesis = () => {
             </div>
           </motion.div>
 
-          {/* Subtext */}
           <motion.p
             className="text-sm md:text-base text-white/50 font-light text-center max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 10 }}
@@ -757,166 +637,128 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.9 }}
             viewport={{ once: true }}
           >
-            <span dangerouslySetInnerHTML={{ __html: t('tp.s4.proof').replace(/<em>/g, '<em class="text-white/70 not-italic font-normal">') }} />
+            Every agent has behavior: tasks completed, errors, anomalies, rule compliance. TARI™ converts it into one number, 300–850, that any protocol, enterprise, or regulator can check before trusting an agent.
           </motion.p>
-        </motion.div>
-      </Slide>
 
-      <SlideDivider />
-
-      {/* ── SLIDE 5: DETERMINISTIC ENFORCEMENT ── */}
-      <Slide slideNumber={6} footerText={t('tp.footer')}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-          className="max-w-6xl mx-auto text-center"
-        >
-          <MicroLabel>{t('tp.s5p.label')}</MicroLabel>
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-6 leading-[1.15]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            {t('tp.s5p.h')}
-          </motion.h2>
           <motion.p
-            className="text-base md:text-lg text-white/50 font-light mb-12 max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            className="mt-8 text-[10px] md:text-[11px] tracking-[0.25em] uppercase text-white/35 font-mono text-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 1 }}
             viewport={{ once: true }}
           >
-            {t('tp.s5p.sub')}
+            Methodology · v2.4 · amai.net/methodology
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <TariArchitectureDiagram />
-          </motion.div>
         </motion.div>
       </Slide>
 
-      <SlideDivider />
 
-      {/* ── SLIDE 7: COMPETITIVE LANDSCAPE ── */}
-      <Slide slideNumber={7} footerText={t('tp.footer')}>
+
+      {/* ── SLIDE 5: THE VISA ANALOGY ── */}
+      <Slide slideNumber={5} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 1.2 }}
           viewport={{ once: true }}
-          className="max-w-6xl mx-auto w-full"
+          className="w-full max-w-6xl mx-auto"
         >
-          <MicroLabel>07 // THE LANDSCAPE</MicroLabel>
-
+          <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
+            05 // THE CATEGORY
+          </p>
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 leading-[1.1] tracking-tight text-center"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 text-center leading-[1.1]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            The Conflict-of-Interest Gap.
+            The Visa Analogy
           </motion.h2>
-
           <motion.p
-            className="text-base md:text-lg text-white/50 font-light mb-12 md:mb-16 max-w-3xl mx-auto text-center leading-relaxed"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            className="text-sm md:text-base text-white/50 font-light mb-12 md:mb-16 max-w-3xl mx-auto text-center leading-relaxed"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Native vendors can't audit their own agents. Point solutions defend single layers. AMAI is the only independent, cross-organizational behavioral bureau.
+            Visa is worth $550 billion and never holds a dollar of transaction value.<br />AMAI is building the same trust rail for every transaction an agent makes.
           </motion.p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 border rounded-md overflow-hidden bg-black" style={{ borderColor: '#222222' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 mb-10 md:mb-12">
             {[
               {
-                label: 'CONTROL PLANE (INTERNAL)',
-                char: 'Single-organization governance',
-                companies: ['Microsoft Entra Agent ID', 'NVIDIA NeMo Guardrails', 'OpenAI', 'Anthropic'],
-                summary: 'Cannot serve as independent third-party arbiter — even when extended to cross-vendor scope.',
-                highlight: false,
+                header: 'VISA',
+                logo: visaLogo,
+                logoClass: 'h-10 md:h-14 w-auto',
+                accent: 'text-white/60',
+                rows: [
+                  { k: 'What flows through it', v: 'Dollars' },
+                  { k: 'What it owns', v: 'The trust rail between issuer and merchant' },
+                  { k: 'Who pays', v: 'Banks, merchants, processors' },
+                  { k: 'Position', v: '$550B+ market cap. Never holds a dollar.' },
+                ],
               },
               {
-                label: 'POINT SOLUTIONS',
-                char: 'Single-layer defense',
-                companies: ['CalypsoAI', 'Lakera', 'Lasso Security', 'Protect AI', 'HiddenLayer'],
-                summary: 'Prompt injection, model security, individual layers. No cross-org behavioral ledger.',
-                highlight: false,
+                header: 'AMAI',
+                logo: amaiLogo,
+                logoClass: 'h-6 md:h-8 w-auto brightness-110',
+                accent: 'text-[#7fd6d6]',
+                rows: [
+                  { k: 'What flows through it', v: 'Trust signals' },
+                  { k: 'What it owns', v: 'The trust rail between agent and counterparty' },
+                  { k: 'Who pays', v: 'Credit issuers, marketplaces, DeFi protocols, treasury' },
+                  { k: 'Position', v: 'The next category-defining trust infrastructure.' },
+                ],
               },
-              {
-                label: 'THE INDEPENDENT BUREAU',
-                char: 'Cross-organizational standard',
-                companies: ['AMAI Labs'],
-                summary: 'Mathematically deterministic. Vendor-agnostic. The only independent third-party trust layer for the autonomous economy.',
-                highlight: true,
-              },
-            ].map((col, i) => (
+            ].map((panel, i) => (
               <motion.div
-                key={col.label}
-                className={`p-7 md:p-10 flex flex-col ${i > 0 ? 'md:border-l' : ''} ${col.highlight ? 'relative' : ''}`}
-                style={{
-                  borderColor: col.highlight ? 'rgba(91,217,197,0.4)' : '#222222',
-                  background: col.highlight ? 'rgba(91,217,197,0.03)' : 'transparent',
-                  ...(col.highlight ? { boxShadow: 'inset 0 0 0 1px rgba(91,217,197,0.4)' } : {}),
-                }}
+                key={panel.header}
+                className="border rounded-md p-7 md:p-9 flex flex-col bg-black"
+                style={{ borderColor: '#222222' }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 + i * 0.15 }}
+                transition={{ duration: 0.7, delay: 0.5 + i * 0.15 }}
                 viewport={{ once: true }}
               >
-                <p
-                  className={`text-[10px] md:text-[11px] tracking-[0.25em] uppercase font-medium mb-3 ${col.highlight ? 'text-[#5BD9C5]' : 'text-white/40'}`}
-                >
-                  {col.label}
-                </p>
-                <p className="italic text-sm text-white/40 mb-8 font-light">{col.char}</p>
-
-                <div className={`flex-1 flex flex-col gap-3 mb-8 ${col.highlight ? 'justify-center items-center text-center' : ''}`}>
-                  {col.companies.map((c) => (
-                    <p
-                      key={c}
-                      className={`text-white font-normal ${col.highlight ? 'text-2xl md:text-[24px] tracking-tight' : 'text-[17px] md:text-[18px]'}`}
-                    >
-                      {c}
-                    </p>
+                <div className="mb-6 h-9 md:h-11 flex items-center">
+                  <img src={panel.logo} alt={panel.header} className={panel.logoClass} />
+                </div>
+                <div className="flex flex-col divide-y divide-white/[0.07]">
+                  {panel.rows.map((row) => (
+                    <div key={row.k} className="py-4 first:pt-0 last:pb-0">
+                      <p className="text-[11px] tracking-[0.2em] uppercase text-white/35 font-medium mb-1.5">
+                        {row.k}
+                      </p>
+                      <p className="text-sm md:text-[15px] text-white/80 font-light leading-snug">
+                        {row.v}
+                      </p>
+                    </div>
                   ))}
                 </div>
-
-                <p
-                  className={`text-sm leading-relaxed font-light pt-6 border-t ${col.highlight ? 'text-white border-[#5BD9C5]/20' : 'text-white/55 border-white/10'}`}
-                >
-                  {col.summary}
-                </p>
               </motion.div>
             ))}
           </div>
 
           <motion.p
-            className="italic text-sm md:text-[15px] text-white/45 font-light text-center mt-10 md:mt-12 max-w-3xl mx-auto"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.1 }}
+            className="text-sm md:text-base text-white/55 font-light text-center max-w-3xl mx-auto leading-relaxed italic"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
             viewport={{ once: true }}
           >
-            FICO is independent of every bank. D&amp;B is independent of every business. The autonomous economy needs the same.
+            Every dollar an agent moves will need a rail like this. The question is who owns it.
           </motion.p>
         </motion.div>
       </Slide>
 
+
       <SlideDivider />
 
+
       {/* ── SLIDE 6: THE MOAT ── */}
-      <Slide slideNumber={8} footerText={t('tp.footer')}>
+      <Slide slideNumber={6} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -924,7 +766,9 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto text-center"
         >
-          <MicroLabel>{t('tp.s5.label')}</MicroLabel>
+          <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
+            06 // THE MOAT
+          </p>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
@@ -932,7 +776,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            {t('tp.s5.h')}
+            The Behavioral Ledger Compounds.
           </motion.h2>
           <motion.p
             className="text-base md:text-lg text-white/50 font-light mb-10 max-w-2xl mx-auto"
@@ -941,10 +785,9 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            {t('tp.s5.sub')}
+            We're building the credit history of the digital workforce — every observation sharpens the score, every score widens the gap from any competitor.
           </motion.p>
 
-          {/* Trust Matrix Panel */}
           <motion.div
             className="bg-black border border-white/10 rounded-lg overflow-hidden"
             initial={{ opacity: 0, y: 20 }}
@@ -952,7 +795,6 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            {/* Top Section: Agent Score */}
             <div className="border-b border-white/10 px-5 md:px-8 py-5 md:py-6">
               <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
@@ -963,27 +805,25 @@ const Thesis = () => {
                   <span className="text-2xl md:text-3xl font-light text-white tracking-tight">842</span>
                   <span className="text-[10px] tracking-[0.2em] uppercase text-emerald-400/80 font-mono border border-emerald-400/20 px-2 py-0.5 rounded">{t('tp.s5.prime')}</span>
                 </div>
-                {/* Sparkline */}
                 <svg className="w-32 md:w-40 h-8" viewBox="0 0 160 32" fill="none">
                   <defs>
-                    <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
+                    <linearGradient id="sparkGrad6" x1="0" y1="0" x2="0" y2="1">
                       <stop offset="0%" stopColor="rgba(52,211,153,0.3)" />
                       <stop offset="100%" stopColor="rgba(52,211,153,0)" />
                     </linearGradient>
                   </defs>
                   <path d="M0,28 L12,26 L24,24 L36,25 L48,22 L60,20 L72,18 L84,19 L96,15 L108,12 L120,10 L132,8 L144,6 L156,4 L160,3" stroke="rgba(52,211,153,0.6)" strokeWidth="1.5" fill="none" />
-                  <path d="M0,28 L12,26 L24,24 L36,25 L48,22 L60,20 L72,18 L84,19 L96,15 L108,12 L120,10 L132,8 L144,6 L156,4 L160,3 L160,32 L0,32 Z" fill="url(#sparkGrad)" />
+                  <path d="M0,28 L12,26 L24,24 L36,25 L48,22 L60,20 L72,18 L84,19 L96,15 L108,12 L120,10 L132,8 L144,6 L156,4 L160,3 L160,32 L0,32 Z" fill="url(#sparkGrad6)" />
                 </svg>
               </div>
             </div>
 
-            {/* Middle Section: Heatmap */}
             <div className="border-b border-white/10 px-5 md:px-8 py-5 md:py-6">
               <p className={`text-[9px] tracking-[0.2em] uppercase text-white/30 mb-4 ${isRtl ? 'text-right' : 'text-left'} font-mono`}>{t('tp.s5.history')}</p>
               <div className="flex gap-[3px] md:gap-1 flex-wrap justify-center">
                 {Array.from({ length: 52 * 5 }, (_, i) => {
                   const isFault = i === 187;
-                  const intensity = isFault ? 0 : Math.random();
+                  const intensity = isFault ? 0 : ((i * 9301 + 49297) % 233) / 233;
                   const opacity = isFault ? 1 : intensity < 0.15 ? 0.08 : intensity < 0.4 ? 0.2 : intensity < 0.7 ? 0.4 : 0.7;
                   return (
                     <div
@@ -1005,7 +845,6 @@ const Thesis = () => {
               </div>
             </div>
 
-            {/* Bottom Section: Cumulative Metrics */}
             <div className="px-5 md:px-8 py-5 md:py-6">
               <div className="grid grid-cols-3 gap-4 md:gap-8">
                 {[
@@ -1032,8 +871,483 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 8: THE BUSINESS MODEL ── */}
+      {/* ── SLIDE 7: THE FLYWHEEL ── */}
+      <Slide slideNumber={7} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="max-w-6xl mx-auto text-center"
+        >
+          <MicroLabel>07 // THE FLYWHEEL</MicroLabel>
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-6 leading-[1.15]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            How the Network Grows Itself.
+          </motion.h2>
+          <motion.p
+            className="text-base md:text-lg text-white/50 font-light mb-12 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            Every agent action becomes a data point. Every data point makes the network more valuable.
+          </motion.p>
+
+          <motion.div
+            className="relative mx-auto mb-10"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            {/* 3x3 grid: ring in center cell, labels in N/E/S/W cells. Fixed column widths so ring stays rigidly centered. */}
+            <div
+              className="grid mx-auto"
+              style={{
+                gridTemplateColumns: "200px 480px 200px",
+                gridTemplateRows: "auto 480px auto",
+                rowGap: "0px",
+                columnGap: "0px",
+                width: "max-content",
+                marginTop: "-20px",
+                marginBottom: "-20px",
+              }}
+            >
+              {/* Row 1 — empty | 01 TRANSACTION | empty */}
+              <div />
+              <motion.div
+                className="self-end text-center"
+                style={{ marginBottom: "-70px" }}
+                initial={{ opacity: 0, y: 6 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-[#7fd6d6] font-mono mb-2">
+                  01 — TRANSACTION
+                </p>
+                <p className="text-[12px] md:text-[13px] text-white/65 font-light leading-snug">
+                  An agent transacts with a counterparty — merchant, marketplace, lender, or another agent.
+                </p>
+              </motion.div>
+              <div />
+
+              {/* Row 2 — 04 COMPOUND | ring | 02 RECEIPT */}
+              <motion.div
+                className="self-center text-right"
+                initial={{ opacity: 0, y: 6 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.04 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-[#7fd6d6] font-mono mb-2">
+                  04 — COMPOUND
+                </p>
+                <p className="text-[12px] md:text-[13px] text-white/65 font-light leading-snug">
+                  Every receipt sharpens the score. Every check makes the rail harder to bypass.
+                </p>
+              </motion.div>
+
+              <div className="relative w-[480px] h-[480px]">
+                <svg viewBox="0 0 600 600" className="absolute inset-0 w-full h-full" fill="none">
+                  <defs>
+                    <marker
+                      id="flywheelArrow"
+                      viewBox="0 0 10 10"
+                      refX="6"
+                      refY="5"
+                      markerWidth="5"
+                      markerHeight="5"
+                      orient="auto-start-reverse"
+                    >
+                      <path d="M0,0 L10,5 L0,10 z" fill="rgba(127,214,214,0.7)" />
+                    </marker>
+                    <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stopColor="rgba(127,214,214,0.18)" />
+                      <stop offset="60%" stopColor="rgba(127,214,214,0.04)" />
+                      <stop offset="100%" stopColor="rgba(127,214,214,0)" />
+                    </radialGradient>
+                  </defs>
+
+                  <circle cx="300" cy="300" r="240" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
+                  <circle cx="300" cy="300" r="200" stroke="rgba(127,214,214,0.18)" strokeWidth="1" strokeDasharray="2 4" />
+                  <circle cx="300" cy="300" r="90" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+                  <circle cx="300" cy="300" r="90" fill="url(#hubGlow)" />
+
+                  <path d="M 360,135 A 200,200 0 0 1 465,240" stroke="rgba(127,214,214,0.5)" strokeWidth="1.2" markerEnd="url(#flywheelArrow)" />
+                  <path d="M 465,360 A 200,200 0 0 1 360,465" stroke="rgba(127,214,214,0.5)" strokeWidth="1.2" markerEnd="url(#flywheelArrow)" />
+                  <path d="M 240,465 A 200,200 0 0 1 135,360" stroke="rgba(127,214,214,0.5)" strokeWidth="1.2" markerEnd="url(#flywheelArrow)" />
+                  <path d="M 135,240 A 200,200 0 0 1 240,135" stroke="rgba(127,214,214,0.5)" strokeWidth="1.2" markerEnd="url(#flywheelArrow)" />
+
+                  {[
+                    { cx: 300, cy: 100 },
+                    { cx: 500, cy: 300 },
+                    { cx: 300, cy: 500 },
+                    { cx: 100, cy: 300 },
+                  ].map((p, i) => (
+                    <g key={i}>
+                      <circle cx={p.cx} cy={p.cy} r="6" fill="#0a0a0a" stroke="rgba(127,214,214,0.7)" strokeWidth="1" />
+                      <circle cx={p.cx} cy={p.cy} r="2" fill="rgba(127,214,214,0.9)" />
+                    </g>
+                  ))}
+                </svg>
+
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+                  <p className="text-[9px] md:text-[10px] tracking-[0.35em] uppercase text-white/40 font-mono mb-1">
+                    AMAI · HUB
+                  </p>
+                  <p className="text-2xl md:text-4xl text-white font-light tracking-[0.15em]">
+                    TARI<sup className="text-[0.4em] tracking-normal ml-0.5 align-super">™</sup>
+                  </p>
+                  <div className="mx-auto mt-2 h-px w-10 bg-[#7fd6d6]/40" />
+                </div>
+              </div>
+
+              <motion.div
+                className="self-center text-left"
+                initial={{ opacity: 0, y: 6 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.92 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-[#7fd6d6] font-mono mb-2">
+                  02 — RECEIPT
+                </p>
+                <p className="text-[12px] md:text-[13px] text-white/65 font-light leading-snug">
+                  AMAI signs a Trust Receipt attesting to the agent's behavior.
+                </p>
+              </motion.div>
+
+              {/* Row 3 — empty | 03 VALIDATION | empty */}
+              <div />
+              <motion.div
+                className="self-start text-center"
+                style={{ marginTop: "-70px" }}
+                initial={{ opacity: 0, y: 6 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.16 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-[#7fd6d6] font-mono mb-2">
+                  03 — VALIDATION
+                </p>
+                <p className="text-[12px] md:text-[13px] text-white/65 font-light leading-snug">
+                  The next counterparty checks the agent's TARI™ before authorizing. New counterparties join the rail.
+                </p>
+              </motion.div>
+              <div />
+            </div>
+          </motion.div>
+
+
+          <motion.p
+            className="text-sm md:text-base text-white/55 font-light max-w-3xl mx-auto leading-relaxed italic text-center mt-16 md:mt-20"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1 }}
+            viewport={{ once: true }}
+          >
+            Every transaction is a customer acquisition event. The network grows itself.
+          </motion.p>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+      {/* ── SLIDE 8: THE ADOPTION PATH ── */}
+      <Slide slideNumber={8} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="max-w-6xl mx-auto w-full text-center"
+        >
+          <MicroLabel>08 // THE ADOPTION PATH</MicroLabel>
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-6 leading-[1.15]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            How We Get to Density.
+          </motion.h2>
+          <motion.p
+            className="text-base md:text-lg text-white/50 font-light mb-12 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            Five distribution layers, stacked. Each compounds the last.
+          </motion.p>
+
+          <div className="border rounded-md bg-black overflow-hidden text-left" style={{ borderColor: '#222222' }}>
+            {[
+              {
+                n: '01',
+                title: 'Design Partners + Benchmark Set',
+                wedge: 'Launch with lighthouse enterprises plus a seeded benchmark of public agents and known attack patterns.',
+              },
+              {
+                n: '02',
+                title: 'Free Developer Dashboard',
+                wedge: 'The Datadog playbook. Devs install for their own monitoring; reputation accrues as a side effect.',
+              },
+              {
+                n: '03',
+                title: 'CISO Enterprise Mandate',
+                wedge: 'One Fortune 1000 contract = thousands of installs. EU AI Act enforcement makes this the path of least resistance.',
+              },
+              {
+                n: '04',
+                title: 'Framework Default Integrations',
+                wedge: 'AMAI ships as opt-in default in LangChain, CrewAI, AutoGen, NeMo Guardrails. OpenTelemetry-style distribution.',
+              },
+              {
+                n: '05',
+                title: 'Public Bureau Lookup API',
+                wedge: '"Check TARI™" becomes the new "check VirusTotal." Pull-side demand compounds the network.',
+              },
+            ].map((layer, i, arr) => (
+              <motion.div
+                key={layer.n}
+                className={`grid grid-cols-[auto_1fr] gap-5 md:gap-10 items-center px-5 md:px-8 py-5 md:py-6 ${i < arr.length - 1 ? 'border-b border-white/10' : ''}`}
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 + i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex items-center gap-3 md:gap-4">
+                  <span className="text-[10px] tracking-[0.3em] uppercase text-white/30 font-mono">LAYER</span>
+                  <span className="text-2xl md:text-4xl text-white font-light tracking-tight tabular-nums">{layer.n}</span>
+                </div>
+                <div className="min-w-0">
+                  <p className="text-base md:text-xl text-white font-light mb-1 leading-tight">{layer.title}</p>
+                  <p className="text-xs md:text-sm text-white/55 font-light leading-relaxed">{layer.wedge}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.p
+            className="text-sm md:text-base text-white/55 font-light max-w-3xl mx-auto leading-relaxed italic text-center mt-10"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.1 }}
+            viewport={{ once: true }}
+          >
+            Each layer activates the next. Stacked, they get us to standard-level scale.
+          </motion.p>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+      {/* ── SLIDE 9: COMPETITIVE LANDSCAPE ── */}
       <Slide slideNumber={9} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="max-w-6xl mx-auto w-full"
+        >
+          <MicroLabel>09 // THE LANDSCAPE</MicroLabel>
+
+
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 leading-[1.1] tracking-tight text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            The Conflict-of-Interest Gap.
+          </motion.h2>
+
+          <motion.p
+            className="text-base md:text-lg text-white/50 font-light mb-12 md:mb-16 max-w-3xl mx-auto text-center leading-relaxed"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            FICO is independent of every bank. D&amp;B is independent of every business. The autonomous economy needs the same.
+          </motion.p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 border rounded-md overflow-hidden bg-black" style={{ borderColor: '#222222' }}>
+            {[
+              {
+                label: 'NATIVE / FIRST-PARTY',
+                char: 'Auditing their own agents',
+                companies: ['Microsoft Entra Agent ID', 'NVIDIA NeMo Guardrails', 'OpenAI', 'Anthropic'],
+                summary: 'Structural conflict of interest. Cannot serve as third-party arbiter.',
+                highlight: false,
+              },
+              {
+                label: 'POINT SOLUTIONS',
+                char: 'Single-layer defense',
+                companies: ['CalypsoAI', 'Lakera', 'Lasso Security', 'Protect AI', 'HiddenLayer'],
+                summary: 'Prompt injection, model security, individual layers. No cross-org behavioral ledger.',
+                highlight: false,
+              },
+              {
+                label: 'THE INDEPENDENT BUREAU',
+                char: 'Cross-organizational standard',
+                companies: ['AMAI Labs'],
+                summary: 'Mathematically verifiable. Vendor-agnostic. The only independent third-party trust layer for the autonomous economy.',
+                highlight: true,
+              },
+            ].map((col, i) => (
+              <motion.div
+                key={col.label}
+                className={`p-7 md:p-10 flex flex-col ${i > 0 ? 'md:border-l' : ''} ${col.highlight ? 'relative' : ''}`}
+                style={{
+                  borderColor: col.highlight ? 'rgba(91,217,197,0.4)' : '#222222',
+                  background: col.highlight ? 'rgba(91,217,197,0.03)' : 'transparent',
+                  ...(col.highlight ? { boxShadow: 'inset 0 0 0 1px rgba(91,217,197,0.4)' } : {}),
+                }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 + i * 0.15 }}
+                viewport={{ once: true }}
+              >
+                <p
+                  className={`text-[10px] md:text-[11px] tracking-[0.25em] uppercase font-medium mb-3 ${col.highlight ? 'text-[#5BD9C5]' : 'text-white/40'}`}
+                >
+                  {col.label}
+                </p>
+                <p className="italic text-sm text-white/40 mb-8 font-light">{col.char}</p>
+
+                <div className={`flex-1 flex flex-col gap-3 mb-8 ${col.highlight ? 'justify-center items-center text-center' : ''}`}>
+                  {col.highlight ? (
+                    <img src={amaiLogo} alt="AMAI" className="h-10 md:h-12 w-auto brightness-110" />
+                  ) : (
+                    col.companies.map((c) => (
+                      <p
+                        key={c}
+                        className="text-white font-normal text-[17px] md:text-[18px]"
+                      >
+                        {c}
+                      </p>
+                    ))
+                  )}
+                </div>
+
+                <p
+                  className={`text-sm leading-relaxed font-light pt-6 border-t ${col.highlight ? 'text-white border-[#5BD9C5]/20' : 'text-white/55 border-white/10'}`}
+                >
+                  {col.summary}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+      {/* ── SLIDE 9: THE CUSTOMERS ── */}
+      <Slide slideNumber={10} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="max-w-6xl mx-auto w-full"
+        >
+          <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
+            10 // THE CUSTOMERS
+          </p>
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 leading-[1.1] tracking-tight text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            Who Pays for the Trust Rail.
+          </motion.h2>
+          <motion.p
+            className="text-sm md:text-base lg:text-lg text-white/50 font-light mb-12 md:mb-16 max-w-2xl mx-auto text-center leading-relaxed"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            Every counterparty in an agent transaction needs to verify the other side. Four wedges. One rail.
+          </motion.p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+            {[
+              {
+                header: 'CREDIT ISSUERS',
+                subhead: 'Banks, fintechs, BNPL',
+                body: 'TARI™ surfaces inside the underwriting pipeline. Approve, decline, cap, or price based on principal + agent + behavior.',
+              },
+              {
+                header: 'MARKETPLACES',
+                subhead: 'Platforms, embedded payments',
+                body: 'The shared risk oracle for agent buyers. Green auto-approves; amber and red route to step-up auth or manual review.',
+              },
+              {
+                header: 'DEFI PROTOCOLS',
+                subhead: 'Undercollateralized lending pools',
+                body: 'On-chain credit oracle for agent borrowers — the Goldfinch / Maple pattern. One governance vote brings integration live.',
+              },
+              {
+                header: 'INTERNAL TREASURY',
+                subhead: 'Enterprise CFOs, working capital',
+                body: "Gates the agent's authority over AR/AP, vendor payments, and balance sheet exposure.",
+              },
+            ].map((card, i) => (
+              <motion.div
+                key={card.header}
+                className="bg-black border rounded-md p-6 md:p-8 flex flex-col"
+                style={{ borderColor: '#222222' }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 + i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-[10px] md:text-[11px] tracking-[0.25em] uppercase text-white font-medium mb-2">
+                  {card.header}
+                </p>
+                <p className="italic text-sm text-white/40 mb-5 font-light">{card.subhead}</p>
+                <p className="text-sm md:text-[15px] text-white/70 leading-[1.7] font-light">
+                  {card.body}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.p
+            className="text-center text-sm md:text-base text-white/50 font-light mt-10 md:mt-14 tracking-wide"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 1 }}
+            viewport={{ once: true }}
+          >
+            Same TARI™ score. Four buyers. One rail.
+          </motion.p>
+        </motion.div>
+      </Slide>
+
+
+      <SlideDivider />
+
+      {/* ── SLIDE 10: THE BUSINESS MODEL ── */}
+      <Slide slideNumber={11} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1041,26 +1355,28 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto"
         >
-          <MicroLabel>{t('tp.s6.label')}</MicroLabel>
+          <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
+            11 // THE BUSINESS MODEL
+          </p>
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 leading-[1.1] tracking-tight text-center"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 leading-[1.1] tracking-tight text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            {t('tp.s6m.h1')}
+            Bottom-Up Adoption.
             <br />
-            <span className="text-white/60">{t('tp.s6m.h2')}</span>
+            <span className="text-white/60">Top-Down Monetization.</span>
           </motion.h2>
           <motion.p
-            className="text-sm md:text-base text-white/40 font-light mb-14 md:mb-20 max-w-xl mx-auto text-center"
+            className="text-sm md:text-base lg:text-lg text-white/50 font-light mb-14 md:mb-20 max-w-2xl mx-auto text-center leading-relaxed"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            {t('tp.s6m.sub')}
+            Capture the data layer for free. Monetize the verification rail at scale.
           </motion.p>
 
           {/* Two-pillar layout with bridge */}
@@ -1123,14 +1439,14 @@ const Thesis = () => {
               </div>
 
               <p className="text-[10px] tracking-[0.25em] uppercase text-[rgba(166,252,252,0.5)] font-mono mb-3">
-                {t('tp.s6m.left.eyebrow')}
+                THE DEVELOPER
               </p>
               <h3 className="text-xl md:text-2xl font-light text-white mb-3">
-                {t('tp.s6m.left.title')}
+                SDK + Usage Subscription
               </h3>
-              <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono mb-4">{t('tp.s6m.left.tag')}</p>
-              <p className="text-sm md:text-base text-white/50 font-light leading-relaxed">
-                {t('tp.s6m.left.body')}
+              <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono mb-4">FREE TIER · USAGE-SCALED</p>
+              <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">
+                Zero-Trust SDK is free to install. Every agent gets 10,000 evaluations per month. Beyond that, developers convert to a usage-scaled subscription.
               </p>
             </motion.div>
 
@@ -1240,176 +1556,131 @@ const Thesis = () => {
               </div>
 
               <p className="text-[10px] tracking-[0.25em] uppercase text-[rgba(214,166,252,0.6)] font-mono mb-3">
-                {t('tp.s6m.right.eyebrow')}
+                THE ENTERPRISE
               </p>
               <h3 className="text-xl md:text-2xl font-light text-white mb-3">
-                {t('tp.s6m.right.title')}
+                Platform Subscription
               </h3>
-              <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono mb-4">{t('tp.s6m.right.tag')}</p>
-              <p className="text-sm md:text-base text-white/50 font-light leading-relaxed">
-                {t('tp.s6m.right.body')}
+              <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono mb-4">PAID · FLEET-WIDE · COMPLIANCE</p>
+              <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">
+                Treasury, compliance, and ops teams subscribe to the AMAI platform for fleet monitoring, policy enforcement, and compliance dashboards.
               </p>
             </motion.div>
 
           </div>
+
+          {/* Kicker */}
+          <motion.p
+            className="text-center text-sm md:text-base lg:text-lg text-white/60 font-light mt-6 md:mt-8 max-w-3xl mx-auto leading-relaxed tracking-tight"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
+            viewport={{ once: true }}
+          >
+            Free tier captures the data. Subscription tiers monetize the rail.<br /><span className="text-white">Revenue compounds with every agent deployed.</span>
+          </motion.p>
         </motion.div>
       </Slide>
 
       <SlideDivider />
 
-      {/* ── SLIDE 7: THE AUTONOMOUS ECONOMY (Market Sizing) ── */}
-      <Slide slideNumber={10} footerText={t('tp.footer')}>
-        {/* Abstract background: data streams */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {/* Horizontal data stream lines */}
-          {Array.from({ length: 12 }, (_, i) => (
-            <motion.div
-              key={`stream-${i}`}
-              className="absolute h-px"
-              style={{
-                top: `${8 + i * 8}%`,
-                left: '-10%',
-                width: `${30 + Math.random() * 40}%`,
-                background: `linear-gradient(90deg, transparent, rgba(100,180,255,${0.03 + Math.random() * 0.06}), transparent)`,
-              }}
-              animate={{ x: ['0%', '120%'] }}
-              transition={{ duration: 8 + Math.random() * 12, repeat: Infinity, delay: Math.random() * 5, ease: 'linear' }}
-            />
-          ))}
-          {/* Scattered light dots (world map suggestion) */}
-          {Array.from({ length: 40 }, (_, i) => (
-            <motion.div
-              key={`dot-${i}`}
-              className="absolute rounded-full"
-              style={{
-                width: 2 + Math.random() * 2,
-                height: 2 + Math.random() * 2,
-                top: `${10 + Math.random() * 80}%`,
-                left: `${5 + Math.random() * 90}%`,
-                background: `rgba(100,180,255,${0.05 + Math.random() * 0.1})`,
-              }}
-              animate={{ opacity: [0.2, 0.8, 0.2] }}
-              transition={{ duration: 3 + Math.random() * 4, repeat: Infinity, delay: Math.random() * 3 }}
-            />
-          ))}
-        </div>
 
+      {/* ── SLIDE 11: WHY NOW ── */}
+      <Slide slideNumber={12} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.2 }}
+          transition={{ duration: 1 }}
           viewport={{ once: true }}
+          className="max-w-6xl mx-auto w-full"
         >
-          <MicroLabel>{t('tp.s7m.label')}</MicroLabel>
-
+          <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
+            12 // WHY NOW
+          </p>
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 md:mb-4 text-center leading-[1.1]"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 leading-[1.1] tracking-tight text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            {t('tp.s7m.h')}
+            The Agent Commerce Stack Is Shipping.
           </motion.h2>
           <motion.p
-            className="text-sm md:text-base text-white/40 font-light mb-14 md:mb-20 max-w-xl mx-auto text-center"
+            className="text-sm md:text-base lg:text-lg text-white/50 font-light mb-12 md:mb-16 max-w-2xl mx-auto text-center leading-relaxed"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            {t('tp.s7m.sub')}
+            Four converging signals from the last 12 months.
           </motion.p>
 
-          {/* Two-column: Data Points (left) + Narrative Anchor (right) */}
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-10 md:gap-12 items-start">
-            
-            {/* LEFT: Massive data callouts — 3 cols */}
-            <div className="md:col-span-3 flex flex-col gap-12 md:gap-16">
-              {/* Data Point 1 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+            {[
+              {
+                date: '2025 · COMMERCE',
+                title: 'MoonPay Issues Agent Cards',
+                body: 'Agents now spend with real credit-card rails, drawing from stablecoin reserves.',
+                source: 'MoonPay press release',
+              },
+              {
+                date: '2025 · STANDARDS',
+                title: 'AP2 Standardizes Agent Payments',
+                body: 'Google, Mastercard, PayPal, Adyen, and 60+ partners agree on the cryptographic format for agent-initiated transactions.',
+                source: 'Google Cloud, Sep 2025',
+              },
+              {
+                date: '2026 · MARKET',
+                title: 'Microsoft Validates The Category',
+                body: "Entra Agent ID launches identity and access governance — but only for Microsoft's own agents. The independent arbiter gap forms.",
+                source: 'Microsoft Security',
+              },
+              {
+                date: '2026 · REGULATORY',
+                title: 'EU AI Act Enforcement Begins',
+                body: 'High-risk AI obligations are confirmed and approaching, with the regulatory direction now set. Penalties up to €35M or 7% of global turnover. Verifiable audit infrastructure becomes the standard.',
+                source: 'Regulation (EU) 2024/1689',
+              },
+            ].map((card, i) => (
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
+                key={card.title}
+                className="bg-black border rounded-md p-6 md:p-8 flex flex-col"
+                style={{ borderColor: '#222222' }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 + i * 0.1 }}
                 viewport={{ once: true }}
               >
-                <h3
-                  className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight tracking-tight leading-none mb-3"
-                  style={{
-                    background: 'linear-gradient(135deg, #a0d2ff 0%, #60b8ff 40%, #c0e0ff 70%, #a0d2ff 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                  }}
-                >
-                  {t('tp.s7m.dp1.value')}
+                <p className="text-[10px] md:text-[11px] tracking-[0.25em] uppercase text-[rgba(166,252,252,0.6)] font-mono mb-3">
+                  {card.date}
+                </p>
+                <h3 className="text-lg md:text-xl font-light text-white mb-4 tracking-tight leading-snug">
+                  {card.title}
                 </h3>
-                <p className="text-xs md:text-sm text-white/40 font-light leading-relaxed max-w-md">
-                  {t('tp.s7m.dp1.desc')}{' '}
-                  <span className="text-white/25 font-mono text-[10px]">{t('tp.s7m.dp1.src')}</span>
+                <p className="text-sm md:text-[15px] text-white/65 leading-[1.7] font-light flex-1">
+                  {card.body}
+                </p>
+                <p className="italic text-xs text-white/35 mt-5 pt-4 border-t border-white/10 font-light">
+                  {card.source}
                 </p>
               </motion.div>
-
-              {/* Data Point 2 */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.7 }}
-                viewport={{ once: true }}
-              >
-                <h3
-                  className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight tracking-tight leading-none mb-3"
-                  style={{
-                    background: 'linear-gradient(135deg, #80c0ff 0%, #4da8ff 40%, #b0d8ff 70%, #80c0ff 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                  }}
-                >
-                  {t('tp.s7m.dp2.value')}
-                </h3>
-                <p className="text-xs md:text-sm text-white/40 font-light leading-relaxed max-w-md">
-                  {t('tp.s7m.dp2.desc')}{' '}
-                  <span className="text-white/25 font-mono text-[10px]">{t('tp.s7m.dp2.src')}</span>
-                </p>
-              </motion.div>
-            </div>
-
-            {/* RIGHT: Narrative anchor — 2 cols */}
-            <motion.div
-              className="md:col-span-2 bg-white/[0.03] border border-white/[0.08] rounded-xl p-6 md:p-8 backdrop-blur-sm"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
-              viewport={{ once: true }}
-            >
-              <h4 className="text-lg md:text-xl font-light text-white mb-4 leading-snug">
-                {t('tp.s7m.anchor.title')}
-              </h4>
-              <div className="w-10 h-px bg-gradient-to-r from-[#60b8ff]/40 to-transparent mb-5" />
-              <p className="text-sm md:text-[15px] text-white/45 font-light leading-[1.75]">
-                {t('tp.s7m.anchor.p1')}
-              </p>
-              <p className="mt-4 text-sm md:text-[15px] text-white/55 font-light leading-[1.75]">
-                {t('tp.s7m.anchor.p2')}
-              </p>
-            </motion.div>
-
+            ))}
           </div>
         </motion.div>
       </Slide>
 
       <SlideDivider />
 
-      {/* ── SLIDE 10: THE TEAM ── */}
-      <Slide slideNumber={11} footerText={t('tp.footer')}>
+      {/* ── SLIDE 12: THE TEAM ── */}
+      <Slide slideNumber={13} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1.2 }}
           viewport={{ once: true }}
         >
-          <MicroLabel>{t('tp.s8t.label')}</MicroLabel>
+          <MicroLabel>13 // THE TEAM</MicroLabel>
 
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 md:mb-4 text-center leading-[1.1]"
@@ -1531,8 +1802,8 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 11: CLOSING ── */}
-      <Slide slideNumber={12} footerText={t('tp.footer')}>
+      {/* ── SLIDE 13: CLOSING ── */}
+      <Slide slideNumber={14} footerText={t('tp.footer')}>
         {/* Constellation accent — same as hero */}
         <div className="absolute inset-0 pointer-events-none z-0">
           <motion.svg
@@ -1583,91 +1854,71 @@ const Thesis = () => {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.2 }}
+          transition={{ duration: 1.4 }}
           viewport={{ once: true }}
-          className="max-w-3xl mx-auto text-center"
+          className="max-w-2xl mx-auto text-center px-6"
         >
+          <motion.p
+            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-14 md:mb-20"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            14 // THE VISION
+          </motion.p>
+
           <motion.img
             src={amaiLogo}
             alt="AMAI"
-            className="h-10 md:h-16 w-auto brightness-110 mb-10 md:mb-20 mx-auto"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            className="h-10 md:h-16 w-auto brightness-110 mx-auto mb-10 md:mb-14 opacity-90"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 0.9, scale: 1 }}
+            transition={{ duration: 0.9, delay: 0.3 }}
             viewport={{ once: true }}
           />
+
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-10 md:mb-16 leading-[1.2]"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-light text-white leading-[1.1] tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 1, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            {t('tp.s7.h')}
+            Autonomy Needs Infrastructure.<br /><br />We're Building It.
           </motion.h2>
-          
-          <motion.div 
-            className="mb-10 md:mb-16" 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <div className="flex items-center justify-center gap-3 md:gap-5">
-              {[t('tp.s7.word1'), t('tp.s7.word2'), t('tp.s7.word3')].map((word, i) => (
-                <motion.span
-                  key={word}
-                  className="text-sm md:text-base tracking-[0.2em] uppercase text-white/50 font-light"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.7 + i * 0.15 }}
-                  viewport={{ once: true }}
-                >
-                  {word}
-                </motion.span>
-              ))}
-            </div>
-            <motion.p 
-              className="mt-6 text-base md:text-xl text-white/70 font-light"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-              viewport={{ once: true }}
-            >
-              {t('tp.s7.tagline')}
-            </motion.p>
-          </motion.div>
-          
+
+          {/* Hairline divider */}
           <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-            initial={{ opacity: 0, y: 20 }}
+            className="mx-auto my-12 md:my-16 h-px w-16 bg-white/15"
+            initial={{ opacity: 0, scaleX: 0 }}
+            whileInView={{ opacity: 1, scaleX: 1 }}
+            transition={{ duration: 0.9, delay: 0.6 }}
+            viewport={{ once: true }}
+          />
+
+          <motion.div
+            className="space-y-5 md:space-y-6"
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            transition={{ duration: 1, delay: 0.75 }}
             viewport={{ once: true }}
           >
-            <a
-              href="https://terminal.amai.net"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-white/10 border border-white/30 rounded text-xs tracking-[0.15em] uppercase text-white hover:bg-white/20 hover:border-white/50 transition-all duration-300"
-            >
-              ACCESS THE BUREAU
-            </a>
-            <a
-              href="/architecture"
-              className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
-            >
-              {t('tp.s7.arch')} <span>{isRtl ? '←' : '→'}</span>
-            </a>
-            <a
-              href="mailto:team@amai.net?subject=Mission%20Briefing%20%2F%2F%20%5BOrganization%20Name%5D&body=To%20the%20AMAI%20Labs%20Team%2C%0A%0AWe%20are%20reaching%20out%20regarding%20the%20%5BThesis%20%2F%20Architecture%5D.%0A%0AName%3A%20%0AOrganization%3A%20%0AIntent%3A%20"
-              className="inline-flex items-center gap-1.5 text-xs tracking-[0.15em] uppercase text-white/40 hover:text-white/60 transition-colors duration-300"
-            >
-              {t('tp.s7.contact')}
-            </a>
+            <p className="text-base md:text-lg text-white/60 font-light leading-[1.6] max-w-xl mx-auto">
+              By 2030, trillions of dollars will move between agents and counterparties — every minute, every market.
+            </p>
+            <p className="text-base md:text-lg text-white/55 font-light leading-[1.6]">
+              None of it works without a trust rail.
+            </p>
+            <p className="text-base md:text-lg text-white/85 font-light leading-[1.6] tracking-tight">
+              AMAI is building that rail.
+            </p>
           </motion.div>
+
         </motion.div>
       </Slide>
+
+
 
 
       <Footer />
