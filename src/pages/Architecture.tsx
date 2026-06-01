@@ -23,6 +23,11 @@ const Architecture = () => {
             <ExplainerHero
               headline={<span className="font-light">{t('archp.hero.headline')}</span>}
               subtext={<p>{t('archp.hero.subtext')}</p>}
+              layerLabels={{
+                identity: 'Identity Layer',
+                execution: 'Execution Gateway',
+                settlement: 'Audit Ledger',
+              }}
             />
           </div>
 
