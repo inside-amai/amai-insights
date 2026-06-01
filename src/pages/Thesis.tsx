@@ -19,7 +19,7 @@ interface SlideProps {
   footerText?: string;
 }
 
-const TOTAL_SLIDES = 15;
+const TOTAL_SLIDES = 14;
 
 const Slide = ({ children, className = "", slideNumber, footerText = "AMAI Labs · Infrastructure & Research" }: SlideProps) => (
   <section
