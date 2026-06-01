@@ -526,7 +526,7 @@ const Thesis = () => {
           </motion.p>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center justify-items-center gap-10 md:gap-14 mb-12 md:mb-16"
+            className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center justify-items-center gap-10 md:gap-14 mb-12 md:mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
