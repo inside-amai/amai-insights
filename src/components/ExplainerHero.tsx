@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import amaiLogo from '@/assets/amai-logo-tm.png';
 import { useLanguage } from '@/contexts/LanguageContext';
