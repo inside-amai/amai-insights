@@ -419,11 +419,11 @@ const Thesis = () => {
                     backgroundClip: 'text',
                   }}
                 >
-                  $1 Trillion
+                  $24.5 Billion
                 </h3>
                 <p className="text-xs md:text-sm text-white/40 font-light leading-relaxed max-w-md">
-                  Projected agent-driven revenue by 2027.{' '}
-                  <span className="text-white/25 font-mono text-[10px]">(Source: NVIDIA, GTC Keynote)</span>
+                  Projected enterprise agentic AI market by 2030, growing 46% annually.{' '}
+                  <span className="text-white/25 font-mono text-[10px]">(Source: Grand View Research)</span>
                 </p>
               </motion.div>
             </div>
