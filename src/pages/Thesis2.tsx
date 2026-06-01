@@ -1885,7 +1885,7 @@ const Thesis = () => {
             transition={{ duration: 1, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            The Standard for Autonomous Commerce.
+            Autonomy Needs Infrastructure. We're Building It.
           </motion.h2>
 
           {/* Hairline divider */}
