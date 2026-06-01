@@ -32,13 +32,13 @@ export const ExplainerHero = ({ headline, subtext, ctaHref = '#architecture-sect
         
         {/* Faint layer labels */}
         <div className="absolute left-8 top-1/4 transform -translate-y-1/2">
-          <span className="text-[9px] tracking-[0.3em] text-white/[0.06] font-mono uppercase">{t('hero.layer.identity')}</span>
+          <span className="text-[9px] tracking-[0.3em] text-white/[0.06] font-mono uppercase">{layerLabels?.identity ?? t('hero.layer.identity')}</span>
         </div>
         <div className="absolute left-8 top-1/2 transform -translate-y-1/2">
-          <span className="text-[9px] tracking-[0.3em] text-white/[0.06] font-mono uppercase">{t('hero.layer.execution')}</span>
+          <span className="text-[9px] tracking-[0.3em] text-white/[0.06] font-mono uppercase">{layerLabels?.execution ?? t('hero.layer.execution')}</span>
         </div>
         <div className="absolute left-8 top-3/4 transform -translate-y-1/2">
-          <span className="text-[9px] tracking-[0.3em] text-white/[0.06] font-mono uppercase">{t('hero.layer.settlement')}</span>
+          <span className="text-[9px] tracking-[0.3em] text-white/[0.06] font-mono uppercase">{layerLabels?.settlement ?? t('hero.layer.settlement')}</span>
         </div>
         
         {/* Faint vertical line */}
