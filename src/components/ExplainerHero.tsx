@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import amaiLogo from '@/assets/amai-logo-tm.png';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -5,9 +6,10 @@ import { useLanguage } from '@/contexts/LanguageContext';
 interface ExplainerHeroProps {
   headline?: React.ReactNode;
   subtext?: React.ReactNode;
+  ctaHref?: string;
 }
 
-export const ExplainerHero = ({ headline, subtext }: ExplainerHeroProps = {}) => {
+export const ExplainerHero = ({ headline, subtext, ctaHref = '#architecture-section' }: ExplainerHeroProps = {}) => {
   const { t } = useLanguage();
 
   return (
@@ -176,16 +178,25 @@ export const ExplainerHero = ({ headline, subtext }: ExplainerHeroProps = {}) =>
             className="flex flex-col gap-3 pt-2"
           >
             <div className="flex flex-row gap-4 items-center">
-              <a 
-                href="#architecture-section"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('architecture-section')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="text-sm text-white/70 hover:text-white border border-white/20 hover:border-white/40 px-5 py-2.5 rounded transition-all duration-300"
-              >
-                {t('hero.cta.architecture')}
-              </a>
+              {ctaHref.startsWith('#') ? (
+                <a 
+                  href={ctaHref}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById(ctaHref.slice(1))?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="text-sm text-white/70 hover:text-white border border-white/20 hover:border-white/40 px-5 py-2.5 rounded transition-all duration-300"
+                >
+                  {t('hero.cta.architecture')}
+                </a>
+              ) : (
+                <Link
+                  to={ctaHref}
+                  className="text-sm text-white/70 hover:text-white border border-white/20 hover:border-white/40 px-5 py-2.5 rounded transition-all duration-300"
+                >
+                  {t('hero.cta.architecture')}
+                </Link>
+              )}
             </div>
             
             {/* Micro-label */}
