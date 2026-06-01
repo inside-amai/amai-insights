@@ -7,9 +7,14 @@ interface ExplainerHeroProps {
   headline?: React.ReactNode;
   subtext?: React.ReactNode;
   ctaHref?: string;
+  layerLabels?: {
+    identity?: string;
+    execution?: string;
+    settlement?: string;
+  };
 }
 
-export const ExplainerHero = ({ headline, subtext, ctaHref = '#architecture-section' }: ExplainerHeroProps = {}) => {
+export const ExplainerHero = ({ headline, subtext, ctaHref = '#architecture-section', layerLabels }: ExplainerHeroProps = {}) => {
   const { t } = useLanguage();
 
   return (
