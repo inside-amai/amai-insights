@@ -399,7 +399,7 @@ const Thesis = () => {
                   $3–5 Trillion
                 </h3>
                 <p className="text-xs md:text-sm text-white/40 font-light leading-relaxed max-w-md">
-                  Projected value of agentic commerce orchestrated by AI agents by 2030.{' '}
+                  Projected global agentic commerce orchestrated by AI agents by 2030.{' '}
                   <span className="text-white/25 font-mono text-[10px]">(Source: McKinsey)</span>
                 </p>
               </motion.div>
@@ -419,11 +419,11 @@ const Thesis = () => {
                     backgroundClip: 'text',
                   }}
                 >
-                  $24.5 Billion
+                  $1 Trillion
                 </h3>
                 <p className="text-xs md:text-sm text-white/40 font-light leading-relaxed max-w-md">
-                  Projected enterprise agentic AI market by 2030, growing 46% annually.{' '}
-                  <span className="text-white/25 font-mono text-[10px]">(Source: Grand View Research)</span>
+                  Projected U.S. B2C retail revenue orchestrated by AI agents by 2030.{' '}
+                  <span className="text-white/25 font-mono text-[10px]">(Source: ICSC & McKinsey)</span>
                 </p>
               </motion.div>
             </div>
