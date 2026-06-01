@@ -599,6 +599,9 @@ const Thesis = () => {
               >
                 <span className="text-xs md:text-sm tracking-[0.25em] uppercase text-emerald-400 font-mono font-semibold">TRUSTED</span>
               </motion.div>
+              <p className="text-center italic mt-3" style={{ color: '#666666', fontSize: '12px' }}>
+                Illustrative
+              </p>
             </div>
 
             {/* RIGHT: Thresholds */}
