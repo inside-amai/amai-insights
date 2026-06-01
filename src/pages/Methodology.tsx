@@ -85,6 +85,27 @@ const Methodology = () => {
                     </div>
                   ))}
                 </div>
+
+                {/* Rating Bands */}
+                <div className="mt-16">
+                  <div className="text-[10px] tracking-[0.28em] uppercase text-white/40 mb-5 font-mono">Rating Bands</div>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10 border border-white/10">
+                    {[
+                      { label: 'Poor', range: '300–579', dot: 'bg-red-500/80', text: 'text-red-300/90' },
+                      { label: 'Fair', range: '580–669', dot: 'bg-orange-400/80', text: 'text-orange-300/90' },
+                      { label: 'Good', range: '670–739', dot: 'bg-green-500/80', text: 'text-green-300/90' },
+                      { label: 'Excellent', range: '740–850', dot: 'bg-teal-400/80', text: 'text-teal-300/90' },
+                    ].map((b) => (
+                      <div key={b.label} className="bg-black p-5">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className={`inline-block h-2 w-2 rounded-full ${b.dot}`} />
+                          <span className={`text-[10px] tracking-[0.28em] uppercase font-mono ${b.text}`}>{b.label}</span>
+                        </div>
+                        <div className="text-lg font-light text-white tracking-tight">{b.range}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </section>
 
@@ -216,6 +237,30 @@ const Methodology = () => {
                     <div key={d} className="flex gap-4 border-t border-white/10 pt-5">
                       <AlertTriangle className="h-4 w-4 text-white/35 mt-1 shrink-0" strokeWidth={1.6} />
                       <p className="text-sm md:text-base font-light text-white/65 leading-relaxed">{d}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* System Architecture */}
+            <section id="architecture-section" className="py-20 md:py-28 border-t border-white/5 scroll-mt-24">
+              <div className="container mx-auto px-6 max-w-5xl">
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="max-w-3xl">
+                  <Eyebrow>07 // System Architecture</Eyebrow>
+                  <SectionTitle>System Architecture.</SectionTitle>
+                </motion.div>
+
+                <div className="mt-14 max-w-3xl mx-auto space-y-4">
+                  {[
+                    { tag: 'Layer 01', title: 'Identity Layer', desc: 'Agent identity and ownership resolution.' },
+                    { tag: 'Layer 02', title: 'Execution Layer', desc: 'Real-time telemetry capture at agent runtime.' },
+                    { tag: 'Layer 03', title: 'Settlement Layer', desc: 'Tamper-evident provenance commitment to the bureau ledger.' },
+                  ].map((l) => (
+                    <div key={l.tag} className="border border-white/10 bg-black p-6 md:p-8">
+                      <div className="text-[10px] tracking-[0.28em] uppercase text-white/40 mb-2 font-mono">{l.tag}</div>
+                      <h3 className="text-lg md:text-xl font-light text-white tracking-tight">{l.title}</h3>
+                      <p className="mt-2 text-sm font-light text-white/55 leading-relaxed">{l.desc}</p>
                     </div>
                   ))}
                 </div>
