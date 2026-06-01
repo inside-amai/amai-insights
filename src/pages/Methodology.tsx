@@ -53,6 +53,7 @@ const Methodology = () => {
         <div className="relative bg-perspective-grid">
           <div className="relative z-10">
             <ExplainerHero
+              ctaHref="/architecture"
               headline={
                 <>
                   <span className="font-light">{t('meth.hero.title.l1')}</span>
