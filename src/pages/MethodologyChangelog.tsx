@@ -26,7 +26,7 @@ const entries: Entry[] = [
     date: '2026-05-16',
     title: 'Initial public methodology release.',
     body:
-      'First public version of the TARI™ scoring methodology — establishes the 300–850 scoring band, the four-pillar score factor model (Transaction Reliability, Capital Stability, History & Age, Governance & Reputation), and the Double-Blind Verification anchor. Prior internal revisions are not published.',
+      'First public version of the TARI™ scoring methodology — establishes the 300–850 scoring band, the three-pillar model (Intent & Risk Surface 40%, Industry Guardrails 30%, Behavioral Provenance 30%), and the Dual-Source Verification anchor. Prior internal revisions are not published.',
   },
 ];
 
