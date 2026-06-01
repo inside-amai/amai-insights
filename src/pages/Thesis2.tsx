@@ -396,11 +396,11 @@ const Thesis = () => {
                     backgroundClip: 'text',
                   }}
                 >
-                  $4.4 Trillion
+                  $3–5 Trillion
                 </h3>
                 <p className="text-xs md:text-sm text-white/40 font-light leading-relaxed max-w-md">
-                  Projected annual global GDP impact of Agentic AI by 2030.{' '}
-                  <span className="text-white/25 font-mono text-[10px]">(Source: PwC)</span>
+                  Projected value of agentic commerce orchestrated by AI agents by 2030.{' '}
+                  <span className="text-white/25 font-mono text-[10px]">(Source: McKinsey)</span>
                 </p>
               </motion.div>
 
