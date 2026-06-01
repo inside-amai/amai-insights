@@ -1428,7 +1428,7 @@ const translations: Record<Language, Record<string, string>> = {
     'archp.tech.eyebrow': 'Autonomous Agents',
     'archp.tech.title': 'Performance & Trust',
     'archp.tech.description': "AMAI's execution layer calculates agent reliability through intent evaluation, payload interception, and verified runtime execution.",
-    'archp.tech.feedsInto': 'The reproducible TARI™ score feeds into:'
+    'archp.tech.feedsInto': 'The reproducible TARI™ score feeds into:',
     'archp.tech.i1': 'Global risk and reputation indices',
     'archp.tech.i2': 'Real-time API access provisioning',
     'archp.tech.i3': 'Reproducible blast-radius boundaries',
