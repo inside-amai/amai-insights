@@ -1201,7 +1201,7 @@ const Thesis = () => {
                 label: 'THE INDEPENDENT BUREAU',
                 char: 'Cross-organizational standard',
                 companies: ['AMAI Labs'],
-                summary: 'Mathematically deterministic. Vendor-agnostic. The only independent third-party trust layer for the autonomous economy.',
+                summary: 'Mathematically verifiable. Vendor-agnostic. The only independent third-party trust layer for the autonomous economy.',
                 highlight: true,
               },
             ].map((col, i) => (
