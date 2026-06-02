@@ -962,7 +962,7 @@ const Thesis = () => {
 
             {/* Desktop: 3x3 grid: ring in center cell, labels in N/E/S/W cells. Fixed column widths so ring stays rigidly centered. */}
             <div
-              className="grid mx-auto"
+              className="hidden md:grid mx-auto"
               style={{
                 gridTemplateColumns: "200px 480px 200px",
                 gridTemplateRows: "auto 480px auto",
