@@ -10,6 +10,7 @@ import TariArchitectureDiagram from "@/components/TariArchitectureDiagram";
 import { Footer } from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 /* ─── Slide Shell ─── */
 interface SlideProps {
