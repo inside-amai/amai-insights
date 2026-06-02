@@ -908,9 +908,61 @@ const Thesis = () => {
             transition={{ duration: 0.9, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            {/* 3x3 grid: ring in center cell, labels in N/E/S/W cells. Fixed column widths so ring stays rigidly centered. */}
+            {/* Mobile: stacked layout with smaller ring + 2x2 label grid below */}
+            <div className="md:hidden flex flex-col items-center gap-8 px-4">
+              <div className="relative w-[280px] h-[280px] mx-auto">
+                <svg viewBox="0 0 600 600" className="absolute inset-0 w-full h-full" fill="none">
+                  <defs>
+                    <marker id="flywheelArrowM" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                      <path d="M0,0 L10,5 L0,10 z" fill="rgba(127,214,214,0.7)" />
+                    </marker>
+                    <radialGradient id="hubGlowM" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stopColor="rgba(127,214,214,0.18)" />
+                      <stop offset="60%" stopColor="rgba(127,214,214,0.04)" />
+                      <stop offset="100%" stopColor="rgba(127,214,214,0)" />
+                    </radialGradient>
+                  </defs>
+                  <circle cx="300" cy="300" r="240" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
+                  <circle cx="300" cy="300" r="200" stroke="rgba(127,214,214,0.18)" strokeWidth="1" strokeDasharray="2 4" />
+                  <circle cx="300" cy="300" r="90" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+                  <circle cx="300" cy="300" r="90" fill="url(#hubGlowM)" />
+                  <path d="M 360,135 A 200,200 0 0 1 465,240" stroke="rgba(127,214,214,0.5)" strokeWidth="1.2" markerEnd="url(#flywheelArrowM)" />
+                  <path d="M 465,360 A 200,200 0 0 1 360,465" stroke="rgba(127,214,214,0.5)" strokeWidth="1.2" markerEnd="url(#flywheelArrowM)" />
+                  <path d="M 240,465 A 200,200 0 0 1 135,360" stroke="rgba(127,214,214,0.5)" strokeWidth="1.2" markerEnd="url(#flywheelArrowM)" />
+                  <path d="M 135,240 A 200,200 0 0 1 240,135" stroke="rgba(127,214,214,0.5)" strokeWidth="1.2" markerEnd="url(#flywheelArrowM)" />
+                  {[{ cx: 300, cy: 100 }, { cx: 500, cy: 300 }, { cx: 300, cy: 500 }, { cx: 100, cy: 300 }].map((p, i) => (
+                    <g key={i}>
+                      <circle cx={p.cx} cy={p.cy} r="6" fill="#0a0a0a" stroke="rgba(127,214,214,0.7)" strokeWidth="1" />
+                      <circle cx={p.cx} cy={p.cy} r="2" fill="rgba(127,214,214,0.9)" />
+                    </g>
+                  ))}
+                </svg>
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+                  <p className="text-[8px] tracking-[0.35em] uppercase text-white/40 font-mono mb-1">AMAI · HUB</p>
+                  <p className="text-xl text-white font-light tracking-[0.15em]">
+                    TARI<sup className="text-[0.4em] tracking-normal ml-0.5 align-super">™</sup>
+                  </p>
+                  <div className="mx-auto mt-2 h-px w-8 bg-[#7fd6d6]/40" />
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-x-5 gap-y-6 w-full max-w-md">
+                {[
+                  { n: "01 — TRANSACTION", t: "An agent transacts with a counterparty — merchant, marketplace, lender, or another agent." },
+                  { n: "02 — RECEIPT", t: "AMAI signs a Trust Receipt attesting to the agent's behavior." },
+                  { n: "03 — VALIDATION", t: "The next counterparty checks the agent's TARI™ before authorizing. New counterparties join the rail." },
+                  { n: "04 — COMPOUND", t: "Every receipt sharpens the score. Every check makes the rail harder to bypass." },
+                ].map((s) => (
+                  <div key={s.n} className="text-left">
+                    <p className="text-[10px] tracking-[0.3em] uppercase text-[#7fd6d6] font-mono mb-1.5">{s.n}</p>
+                    <p className="text-[12px] text-white/65 font-light leading-snug">{s.t}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Desktop: 3x3 grid: ring in center cell, labels in N/E/S/W cells. Fixed column widths so ring stays rigidly centered. */}
             <div
-              className="grid mx-auto"
+              className="hidden md:grid mx-auto"
               style={{
                 gridTemplateColumns: "200px 480px 200px",
                 gridTemplateRows: "auto 480px auto",
