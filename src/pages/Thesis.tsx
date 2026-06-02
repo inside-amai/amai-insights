@@ -10,6 +10,7 @@ import TariArchitectureDiagram from "@/components/TariArchitectureDiagram";
 import { Footer } from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 /* ─── Slide Shell ─── */
 interface SlideProps {
@@ -1783,6 +1784,29 @@ const Thesis = () => {
             <p className="text-base md:text-lg text-white/85 font-light leading-[1.6] tracking-tight">
               AMAI is building that rail.
             </p>
+          </motion.div>
+
+          <motion.div
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12 md:mt-16"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.9 }}
+            viewport={{ once: true }}
+          >
+            <Link
+              to="/architecture"
+              className="text-sm text-white/70 hover:text-white border border-white/20 hover:border-white/40 px-6 py-2.5 rounded transition-all duration-300"
+            >
+              explore the architecture
+            </Link>
+            <a
+              href="https://bureau.amai.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-white/70 hover:text-white border border-white/20 hover:border-white/40 px-6 py-2.5 rounded transition-all duration-300"
+            >
+              visit the bureau
+            </a>
           </motion.div>
 
         </motion.div>
