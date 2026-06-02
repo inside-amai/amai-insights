@@ -19,7 +19,7 @@ interface SlideProps {
   footerText?: string;
 }
 
-const TOTAL_SLIDES = 14;
+const TOTAL_SLIDES = 13;
 
 const Slide = ({ children, className = "", slideNumber, footerText = "AMAI Labs · Infrastructure & Research" }: SlideProps) => (
   <section
@@ -1672,138 +1672,8 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 12: THE TEAM ── */}
-      <Slide slideNumber={13} footerText={t('tp.footer')}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.2 }}
-          viewport={{ once: true }}
-        >
-          <MicroLabel>13 // THE TEAM</MicroLabel>
-
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 md:mb-4 text-center leading-[1.1]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            {t('tp.s8t.h')}
-          </motion.h2>
-          <motion.p
-            className="text-sm md:text-base text-white/40 font-light mb-8 md:mb-10 max-w-2xl mx-auto text-center"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            {t('tp.s8t.sub')}
-          </motion.p>
-
-          {/* Row 1: Co-Founders */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-4xl mx-auto">
-            {[
-              {
-                name: 'Denver Nunley',
-                title: 'Co-Founder & CEO',
-                line1: 'Lead Product & Systems Architect',
-                line2: 'Scaled distributed-trust systems to $250M',
-                img: '/images/denver.jpeg',
-              },
-              {
-                name: 'Scott Trowbridge',
-                title: 'Co-Founder & CBO',
-                line1: 'Ex-Stability AI Founding Team',
-                line2: 'Ex-Circle (USDC), WeWork',
-                img: '/images/scott.png',
-              },
-              {
-                name: 'Josh Sorbel',
-                title: 'Co-Founder & CTO',
-                line1: '25+ Years Enterprise Cybersecurity',
-                line2: 'Ex-FBI Incident Response Lead',
-                img: '/images/josh.png',
-              },
-            ].map((person, i) => (
-              <motion.div
-                key={person.name}
-                className="flex flex-col items-center text-center rounded-xl px-5 py-5 md:py-6"
-                style={{
-                  border: '1px solid rgba(255,255,255,0.07)',
-                  background: 'linear-gradient(180deg, rgba(10,10,10,1) 0%, rgba(5,5,5,1) 100%)',
-                  boxShadow: '0 4px 30px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05)',
-                }}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.5 + i * 0.15 }}
-                viewport={{ once: true }}
-              >
-                <div className="relative mb-4">
-                  <div className="w-24 h-24 rounded-full overflow-hidden border border-white/10">
-                    <img src={person.img} alt={person.name} className="w-full h-full object-cover grayscale" />
-                  </div>
-                </div>
-                <h3 className="text-base md:text-lg font-normal text-white tracking-wide mb-1">{person.name}</h3>
-                <p className="text-xs tracking-[0.15em] uppercase text-white/50 mb-3">{person.title}</p>
-                <div className="w-8 h-px bg-gradient-to-r from-transparent via-[rgba(100,180,255,0.3)] to-transparent mb-3" />
-                <p className="text-sm text-white/40 font-light leading-relaxed">{person.line1}</p>
-                <p className="text-sm text-white/40 font-light leading-relaxed mt-1">{person.line2}</p>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Row 2: Science & Research */}
-          <div className="flex flex-col md:flex-row justify-center gap-5 max-w-4xl mx-auto mt-5">
-            {[
-              {
-                name: 'Yu Xiong',
-                title: 'CHIEF SCIENTIST',
-                line1: 'Fellow, Academy of Social Sciences',
-                line2: 'Professor, University Of Surrey',
-                img: '/images/yu.jpeg',
-              },
-              {
-                name: 'Dr. Amit Jaiswal',
-                title: 'AI RESEARCHER',
-                line1: 'Ph.D. in Information Retrieval (MSCA)',
-                line2: 'Marie Curie & Former Surrey Research Fellow, Ex-UCL',
-                img: '/images/Amit.jpeg',
-              },
-            ].map((person, i) => (
-              <motion.div
-                key={person.name}
-                className="flex flex-col items-center text-center rounded-xl px-5 py-5 md:py-6 w-full md:w-[calc(33.333%-0.42rem)]"
-                style={{
-                  border: '1px solid rgba(255,255,255,0.07)',
-                  background: 'linear-gradient(180deg, rgba(10,10,10,1) 0%, rgba(5,5,5,1) 100%)',
-                  boxShadow: '0 4px 30px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05)',
-                }}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.5 + i * 0.15 }}
-                viewport={{ once: true }}
-              >
-                <div className="relative mb-4">
-                  <div className="w-24 h-24 rounded-full overflow-hidden border border-white/10">
-                    <img src={person.img} alt={person.name} className="w-full h-full object-cover grayscale" />
-                  </div>
-                </div>
-                <h3 className="text-base md:text-lg font-normal text-white tracking-wide mb-1">{person.name}</h3>
-                <p className="text-xs tracking-[0.15em] uppercase text-white/50 mb-3">{person.title}</p>
-                <div className="w-8 h-px bg-gradient-to-r from-transparent via-[rgba(100,180,255,0.3)] to-transparent mb-3" />
-                <p className="text-sm text-white/40 font-light leading-relaxed">{person.line1}</p>
-                <p className="text-sm text-white/40 font-light leading-relaxed mt-1">{person.line2}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </Slide>
-
-      <SlideDivider />
-
       {/* ── SLIDE 13: CLOSING ── */}
-      <Slide slideNumber={14} footerText={t('tp.footer')}>
+      <Slide slideNumber={13} footerText={t('tp.footer')}>
         {/* Constellation accent — same as hero */}
         <div className="absolute inset-0 pointer-events-none z-0">
           <motion.svg
@@ -1865,7 +1735,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            14 // THE VISION
+            13 // THE VISION
           </motion.p>
 
           <motion.img
