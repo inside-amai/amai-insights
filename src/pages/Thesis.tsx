@@ -1753,7 +1753,7 @@ const Thesis = () => {
               to="/architecture"
               className="text-sm text-white/70 hover:text-white border border-white/20 hover:border-white/40 px-6 py-2.5 rounded transition-all duration-300"
             >
-              explore the architecture
+              EXPLORE THE ARCHITECTURE
             </Link>
             <a
               href="https://bureau.amai.net"
@@ -1761,7 +1761,7 @@ const Thesis = () => {
               rel="noopener noreferrer"
               className="text-sm text-white/70 hover:text-white border border-white/20 hover:border-white/40 px-6 py-2.5 rounded transition-all duration-300"
             >
-              visit the bureau
+              VISIT THE BUREAU
             </a>
           </motion.div>
 
