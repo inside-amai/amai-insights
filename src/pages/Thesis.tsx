@@ -613,7 +613,7 @@ const Thesis = () => {
               ].map((item, i) => (
                 <motion.div
                   key={item.result}
-                  className="flex items-center gap-3"
+                  className="flex items-center gap-3 flex-nowrap whitespace-nowrap"
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.7 + i * 0.15 }}
