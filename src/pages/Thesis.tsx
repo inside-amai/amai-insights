@@ -1240,7 +1240,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Every counterparty in an agent transaction needs to verify the other side. Four wedges. One rail.
+            Every counterparty in an agent transaction needs to verify the other side. Four buyers. One rail.
           </motion.p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
