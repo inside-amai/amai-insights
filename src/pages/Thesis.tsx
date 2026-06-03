@@ -608,8 +608,8 @@ const Thesis = () => {
             <div className="flex flex-col items-center md:items-start gap-4 w-full md:w-auto md:justify-self-start">
               <span className="text-[10px] tracking-[0.2em] uppercase text-white/40 font-medium">Counterparty threshold — example</span>
               {[
-                { score: "TARI™ > 750:", result: "typically approved", color: "text-emerald-400", pipeColor: "from-[rgba(166,252,252,0.6)] to-transparent" },
-                { score: "TARI™ < 750:", result: "typically declined", color: "text-red-400", pipeColor: "from-[rgba(220,80,60,0.6)] to-transparent" },
+                { score: "TARI™ > 750:", result: "approved", color: "text-emerald-400", pipeColor: "from-[rgba(166,252,252,0.6)] to-transparent" },
+                { score: "TARI™ < 750:", result: "declined", color: "text-red-400", pipeColor: "from-[rgba(220,80,60,0.6)] to-transparent" },
               ].map((item, i) => (
                 <motion.div
                   key={item.result}
