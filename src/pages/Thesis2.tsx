@@ -1787,7 +1787,7 @@ const Thesis = () => {
             transition={{ duration: 1, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Autonomy Needs Infrastructure.<br /><br />We're Building It.
+            <span className="whitespace-nowrap">Autonomy Needs Infrastructure.</span><br /><br />We're Building It.
           </motion.h2>
 
           {/* Hairline divider */}
