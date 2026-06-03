@@ -1782,13 +1782,14 @@ const Thesis = () => {
           />
 
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-light text-white leading-[1.1] tracking-tight text-center"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-light text-white leading-[1.1] tracking-tight text-center flex flex-col items-center gap-6 md:gap-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <span className="whitespace-nowrap">Autonomy Needs Infrastructure.</span><br /><br />We're Building It.
+            <span className="whitespace-nowrap">Autonomy Needs Infrastructure.</span>
+            <span>We're Building It.</span>
           </motion.h2>
 
           {/* Hairline divider */}
