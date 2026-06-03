@@ -1706,9 +1706,9 @@ const Thesis = () => {
             {[
               {
                 name: 'Denver Nunley',
-                title: 'Co-Founder & CEO',
-                line1: 'Lead Product & Systems Architect',
-                line2: 'Scaled distributed-trust systems to $250M',
+                title: 'CEO & Co-Founder',
+                line1: 'Lead Product & Vision',
+                line2: 'Scaled EcoFI to $250M FDV',
                 img: '/images/denver.jpeg',
               },
               {
