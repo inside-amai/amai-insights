@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useScroll } from "framer-motion";
 import amaiLogo from "@/assets/amai-logo-tm.png";
-import visaLogo from "@/assets/visa-logo.png";
 import legacyPadlock from "@/assets/slide3-legacy-padlock.png";
 import amaiCore from "@/assets/amai-header-icon.png";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -655,110 +654,13 @@ const Thesis = () => {
 
 
 
-      {/* ── SLIDE 5: THE VISA ANALOGY ── */}
-      <Slide slideNumber={5} footerText={t('tp.footer')}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.2 }}
-          viewport={{ once: true }}
-          className="w-full max-w-6xl mx-auto"
-        >
-          <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
-            05 // THE CATEGORY
-          </p>
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 text-center leading-[1.1]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            The Visa Analogy
-          </motion.h2>
-          <motion.p
-            className="text-sm md:text-base text-white/50 font-light mb-12 md:mb-16 max-w-3xl mx-auto text-center leading-relaxed"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            Visa is worth $550 billion and never holds a dollar of transaction value.<br />AMAI is building the same trust rail for every transaction an agent makes.
-          </motion.p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 mb-10 md:mb-12">
-            {[
-              {
-                header: 'VISA',
-                logo: visaLogo,
-                logoClass: 'h-10 md:h-14 w-auto',
-                accent: 'text-white/60',
-                rows: [
-                  { k: 'What flows through it', v: 'Dollars' },
-                  { k: 'What it owns', v: 'The trust rail between issuer and merchant' },
-                  { k: 'Who pays', v: 'Banks, merchants, processors' },
-                  { k: 'Position', v: '$550B+ market cap. Never holds a dollar.' },
-                ],
-              },
-              {
-                header: 'AMAI',
-                logo: amaiLogo,
-                logoClass: 'h-6 md:h-8 w-auto brightness-110',
-                accent: 'text-[#7fd6d6]',
-                rows: [
-                  { k: 'What flows through it', v: 'Trust signals' },
-                  { k: 'What it owns', v: 'The trust rail between agent and counterparty' },
-                  { k: 'Who pays', v: 'Credit issuers, marketplaces, DeFi protocols, treasury' },
-                  { k: 'Position', v: 'The next category-defining trust infrastructure.' },
-                ],
-              },
-            ].map((panel, i) => (
-              <motion.div
-                key={panel.header}
-                className="border rounded-md p-7 md:p-9 flex flex-col bg-black"
-                style={{ borderColor: '#222222' }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.5 + i * 0.15 }}
-                viewport={{ once: true }}
-              >
-                <div className="mb-6 h-9 md:h-11 flex items-center">
-                  <img src={panel.logo} alt={panel.header} className={panel.logoClass} />
-                </div>
-                <div className="flex flex-col divide-y divide-white/[0.07]">
-                  {panel.rows.map((row) => (
-                    <div key={row.k} className="py-4 first:pt-0 last:pb-0">
-                      <p className="text-[11px] tracking-[0.2em] uppercase text-white/35 font-medium mb-1.5">
-                        {row.k}
-                      </p>
-                      <p className="text-sm md:text-[15px] text-white/80 font-light leading-snug">
-                        {row.v}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.p
-            className="text-sm md:text-base text-white/55 font-light text-center max-w-3xl mx-auto leading-relaxed italic"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            viewport={{ once: true }}
-          >
-            Every dollar an agent moves will need a rail like this. The question is who owns it.
-          </motion.p>
-        </motion.div>
-      </Slide>
 
 
       <SlideDivider />
 
 
       {/* ── SLIDE 6: THE MOAT ── */}
-      <Slide slideNumber={6} footerText={t('tp.footer')}>
+      <Slide slideNumber={5} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -767,7 +669,7 @@ const Thesis = () => {
           className="max-w-4xl mx-auto text-center"
         >
           <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
-            06 // THE MOAT
+            05 // THE MOAT
           </p>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 leading-[1.15]"
@@ -872,7 +774,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 7: THE FLYWHEEL ── */}
-      <Slide slideNumber={7} footerText={t('tp.footer')}>
+      <Slide slideNumber={6} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -880,7 +782,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto text-center"
         >
-          <MicroLabel>07 // THE FLYWHEEL</MicroLabel>
+          <MicroLabel>06 // THE FLYWHEEL</MicroLabel>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-6 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
@@ -1062,7 +964,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 8: THE ADOPTION PATH ── */}
-      <Slide slideNumber={8} footerText={t('tp.footer')}>
+      <Slide slideNumber={7} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1070,7 +972,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto w-full text-center"
         >
-          <MicroLabel>08 // THE ADOPTION PATH</MicroLabel>
+          <MicroLabel>07 // THE ADOPTION PATH</MicroLabel>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-6 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
@@ -1153,7 +1055,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 9: COMPETITIVE LANDSCAPE ── */}
-      <Slide slideNumber={9} footerText={t('tp.footer')}>
+      <Slide slideNumber={8} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1161,7 +1063,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto w-full"
         >
-          <MicroLabel>09 // THE LANDSCAPE</MicroLabel>
+          <MicroLabel>08 // THE LANDSCAPE</MicroLabel>
 
 
           <motion.h2
@@ -1258,7 +1160,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 9: THE CUSTOMERS ── */}
-      <Slide slideNumber={10} footerText={t('tp.footer')}>
+      <Slide slideNumber={9} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1267,7 +1169,7 @@ const Thesis = () => {
           className="max-w-6xl mx-auto w-full"
         >
           <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
-            10 // THE CUSTOMERS
+            09 // THE CUSTOMERS
           </p>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 leading-[1.1] tracking-tight text-center"
@@ -1347,7 +1249,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 10: THE BUSINESS MODEL ── */}
-      <Slide slideNumber={11} footerText={t('tp.footer')}>
+      <Slide slideNumber={10} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1356,7 +1258,7 @@ const Thesis = () => {
           className="max-w-6xl mx-auto"
         >
           <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
-            11 // THE BUSINESS MODEL
+            10 // THE BUSINESS MODEL
           </p>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 leading-[1.1] tracking-tight text-center"
@@ -1586,7 +1488,7 @@ const Thesis = () => {
 
 
       {/* ── SLIDE 11: WHY NOW ── */}
-      <Slide slideNumber={12} footerText={t('tp.footer')}>
+      <Slide slideNumber={11} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1595,7 +1497,7 @@ const Thesis = () => {
           className="max-w-6xl mx-auto w-full"
         >
           <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
-            12 // WHY NOW
+            11 // WHY NOW
           </p>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 leading-[1.1] tracking-tight text-center"
@@ -1673,14 +1575,14 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 12: THE TEAM ── */}
-      <Slide slideNumber={13} footerText={t('tp.footer')}>
+      <Slide slideNumber={12} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1.2 }}
           viewport={{ once: true }}
         >
-          <MicroLabel>13 // THE TEAM</MicroLabel>
+          <MicroLabel>12 // THE TEAM</MicroLabel>
 
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 md:mb-4 text-center leading-[1.1]"
@@ -1803,7 +1705,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 13: CLOSING ── */}
-      <Slide slideNumber={14} footerText={t('tp.footer')}>
+      <Slide slideNumber={13} footerText={t('tp.footer')}>
         {/* Constellation accent — same as hero */}
         <div className="absolute inset-0 pointer-events-none z-0">
           <motion.svg
@@ -1865,7 +1767,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            14 // THE VISION
+            13 // THE VISION
           </motion.p>
 
           <motion.img
@@ -1921,7 +1823,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 14: THE ROUND ── */}
-      <Slide slideNumber={15} footerText={t('tp.footer')}>
+      <Slide slideNumber={14} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1930,7 +1832,7 @@ const Thesis = () => {
           className="max-w-6xl mx-auto w-full px-6 md:px-16 text-center"
         >
           <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium text-center">
-            15 // THE ROUND
+            14 // THE ROUND
           </p>
 
           <motion.h2
