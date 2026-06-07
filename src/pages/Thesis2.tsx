@@ -1522,10 +1522,10 @@ const Thesis = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
             {[
               {
-                date: '2025 · COMMERCE',
-                title: 'MoonPay Issues Agent Cards',
-                body: 'Agents now spend with real credit-card rails, drawing from stablecoin reserves.',
-                source: 'MoonPay press release',
+                date: '2026 · INFRASTRUCTURE',
+                title: 'AWS Ships Agent Payments',
+                body: 'Amazon Bedrock AgentCore Payments launches with Coinbase and Stripe, letting agents transact via stablecoins and x402. The money rail is solved. Nothing scores the agent on the other side.',
+                source: 'AWS, May 2026',
               },
               {
                 date: '2025 · STANDARDS',
