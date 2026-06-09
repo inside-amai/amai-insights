@@ -25,7 +25,7 @@ const Architecture = () => {
               subtext={<p>{t('archp.hero.subtext')}</p>}
               layerLabels={{
                 identity: 'Identity Layer',
-                execution: 'Execution Gateway',
+                execution: 'Scoring Engine',
                 settlement: 'Audit Ledger',
               }}
             />
