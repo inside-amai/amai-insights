@@ -148,23 +148,30 @@ const Methodology = () => {
                 </motion.div>
 
                 <div className="mt-14 border border-white/10 bg-white/[0.02] p-8 md:p-10">
-                  <div className="flex h-2 w-full overflow-hidden bg-white/5 mb-10">
-                    <div className="h-full bg-white/80" style={{ width: '40%' }} />
-                    <div className="h-full bg-white/45" style={{ width: '30%' }} />
-                    <div className="h-full bg-white/20" style={{ width: '30%' }} />
-                  </div>
-
-                  <div className="grid md:grid-cols-3 gap-8">
-                    {composition.map((c, i) => (
-                      <div key={c.label} className="border-t border-white/10 pt-5">
-                        <div className="flex items-baseline gap-3 mb-3">
-                          <span className={`inline-block h-2 w-2 ${i === 0 ? 'bg-white/80' : i === 1 ? 'bg-white/45' : 'bg-white/20'}`} />
-                          <span className="text-3xl font-light text-white tracking-tight">{c.pct}%</span>
-                        </div>
-                        <div className="text-sm font-medium text-white/85">{c.label}</div>
-                        <div className="text-xs text-white/45 mt-1 font-light leading-relaxed">{c.desc}</div>
+                  <div className="space-y-10">
+                    <div>
+                      <div className="text-[10px] tracking-[0.28em] uppercase text-white/40 mb-6 font-mono">{t('meth.s03.groupA.title')}</div>
+                      <div className="grid md:grid-cols-2 gap-x-12 gap-y-4">
+                        {tariScoreItems.map((item) => (
+                          <div key={item.label} className="flex items-baseline gap-4 border-t border-white/10 pt-4">
+                            <span className="text-xl font-light text-white tracking-tight w-14">{item.pct}</span>
+                            <span className="text-sm font-light text-white/70">{item.label}</span>
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                    </div>
+
+                    <div className="border-t border-white/10 pt-10">
+                      <div className="text-[10px] tracking-[0.28em] uppercase text-white/40 mb-6 font-mono">{t('meth.s03.groupB.title')}</div>
+                      <div className="grid md:grid-cols-2 gap-x-12 gap-y-4">
+                        {behavioralItems.map((item) => (
+                          <div key={item.label} className="flex items-baseline gap-4 border-t border-white/10 pt-4">
+                            <span className="text-xl font-light text-white tracking-tight w-14">{item.pct}</span>
+                            <span className="text-sm font-light text-white/70">{item.label}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
