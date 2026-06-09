@@ -26,10 +26,18 @@ const Methodology = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const composition = [
-    { label: t('meth.s03.c1.label'), pct: 40, desc: t('meth.s03.c1.desc') },
-    { label: t('meth.s03.c2.label'), pct: 30, desc: t('meth.s03.c2.desc') },
-    { label: t('meth.s03.c3.label'), pct: 30, desc: t('meth.s03.c3.desc') },
+  const tariScoreItems = [
+    { label: t('meth.s03.groupA.item1.label'), pct: t('meth.s03.groupA.item1.pct') },
+    { label: t('meth.s03.groupA.item2.label'), pct: t('meth.s03.groupA.item2.pct') },
+    { label: t('meth.s03.groupA.item3.label'), pct: t('meth.s03.groupA.item3.pct') },
+    { label: t('meth.s03.groupA.item4.label'), pct: t('meth.s03.groupA.item4.pct') },
+    { label: t('meth.s03.groupA.item5.label'), pct: t('meth.s03.groupA.item5.pct') },
+  ];
+
+  const behavioralItems = [
+    { label: t('meth.s03.groupB.item1.label'), pct: t('meth.s03.groupB.item1.pct') },
+    { label: t('meth.s03.groupB.item2.label'), pct: t('meth.s03.groupB.item2.pct') },
+    { label: t('meth.s03.groupB.item3.label'), pct: t('meth.s03.groupB.item3.pct') },
   ];
 
   const properties = [
