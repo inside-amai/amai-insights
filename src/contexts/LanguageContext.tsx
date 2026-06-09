@@ -1526,7 +1526,7 @@ const translations: Record<Language, Record<string, string>> = {
     'meth.s05.context': 'Context-weighted: the same agent can hold an 820 for DeFi execution and a 350 for parsing healthcare records.',
     'meth.s04.label': '04 // Dual-Source Verification',
     'meth.s04.title': 'Two independent witnesses. Divergence flags compromise.',
-    'meth.s04.body': 'Every TARI™ score is anchored by Dual-Source Verification — runtime telemetry cross-checked against an independently attested reference record. Any divergence flags the agent as compromised and the score is degraded.',
+    'meth.s04.body': 'The behavioral signal is anchored by two independent witnesses: runtime telemetry captured at the agent, cross-checked against an independently attested reference record. When they diverge, the agent is flagged as compromised and the score is degraded.',
     'meth.s04.wA.tag': 'Witness A', 'meth.s04.wA.title': 'Runtime Telemetry', 'meth.s04.wA.desc': 'Captured at the agent',
     'meth.s04.wB.tag': 'Witness B', 'meth.s04.wB.title': 'Ledger Attestation', 'meth.s04.wB.desc': 'Independently verified',
     'meth.s04.parity': 'Parity',
