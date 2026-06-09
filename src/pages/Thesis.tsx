@@ -441,7 +441,7 @@ const Thesis = () => {
               </h4>
               <div className="w-10 h-px bg-gradient-to-r from-[#60b8ff]/40 to-transparent mb-5" />
               <p className="text-sm md:text-[15px] text-white/45 font-light leading-[1.75]">
-                MoonPay just gave agents Mastercards backed by stablecoin reserves. AP2 standardized agent payment rails. Microsoft shipped Agent 365.
+                AWS shipped Amazon Bedrock AgentCore Payments with <strong>Coinbase</strong> and <strong>Stripe</strong>. AP2 standardized agent payment rails. Microsoft shipped Agent 365.
               </p>
               <p className="mt-4 text-sm md:text-[15px] text-white/55 font-light leading-[1.75]">
                 What's missing: the trust layer that decides which agents you let transact with you.
