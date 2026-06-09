@@ -57,8 +57,6 @@ export const SiteHeader = () => {
     return () => { document.body.style.overflow = ''; };
   }, [mobileOpen]);
 
-  const exploreTo = (isThesisPage || isHomePage) ? '/architecture' : '/thesis';
-  const exploreLabel = (isThesisPage || isHomePage) ? 'Explore The Architecture' : 'Explore The Thesis';
 
   const handleContactClick = () => {
     setTimeout(() => {
@@ -118,10 +116,18 @@ export const SiteHeader = () => {
             )}
             {!isDeckPage && (
               <Link 
-                to={exploreTo}
+                to="/architecture"
                 className="text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase"
               >
-                {exploreLabel}
+                Architecture
+              </Link>
+            )}
+            {!isDeckPage && (
+              <Link 
+                to="/thesis"
+                className="text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase"
+              >
+                Thesis
               </Link>
             )}
             {!isDeckPage && (
@@ -203,10 +209,16 @@ export const SiteHeader = () => {
               Home
             </Link>
             <Link
-              to={exploreTo}
+              to="/architecture"
               className="block py-4 text-2xl font-light text-white/90 hover:text-white tracking-tight border-b border-white/10"
             >
-              {exploreLabel}
+              Architecture
+            </Link>
+            <Link
+              to="/thesis"
+              className="block py-4 text-2xl font-light text-white/90 hover:text-white tracking-tight border-b border-white/10"
+            >
+              Thesis
             </Link>
             <Link
               to="/methodology"
