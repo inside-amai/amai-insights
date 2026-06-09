@@ -21,8 +21,15 @@ type Entry = {
 
 const entries: Entry[] = [
   {
-    version: 'v2.4',
+    version: 'V3.0',
     current: true,
+    date: '2026-06-09',
+    title: 'Two-score model: TARI Score and Behavioral Sub-Score.',
+    body:
+      'Replaces the prior three-pillar model with two scores. The TARI™ Score is the headline, credit-anchored figure (300–850) and populates once an agent transacts on credit: Settlement History 35%, Outstanding Exposure 30%, Track Record & Age 15%, Instrument Mix 10%, Recent Activity 10%. The Behavioral Sub-Score is live from day one with no credit history required: Behavioral Consistency 40%, Scope Adherence 35%, Operational Reliability 25%. Scores are context-weighted, recomputable, and auditable. The Dual-Source Verification anchor carries forward.',
+  },
+  {
+    version: 'V2.4',
     date: '2026-05-16',
     title: 'Initial public methodology release.',
     body:
