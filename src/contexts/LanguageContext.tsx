@@ -1445,8 +1445,8 @@ const translations: Record<Language, Record<string, string>> = {
     'aad.left.subtitle': 'Ephemeral NHI Provisioning',
     'aad.right.title': 'Enterprise Payloads',
     'aad.right.subtitle': 'Bounded by Outcome Envelopes',
-    'aad.gateway.title': 'The Execution Gateway',
-    'aad.gateway.subtitle': 'Real-time interception • Deterministic kill-switches',
+    'aad.gateway.title': 'The Scoring Engine',
+    'aad.gateway.subtitle': 'Live scoring · counterparty-enforced thresholds',
     'aad.bureau.title': 'The Agent Bureau',
     'aad.bureau.subtitle': 'Immutable forensic audit trails • Verified state resolution',
 
