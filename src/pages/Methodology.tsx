@@ -229,6 +229,7 @@ const Methodology = () => {
                     <div className="text-[10px] tracking-[0.28em] uppercase text-white/40 mb-3 font-mono">{t('meth.s05.current')}</div>
                     <div className="text-3xl md:text-4xl font-light text-white tracking-tight">{t('meth.s05.version')}</div>
                     <div className="text-sm text-white/45 mt-2 font-light">{t('meth.s05.effective')}</div>
+                    <div className="text-sm text-white/45 mt-2 font-light">{t('meth.s05.context')}</div>
                   </div>
                   <div className="border-l border-white/10 pl-6">
                     <p className="text-sm font-light text-white/60 leading-relaxed">
