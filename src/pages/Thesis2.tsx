@@ -647,7 +647,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 1 }}
             viewport={{ once: true }}
           >
-            Methodology · v2.4 · amai.net/methodology
+            Methodology · v3.0 · amai.net/methodology
           </motion.p>
 
         </motion.div>
@@ -1107,7 +1107,7 @@ const Thesis = () => {
                 label: 'THE INDEPENDENT BUREAU',
                 char: 'Cross-organizational standard',
                 companies: ['AMAI Labs'],
-                summary: 'Mathematically verifiable. Vendor-agnostic. The only independent third-party trust layer for the autonomous economy.',
+                summary: 'Recomputable and auditable. Vendor-agnostic. The only independent third-party trust layer for the autonomous economy.',
                 highlight: true,
               },
             ].map((col, i) => (
@@ -1900,7 +1900,7 @@ const Thesis = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
               {[
                 { pct: '60%', title: 'Engineering & Research', desc: 'Senior infrastructure + AI research hires' },
-                { pct: '15%', title: 'Platform GA', desc: 'SDK launch + Enterprise Interceptor production release' },
+                { pct: '15%', title: 'Platform GA', desc: 'SDK launch + scoring engine production release' },
                 { pct: '15%', title: 'Design Partners', desc: '3 enterprise pilots + GTM motion' },
                 { pct: '10%', title: 'Operations & Runway', desc: 'G&A + buffer to Series A milestones' },
               ].map((f) => (

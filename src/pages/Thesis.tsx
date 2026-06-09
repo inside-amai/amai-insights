@@ -648,7 +648,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 1 }}
             viewport={{ once: true }}
           >
-            Methodology · v2.4 · amai.net/methodology
+            Methodology · v3.0 · amai.net/methodology
           </motion.p>
 
         </motion.div>
@@ -1160,7 +1160,7 @@ const Thesis = () => {
                 label: 'THE INDEPENDENT BUREAU',
                 char: 'Cross-organizational standard',
                 companies: ['AMAI Labs'],
-                summary: 'Mathematically verifiable. Vendor-agnostic. The only independent third-party trust layer for the autonomous economy.',
+                summary: 'Recomputable and auditable. Vendor-agnostic. The only independent third-party trust layer for the autonomous economy.',
                 highlight: true,
               },
             ].map((col, i) => (
