@@ -1500,7 +1500,7 @@ const translations: Record<Language, Record<string, string>> = {
     'meth.s01.label': '01 // What The TARI™ Score Is',
     'meth.s01.title': 'A continuous, reproducible measure of agent reliability.',
     'meth.s01.k1': 'Range', 'meth.s01.v1': '300–850, industry-standard scoring band.',
-    'meth.s01.k2': 'Reproducible', 'meth.s01.v2': 'The same inputs and ledger state always produce the same output.',
+    'meth.s01.k2': 'Reproducible', 'meth.s01.v2': 'Given the same verified inputs and ledger state, the score is recomputable and auditable. No black box.',
     'meth.s01.k3': 'Continuous', 'meth.s01.v3': 'Updated as new behavior is committed to the ledger.',
     'meth.s01.k4': 'Directional', 'meth.s01.v4': 'Higher scores indicate more reliable, more auditable agent behavior.',
     'meth.s02.label': '02 // The Three Pillars',
