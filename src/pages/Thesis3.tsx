@@ -668,7 +668,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 1.0 }}
             viewport={{ once: true }}
           >
-            <p className="text-base md:text-lg text-white/70 font-light leading-relaxed max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-white/70 font-light leading-relaxed whitespace-nowrap">
               <span className="text-white font-medium">1 API call</span> — A counterparty gets the full score: approve, decline, or price — in a single call.
             </p>
           </motion.div>
