@@ -329,91 +329,71 @@ const Thesis = () => {
 
       {/* ── SLIDE 2: INTRODUCTION ── */}
       <Slide slideNumber={2} footerText={t('tp.footer')}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-          className="w-full max-w-6xl mx-auto flex flex-col"
-        >
-          <MicroLabel>02 // INTRODUCTION</MicroLabel>
-
-          <motion.h2
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-[46px] font-light text-white mb-10 md:mb-16 leading-[1.2] text-center max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            People want AI agents to do the things that require trust — to borrow, transact, and access what matters.
-          </motion.h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 max-w-5xl mx-auto mb-16 md:mb-24 items-start">
-            <motion.p
-              className="text-base md:text-lg text-white/50 font-light leading-[1.75]"
-              initial={{ opacity: 0, y: 10 }}
+        <div className="w-full max-w-5xl mx-auto flex flex-col h-full justify-between py-4">
+          {/* Top: Label + Headline */}
+          <div className="text-center">
+            <MicroLabel>02 // INTRODUCTION</MicroLabel>
+            <motion.h2
+              className="text-2xl sm:text-3xl md:text-4xl font-light text-white leading-[1.25] max-w-4xl mx-auto"
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.35 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              These are high-stakes moments: a loan, a large payment, the keys to a sensitive system. To let an agent act, you have to trust it with real money or real access — and right now you only get two options.
-            </motion.p>
-
-            <motion.div
-              className="hidden md:flex items-center justify-center"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              viewport={{ once: true }}
-            >
-              <svg viewBox="0 0 180 100" className="w-44 h-auto opacity-[0.35]">
-                <circle cx="20" cy="50" r="4" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="1.2" />
-                <path d="M 24 50 L 70 28" stroke="rgba(255,255,255,0.2)" strokeWidth="1" fill="none" strokeDasharray="3 3" />
-                <path d="M 24 50 L 70 72" stroke="rgba(255,255,255,0.2)" strokeWidth="1" fill="none" strokeDasharray="3 3" />
-                <circle cx="74" cy="28" r="3" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
-                <circle cx="74" cy="72" r="3" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
-                <text x="84" y="31" fill="rgba(255,255,255,0.25)" fontSize="8" fontFamily="monospace" letterSpacing="0.08em">TRUST</text>
-                <text x="84" y="75" fill="rgba(255,255,255,0.25)" fontSize="8" fontFamily="monospace" letterSpacing="0.08em">HOLD</text>
-              </svg>
-            </motion.div>
+              People want AI agents to do the things that require trust — to borrow, transact, and access what matters.
+            </motion.h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 pt-10 md:pt-16 border-t border-white/[0.08]">
+          {/* Middle: Context paragraph */}
+          <motion.div
+            className="max-w-3xl mx-auto text-center mt-6"
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.35 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-base md:text-lg text-white/50 font-light leading-relaxed">
+              These are high-stakes moments: a loan, a large payment, the keys to a sensitive system. To let an agent act, you have to trust it with real money or real access — and right now you only get two options.
+            </p>
+          </motion.div>
+
+          {/* Bottom: Two comparison columns */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mt-8 md:mt-10 pt-8 md:pt-10 border-t border-white/[0.08]">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
+              transition={{ duration: 0.7, delay: 0.45 }}
               viewport={{ once: true }}
             >
-              <p className="text-xs md:text-sm tracking-[0.2em] uppercase text-white/40 font-medium mb-5">
+              <p className="text-xs tracking-[0.2em] uppercase text-white/40 font-medium mb-3">
                 Trust it
               </p>
-              <p className="text-5xl sm:text-6xl md:text-7xl lg:text-[110px] font-extralight text-white tracking-tight leading-[0.95] mb-5">
+              <p className="text-3xl md:text-4xl lg:text-5xl font-extralight text-white tracking-tight leading-[1.05] mb-3">
                 100% exposed
               </p>
-              <p className="text-sm md:text-base text-white/40 font-light leading-relaxed max-w-md">
+              <p className="text-sm md:text-base text-white/40 font-light leading-relaxed max-w-sm">
                 Extend the credit or hand over access, and whatever the agent does — defaults, drains, goes rogue — the loss is yours.
               </p>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
+              transition={{ duration: 0.7, delay: 0.6 }}
               viewport={{ once: true }}
             >
-              <p className="text-xs md:text-sm tracking-[0.2em] uppercase text-white/40 font-medium mb-5">
+              <p className="text-xs tracking-[0.2em] uppercase text-white/40 font-medium mb-3">
                 Hold it back
               </p>
-              <p className="text-5xl sm:text-6xl md:text-7xl lg:text-[110px] font-extralight text-white tracking-tight leading-[0.95] mb-5">
+              <p className="text-3xl md:text-4xl lg:text-5xl font-extralight text-white tracking-tight leading-[1.05] mb-3">
                 2×
               </p>
-              <p className="text-sm md:text-base text-white/40 font-light leading-relaxed max-w-md">
+              <p className="text-sm md:text-base text-white/40 font-light leading-relaxed max-w-sm">
                 Over-collateralize, cap, or block it — and the agent never does the thing you actually needed.
               </p>
             </motion.div>
           </div>
-        </motion.div>
+        </div>
       </Slide>
 
       <SlideDivider />
