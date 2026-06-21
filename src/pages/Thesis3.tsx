@@ -633,24 +633,6 @@ const Thesis = () => {
                 ))}
               </motion.ol>
 
-              {/* Hero stat block */}
-              <motion.div
-                className="mt-4 md:mt-6"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.2 }}
-                viewport={{ once: true }}
-              >
-                <p className="text-[10px] tracking-[0.25em] uppercase text-white/30 font-mono mb-3">
-                  Checked before it acts
-                </p>
-                <p className="text-3xl md:text-4xl lg:text-5xl font-light text-white tracking-tight mb-2">
-                  1 API call
-                </p>
-                <p className="text-sm md:text-base text-white/50 font-light leading-relaxed max-w-md">
-                  A counterparty gets the full score — approve, decline, or price — in a single call.
-                </p>
-              </motion.div>
             </div>
 
             {/* RIGHT COLUMN: Screenshot placeholder */}
