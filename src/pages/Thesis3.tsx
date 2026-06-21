@@ -327,105 +327,89 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 2: THE AUTONOMOUS ECONOMY ── */}
+      {/* ── SLIDE 2: INTRODUCTION ── */}
       <Slide slideNumber={2} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
           viewport={{ once: true }}
-          className="max-w-5xl mx-auto"
+          className="w-full max-w-6xl mx-auto flex flex-col"
         >
-          <MicroLabel>02 // THE AUTONOMOUS ECONOMY</MicroLabel>
+          <MicroLabel>02 // INTRODUCTION</MicroLabel>
+
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 leading-[1.15] text-center"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-[46px] font-light text-white mb-10 md:mb-16 leading-[1.2] text-center max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            The Autonomous Economy
+            People want AI agents to do the things that require trust — to borrow, transact, and access what matters.
           </motion.h2>
-          <motion.p
-            className="text-base md:text-lg text-white/50 font-light text-center max-w-2xl mx-auto mb-14 md:mb-20"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.35 }}
-            viewport={{ once: true }}
-          >
-            Capital is flooding the agentic layer. But capital requires trust.
-          </motion.p>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-10 md:gap-12 items-start">
-            {/* LEFT: Two stacked stats */}
-            <div className="md:col-span-3 flex flex-col gap-12 md:gap-16">
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-                viewport={{ once: true }}
-              >
-                <h3
-                  className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight tracking-tight leading-none mb-3"
-                  style={{
-                    background: 'linear-gradient(135deg, #a0d2ff 0%, #60b8ff 40%, #c0e0ff 70%, #a0d2ff 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                  }}
-                >
-                  $3–5 Trillion
-                </h3>
-                <p className="text-xs md:text-sm text-white/40 font-light leading-relaxed max-w-md">
-                  Projected global agentic commerce orchestrated by AI agents by 2030.{' '}
-                  <span className="text-white/25 font-mono text-[10px]">(Source: McKinsey)</span>
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.7 }}
-                viewport={{ once: true }}
-              >
-                <h3
-                  className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight tracking-tight leading-none mb-3"
-                  style={{
-                    background: 'linear-gradient(135deg, #80c0ff 0%, #4da8ff 40%, #b0d8ff 70%, #80c0ff 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                  }}
-                >
-                  $1 Trillion
-                </h3>
-                <p className="text-xs md:text-sm text-white/40 font-light leading-relaxed max-w-md">
-                  Projected U.S. B2C retail revenue orchestrated by AI agents by 2030.{' '}
-                  <span className="text-white/25 font-mono text-[10px]">(Source: ICSC & McKinsey)</span>
-                </p>
-              </motion.div>
-            </div>
-
-            {/* RIGHT: Narrative panel */}
-            <motion.div
-              className="md:col-span-2 bg-white/[0.03] border border-white/[0.08] rounded-xl p-6 md:p-8 backdrop-blur-sm"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 max-w-5xl mx-auto mb-16 md:mb-24 items-start">
+            <motion.p
+              className="text-base md:text-lg text-white/50 font-light leading-[1.75]"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.35 }}
               viewport={{ once: true }}
             >
-              <h4 className="text-lg md:text-xl font-light text-white mb-4 leading-snug">
-                The Trillion-Dollar Bottleneck
-              </h4>
-              <div className="w-10 h-px bg-gradient-to-r from-[#60b8ff]/40 to-transparent mb-5" />
-              <p className="text-sm md:text-[15px] text-white/45 font-light leading-[1.75]">
-                AWS shipped Amazon Bedrock AgentCore Payments with <strong>Coinbase</strong> and <strong>Stripe</strong>. AP2 standardized agent payment rails. Microsoft shipped Agent 365.
+              These are high-stakes moments: a loan, a large payment, the keys to a sensitive system. To let an agent act, you have to trust it with real money or real access — and right now you only get two options.
+            </motion.p>
+
+            <motion.div
+              className="hidden md:flex items-center justify-center"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <svg viewBox="0 0 180 100" className="w-44 h-auto opacity-[0.35]">
+                <circle cx="20" cy="50" r="4" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="1.2" />
+                <path d="M 24 50 L 70 28" stroke="rgba(255,255,255,0.2)" strokeWidth="1" fill="none" strokeDasharray="3 3" />
+                <path d="M 24 50 L 70 72" stroke="rgba(255,255,255,0.2)" strokeWidth="1" fill="none" strokeDasharray="3 3" />
+                <circle cx="74" cy="28" r="3" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
+                <circle cx="74" cy="72" r="3" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
+                <text x="84" y="31" fill="rgba(255,255,255,0.25)" fontSize="8" fontFamily="monospace" letterSpacing="0.08em">TRUST</text>
+                <text x="84" y="75" fill="rgba(255,255,255,0.25)" fontSize="8" fontFamily="monospace" letterSpacing="0.08em">HOLD</text>
+              </svg>
+            </motion.div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 pt-10 md:pt-16 border-t border-white/[0.08]">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-xs md:text-sm tracking-[0.2em] uppercase text-white/40 font-medium mb-5">
+                Trust it
               </p>
-              <p className="mt-4 text-sm md:text-[15px] text-white/55 font-light leading-[1.75]">
-                What's missing: the trust layer that decides which agents you let transact with you.
+              <p className="text-5xl sm:text-6xl md:text-7xl lg:text-[110px] font-extralight text-white tracking-tight leading-[0.95] mb-5">
+                100% exposed
               </p>
-              <p className="mt-4 text-sm md:text-[15px] text-white font-light leading-[1.75]">
-                The market cannot scale until the agent can be underwritten.
+              <p className="text-sm md:text-base text-white/40 font-light leading-relaxed max-w-md">
+                Extend the credit or hand over access, and whatever the agent does — defaults, drains, goes rogue — the loss is yours.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-xs md:text-sm tracking-[0.2em] uppercase text-white/40 font-medium mb-5">
+                Hold it back
+              </p>
+              <p className="text-5xl sm:text-6xl md:text-7xl lg:text-[110px] font-extralight text-white tracking-tight leading-[0.95] mb-5">
+                2×
+              </p>
+              <p className="text-sm md:text-base text-white/40 font-light leading-relaxed max-w-md">
+                Over-collateralize, cap, or block it — and the agent never does the thing you actually needed.
               </p>
             </motion.div>
           </div>
