@@ -608,7 +608,7 @@ const Thesis = () => {
                 {[
                   { num: "1", label: "Bond", text: "every agent is tied to a KYC'd human operator and issued a verifiable identity." },
                   { num: "2", label: "Observe", text: "as the agent acts, every action streams in as continuous telemetry: settlements, scope, anomalies." },
-                  { num: "3", label: "Score", text: "the TARI engine distills that behavior into one number, 300–850, in real time.", highlight: true },
+                  { num: "3", label: "Score", text: "the TARI engine distills that behavior into one number, 300–850, in real time." },
                   { num: "4", label: "Verify", text: "double-blind check: telemetry parity-matched against an independent ledger; any divergence flags the agent compromised." },
                   { num: "5", label: "Publish", text: "the score is committed to the Public Bureau: immutable, timestamped, publicly verifiable." },
                   { num: "6", label: "Check", text: "any counterparty pulls the score in one API call and approves, declines, or prices, before authorizing." },
@@ -621,11 +621,11 @@ const Thesis = () => {
                     transition={{ duration: 0.5, delay: 0.6 + i * 0.08 }}
                     viewport={{ once: true }}
                   >
-                    <span className={`text-sm md:text-base font-mono mt-0.5 ${step.highlight ? 'text-[#A6FCFC]' : 'text-white/30'}`}>
+                    <span className="text-sm md:text-base font-mono mt-0.5 text-white/30">
                       {step.num}
                     </span>
                     <p className="text-sm md:text-base text-white/70 font-light leading-relaxed">
-                      <span className={`font-medium ${step.highlight ? 'text-[#A6FCFC]' : 'text-white'}`}>
+                      <span className="font-medium text-white">
                         {step.label}
                       </span>{" "}— {step.text}
                     </p>
