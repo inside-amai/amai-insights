@@ -828,146 +828,136 @@ const Thesis = () => {
             <span className="text-amber-400">one rail</span> under the entire autonomous economy.
           </motion.h2>
 
-          {/* Three-column ladder */}
-          <div className="grid grid-cols-[auto_1fr_auto] gap-4 md:gap-8 items-stretch max-w-5xl mx-auto">
+          {/* Ladder: arrow left, stacked self-contained cards right */}
+          <div className="flex gap-3 md:gap-5 max-w-5xl mx-auto">
 
             {/* LEFT: Expansion arrow */}
-            <div className="flex flex-col items-center justify-between py-2">
-              <div className="text-[10px] tracking-[0.25em] uppercase text-white/50 font-medium [writing-mode:vertical-rl] rotate-180 whitespace-nowrap">
-                AMAI Expansion
+            <div className="flex flex-col items-center">
+              <div className="text-[10px] tracking-[0.25em] uppercase text-white/50 font-medium [writing-mode:vertical-rl] rotate-180 whitespace-nowrap mb-2">
+                AMAI EXPANSION
               </div>
-              <div className="flex-1 flex items-center my-3">
-                <div className="relative h-full min-h-[280px] md:min-h-[420px] flex flex-col items-center">
+              <div className="flex-1 flex justify-center min-w-[20px]">
+                <div className="h-full flex flex-col items-center">
                   <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-b-[10px] border-b-amber-400" />
                   <div className="w-px flex-1 bg-gradient-to-b from-amber-400 via-amber-400/60 to-white/20" />
                 </div>
               </div>
-              <div className="w-2 h-2" />
             </div>
 
-            {/* MIDDLE: Surface stack (bottom-to-top visually, but rendered top-to-bottom with top = climax) */}
-            <div className="flex flex-col gap-2.5 md:gap-3">
-              <div className="text-[10px] tracking-[0.25em] uppercase text-white/40 font-medium text-center mb-1">
-                Surface
-              </div>
-
-              {/* Top rung: emphasized */}
-              <div className="rounded-md border border-amber-400/60 bg-amber-400/[0.08] px-4 md:px-5 py-3 md:py-4">
-                <div className="text-[11px] tracking-[0.22em] uppercase text-amber-400 font-medium mb-1">
-                  The Autonomous Economy · One Rail
+            {/* RIGHT: Stacked cards */}
+            <div className="flex-1 flex flex-col gap-1.5">
+              {/* Top card: emphasized */}
+              <div className="rounded-md border border-amber-400/60 bg-amber-400/[0.08] px-4 md:px-5 py-2.5 md:py-3 flex items-center justify-between gap-4">
+                <div className="flex-1 min-w-0">
+                  <div className="text-[11px] tracking-[0.22em] uppercase text-amber-400 font-medium mb-0.5">
+                    The Autonomous Economy · One Rail
+                  </div>
+                  <div className="text-xs md:text-sm text-white/85 leading-snug">
+                    Every high-stakes agent action, every market, checks TARI first.
+                  </div>
                 </div>
-                <div className="text-xs md:text-sm text-white/85 leading-snug">
-                  Every high-stakes agent action, every market, checks TARI first.
-                </div>
-              </div>
-
-              {/* Rung */}
-              <div className="rounded-md border border-white/12 bg-white/[0.03] px-4 md:px-5 py-2.5 md:py-3">
-                <div className="text-[11px] tracking-[0.22em] uppercase text-white/60 font-medium mb-0.5">
-                  Agent-to-Agent Payments & Delegation
-                </div>
-                <div className="text-xs text-white/55 leading-snug">
-                  The counterparty checks TARI before it pays or hands off.
+                <div className="flex-shrink-0 flex flex-wrap items-center justify-end gap-x-2 gap-y-1">
+                  <span className="text-[10px] text-white/75">Whole economy</span>
+                  <span className="text-white/25">·</span>
+                  <span className="text-[10px] text-white/75">Regulators</span>
                 </div>
               </div>
 
-              {/* Rung */}
-              <div className="rounded-md border border-white/12 bg-white/[0.03] px-4 md:px-5 py-2.5 md:py-3">
-                <div className="text-[11px] tracking-[0.22em] uppercase text-white/60 font-medium mb-0.5">
-                  DEX, Swaps, Vaults & Bridges
+              {/* Card */}
+              <div className="rounded-md border border-white/12 bg-white/[0.03] px-4 md:px-5 py-2.5 md:py-3 flex items-center justify-between gap-4">
+                <div className="flex-1 min-w-0">
+                  <div className="text-[11px] tracking-[0.22em] uppercase text-white/60 font-medium mb-0.5">
+                    Agent-to-Agent Payments & Delegation
+                  </div>
+                  <div className="text-xs text-white/55 leading-snug">
+                    The counterparty checks TARI before it pays or hands off.
+                  </div>
                 </div>
-                <div className="text-xs text-white/55 leading-snug">
-                  A behavioral check on crypto's highest-value attack surfaces.
+                <div className="flex-shrink-0 flex flex-wrap items-center justify-end gap-x-2 gap-y-1">
+                  <span className="text-[10px] text-white/65">Mastercard</span>
+                  <span className="text-white/20">·</span>
+                  <span className="text-[10px] text-white/65">Visa</span>
+                  <span className="text-white/20">·</span>
+                  <span className="text-[10px] text-white/65">Stripe</span>
+                  <span className="text-white/20">·</span>
+                  <span className="text-[10px] text-white/65">Coinbase</span>
                 </div>
               </div>
 
-              {/* Rung */}
-              <div className="rounded-md border border-white/12 bg-white/[0.03] px-4 md:px-5 py-2.5 md:py-3">
-                <div className="text-[11px] tracking-[0.22em] uppercase text-white/60 font-medium mb-0.5">
-                  Access Control
+              {/* Card */}
+              <div className="rounded-md border border-white/12 bg-white/[0.03] px-4 md:px-5 py-2.5 md:py-3 flex items-center justify-between gap-4">
+                <div className="flex-1 min-w-0">
+                  <div className="text-[11px] tracking-[0.22em] uppercase text-white/60 font-medium mb-0.5">
+                    DEX, Swaps, Vaults & Bridges
+                  </div>
+                  <div className="text-xs text-white/55 leading-snug">
+                    A behavioral check on crypto's highest-value attack surfaces.
+                  </div>
                 </div>
-                <div className="text-xs text-white/55 leading-snug">
-                  Check TARI to let an incoming agent act instead of blocking it.
+                <div className="flex-shrink-0 flex flex-wrap items-center justify-end gap-x-2 gap-y-1">
+                  <span className="text-[10px] text-white/65">Uniswap</span>
+                  <span className="text-white/20">·</span>
+                  <span className="text-[10px] text-white/65">Lido</span>
+                  <span className="text-white/20">·</span>
+                  <span className="text-[10px] text-white/65">Bridges</span>
                 </div>
               </div>
 
-              {/* Bottom: Initial Focus container with two wedges side by side */}
+              {/* Card */}
+              <div className="rounded-md border border-white/12 bg-white/[0.03] px-4 md:px-5 py-2.5 md:py-3 flex items-center justify-between gap-4">
+                <div className="flex-1 min-w-0">
+                  <div className="text-[11px] tracking-[0.22em] uppercase text-white/60 font-medium mb-0.5">
+                    Access Control
+                  </div>
+                  <div className="text-xs text-white/55 leading-snug">
+                    Check TARI to let an incoming agent act instead of blocking it.
+                  </div>
+                </div>
+                <div className="flex-shrink-0 flex flex-wrap items-center justify-end gap-x-2 gap-y-1">
+                  <span className="text-[10px] text-white/65">Cloudflare</span>
+                  <span className="text-white/20">·</span>
+                  <span className="text-[10px] text-white/65">Platforms</span>
+                </div>
+              </div>
+
+              {/* Bottom: Initial Focus band with two wedge cards */}
               <div className="rounded-md border border-white/25 bg-white/[0.04] p-2.5 md:p-3">
                 <div className="text-[10px] tracking-[0.25em] uppercase text-white/55 font-medium mb-2 text-center">
                   Initial Focus
                 </div>
                 <div className="grid grid-cols-2 gap-2 md:gap-2.5">
-                  <div className="rounded border border-white/15 bg-black/40 px-3 py-2.5">
-                    <div className="text-[10px] tracking-[0.22em] uppercase text-amber-400/90 font-medium mb-1">
-                      Wedge 01 · Lending & Credit
+                  <div className="rounded border border-white/15 bg-black/40 px-3 py-2 flex items-center justify-between gap-3">
+                    <div className="flex-1 min-w-0">
+                      <div className="text-[10px] tracking-[0.22em] uppercase text-amber-400/90 font-medium">
+                        Wedge 01 · Lending & Credit
+                      </div>
+                      <div className="text-[11px] md:text-xs text-white/70 leading-snug">
+                        The credit oracle: score-gated rates vs a flat 200%.
+                      </div>
                     </div>
-                    <div className="text-[11px] md:text-xs text-white/70 leading-snug">
-                      The credit oracle: score-gated rates vs a flat 200%.
+                    <div className="flex-shrink-0 flex flex-wrap items-center justify-end gap-x-1.5 gap-y-0.5">
+                      <span className="text-[10px] text-white/70">Aave</span>
+                      <span className="text-white/20">·</span>
+                      <span className="text-[10px] text-white/70">Morpho</span>
+                      <span className="text-white/20">·</span>
+                      <span className="text-[10px] text-white/70">Maple</span>
                     </div>
                   </div>
-                  <div className="rounded border border-white/15 bg-black/40 px-3 py-2.5">
-                    <div className="text-[10px] tracking-[0.22em] uppercase text-amber-400/90 font-medium mb-1">
-                      Wedge 02 · Fleet Monitoring
+                  <div className="rounded border border-white/15 bg-black/40 px-3 py-2 flex items-center justify-between gap-3">
+                    <div className="flex-1 min-w-0">
+                      <div className="text-[10px] tracking-[0.22em] uppercase text-amber-400/90 font-medium">
+                        Wedge 02 · Fleet Monitoring
+                      </div>
+                      <div className="text-[11px] md:text-xs text-white/70 leading-snug">
+                        Watch every agent you run, live day one.
+                      </div>
                     </div>
-                    <div className="text-[11px] md:text-xs text-white/70 leading-snug">
-                      Watch every agent you run, live day one.
+                    <div className="flex-shrink-0 flex flex-wrap items-center justify-end gap-x-1.5 gap-y-0.5">
+                      <span className="text-[10px] text-white/70">Enterprise</span>
+                      <span className="text-white/20">·</span>
+                      <span className="text-[10px] text-white/70">Cloudflare</span>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-
-            {/* RIGHT: Who checks TARI */}
-            <div className="flex flex-col gap-2.5 md:gap-3 min-w-[120px] md:min-w-[200px]">
-              <div className="text-[10px] tracking-[0.25em] uppercase text-white/40 font-medium text-center mb-1 whitespace-nowrap">
-                Who checks TARI™
-              </div>
-
-              {/* Top rung pairing */}
-              <div className="flex-1 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 rounded-md border border-amber-400/30 bg-amber-400/[0.04] px-2 py-2 min-h-[58px]">
-                <span className="text-[10px] text-white/75">Whole economy</span>
-                <span className="text-white/25">·</span>
-                <span className="text-[10px] text-white/75">Regulators</span>
-              </div>
-
-              <div className="flex-1 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 rounded-md border border-white/10 bg-white/[0.02] px-2 py-2 min-h-[46px]">
-                <span className="text-[10px] text-white/65">Mastercard</span>
-                <span className="text-white/20">·</span>
-                <span className="text-[10px] text-white/65">Visa</span>
-                <span className="text-white/20">·</span>
-                <span className="text-[10px] text-white/65">Stripe</span>
-                <span className="text-white/20">·</span>
-                <span className="text-[10px] text-white/65">Coinbase</span>
-              </div>
-
-              <div className="flex-1 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 rounded-md border border-white/10 bg-white/[0.02] px-2 py-2 min-h-[46px]">
-                <span className="text-[10px] text-white/65">Uniswap</span>
-                <span className="text-white/20">·</span>
-                <span className="text-[10px] text-white/65">Lido</span>
-                <span className="text-white/20">·</span>
-                <span className="text-[10px] text-white/65">Bridges</span>
-              </div>
-
-              <div className="flex-1 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 rounded-md border border-white/10 bg-white/[0.02] px-2 py-2 min-h-[46px]">
-                <span className="text-[10px] text-white/65">Cloudflare</span>
-                <span className="text-white/20">·</span>
-                <span className="text-[10px] text-white/65">Platforms</span>
-              </div>
-
-              {/* Initial focus row */}
-              <div className="rounded-md border border-white/20 bg-white/[0.03] px-2 py-2 min-h-[92px] flex flex-col justify-center gap-1">
-                <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5">
-                  <span className="text-[10px] text-white/70">Aave</span>
-                  <span className="text-white/20">·</span>
-                  <span className="text-[10px] text-white/70">Morpho</span>
-                  <span className="text-white/20">·</span>
-                  <span className="text-[10px] text-white/70">Maple</span>
-                </div>
-                <div className="h-px bg-white/10 mx-4" />
-                <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5">
-                  <span className="text-[10px] text-white/70">Enterprise</span>
-                  <span className="text-white/20">·</span>
-                  <span className="text-[10px] text-white/70">Cloudflare</span>
                 </div>
               </div>
             </div>
