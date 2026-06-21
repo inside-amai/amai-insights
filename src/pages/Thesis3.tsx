@@ -659,6 +659,19 @@ const Thesis = () => {
               </p>
             </motion.div>
           </div>
+
+          {/* Centered stat block */}
+          <motion.div
+            className="mt-12 md:mt-16 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.0 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-base md:text-lg text-white/70 font-light leading-relaxed max-w-2xl mx-auto">
+              <span className="text-white font-medium">1 API call</span> — A counterparty gets the full score: approve, decline, or price — in a single call.
+            </p>
+          </motion.div>
         </motion.div>
       </Slide>
 
