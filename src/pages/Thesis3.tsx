@@ -495,46 +495,49 @@ const Thesis = () => {
               ))}
             </div>
 
-            {/* RIGHT: TARI Score */}
-            <div className="relative flex items-center justify-center md:justify-self-end">
-              <div className="flex flex-col items-center gap-3">
-                <svg viewBox="0 0 200 70" className="w-40 md:w-56 h-auto">
-                  <path
-                    d="M 20 60 A 80 80 0 0 1 180 60"
-                    fill="none"
-                    stroke="rgba(255,255,255,0.08)"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M 20 60 A 80 80 0 0 1 180 60"
-                    fill="none"
-                    stroke="url(#tariArcGrad)"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeDasharray="251"
-                    strokeDashoffset="40"
-                  />
+            {/* RIGHT: TARI Gauge */}
+            <div className="relative flex flex-col items-center md:justify-self-end">
+              <motion.div
+                className="relative"
+                animate={{ filter: ["drop-shadow(0 0 20px rgba(166,252,252,0.15))", "drop-shadow(0 0 40px rgba(166,252,252,0.3))", "drop-shadow(0 0 20px rgba(166,252,252,0.15))"] }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                <svg viewBox="0 0 260 180" className="w-[220px] md:w-[300px] h-auto">
                   <defs>
-                    <linearGradient id="tariArcGrad" x1="0" y1="0" x2="1" y2="0">
-                      <stop offset="0%" stopColor="rgba(166,252,252,0.25)" />
+                    <linearGradient id="tariGaugeGrad4" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stopColor="rgba(200,80,60,0.5)" />
+                      <stop offset="35%" stopColor="rgba(220,180,60,0.5)" />
+                      <stop offset="65%" stopColor="rgba(100,200,120,0.5)" />
                       <stop offset="100%" stopColor="rgba(166,252,252,0.7)" />
                     </linearGradient>
+                    <filter id="tariGlow4">
+                      <feGaussianBlur stdDeviation="4" result="blur" />
+                      <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
                   </defs>
+                  <path d="M 30 150 A 105 105 0 0 1 230 150" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="20" strokeLinecap="round" />
+                  <path d="M 30 150 A 105 105 0 0 1 230 150" fill="none" stroke="url(#tariGaugeGrad4)" strokeWidth="20" strokeLinecap="round" />
+                  <motion.line
+                    x1="130" y1="150" x2="215" y2="85"
+                    stroke="rgba(166,252,252,0.9)" strokeWidth="2.5" strokeLinecap="round"
+                    filter="url(#tariGlow4)"
+                    animate={{ x2: [213, 217, 213], y2: [87, 83, 87] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                  <circle cx="130" cy="150" r="5" fill="rgba(166,252,252,0.3)" stroke="rgba(166,252,252,0.6)" strokeWidth="1.5" />
+                  <text x="130" y="125" fill="white" fontSize="32" fontFamily="monospace" fontWeight="bold" textAnchor="middle">824</text>
                 </svg>
-                <motion.p
-                  className="text-5xl md:text-7xl lg:text-8xl font-mono font-light text-white tracking-tight leading-none"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, delay: 0.7 }}
-                  viewport={{ once: true }}
-                >
-                  824
-                </motion.p>
-                <p className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-white/30 font-mono">
-                  TARI™ Score
-                </p>
-              </div>
+              </motion.div>
+              <motion.div
+                className="mt-2 px-4 py-1.5 rounded-full border border-emerald-400/40 bg-emerald-400/10"
+                animate={{ boxShadow: ["0 0 10px rgba(52,211,153,0.15)", "0 0 25px rgba(52,211,153,0.3)", "0 0 10px rgba(52,211,153,0.15)"] }}
+                transition={{ duration: 2.5, repeat: Infinity }}
+              >
+                <span className="text-xs md:text-sm tracking-[0.25em] uppercase text-emerald-400 font-mono font-semibold">TRUSTED</span>
+              </motion.div>
             </div>
           </motion.div>
 
