@@ -864,7 +864,7 @@ const Thesis = () => {
               </div>
 
               {/* Card */}
-              <div className="rounded-md border border-white/12 bg-white/[0.03] px-4 md:px-5 py-2.5 md:py-3 flex items-center justify-between gap-4">
+              <div className="rounded-md border border-white/12 bg-black px-4 md:px-5 py-2.5 md:py-3 flex items-center justify-between gap-4">
                 <div className="flex-1 min-w-0">
                   <div className="text-[11px] tracking-[0.22em] uppercase text-white/60 font-medium mb-0.5">
                     Agent-to-Agent Payments & Delegation
@@ -885,7 +885,7 @@ const Thesis = () => {
               </div>
 
               {/* Card */}
-              <div className="rounded-md border border-white/12 bg-white/[0.03] px-4 md:px-5 py-2.5 md:py-3 flex items-center justify-between gap-4">
+              <div className="rounded-md border border-white/12 bg-black px-4 md:px-5 py-2.5 md:py-3 flex items-center justify-between gap-4">
                 <div className="flex-1 min-w-0">
                   <div className="text-[11px] tracking-[0.22em] uppercase text-white/60 font-medium mb-0.5">
                     DEX, Swaps, Vaults & Bridges
@@ -904,7 +904,7 @@ const Thesis = () => {
               </div>
 
               {/* Card */}
-              <div className="rounded-md border border-white/12 bg-white/[0.03] px-4 md:px-5 py-2.5 md:py-3 flex items-center justify-between gap-4">
+              <div className="rounded-md border border-white/12 bg-black px-4 md:px-5 py-2.5 md:py-3 flex items-center justify-between gap-4">
                 <div className="flex-1 min-w-0">
                   <div className="text-[11px] tracking-[0.22em] uppercase text-white/60 font-medium mb-0.5">
                     Access Control
@@ -921,12 +921,12 @@ const Thesis = () => {
               </div>
 
               {/* Bottom: Initial Focus band with two wedge cards */}
-              <div className="rounded-md border border-white/25 bg-white/[0.04] p-2.5 md:p-3">
+              <div className="rounded-md border border-white/25 bg-black p-2.5 md:p-3">
                 <div className="text-[10px] tracking-[0.25em] uppercase text-white/55 font-medium mb-2 text-center">
                   Initial Focus
                 </div>
                 <div className="grid grid-cols-2 gap-2 md:gap-2.5">
-                  <div className="rounded border border-white/15 bg-black/40 px-3 py-2 flex items-center justify-between gap-3">
+                  <div className="rounded border border-white/15 bg-black px-3 py-2 flex items-center justify-between gap-3">
                     <div className="flex-1 min-w-0">
                       <div className="text-[10px] tracking-[0.22em] uppercase text-amber-400/90 font-medium">
                         Wedge 01 · Lending & Credit
@@ -943,7 +943,7 @@ const Thesis = () => {
                       <span className="text-[10px] text-white/70">Maple</span>
                     </div>
                   </div>
-                  <div className="rounded border border-white/15 bg-black/40 px-3 py-2 flex items-center justify-between gap-3">
+                  <div className="rounded border border-white/15 bg-black px-3 py-2 flex items-center justify-between gap-3">
                     <div className="flex-1 min-w-0">
                       <div className="text-[10px] tracking-[0.22em] uppercase text-amber-400/90 font-medium">
                         Wedge 02 · Fleet Monitoring
