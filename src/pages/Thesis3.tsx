@@ -608,7 +608,7 @@ const Thesis = () => {
                 {[
                   { num: "1", label: "Bond", text: "every agent is tied to a KYC'd human operator and issued a verifiable identity." },
                   { num: "2", label: "Observe", text: "as the agent acts, every action streams in as continuous telemetry: settlements, scope, anomalies." },
-                  { num: "3", label: "Score", text: "the TARI engine distills that behavior into one number, 300–850, in real time.", highlight: true },
+                  { num: "3", label: "Score", text: "the TARI engine distills that behavior into one number, 300–850, in real time." },
                   { num: "4", label: "Verify", text: "double-blind check: telemetry parity-matched against an independent ledger; any divergence flags the agent compromised." },
                   { num: "5", label: "Publish", text: "the score is committed to the Public Bureau: immutable, timestamped, publicly verifiable." },
                   { num: "6", label: "Check", text: "any counterparty pulls the score in one API call and approves, declines, or prices, before authorizing." },
