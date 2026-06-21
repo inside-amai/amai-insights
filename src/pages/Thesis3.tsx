@@ -683,7 +683,7 @@ const Thesis = () => {
 
 
       {/* ── SLIDE 6: THE MOAT ── */}
-      <Slide slideNumber={7} footerText={t('tp.footer')}>
+      <Slide slideNumber={6} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -797,7 +797,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 7: THE FLYWHEEL ── */}
-      <Slide slideNumber={8} footerText={t('tp.footer')}>
+      <Slide slideNumber={7} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -987,7 +987,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 8: THE ADOPTION PATH ── */}
-      <Slide slideNumber={9} footerText={t('tp.footer')}>
+      <Slide slideNumber={8} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1078,7 +1078,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 9: COMPETITIVE LANDSCAPE ── */}
-      <Slide slideNumber={10} footerText={t('tp.footer')}>
+      <Slide slideNumber={9} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1183,7 +1183,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 9: THE CUSTOMERS ── */}
-      <Slide slideNumber={11} footerText={t('tp.footer')}>
+      <Slide slideNumber={10} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1272,7 +1272,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 10: THE BUSINESS MODEL ── */}
-      <Slide slideNumber={12} footerText={t('tp.footer')}>
+      <Slide slideNumber={11} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1511,7 +1511,7 @@ const Thesis = () => {
 
 
       {/* ── SLIDE 11: WHY NOW ── */}
-      <Slide slideNumber={13} footerText={t('tp.footer')}>
+      <Slide slideNumber={12} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1598,7 +1598,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 12: THE TEAM ── */}
-      <Slide slideNumber={14} footerText={t('tp.footer')}>
+      <Slide slideNumber={13} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1728,7 +1728,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 13: CLOSING ── */}
-      <Slide slideNumber={15} footerText={t('tp.footer')}>
+      <Slide slideNumber={14} footerText={t('tp.footer')}>
         {/* Constellation accent — same as hero */}
         <div className="absolute inset-0 pointer-events-none z-0">
           <motion.svg
@@ -1847,7 +1847,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 14: THE ROUND ── */}
-      <Slide slideNumber={16} footerText={t('tp.footer')}>
+      <Slide slideNumber={15} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
