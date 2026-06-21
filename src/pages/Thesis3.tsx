@@ -645,15 +645,14 @@ const Thesis = () => {
               viewport={{ once: true }}
             >
               <div
-                className="w-full aspect-[16/10] rounded-lg border bg-black flex items-center justify-center overflow-hidden"
+                className="w-full aspect-[16/10] rounded-lg border overflow-hidden"
                 style={{ borderColor: 'rgba(166,252,252,0.2)' }}
               >
-                <div className="text-center px-6">
-                  <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono mb-3">bureau.amai.net</p>
-                  <p className="text-2xl md:text-3xl font-light text-white/80 tracking-tight">Agent TARI™ Score Report</p>
-                  <div className="mt-4 mx-auto h-px w-16 bg-[#A6FCFC]/30" />
-                  <p className="mt-4 text-sm text-white/40 font-light">Live scoring dashboard</p>
-                </div>
+                <img
+                  src={tariDashboard.url}
+                  alt="TARI Live Scoring Dashboard"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <p className="mt-4 text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono text-center">
                 Live at bureau.amai.net
