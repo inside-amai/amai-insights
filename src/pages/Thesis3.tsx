@@ -318,7 +318,7 @@ const Thesis = () => {
               alt="AMAI"
               className="h-10 md:h-14 w-auto brightness-110"
             />
-            <p className="text-sm md:text-lg text-white/40 font-light text-center max-w-xl">
+            <p className="text-sm md:text-base text-white/70 font-light text-center whitespace-nowrap">
               Powering trust in the autonomous economy with a credit score for AI agents.
             </p>
           </motion.div>
