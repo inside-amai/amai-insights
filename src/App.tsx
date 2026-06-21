@@ -45,6 +45,7 @@ import Legal from "./pages/Legal";
 import Pitch from "./pages/Pitch";
 import Thesis from "./pages/Thesis";
 import Thesis2 from "./pages/Thesis2";
+import Thesis3 from "./pages/Thesis3";
 import Trust from "./pages/Trust";
 import Architecture from "./pages/Architecture";
 import Methodology from "./pages/Methodology";
