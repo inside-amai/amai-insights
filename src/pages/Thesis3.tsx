@@ -399,38 +399,33 @@ const Thesis = () => {
       <SlideDivider />
 
 
-      {/* ── SLIDE 3: THE LIMIT ── */}
+      {/* ── SLIDE 3: THE PROBLEM ── */}
       <Slide slideNumber={3} footerText={t('tp.footer')}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-          className="w-full text-center max-w-4xl mx-auto px-4"
-        >
-          <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-14 md:mb-20">
-            03 // THE LIMIT
-          </p>
-
-          <motion.div
-            className="space-y-10 md:space-y-14"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+        <div className="absolute inset-0 flex flex-col items-center justify-center z-10 px-6">
+          <motion.p
+            className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-14 md:mb-20"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <p className="text-lg md:text-xl lg:text-2xl text-white/60 font-light leading-[1.6]">
-              Humans have <span className="text-white font-normal">FICO</span>. Businesses have <span className="text-white font-normal">Dun &amp; Bradstreet</span>.
-            </p>
-            <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-light leading-[1.15] tracking-tight">
-              AI Agents have <span className="font-normal">Nothing</span>.
-            </p>
-            <p className="text-base md:text-lg text-white/40 font-light leading-[1.9] max-w-2xl mx-auto">
-              Without a standardized Credit Score, an Agent is just a random script that cannot be trusted with significant capital or sensitive data.
-            </p>
-          </motion.div>
-        </motion.div>
+            03 // THE PROBLEM
+          </motion.p>
 
+          <motion.p
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-white/40 leading-[1.35] text-center max-w-5xl"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            There's no way to tell a{" "}
+            <span className="text-white font-normal">trustworthy</span>{" "}
+            agent from a{" "}
+            <span className="text-white font-normal">malicious</span>{" "}
+            one.
+          </motion.p>
+        </div>
       </Slide>
 
 
