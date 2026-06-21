@@ -1490,7 +1490,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tp.s7m.anchor.p2': 'The market cannot scale until the risk can be underwritten.',
     'tp.s8t.label': '11 // THE TEAM',
     'tp.s8t.h': 'Core Team',
-    'tp.s8t.sub': 'Built by veterans of infrastructure, foundational AI, and enterprise defense.',
+    'tp.s8t.sub': 'This problem needs payments, AI, and security in one room. Ex-Circle (USDC). Ex-Stability AI. Ex-FBI. We have all three.',
 
     // Methodology page
     'meth.hero.eyebrow': 'TARI™ Methodology · v2.4',
@@ -3023,7 +3023,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tp.s7m.anchor.p2': 'リスクが引き受けられるまで市場は拡張できない。',
     'tp.s8t.label': '11 // チーム',
     'tp.s8t.h': 'コアチーム',
-    'tp.s8t.sub': 'インフラ、基盤AI、企業防衛のベテランにより構築。',
+    'tp.s8t.sub': 'この問題には、決済、AI、セキュリティが同じ部屋に必要だ。元Circle（USDC）。元Stability AI。元FBI。私たちは3つ全てを持っている。',
 
     // Methodology page
     'meth.hero.eyebrow': 'TARI™ メソドロジー · v2.4',
@@ -4545,7 +4545,7 @@ const translations: Record<Language, Record<string, string>> = {
     'tp.s7m.anchor.p2': 'لا يمكن للسوق التوسع حتى يصبح بالإمكان التأمين على المخاطر.',
     'tp.s8t.label': '11 // الفريق',
     'tp.s8t.h': 'الفريق الأساسي',
-    'tp.s8t.sub': 'بُني على يد رواد البنية التحتية والذكاء الاصطناعي الأساسي والدفاع المؤسسي.',
+    'tp.s8t.sub': 'هذه المشكلة تحتاج المدفوعات، والذكاء الاصطناعي، والأمن في غرفة واحدة. سابقًا Circle (USDC). سابقًا Stability AI. سابقًا FBI. لدينا الثلاثة جميعًا.',
 
     // Methodology page
     'meth.hero.eyebrow': 'منهجية TARI™ · v2.4',
