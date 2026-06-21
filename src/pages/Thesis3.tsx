@@ -592,7 +592,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            We've already built the prototype — a <span className="text-[#A6FCFC]">live scoring engine</span> grading real agents today,
+            We've already built the prototype — a <span className="text-[#A6FCFC]">live scoring engine</span> grading real agents today.
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
@@ -654,7 +654,7 @@ const Thesis = () => {
                   className="w-full h-auto object-contain"
                 />
               </div>
-              <p className="mt-4 text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono text-center">
+              <p className="mt-4 text-xs tracking-[0.2em] uppercase text-[#A6FCFC] font-mono text-center font-medium">
                 Live at bureau.amai.net
               </p>
             </motion.div>
