@@ -645,13 +645,13 @@ const Thesis = () => {
               viewport={{ once: true }}
             >
               <div
-                className="w-full aspect-[16/10] rounded-lg border overflow-hidden"
+                className="w-full rounded-lg border overflow-hidden"
                 style={{ borderColor: 'rgba(166,252,252,0.2)' }}
               >
                 <img
                   src={tariDashboard.url}
                   alt="TARI Live Scoring Dashboard"
-                  className="w-full h-full object-cover"
+                  className="w-full h-auto object-contain"
                 />
               </div>
               <p className="mt-4 text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono text-center">
