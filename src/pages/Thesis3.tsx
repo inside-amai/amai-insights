@@ -571,6 +571,117 @@ const Thesis = () => {
       <SlideDivider />
 
 
+      {/* ── SLIDE 5: THE PROTOTYPE ── */}
+      <Slide slideNumber={5} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="w-full max-w-6xl mx-auto"
+        >
+          <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8">
+            05 // THE PROTOTYPE
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
+            {/* LEFT COLUMN */}
+            <div className="flex flex-col gap-8 md:gap-10">
+              <motion.h2
+                className="text-3xl sm:text-4xl md:text-5xl font-light text-white leading-[1.15] tracking-tight"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                We've already built the prototype — a <span className="text-[#A6FCFC]">live scoring engine</span> grading real agents today,
+              </motion.h2>
+
+              <motion.ol
+                className="space-y-5 md:space-y-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                viewport={{ once: true }}
+              >
+                {[
+                  { num: "1", label: "Bond", text: "every agent is tied to a KYC'd human operator and issued a verifiable identity." },
+                  { num: "2", label: "Observe", text: "as the agent acts, every action streams in as continuous telemetry: settlements, scope, anomalies." },
+                  { num: "3", label: "Score", text: "the TARI engine distills that behavior into one number, 300–850, in real time.", highlight: true },
+                  { num: "4", label: "Verify", text: "double-blind check: telemetry parity-matched against an independent ledger; any divergence flags the agent compromised." },
+                  { num: "5", label: "Publish", text: "the score is committed to the Public Bureau: immutable, timestamped, publicly verifiable." },
+                  { num: "6", label: "Check", text: "any counterparty pulls the score in one API call and approves, declines, or prices, before authorizing." },
+                ].map((step, i) => (
+                  <motion.li
+                    key={step.num}
+                    className="flex gap-4 items-start"
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.6 + i * 0.08 }}
+                    viewport={{ once: true }}
+                  >
+                    <span className={`text-sm md:text-base font-mono mt-0.5 ${step.highlight ? 'text-[#A6FCFC]' : 'text-white/30'}`}>
+                      {step.num}
+                    </span>
+                    <p className="text-sm md:text-base text-white/70 font-light leading-relaxed">
+                      <span className={`font-medium ${step.highlight ? 'text-[#A6FCFC]' : 'text-white'}`}>
+                        {step.label}
+                      </span>{" "}— {step.text}
+                    </p>
+                  </motion.li>
+                ))}
+              </motion.ol>
+
+              {/* Hero stat block */}
+              <motion.div
+                className="mt-4 md:mt-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1.2 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-[10px] tracking-[0.25em] uppercase text-white/30 font-mono mb-3">
+                  Checked before it acts
+                </p>
+                <p className="text-3xl md:text-4xl lg:text-5xl font-light text-white tracking-tight mb-2">
+                  1 API call
+                </p>
+                <p className="text-sm md:text-base text-white/50 font-light leading-relaxed max-w-md">
+                  A counterparty gets the full score — approve, decline, or price — in a single call.
+                </p>
+              </motion.div>
+            </div>
+
+            {/* RIGHT COLUMN: Screenshot placeholder */}
+            <motion.div
+              className="flex flex-col items-center justify-start md:pt-8"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.9, delay: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <div
+                className="w-full aspect-[16/10] rounded-lg border bg-black flex items-center justify-center overflow-hidden"
+                style={{ borderColor: 'rgba(166,252,252,0.2)' }}
+              >
+                <div className="text-center px-6">
+                  <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono mb-3">bureau.amai.net</p>
+                  <p className="text-2xl md:text-3xl font-light text-white/80 tracking-tight">Agent TARI™ Score Report</p>
+                  <div className="mt-4 mx-auto h-px w-16 bg-[#A6FCFC]/30" />
+                  <p className="mt-4 text-sm text-white/40 font-light">Live scoring dashboard</p>
+                </div>
+              </div>
+              <p className="mt-4 text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono text-center">
+                Live at bureau.amai.net
+              </p>
+            </motion.div>
+          </div>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+
       {/* ── SLIDE 6: THE MOAT ── */}
       <Slide slideNumber={5} footerText={t('tp.footer')}>
         <motion.div
