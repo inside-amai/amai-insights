@@ -496,13 +496,13 @@ const Thesis = () => {
             </div>
 
             {/* RIGHT: TARI Gauge */}
-            <div className="relative flex flex-col items-center md:justify-self-end">
+            <div className="relative flex flex-col items-center">
               <motion.div
                 className="relative"
                 animate={{ filter: ["drop-shadow(0 0 20px rgba(166,252,252,0.15))", "drop-shadow(0 0 40px rgba(166,252,252,0.3))", "drop-shadow(0 0 20px rgba(166,252,252,0.15))"] }}
                 transition={{ duration: 3, repeat: Infinity }}
               >
-                <svg viewBox="0 0 260 180" className="w-[220px] md:w-[300px] h-auto">
+                <svg viewBox="0 0 260 180" className="w-[260px] md:w-[360px] h-auto">
                   <defs>
                     <linearGradient id="tariGaugeGrad4" x1="0" y1="0" x2="1" y2="0">
                       <stop offset="0%" stopColor="rgba(200,80,60,0.5)" />
