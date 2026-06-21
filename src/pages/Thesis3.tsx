@@ -580,22 +580,23 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="w-full max-w-6xl mx-auto"
         >
-          <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8">
+          <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
             05 // THE PROTOTYPE
           </p>
+
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl font-light text-white leading-[1.15] tracking-tight text-center max-w-4xl mx-auto mb-10 md:mb-14"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            We've already built the prototype — a <span className="text-[#A6FCFC]">live scoring engine</span> grading real agents today,
+          </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
             {/* LEFT COLUMN */}
             <div className="flex flex-col gap-8 md:gap-10">
-              <motion.h2
-                className="text-3xl sm:text-4xl md:text-5xl font-light text-white leading-[1.15] tracking-tight"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                viewport={{ once: true }}
-              >
-                We've already built the prototype — a <span className="text-[#A6FCFC]">live scoring engine</span> grading real agents today,
-              </motion.h2>
 
               <motion.ol
                 className="space-y-5 md:space-y-6"
