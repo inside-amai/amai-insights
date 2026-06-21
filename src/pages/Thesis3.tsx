@@ -383,13 +383,13 @@ const Thesis = () => {
               viewport={{ once: true }}
             >
               <p className="text-xs tracking-[0.2em] uppercase text-white/40 font-medium mb-3">
-                Hold it back
+                Don't Trust It
               </p>
               <p className="text-3xl md:text-4xl lg:text-5xl font-extralight text-white tracking-tight leading-[1.05] mb-3">
-                2×
+                0% useful
               </p>
               <p className="text-sm md:text-base text-white/40 font-light leading-relaxed max-w-sm">
-                Over-collateralize, cap, or block it — and the agent never does the thing you actually needed.
+                Hold it back, and it can't touch anything that matters — so it never does the job you got it for.
               </p>
             </motion.div>
           </div>
