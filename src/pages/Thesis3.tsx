@@ -3,6 +3,7 @@ import { motion, useScroll } from "framer-motion";
 import amaiLogo from "@/assets/amai-logo-tm.png";
 import legacyPadlock from "@/assets/slide3-legacy-padlock.png";
 import amaiCore from "@/assets/amai-header-icon.png";
+import tariDashboard from "@/assets/tari-dashboard-screenshot.png.asset.json";
 import { useIsMobile } from "@/hooks/use-mobile";
 import TariArchitectureDiagram from "@/components/TariArchitectureDiagram";
 
