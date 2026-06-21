@@ -692,7 +692,7 @@ const Thesis = () => {
           className="max-w-4xl mx-auto text-center"
         >
           <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
-            05 // THE MOAT
+            06 // THE MOAT
           </p>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 leading-[1.15]"
@@ -805,7 +805,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto text-center"
         >
-          <MicroLabel>06 // THE FLYWHEEL</MicroLabel>
+          <MicroLabel>07 // THE FLYWHEEL</MicroLabel>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-6 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
@@ -995,7 +995,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto w-full text-center"
         >
-          <MicroLabel>07 // THE ADOPTION PATH</MicroLabel>
+          <MicroLabel>08 // THE ADOPTION PATH</MicroLabel>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-6 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
@@ -1086,7 +1086,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto w-full"
         >
-          <MicroLabel>08 // THE LANDSCAPE</MicroLabel>
+          <MicroLabel>09 // THE LANDSCAPE</MicroLabel>
 
 
           <motion.h2
@@ -1192,7 +1192,7 @@ const Thesis = () => {
           className="max-w-6xl mx-auto w-full"
         >
           <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
-            09 // THE CUSTOMERS
+            10 // THE CUSTOMERS
           </p>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 leading-[1.1] tracking-tight text-center"
@@ -1281,7 +1281,7 @@ const Thesis = () => {
           className="max-w-6xl mx-auto"
         >
           <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
-            10 // THE BUSINESS MODEL
+            11 // THE BUSINESS MODEL
           </p>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 leading-[1.1] tracking-tight text-center"
@@ -1520,7 +1520,7 @@ const Thesis = () => {
           className="max-w-6xl mx-auto w-full"
         >
           <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
-            11 // WHY NOW
+            12 // WHY NOW
           </p>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 leading-[1.1] tracking-tight text-center"
@@ -1605,7 +1605,7 @@ const Thesis = () => {
           transition={{ duration: 1.2 }}
           viewport={{ once: true }}
         >
-          <MicroLabel>12 // THE TEAM</MicroLabel>
+          <MicroLabel>13 // THE TEAM</MicroLabel>
 
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 md:mb-4 text-center leading-[1.1]"
@@ -1790,7 +1790,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            13 // THE VISION
+            14 // THE VISION
           </motion.p>
 
           <motion.img
@@ -1856,7 +1856,7 @@ const Thesis = () => {
           className="max-w-6xl mx-auto w-full px-6 md:px-16 text-center"
         >
           <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium text-center">
-            14 // THE ROUND
+            15 // THE ROUND
           </p>
 
           <motion.h2
