@@ -306,44 +306,23 @@ const Thesis = () => {
 
       {/* ── SLIDE 1: THE HOOK ── */}
       <Slide slideNumber={1} footerText={t('tp.footer')}>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.2 }} className="max-w-4xl mx-auto text-center relative z-10">
-          <motion.img
-            src={amaiLogo}
-            alt="AMAI"
-            className="h-10 md:h-16 w-auto brightness-110 mb-10 md:mb-20 mx-auto"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          />
-          <MicroLabel delay={0.3}>{t('tp.s1.label')}</MicroLabel>
+        <div className="absolute inset-0 flex items-center justify-center z-10">
           <motion.div
-            className="mb-8 md:mb-10"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            transition={{ duration: 1 }}
+            className="flex flex-col items-center gap-6"
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-[1.2] font-light">
-              {t('tp.s1.h1')}
-            </h1>
-            <motion.p
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white/70 font-light mt-6 leading-[1.2]"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.0 }}
-            >
-              {t('tp.s1.h2')}
-            </motion.p>
+            <img
+              src={amaiLogo}
+              alt="AMAI"
+              className="h-10 md:h-14 w-auto brightness-110"
+            />
+            <p className="text-sm md:text-lg text-white/40 font-light text-center max-w-xl">
+              Powering trust in the autonomous economy with a credit score for AI agents.
+            </p>
           </motion.div>
-          <motion.p
-            className="text-base md:text-xl text-white/50 font-light leading-relaxed max-w-2xl mx-auto mb-10"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-          >
-            {t('tp.s1.sub')}
-          </motion.p>
-
-        </motion.div>
+        </div>
       </Slide>
 
       <SlideDivider />
