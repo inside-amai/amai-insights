@@ -458,7 +458,7 @@ const Thesis = () => {
             TARI™<span className="text-white/50 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light ml-2 align-middle">(Trust &amp; Risk Index)</span>
           </motion.h2>
           <motion.p
-            className="text-base md:text-lg text-white/50 font-light mb-12 md:mb-16 text-center max-w-2xl mx-auto"
+            className="text-xl md:text-2xl lg:text-3xl text-white font-light mb-12 md:mb-16 text-center max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
