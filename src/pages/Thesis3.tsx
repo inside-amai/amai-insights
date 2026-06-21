@@ -449,13 +449,13 @@ const Thesis = () => {
             04 // THE SOLUTION
           </p>
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 text-center leading-[1.1] tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-2 text-center leading-[1.1] tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            TARI™ <span className="block text-white/50">(Trust &amp; Risk Index)</span>
+            TARI™ <span className="block text-white/50 text-base md:text-lg lg:text-xl font-light mt-1">(Trust &amp; Risk Index)</span>
           </motion.h2>
           <motion.p
             className="text-base md:text-lg text-white/50 font-light mb-12 md:mb-16 text-center max-w-2xl mx-auto"
@@ -464,7 +464,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            A consistent, auditable behavioral credit score for <strong>any AI Agent</strong>
+            A credit score for any AI agent.
           </motion.p>
 
           <motion.div
