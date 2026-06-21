@@ -572,7 +572,7 @@ const Thesis = () => {
 
 
       {/* ── SLIDE 5: THE PROTOTYPE ── */}
-      <Slide slideNumber={5} footerText={t('tp.footer')}>
+      <Slide slideNumber={6} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
