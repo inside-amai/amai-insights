@@ -468,14 +468,14 @@ const Thesis = () => {
           </motion.p>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center justify-items-center gap-10 md:gap-14 mb-12 md:mb-16"
+            className="grid grid-cols-1 md:grid-cols-[1fr_auto] items-center gap-10 md:gap-14 mb-12 md:mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
             viewport={{ once: true }}
           >
             {/* LEFT: Key benefits */}
-            <div className="flex flex-col items-center md:items-end gap-8 md:gap-10 w-full md:w-auto md:justify-self-end text-center md:text-right">
+            <div className="flex flex-col items-start gap-8 md:gap-10 w-full md:w-auto text-left">
               {[
                 { title: "One number anyone can read", text: "300–850, the same scale lenders already trust. Any counterparty checks it in one call." },
                 { title: "Independent & verifiable", text: "A neutral third party, not self-scored. Every score is publicly auditable in the Bureau." },
@@ -495,8 +495,8 @@ const Thesis = () => {
               ))}
             </div>
 
-            {/* CENTER: TARI Gauge */}
-            <div className="relative flex flex-col items-center">
+            {/* RIGHT: TARI Gauge */}
+            <div className="relative flex flex-col items-center md:justify-self-end">
               <motion.div
                 className="relative"
                 animate={{ filter: ["drop-shadow(0 0 20px rgba(166,252,252,0.15))", "drop-shadow(0 0 40px rgba(166,252,252,0.3))", "drop-shadow(0 0 20px rgba(166,252,252,0.15))"] }}
@@ -538,35 +538,6 @@ const Thesis = () => {
               >
                 <span className="text-xs md:text-sm tracking-[0.25em] uppercase text-emerald-400 font-mono font-semibold">TRUSTED</span>
               </motion.div>
-              <p className="text-center italic mt-3" style={{ color: '#666666', fontSize: '12px' }}>
-                Illustrative
-              </p>
-            </div>
-
-            {/* RIGHT: Thresholds */}
-            <div className="flex flex-col items-center md:items-start gap-4 w-full md:w-auto md:justify-self-start">
-              <span className="text-[10px] tracking-[0.2em] uppercase text-white/40 font-medium">Counterparty threshold — example</span>
-              {[
-                { score: "TARI™ > 750:", result: "approved", color: "text-emerald-400", pipeColor: "from-[rgba(166,252,252,0.6)] to-transparent" },
-                { score: "TARI™ < 750:", result: "declined", color: "text-red-400", pipeColor: "from-[rgba(220,80,60,0.6)] to-transparent" },
-              ].map((item, i) => (
-                <motion.div
-                  key={item.result}
-                  className="flex items-center gap-3 flex-nowrap whitespace-nowrap"
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.7 + i * 0.15 }}
-                  viewport={{ once: true }}
-                >
-                  <motion.div
-                    className={`w-8 md:w-12 h-px bg-gradient-to-r ${item.pipeColor}`}
-                    animate={{ opacity: [0.4, 1, 0.4] }}
-                    transition={{ duration: 2, repeat: Infinity, delay: i * 0.4 }}
-                  />
-                  <span className="text-xs md:text-sm font-mono text-white/60 tracking-wide">{item.score}</span>
-                  <span className={`text-xs md:text-sm font-mono font-bold tracking-[0.15em] ${item.color}`}>✦ {item.result}</span>
-                </motion.div>
-              ))}
             </div>
           </motion.div>
 
