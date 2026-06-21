@@ -426,7 +426,7 @@ const Thesis = () => {
               AI Agents have <span className="font-normal">Nothing</span>.
             </p>
             <p className="text-base md:text-lg text-white/40 font-light leading-[1.9] max-w-2xl mx-auto">
-              Without a standardized Credit Score, an Agent is just a random script that cannot be trusted with significant capital or sensitive data.
+              There's no way to tell a <span className="text-white font-medium">trustworthy</span> agent from a <span className="text-white font-medium">malicious</span> one.
             </p>
           </motion.div>
         </motion.div>
