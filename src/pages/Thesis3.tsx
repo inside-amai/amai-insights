@@ -426,7 +426,7 @@ const Thesis = () => {
               AI Agents have <span className="font-normal">Nothing</span>.
             </p>
             <p className="text-base md:text-lg text-white/40 font-light leading-[1.9] max-w-2xl mx-auto">
-              There's no way to tell a <span className="text-white font-medium">trustworthy</span> agent from a <span className="text-white font-medium">malicious</span> one.
+              The rails just arrived: agents can suddenly hold cards, move money, and call into real systems. But the high-stakes work stays locked: to let an agent borrow, transact, or reach into anything sensitive, you have to trust it.
             </p>
           </motion.div>
         </motion.div>
