@@ -449,13 +449,13 @@ const Thesis = () => {
             04 // THE SOLUTION
           </p>
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-3 text-center leading-[1.1] tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-2 text-center leading-[1.1] tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            TARI™ <span className="block text-white/50">(Trust &amp; Risk Index)</span>
+            TARI™ <span className="block text-white/50 text-base md:text-lg lg:text-xl font-light mt-1">(Trust &amp; Risk Index)</span>
           </motion.h2>
           <motion.p
             className="text-base md:text-lg text-white/50 font-light mb-12 md:mb-16 text-center max-w-2xl mx-auto"
@@ -464,7 +464,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            A consistent, auditable behavioral credit score for <strong>any AI Agent</strong>
+            A credit score for any AI agent.
           </motion.p>
 
           <motion.div
@@ -474,26 +474,23 @@ const Thesis = () => {
             transition={{ duration: 1, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            {/* LEFT: Prominent product stack */}
-            <div className="flex flex-col items-center md:items-end gap-5 md:gap-6 w-full md:w-auto md:justify-self-end">
-              {["Public Agent Bureau", "Developer SDK & API", "Enterprise & Developer Platform"].map((label, i) => (
+            {/* LEFT: Key benefits */}
+            <div className="flex flex-col items-center md:items-end gap-8 md:gap-10 w-full md:w-auto md:justify-self-end text-center md:text-right">
+              {[
+                { title: "One number anyone can read", text: "300–850, the same scale lenders already trust. Any counterparty checks it in one call." },
+                { title: "Independent & verifiable", text: "A neutral third party, not self-scored. Every score is publicly auditable in the Bureau." },
+                { title: "Checked before it acts", text: "Computed in real time, before authorization — not after the damage is done." },
+              ].map((point, i) => (
                 <motion.div
-                  key={label}
-                  className="flex items-center gap-4"
+                  key={point.title}
+                  className="max-w-xs"
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.6 + i * 0.15 }}
                   viewport={{ once: true }}
                 >
-                  <span className="text-sm md:text-base lg:text-lg text-white/70 font-light tracking-tight text-right whitespace-nowrap">
-                    {label}
-                  </span>
-
-                  <motion.div
-                    className="w-10 md:w-16 h-px bg-gradient-to-r from-transparent to-[rgba(166,252,252,0.6)]"
-                    animate={{ opacity: [0.4, 1, 0.4] }}
-                    transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
-                  />
+                  <p className="text-sm md:text-base text-white font-medium tracking-tight">{point.title}</p>
+                  <p className="text-xs md:text-sm text-white/45 font-light leading-relaxed mt-1.5">{point.text}</p>
                 </motion.div>
               ))}
             </div>
