@@ -340,7 +340,7 @@ const Thesis = () => {
               transition={{ duration: 0.7, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              People want AI agents to do the things that require trust — to borrow, transact, and access what matters.
+              People want AI agents to do the things that require trust: to borrow, transact, and access what matters.
             </motion.h2>
           </div>
 
