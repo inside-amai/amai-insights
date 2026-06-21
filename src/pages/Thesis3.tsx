@@ -930,7 +930,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto text-center"
         >
-          <MicroLabel>08 // THE FLYWHEEL</MicroLabel>
+          <MicroLabel>09 // THE FLYWHEEL</MicroLabel>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-6 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
@@ -1120,7 +1120,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto w-full text-center"
         >
-          <MicroLabel>09 // THE ADOPTION PATH</MicroLabel>
+          <MicroLabel>10 // THE ADOPTION PATH</MicroLabel>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-6 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
@@ -1211,7 +1211,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto w-full"
         >
-          <MicroLabel>10 // THE LANDSCAPE</MicroLabel>
+          <MicroLabel>11 // THE LANDSCAPE</MicroLabel>
 
 
           <motion.h2
