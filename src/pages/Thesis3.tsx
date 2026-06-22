@@ -823,9 +823,9 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            AMAI's <span className="text-amber-400">TARI™</span> travels everywhere an agent operates —{' '}
-            <span className="text-amber-400">two wedges</span> today,{' '}
-            <span className="text-amber-400">one rail</span> under the entire autonomous economy.
+            AMAI's <span className="text-amber-400">TARI™</span> starts in a{' '}
+            <span className="text-amber-400">consumer game</span> today — and climbs to the{' '}
+            <span className="text-amber-400">trust rail</span> for the entire autonomous economy.
           </motion.h2>
 
           {/* Ladder: arrow left, stacked self-contained cards right */}
@@ -838,125 +838,108 @@ const Thesis = () => {
               </div>
               <div className="flex-1 flex justify-center min-w-[20px]">
                 <div className="h-full flex flex-col items-center">
-                  <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-b-[10px] border-b-amber-400" />
-                  <div className="w-px flex-1 bg-gradient-to-b from-amber-400 via-amber-400/60 to-white/20" />
+                  <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-b-[10px] border-b-[#A6FCFC]" />
+                  <div className="w-px flex-1 bg-gradient-to-b from-[#A6FCFC] via-[#A6FCFC]/60 to-white/20" />
                 </div>
               </div>
             </div>
 
-            {/* RIGHT: Stacked cards */}
+            {/* RIGHT: Stacked rungs (top to bottom) */}
             <div className="flex-1 flex flex-col gap-1.5">
-              {/* Top card: emphasized */}
-              <div className="rounded-md border border-amber-400/60 bg-black px-4 md:px-5 py-2.5 md:py-3 flex items-center justify-between gap-4">
-                <div className="flex-1 min-w-0">
-                  <div className="text-[11px] tracking-[0.22em] uppercase text-amber-400 font-medium mb-0.5">
-                    The Autonomous Economy · One Rail
-                  </div>
-                  <div className="text-xs md:text-sm text-white/85 leading-snug">
-                    Every high-stakes agent action, every market, checks TARI first.
-                  </div>
-                </div>
-                <div className="flex-shrink-0 flex flex-wrap items-center justify-end gap-x-2 gap-y-1">
-                  <span className="text-[10px] text-white/75">Whole economy</span>
-                  <span className="text-white/25">·</span>
-                  <span className="text-[10px] text-white/75">Regulators</span>
-                </div>
-              </div>
-
-              {/* Card */}
+              {/* Rung 5 — top */}
               <div className="rounded-md border border-white/12 bg-black px-4 md:px-5 py-2.5 md:py-3 flex items-center justify-between gap-4">
                 <div className="flex-1 min-w-0">
-                  <div className="text-[11px] tracking-[0.22em] uppercase text-white/60 font-medium mb-0.5">
-                    Agent-to-Agent Payments & Delegation
+                  <div className="text-[11px] tracking-[0.22em] uppercase text-[#A6FCFC] font-medium mb-0.5">
+                    Access, Payments & Lending
                   </div>
-                  <div className="text-xs text-white/55 leading-snug">
-                    The counterparty checks TARI before it pays or hands off.
+                  <div className="text-xs md:text-sm text-white/75 leading-snug">
+                    The score gates money — checked before an agent pays, borrows, or acts.
                   </div>
                 </div>
                 <div className="flex-shrink-0 flex flex-wrap items-center justify-end gap-x-2 gap-y-1">
-                  <span className="text-[10px] text-white/65">Mastercard</span>
+                  <span className="text-[10px] text-white/70">Cloudflare</span>
                   <span className="text-white/20">·</span>
-                  <span className="text-[10px] text-white/65">Visa</span>
+                  <span className="text-[10px] text-white/70">Mastercard</span>
                   <span className="text-white/20">·</span>
-                  <span className="text-[10px] text-white/65">Stripe</span>
-                  <span className="text-white/20">·</span>
-                  <span className="text-[10px] text-white/65">Coinbase</span>
+                  <span className="text-[10px] text-white/70">Aave</span>
                 </div>
               </div>
 
-              {/* Card */}
+              {/* Rung 4 */}
               <div className="rounded-md border border-white/12 bg-black px-4 md:px-5 py-2.5 md:py-3 flex items-center justify-between gap-4">
                 <div className="flex-1 min-w-0">
-                  <div className="text-[11px] tracking-[0.22em] uppercase text-white/60 font-medium mb-0.5">
-                    DEX, Swaps, Vaults & Bridges
+                  <div className="text-[11px] tracking-[0.22em] uppercase text-[#A6FCFC] font-medium mb-0.5">
+                    Enterprise Fleet Governance
                   </div>
-                  <div className="text-xs text-white/55 leading-snug">
-                    A behavioral check on crypto's highest-value attack surfaces.
+                  <div className="text-xs md:text-sm text-white/75 leading-snug">
+                    Companies monitor and govern their agents — first B2B revenue.
                   </div>
                 </div>
                 <div className="flex-shrink-0 flex flex-wrap items-center justify-end gap-x-2 gap-y-1">
-                  <span className="text-[10px] text-white/65">Uniswap</span>
+                  <span className="text-[10px] text-white/70">Enterprises</span>
                   <span className="text-white/20">·</span>
-                  <span className="text-[10px] text-white/65">Lido</span>
+                  <span className="text-[10px] text-white/70">CISOs</span>
                   <span className="text-white/20">·</span>
-                  <span className="text-[10px] text-white/65">Bridges</span>
+                  <span className="text-[10px] text-white/70">Compliance</span>
                 </div>
               </div>
 
-              {/* Card */}
+              {/* Rung 3 */}
               <div className="rounded-md border border-white/12 bg-black px-4 md:px-5 py-2.5 md:py-3 flex items-center justify-between gap-4">
                 <div className="flex-1 min-w-0">
-                  <div className="text-[11px] tracking-[0.22em] uppercase text-white/60 font-medium mb-0.5">
-                    Access Control
+                  <div className="text-[11px] tracking-[0.22em] uppercase text-[#A6FCFC] font-medium mb-0.5">
+                    Developer SDK
                   </div>
-                  <div className="text-xs text-white/55 leading-snug">
-                    Check TARI to let an incoming agent act instead of blocking it.
+                  <div className="text-xs md:text-sm text-white/75 leading-snug">
+                    A portable score for any agent, beyond the game.
                   </div>
                 </div>
                 <div className="flex-shrink-0 flex flex-wrap items-center justify-end gap-x-2 gap-y-1">
-                  <span className="text-[10px] text-white/65">Cloudflare</span>
+                  <span className="text-[10px] text-white/70">LangChain</span>
                   <span className="text-white/20">·</span>
-                  <span className="text-[10px] text-white/65">Platforms</span>
+                  <span className="text-[10px] text-white/70">CrewAI</span>
+                  <span className="text-white/20">·</span>
+                  <span className="text-[10px] text-white/70">AutoGen</span>
                 </div>
               </div>
 
-              {/* Bottom: Initial Focus band with two wedge cards */}
-              <div className="rounded-md border border-white/25 bg-black p-2.5 md:p-3">
-                <div className="text-[10px] tracking-[0.25em] uppercase text-white/55 font-medium mb-2 text-center">
+              {/* Rung 2 */}
+              <div className="rounded-md border border-white/12 bg-black px-4 md:px-5 py-2.5 md:py-3 flex items-center justify-between gap-4">
+                <div className="flex-1 min-w-0">
+                  <div className="text-[11px] tracking-[0.22em] uppercase text-[#A6FCFC] font-medium mb-0.5">
+                    Public Bureau — "Check TARI"
+                  </div>
+                  <div className="text-xs md:text-sm text-white/75 leading-snug">
+                    Every agent's score becomes public reputation.
+                  </div>
+                </div>
+                <div className="flex-shrink-0 flex flex-wrap items-center justify-end gap-x-2 gap-y-1">
+                  <span className="text-[10px] text-white/70">Players</span>
+                  <span className="text-white/20">·</span>
+                  <span className="text-[10px] text-white/70">Marketplaces</span>
+                  <span className="text-white/20">·</span>
+                  <span className="text-[10px] text-white/70">Buyers</span>
+                </div>
+              </div>
+
+              {/* Rung 1 — bottom, INITIAL FOCUS band, full width */}
+              <div className="rounded-md border border-amber-400/60 bg-black p-2.5 md:p-3">
+                <div className="text-[10px] tracking-[0.25em] uppercase text-amber-400/90 font-medium mb-2 text-center">
                   Initial Focus
                 </div>
-                <div className="grid grid-cols-2 gap-2 md:gap-2.5">
-                  <div className="rounded border border-white/15 bg-black px-3 py-2 flex items-center justify-between gap-3">
-                    <div className="flex-1 min-w-0">
-                      <div className="text-[10px] tracking-[0.22em] uppercase text-amber-400/90 font-medium">
-                        Wedge 01 · Lending & Credit
-                      </div>
-                      <div className="text-[11px] md:text-xs text-white/70 leading-snug">
-                        The credit oracle: score-gated rates vs a flat 200%.
-                      </div>
+                <div className="rounded border border-white/15 bg-black px-4 md:px-5 py-2.5 md:py-3 flex items-center justify-between gap-4">
+                  <div className="flex-1 min-w-0">
+                    <div className="text-[11px] tracking-[0.22em] uppercase text-amber-400 font-medium mb-0.5">
+                      The AMAI Arena · Consumer Game
                     </div>
-                    <div className="flex-shrink-0 flex flex-wrap items-center justify-end gap-x-1.5 gap-y-0.5">
-                      <span className="text-[10px] text-white/70">Aave</span>
-                      <span className="text-white/20">·</span>
-                      <span className="text-[10px] text-white/70">Morpho</span>
-                      <span className="text-white/20">·</span>
-                      <span className="text-[10px] text-white/70">Maple</span>
+                    <div className="text-xs md:text-sm text-white/85 leading-snug">
+                      Mint, battle, and score agents — bond capital, get slashed for misbehaving. This seeds the data.
                     </div>
                   </div>
-                  <div className="rounded border border-white/15 bg-black px-3 py-2 flex items-center justify-between gap-3">
-                    <div className="flex-1 min-w-0">
-                      <div className="text-[10px] tracking-[0.22em] uppercase text-amber-400/90 font-medium">
-                        Wedge 02 · Fleet Monitoring
-                      </div>
-                      <div className="text-[11px] md:text-xs text-white/70 leading-snug">
-                        Watch every agent you run, live day one.
-                      </div>
-                    </div>
-                    <div className="flex-shrink-0 flex flex-wrap items-center justify-end gap-x-1.5 gap-y-0.5">
-                      <span className="text-[10px] text-white/70">Enterprise</span>
-                      <span className="text-white/20">·</span>
-                      <span className="text-[10px] text-white/70">Cloudflare</span>
-                    </div>
+                  <div className="flex-shrink-0 flex flex-wrap items-center justify-end gap-x-2 gap-y-1">
+                    <span className="text-[10px] text-white/75">Players</span>
+                    <span className="text-white/20">·</span>
+                    <span className="text-[10px] text-white/75">Crypto-native retail</span>
                   </div>
                 </div>
               </div>
@@ -964,7 +947,7 @@ const Thesis = () => {
           </div>
 
           <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 text-center mt-8 md:mt-10">
-            Illustrative — markets served.
+            One TARI™ engine under every rung — the game mints the scores that become the rail.
           </p>
         </motion.div>
       </Slide>
