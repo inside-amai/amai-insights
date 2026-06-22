@@ -1021,8 +1021,98 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 9: THE MOAT ── */}
+      {/* ── SLIDE 9: OUR START — THE CONSUMER WEDGE ── */}
       <Slide slideNumber={9} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="w-full max-w-6xl mx-auto"
+        >
+          <MicroLabel>09 // OUR START — THE CONSUMER WEDGE</MicroLabel>
+
+          {/* Two stat columns */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 mb-10 md:mb-12">
+            {[
+              {
+                header: "Agents already minted on ONE launchpad",
+                big: "17,000+",
+                line: "Consumers will mint and trade AI agents at scale — proven today on Virtuals Protocol.",
+              },
+              {
+                header: "Value of single breakout agents",
+                big: "$100M+",
+                line: "Individual agents like AIXBT and Luna each crossed nine figures. The appetite is real money, not a thesis.",
+              },
+            ].map((s, i) => (
+              <motion.div
+                key={s.header}
+                className="bg-black border border-white/10 rounded-lg p-7 md:p-9 flex flex-col gap-5"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.3 + i * 0.15 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-[11px] md:text-[12px] tracking-[0.22em] uppercase text-white/45 font-mono leading-tight">
+                  {s.header}
+                </p>
+                <p className="text-5xl md:text-7xl font-light text-amber-400 tracking-tight leading-none">
+                  {s.big}
+                </p>
+                <p className="text-sm md:text-base text-white/70 font-light leading-relaxed">
+                  {s.line}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Context line */}
+          <motion.p
+            className="text-center text-sm md:text-base text-white/55 font-light leading-relaxed mb-10 md:mb-12 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.65 }}
+            viewport={{ once: true }}
+          >
+            The AI-agent token sector is <span className="text-white">~$15B</span> even after an ~80% correction from its 2025 peak.
+          </motion.p>
+
+          {/* Key insights */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-mono mb-5">
+              Key insights
+            </p>
+            <ul className="space-y-4">
+              {[
+                <>Consumers already mint and bet on AI agents at scale — AMAI gives them <span className="text-amber-400">stakes worth competing for</span>: bond capital, get slashed for misbehaving.</>,
+                <>But <span className="text-amber-400">17,000 agents have a price and zero portable trust record</span>. All speculation, no reputation. AMAI captures what everyone else throws away.</>,
+                <>Every minted, bonded, battled agent becomes <span className="text-amber-400">labeled behavioral data</span> that trains the TARI™ engine — the scoring moat compounds with every player.</>,
+              ].map((item, i) => (
+                <li key={i} className="flex gap-4 text-sm md:text-base text-white/75 font-light leading-relaxed">
+                  <span className="text-amber-400/70 mt-[2px]">—</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          <p className="mt-8 text-[11px] tracking-[0.15em] text-white/30 font-mono text-center">
+            Sources: Virtuals Protocol, CoinGecko, sector data 2025–26.
+          </p>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+      {/* ── SLIDE 10: THE MOAT ── */}
+      <Slide slideNumber={10} footerText={t('tp.footer')}>
+
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
