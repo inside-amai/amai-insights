@@ -954,8 +954,102 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 8: THE MOAT ── */}
+      {/* ── SLIDE 8: THE MARKET ── */}
       <Slide slideNumber={8} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="w-full max-w-6xl mx-auto"
+        >
+          <MicroLabel>08 // THE MARKET</MicroLabel>
+
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl font-light text-white leading-[1.18] tracking-tight text-center max-w-5xl mx-auto mb-12 md:mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            Scoring trust is a <span className="text-amber-400">$20B</span> business no one thinks about. Agents make it <span className="text-amber-400">structurally bigger</span>.
+          </motion.h2>
+
+          {/* Three stat blocks */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-10 md:mb-12">
+            {[
+              {
+                label: "THE PROVEN BUSINESS · HUMANS",
+                big: "$20B/yr · ~$70B value",
+                line: "Experian, Equifax, TransUnion & FICO — the quiet oligopoly that scores every human and business.",
+              },
+              {
+                label: "THE 1000× LEVER · CHECK FREQUENCY",
+                big: "A few / lifetime → 1000s / day",
+                line: "A human is scored a handful of times ever. An agent is checked before every transaction.",
+              },
+              {
+                label: "THE POPULATION · AGENTS",
+                big: "100 : 1",
+                line: "Nvidia projects ~100 agents per human worker. Salesforce is deploying 'billions.'",
+              },
+            ].map((b, i) => (
+              <motion.div
+                key={b.label}
+                className="bg-black border border-white/10 rounded-lg p-6 md:p-7 flex flex-col gap-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 + i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-[10px] md:text-[11px] tracking-[0.22em] uppercase text-white/40 font-mono leading-tight">
+                  {b.label}
+                </p>
+                <p className="text-2xl md:text-[28px] font-light text-amber-400 tracking-tight leading-[1.15]">
+                  {b.big}
+                </p>
+                <p className="text-sm md:text-base text-white/65 font-light leading-relaxed">
+                  {b.line}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Highlighted band */}
+          <motion.div
+            className="bg-black border-l-2 border-amber-400/70 border-y border-r border-white/10 rounded-r-lg px-6 md:px-8 py-5 md:py-6 mb-10 md:mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.7 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-sm md:text-base text-white/80 font-light leading-relaxed">
+              <span className="text-amber-400 font-medium">Already here</span> — bots are <span className="text-white font-medium">53% of web traffic</span>, <span className="text-white font-medium">40% of it malicious</span>, and AI-driven attacks rose <span className="text-white font-medium">12.5× in a single year</span>. "Which agent can I trust?" is already the dominant question online.
+            </p>
+          </motion.div>
+
+          {/* Closing line + footnote */}
+          <motion.div
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.9 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-lg md:text-2xl font-light text-white leading-snug max-w-4xl mx-auto">
+              AMAI is building the bureau for the <span className="text-amber-400">largest, most-frequently-checked population in history</span>.
+            </p>
+            <p className="mt-5 text-[11px] tracking-[0.15em] text-white/30 font-mono">
+              Sources: company filings 2025, McKinsey, Nvidia, Thales/Imperva 2025–26.
+            </p>
+          </motion.div>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+      {/* ── SLIDE 9: THE MOAT ── */}
+      <Slide slideNumber={9} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1069,7 +1163,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 9: THE FLYWHEEL ── */}
-      <Slide slideNumber={9} footerText={t('tp.footer')}>
+      <Slide slideNumber={10} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1259,7 +1353,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 10: THE ADOPTION PATH ── */}
-      <Slide slideNumber={10} footerText={t('tp.footer')}>
+      <Slide slideNumber={11} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1350,7 +1444,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 11: COMPETITIVE LANDSCAPE ── */}
-      <Slide slideNumber={11} footerText={t('tp.footer')}>
+      <Slide slideNumber={12} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1455,7 +1549,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 12: THE CUSTOMERS ── */}
-      <Slide slideNumber={12} footerText={t('tp.footer')}>
+      <Slide slideNumber={13} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1544,7 +1638,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 13: THE BUSINESS MODEL ── */}
-      <Slide slideNumber={13} footerText={t('tp.footer')}>
+      <Slide slideNumber={14} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1783,7 +1877,7 @@ const Thesis = () => {
 
 
       {/* ── SLIDE 14: WHY NOW ── */}
-      <Slide slideNumber={14} footerText={t('tp.footer')}>
+      <Slide slideNumber={15} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1871,7 +1965,7 @@ const Thesis = () => {
 
 
       {/* ── SLIDE 15: CLOSING ── */}
-      <Slide slideNumber={15} footerText={t('tp.footer')}>
+      <Slide slideNumber={16} footerText={t('tp.footer')}>
         {/* Constellation accent — same as hero */}
         <div className="absolute inset-0 pointer-events-none z-0">
           <motion.svg
@@ -1990,7 +2084,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 15: THE ROUND ── */}
-      <Slide slideNumber={16} footerText={t('tp.footer')}>
+      <Slide slideNumber={17} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
