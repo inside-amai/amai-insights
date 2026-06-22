@@ -966,7 +966,7 @@ const Thesis = () => {
           <MicroLabel>08 // THE MARKET</MicroLabel>
 
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl font-light text-white leading-[1.18] tracking-tight text-center max-w-5xl mx-auto mb-12 md:mb-16"
+            className="text-3xl sm:text-4xl md:text-5xl font-light text-white leading-[1.18] tracking-tight text-center max-w-5xl mx-auto mb-14 md:mb-20"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -975,58 +975,30 @@ const Thesis = () => {
             Scoring trust is a <span className="text-amber-400">$20B</span> business no one thinks about. Agents make it <span className="text-amber-400">structurally bigger</span>.
           </motion.h2>
 
-          {/* Three stat blocks */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-10 md:mb-12">
+          {/* Three expanding circles */}
+          <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-10 mb-12 md:mb-16">
             {[
-              {
-                label: "THE PROVEN BUSINESS · HUMANS",
-                big: "$20B/yr · ~$70B value",
-                line: "Experian, Equifax, TransUnion & FICO — the quiet oligopoly that scores every human and business.",
-              },
-              {
-                label: "THE 1000× LEVER · CHECK FREQUENCY",
-                big: "A few / lifetime → 1000s / day",
-                line: "A human is scored a handful of times ever. An agent is checked before every transaction.",
-              },
-              {
-                label: "THE POPULATION · AGENTS",
-                big: "100 : 1",
-                line: "Nvidia projects ~100 agents per human worker. Salesforce is deploying 'billions.'",
-              },
-            ].map((b, i) => (
+              { size: "w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48", numCls: "text-xl sm:text-2xl md:text-3xl", num: "$20B/yr", cap: "Trust scoring today — Experian, Equifax, TransUnion & FICO. Proven and high-margin, but only for humans." },
+              { size: "w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64", numCls: "text-2xl sm:text-3xl md:text-4xl", num: "$50B", cap: "The AI agent market by 2030 (~44% CAGR) — the population that will need scoring." },
+              { size: "w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80", numCls: "text-3xl sm:text-4xl md:text-5xl", num: "$3–5T", cap: "Agentic commerce by 2030 (McKinsey) — every transaction needs a trust check." },
+            ].map((c, i) => (
               <motion.div
-                key={b.label}
-                className="bg-black border border-white/10 rounded-lg p-6 md:p-7 flex flex-col gap-4"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 + i * 0.1 }}
+                key={c.num}
+                className="flex flex-col items-center"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.7, delay: 0.4 + i * 0.15 }}
                 viewport={{ once: true }}
               >
-                <p className="text-[10px] md:text-[11px] tracking-[0.22em] uppercase text-white/40 font-mono leading-tight">
-                  {b.label}
-                </p>
-                <p className="text-2xl md:text-[28px] font-light text-amber-400 tracking-tight leading-[1.15]">
-                  {b.big}
-                </p>
-                <p className="text-sm md:text-base text-white/65 font-light leading-relaxed">
-                  {b.line}
+                <div className={`${c.size} rounded-full border border-amber-400/60 bg-black flex items-center justify-center`}>
+                  <span className={`${c.numCls} font-light text-amber-400 tracking-tight`}>{c.num}</span>
+                </div>
+                <p className="mt-5 md:mt-6 text-xs sm:text-sm md:text-[15px] text-white/65 font-light leading-relaxed text-center max-w-[14rem] md:max-w-[16rem]">
+                  {c.cap}
                 </p>
               </motion.div>
             ))}
           </div>
-
-          {/* Highlighted band */}
-          <motion.div
-            className="bg-black border-l-2 border-amber-400/70 border-y border-r border-white/10 rounded-r-lg px-6 md:px-8 py-5 md:py-6 mb-10 md:mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.7 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-sm md:text-base text-white/80 font-light leading-relaxed">
-              <span className="text-amber-400 font-medium">Already here</span> — bots are <span className="text-white font-medium">53% of web traffic</span>, <span className="text-white font-medium">40% of it malicious</span>, and AI-driven attacks rose <span className="text-white font-medium">12.5× in a single year</span>. "Which agent can I trust?" is already the dominant question online.
-            </p>
-          </motion.div>
 
           {/* Closing line + footnote */}
           <motion.div
@@ -1037,12 +1009,13 @@ const Thesis = () => {
             viewport={{ once: true }}
           >
             <p className="text-lg md:text-2xl font-light text-white leading-snug max-w-4xl mx-auto">
-              AMAI is building the bureau for the <span className="text-amber-400">largest, most-frequently-checked population in history</span>.
+              An agent is checked <span className="text-amber-400">thousands of times more often</span> than a human — so the bureau underneath earns on every check. <span className="text-amber-400">AMAI scores the agents beneath all of it.</span>
             </p>
             <p className="mt-5 text-[11px] tracking-[0.15em] text-white/30 font-mono">
-              Sources: company filings 2025, McKinsey, Nvidia, Thales/Imperva 2025–26.
+              Illustrative, not to scale · Sources: company filings 2025, Grand View Research, McKinsey.
             </p>
           </motion.div>
+
         </motion.div>
       </Slide>
 
