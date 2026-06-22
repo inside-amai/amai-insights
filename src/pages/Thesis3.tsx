@@ -1122,7 +1122,7 @@ const Thesis = () => {
           className="max-w-4xl mx-auto text-center"
         >
           <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
-            07 // THE MOAT
+            10 // THE MOAT
           </p>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 leading-[1.15]"
@@ -1235,7 +1235,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto text-center"
         >
-          <MicroLabel>09 // THE FLYWHEEL</MicroLabel>
+          <MicroLabel>11 // THE FLYWHEEL</MicroLabel>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-6 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
@@ -1426,7 +1426,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto w-full"
         >
-          <MicroLabel>10 // THE LANDSCAPE</MicroLabel>
+          <MicroLabel>12 // THE LANDSCAPE</MicroLabel>
 
 
           <motion.h2
@@ -1532,7 +1532,7 @@ const Thesis = () => {
           className="max-w-6xl mx-auto w-full"
         >
           <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
-            11 // THE CUSTOMERS
+            13 // THE CUSTOMERS
           </p>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 leading-[1.1] tracking-tight text-center"
@@ -1621,7 +1621,7 @@ const Thesis = () => {
           className="max-w-6xl mx-auto"
         >
           <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
-            12 // THE BUSINESS MODEL
+            14 // THE BUSINESS MODEL
           </p>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 leading-[1.1] tracking-tight text-center"
@@ -1860,7 +1860,7 @@ const Thesis = () => {
           className="max-w-6xl mx-auto w-full"
         >
           <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
-            13 // WHY NOW
+            15 // WHY NOW
           </p>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 leading-[1.1] tracking-tight text-center"
@@ -2001,7 +2001,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            14 // THE VISION
+            16 // THE VISION
           </motion.p>
 
           <motion.img
@@ -2067,7 +2067,7 @@ const Thesis = () => {
           className="max-w-6xl mx-auto w-full px-6 md:px-16 text-center"
         >
           <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium text-center">
-            15 // THE ROUND
+            17 // THE ROUND
           </p>
 
           <motion.h2
