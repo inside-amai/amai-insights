@@ -549,7 +549,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.9 }}
             viewport={{ once: true }}
           >
-            Every counterparty asks the same question: can I trust this agent? TARI™ answers it in one number, before a dollar moves or a door opens.
+            Every counterparty asks the same question: can I trust this agent?<br />TARI™ answers it in one number, before a dollar moves or a door opens.
           </motion.p>
 
           <motion.p
