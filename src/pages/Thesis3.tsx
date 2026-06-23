@@ -1032,78 +1032,117 @@ const Thesis = () => {
         >
           <MicroLabel>09 // OUR START — THE CONSUMER WEDGE</MicroLabel>
 
-          {/* Two stat columns */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 mb-10 md:mb-12">
-            {[
-              {
-                header: "Agents already minted on ONE launchpad",
-                big: "17,000+",
-                line: "Consumers will mint and trade AI agents at scale — proven today on Virtuals Protocol.",
-              },
-              {
-                header: "Value of single breakout agents",
-                big: "$100M+",
-                line: "Individual agents like AIXBT and Luna each crossed nine figures. The appetite is real money, not a thesis.",
-              },
-            ].map((s, i) => (
-              <motion.div
-                key={s.header}
-                className="bg-black border border-white/10 rounded-lg p-7 md:p-9 flex flex-col gap-5"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.3 + i * 0.15 }}
-                viewport={{ once: true }}
-              >
-                <p className="text-[11px] md:text-[12px] tracking-[0.22em] uppercase text-white/45 font-mono leading-tight">
-                  {s.header}
-                </p>
-                <p className="text-5xl md:text-7xl font-light text-amber-400 tracking-tight leading-none">
-                  {s.big}
-                </p>
-                <p className="text-sm md:text-base text-white/70 font-light leading-relaxed">
-                  {s.line}
-                </p>
-              </motion.div>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-stretch">
+            {/* LEFT — demand proof */}
+            <motion.div
+              className="flex flex-col gap-6 md:gap-7"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-[11px] md:text-[12px] tracking-[0.22em] uppercase text-white/45 font-mono leading-tight">
+                The demand is already here
+              </p>
+              <h3 className="text-2xl md:text-3xl font-light text-white leading-tight tracking-tight">
+                Consumers already mint and bet on AI agents at scale
+              </h3>
+
+              <ul className="flex flex-col gap-4 mt-2">
+                {[
+                  { big: "17,000+", rest: "agents minted on one launchpad (Virtuals)." },
+                  { big: "$100M+", rest: "— single breakout agents (AIXBT, Luna)." },
+                  { big: "~$15B", rest: "sector even after an ~80% correction." },
+                ].map((s) => (
+                  <li key={s.big} className="flex items-baseline gap-3 border-t border-white/10 pt-4">
+                    <span className="text-2xl md:text-3xl font-light text-amber-400 tracking-tight leading-none whitespace-nowrap">
+                      {s.big}
+                    </span>
+                    <span className="text-sm md:text-base text-white/70 font-light leading-snug">
+                      {s.rest}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <p className="mt-3 text-base md:text-lg text-amber-400 font-light leading-relaxed">
+                …but every one of those agents has a price and zero portable trust record.
+              </p>
+            </motion.div>
+
+            {/* RIGHT — product preview */}
+            <motion.div
+              className="flex flex-col gap-4"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.35 }}
+              viewport={{ once: true }}
+            >
+              <div className="relative bg-black border border-white/15 rounded-lg overflow-hidden aspect-[4/3] flex items-center justify-center">
+                <div className="absolute top-3 left-3 text-[10px] tracking-[0.3em] uppercase text-amber-400/80 font-mono">
+                  Product preview
+                </div>
+                <div className="absolute top-3 right-3 flex gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-white/20" />
+                  <span className="w-2 h-2 rounded-full bg-white/20" />
+                  <span className="w-2 h-2 rounded-full bg-white/20" />
+                </div>
+                <div className="flex flex-col items-center gap-5 px-8 py-10 w-full">
+                  <p className="text-[10px] tracking-[0.3em] uppercase text-white/40 font-mono">
+                    AMAI Arena · Mint an agent
+                  </p>
+                  <p className="text-xl md:text-2xl font-light text-white/85 tracking-tight text-center">
+                    Choose your bonding tier
+                  </p>
+                  <div className="grid grid-cols-3 gap-3 w-full max-w-md">
+                    {[
+                      { tier: "BRONZE", amt: "0.1 ETH" },
+                      { tier: "SILVER", amt: "1 ETH", active: true },
+                      { tier: "GOLD", amt: "10 ETH" },
+                    ].map((t) => (
+                      <div
+                        key={t.tier}
+                        className={`border rounded-md p-3 flex flex-col items-center gap-1 ${
+                          t.active
+                            ? "border-amber-400/60 bg-amber-400/5"
+                            : "border-white/15 bg-white/[0.02]"
+                        }`}
+                      >
+                        <span className="text-[9px] tracking-[0.2em] text-white/50 font-mono">
+                          {t.tier}
+                        </span>
+                        <span className={`text-sm font-light ${t.active ? "text-amber-400" : "text-white/70"}`}>
+                          {t.amt}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="w-full max-w-md border border-amber-400/40 rounded-md py-2 text-center text-xs tracking-[0.2em] uppercase text-amber-400 font-mono">
+                    Bond &amp; Mint Agent
+                  </div>
+                  <p className="text-[10px] text-white/35 font-mono text-center max-w-xs leading-relaxed">
+                    Higher bond = higher trust ceiling. Misbehavior = slashed stake.
+                  </p>
+                </div>
+              </div>
+              <p className="text-sm md:text-base text-white/70 font-light leading-relaxed">
+                We built the arena that captures it — <span className="text-white">mint an agent, bond capital, get slashed for misbehaving</span>. Every play becomes a scored, portable record.
+              </p>
+            </motion.div>
           </div>
 
-          {/* Context line */}
           <motion.p
-            className="text-center text-sm md:text-base text-white/55 font-light leading-relaxed mb-10 md:mb-12 max-w-3xl mx-auto"
+            className="text-center text-base md:text-lg text-white font-light leading-relaxed mt-10 md:mt-12 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.65 }}
+            transition={{ duration: 0.7, delay: 0.7 }}
             viewport={{ once: true }}
           >
-            The AI-agent token sector is <span className="text-white">~$15B</span> even after an ~80% correction from its 2025 peak.
+            Same viral loop as the launchpads. The difference: <span className="text-amber-400">ours produces TARI™</span>.
           </motion.p>
 
-          {/* Key insights */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-mono mb-5">
-              Key insights
-            </p>
-            <ul className="space-y-4">
-              {[
-                <>Consumers already mint and bet on AI agents at scale — AMAI gives them <span className="text-amber-400">stakes worth competing for</span>: bond capital, get slashed for misbehaving.</>,
-                <>But <span className="text-amber-400">17,000 agents have a price and zero portable trust record</span>. All speculation, no reputation. AMAI captures what everyone else throws away.</>,
-                <>Every minted, bonded, battled agent becomes <span className="text-amber-400">labeled behavioral data</span> that trains the TARI™ engine — the scoring moat compounds with every player.</>,
-              ].map((item, i) => (
-                <li key={i} className="flex gap-4 text-sm md:text-base text-white/75 font-light leading-relaxed">
-                  <span className="text-amber-400/70 mt-[2px]">—</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          <p className="mt-8 text-[11px] tracking-[0.15em] text-white/30 font-mono text-center">
-            Sources: Virtuals Protocol, CoinGecko, sector data 2025–26.
+          <p className="mt-6 text-[11px] tracking-[0.15em] text-white/30 font-mono text-center">
+            Sources: Virtuals Protocol, CoinGecko 2025–26 · product preview, pre-launch.
           </p>
         </motion.div>
       </Slide>
