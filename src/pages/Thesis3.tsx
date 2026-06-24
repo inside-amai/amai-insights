@@ -19,7 +19,7 @@ interface SlideProps {
   footerText?: string;
 }
 
-const TOTAL_SLIDES = 17;
+const TOTAL_SLIDES = 13;
 
 const Slide = ({ children, className = "", slideNumber, footerText = "AMAI Labs · Infrastructure & Research" }: SlideProps) => (
   <section
@@ -866,7 +866,7 @@ const Thesis = () => {
 
 
       {/* ── SLIDE 10: THE MOAT ── */}
-      <Slide slideNumber={10} footerText={t('tp.footer')}>
+      <Slide slideNumber={8} footerText={t('tp.footer')}>
 
 
         <motion.div
@@ -984,7 +984,7 @@ const Thesis = () => {
 
 
       {/* ── SLIDE 11: COMPETITIVE LANDSCAPE ── */}
-      <Slide slideNumber={12} footerText={t('tp.footer')}>
+      <Slide slideNumber={9} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -992,7 +992,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto w-full"
         >
-          <MicroLabel>12 // THE LANDSCAPE</MicroLabel>
+          <MicroLabel>09 // THE LANDSCAPE</MicroLabel>
 
 
           <motion.h2
@@ -1090,7 +1090,7 @@ const Thesis = () => {
 
 
       {/* ── SLIDE 13: THE BUSINESS MODEL ── */}
-      <Slide slideNumber={14} footerText={t('tp.footer')}>
+      <Slide slideNumber={10} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1329,7 +1329,7 @@ const Thesis = () => {
 
 
       {/* ── SLIDE 14: WHY NOW ── */}
-      <Slide slideNumber={15} footerText={t('tp.footer')}>
+      <Slide slideNumber={11} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1417,7 +1417,7 @@ const Thesis = () => {
 
 
       {/* ── SLIDE 15: CLOSING ── */}
-      <Slide slideNumber={16} footerText={t('tp.footer')}>
+      <Slide slideNumber={12} footerText={t('tp.footer')}>
         {/* Constellation accent — same as hero */}
         <div className="absolute inset-0 pointer-events-none z-0">
           <motion.svg
@@ -1536,7 +1536,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 15: THE ROUND ── */}
-      <Slide slideNumber={17} footerText={t('tp.footer')}>
+      <Slide slideNumber={13} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
