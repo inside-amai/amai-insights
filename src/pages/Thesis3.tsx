@@ -864,8 +864,116 @@ const Thesis = () => {
       <SlideDivider />
 
 
+      {/* ── SLIDE 8: THE AUTONOMOUS ECONOMY ── */}
+      <Slide slideNumber={8} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="max-w-5xl mx-auto"
+        >
+          <MicroLabel>08 // THE AUTONOMOUS ECONOMY</MicroLabel>
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 leading-[1.15] text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            The Autonomous Economy
+          </motion.h2>
+          <motion.p
+            className="text-base md:text-lg text-white/50 font-light text-center max-w-2xl mx-auto mb-14 md:mb-20"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.35 }}
+            viewport={{ once: true }}
+          >
+            Capital is flooding the agentic layer. But capital requires trust.
+          </motion.p>
 
-      {/* ── SLIDE 10: THE MOAT ── */}
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-10 md:gap-12 items-start">
+            {/* LEFT: Two stacked stats */}
+            <div className="md:col-span-3 flex flex-col gap-12 md:gap-16">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <h3
+                  className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight tracking-tight leading-none mb-3"
+                  style={{
+                    background: 'linear-gradient(135deg, #a0d2ff 0%, #60b8ff 40%, #c0e0ff 70%, #a0d2ff 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                  }}
+                >
+                  $3–5 Trillion
+                </h3>
+                <p className="text-xs md:text-sm text-white/40 font-light leading-relaxed max-w-md">
+                  Projected global agentic commerce orchestrated by AI agents by 2030.{' '}
+                  <span className="text-white/25 font-mono text-[10px]">(Source: McKinsey)</span>
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.7 }}
+                viewport={{ once: true }}
+              >
+                <h3
+                  className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight tracking-tight leading-none mb-3"
+                  style={{
+                    background: 'linear-gradient(135deg, #80c0ff 0%, #4da8ff 40%, #b0d8ff 70%, #80c0ff 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                  }}
+                >
+                  $1 Trillion
+                </h3>
+                <p className="text-xs md:text-sm text-white/40 font-light leading-relaxed max-w-md">
+                  Projected U.S. B2C retail revenue orchestrated by AI agents by 2030.{' '}
+                  <span className="text-white/25 font-mono text-[10px]">(Source: ICSC & McKinsey)</span>
+                </p>
+              </motion.div>
+            </div>
+
+            {/* RIGHT: Narrative panel */}
+            <motion.div
+              className="md:col-span-2 bg-white/[0.03] border border-white/[0.08] rounded-xl p-6 md:p-8 backdrop-blur-sm"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.9 }}
+              viewport={{ once: true }}
+            >
+              <h4 className="text-lg md:text-xl font-light text-white mb-4 leading-snug">
+                The Trillion-Dollar Bottleneck
+              </h4>
+              <div className="w-10 h-px bg-gradient-to-r from-[#60b8ff]/40 to-transparent mb-5" />
+              <p className="text-sm md:text-[15px] text-white/45 font-light leading-[1.75]">
+                AWS shipped Amazon Bedrock AgentCore Payments with <strong>Coinbase</strong> and <strong>Stripe</strong>. AP2 standardized agent payment rails. Microsoft shipped Agent 365.
+              </p>
+              <p className="mt-4 text-sm md:text-[15px] text-white/55 font-light leading-[1.75]">
+                What's missing: the trust layer that decides which agents you let transact with you.
+              </p>
+              <p className="mt-4 text-sm md:text-[15px] text-white font-light leading-[1.75]">
+                The market cannot scale until the agent can be underwritten.
+              </p>
+            </motion.div>
+          </div>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+
+
+      {/* ── SLIDE 9: THE MOAT ── */}
+
       <Slide slideNumber={9} footerText={t('tp.footer')}>
 
 
