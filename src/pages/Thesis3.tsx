@@ -770,8 +770,120 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 8: THE AUTONOMOUS ECONOMY ── */}
+      {/* ── SLIDE 13: THE BUSINESS MODEL ── */}
       <Slide slideNumber={7} footerText={t('tp.footer')}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="max-w-6xl mx-auto"
+        >
+          <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
+            10 // GROWTH + MODEL
+          </p>
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 leading-[1.1] tracking-tight text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            Bottom-Up Adoption.
+            <br />
+            <span className="text-white/60">Top-Down Monetization.</span>
+          </motion.h2>
+          <motion.p
+            className="text-sm md:text-base lg:text-lg text-white/50 font-light mb-14 md:mb-20 max-w-2xl mx-auto text-center leading-relaxed"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            Free distribution captures the data. The verification rail monetizes at scale.
+          </motion.p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+            {/* LEFT: HOW WE SPREAD */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-[10px] tracking-[0.3em] uppercase text-[rgba(166,252,252,0.6)] font-mono mb-6">
+                HOW WE SPREAD
+              </p>
+              <ol className="space-y-5">
+                {[
+                  ['Free SDK + Benchmark', 'Devs install for their own monitoring; reputation accrues as a side effect.'],
+                  ['Public Bureau Lookup', '"Check TARI™" becomes the routine pull before trusting any agent.'],
+                  ['Enterprise + Regulatory Mandate', 'One Fortune 1000 contract = thousands of installs; EU AI Act makes it the path of least resistance.'],
+                  ['Framework Default Integrations', 'Ships as a default in LangChain, CrewAI, AutoGen, NeMo. OpenTelemetry-style ubiquity.'],
+                ].map(([title, body], i) => (
+                  <li key={i} className="flex gap-4">
+                    <span className="text-[10px] font-mono text-white/30 pt-1 w-5 shrink-0">0{i + 1}</span>
+                    <div>
+                      <h4 className="text-base md:text-lg text-white font-medium leading-snug mb-1">{title}</h4>
+                      <p className="text-sm text-white/55 font-light leading-relaxed">{body}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </motion.div>
+
+            {/* RIGHT: HOW WE MONETIZE */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-[10px] tracking-[0.3em] uppercase text-[rgba(214,166,252,0.65)] font-mono mb-6">
+                HOW WE MONETIZE
+              </p>
+              <div className="space-y-4">
+                <div className="bg-black border border-white/10 rounded-xl p-5 md:p-6">
+                  <p className="text-[10px] tracking-[0.25em] uppercase text-[rgba(166,252,252,0.55)] font-mono mb-2">
+                    THE DEVELOPER
+                  </p>
+                  <h3 className="text-lg md:text-xl font-light text-white mb-2">
+                    SDK + Usage Subscription
+                  </h3>
+                  <p className="text-sm text-white/55 font-light leading-relaxed">
+                    Free tier: 10,000 evaluations / month. Beyond that, usage-scaled.
+                  </p>
+                </div>
+                <div className="bg-black border border-white/10 rounded-xl p-5 md:p-6">
+                  <p className="text-[10px] tracking-[0.25em] uppercase text-[rgba(214,166,252,0.6)] font-mono mb-2">
+                    THE ENTERPRISE
+                  </p>
+                  <h3 className="text-lg md:text-xl font-light text-white mb-2">
+                    Platform Subscription
+                  </h3>
+                  <p className="text-sm text-white/55 font-light leading-relaxed">
+                    Fleet monitoring, policy enforcement, and compliance dashboards.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          <motion.p
+            className="text-center text-sm md:text-base text-white/50 font-light mt-12 md:mt-16 max-w-3xl mx-auto leading-relaxed tracking-tight"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
+            viewport={{ once: true }}
+          >
+            Free tier captures the data. Subscription tiers monetize the rail.
+          </motion.p>
+        </motion.div>
+      </Slide>
+
+      <SlideDivider />
+      {/* ── SLIDE 8: THE AUTONOMOUS ECONOMY ── */}
+      <Slide slideNumber={8} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -875,7 +987,7 @@ const Thesis = () => {
 
       {/* ── SLIDE 9: THE MOAT ── */}
 
-      <Slide slideNumber={8} footerText={t('tp.footer')}>
+      <Slide slideNumber={9} footerText={t('tp.footer')}>
 
 
         <motion.div
@@ -993,7 +1105,7 @@ const Thesis = () => {
 
 
       {/* ── SLIDE 11: COMPETITIVE LANDSCAPE ── */}
-      <Slide slideNumber={9} footerText={t('tp.footer')}>
+      <Slide slideNumber={10} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1098,118 +1210,6 @@ const Thesis = () => {
       <SlideDivider />
 
 
-      {/* ── SLIDE 13: THE BUSINESS MODEL ── */}
-      <Slide slideNumber={10} footerText={t('tp.footer')}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-          className="max-w-6xl mx-auto"
-        >
-          <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
-            10 // GROWTH + MODEL
-          </p>
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 leading-[1.1] tracking-tight text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            Bottom-Up Adoption.
-            <br />
-            <span className="text-white/60">Top-Down Monetization.</span>
-          </motion.h2>
-          <motion.p
-            className="text-sm md:text-base lg:text-lg text-white/50 font-light mb-14 md:mb-20 max-w-2xl mx-auto text-center leading-relaxed"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            Free distribution captures the data. The verification rail monetizes at scale.
-          </motion.p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
-            {/* LEFT: HOW WE SPREAD */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              viewport={{ once: true }}
-            >
-              <p className="text-[10px] tracking-[0.3em] uppercase text-[rgba(166,252,252,0.6)] font-mono mb-6">
-                HOW WE SPREAD
-              </p>
-              <ol className="space-y-5">
-                {[
-                  ['Free SDK + Benchmark', 'Devs install for their own monitoring; reputation accrues as a side effect.'],
-                  ['Public Bureau Lookup', '"Check TARI™" becomes the routine pull before trusting any agent.'],
-                  ['Enterprise + Regulatory Mandate', 'One Fortune 1000 contract = thousands of installs; EU AI Act makes it the path of least resistance.'],
-                  ['Framework Default Integrations', 'Ships as a default in LangChain, CrewAI, AutoGen, NeMo. OpenTelemetry-style ubiquity.'],
-                ].map(([title, body], i) => (
-                  <li key={i} className="flex gap-4">
-                    <span className="text-[10px] font-mono text-white/30 pt-1 w-5 shrink-0">0{i + 1}</span>
-                    <div>
-                      <h4 className="text-base md:text-lg text-white font-medium leading-snug mb-1">{title}</h4>
-                      <p className="text-sm text-white/55 font-light leading-relaxed">{body}</p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </motion.div>
-
-            {/* RIGHT: HOW WE MONETIZE */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-              viewport={{ once: true }}
-            >
-              <p className="text-[10px] tracking-[0.3em] uppercase text-[rgba(214,166,252,0.65)] font-mono mb-6">
-                HOW WE MONETIZE
-              </p>
-              <div className="space-y-4">
-                <div className="bg-black border border-white/10 rounded-xl p-5 md:p-6">
-                  <p className="text-[10px] tracking-[0.25em] uppercase text-[rgba(166,252,252,0.55)] font-mono mb-2">
-                    THE DEVELOPER
-                  </p>
-                  <h3 className="text-lg md:text-xl font-light text-white mb-2">
-                    SDK + Usage Subscription
-                  </h3>
-                  <p className="text-sm text-white/55 font-light leading-relaxed">
-                    Free tier: 10,000 evaluations / month. Beyond that, usage-scaled.
-                  </p>
-                </div>
-                <div className="bg-black border border-white/10 rounded-xl p-5 md:p-6">
-                  <p className="text-[10px] tracking-[0.25em] uppercase text-[rgba(214,166,252,0.6)] font-mono mb-2">
-                    THE ENTERPRISE
-                  </p>
-                  <h3 className="text-lg md:text-xl font-light text-white mb-2">
-                    Platform Subscription
-                  </h3>
-                  <p className="text-sm text-white/55 font-light leading-relaxed">
-                    Fleet monitoring, policy enforcement, and compliance dashboards.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-
-          <motion.p
-            className="text-center text-sm md:text-base text-white/50 font-light mt-12 md:mt-16 max-w-3xl mx-auto leading-relaxed tracking-tight"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            viewport={{ once: true }}
-          >
-            Free tier captures the data. Subscription tiers monetize the rail.
-          </motion.p>
-        </motion.div>
-      </Slide>
-
-      <SlideDivider />
 
 
       {/* ── SLIDE 14: WHY NOW ── */}
