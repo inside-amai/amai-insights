@@ -1479,14 +1479,14 @@ const Thesis = () => {
             ].map((s, i) => (
               <div
                 key={s.label}
-                className={`bg-black px-4 py-6 md:py-8 flex flex-col items-center gap-3 ${
+                className={`bg-black px-4 py-4 md:py-5 flex flex-col items-center gap-2 ${
                   i > 0 ? 'border-t md:border-t-0 md:border-l border-white/10' : ''
                 }`}
               >
                 <span className="text-[10px] md:text-xs tracking-[0.2em] uppercase text-white/40 font-light">
                   {s.label}
                 </span>
-                <span className="whitespace-nowrap text-3xl md:text-4xl lg:text-5xl xl:text-[56px] font-light text-cyan-accent leading-none">
+                <span className="whitespace-nowrap text-2xl md:text-3xl lg:text-4xl xl:text-[44px] font-light text-cyan-accent leading-none">
                   {s.value}
                 </span>
               </div>
