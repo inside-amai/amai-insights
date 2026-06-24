@@ -358,42 +358,6 @@ const Thesis = () => {
             </p>
           </motion.div>
 
-          {/* Bottom: Two comparison columns */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mt-8 md:mt-10 pt-8 md:pt-10 border-t border-white/[0.08]">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.45 }}
-              viewport={{ once: true }}
-            >
-              <p className="text-xs tracking-[0.2em] uppercase text-white/40 font-medium mb-3">
-                Trust it
-              </p>
-              <p className="text-3xl md:text-4xl lg:text-5xl font-extralight text-white tracking-tight leading-[1.05] mb-3">
-                100% exposed
-              </p>
-              <p className="text-sm md:text-base text-white/40 font-light leading-relaxed max-w-sm">
-                Extend the credit or hand over access, and whatever the agent does — defaults, drains, goes rogue — the loss is yours.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <p className="text-xs tracking-[0.2em] uppercase text-white/40 font-medium mb-3">
-                Don't Trust It
-              </p>
-              <p className="text-3xl md:text-4xl lg:text-5xl font-extralight text-white tracking-tight leading-[1.05] mb-3">
-                0% useful
-              </p>
-              <p className="text-sm md:text-base text-white/40 font-light leading-relaxed max-w-sm">
-                Hold it back, and it can't touch anything that matters — so it never does the job you got it for.
-              </p>
-            </motion.div>
-          </div>
         </div>
       </Slide>
 
