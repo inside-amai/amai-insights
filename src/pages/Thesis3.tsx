@@ -952,17 +952,12 @@ const Thesis = () => {
               viewport={{ once: true }}
             >
               <h4 className="text-lg md:text-xl font-light text-white mb-4 leading-snug">
-                The Trillion-Dollar Bottleneck
+                The Proven Business
               </h4>
               <div className="w-10 h-px bg-gradient-to-r from-[#60b8ff]/40 to-transparent mb-5" />
-              <p className="text-sm md:text-[15px] text-white/45 font-light leading-[1.75]">
-                AWS shipped Amazon Bedrock AgentCore Payments with <strong>Coinbase</strong> and <strong>Stripe</strong>. AP2 standardized agent payment rails. Microsoft shipped Agent 365.
-              </p>
-              <p className="mt-4 text-sm md:text-[15px] text-white/55 font-light leading-[1.75]">
-                What's missing: the trust layer that decides which agents you let transact with you.
-              </p>
-              <p className="mt-4 text-sm md:text-[15px] text-white font-light leading-[1.75]">
-                The market cannot scale until the agent can be underwritten.
+              <p className="text-sm md:text-[15px] text-white/55 font-light leading-[1.75]">
+                Scoring trust is already a $20B-a-year business. Experian, Equifax, TransUnion & FICO quietly earn ~$20B annually and are worth $70B+ combined — just scoring humans and businesses.{' '}
+                <strong className="text-white font-normal">Agents need the same: a far larger population, checked thousands of times more often.</strong>
               </p>
             </motion.div>
           </div>
