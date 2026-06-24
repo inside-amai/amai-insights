@@ -660,7 +660,7 @@ const Thesis = () => {
             {t('tp.s8t.h')}
           </motion.h2>
           <motion.p
-            className="text-sm md:text-base text-white/40 font-light mb-8 md:mb-10 max-w-2xl mx-auto text-center whitespace-pre-line"
+            className="text-sm md:text-base text-white/40 font-light mb-8 md:mb-10 max-w-5xl mx-auto text-center whitespace-pre-line"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
