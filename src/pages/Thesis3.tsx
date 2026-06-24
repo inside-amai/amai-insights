@@ -1431,7 +1431,7 @@ const Thesis = () => {
           <motion.img
             src={amaiLogo}
             alt="AMAI"
-            className="mx-auto h-8 md:h-10 w-auto opacity-90 mb-8"
+            className="mx-auto h-6 md:h-8 w-auto opacity-90 mb-4"
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 0.9, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
