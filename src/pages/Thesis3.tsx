@@ -1428,33 +1428,45 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto w-full px-6 md:px-16 text-center"
         >
-          <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium text-center">
-            13 // THE ROUND
-          </p>
+          <motion.img
+            src={amaiLogo}
+            alt="AMAI"
+            className="mx-auto h-8 md:h-10 w-auto opacity-90 mb-8"
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{ opacity: 0.9, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          />
 
           <motion.h2
-            className="mt-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white leading-[1.1] tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white leading-[1.1] tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Closing The Round.
+            Autonomy Needs Infrastructure.
+            <br />
+            <span className="text-white/60">We're Building It.</span>
           </motion.h2>
 
           <motion.p
-            className="mt-6 text-base md:text-lg lg:text-[22px] text-white/60 font-light"
+            className="mt-6 text-sm md:text-base lg:text-lg text-white/45 font-light max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            $4M raise · $26.5M cap · 20% discount
+            By 2030, trillions will move between agents and counterparties — every minute, every market. None of it works without a trust rail. We're raising to build it.
           </motion.p>
+
+          <p className="mt-16 md:mt-20 text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium text-center">
+            13 // THE ROUND
+          </p>
 
           {/* Stat row */}
           <motion.div
-            className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-3 bg-black border border-white/10"
+            className="mt-8 md:mt-10 grid grid-cols-1 md:grid-cols-3 bg-black border border-white/10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
