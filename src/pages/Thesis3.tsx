@@ -1431,7 +1431,7 @@ const Thesis = () => {
           <motion.img
             src={amaiLogo}
             alt="AMAI"
-            className="mx-auto h-8 md:h-10 w-auto opacity-90 mb-8"
+            className="mx-auto h-6 md:h-8 w-auto opacity-90 mb-4"
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 0.9, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -1439,7 +1439,7 @@ const Thesis = () => {
           />
 
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white leading-[1.1] tracking-tight"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-white leading-[1.1] tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -1451,7 +1451,7 @@ const Thesis = () => {
           </motion.h2>
 
           <motion.p
-            className="mt-6 text-sm md:text-base lg:text-lg text-white/45 font-light max-w-3xl mx-auto leading-relaxed"
+            className="mt-4 text-sm md:text-base text-white/45 font-light max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
@@ -1460,13 +1460,13 @@ const Thesis = () => {
             By 2030, trillions will move between agents and counterparties — every minute, every market. None of it works without a trust rail. We're raising to build it.
           </motion.p>
 
-          <p className="mt-16 md:mt-20 text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium text-center">
+          <p className="mt-8 md:mt-10 text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium text-center">
             13 // THE ROUND
           </p>
 
           {/* Stat row */}
           <motion.div
-            className="mt-8 md:mt-10 grid grid-cols-1 md:grid-cols-3 bg-black border border-white/10"
+            className="mt-5 md:mt-6 grid grid-cols-1 md:grid-cols-3 bg-black border border-white/10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
@@ -1479,14 +1479,14 @@ const Thesis = () => {
             ].map((s, i) => (
               <div
                 key={s.label}
-                className={`bg-black px-4 py-6 md:py-8 flex flex-col items-center gap-3 ${
+                className={`bg-black px-4 py-4 md:py-5 flex flex-col items-center gap-2 ${
                   i > 0 ? 'border-t md:border-t-0 md:border-l border-white/10' : ''
                 }`}
               >
                 <span className="text-[10px] md:text-xs tracking-[0.2em] uppercase text-white/40 font-light">
                   {s.label}
                 </span>
-                <span className="whitespace-nowrap text-3xl md:text-4xl lg:text-5xl xl:text-[56px] font-light text-cyan-accent leading-none">
+                <span className="whitespace-nowrap text-2xl md:text-3xl lg:text-4xl xl:text-[44px] font-light text-cyan-accent leading-none">
                   {s.value}
                 </span>
               </div>
@@ -1495,16 +1495,16 @@ const Thesis = () => {
 
           {/* Use of Funds */}
           <motion.div
-            className="mt-14 md:mt-20"
+            className="mt-8 md:mt-10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
             viewport={{ once: true }}
           >
-            <div className="text-[10px] md:text-xs tracking-[0.25em] uppercase text-white/40 font-light mb-8 md:mb-10">
+            <div className="text-[10px] md:text-xs tracking-[0.25em] uppercase text-white/40 font-light mb-5 md:mb-6">
               USE OF FUNDS
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-6">
               {[
                 { pct: '60%', title: 'Engineering & Research', desc: 'Senior infrastructure + AI research hires' },
                 { pct: '15%', title: 'Platform GA', desc: 'SDK launch + scoring engine production release' },
@@ -1512,13 +1512,13 @@ const Thesis = () => {
                 { pct: '10%', title: 'Operations & Runway', desc: 'G&A + buffer to Series A milestones' },
               ].map((f) => (
                 <div key={f.title} className="flex flex-col items-center text-center px-2">
-                  <span className="text-3xl md:text-4xl lg:text-5xl font-light text-cyan-accent leading-none">
+                  <span className="text-2xl md:text-3xl lg:text-4xl font-light text-cyan-accent leading-none">
                     {f.pct}
                   </span>
-                  <span className="mt-4 text-sm md:text-base text-white font-light tracking-wide">
+                  <span className="mt-2 text-sm md:text-base text-white font-light tracking-wide">
                     {f.title}
                   </span>
-                  <span className="mt-2 text-xs md:text-sm text-white/50 font-light leading-snug">
+                  <span className="mt-1 text-xs md:text-sm text-white/50 font-light leading-snug">
                     {f.desc}
                   </span>
                 </div>
