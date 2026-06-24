@@ -1207,7 +1207,7 @@ const Thesis = () => {
           className="max-w-6xl mx-auto"
         >
           <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
-            14 // THE BUSINESS MODEL
+            11 // GROWTH + MODEL
           </p>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 leading-[1.1] tracking-tight text-center"
@@ -1227,208 +1227,83 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Capture the data layer for free. Monetize the verification rail at scale.
+            Free distribution captures the data. The verification rail monetizes at scale.
           </motion.p>
 
-          {/* Two-pillar layout with bridge */}
-          <div className="relative grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-0">
-
-            {/* ── LEFT PILLAR: Ubiquitous Distribution ── */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+            {/* LEFT: HOW WE SPREAD */}
             <motion.div
-              className="relative bg-black border border-white/10 rounded-xl p-6 md:p-8 md:mr-12 flex flex-col"
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
               viewport={{ once: true }}
             >
-              {/* Node network visual */}
-              <div className="relative w-full h-40 md:h-52 mb-6 overflow-hidden rounded-lg">
-                <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent" />
-                <svg viewBox="0 0 400 200" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
-                  <defs>
-                    <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
-                      <stop offset="0%" stopColor="rgba(166,252,252,0.15)" />
-                      <stop offset="100%" stopColor="rgba(166,252,252,0)" />
-                    </radialGradient>
-                  </defs>
-                  {/* Central glow */}
-                  <circle cx="200" cy="100" r="80" fill="url(#nodeGlow)" />
-                  {/* Nodes */}
-                  {[
-                    [200,100],[140,60],[260,60],[120,120],[280,120],[160,160],[240,160],
-                    [80,80],[320,80],[80,140],[320,140],[200,40],[200,170],
-                    [100,50],[300,50],[60,100],[340,100],[100,170],[300,170],
-                    [170,80],[230,80],[170,130],[230,130],
-                    [40,60],[360,60],[40,150],[360,150],
-                  ].map(([cx, cy], i) => (
-                    <React.Fragment key={i}>
-                      <motion.circle
-                        cx={cx} cy={cy} r={i < 7 ? 3 : i < 13 ? 2 : 1.5}
-                        fill={i < 7 ? "rgba(166,252,252,0.7)" : "rgba(255,255,255,0.3)"}
-                        animate={{ opacity: [0.4, 1, 0.4], scale: [0.8, 1.1, 0.8] }}
-                        transition={{ duration: 2 + Math.random() * 2, repeat: Infinity, delay: Math.random() * 2 }}
-                      />
-                    </React.Fragment>
-                  ))}
-                  {/* Connection lines */}
-                  {[
-                    [200,100,140,60],[200,100,260,60],[200,100,120,120],[200,100,280,120],
-                    [200,100,160,160],[200,100,240,160],[140,60,80,80],[260,60,320,80],
-                    [120,120,80,140],[280,120,320,140],[140,60,100,50],[260,60,300,50],
-                    [80,80,40,60],[320,80,360,60],[80,140,40,150],[320,140,360,150],
-                    [160,160,100,170],[240,160,300,170],[200,40,170,80],[200,40,230,80],
-                    [200,170,170,130],[200,170,230,130],
-                  ].map(([x1,y1,x2,y2], i) => (
-                    <motion.line
-                      key={`l${i}`} x1={x1} y1={y1} x2={x2} y2={y2}
-                      stroke="rgba(166,252,252,0.12)" strokeWidth="0.8"
-                      animate={{ opacity: [0.3, 0.8, 0.3] }}
-                      transition={{ duration: 3 + Math.random() * 2, repeat: Infinity, delay: Math.random() }}
-                    />
-                  ))}
-                </svg>
-              </div>
-
-              <p className="text-[10px] tracking-[0.25em] uppercase text-[rgba(166,252,252,0.5)] font-mono mb-3">
-                THE DEVELOPER
+              <p className="text-[10px] tracking-[0.3em] uppercase text-[rgba(166,252,252,0.6)] font-mono mb-6">
+                HOW WE SPREAD
               </p>
-              <h3 className="text-xl md:text-2xl font-light text-white mb-3">
-                SDK + Usage Subscription
-              </h3>
-              <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono mb-4">FREE TIER · USAGE-SCALED</p>
-              <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">
-                Zero-Trust SDK is free to install. Every agent gets 10,000 evaluations per month. Beyond that, developers convert to a usage-scaled subscription.
-              </p>
+              <ol className="space-y-5">
+                {[
+                  ['Free SDK + Benchmark', 'Devs install for their own monitoring; reputation accrues as a side effect.'],
+                  ['Public Bureau Lookup', '"Check TARI™" becomes the routine pull before trusting any agent.'],
+                  ['Enterprise + Regulatory Mandate', 'One Fortune 1000 contract = thousands of installs; EU AI Act makes it the path of least resistance.'],
+                  ['Framework Default Integrations', 'Ships as a default in LangChain, CrewAI, AutoGen, NeMo. OpenTelemetry-style ubiquity.'],
+                ].map(([title, body], i) => (
+                  <li key={i} className="flex gap-4">
+                    <span className="text-[10px] font-mono text-white/30 pt-1 w-5 shrink-0">0{i + 1}</span>
+                    <div>
+                      <h4 className="text-base md:text-lg text-white font-medium leading-snug mb-1">{title}</h4>
+                      <p className="text-sm text-white/55 font-light leading-relaxed">{body}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
             </motion.div>
 
-            {/* ── CENTER BRIDGE (desktop only) ── */}
-            <div className="hidden md:flex absolute inset-y-0 left-1/2 -translate-x-1/2 w-24 items-center justify-center z-20 pointer-events-none">
-              <div className="relative h-full flex flex-col items-center justify-center">
-                {/* Vertical glowing stream */}
-                <div className="absolute inset-y-[10%] w-px bg-gradient-to-b from-transparent via-[rgba(166,252,252,0.3)] to-transparent" />
-                {/* Animated data particles */}
-                {[0, 1, 2, 3, 4].map((i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute w-1.5 h-1.5 rounded-full bg-[rgba(166,252,252,0.6)]"
-                    style={{ left: '50%', marginLeft: '-3px' }}
-                    animate={{
-                      top: ['10%', '90%'],
-                      opacity: [0, 1, 1, 0],
-                      scale: [0.5, 1, 1, 0.5],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      delay: i * 0.6,
-                      ease: 'easeInOut',
-                    }}
-                  />
-                ))}
-                {/* Center label */}
-                <div className="relative bg-black border border-white/10 rounded px-2 py-1.5 z-10">
-                  <p className="text-[8px] tracking-[0.2em] uppercase text-white/40 font-mono text-center leading-tight">
-                    {t('tp.s6m.bridge')}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Mobile bridge */}
-            <div className="flex md:hidden items-center justify-center py-2">
-              <div className="flex items-center gap-3">
-                <div className="w-16 h-px bg-gradient-to-r from-transparent to-[rgba(166,252,252,0.3)]" />
-                <motion.div
-                  className="w-2 h-2 rounded-full bg-[rgba(166,252,252,0.5)]"
-                  animate={{ opacity: [0.3, 1, 0.3], scale: [0.8, 1.2, 0.8] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                />
-                <p className="text-[8px] tracking-[0.2em] uppercase text-white/30 font-mono">{t('tp.s6m.bridge')}</p>
-                <motion.div
-                  className="w-2 h-2 rounded-full bg-[rgba(166,252,252,0.5)]"
-                  animate={{ opacity: [0.3, 1, 0.3], scale: [0.8, 1.2, 0.8] }}
-                  transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-                />
-                <div className="w-16 h-px bg-gradient-to-l from-transparent to-[rgba(166,252,252,0.3)]" />
-              </div>
-            </div>
-
-            {/* ── RIGHT PILLAR: Enterprise Intelligence ── */}
+            {/* RIGHT: HOW WE MONETIZE */}
             <motion.div
-              className="relative bg-black border border-white/10 rounded-xl p-6 md:p-8 md:ml-12 flex flex-col"
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
               viewport={{ once: true }}
             >
-              {/* Command center visual */}
-              <div className="relative w-full h-40 md:h-52 mb-6 overflow-hidden rounded-lg">
-                <div className="absolute inset-0 bg-gradient-to-br from-[rgba(214,166,252,0.03)] to-transparent" />
-                <svg viewBox="0 0 400 200" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
-                  <defs>
-                    <linearGradient id="heatGrad" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0%" stopColor="rgba(214,166,252,0.15)" />
-                      <stop offset="50%" stopColor="rgba(166,252,252,0.1)" />
-                      <stop offset="100%" stopColor="rgba(214,166,252,0.05)" />
-                    </linearGradient>
-                  </defs>
-                  {/* Dashboard frame lines */}
-                  <rect x="20" y="15" width="360" height="170" rx="4" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
-                  <line x1="20" y1="45" x2="380" y2="45" stroke="rgba(255,255,255,0.06)" strokeWidth="0.5" />
-                  {/* Top bar indicators */}
-                  {[40, 80, 120].map((x, i) => (
-                    <rect key={i} x={x} y="25" width={30} height={10} rx="2" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" strokeWidth="0.5" />
-                  ))}
-                  {/* Heatmap grid */}
-                  {Array.from({ length: 8 }, (_, row) =>
-                    Array.from({ length: 14 }, (_, col) => {
-                      const intensity = Math.random();
-                      const color = intensity > 0.7
-                        ? `rgba(214,166,252,${0.2 + intensity * 0.3})`
-                        : intensity > 0.4
-                          ? `rgba(166,252,252,${0.1 + intensity * 0.2})`
-                          : `rgba(255,255,255,${0.02 + intensity * 0.06})`;
-                      return (
-                        <motion.rect
-                          key={`h${row}-${col}`}
-                          x={35 + col * 24} y={55 + row * 15}
-                          width={20} height={11} rx="1"
-                          fill={color}
-                          animate={{ opacity: [0.5, 1, 0.5] }}
-                          transition={{ duration: 2 + Math.random() * 3, repeat: Infinity, delay: Math.random() * 2 }}
-                        />
-                      );
-                    })
-                  )}
-                  {/* TARI score readout */}
-                  <rect x="280" y="22" width="90" height="16" rx="3" fill="rgba(166,252,252,0.08)" stroke="rgba(166,252,252,0.2)" strokeWidth="0.5" />
-                  <text x="293" y="33" fill="rgba(166,252,252,0.7)" fontSize="8" fontFamily="monospace" fontWeight="bold">TARI™ 842</text>
-                </svg>
+              <p className="text-[10px] tracking-[0.3em] uppercase text-[rgba(214,166,252,0.65)] font-mono mb-6">
+                HOW WE MONETIZE
+              </p>
+              <div className="space-y-4">
+                <div className="bg-black border border-white/10 rounded-xl p-5 md:p-6">
+                  <p className="text-[10px] tracking-[0.25em] uppercase text-[rgba(166,252,252,0.55)] font-mono mb-2">
+                    THE DEVELOPER
+                  </p>
+                  <h3 className="text-lg md:text-xl font-light text-white mb-2">
+                    SDK + Usage Subscription
+                  </h3>
+                  <p className="text-sm text-white/55 font-light leading-relaxed">
+                    Free tier: 10,000 evaluations / month. Beyond that, usage-scaled.
+                  </p>
+                </div>
+                <div className="bg-black border border-white/10 rounded-xl p-5 md:p-6">
+                  <p className="text-[10px] tracking-[0.25em] uppercase text-[rgba(214,166,252,0.6)] font-mono mb-2">
+                    THE ENTERPRISE
+                  </p>
+                  <h3 className="text-lg md:text-xl font-light text-white mb-2">
+                    Platform Subscription
+                  </h3>
+                  <p className="text-sm text-white/55 font-light leading-relaxed">
+                    Fleet monitoring, policy enforcement, and compliance dashboards.
+                  </p>
+                </div>
               </div>
-
-              <p className="text-[10px] tracking-[0.25em] uppercase text-[rgba(214,166,252,0.6)] font-mono mb-3">
-                THE ENTERPRISE
-              </p>
-              <h3 className="text-xl md:text-2xl font-light text-white mb-3">
-                Platform Subscription
-              </h3>
-              <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 font-mono mb-4">PAID · FLEET-WIDE · COMPLIANCE</p>
-              <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">
-                Treasury, compliance, and ops teams subscribe to the AMAI platform for fleet monitoring, policy enforcement, and compliance dashboards.
-              </p>
             </motion.div>
-
           </div>
 
-          {/* Kicker */}
           <motion.p
-            className="text-center text-sm md:text-base lg:text-lg text-white/60 font-light mt-6 md:mt-8 max-w-3xl mx-auto leading-relaxed tracking-tight"
+            className="text-center text-sm md:text-base text-white/50 font-light mt-12 md:mt-16 max-w-3xl mx-auto leading-relaxed tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
             viewport={{ once: true }}
           >
-            Free tier captures the data. Subscription tiers monetize the rail.<br /><span className="text-white">Revenue compounds with every agent deployed.</span>
+            Free tier captures the data. Subscription tiers monetize the rail.
           </motion.p>
         </motion.div>
       </Slide>
