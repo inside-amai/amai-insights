@@ -1466,7 +1466,7 @@ const Thesis = () => {
 
           {/* Stat row */}
           <motion.div
-            className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-3 bg-black border border-white/10"
+            className="mt-8 md:mt-10 grid grid-cols-1 md:grid-cols-3 bg-black border border-white/10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
