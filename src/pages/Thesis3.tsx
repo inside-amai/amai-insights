@@ -780,7 +780,7 @@ const Thesis = () => {
           className="max-w-6xl mx-auto"
         >
           <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
-            10 // GROWTH + MODEL
+            07 // GROWTH + MODEL
           </p>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 leading-[1.1] tracking-tight text-center"
@@ -891,7 +891,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-5xl mx-auto"
         >
-          <MicroLabel>07 // THE AUTONOMOUS ECONOMY</MicroLabel>
+          <MicroLabel>08 // THE AUTONOMOUS ECONOMY</MicroLabel>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 leading-[1.15] text-center"
             initial={{ opacity: 0, y: 20 }}
@@ -998,7 +998,7 @@ const Thesis = () => {
           className="max-w-4xl mx-auto text-center"
         >
           <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
-            08 // THE MOAT
+            09 // THE MOAT
           </p>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 leading-[1.15]"
@@ -1113,7 +1113,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto w-full"
         >
-          <MicroLabel>09 // THE LANDSCAPE</MicroLabel>
+          <MicroLabel>10 // THE LANDSCAPE</MicroLabel>
 
 
           <motion.h2
