@@ -1451,7 +1451,7 @@ const Thesis = () => {
           </motion.h2>
 
           <motion.p
-            className="mt-6 text-sm md:text-base lg:text-lg text-white/45 font-light max-w-3xl mx-auto leading-relaxed"
+            className="mt-4 text-sm md:text-base text-white/45 font-light max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
