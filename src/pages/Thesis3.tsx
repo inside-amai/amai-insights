@@ -19,7 +19,7 @@ interface SlideProps {
   footerText?: string;
 }
 
-const TOTAL_SLIDES = 14;
+const TOTAL_SLIDES = 13;
 
 const Slide = ({ children, className = "", slideNumber, footerText = "AMAI Labs · Infrastructure & Research" }: SlideProps) => (
   <section
@@ -770,102 +770,8 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 7: THE ADOPTION PATH ── */}
-      <Slide slideNumber={7} footerText={t('tp.footer')}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-          className="max-w-6xl mx-auto w-full text-center"
-        >
-          <MicroLabel>07 // THE VISION</MicroLabel>
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-6 leading-[1.15]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            How We Get to Density.
-          </motion.h2>
-          <motion.p
-            className="text-base md:text-lg text-white/50 font-light mb-12 max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            Five distribution layers, stacked. Each compounds the last.
-          </motion.p>
-
-          <div className="border rounded-md bg-black overflow-hidden text-left" style={{ borderColor: '#222222' }}>
-            {[
-              {
-                n: '01',
-                title: 'Design Partners + Benchmark Set',
-                wedge: 'Launch with lighthouse partners and a seeded benchmark of public agents and known attack patterns.',
-              },
-              {
-                n: '02',
-                title: 'Free Developer SDK + Dashboard',
-                wedge: 'The Datadog playbook: devs install for their own monitoring; reputation accrues as a side effect.',
-              },
-              {
-                n: '03',
-                title: 'Public Bureau Lookup',
-                wedge: '"Check TARI™" becomes the routine pull before trusting any agent — the "check VirusTotal" of the agent economy.',
-              },
-              {
-                n: '04',
-                title: 'Enterprise + Regulatory Mandate',
-                wedge: 'One Fortune 1000 contract = thousands of installs; EU AI Act enforcement makes verification the path of least resistance.',
-              },
-              {
-                n: '05',
-                title: 'Framework Default Integrations',
-                wedge: 'AMAI ships as a default in LangChain, CrewAI, AutoGen, NeMo Guardrails. OpenTelemetry-style ubiquity.',
-              },
-
-            ].map((layer, i, arr) => (
-              <motion.div
-                key={layer.n}
-                className={`grid grid-cols-[auto_1fr] gap-5 md:gap-10 items-center px-5 md:px-8 py-5 md:py-6 ${i < arr.length - 1 ? 'border-b border-white/10' : ''}`}
-                initial={{ opacity: 0, x: -10 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 + i * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className="flex items-center gap-3 md:gap-4">
-                  <span className="text-[10px] tracking-[0.3em] uppercase text-white/30 font-mono">LAYER</span>
-                  <span className="text-2xl md:text-4xl text-white font-light tracking-tight tabular-nums">{layer.n}</span>
-                </div>
-                <div className="min-w-0">
-                  <p className="text-base md:text-xl text-white font-light mb-1 leading-tight">{layer.title}</p>
-                  <p className="text-xs md:text-sm text-white/55 font-light leading-relaxed">{layer.wedge}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.p
-            className="text-sm md:text-base text-white/55 font-light max-w-3xl mx-auto leading-relaxed italic text-center mt-10"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.1 }}
-            viewport={{ once: true }}
-          >
-            Each layer activates the next. Stacked, they get us to standard-level scale.
-          </motion.p>
-        </motion.div>
-      </Slide>
-
-
-      <SlideDivider />
-
-
       {/* ── SLIDE 8: THE AUTONOMOUS ECONOMY ── */}
-      <Slide slideNumber={8} footerText={t('tp.footer')}>
+      <Slide slideNumber={7} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -873,7 +779,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-5xl mx-auto"
         >
-          <MicroLabel>08 // THE AUTONOMOUS ECONOMY</MicroLabel>
+          <MicroLabel>07 // THE AUTONOMOUS ECONOMY</MicroLabel>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 leading-[1.15] text-center"
             initial={{ opacity: 0, y: 20 }}
@@ -969,7 +875,7 @@ const Thesis = () => {
 
       {/* ── SLIDE 9: THE MOAT ── */}
 
-      <Slide slideNumber={9} footerText={t('tp.footer')}>
+      <Slide slideNumber={8} footerText={t('tp.footer')}>
 
 
         <motion.div
@@ -980,7 +886,7 @@ const Thesis = () => {
           className="max-w-4xl mx-auto text-center"
         >
           <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
-            10 // THE MOAT
+            08 // THE MOAT
           </p>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 leading-[1.15]"
@@ -1087,7 +993,7 @@ const Thesis = () => {
 
 
       {/* ── SLIDE 11: COMPETITIVE LANDSCAPE ── */}
-      <Slide slideNumber={10} footerText={t('tp.footer')}>
+      <Slide slideNumber={9} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1095,7 +1001,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto w-full"
         >
-          <MicroLabel>10 // THE LANDSCAPE</MicroLabel>
+          <MicroLabel>09 // THE LANDSCAPE</MicroLabel>
 
 
           <motion.h2
@@ -1193,7 +1099,7 @@ const Thesis = () => {
 
 
       {/* ── SLIDE 13: THE BUSINESS MODEL ── */}
-      <Slide slideNumber={11} footerText={t('tp.footer')}>
+      <Slide slideNumber={10} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1202,7 +1108,7 @@ const Thesis = () => {
           className="max-w-6xl mx-auto"
         >
           <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
-            11 // GROWTH + MODEL
+            10 // GROWTH + MODEL
           </p>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 leading-[1.1] tracking-tight text-center"
@@ -1307,7 +1213,7 @@ const Thesis = () => {
 
 
       {/* ── SLIDE 14: WHY NOW ── */}
-      <Slide slideNumber={12} footerText={t('tp.footer')}>
+      <Slide slideNumber={11} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1316,7 +1222,7 @@ const Thesis = () => {
           className="max-w-6xl mx-auto w-full"
         >
           <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6 md:mb-8 text-center">
-            15 // WHY NOW
+            11 // WHY NOW
           </p>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 leading-[1.1] tracking-tight text-center"
@@ -1395,7 +1301,7 @@ const Thesis = () => {
 
 
       {/* ── SLIDE 15: CLOSING ── */}
-      <Slide slideNumber={13} footerText={t('tp.footer')}>
+      <Slide slideNumber={12} footerText={t('tp.footer')}>
         {/* Constellation accent — same as hero */}
         <div className="absolute inset-0 pointer-events-none z-0">
           <motion.svg
@@ -1457,7 +1363,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            16 // THE VISION
+            12 // THE VISION
           </motion.p>
 
           <motion.img
@@ -1514,7 +1420,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 15: THE ROUND ── */}
-      <Slide slideNumber={14} footerText={t('tp.footer')}>
+      <Slide slideNumber={13} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1523,7 +1429,7 @@ const Thesis = () => {
           className="max-w-6xl mx-auto w-full px-6 md:px-16 text-center"
         >
           <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium text-center">
-            17 // THE ROUND
+            13 // THE ROUND
           </p>
 
           <motion.h2
