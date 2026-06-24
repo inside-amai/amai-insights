@@ -779,7 +779,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto w-full text-center"
         >
-          <MicroLabel>07 // THE ADOPTION PATH</MicroLabel>
+          <MicroLabel>07 // THE VISION</MicroLabel>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-6 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
@@ -804,28 +804,29 @@ const Thesis = () => {
               {
                 n: '01',
                 title: 'Design Partners + Benchmark Set',
-                wedge: 'Launch with lighthouse enterprises plus a seeded benchmark of public agents and known attack patterns.',
+                wedge: 'Launch with lighthouse partners and a seeded benchmark of public agents and known attack patterns.',
               },
               {
                 n: '02',
-                title: 'Free Developer Dashboard',
-                wedge: 'The Datadog playbook. Devs install for their own monitoring; reputation accrues as a side effect.',
+                title: 'Free Developer SDK + Dashboard',
+                wedge: 'The Datadog playbook: devs install for their own monitoring; reputation accrues as a side effect.',
               },
               {
                 n: '03',
-                title: 'CISO Enterprise Mandate',
-                wedge: 'One Fortune 1000 contract = thousands of installs. EU AI Act enforcement makes this the path of least resistance.',
+                title: 'Public Bureau Lookup',
+                wedge: '"Check TARI™" becomes the routine pull before trusting any agent — the "check VirusTotal" of the agent economy.',
               },
               {
                 n: '04',
-                title: 'Framework Default Integrations',
-                wedge: 'AMAI ships as opt-in default in LangChain, CrewAI, AutoGen, NeMo Guardrails. OpenTelemetry-style distribution.',
+                title: 'Enterprise + Regulatory Mandate',
+                wedge: 'One Fortune 1000 contract = thousands of installs; EU AI Act enforcement makes verification the path of least resistance.',
               },
               {
                 n: '05',
-                title: 'Public Bureau Lookup API',
-                wedge: '"Check TARI™" becomes the new "check VirusTotal." Pull-side demand compounds the network.',
+                title: 'Framework Default Integrations',
+                wedge: 'AMAI ships as a default in LangChain, CrewAI, AutoGen, NeMo Guardrails. OpenTelemetry-style ubiquity.',
               },
+
             ].map((layer, i, arr) => (
               <motion.div
                 key={layer.n}
