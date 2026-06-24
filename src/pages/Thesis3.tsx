@@ -886,7 +886,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            The Behavioral Ledger Compounds.
+            AMAI is capturing the credit history of the digital workforce.
           </motion.h2>
           <motion.p
             className="text-base md:text-lg text-white/50 font-light mb-10 max-w-2xl mx-auto"
@@ -895,7 +895,7 @@ const Thesis = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            We're building the credit history of the digital workforce — every observation sharpens the score, every score widens the gap from any competitor.
+            While everyone is building models, we own the data that decides which ones to trust.
           </motion.p>
 
           <motion.div
