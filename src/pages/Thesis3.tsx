@@ -992,7 +992,7 @@ const Thesis = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto w-full"
         >
-          <MicroLabel>09 // THE LANDSCAPE</MicroLabel>
+          <MicroLabel>10 // THE LANDSCAPE</MicroLabel>
 
 
           <motion.h2
