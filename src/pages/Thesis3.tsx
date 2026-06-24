@@ -19,7 +19,7 @@ interface SlideProps {
   footerText?: string;
 }
 
-const TOTAL_SLIDES = 13;
+const TOTAL_SLIDES = 12;
 
 const Slide = ({ children, className = "", slideNumber, footerText = "AMAI Labs · Infrastructure & Research" }: SlideProps) => (
   <section
@@ -1340,7 +1340,7 @@ const Thesis = () => {
           </motion.p>
 
           <p className="mt-8 md:mt-10 text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium text-center">
-            13 // THE ROUND
+            12 // THE ROUND
           </p>
 
           {/* Stat row */}
