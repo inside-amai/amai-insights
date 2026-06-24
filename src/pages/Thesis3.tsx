@@ -1495,16 +1495,16 @@ const Thesis = () => {
 
           {/* Use of Funds */}
           <motion.div
-            className="mt-14 md:mt-20"
+            className="mt-8 md:mt-10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
             viewport={{ once: true }}
           >
-            <div className="text-[10px] md:text-xs tracking-[0.25em] uppercase text-white/40 font-light mb-8 md:mb-10">
+            <div className="text-[10px] md:text-xs tracking-[0.25em] uppercase text-white/40 font-light mb-5 md:mb-6">
               USE OF FUNDS
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-6">
               {[
                 { pct: '60%', title: 'Engineering & Research', desc: 'Senior infrastructure + AI research hires' },
                 { pct: '15%', title: 'Platform GA', desc: 'SDK launch + scoring engine production release' },
@@ -1512,13 +1512,13 @@ const Thesis = () => {
                 { pct: '10%', title: 'Operations & Runway', desc: 'G&A + buffer to Series A milestones' },
               ].map((f) => (
                 <div key={f.title} className="flex flex-col items-center text-center px-2">
-                  <span className="text-3xl md:text-4xl lg:text-5xl font-light text-cyan-accent leading-none">
+                  <span className="text-2xl md:text-3xl lg:text-4xl font-light text-cyan-accent leading-none">
                     {f.pct}
                   </span>
-                  <span className="mt-4 text-sm md:text-base text-white font-light tracking-wide">
+                  <span className="mt-2 text-sm md:text-base text-white font-light tracking-wide">
                     {f.title}
                   </span>
-                  <span className="mt-2 text-xs md:text-sm text-white/50 font-light leading-snug">
+                  <span className="mt-1 text-xs md:text-sm text-white/50 font-light leading-snug">
                     {f.desc}
                   </span>
                 </div>
