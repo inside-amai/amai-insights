@@ -770,151 +770,95 @@ const Thesis = () => {
 
       <SlideDivider />
 
-      {/* ── SLIDE 7: THE VISION ── */}
+      {/* ── SLIDE 7: THE ADOPTION PATH ── */}
       <Slide slideNumber={7} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
           viewport={{ once: true }}
+          className="max-w-6xl mx-auto w-full text-center"
         >
-          <MicroLabel>07 // THE VISION</MicroLabel>
-
+          <MicroLabel>07 // THE ADOPTION PATH</MicroLabel>
           <motion.h2
-            className="text-2xl md:text-4xl lg:text-5xl font-light leading-[1.15] tracking-tight text-white text-center max-w-5xl mx-auto mb-12 md:mb-16"
+            className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-6 leading-[1.15]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            AMAI's <span className="text-amber-400">TARI™</span> starts in a{' '}
-            <span className="text-amber-400">consumer game</span> today — and climbs to the{' '}
-            <span className="text-amber-400">trust rail</span> for the entire autonomous economy.
+            How We Get to Density.
           </motion.h2>
+          <motion.p
+            className="text-base md:text-lg text-white/50 font-light mb-12 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            Five distribution layers, stacked. Each compounds the last.
+          </motion.p>
 
-          {/* Ladder: arrow left, stacked self-contained cards right */}
-          <div className="flex gap-3 md:gap-5 max-w-5xl mx-auto">
-
-            {/* LEFT: Expansion arrow */}
-            <div className="flex flex-col items-center">
-              <div className="text-[10px] tracking-[0.25em] uppercase text-white/50 font-medium [writing-mode:vertical-rl] rotate-180 whitespace-nowrap mb-2">
-                AMAI EXPANSION
-              </div>
-              <div className="flex-1 flex justify-center min-w-[20px]">
-                <div className="h-full flex flex-col items-center">
-                  <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-b-[10px] border-b-[#A6FCFC]" />
-                  <div className="w-px flex-1 bg-gradient-to-b from-[#A6FCFC] via-[#A6FCFC]/60 to-white/20" />
+          <div className="border rounded-md bg-black overflow-hidden text-left" style={{ borderColor: '#222222' }}>
+            {[
+              {
+                n: '01',
+                title: 'Design Partners + Benchmark Set',
+                wedge: 'Launch with lighthouse enterprises plus a seeded benchmark of public agents and known attack patterns.',
+              },
+              {
+                n: '02',
+                title: 'Free Developer Dashboard',
+                wedge: 'The Datadog playbook. Devs install for their own monitoring; reputation accrues as a side effect.',
+              },
+              {
+                n: '03',
+                title: 'CISO Enterprise Mandate',
+                wedge: 'One Fortune 1000 contract = thousands of installs. EU AI Act enforcement makes this the path of least resistance.',
+              },
+              {
+                n: '04',
+                title: 'Framework Default Integrations',
+                wedge: 'AMAI ships as opt-in default in LangChain, CrewAI, AutoGen, NeMo Guardrails. OpenTelemetry-style distribution.',
+              },
+              {
+                n: '05',
+                title: 'Public Bureau Lookup API',
+                wedge: '"Check TARI™" becomes the new "check VirusTotal." Pull-side demand compounds the network.',
+              },
+            ].map((layer, i, arr) => (
+              <motion.div
+                key={layer.n}
+                className={`grid grid-cols-[auto_1fr] gap-5 md:gap-10 items-center px-5 md:px-8 py-5 md:py-6 ${i < arr.length - 1 ? 'border-b border-white/10' : ''}`}
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 + i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex items-center gap-3 md:gap-4">
+                  <span className="text-[10px] tracking-[0.3em] uppercase text-white/30 font-mono">LAYER</span>
+                  <span className="text-2xl md:text-4xl text-white font-light tracking-tight tabular-nums">{layer.n}</span>
                 </div>
-              </div>
-            </div>
-
-            {/* RIGHT: Stacked rungs (top to bottom) */}
-            <div className="flex-1 flex flex-col gap-1.5">
-              {/* Rung 5 — top */}
-              <div className="rounded-md border border-white/12 bg-black px-4 md:px-5 py-2.5 md:py-3 flex items-center justify-between gap-4">
-                <div className="flex-1 min-w-0">
-                  <div className="text-[11px] tracking-[0.22em] uppercase text-[#A6FCFC] font-medium mb-0.5">
-                    Access, Payments & Lending
-                  </div>
-                  <div className="text-xs md:text-sm text-white/75 leading-snug">
-                    The score gates money — checked before an agent pays, borrows, or acts.
-                  </div>
+                <div className="min-w-0">
+                  <p className="text-base md:text-xl text-white font-light mb-1 leading-tight">{layer.title}</p>
+                  <p className="text-xs md:text-sm text-white/55 font-light leading-relaxed">{layer.wedge}</p>
                 </div>
-                <div className="flex-shrink-0 flex flex-wrap items-center justify-end gap-x-2 gap-y-1">
-                  <span className="text-[10px] text-white/70">Cloudflare</span>
-                  <span className="text-white/20">·</span>
-                  <span className="text-[10px] text-white/70">Mastercard</span>
-                  <span className="text-white/20">·</span>
-                  <span className="text-[10px] text-white/70">Aave</span>
-                </div>
-              </div>
-
-              {/* Rung 4 */}
-              <div className="rounded-md border border-white/12 bg-black px-4 md:px-5 py-2.5 md:py-3 flex items-center justify-between gap-4">
-                <div className="flex-1 min-w-0">
-                  <div className="text-[11px] tracking-[0.22em] uppercase text-[#A6FCFC] font-medium mb-0.5">
-                    Enterprise Fleet Governance
-                  </div>
-                  <div className="text-xs md:text-sm text-white/75 leading-snug">
-                    Companies monitor and govern their agents — first B2B revenue.
-                  </div>
-                </div>
-                <div className="flex-shrink-0 flex flex-wrap items-center justify-end gap-x-2 gap-y-1">
-                  <span className="text-[10px] text-white/70">Enterprises</span>
-                  <span className="text-white/20">·</span>
-                  <span className="text-[10px] text-white/70">CISOs</span>
-                  <span className="text-white/20">·</span>
-                  <span className="text-[10px] text-white/70">Compliance</span>
-                </div>
-              </div>
-
-              {/* Rung 3 */}
-              <div className="rounded-md border border-white/12 bg-black px-4 md:px-5 py-2.5 md:py-3 flex items-center justify-between gap-4">
-                <div className="flex-1 min-w-0">
-                  <div className="text-[11px] tracking-[0.22em] uppercase text-[#A6FCFC] font-medium mb-0.5">
-                    Developer SDK
-                  </div>
-                  <div className="text-xs md:text-sm text-white/75 leading-snug">
-                    A portable score for any agent, beyond the game.
-                  </div>
-                </div>
-                <div className="flex-shrink-0 flex flex-wrap items-center justify-end gap-x-2 gap-y-1">
-                  <span className="text-[10px] text-white/70">LangChain</span>
-                  <span className="text-white/20">·</span>
-                  <span className="text-[10px] text-white/70">CrewAI</span>
-                  <span className="text-white/20">·</span>
-                  <span className="text-[10px] text-white/70">AutoGen</span>
-                </div>
-              </div>
-
-              {/* Rung 2 */}
-              <div className="rounded-md border border-white/12 bg-black px-4 md:px-5 py-2.5 md:py-3 flex items-center justify-between gap-4">
-                <div className="flex-1 min-w-0">
-                  <div className="text-[11px] tracking-[0.22em] uppercase text-[#A6FCFC] font-medium mb-0.5">
-                    Public Bureau — "Check TARI"
-                  </div>
-                  <div className="text-xs md:text-sm text-white/75 leading-snug">
-                    Every agent's score becomes public reputation.
-                  </div>
-                </div>
-                <div className="flex-shrink-0 flex flex-wrap items-center justify-end gap-x-2 gap-y-1">
-                  <span className="text-[10px] text-white/70">Players</span>
-                  <span className="text-white/20">·</span>
-                  <span className="text-[10px] text-white/70">Marketplaces</span>
-                  <span className="text-white/20">·</span>
-                  <span className="text-[10px] text-white/70">Buyers</span>
-                </div>
-              </div>
-
-              {/* Rung 1 — bottom, INITIAL FOCUS band, full width */}
-              <div className="rounded-md border border-amber-400/60 bg-black p-2.5 md:p-3">
-                <div className="text-[10px] tracking-[0.25em] uppercase text-amber-400/90 font-medium mb-2 text-center">
-                  Initial Focus
-                </div>
-                <div className="rounded border border-white/15 bg-black px-4 md:px-5 py-2.5 md:py-3 flex items-center justify-between gap-4">
-                  <div className="flex-1 min-w-0">
-                    <div className="text-[11px] tracking-[0.22em] uppercase text-amber-400 font-medium mb-0.5">
-                      The AMAI Arena · Consumer Game
-                    </div>
-                    <div className="text-xs md:text-sm text-white/85 leading-snug">
-                      Mint, battle, and score agents — bond capital, get slashed for misbehaving. This seeds the data.
-                    </div>
-                  </div>
-                  <div className="flex-shrink-0 flex flex-wrap items-center justify-end gap-x-2 gap-y-1">
-                    <span className="text-[10px] text-white/75">Players</span>
-                    <span className="text-white/20">·</span>
-                    <span className="text-[10px] text-white/75">Crypto-native retail</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+              </motion.div>
+            ))}
           </div>
 
-          <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 text-center mt-8 md:mt-10">
-            One TARI™ engine under every rung — the game mints the scores that become the rail.
-          </p>
+          <motion.p
+            className="text-sm md:text-base text-white/55 font-light max-w-3xl mx-auto leading-relaxed italic text-center mt-10"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.1 }}
+            viewport={{ once: true }}
+          >
+            Each layer activates the next. Stacked, they get us to standard-level scale.
+          </motion.p>
         </motion.div>
       </Slide>
+
 
       <SlideDivider />
 
