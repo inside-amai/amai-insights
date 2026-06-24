@@ -875,7 +875,7 @@ const Thesis = () => {
 
       {/* ── SLIDE 9: THE MOAT ── */}
 
-      <Slide slideNumber={7} footerText={t('tp.footer')}>
+      <Slide slideNumber={8} footerText={t('tp.footer')}>
 
 
         <motion.div
@@ -993,7 +993,7 @@ const Thesis = () => {
 
 
       {/* ── SLIDE 11: COMPETITIVE LANDSCAPE ── */}
-      <Slide slideNumber={7} footerText={t('tp.footer')}>
+      <Slide slideNumber={9} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1099,7 +1099,7 @@ const Thesis = () => {
 
 
       {/* ── SLIDE 13: THE BUSINESS MODEL ── */}
-      <Slide slideNumber={7} footerText={t('tp.footer')}>
+      <Slide slideNumber={10} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1213,7 +1213,7 @@ const Thesis = () => {
 
 
       {/* ── SLIDE 14: WHY NOW ── */}
-      <Slide slideNumber={7} footerText={t('tp.footer')}>
+      <Slide slideNumber={11} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1301,7 +1301,7 @@ const Thesis = () => {
 
 
       {/* ── SLIDE 15: CLOSING ── */}
-      <Slide slideNumber={7} footerText={t('tp.footer')}>
+      <Slide slideNumber={12} footerText={t('tp.footer')}>
         {/* Constellation accent — same as hero */}
         <div className="absolute inset-0 pointer-events-none z-0">
           <motion.svg
@@ -1420,7 +1420,7 @@ const Thesis = () => {
       <SlideDivider />
 
       {/* ── SLIDE 15: THE ROUND ── */}
-      <Slide slideNumber={7} footerText={t('tp.footer')}>
+      <Slide slideNumber={13} footerText={t('tp.footer')}>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
