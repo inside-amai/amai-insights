@@ -1460,7 +1460,7 @@ const Thesis = () => {
             By 2030, trillions will move between agents and counterparties — every minute, every market. None of it works without a trust rail. We're raising to build it.
           </motion.p>
 
-          <p className="mt-16 md:mt-20 text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium text-center">
+          <p className="mt-8 md:mt-10 text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium text-center">
             13 // THE ROUND
           </p>
 
