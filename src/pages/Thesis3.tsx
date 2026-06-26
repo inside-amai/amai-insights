@@ -353,7 +353,7 @@ const Thesis = () => {
             viewport={{ once: true }}
           >
             <p className="text-base md:text-lg text-white/50 font-light leading-relaxed">
-              These are high-stakes moments: a loan, a large payment, the keys to a sensitive system. To let an agent act, you have to trust it with real money or real access — and right now you only get two options.
+              These are high-stakes moments: a loan, a large payment, the keys to a sensitive system. To let an agent act, you have to trust it with real money or real access.
             </p>
           </motion.div>
 
