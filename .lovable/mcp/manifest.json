@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "sdk_version": "0.20.0",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "amai-insights-mcp",
+      "version": "0.1.0",
+      "title": "AMAI Labs Insights"
+    },
+    "tools": [
+      {
+        "name": "list_documentation",
+        "title": "List AMAI documentation",
+        "description": "List every AMAI Labs documentation page available via MCP. Returns slugs to pass to get_documentation.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_documentation",
+        "title": "Get AMAI documentation page",
+        "description": "Fetch the full markdown body of a single AMAI Labs documentation page by slug (see list_documentation).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": true
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "slug": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Documentation slug, e.g. 'system-overview' or 'trust-mechanics'."
+            }
+          },
+          "required": [
+            "slug"
+          ]
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_full_context",
+        "title": "Get full AMAI context",
+        "description": "Fetch the combined AMAI Labs documentation corpus (llms-full.txt) as a single markdown blob for full-context loading.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": true
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
