@@ -1,21 +1,31 @@
-## Three diagram fixes to `src/pages/Diagram2.tsx`
+## Verification-only plan (no code changes)
 
-1. **Rename middle Column 1 box**: `col1Boxes[1].title` → `"NeMo Guardrails"` (was `"NeMo Framework"`). Arrow label at row 2 stays `"3rd party catalog"`.
+You chose to leave the MCP function uncapped and rely on Supabase's platform defaults, so this plan is a written confirmation of the blast radius — nothing to build.
 
-2. **Remove `agent spawn` sub-label from Nemoclaw box**: set `col1Boxes[0].sub` to `""`. The arrow label `"agent spawn"` on row 1 remains.
+### Blast radius: docs-only ✅
 
-3. **Re-anchor the two curved arrows to specific box edges** instead of column centers:
+Reviewed `supabase/functions/mcp/index.ts` and the three tool sources in `src/lib/mcp/tools/`:
 
-   - **Top arrow — Behavioral telemetry**:
-     - Start: right edge of Zero-Trust SDK box → `(col2X + boxW, rowYs[0] + boxH/2)`
-     - End: left edge of Global Ledger sub-row → `(bureauX, bureauY + (bureauH/3)/2)`
-     - Bezier control points adjusted so the curve arcs upward over the top of the diagram and lands cleanly on the Bureau's left edge at the Global Ledger row.
-     - Label `"Behavioral telemetry"` repositioned to sit above the apex of the new curve.
+| Check | Result |
+|---|---|
+| Imports `@supabase/supabase-js` / `createClient` | ❌ none |
+| Reads `SUPABASE_SERVICE_ROLE_KEY` | ❌ none |
+| Reads `SUPABASE_URL` / any DB env | ❌ none |
+| Executes SQL or RPC | ❌ none |
+| References `pilot_requests` or any table name | ❌ none |
+| Outbound network destinations | Only `https://amai-insights.lovable.app/llms/<slug>.md` and `/llms-full.txt` |
+| Slug input on `get_documentation` | Allow-listed against a fixed 14-item Set; unknown slugs return `isError: true` before any fetch |
 
-   - **Bottom arrow — TARI score + enforcement decision**:
-     - Start: left edge of Cross-vendor Reputation Lookup sub-row → `(bureauX, bureauY + (bureauH/3)*2 + (bureauH/3)/2)`
-     - End: right edge of TARI Interceptor box → `(col2X + boxW, rowYs[2] + boxH/2)`
-     - Bezier control points adjusted so the curve arcs downward beneath the diagram.
-     - Label `"TARI score + enforcement decision"` repositioned below the apex.
+The function has no database client instantiated at any point, so it structurally cannot reach `pilot_requests` (or `auth.users`, or anything else in the project). The recently tightened RLS on `pilot_requests` is not on this function's attack surface.
 
-No other changes — typography, colors, box sizes, headers, footer caption, and download button all unchanged.
+### Rate limiting: accepted as-is
+
+The backend has no standard rate-limiting primitive. The MCP function inherits only Supabase's platform-level invocation protections. Cost/abuse exposure is:
+- worst case per call: one outbound `fetch` to the public docs site + a small JSON response
+- no DB writes, no external paid APIs, no LLM calls
+
+If invocation volume ever becomes a concern, the two cheapest follow-ups (not part of this plan) would be an in-isolate TTL cache on `get_full_context` or a DB-backed IP counter.
+
+### Deliverable
+
+No files change. This plan is the "deliberate-choice box ticked" record.
