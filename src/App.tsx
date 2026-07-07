@@ -21,6 +21,7 @@ import GenesisMint from "./pages/GenesisMint";
 import FoundersMint from "./pages/FoundersMint";
 import Briefing from "./pages/Briefing";
 import AdminPilotRequests from "./pages/admin/PilotRequests";
+import StateOfAgentTrust from "./pages/StateOfAgentTrust";
 
 import Deck from "./pages/Deck";
 import Tether from "./pages/Tether";
@@ -74,7 +75,7 @@ const FullBleedRouteHandler = () => {
     const root = document.getElementById('root');
     if (!root) return;
     
-    const isFullBleed = location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/thesis' || location.pathname === '/thesis2' || location.pathname === '/briefing' || location.pathname === '/pitch' || location.pathname === '/trust';
+    const isFullBleed = location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/thesis' || location.pathname === '/thesis2' || location.pathname === '/briefing' || location.pathname === '/pitch' || location.pathname === '/trust' || location.pathname === '/state-of-agent-trust';
     
     if (isFullBleed) {
       root.classList.add('full-bleed');
@@ -146,6 +147,7 @@ const App = () => (
             <Route path="/ui" element={<UI />} />
             {/* Admin routes */}
             <Route path="/admin/pilot-requests" element={<AdminPilotRequests />} />
+            <Route path="/state-of-agent-trust" element={<StateOfAgentTrust />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
