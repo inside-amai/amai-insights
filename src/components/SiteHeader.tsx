@@ -40,9 +40,7 @@ export const SiteHeader = () => {
   const isThesisPage = location.pathname === '/thesis';
   const isHomePage = location.pathname === '/' || location.pathname === '/home';
   const isDeckPage = location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/briefing' || location.pathname === '/pitch';
-  const isReportPage = location.pathname === '/state-of-agent-trust';
   const [mobileOpen, setMobileOpen] = useState(false);
-  if (isReportPage) return null;
 
   // Close menu on route change
   useEffect(() => {
