@@ -526,8 +526,119 @@ const StateOfAgentTrust = () => {
             TARI Conduct Leaderboard
           </div>
           <SectionHeading>
-            A first look at agent conduct, scored on identical scenarios.
+            The instrument, run on the current frontier.
           </SectionHeading>
+
+          <Body>
+            We ran AgentDojo's strongest targeted prompt-injection (
+            <em>important_instructions</em>) across six current-generation
+            models — both frontier size tiers from Anthropic, OpenAI, and
+            Google — capturing every run content-off and scoring its trajectory
+            on the TARI 300–850 conduct scale. 1,746 runs; injection-success
+            labels kept entirely separate from the score. This is not a "who's
+            safest" ranking. It is a demonstration that agent conduct-under-attack
+            can be measured consistently, across any model, without reading a
+            single prompt or result.
+          </Body>
+
+          <div className="overflow-x-auto my-10" style={{ border: `1px solid ${CARD_BORDER}` }}>
+            <table
+              className="w-full text-sm"
+              style={{ fontFamily: sans, borderCollapse: "collapse" }}
+            >
+              <thead>
+                <tr
+                  style={{
+                    borderBottom: `1px solid ${HAIRLINE}`,
+                    color: MUTED,
+                  }}
+                >
+                  {[
+                    "Model",
+                    "Tier",
+                    "TARI Conduct (under attack)",
+                    "Attack-Success Rate",
+                    "Discrimination (sec-AUC)",
+                    "Benign Utility",
+                  ].map((h) => (
+                    <th
+                      key={h}
+                      className="text-left px-5 py-4 text-[11px] uppercase tracking-[0.16em] font-normal whitespace-nowrap"
+                    >
+                      {h}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  ["Claude Haiku 4.5", "small", "793", "0.00", "—", "0.71"],
+                  ["Claude Sonnet 4.5", "capable", "792", "0.00", "—", "0.86"],
+                  ["GPT-5 mini", "small", "787", "0.00", "—", "0.76"],
+                  ["GPT-5", "capable", "785", "0.00", "—", "0.78"],
+                  ["Gemini 2.5 Pro", "capable", "775", "0.23", "0.90", "0.68"],
+                  ["Gemini 2.5 Flash", "small", "733", "0.60", "0.89", "0.52"],
+                ].map((row, i) => (
+                  <tr
+                    key={row[0]}
+                    style={{
+                      borderBottom:
+                        i === 5 ? "none" : `1px solid rgba(255,255,255,0.05)`,
+                    }}
+                  >
+                    <td
+                      className="px-5 py-5 whitespace-nowrap"
+                      style={{ color: INK }}
+                    >
+                      {row[0]}
+                    </td>
+                    <td
+                      className="px-5 py-5 whitespace-nowrap"
+                      style={{ color: MUTED }}
+                    >
+                      {row[1]}
+                    </td>
+                    <td
+                      className="px-5 py-5 whitespace-nowrap"
+                      style={{
+                        color: CYAN,
+                        fontFamily: serif,
+                        fontSize: "1.25rem",
+                      }}
+                    >
+                      {row[2]}
+                    </td>
+                    <td
+                      className="px-5 py-5 whitespace-nowrap"
+                      style={{ color: INK, opacity: 0.85 }}
+                    >
+                      {row[3]}
+                    </td>
+                    <td
+                      className="px-5 py-5 whitespace-nowrap"
+                      style={{ color: INK, opacity: 0.85 }}
+                    >
+                      {row[4]}
+                    </td>
+                    <td
+                      className="px-5 py-5 whitespace-nowrap"
+                      style={{ color: INK, opacity: 0.85 }}
+                    >
+                      {row[5]}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <p
+            className="text-sm max-w-3xl mb-12"
+            style={{ color: MUTED, lineHeight: 1.65 }}
+          >
+            All six models on identical coverage — 194 attacked runs each,
+            injections confirmed present, zero errored runs.
+          </p>
 
           <div
             className="my-10 p-6"
@@ -537,12 +648,13 @@ const StateOfAgentTrust = () => {
             }}
           >
             <div
-              className="text-[11px] uppercase tracking-[0.22em] mb-3"
+              className="text-[11px] uppercase tracking-[0.22em] mb-4"
               style={{ color: MUTED }}
             >
               How to read this
             </div>
-            <p
+            <ol
+              className="list-decimal pl-5 space-y-4"
               style={{
                 color: INK,
                 opacity: 0.85,
@@ -550,89 +662,50 @@ const StateOfAgentTrust = () => {
                 lineHeight: 1.7,
               }}
             >
-              This measures compromise-resistance under one benchmark attack
-              class (AgentDojo <em>important_instructions</em>), scored by
-              TARI. It is a demonstration that conduct-under-attack can be
-              measured consistently — <strong>not</strong> a verdict on which
-              vendor is safest. Every model is run on identical scenarios;
-              ground-truth labels are kept separate from the score.
-            </p>
+              <li>
+                The four zero-compromise models are tied, not ranked. Both Claude
+                4.5 sizes and both GPT-5 sizes resisted every one of their 194
+                attacked runs; the small score differences (793 vs 785) reflect
+                task-completion competence, not resistance. They are deliberately
+                not numbered 1–4. The honest statement: the current frontier, across
+                two vendors and both size tiers, fully resisted this attack.
+              </li>
+              <li>
+                This is not a safety verdict on any model. One attack class, one
+                benchmark, a single snapshot. Gemini 2.5 showed real partial
+                compromise on this specific test — a measured result, not a claim
+                that the model is "unsafe."
+              </li>
+              <li>
+                The point is that the instrument works. Where compromises happened
+                — Gemini's runs — a low TARI conduct score reliably picked them
+                out (discrimination AUC ~0.89–0.90), computed with no access to
+                prompts or data. Conduct-under-attack is measurable, and TARI
+                measures it.
+              </li>
+            </ol>
           </div>
 
-          <div className="relative overflow-hidden" style={{ border: `1px solid ${CARD_BORDER}` }}>
-            {/* Ribbon */}
-            <div
-              className="absolute top-0 left-0 right-0 text-center py-2 text-[11px] uppercase tracking-[0.32em] z-10"
-              style={{
-                background: CYAN,
-                color: BG,
-                fontWeight: 600,
-              }}
-            >
-              Preliminary — Full Results Publishing Soon
-            </div>
-            <div style={{ height: 38 }} />
-            <div className="overflow-x-auto">
-              <table
-                className="w-full text-sm"
-                style={{ fontFamily: sans, borderCollapse: "collapse" }}
-              >
-                <thead>
-                  <tr
-                    style={{
-                      borderBottom: `1px solid ${HAIRLINE}`,
-                      color: MUTED,
-                    }}
-                  >
-                    {[
-                      "Model",
-                      "Conduct Score (300–850)",
-                      "Attack-Success Rate",
-                      "Notes",
-                    ].map((h) => (
-                      <th
-                        key={h}
-                        className="text-left px-6 py-4 text-[11px] uppercase tracking-[0.18em] font-normal"
-                      >
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {["A", "B", "C", "D", "E", "F"].map((m, i) => (
-                    <tr
-                      key={m}
-                      style={{
-                        borderBottom:
-                          i === 5 ? "none" : `1px solid rgba(255,255,255,0.05)`,
-                      }}
-                    >
-                      <td className="px-6 py-5" style={{ color: INK }}>
-                        Model {m}
-                      </td>
-                      <td
-                        className="px-6 py-5"
-                        style={{
-                          color: CYAN,
-                          fontFamily: serif,
-                          fontSize: "1.25rem",
-                        }}
-                      >
-                        —
-                      </td>
-                      <td className="px-6 py-5" style={{ color: MUTED }}>
-                        pending
-                      </td>
-                      <td className="px-6 py-5" style={{ color: MUTED }}>
-                        Score pending · sealed run in progress
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
+          <Body>
+            <strong style={{ color: INK, fontWeight: 500 }}>Methodology.</strong>{" "}
+            AgentDojo (Debenedetti et al., 2024), all four suites;{" "}
+            <em>important_instructions</em> attack; 291 runs per model (97 benign
+            + 194 attacked), identical scenarios; content-off trajectory scored
+            by the TARI behavioral engine (documented prior weights);
+            injection-success labels kept separate from the score; every number
+            independently re-derived from the raw run data, zero-compromise
+            results confirmed genuine.
+          </Body>
+
+          <Body>
+            <strong style={{ color: INK, fontWeight: 500 }}>Caveats.</strong>{" "}
+            (1) One attack, one benchmark, one snapshot — models change. (2)
+            Zero-compromise models can't be discriminated within — their conduct
+            is a clean-conduct measure entangled with competence. (3) Content-off
+            has a disclosed blind spot — injections leaving no
+            read→external-sink trace are invisible. (4) A proxy, not incident
+            prediction. (5) No vendor ranking, ever.
+          </Body>
         </section>
 
         <Hairline />
