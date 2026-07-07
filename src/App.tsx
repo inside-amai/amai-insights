@@ -147,6 +147,7 @@ const App = () => (
             <Route path="/ui" element={<UI />} />
             {/* Admin routes */}
             <Route path="/admin/pilot-requests" element={<AdminPilotRequests />} />
+            <Route path="/state-of-agent-trust" element={<StateOfAgentTrust />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
