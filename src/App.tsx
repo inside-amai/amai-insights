@@ -21,6 +21,7 @@ import GenesisMint from "./pages/GenesisMint";
 import FoundersMint from "./pages/FoundersMint";
 import Briefing from "./pages/Briefing";
 import AdminPilotRequests from "./pages/admin/PilotRequests";
+import StateOfAgentTrust from "./pages/StateOfAgentTrust";
 
 import Deck from "./pages/Deck";
 import Tether from "./pages/Tether";
