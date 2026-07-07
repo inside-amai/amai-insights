@@ -1,4 +1,5 @@
 import { useEffect, useState, type ReactNode } from "react";
+import { Footer } from "@/components/Footer";
 
 // Scoped palette — this report has its own visual identity, distinct from
 // the rest of the site's design system.
@@ -189,30 +190,8 @@ const StateOfAgentTrust = () => {
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Instrument+Serif&display=swap"
       />
 
-      {/* Sticky header */}
-      <header
-        className="sticky top-0 z-50 backdrop-blur"
-        style={{
-          background: "rgba(10,11,13,0.82)",
-          borderBottom: `1px solid ${HAIRLINE}`,
-        }}
-      >
-        <div className="max-w-6xl mx-auto px-6 md:px-10 py-4 flex items-center justify-between">
-          <div
-            className="text-sm font-medium tracking-tight"
-            style={{ color: INK, fontFamily: sans, letterSpacing: "-0.01em" }}
-          >
-            AMAI Labs
-          </div>
-          <div
-            className="text-[11px] uppercase tracking-[0.24em]"
-            style={{ color: MUTED }}
-          >
-            <span style={{ color: CYAN }}>TARI™</span>{" "}
-            <span className="hidden sm:inline">Trust &amp; Risk Index</span>
-          </div>
-        </div>
-      </header>
+
+
 
       <main className="max-w-6xl mx-auto px-6 md:px-10">
         {/* Hero */}
@@ -833,8 +812,10 @@ const StateOfAgentTrust = () => {
           </div>
         </footer>
       </main>
+      <Footer />
     </div>
   );
 };
 
 export default StateOfAgentTrust;
+
