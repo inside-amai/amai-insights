@@ -5,71 +5,149 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 const TOTAL_HOME_SECTIONS = 9;
 
-const ConstellationField = () => (
-  <div className="absolute inset-0 pointer-events-none overflow-hidden">
-    <div
-      className="absolute inset-0 opacity-100"
-      style={{
-        backgroundImage: `
-          linear-gradient(to right, rgba(255,255,255,0.055) 1px, transparent 1px),
-          linear-gradient(to bottom, rgba(255,255,255,0.055) 1px, transparent 1px)
-        `,
-        backgroundSize: "80px 80px",
-      }}
-    />
-    <motion.svg
-      className="absolute right-[3%] top-[8%] w-[340px] md:w-[520px] h-auto opacity-[0.13]"
-      viewBox="0 0 400 400"
-      animate={{ x: [0, 3, -2, 1, 0], y: [0, -2, 3, -1, 0] }}
-      transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }}
-    >
-      <circle cx="200" cy="180" r="3" fill="white" />
-      <circle cx="280" cy="120" r="2" fill="white" />
-      <circle cx="320" cy="200" r="2.5" fill="white" />
-      <circle cx="260" cy="280" r="2" fill="white" />
-      <circle cx="140" cy="240" r="2.5" fill="white" />
-      <circle cx="100" cy="140" r="2" fill="white" />
-      <circle cx="180" cy="320" r="1.5" fill="white" />
-      <circle cx="340" cy="300" r="1.5" fill="white" />
-      <circle cx="80" cy="280" r="1.5" fill="white" />
-      <circle cx="220" cy="80" r="1.5" fill="white" />
-      <circle cx="240" cy="150" r="1" fill="white" />
-      <circle cx="300" cy="160" r="1" fill="white" />
-      <circle cx="160" cy="180" r="1" fill="white" />
-      <circle cx="290" cy="240" r="1" fill="white" />
-      <circle cx="120" cy="200" r="1" fill="white" />
-      <path d="M200,180 L280,120" stroke="white" strokeWidth="0.5" fill="none" />
-      <path d="M200,180 L320,200" stroke="white" strokeWidth="0.5" fill="none" />
-      <path d="M200,180 L260,280" stroke="white" strokeWidth="0.5" fill="none" />
-      <path d="M200,180 L140,240" stroke="white" strokeWidth="0.5" fill="none" />
-      <path d="M200,180 L100,140" stroke="white" strokeWidth="0.5" fill="none" />
-      <path d="M280,120 L320,200" stroke="white" strokeWidth="0.3" fill="none" />
-      <path d="M320,200 L260,280" stroke="white" strokeWidth="0.3" fill="none" />
-      <path d="M260,280 L180,320" stroke="white" strokeWidth="0.3" fill="none" />
-      <path d="M140,240 L80,280" stroke="white" strokeWidth="0.3" fill="none" />
-      <path d="M100,140 L220,80" stroke="white" strokeWidth="0.3" fill="none" />
-      <path d="M280,120 L220,80" stroke="white" strokeWidth="0.3" fill="none" />
-      <path d="M320,200 L340,300" stroke="white" strokeWidth="0.3" fill="none" />
-      <path d="M260,280 L340,300" stroke="white" strokeWidth="0.3" fill="none" />
-    </motion.svg>
-    <motion.svg
-      className="absolute left-[7%] bottom-[14%] w-[180px] md:w-[260px] h-auto opacity-[0.08]"
-      viewBox="0 0 200 200"
-      animate={{ x: [0, -2, 1, -1, 0], y: [0, 1, -2, 2, 0] }}
-      transition={{ duration: 28, repeat: Infinity, ease: "easeInOut" }}
-    >
-      <circle cx="100" cy="100" r="2" fill="white" />
-      <circle cx="60" cy="70" r="1.5" fill="white" />
-      <circle cx="140" cy="80" r="1.5" fill="white" />
-      <circle cx="80" cy="140" r="1.5" fill="white" />
-      <circle cx="130" cy="130" r="1" fill="white" />
-      <path d="M100,100 L60,70" stroke="white" strokeWidth="0.4" fill="none" />
-      <path d="M100,100 L140,80" stroke="white" strokeWidth="0.4" fill="none" />
-      <path d="M100,100 L80,140" stroke="white" strokeWidth="0.4" fill="none" />
-      <path d="M100,100 L130,130" stroke="white" strokeWidth="0.4" fill="none" />
-    </motion.svg>
-  </div>
-);
+// Deterministic PRNG so each section gets a stable but unique layout
+const mulberry32 = (seed: number) => {
+  let a = seed >>> 0;
+  return () => {
+    a = (a + 0x6d2b79f5) >>> 0;
+    let t = a;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+};
+
+type ConstellationCluster = {
+  className: string;
+  viewBox: string;
+  cx: number;
+  cy: number;
+  radius: number;
+  count: number;
+  opacity: number;
+  drift: { x: number[]; y: number[]; duration: number };
+};
+
+const buildCluster = (rand: () => number, cluster: ConstellationCluster) => {
+  const { cx, cy, radius, count } = cluster;
+  const pts: { x: number; y: number; r: number }[] = [];
+  // hub
+  pts.push({ x: cx, y: cy, r: 2.5 + rand() * 1.5 });
+  for (let i = 0; i < count - 1; i++) {
+    const angle = rand() * Math.PI * 2;
+    const dist = radius * (0.25 + rand() * 0.75);
+    pts.push({
+      x: cx + Math.cos(angle) * dist,
+      y: cy + Math.sin(angle) * dist,
+      r: 0.8 + rand() * 1.8,
+    });
+  }
+  // pick some edges from hub + a few between neighbors
+  const edges: [number, number, number][] = [];
+  for (let i = 1; i < pts.length; i++) {
+    if (rand() < 0.6) edges.push([0, i, 0.4 + rand() * 0.2]);
+  }
+  for (let i = 1; i < pts.length; i++) {
+    if (rand() < 0.25) {
+      const j = 1 + Math.floor(rand() * (pts.length - 1));
+      if (j !== i) edges.push([i, j, 0.25 + rand() * 0.2]);
+    }
+  }
+  return { pts, edges };
+};
+
+const ConstellationField = ({ seed = 1 }: { seed?: number }) => {
+  const rand = mulberry32(seed * 9301 + 49297);
+
+  // 2-3 clusters per section, randomized position/size
+  const clusterCount = 2 + Math.floor(rand() * 2);
+  const corners = [
+    { top: "6%", right: "4%", left: "auto", bottom: "auto" },
+    { top: "auto", right: "auto", left: "6%", bottom: "12%" },
+    { top: "50%", right: "8%", left: "auto", bottom: "auto" },
+    { top: "10%", right: "auto", left: "12%", bottom: "auto" },
+    { top: "auto", right: "10%", left: "auto", bottom: "8%" },
+  ];
+  // shuffle corners
+  const shuffled = [...corners].sort(() => rand() - 0.5);
+
+  const clusters: ConstellationCluster[] = Array.from({ length: clusterCount }).map((_, i) => {
+    const pos = shuffled[i % shuffled.length];
+    const size = 180 + Math.floor(rand() * 380); // px
+    const isPrimary = i === 0;
+    return {
+      className: `absolute h-auto`,
+      viewBox: "0 0 400 400",
+      cx: 120 + rand() * 160,
+      cy: 120 + rand() * 160,
+      radius: 100 + rand() * 90,
+      count: isPrimary ? 10 + Math.floor(rand() * 8) : 5 + Math.floor(rand() * 5),
+      opacity: isPrimary ? 0.11 + rand() * 0.05 : 0.06 + rand() * 0.05,
+      drift: {
+        x: [0, rand() * 4 - 2, rand() * 4 - 2, 0],
+        y: [0, rand() * 4 - 2, rand() * 4 - 2, 0],
+        duration: 20 + rand() * 14,
+      },
+      // pass position through style below
+      ...({ __pos: pos, __size: size } as unknown as object),
+    } as ConstellationCluster & { __pos: typeof pos; __size: number };
+  });
+
+  // grid offset so grid also varies subtly
+  const gridOffsetX = Math.floor(rand() * 80);
+  const gridOffsetY = Math.floor(rand() * 80);
+
+  return (
+    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      <div
+        className="absolute inset-0 opacity-100"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(255,255,255,0.055) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255,255,255,0.055) 1px, transparent 1px)
+          `,
+          backgroundSize: "80px 80px",
+          backgroundPosition: `${gridOffsetX}px ${gridOffsetY}px`,
+        }}
+      />
+      {clusters.map((c, idx) => {
+        const { pts, edges } = buildCluster(rand, c);
+        const pos = (c as ConstellationCluster & { __pos: Record<string, string> }).__pos;
+        const size = (c as ConstellationCluster & { __size: number }).__size;
+        return (
+          <motion.svg
+            key={idx}
+            className={c.className}
+            style={{
+              top: pos.top,
+              right: pos.right,
+              left: pos.left,
+              bottom: pos.bottom,
+              width: size,
+              opacity: c.opacity,
+            }}
+            viewBox={c.viewBox}
+            animate={{ x: c.drift.x, y: c.drift.y }}
+            transition={{ duration: c.drift.duration, repeat: Infinity, ease: "easeInOut" }}
+          >
+            {edges.map(([a, b, w], i) => (
+              <path
+                key={`e-${i}`}
+                d={`M${pts[a].x},${pts[a].y} L${pts[b].x},${pts[b].y}`}
+                stroke="white"
+                strokeWidth={w}
+                fill="none"
+              />
+            ))}
+            {pts.map((p, i) => (
+              <circle key={`p-${i}`} cx={p.x} cy={p.y} r={p.r} fill="white" />
+            ))}
+          </motion.svg>
+        );
+      })}
+    </div>
+  );
+};
 
 const slideMotion = (isMobile: boolean, delay = 0.2) => ({
   initial: { opacity: 0, y: isMobile ? 0 : 18 },
