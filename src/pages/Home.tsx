@@ -5,6 +5,7 @@ import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Footer } from "@/components/Footer";
+import { HomeThesis } from "@/components/HomeThesis";
 
 
 const Home = () => {
@@ -77,7 +78,10 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Institutional Footer — below the fold */}
+      {/* Long-form thesis below hero */}
+      <HomeThesis />
+
+      {/* Institutional Footer */}
       <Footer />
     </div>
   );
