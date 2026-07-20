@@ -48,9 +48,9 @@ const ConstellationField = () => (
       <path d="M260,280 L180,320" stroke="white" strokeWidth="0.3" fill="none" />
       <path d="M140,240 L80,280" stroke="white" strokeWidth="0.3" fill="none" />
       <path d="M100,140 L220,80" stroke="white" strokeWidth="0.3" fill="none" />
-      <path d="280,120 L220,80" stroke="white" strokeWidth="0.3" fill="none" />
-      <path d="320,200 L340,300" stroke="white" strokeWidth="0.3" fill="none" />
-      <path d="260,280 L340,300" stroke="white" strokeWidth="0.3" fill="none" />
+      <path d="M280,120 L220,80" stroke="white" strokeWidth="0.3" fill="none" />
+      <path d="M320,200 L340,300" stroke="white" strokeWidth="0.3" fill="none" />
+      <path d="M260,280 L340,300" stroke="white" strokeWidth="0.3" fill="none" />
     </motion.svg>
     <motion.svg
       className="absolute left-[7%] bottom-[14%] w-[180px] md:w-[260px] h-auto opacity-[0.08]"
