@@ -162,8 +162,9 @@ const ConstellationField = ({ seed = 1 }: { seed?: number }) => {
               top: `${c.yPct}%`,
               left: `${c.xPct}%`,
               width: c.size,
+              marginLeft: -c.size / 2,
+              marginTop: -c.size / 2,
               opacity: c.opacity,
-              transform: "translate(-50%, -50%)",
             }}
             viewBox={c.viewBox}
             animate={{ x: c.drift.x, y: c.drift.y }}
