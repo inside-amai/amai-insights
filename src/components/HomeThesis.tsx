@@ -59,36 +59,57 @@ const buildCluster = (rand: () => number, cluster: ConstellationCluster) => {
 const ConstellationField = ({ seed = 1 }: { seed?: number }) => {
   const rand = mulberry32(seed * 9301 + 49297);
 
-  // 2-3 clusters per section, randomized position/size
-  const clusterCount = 2 + Math.floor(rand() * 2);
-  const corners = [
-    { top: "6%", right: "4%", left: "auto", bottom: "auto" },
-    { top: "auto", right: "auto", left: "6%", bottom: "12%" },
-    { top: "50%", right: "8%", left: "auto", bottom: "auto" },
-    { top: "10%", right: "auto", left: "12%", bottom: "auto" },
-    { top: "auto", right: "10%", left: "auto", bottom: "8%" },
+  // 2-4 clusters per section, randomized position/size
+  const clusterCount = 2 + Math.floor(rand() * 3);
+
+  // Anchored positions expressed as percentages of the section box.
+  // Balanced across left/right/top/bottom/center so no side dominates.
+  const anchors: Array<{ xPct: number; yPct: number }> = [
+    { xPct: 4, yPct: 6 },     // top-left
+    { xPct: 78, yPct: 4 },    // top-right
+    { xPct: 2, yPct: 55 },    // mid-left
+    { xPct: 82, yPct: 48 },   // mid-right
+    { xPct: 8, yPct: 78 },    // bottom-left
+    { xPct: 74, yPct: 82 },   // bottom-right
+    { xPct: 40, yPct: 2 },    // top-center
+    { xPct: 44, yPct: 84 },   // bottom-center
+    { xPct: 24, yPct: 30 },   // upper-left-inner
+    { xPct: 62, yPct: 66 },   // lower-right-inner
   ];
-  // shuffle corners
-  const shuffled = [...corners].sort(() => rand() - 0.5);
+
+  // Fisher-Yates shuffle with seeded rand
+  const shuffled = [...anchors];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
 
   const clusters: ConstellationCluster[] = Array.from({ length: clusterCount }).map((_, i) => {
-    const pos = shuffled[i % shuffled.length];
-    const size = 180 + Math.floor(rand() * 380); // px
+    const anchor = shuffled[i % shuffled.length];
+    // small jitter so the same anchor never lands in the exact same spot
+    const xPct = anchor.xPct + (rand() * 6 - 3);
+    const yPct = anchor.yPct + (rand() * 6 - 3);
+    const pos = {
+      top: `${yPct}%`,
+      left: `${xPct}%`,
+      right: "auto",
+      bottom: "auto",
+    };
+    const size = 160 + Math.floor(rand() * 420); // px
     const isPrimary = i === 0;
     return {
       className: `absolute h-auto`,
       viewBox: "0 0 400 400",
       cx: 120 + rand() * 160,
       cy: 120 + rand() * 160,
-      radius: 100 + rand() * 90,
-      count: isPrimary ? 10 + Math.floor(rand() * 8) : 5 + Math.floor(rand() * 5),
-      opacity: isPrimary ? 0.11 + rand() * 0.05 : 0.06 + rand() * 0.05,
+      radius: 90 + rand() * 110,
+      count: isPrimary ? 10 + Math.floor(rand() * 9) : 4 + Math.floor(rand() * 6),
+      opacity: isPrimary ? 0.10 + rand() * 0.06 : 0.05 + rand() * 0.06,
       drift: {
         x: [0, rand() * 4 - 2, rand() * 4 - 2, 0],
         y: [0, rand() * 4 - 2, rand() * 4 - 2, 0],
         duration: 20 + rand() * 14,
       },
-      // pass position through style below
       ...({ __pos: pos, __size: size } as unknown as object),
     } as ConstellationCluster & { __pos: typeof pos; __size: number };
   });
