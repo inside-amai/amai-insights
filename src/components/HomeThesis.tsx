@@ -168,7 +168,7 @@ const HomeSlide = ({
   wide?: boolean;
 }) => (
   <section className="relative min-h-svh md:min-h-screen w-full flex items-center justify-center overflow-hidden px-6 py-24 md:py-20">
-    <ConstellationField />
+    <ConstellationField seed={number} />
     <div className={`relative z-10 w-full ${wide ? "max-w-6xl" : "max-w-4xl"} mx-auto px-0 md:px-10`}>
       <MicroLabel>{String(number).padStart(2, "0")} // {label}</MicroLabel>
       {children}
