@@ -20,12 +20,63 @@ const mulberry32 = (seed: number) => {
 type ConstellationCluster = {
   className: string;
   viewBox: string;
+  xPct: number;
+  yPct: number;
+  size: number;
   cx: number;
   cy: number;
   radius: number;
   count: number;
   opacity: number;
   drift: { x: number[]; y: number[]; duration: number };
+};
+
+const constellationLayouts: Record<number, Array<{ xPct: number; yPct: number; scale: number }>> = {
+  1: [
+    { xPct: 16, yPct: 18, scale: 0.88 },
+    { xPct: 82, yPct: 72, scale: 0.62 },
+    { xPct: 54, yPct: 12, scale: 0.46 },
+  ],
+  2: [
+    { xPct: 82, yPct: 18, scale: 0.82 },
+    { xPct: 18, yPct: 72, scale: 0.58 },
+    { xPct: 48, yPct: 54, scale: 0.44 },
+  ],
+  3: [
+    { xPct: 14, yPct: 52, scale: 0.78 },
+    { xPct: 76, yPct: 20, scale: 0.54 },
+    { xPct: 68, yPct: 82, scale: 0.48 },
+  ],
+  4: [
+    { xPct: 50, yPct: 18, scale: 0.72 },
+    { xPct: 16, yPct: 82, scale: 0.6 },
+    { xPct: 86, yPct: 52, scale: 0.42 },
+  ],
+  5: [
+    { xPct: 24, yPct: 28, scale: 0.68 },
+    { xPct: 76, yPct: 76, scale: 0.66 },
+    { xPct: 12, yPct: 62, scale: 0.4 },
+  ],
+  6: [
+    { xPct: 80, yPct: 42, scale: 0.74 },
+    { xPct: 20, yPct: 18, scale: 0.54 },
+    { xPct: 40, yPct: 82, scale: 0.46 },
+  ],
+  7: [
+    { xPct: 18, yPct: 38, scale: 0.78 },
+    { xPct: 84, yPct: 16, scale: 0.5 },
+    { xPct: 78, yPct: 84, scale: 0.5 },
+  ],
+  8: [
+    { xPct: 52, yPct: 76, scale: 0.74 },
+    { xPct: 16, yPct: 16, scale: 0.56 },
+    { xPct: 86, yPct: 48, scale: 0.42 },
+  ],
+  9: [
+    { xPct: 84, yPct: 24, scale: 0.72 },
+    { xPct: 18, yPct: 58, scale: 0.62 },
+    { xPct: 56, yPct: 86, scale: 0.44 },
+  ],
 };
 
 const buildCluster = (rand: () => number, cluster: ConstellationCluster) => {
@@ -59,47 +110,18 @@ const buildCluster = (rand: () => number, cluster: ConstellationCluster) => {
 const ConstellationField = ({ seed = 1 }: { seed?: number }) => {
   const rand = mulberry32(seed * 9301 + 49297);
 
-  // 2-4 clusters per section, randomized position/size
-  const clusterCount = 2 + Math.floor(rand() * 3);
+  // Deliberate per-section anchors: every slide gets a different quadrant mix.
+  const layout = constellationLayouts[seed] ?? constellationLayouts[((seed - 1) % TOTAL_HOME_SECTIONS) + 1];
 
-  // Anchored positions expressed as percentages of the section box.
-  // Balanced across left/right/top/bottom/center so no side dominates.
-  const anchors: Array<{ xPct: number; yPct: number }> = [
-    { xPct: 4, yPct: 6 },     // top-left
-    { xPct: 78, yPct: 4 },    // top-right
-    { xPct: 2, yPct: 55 },    // mid-left
-    { xPct: 82, yPct: 48 },   // mid-right
-    { xPct: 8, yPct: 78 },    // bottom-left
-    { xPct: 74, yPct: 82 },   // bottom-right
-    { xPct: 40, yPct: 2 },    // top-center
-    { xPct: 44, yPct: 84 },   // bottom-center
-    { xPct: 24, yPct: 30 },   // upper-left-inner
-    { xPct: 62, yPct: 66 },   // lower-right-inner
-  ];
-
-  // Fisher-Yates shuffle with seeded rand
-  const shuffled = [...anchors];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(rand() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-
-  const clusters: ConstellationCluster[] = Array.from({ length: clusterCount }).map((_, i) => {
-    const anchor = shuffled[i % shuffled.length];
-    // small jitter so the same anchor never lands in the exact same spot
-    const xPct = anchor.xPct + (rand() * 6 - 3);
-    const yPct = anchor.yPct + (rand() * 6 - 3);
-    const pos = {
-      top: `${yPct}%`,
-      left: `${xPct}%`,
-      right: "auto",
-      bottom: "auto",
-    };
-    const size = 160 + Math.floor(rand() * 420); // px
+  const clusters: ConstellationCluster[] = layout.map((anchor, i) => {
     const isPrimary = i === 0;
+    const baseSize = isPrimary ? 520 : 360;
     return {
       className: `absolute h-auto`,
       viewBox: "0 0 400 400",
+      xPct: anchor.xPct + (rand() * 4 - 2),
+      yPct: anchor.yPct + (rand() * 4 - 2),
+      size: Math.round(baseSize * anchor.scale + rand() * 42),
       cx: 120 + rand() * 160,
       cy: 120 + rand() * 160,
       radius: 90 + rand() * 110,
@@ -110,8 +132,7 @@ const ConstellationField = ({ seed = 1 }: { seed?: number }) => {
         y: [0, rand() * 4 - 2, rand() * 4 - 2, 0],
         duration: 20 + rand() * 14,
       },
-      ...({ __pos: pos, __size: size } as unknown as object),
-    } as ConstellationCluster & { __pos: typeof pos; __size: number };
+    };
   });
 
   // grid offset so grid also varies subtly
@@ -133,18 +154,16 @@ const ConstellationField = ({ seed = 1 }: { seed?: number }) => {
       />
       {clusters.map((c, idx) => {
         const { pts, edges } = buildCluster(rand, c);
-        const pos = (c as ConstellationCluster & { __pos: Record<string, string> }).__pos;
-        const size = (c as ConstellationCluster & { __size: number }).__size;
         return (
           <motion.svg
             key={idx}
             className={c.className}
             style={{
-              top: pos.top,
-              right: pos.right,
-              left: pos.left,
-              bottom: pos.bottom,
-              width: size,
+              top: `${c.yPct}%`,
+              left: `${c.xPct}%`,
+              width: c.size,
+              marginLeft: -c.size / 2,
+              marginTop: -c.size / 2,
               opacity: c.opacity,
             }}
             viewBox={c.viewBox}
