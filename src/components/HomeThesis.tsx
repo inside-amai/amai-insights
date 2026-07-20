@@ -167,7 +167,7 @@ const TrustFilterVisual = () => (
         </defs>
         <path d="M 25 98 A 70 70 0 0 1 155 98" fill="none" stroke="rgba(255,255,255,0.09)" strokeWidth="14" strokeLinecap="round" />
         <path d="M 25 98 A 70 70 0 0 1 155 98" fill="none" stroke="url(#homeGauge)" strokeWidth="14" strokeLinecap="round" />
-        <motion.line x1="90" y1="98" x2="138" y2="58" stroke="rgba(166,252,252,0.9)" strokeWidth="2" strokeLinecap="round" animate={{ x2: [134, 140, 134], y2: [61, 55, 61] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} />
+        <line x1="90" y1="98" x2="138" y2="58" stroke="rgba(166,252,252,0.9)" strokeWidth="2" strokeLinecap="round" />
         <circle cx="90" cy="98" r="4" fill="rgba(166,252,252,0.35)" stroke="rgba(166,252,252,0.7)" strokeWidth="1" />
         <text x="90" y="78" fill="white" fontSize="22" fontFamily="monospace" fontWeight="300" textAnchor="middle">824</text>
       </svg>
