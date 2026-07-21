@@ -14,6 +14,8 @@ const navItems = [
   { label: "Install TARI", id: "install-tari" },
   { label: "Risk", id: "risk" },
   { label: "Institutions", id: "institutions" },
+  { label: "Bureau", id: "bureau" },
+  { label: "Docs", id: "docs" },
 ];
 
 const CountUp = ({ to, prefix = "", suffix = "" }: { to: number; prefix?: string; suffix?: string }) => {
@@ -176,7 +178,7 @@ const Home = () => {
                 viewport={{ once: false, amount: 0.5 }}
                 transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               >
-                <div className="overflow-hidden rounded-full border border-white/10 bg-black/50 backdrop-blur-xl px-2 py-2 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.9)] w-[calc(5*5rem+4*0.5rem+1rem)] md:w-[calc(5*6rem+4*0.5rem+1rem)]">
+                <div className="overflow-hidden rounded-full border border-white/10 bg-black/50 backdrop-blur-xl px-2 py-2 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.9)] w-[calc(7*5rem+6*0.5rem+1rem)] md:w-[calc(7*6rem+6*0.5rem+1rem)]">
                   <ul className="flex items-center gap-2">
                     {navItems.map(({ label, id }) => (
                       <li key={id}>
