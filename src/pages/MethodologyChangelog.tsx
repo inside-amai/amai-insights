@@ -21,19 +21,47 @@ type Entry = {
 
 const entries: Entry[] = [
   {
-    version: 'V3.0',
+    version: 'Conduct v0.1.0 · Credit v1.1',
     current: true,
-    date: '2026-06-09',
-    title: 'Two-score model: TARI Score and Behavioral Sub-Score.',
+    date: '2026-07-21',
+    title: 'Two independent engines under one 300–850 index.',
     body:
-      'Replaces the prior three-pillar model with two scores. The TARI™ Score is the headline, credit-anchored figure (300–850) and populates once an agent transacts on credit: Settlement History 35%, Outstanding Exposure 30%, Track Record & Age 15%, Instrument Mix 10%, Recent Activity 10%. The Behavioral Sub-Score is live from day one with no credit history required: Behavioral Consistency 40%, Scope Adherence 35%, Operational Reliability 25%. Scores are context-weighted, recomputable, and auditable. The Dual-Source Verification anchor carries forward.',
+      'They share a scale, not data — there is no identity link between a wallet and an agent.\n\nConduct (instrumented agents) — content-off. Reads only tool names, order, and timing — never prompts, data, or outputs. Five scored dimensions — Scope Integrity, Consistency, Exfiltration Risk (highest-weighted), Resilience, Reliability — with documented expert-prior weights (rank-order centroid), each mapped to OWASP ASI / MITRE ATLAS. The score triages, it never gates; low-confidence subjects are UNRATED. Discrimination validated on AgentDojo (AUC 0.835 single-model; 0.797 two-model pooled).\n\nCredit (on-chain wallets). A WOE logistic scorecard over real DeFi lending (Aave, Morpho; Ethereum + Base), per-wallet 12/12-month windows, with per-chain tier calibration and an economic-stake floor. Rank-orders default risk — not a calibrated probability. Ethereum-only out-of-time Gini 0.630; 155,634 wallets scored; refreshed weekly, harness-gated.',
   },
   {
-    version: 'V2.4',
-    date: '2026-05-16',
-    title: 'Initial public methodology release.',
+    version: '2026-07-20',
+    date: '2026-07-20',
+    title: 'Credit snapshot refreshed.',
     body:
-      'First public version of the TARI™ scoring methodology — establishes the 300–850 scoring band, the three-pillar model (Intent & Risk Surface 40%, Industry Guardrails 30%, Behavioral Provenance 30%), and the Dual-Source Verification anchor. Prior internal revisions are not published.',
+      'Weekly regeneration on fresh on-chain data. 155,634 wallets scored; Ethereum-only Gini moved 0.638 → 0.630 (within the ±0.03 tolerance — discrimination held). Ratified 2026-07-21.',
+  },
+  {
+    version: '2026-07-19',
+    date: '2026-07-19',
+    title: 'Per-chain tier calibration + economic-stake floor.',
+    body:
+      'Serving-layer gate so a tier never understates its Ethereum-validated risk on the chain a wallet transacted on. Unpriced or sub-floor exposures serve UNRATED.',
+  },
+  {
+    version: '2026-07-13',
+    date: '2026-07-13',
+    title: 'Credit engine regeneration.',
+    body:
+      'Rebuilt on the full wallet population; Ethereum-only Gini to 0.638.',
+  },
+  {
+    version: '2026-07-12',
+    date: '2026-07-12',
+    title: 'Behavioral interpretation bands ratified.',
+    body:
+      'Defined the score to triage, never gate; UNRATED at low confidence; bands published with their benchmark-conditional caveat.',
+  },
+  {
+    version: '2026-06-26',
+    date: '2026-06-26',
+    title: 'Credit v1.0 baseline.',
+    body:
+      'First on-chain scorecard; Ethereum-only Gini 0.358.',
   },
 ];
 
