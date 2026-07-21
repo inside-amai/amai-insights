@@ -291,7 +291,9 @@ const Home = () => {
             </h2>
 
             <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-2xl">
-              Every agent earns one TARI score, 300 to 850, the scale the world already trusts. It doesn't predict the future, and it never calls an agent safe. It ranks behavior: the higher the number, the less an agent has done to earn suspicion.
+              Every agent earns one TARI score, 300 to 850, the scale the world already trusts.
+              <br /><br />
+              It doesn't predict the future, and it never calls an agent safe. It ranks behavior: the higher the number, the less an agent has done to earn suspicion.
             </p>
 
             <div className="mt-16 md:mt-20 pt-10 border-t border-white/10 max-w-2xl">
@@ -560,7 +562,9 @@ const Home = () => {
             </h2>
 
             <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-black/70 leading-relaxed max-w-xl">
-              <span className="text-black font-normal">pip install amai-tari</span>, three lines, and point it at your own agent. Watch what it actually does — every tool, the full trace, the score — on your machine, in about a minute. No account. Nothing leaves your walls.
+              <span className="text-black font-normal">pip install amai-tari</span>, three lines, and point it at your own agent. Watch what it actually does — every tool, the full trace, the score — on your machine, in about a minute.
+              <br /><br />
+              No account. Nothing leaves your walls.
             </p>
 
             <div className="mt-10">
@@ -740,7 +744,9 @@ const Home = () => {
             </h2>
 
             <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-xl">
-              Your agents act on untrusted input: a document, a web page, a third-party tool — with real privileges and no one watching. A single poisoned instruction, buried where no one looks, can turn an agent against you: read a secret, disguise it, ship it out and report back "task complete." You'd never see it happen.
+              Your agents act on untrusted input: a document, a web page, a third-party tool — with real privileges and no one watching.
+              <br /><br />
+              A single poisoned instruction, buried where no one looks, can turn an agent against you: read a secret, disguise it, ship it out and report back "task complete." You'd never see it happen.
             </p>
 
             <div className="mt-16 md:mt-20 pt-10 border-t border-white/10 max-w-xl">
@@ -836,7 +842,9 @@ const Home = () => {
             </h2>
 
             <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-xl">
-              For organizations running fleets of agents, the AMAI Command Center puts every agent's trust score, its full behavioral trace, and the power to act in one place. When an agent turns, hold the action before it executes — with a human in the loop. All of it content-off: you get the whole picture without a single sensitive byte leaving your walls.
+              For organizations running fleets of agents, the AMAI Command Center puts every agent's trust score, its full behavioral trace, and the power to act in one place.
+              <br /><br />
+              When an agent turns, hold the action before it executes — with a human in the loop. All of it content-off: you get the whole picture without a single sensitive byte leaving your walls.
             </p>
 
             {/* Three capability beats */}
