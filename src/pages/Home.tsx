@@ -111,6 +111,49 @@ const Home = () => {
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.06] via-transparent to-transparent" />
             <div className="pointer-events-none absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.08),transparent_50%)]" />
 
+            {/* Squiggle field — topographic contour lines, faded away from center */}
+            <div
+              className="pointer-events-none absolute inset-0 overflow-hidden"
+              style={{
+                WebkitMaskImage:
+                  "radial-gradient(ellipse 55% 55% at 50% 50%, transparent 0%, transparent 25%, rgba(0,0,0,0.5) 55%, black 85%)",
+                maskImage:
+                  "radial-gradient(ellipse 55% 55% at 50% 50%, transparent 0%, transparent 25%, rgba(0,0,0,0.5) 55%, black 85%)",
+              }}
+            >
+              <motion.svg
+                className="absolute inset-0 w-full h-full"
+                viewBox="0 0 1200 800"
+                preserveAspectRatio="none"
+                fill="none"
+                animate={{ x: [0, -20, 10, 0], y: [0, 8, -6, 0] }}
+                transition={{ duration: 26, ease: "easeInOut", repeat: Infinity }}
+              >
+                <defs>
+                  <linearGradient id="squiggleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="hsl(180 100% 82%)" stopOpacity="0.55" />
+                    <stop offset="50%" stopColor="hsl(210 60% 75%)" stopOpacity="0.35" />
+                    <stop offset="100%" stopColor="hsl(270 87% 82%)" stopOpacity="0.5" />
+                  </linearGradient>
+                </defs>
+                {Array.from({ length: 22 }).map((_, i) => {
+                  const offset = i * 22 - 60;
+                  const amp = 40 + (i % 5) * 8;
+                  const phase = (i % 4) * 60;
+                  return (
+                    <path
+                      key={i}
+                      d={`M -100 ${offset + 200} C 200 ${offset + 200 - amp + phase}, 400 ${offset + 200 + amp}, 600 ${offset + 220 - amp / 2}, S 1000 ${offset + 180 + amp}, 1300 ${offset + 210 - amp / 3}`}
+                      stroke="url(#squiggleGrad)"
+                      strokeWidth="1"
+                      strokeLinecap="round"
+                      opacity={0.35 + (i % 3) * 0.15}
+                    />
+                  );
+                })}
+              </motion.svg>
+            </div>
+
             {/* Center content: zoom-out on scroll into view */}
             <motion.div
               className="relative z-10 flex flex-col items-center justify-center px-6 py-16 text-center max-w-5xl mx-auto"
