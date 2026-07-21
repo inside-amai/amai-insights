@@ -6,7 +6,6 @@ import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Footer } from "@/components/Footer";
-import { HomeThesis } from "@/components/HomeThesis";
 import { TariGauge } from "@/components/TariGauge";
 
 const navItems = ["Score", "Risk", "Methodology", "Bureau", "Coverage", "Docs", "Research"];
