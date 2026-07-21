@@ -22,11 +22,14 @@ const Home = () => {
         
         {/* Main content with background */}
         <div className="flex-1 flex items-center justify-center overflow-hidden relative">
-          {/* Fallback background image */}
-          <img
+          {/* Fallback background image — slow breathing zoom toward center */}
+          <motion.img
             src={homeFallbackBg}
             alt=""
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover will-change-transform"
+            initial={{ scale: 1 }}
+            animate={{ scale: [1, 1.08, 1] }}
+            transition={{ duration: 24, ease: "easeInOut", repeat: Infinity }}
           />
           <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
             {/* AMAI Logo */}
