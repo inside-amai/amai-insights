@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Copy, Check, ChevronRight, ChevronLeft } from "lucide-react";
 import amaiLogo from "@/assets/amai-logo-tm.png";
 import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
+import agentFleetDashboard from "@/assets/agent-fleet-dashboard.png.asset.json";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 import { Footer } from "@/components/Footer";
