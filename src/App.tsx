@@ -142,6 +142,7 @@ const App = () => (
             <Route path="/trust" element={<Trust />} />
             <Route path="/methodology" element={<Methodology />} />
             <Route path="/methodology/changelog" element={<MethodologyChangelog />} />
+            <Route path="/docs" element={<Docs />} />
 
             <Route path="/diagram" element={<Diagram />} />
             <Route path="/diagram2" element={<Diagram2 />} />
