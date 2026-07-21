@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, useInView, animate } from "framer-motion";
-import { Copy, Check } from "lucide-react";
+import { Copy, Check, ChevronRight } from "lucide-react";
 import amaiLogo from "@/assets/amai-logo-tm.png";
 import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -11,7 +11,7 @@ import { TariGauge } from "@/components/TariGauge";
 const navItems = [
   { label: "Score", id: "score" },
   { label: "Methodology", id: "methodology" },
-  { label: "Install TARI", id: "install-tari" },
+  { label: "Install", id: "install-tari" },
   { label: "Risk", id: "risk" },
   { label: "Institutions", id: "institutions" },
   { label: "Bureau", id: "bureau" },
@@ -46,6 +46,29 @@ const Home = () => {
   
 
   const [copied, setCopied] = useState(false);
+  const [showNavArrow, setShowNavArrow] = useState(true);
+  const navListRef = useRef<HTMLUListElement>(null);
+
+  useEffect(() => {
+    const el = navListRef.current;
+    if (!el) return;
+    const update = () => setShowNavArrow(el.scrollLeft + el.clientWidth < el.scrollWidth - 2);
+    update();
+    el.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      el.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+
+  const scrollNavRight = () => {
+    const el = navListRef.current;
+    if (!el) return;
+    const item = el.querySelector("li");
+    const itemWidth = item?.getBoundingClientRect().width ?? 96;
+    el.scrollBy({ left: itemWidth * 2 + 16, behavior: "smooth" });
+  };
 
 
   return (
@@ -170,7 +193,7 @@ const Home = () => {
                 AMAI reads how an agent behaves, every tool it calls &amp; every boundary it crosses, telling you which ones to trust without ever touching your data.
               </p>
 
-              {/* Pill nav strip — five real anchors */}
+              {/* Pill nav strip — five visible anchors + arrow reveals the last two */}
               <motion.nav
                 className="mt-16 md:mt-24"
                 initial={{ y: 12 }}
@@ -178,20 +201,34 @@ const Home = () => {
                 viewport={{ once: false, amount: 0.5 }}
                 transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               >
-                <div className="overflow-hidden rounded-full border border-white/10 bg-black/50 backdrop-blur-xl px-2 py-2 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.9)] w-[calc(7*5rem+6*0.5rem+1rem)] md:w-[calc(7*6rem+6*0.5rem+1rem)]">
-                  <ul className="flex items-center gap-2">
+                <div className="flex items-center overflow-hidden rounded-full border border-white/10 bg-black/50 backdrop-blur-xl px-2 py-2 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.9)] w-[calc(4*4rem+3*0.5rem+2rem+1rem)] md:w-[calc(5*6rem+4*0.5rem+2rem+1rem)]">
+                  <ul
+                    ref={navListRef}
+                    className="flex items-center gap-2 overflow-x-auto scroll-smooth snap-x snap-mandatory w-[calc(4*4rem+3*0.5rem)] md:w-[calc(5*6rem+4*0.5rem)]"
+                    style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+                  >
                     {navItems.map(({ label, id }) => (
-                      <li key={id}>
+                      <li key={id} className="snap-start">
                         <button
                           type="button"
                           onClick={() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })}
-                          className="w-20 md:w-24 px-0 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-light tracking-wide text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-300 whitespace-nowrap"
+                          className="w-16 md:w-24 px-0 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-light tracking-wide text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-300 whitespace-nowrap"
                         >
                           {label}
                         </button>
                       </li>
                     ))}
                   </ul>
+                  {showNavArrow && (
+                    <button
+                      type="button"
+                      onClick={scrollNavRight}
+                      className="ml-2 h-7 w-7 md:h-8 md:w-8 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center text-white/70 hover:text-white transition-all duration-300"
+                      aria-label="Show more links"
+                    >
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                  )}
                 </div>
               </motion.nav>
 
