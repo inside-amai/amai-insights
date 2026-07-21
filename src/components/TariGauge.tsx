@@ -1,10 +1,15 @@
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { animate, motion, useInView } from "framer-motion";
 
 /**
  * TARI™ Gauge — sophisticated FICO-style score dial.
  * Semicircular arc from 300 → 850, animated on scroll into view.
  */
 export const TariGauge = ({ score = 812 }: { score?: number }) => {
+  const gaugeRef = useRef<HTMLDivElement>(null);
+  const needleRef = useRef<SVGGElement>(null);
+  const isInView = useInView(gaugeRef, { once: false, amount: 0.4 });
+
   const MIN = 300;
   const MAX = 850;
   const clamped = Math.max(MIN, Math.min(MAX, score));
@@ -39,6 +44,22 @@ export const TariGauge = ({ score = 812 }: { score?: number }) => {
   const needleBase1 = polar(270, 6);
   const needleBase2 = polar(90, 6);
 
+  useEffect(() => {
+    const needle = needleRef.current;
+    if (!needle) return;
+
+    const controls = animate(0, isInView ? needleSweep : 0, {
+      duration: isInView ? 2.2 : 0.4,
+      ease: [0.16, 1, 0.3, 1],
+      delay: isInView ? 0.4 : 0,
+      onUpdate: (latest) => {
+        needle.setAttribute("transform", `rotate(${latest} ${cx} ${cy})`);
+      },
+    });
+
+    return () => controls.stop();
+  }, [cx, cy, isInView, needleSweep]);
+
   // Tier label
   const tier =
     clamped >= 800 ? "Exceptional" :
@@ -47,7 +68,7 @@ export const TariGauge = ({ score = 812 }: { score?: number }) => {
     clamped >= 580 ? "Fair" : "Poor";
 
   return (
-    <div className="relative w-full max-w-[520px] mx-auto">
+    <div ref={gaugeRef} className="relative w-full max-w-[520px] mx-auto">
       <svg
         viewBox={`0 0 ${size} ${size * 0.62}`}
         className="w-full h-auto overflow-visible"
@@ -136,18 +157,13 @@ export const TariGauge = ({ score = 812 }: { score?: number }) => {
         })}
 
         {/* Needle — stays anchored at the center dot and pivots up to the final score */}
-        <motion.g
-          initial={{ transform: `rotate(0 ${cx} ${cy})` }}
-          whileInView={{ transform: `rotate(${needleSweep} ${cx} ${cy})` }}
-          viewport={{ once: false, amount: 0.4 }}
-          transition={{ duration: 2.2, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-        >
+        <g ref={needleRef} transform={`rotate(0 ${cx} ${cy})`}>
           <polygon
             points={`${needleTip.x},${needleTip.y} ${needleBase1.x},${needleBase1.y} ${needleBase2.x},${needleBase2.y}`}
             fill="rgba(255,255,255,0.95)"
             filter="url(#tari-glow)"
           />
-        </motion.g>
+        </g>
         <circle cx={cx} cy={cy} r={9} fill="#0a0a0a" stroke="rgba(255,255,255,0.6)" strokeWidth={1.2} />
         <circle cx={cx} cy={cy} r={3} fill="rgba(166,252,252,0.9)" />
 
