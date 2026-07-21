@@ -196,13 +196,13 @@ export const SiteHeader = () => {
           </div>
 
           <nav className="flex-1 flex flex-col justify-center px-8 gap-2">
-            <a
-              href="mailto:team@amai.net?subject=Request%20Access"
-              onClick={() => { setMobileOpen(false); handleContactClick(); }}
-              className="block py-4 text-2xl font-light text-white/90 hover:text-white tracking-tight border-b border-white/10"
+            <button
+              type="button"
+              onClick={() => { setMobileOpen(false); handleGetStarted(); }}
+              className="block text-left py-4 text-2xl font-light text-white/90 hover:text-white tracking-tight border-b border-white/10"
             >
-              Request Access
-            </a>
+              GET STARTED
+            </button>
             <a
               href={mailto}
               onClick={() => { setMobileOpen(false); handleContactClick(); }}
