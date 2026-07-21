@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
+import { motion, useInView, animate } from "framer-motion";
 import { Copy, Check } from "lucide-react";
 import amaiLogo from "@/assets/amai-logo-tm.png";
 import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
@@ -10,6 +10,28 @@ import { HomeThesis } from "@/components/HomeThesis";
 import { TariGauge } from "@/components/TariGauge";
 
 const navItems = ["Score", "Risk", "Methodology", "Bureau", "Coverage", "Docs", "Research"];
+
+const CountUp = ({ to, prefix = "", suffix = "" }: { to: number; prefix?: string; suffix?: string }) => {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    if (!isInView) return;
+    const controls = animate(0, to, {
+      duration: 1.5,
+      ease: [0.16, 1, 0.3, 1],
+      onUpdate: (v) => setValue(Math.round(v)),
+    });
+    return () => controls.stop();
+  }, [isInView, to]);
+
+  return (
+    <span ref={ref}>
+      {prefix}{value.toLocaleString()}{suffix}
+    </span>
+  );
+};
 
 const Home = () => {
   const { t, language } = useLanguage();
@@ -616,6 +638,97 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Section 6 — RISK */}
+      <section className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black pointer-events-none" />
+
+        <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
+          {/* LEFT — copy */}
+          <motion.div
+            className="lg:col-span-5 text-left"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="flex items-center gap-3 mb-8">
+              <span className="h-px w-10 bg-white/30" />
+              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">Risk</span>
+            </div>
+
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05]">
+              One hidden instruction is all it takes.
+            </h2>
+
+            <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-xl">
+              Your agents act on untrusted input: a document, a web page, a third-party tool — with real privileges and no one watching. A single poisoned instruction, buried where no one looks, can turn an agent against you: read a secret, disguise it, ship it out and report back "task complete." You'd never see it happen.
+            </p>
+
+            <div className="mt-16 md:mt-20 pt-10 border-t border-white/10 max-w-xl">
+              <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-white leading-[1.15]">
+                The worst part isn't that it happens.
+                <br />
+                <span className="text-white/50">It's that you can't see it.</span>
+              </p>
+            </div>
+          </motion.div>
+
+          {/* RIGHT — three stat figures */}
+          <div className="lg:col-span-7 flex flex-col gap-8 md:gap-12">
+            {/* Stat 1 */}
+            <motion.div
+              className="border-b border-white/10 pb-8 md:pb-12"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <div className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-[hsl(var(--trust-red)/0.8)] leading-none">
+                <CountUp to={16} suffix="%" />
+              </div>
+              <p className="mt-4 text-base md:text-lg font-light text-white/70 max-w-md">
+                of 2025 breaches already involved attackers using AI.
+              </p>
+              <span className="mt-2 inline-block text-[11px] tracking-[0.2em] uppercase text-white/40 font-light">IBM</span>
+            </motion.div>
+
+            {/* Stat 2 */}
+            <motion.div
+              className="border-b border-white/10 pb-8 md:pb-12"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <div className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-[hsl(var(--trust-red)/0.8)] leading-none">
+                <CountUp to={200000} prefix="~" />
+              </div>
+              <p className="mt-4 text-base md:text-lg font-light text-white/70 max-w-md">
+                exposed AI-agent tool servers, each one a way in.
+              </p>
+              <span className="mt-2 inline-block text-[11px] tracking-[0.2em] uppercase text-white/40 font-light">
+                Cloud Security Alliance, estimated
+              </span>
+            </motion.div>
+
+            {/* Stat 3 */}
+            <motion.div
+              className="border-b border-white/10 pb-8 md:pb-12"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <div className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-[hsl(var(--trust-red)/0.8)] leading-none">
+                CVE-2025-53773
+              </div>
+              <p className="mt-4 text-base md:text-lg font-light text-white/70 max-w-md">
+                a hidden instruction flips a coding agent into auto-approve mode: remote code execution that spreads on its own.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
       {/* Placeholder actions section */}
       <section className="relative bg-perspective-grid py-16 px-4 md:px-8">
