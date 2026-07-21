@@ -89,11 +89,11 @@ const MethodologyChangelog = () => {
                 >
                   <Eyebrow>TARI™ Methodology · Changelog</Eyebrow>
                   <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight tracking-tight">
-                    Versioned. Auditable.
+                    Versioned. Auditable. Immutable once released.
                   </h1>
                   <p className="mt-6 text-base md:text-lg font-light text-white/55 leading-relaxed max-w-2xl">
                     Every revision to the TARI™ scoring methodology is published here.
-                    Methodology versions are immutable once released.
+                    Released versions are immutable.
                   </p>
                 </motion.div>
               </div>
