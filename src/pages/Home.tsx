@@ -594,122 +594,127 @@ const Home = () => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="relative bg-black rounded-2xl overflow-hidden shadow-[24px_24px_0px_0px_rgba(0,0,0,0.12)] border border-black/10">
-              {/* Header bar */}
-              <div className="flex items-center justify-between px-5 py-3 border-b border-white/10">
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-red-400/80" />
-                  <span className="w-2 h-2 rounded-full bg-amber-300/80" />
-                  <span className="w-2 h-2 rounded-full bg-emerald-400/80" />
-                </div>
-                <span className="text-[10px] tracking-[0.3em] uppercase text-white/40 font-light">
-                  sdk
-                </span>
-                <button
-                  type="button"
-                  onClick={() => {
-                    navigator.clipboard.writeText(`pip install amai-tari\n\nfrom tari import TARIInstrument\ntari = TARIInstrument("my-agent", store="./.tari")\nprovider, exporter = tari.start_otel_capture()\n# ... run your agent ...\ntari.score(tari.trajectory_from_exporter(exporter))`);
-                    setCopied(true);
-                    setTimeout(() => setCopied(false), 2000);
-                  }}
-                  className="group flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/15 bg-white/[0.06] hover:bg-white/[0.12] hover:border-white/30 transition-all duration-300"
-                >
-                  {copied ? (
-                    <>
-                      <Check className="w-3.5 h-3.5 text-emerald-300" strokeWidth={2} />
-                      <span className="text-[10px] tracking-[0.2em] uppercase font-light text-emerald-100">
-                        Copied
-                      </span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="w-3.5 h-3.5 text-white/60 group-hover:text-white/90 transition-colors duration-300" strokeWidth={2} />
-                      <span className="text-[10px] tracking-[0.2em] uppercase font-light text-white/60 group-hover:text-white/90 transition-colors duration-300">
-                        Copy
-                      </span>
-                    </>
-                  )}
-                </button>
-              </div>
+            <div className="relative">
+              {/* Ambient glow */}
+              <div className="absolute -inset-3 -z-10 rounded-[32px] bg-gradient-to-br from-white/10 via-white/5 to-transparent blur-2xl opacity-60" />
 
-              {/* Code body */}
-              <div className="px-6 py-8 md:px-8 md:py-10 font-mono text-sm md:text-base leading-relaxed">
-                <div className="flex gap-4">
-                  {/* Line numbers */}
-                  <div className="select-none text-right text-white/20 font-light tabular-nums">
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div>
-                    <div>5</div>
-                    <div>6</div>
+              <div className="relative bg-[hsla(var(--gray-900),0.95)] backdrop-blur-xl rounded-3xl overflow-hidden border border-white/10 shadow-2xl after:absolute after:inset-x-0 after:top-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-white/20 after:to-transparent">
+                {/* Header bar */}
+                <div className="flex items-center justify-between px-5 py-3.5 border-b border-white/[0.08]">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-amber-300/80" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/80" />
                   </div>
-                  {/* Code */}
-                  <div className="space-y-0.5">
-                    <div>
-                      <span className="text-cyan-300/90">pip install</span>{" "}
-                      <span className="text-white/90">amai-tari</span>
+                  <span className="text-[10px] tracking-[0.3em] uppercase text-white/40 font-light">
+                    sdk
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      navigator.clipboard.writeText(`pip install amai-tari\n\nfrom tari import TARIInstrument\ntari = TARIInstrument("my-agent", store="./.tari")\nprovider, exporter = tari.start_otel_capture()\n# ... run your agent ...\ntari.score(tari.trajectory_from_exporter(exporter))`);
+                      setCopied(true);
+                      setTimeout(() => setCopied(false), 2000);
+                    }}
+                    className="group flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/10 bg-white/[0.05] hover:bg-white/[0.10] hover:border-white/20 transition-all duration-300"
+                  >
+                    {copied ? (
+                      <>
+                        <Check className="w-3.5 h-3.5 text-emerald-300" strokeWidth={2} />
+                        <span className="text-[10px] tracking-[0.2em] uppercase font-light text-emerald-100">
+                          Copied
+                        </span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3.5 h-3.5 text-white/60 group-hover:text-white/90 transition-colors duration-300" strokeWidth={2} />
+                        <span className="text-[10px] tracking-[0.2em] uppercase font-light text-white/60 group-hover:text-white/90 transition-colors duration-300">
+                          Copy
+                        </span>
+                      </>
+                    )}
+                  </button>
+                </div>
+
+                {/* Code body */}
+                <div className="px-6 py-8 md:px-8 md:py-10 font-mono text-sm md:text-[15px] leading-relaxed">
+                  <div className="flex gap-4">
+                    {/* Line numbers */}
+                    <div className="select-none text-right text-white/15 font-light tabular-nums">
+                      <div>1</div>
+                      <div>2</div>
+                      <div>3</div>
+                      <div>4</div>
+                      <div>5</div>
+                      <div>6</div>
                     </div>
-                    <div>
-                      <span className="text-purple-300/90">from</span>{" "}
-                      <span className="text-white/90">tari</span>{" "}
-                      <span className="text-purple-300/90">import</span>{" "}
-                      <span className="text-white/90">TARIInstrument</span>
-                    </div>
-                    <div>
-                      <span className="text-white/90">tari</span>{" "}
-                      <span className="text-white/50">=</span>{" "}
-                      <span className="text-cyan-300/90">TARIInstrument</span>
-                      <span className="text-white/50">(</span>
-                      <span className="text-amber-300/90">"my-agent"</span>
-                      <span className="text-white/50">,</span>{" "}
-                      <span className="text-white/90">store</span>
-                      <span className="text-white/50">=</span>
-                      <span className="text-amber-300/90">"./.tari"</span>
-                      <span className="text-white/50">)</span>
-                    </div>
-                    <div>
-                      <span className="text-white/90">provider</span>
-                      <span className="text-white/50">,</span>{" "}
-                      <span className="text-white/90">exporter</span>{" "}
-                      <span className="text-white/50">=</span>{" "}
-                      <span className="text-white/90">tari</span>
-                      <span className="text-white/50">.</span>
-                      <span className="text-cyan-300/90">start_otel_capture</span>
-                      <span className="text-white/50">()</span>
-                    </div>
-                    <div>
-                      <span className="text-white/40 italic"># ... run your agent ...</span>
-                    </div>
-                    <div>
-                      <span className="text-white/90">tari</span>
-                      <span className="text-white/50">.</span>
-                      <span className="text-cyan-300/90">score</span>
-                      <span className="text-white/50">(</span>
-                      <span className="text-white/90">tari</span>
-                      <span className="text-white/50">.</span>
-                      <span className="text-cyan-300/90">trajectory_from_exporter</span>
-                      <span className="text-white/50">(</span>
-                      <span className="text-white/90">exporter</span>
-                      <span className="text-white/50">))</span>
+                    {/* Code */}
+                    <div className="space-y-0.5">
+                      <div>
+                        <span className="text-[hsl(var(--cyan-accent))]">pip install</span>{" "}
+                        <span className="text-white/90">amai-tari</span>
+                      </div>
+                      <div>
+                        <span className="text-[hsl(var(--purple-accent))]">from</span>{" "}
+                        <span className="text-white/90">tari</span>{" "}
+                        <span className="text-[hsl(var(--purple-accent))]">import</span>{" "}
+                        <span className="text-white/90">TARIInstrument</span>
+                      </div>
+                      <div>
+                        <span className="text-white/90">tari</span>{" "}
+                        <span className="text-white/50">=</span>{" "}
+                        <span className="text-amber-300">TARIInstrument</span>
+                        <span className="text-white/50">(</span>
+                        <span className="text-emerald-300">"my-agent"</span>
+                        <span className="text-white/50">,</span>{" "}
+                        <span className="text-white/90">store</span>
+                        <span className="text-white/50">=</span>
+                        <span className="text-emerald-300">"./.tari"</span>
+                        <span className="text-white/50">)</span>
+                      </div>
+                      <div>
+                        <span className="text-white/90">provider</span>
+                        <span className="text-white/50">,</span>{" "}
+                        <span className="text-white/90">exporter</span>{" "}
+                        <span className="text-white/50">=</span>{" "}
+                        <span className="text-white/90">tari</span>
+                        <span className="text-white/50">.</span>
+                        <span className="text-[hsl(var(--cyan-accent))]">start_otel_capture</span>
+                        <span className="text-white/50">()</span>
+                      </div>
+                      <div>
+                        <span className="text-white/30 italic"># ... run your agent ...</span>
+                      </div>
+                      <div>
+                        <span className="text-white/90">tari</span>
+                        <span className="text-white/50">.</span>
+                        <span className="text-[hsl(var(--cyan-accent))]">score</span>
+                        <span className="text-white/50">(</span>
+                        <span className="text-white/90">tari</span>
+                        <span className="text-white/50">.</span>
+                        <span className="text-[hsl(var(--cyan-accent))]">trajectory_from_exporter</span>
+                        <span className="text-white/50">(</span>
+                        <span className="text-white/90">exporter</span>
+                        <span className="text-white/50">))</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Footer bar */}
-              <div className="flex items-center justify-between px-5 py-3 border-t border-white/10">
-                <span className="text-[10px] tracking-[0.2em] uppercase text-white/40 font-light">
-                  runs locally
-                </span>
-                <span className="flex items-center gap-1.5 text-[10px] text-white/50 font-light">
-                  <motion.span
-                    className="w-1.5 h-1.5 rounded-full bg-emerald-400"
-                    animate={{ opacity: [0.4, 1, 0.4] }}
-                    transition={{ duration: 1.6, repeat: Infinity }}
-                  />
-                  content-off by default
-                </span>
+                {/* Footer bar */}
+                <div className="flex items-center justify-between px-5 py-3.5 border-t border-white/[0.08]">
+                  <span className="text-[10px] tracking-[0.2em] uppercase text-white/40 font-light">
+                    runs locally
+                  </span>
+                  <span className="flex items-center gap-1.5 text-[10px] text-white/50 font-light">
+                    <motion.span
+                      className="w-1.5 h-1.5 rounded-full bg-emerald-400"
+                      animate={{ opacity: [0.4, 1, 0.4] }}
+                      transition={{ duration: 1.6, repeat: Infinity }}
+                    />
+                    content-off by default
+                  </span>
+                </div>
               </div>
             </div>
 
