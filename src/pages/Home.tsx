@@ -15,7 +15,7 @@ const navItems = [
   { label: "Risk", id: "risk" },
   { label: "Institutions", id: "institutions" },
   { label: "Bureau", id: "bureau" },
-  { label: "Docs", id: "docs" },
+  { label: "Docs", href: "/docs" },
 ];
 
 const CountUp = ({ to, prefix = "", suffix = "" }: { to: number; prefix?: string; suffix?: string }) => {
