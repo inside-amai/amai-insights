@@ -168,7 +168,7 @@ const Home = () => {
                 AMAI reads how an agent behaves, every tool it calls &amp; every boundary it crosses, telling you which ones to trust without ever touching your data.
               </p>
 
-              {/* Pill nav strip — fixed width, six visible, one more on click */}
+              {/* Pill nav strip — five real anchors */}
               <motion.nav
                 className="mt-16 md:mt-24"
                 initial={{ y: 12 }}
@@ -176,33 +176,20 @@ const Home = () => {
                 viewport={{ once: false, amount: 0.5 }}
                 transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               >
-                <div className="flex items-center justify-center gap-2">
-                  <div className="overflow-hidden rounded-full border border-white/10 bg-black/50 backdrop-blur-xl px-2 py-2 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.9)] w-[calc(6*5rem+5*0.5rem+1rem)] md:w-[calc(6*6rem+5*0.5rem+1rem)]">
-                    <motion.ul
-                      className="flex items-center gap-2"
-                      animate={{ x: scrolled ? (isMobile ? "-5.5rem" : "-6.5rem") : 0 }}
-                      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                    >
-                      {navItems.map((label) => (
-                        <li key={label}>
-                          <button
-                            type="button"
-                            className="w-20 md:w-24 px-0 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-light tracking-wide text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-300 whitespace-nowrap"
-                          >
-                            {label}
-                          </button>
-                        </li>
-                      ))}
-                    </motion.ul>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => setScrolled(s => !s)}
-                    className="flex items-center justify-center w-8 h-8 rounded-full border border-white/10 bg-black/50 backdrop-blur-xl text-white/60 hover:text-white hover:bg-white/[0.08] transition-all duration-300"
-                    aria-label={scrolled ? "Show earlier items" : "Show more items"}
-                  >
-                    <span className="text-sm">{scrolled ? '‹' : '›'}</span>
-                  </button>
+                <div className="overflow-hidden rounded-full border border-white/10 bg-black/50 backdrop-blur-xl px-2 py-2 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.9)] w-[calc(5*5rem+4*0.5rem+1rem)] md:w-[calc(5*6rem+4*0.5rem+1rem)]">
+                  <ul className="flex items-center gap-2">
+                    {navItems.map(({ label, id }) => (
+                      <li key={id}>
+                        <button
+                          type="button"
+                          onClick={() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })}
+                          className="w-20 md:w-24 px-0 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-light tracking-wide text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-300 whitespace-nowrap"
+                        >
+                          {label}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </motion.nav>
 
