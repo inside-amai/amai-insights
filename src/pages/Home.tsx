@@ -28,8 +28,8 @@ const Home = () => {
             alt=""
             className="absolute inset-0 w-full h-full object-cover will-change-transform"
             initial={{ scale: 1 }}
-            animate={{ scale: [1, 1.08, 1] }}
-            transition={{ duration: 24, ease: "easeInOut", repeat: Infinity }}
+            animate={{ scale: [1, 1.12, 1] }}
+            transition={{ duration: 18, ease: "easeInOut", repeat: Infinity }}
           />
           <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
             {/* AMAI Logo */}
