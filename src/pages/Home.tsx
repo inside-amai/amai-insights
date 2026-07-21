@@ -640,7 +640,7 @@ const Home = () => {
 
       {/* Section 6 — RISK */}
       <section className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-transparent pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
           {/* LEFT — copy */}
