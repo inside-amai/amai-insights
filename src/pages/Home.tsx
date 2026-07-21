@@ -224,15 +224,24 @@ const Home = () => {
                     className="flex items-center gap-2 overflow-x-auto scroll-smooth snap-x snap-mandatory w-[calc(4*4rem+3*0.5rem)] md:w-[calc(5*8rem+4*0.5rem)] mx-2"
                     style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
                   >
-                    {navItems.map(({ label, id }) => (
-                      <li key={id} className="snap-start">
-                        <button
-                          type="button"
-                          onClick={() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })}
-                          className="w-16 md:w-32 px-0 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-light tracking-wide text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-300 whitespace-nowrap"
-                        >
-                          {label}
-                        </button>
+                    {navItems.map((item) => (
+                      <li key={item.label} className="snap-start">
+                        {'href' in item ? (
+                          <a
+                            href={item.href}
+                            className="inline-flex items-center justify-center w-16 md:w-32 px-0 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-light tracking-wide text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-300 whitespace-nowrap"
+                          >
+                            {item.label}
+                          </a>
+                        ) : (
+                          <button
+                            type="button"
+                            onClick={() => document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' })}
+                            className="w-16 md:w-32 px-0 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-light tracking-wide text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-300 whitespace-nowrap"
+                          >
+                            {item.label}
+                          </button>
+                        )}
                       </li>
                     ))}
                   </ul>
