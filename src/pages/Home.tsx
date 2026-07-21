@@ -720,15 +720,15 @@ const Home = () => {
 
             {/* What you get — benefits block */}
             <motion.div
-              className="mt-12 md:mt-16 pt-8 border-t border-black/10"
+              className="mt-12 md:mt-16"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="flex items-center gap-3 mb-6">
-                <span className="text-[10px] tracking-[0.35em] font-light text-black/70 uppercase">What you get</span>
-                <span className="h-px flex-1 bg-black/15" />
+                <span className="text-xs md:text-sm tracking-[0.25em] font-medium text-black uppercase">What you get</span>
+                <span className="h-px flex-1 bg-black/20" />
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6">
