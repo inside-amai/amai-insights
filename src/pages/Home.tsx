@@ -210,7 +210,7 @@ const Home = () => {
                 viewport={{ once: false, amount: 0.5 }}
                 transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               >
-                <div className="flex items-center overflow-hidden rounded-full border border-white/10 bg-black/50 backdrop-blur-xl px-2 py-2 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.9)] w-[calc(4*4rem+3*0.5rem+2*2rem+1rem)] md:w-[calc(5*6rem+4*0.5rem+2*2rem+1rem)]">
+                <div className="flex items-center overflow-hidden rounded-full border border-white/10 bg-black/50 backdrop-blur-xl px-2 py-2 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.9)] w-[calc(4*4rem+3*0.5rem+2*2rem+1rem)] md:w-[calc(5*8rem+4*0.5rem+2*2rem+1rem)]">
                   <button
                     type="button"
                     onClick={scrollNavLeft}
@@ -221,7 +221,7 @@ const Home = () => {
                   </button>
                   <ul
                     ref={navListRef}
-                    className="flex items-center gap-2 overflow-x-auto scroll-smooth snap-x snap-mandatory w-[calc(4*4rem+3*0.5rem)] md:w-[calc(5*6rem+4*0.5rem)] mx-2"
+                    className="flex items-center gap-2 overflow-x-auto scroll-smooth snap-x snap-mandatory w-[calc(4*4rem+3*0.5rem)] md:w-[calc(5*8rem+4*0.5rem)] mx-2"
                     style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
                   >
                     {navItems.map(({ label, id }) => (
@@ -229,7 +229,7 @@ const Home = () => {
                         <button
                           type="button"
                           onClick={() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })}
-                          className="w-16 md:w-24 px-0 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-light tracking-wide text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-300 whitespace-nowrap"
+                          className="w-16 md:w-32 px-0 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-light tracking-wide text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-300 whitespace-nowrap"
                         >
                           {label}
                         </button>
