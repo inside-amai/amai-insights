@@ -13,6 +13,26 @@ const Home = () => {
   const isRtl = language === 'ar';
   const isMobile = useIsMobile();
 
+  const [scrolled, setScrolled] = useState(false);
+  const [navReady, setNavReady] = useState(false);
+  const [navWidth, setNavWidth] = useState(0);
+  const [lastWidth, setLastWidth] = useState(0);
+  const trackRef = useRef<HTMLUListElement>(null);
+  const lastItemRef = useRef<HTMLButtonElement>(null);
+
+  useLayoutEffect(() => {
+    const measure = () => {
+      if (trackRef.current && lastItemRef.current) {
+        setNavWidth(trackRef.current.scrollWidth);
+        setLastWidth(lastItemRef.current.offsetWidth);
+        setNavReady(true);
+      }
+    };
+    measure();
+    window.addEventListener('resize', measure);
+    return () => window.removeEventListener('resize', measure);
+  }, []);
+
   return (
     <div className="bg-black" dir={isRtl ? 'rtl' : 'ltr'}>
       {/* Hero section — full viewport */}
