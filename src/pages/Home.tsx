@@ -969,27 +969,36 @@ const Home = () => {
         </div>
       </section>
 
-      {/* VISION — the exhale before the footer */}
-      <section className="relative bg-perspective-grid py-32 md:py-48 px-4 md:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.03),transparent_60%)]" />
+      {/* Outro — cinematic exhale before the footer */}
+      <section className="relative bg-perspective-grid min-h-[80vh] md:min-h-[85vh] flex flex-col items-center justify-center py-32 md:py-48 px-4 md:px-8 overflow-hidden">
+        {/* Soft teal horizon glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_100%,hsl(var(--cyan-accent)/0.12),transparent_60%)] pointer-events-none" />
+        {/* Center vignette for depth */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)] pointer-events-none" />
+
         <motion.div
-          className="relative z-10 max-w-4xl mx-auto text-center"
-          initial={{ opacity: 0, y: 32 }}
+          className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center"
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="text-[11px] tracking-[0.35em] uppercase text-white/40 font-light">
-            The Thesis
-          </span>
-          <h2 className="mt-8 md:mt-10 text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05]">
-            Trust is the infrastructure
-            <br />
-            the agent economy is missing.
+          {/* AMAI Mark */}
+          <img
+            src={amaiLogo}
+            alt="AMAI Labs"
+            className="h-20 md:h-32 w-auto mx-auto mb-12 md:mb-16 brightness-110 drop-shadow-[0_0_40px_rgba(166,252,252,0.25)]"
+          />
+
+          {/* One line only */}
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-white leading-[1.1]">
+            The trust layer for the autonomous economy.
           </h2>
-          <p className="mt-10 md:mt-14 text-lg md:text-xl font-light text-white/60 leading-relaxed max-w-3xl mx-auto">
-            Every era of autonomy needed a new layer of trust before capital would flow into it. Credit bureaus unlocked lending. Ratings unlocked markets. As trillions of decisions move to autonomous agents, someone independent has to certify which of them can be trusted. AMAI Labs is building that layer — neutral, verifiable, and built to outlast any single model.
-          </p>
+
+          {/* Tracked-out tag leading into the footer */}
+          <span className="mt-16 md:mt-20 text-[10px] md:text-[11px] tracking-[0.35em] uppercase text-white/40 font-light">
+            AMAI LABS · INFRASTRUCTURE & RESEARCH
+          </span>
         </motion.div>
       </section>
 
