@@ -1,5 +1,5 @@
 import { useLanguage, Language } from '@/contexts/LanguageContext';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from '@/hooks/use-toast';
 import { Copy, Check, Globe, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
