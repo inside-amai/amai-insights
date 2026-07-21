@@ -75,7 +75,8 @@ export const SiteHeader = () => {
   const mailto = "mailto:team@amai.net?subject=Mission%20Briefing%20%2F%2F%20%5BOrganization%20Name%5D&body=To%20the%20AMAI%20Labs%20Team%2C%0A%0AWe%20are%20reaching%20out%20regarding%20the%20%5BThesis%20%2F%20Architecture%5D.%0A%0AName%3A%20%0AOrganization%3A%20%0AIntent%3A%20";
 
   return (
-    <header className="absolute top-0 left-0 right-0 z-50 pointer-events-none">
+    <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none bg-black/80 backdrop-blur-md border-b border-white/5">
+
       <div className="container mx-auto px-6 py-4">
         <div className={`flex items-center ${isDeckPage ? 'justify-center' : 'justify-between'}`}>
           {/* Logo + Site Title - Hidden on /deck page */}
@@ -115,37 +116,12 @@ export const SiteHeader = () => {
               </a>
             )}
             {!isDeckPage && (
-              <Link 
-                to="/architecture"
-                className="text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase"
-              >
-                Architecture
-              </Link>
-            )}
-            {!isDeckPage && (
-              <Link 
-                to="/thesis"
-                className="text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase"
-              >
-                Thesis
-              </Link>
-            )}
-            {!isDeckPage && (
-              <Link
-                to="/methodology"
-                className="text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase"
-              >
-                Methodology
-              </Link>
-            )}
-            {!isDeckPage && (
               <a
-                href="https://bureau.amai.net"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase"
+                href="mailto:team@amai.net?subject=Request%20Access"
+                onClick={handleContactClick}
+                className="px-4 py-2 rounded-full bg-white/85 text-black hover:bg-white font-medium tracking-[0.05em] uppercase transition-all"
               >
-                Bureau
+                Request Access
               </a>
             )}
             <div className="flex items-center gap-1">
@@ -168,6 +144,7 @@ export const SiteHeader = () => {
               ))}
             </div>
           </div>
+
 
           {/* Mobile Hamburger */}
           {!isDeckPage && (
@@ -202,37 +179,12 @@ export const SiteHeader = () => {
           </div>
 
           <nav className="flex-1 flex flex-col justify-center px-8 gap-2">
-            <Link
-              to="/"
-              className="block py-4 text-2xl font-light text-white/90 hover:text-white tracking-tight border-b border-white/10"
-            >
-              Home
-            </Link>
-            <Link
-              to="/architecture"
-              className="block py-4 text-2xl font-light text-white/90 hover:text-white tracking-tight border-b border-white/10"
-            >
-              Architecture
-            </Link>
-            <Link
-              to="/thesis"
-              className="block py-4 text-2xl font-light text-white/90 hover:text-white tracking-tight border-b border-white/10"
-            >
-              Thesis
-            </Link>
-            <Link
-              to="/methodology"
-              className="block py-4 text-2xl font-light text-white/90 hover:text-white tracking-tight border-b border-white/10"
-            >
-              Methodology
-            </Link>
             <a
-              href="https://bureau.amai.net"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:team@amai.net?subject=Request%20Access"
+              onClick={() => { setMobileOpen(false); handleContactClick(); }}
               className="block py-4 text-2xl font-light text-white/90 hover:text-white tracking-tight border-b border-white/10"
             >
-              Bureau
+              Request Access
             </a>
             <a
               href={mailto}
@@ -242,6 +194,7 @@ export const SiteHeader = () => {
               Contact
             </a>
           </nav>
+
 
           <div className="px-8 pb-12 pt-6">
             <div className="text-[10px] tracking-[0.3em] uppercase text-white/40 mb-4 flex items-center gap-2">
