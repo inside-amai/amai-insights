@@ -604,7 +604,7 @@ const Home = () => {
                 <button
                   type="button"
                   onClick={() => {
-                    navigator.clipboard.writeText("pip install amai-tari\n\nimport amai_tari as tari\n\ntari.instrument(your_agent)\nscore = tari.score()");
+                    navigator.clipboard.writeText(`pip install amai-tari\n\nfrom tari import TARIInstrument\ntari = TARIInstrument("my-agent", store="./.tari")\nprovider, exporter = tari.start_otel_capture()\n# ... run your agent ...\ntari.score(tari.trajectory_from_exporter(exporter))`);
                     setCopied(true);
                     setTimeout(() => setCopied(false), 2000);
                   }}
