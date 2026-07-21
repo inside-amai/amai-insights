@@ -133,13 +133,13 @@ export const SiteHeader = () => {
               </a>
             )}
             {!isDeckPage && (
-              <a
-                href="mailto:team@amai.net?subject=Request%20Access"
-                onClick={handleContactClick}
+              <button
+                type="button"
+                onClick={handleGetStarted}
                 className="px-4 py-2 rounded-full bg-white/85 text-black hover:bg-white font-medium tracking-[0.05em] uppercase transition-all"
               >
-                Request Access
-              </a>
+                GET STARTED
+              </button>
             )}
             <div className="flex items-center gap-1">
               {languages.map((lang, index) => (
