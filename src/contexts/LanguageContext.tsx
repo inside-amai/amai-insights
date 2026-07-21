@@ -2851,6 +2851,9 @@ const translations: Record<Language, Record<string, string>> = {
     'home.thesis': '主題',
     'home.headline': 'チャットボットから受託者へ。',
     'home.body': '自律型ソフトウェアは現在「安全でない」存在であり、資金を託されるための身元を持っていない。AMAIはそれらを責任あるものにするx702信頼レイヤーを提供する。',
+    'home.body.line1': '人間にはFICO。',
+    'home.body.line2': '企業にはD&B。',
+    'home.body.line3': 'AIエージェントにはTARI™。',
     'home.cta.architecture': '設計を見る',
     'home.cta.thesis': '主題を探索',
 
