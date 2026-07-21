@@ -11,6 +11,28 @@ import { TariGauge } from "@/components/TariGauge";
 
 const navItems = ["Score", "Risk", "Methodology", "Bureau", "Coverage", "Docs", "Research"];
 
+const CountUp = ({ to, prefix = "", suffix = "" }: { to: number; prefix?: string; suffix?: string }) => {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    if (!isInView) return;
+    const controls = animate(0, to, {
+      duration: 1.5,
+      ease: [0.16, 1, 0.3, 1],
+      onUpdate: (v) => setValue(Math.round(v)),
+    });
+    return () => controls.stop();
+  }, [isInView, to]);
+
+  return (
+    <span ref={ref}>
+      {prefix}{value.toLocaleString()}{suffix}
+    </span>
+  );
+};
+
 const Home = () => {
   const { t, language } = useLanguage();
   const isRtl = language === 'ar';
