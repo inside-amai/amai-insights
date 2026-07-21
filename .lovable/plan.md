@@ -1,31 +1,45 @@
-## Verification-only plan (no code changes)
+Implement the selected "Light Blueprint Inversion" direction for Section 5 (RUN IT) on the homepage. This section will deliberately break from the dark-grid-glass-card formula of Sections 2–4 with a high-contrast, light-drafted paper section.
 
-You chose to leave the MCP function uncapped and rely on Supabase's platform defaults, so this plan is a written confirmation of the blast radius — nothing to build.
+## What will change
 
-### Blast radius: docs-only ✅
+- **Section 5** (lines 441–609 of `src/pages/Home.tsx`) will be rebuilt as a full-bleed light section: off-white background, faint cyan blueprint grid, black typography, and a hard-shadow black terminal card.
+- The surrounding sections (Hero, Section 2–4, HomeThesis, Footer) are **not** changing.
+- The actual SDK copy and commands stay the same:
+  - Eyebrow: `RUN IT`
+  - Headline: `Don't take our word for it. Run it.`
+  - Body: `pip install amai-tari` …
+  - Code card: `pip install amai-tari` + 3-line instrument snippet
+  - CTA: `Read the docs →`
+  - Closing beat: `Free to run. Private by construction.`
 
-Reviewed `supabase/functions/mcp/index.ts` and the three tool sources in `src/lib/mcp/tools/`:
+## Design details
 
-| Check | Result |
-|---|---|
-| Imports `@supabase/supabase-js` / `createClient` | ❌ none |
-| Reads `SUPABASE_SERVICE_ROLE_KEY` | ❌ none |
-| Reads `SUPABASE_URL` / any DB env | ❌ none |
-| Executes SQL or RPC | ❌ none |
-| References `pilot_requests` or any table name | ❌ none |
-| Outbound network destinations | Only `https://amai-insights.lovable.app/llms/<slug>.md` and `/llms-full.txt` |
-| Slug input on `get_documentation` | Allow-listed against a fixed 14-item Set; unknown slugs return `isError: true` before any fetch |
+- **Background:** `#fafafa` or `#f5f5f5` with two layers of faint cyan blueprint grid lines (`#0055ff` at very low opacity), mirroring the dark-site blueprint language but inverted.
+- **Layout:** Two-column split on desktop.
+  - Left: eyebrow, headline, body, docs link, closing beat.
+  - Right: a solid black terminal/code card with a heavy offset shadow (or layered drop shadow) and no glass/blur.
+- **Typography:** Roboto, keep body light/unbolded, headline in heavier weight for impact.
+- **Colors:** Black text on white; accent the code keywords in the existing cyan/purple/amber syntax palette used elsewhere; terminal traffic dots remain red/amber/emerald.
+- **No floating glassmorphism.** The card sits on the page as a solid object — a deliberate break from the prior sections.
+- **Transition:** Add a subtle gradient seam between the dark Section 4 and the light Section 5 so the inversion feels intentional rather than jarring.
+- **Motion:** Keep `framer-motion` scroll reveals consistent with the rest of the page (fade-up on enter). No heavy animation on the card itself beyond the copy-to-clipboard button.
+- **Copy button:** Keep the existing copy button and `copied` state, but style it to fit the light section (e.g., dark pill with `Copy`/`Check` icon).
+- **Responsive:** Stack columns on mobile; reduce headline size; ensure the terminal card remains readable.
 
-The function has no database client instantiated at any point, so it structurally cannot reach `pilot_requests` (or `auth.users`, or anything else in the project). The recently tightened RLS on `pilot_requests` is not on this function's attack surface.
+## Files to edit
 
-### Rate limiting: accepted as-is
+- `src/pages/Home.tsx` — rebuild Section 5.
 
-The backend has no standard rate-limiting primitive. The MCP function inherits only Supabase's platform-level invocation protections. Cost/abuse exposure is:
-- worst case per call: one outbound `fetch` to the public docs site + a small JSON response
-- no DB writes, no external paid APIs, no LLM calls
+## Out of scope
 
-If invocation volume ever becomes a concern, the two cheapest follow-ups (not part of this plan) would be an in-isolate TTL cache on `get_full_context` or a DB-backed IP counter.
+- No changes to other sections, header, footer, or navigation.
+- No new dependencies or routes.
+- No auth or backend changes.
 
-### Deliverable
+## Acceptance check
 
-No files change. This plan is the "deliberate-choice box ticked" record.
+- Section 5 renders as a light section with a blueprint grid.
+- The SDK command and 3-line snippet are visible and copyable.
+- The closing beat and docs link remain.
+- Mobile layout stacks cleanly.
+- The section still respects the dark theme of the rest of the page, acting as a single intentional contrast moment.

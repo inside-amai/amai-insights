@@ -438,12 +438,27 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Section 5 — RUN IT */}
-      <section className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-transparent pointer-events-none" />
-        <div className="pointer-events-none absolute -left-40 top-1/4 w-[520px] h-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.05),transparent_70%)]" />
+{/* Section 5 — RUN IT (Light Blueprint Inversion) */}
+      <section className="relative bg-[#fafafa] py-24 md:py-40 px-4 md:px-8 overflow-hidden">
+        {/* Inverted blueprint grid */}
+        <div
+          className="absolute inset-0 opacity-[0.07] pointer-events-none"
+          style={{
+            backgroundImage: "linear-gradient(#0055ff 1px, transparent 1px), linear-gradient(90deg, #0055ff 1px, transparent 1px)",
+            backgroundSize: "40px 40px",
+          }}
+        />
+        <div
+          className="absolute inset-0 opacity-[0.04] pointer-events-none"
+          style={{
+            backgroundImage: "linear-gradient(#0055ff 1px, transparent 1px), linear-gradient(90deg, #0055ff 1px, transparent 1px)",
+            backgroundSize: "8px 8px",
+          }}
+        />
+        {/* Transition seam from the dark Section 4 above */}
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black to-transparent pointer-events-none" />
 
-        <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+        <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
           {/* LEFT — copy */}
           <motion.div
             className="lg:col-span-5 text-left"
@@ -453,61 +468,54 @@ const Home = () => {
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="flex items-center gap-3 mb-8">
-              <span className="h-px w-10 bg-white/30" />
-              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">Run it</span>
+              <span className="h-px w-10 bg-black/20" />
+              <span className="text-[11px] tracking-[0.35em] font-light text-black/50 uppercase">Run it</span>
             </div>
 
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05]">
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-black leading-[1.05]">
               Don't take our word for it.
               <br />
               Run it.
             </h2>
 
-            <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-xl">
-              <span className="text-white/90 font-normal">pip install amai-tari</span>, three lines, and point it at your own agent. Watch what it actually does — every tool, the full trace, the score — on your machine, in about a minute. No account. Nothing leaves your walls.
+            <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-black/70 leading-relaxed max-w-xl">
+              <span className="text-black font-normal">pip install amai-tari</span>, three lines, and point it at your own agent. Watch what it actually does — every tool, the full trace, the score — on your machine, in about a minute. No account. Nothing leaves your walls.
             </p>
 
             <div className="mt-10">
               <a
                 href="/docs"
-                className="inline-flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors duration-300 border-b border-white/20 hover:border-white/60 pb-1"
+                className="inline-flex items-center gap-2 text-sm font-light text-black/60 hover:text-black transition-colors duration-300 border-b border-black/20 hover:border-black/60 pb-1"
               >
                 Read the docs
                 <span aria-hidden>→</span>
               </a>
             </div>
 
-            <div className="mt-16 md:mt-20 pt-10 border-t border-white/10 max-w-xl">
-              <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-white leading-[1.15]">
+            <div className="mt-16 md:mt-20 pt-10 border-t border-black/10 max-w-xl">
+              <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-black leading-[1.15]">
                 Free to run.
                 <br />
-                <span className="text-white/50">Private by construction.</span>
+                <span className="text-black/50">Private by construction.</span>
               </p>
             </div>
           </motion.div>
 
-          {/* RIGHT — code card */}
+          {/* RIGHT — solid black terminal card */}
           <motion.div
-            className="lg:col-span-7 lg:mt-16"
+            className="lg:col-span-7"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="relative rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl overflow-hidden shadow-[0_20px_80px_-20px_rgba(0,0,0,0.9)]">
-              {/* Subtle ambient glow behind the card */}
-              <div className="pointer-events-none absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.06),transparent_50%)]" />
-
-              {/* Gradient border overlay */}
-              <div className="pointer-events-none absolute inset-0 rounded-2xl border border-white/10" />
-              <div className="pointer-events-none absolute inset-px rounded-2xl bg-gradient-to-br from-cyan-300/10 via-transparent to-transparent" />
-
+            <div className="relative bg-black rounded-2xl overflow-hidden shadow-[24px_24px_0px_0px_rgba(0,0,0,0.12)] border border-black/10">
               {/* Header bar */}
-              <div className="relative flex items-center justify-between px-5 py-3 border-b border-white/10 bg-white/[0.02]">
+              <div className="flex items-center justify-between px-5 py-3 border-b border-white/10">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-red-400/60" />
-                  <span className="w-2 h-2 rounded-full bg-amber-300/60" />
-                  <span className="w-2 h-2 rounded-full bg-emerald-400/60" />
+                  <span className="w-2 h-2 rounded-full bg-red-400/80" />
+                  <span className="w-2 h-2 rounded-full bg-amber-300/80" />
+                  <span className="w-2 h-2 rounded-full bg-emerald-400/80" />
                 </div>
                 <span className="text-[10px] tracking-[0.3em] uppercase text-white/40 font-light">
                   sdk
@@ -540,7 +548,7 @@ const Home = () => {
               </div>
 
               {/* Code body */}
-              <div className="relative px-6 py-8 md:px-8 md:py-10 font-mono text-sm md:text-base leading-relaxed">
+              <div className="px-6 py-8 md:px-8 md:py-10 font-mono text-sm md:text-base leading-relaxed">
                 <div className="flex gap-4">
                   {/* Line numbers */}
                   <div className="select-none text-right text-white/20 font-light tabular-nums">
@@ -585,7 +593,7 @@ const Home = () => {
               </div>
 
               {/* Footer bar */}
-              <div className="relative flex items-center justify-between px-5 py-3 border-t border-white/10 bg-white/[0.02]">
+              <div className="flex items-center justify-between px-5 py-3 border-t border-white/10">
                 <span className="text-[10px] tracking-[0.2em] uppercase text-white/40 font-light">
                   runs locally
                 </span>
@@ -601,7 +609,7 @@ const Home = () => {
             </div>
 
             {/* Caption beneath the code card */}
-            <p className="mt-5 text-xs md:text-sm text-white/50 font-light tracking-wide text-center">
+            <p className="mt-5 text-xs md:text-sm text-black/50 font-light tracking-wide text-center">
               Then TARI dashboard opens your console: the full trace, the score, and every flagged move, all local.
             </p>
           </motion.div>
