@@ -81,6 +81,30 @@ const Home = () => {
         </div>
       </div>
 
+      {/* Feature card section */}
+      <section className="relative bg-perspective-grid py-16 md:py-24 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-2xl shadow-[0_20px_80px_-20px_rgba(0,0,0,0.8)] min-h-[520px] md:min-h-[640px] flex items-center justify-center">
+            {/* Glass sheen */}
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.06] via-transparent to-transparent" />
+            <div className="pointer-events-none absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.08),transparent_50%)]" />
+
+            {/* Content placeholder */}
+            <div className="relative z-10 flex flex-col items-center justify-center gap-8 px-6 py-16 text-center">
+              <div className="text-xs uppercase tracking-[0.3em] text-white/40">Placeholder</div>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <button className="bg-white text-black hover:bg-white/90 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300">
+                  Primary Action
+                </button>
+                <button className="bg-white/5 text-white border border-white/20 hover:bg-white/10 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 backdrop-blur-sm">
+                  Secondary Action
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Long-form thesis below hero */}
       <HomeThesis />
 
