@@ -135,13 +135,16 @@ export const TariGauge = ({ score = 812 }: { score?: number }) => {
           );
         })}
 
-        {/* Needle */}
+        {/* Needle — starts at 300 (left) and sweeps up to the final score */}
         <motion.g
-          initial={{ rotate: -180 }}
+          initial={{ rotate: -(needleAngle - 180) }}
           whileInView={{ rotate: 0 }}
           viewport={{ once: false, amount: 0.4 }}
-          transition={{ duration: 2, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-          style={{ originX: `${cx}px`, originY: `${cy}px` }}
+          transition={{ duration: 2.2, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
+          style={{
+            transformOrigin: `${cx}px ${cy}px`,
+            transformBox: "view-box" as const,
+          }}
         >
           <polygon
             points={`${needleTip.x},${needleTip.y} ${needleBase1.x},${needleBase1.y} ${needleBase2.x},${needleBase2.y}`}
