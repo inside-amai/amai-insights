@@ -16,6 +16,7 @@ const Home = () => {
   const isMobile = useIsMobile();
 
   const [scrolled, setScrolled] = useState(false);
+  const [copied, setCopied] = useState(false);
 
 
   return (
@@ -431,8 +432,166 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Section 5 — RUN IT */}
+      <section className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-transparent pointer-events-none" />
+        <div className="pointer-events-none absolute -left-40 top-1/4 w-[520px] h-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.05),transparent_70%)]" />
 
+        <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+          {/* LEFT — copy */}
+          <motion.div
+            className="lg:col-span-5 text-left"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="flex items-center gap-3 mb-8">
+              <span className="h-px w-10 bg-white/30" />
+              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">Run it</span>
+            </div>
 
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05]">
+              Don't take our word for it.
+              <br />
+              Run it.
+            </h2>
+
+            <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-xl">
+              <span className="text-white/90 font-normal">pip install amai-tari</span>, three lines, and point it at your own agent. Watch what it actually does — every tool, the full trace, the score — on your machine, in about a minute. No account. Nothing leaves your walls.
+            </p>
+
+            <div className="mt-10">
+              <a
+                href="/docs"
+                className="inline-flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors duration-300 border-b border-white/20 hover:border-white/60 pb-1"
+              >
+                Read the docs
+                <span aria-hidden>→</span>
+              </a>
+            </div>
+
+            <div className="mt-16 md:mt-20 pt-10 border-t border-white/10 max-w-xl">
+              <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-white leading-[1.15]">
+                Free to run.
+                <br />
+                <span className="text-white/50">Private by construction.</span>
+              </p>
+            </div>
+          </motion.div>
+
+          {/* RIGHT — code card */}
+          <motion.div
+            className="lg:col-span-7"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="relative rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl overflow-hidden shadow-[0_20px_80px_-20px_rgba(0,0,0,0.9)]">
+              {/* Subtle ambient glow behind the card */}
+              <div className="pointer-events-none absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.06),transparent_50%)]" />
+
+              {/* Gradient border overlay */}
+              <div className="pointer-events-none absolute inset-0 rounded-2xl border border-white/10" />
+              <div className="pointer-events-none absolute inset-px rounded-2xl bg-gradient-to-br from-cyan-300/10 via-transparent to-transparent" />
+
+              {/* Header bar */}
+              <div className="relative flex items-center justify-between px-5 py-3 border-b border-white/10 bg-white/[0.02]">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-red-400/60" />
+                  <span className="w-2 h-2 rounded-full bg-amber-300/60" />
+                  <span className="w-2 h-2 rounded-full bg-emerald-400/60" />
+                </div>
+                <span className="text-[10px] tracking-[0.3em] uppercase text-white/40 font-light">
+                  sdk · local-only
+                </span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    navigator.clipboard.writeText("pip install amai-tari\n\nimport amai_tari as tari\n\ntari.instrument(your_agent)\nscore = tari.score()");
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 2000);
+                  }}
+                  className="text-[10px] tracking-[0.2em] uppercase font-light text-white/50 hover:text-white transition-colors duration-300 flex items-center gap-1.5"
+                >
+                  {copied ? (
+                    <>
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                      Copied
+                    </>
+                  ) : (
+                    <>
+                      <span className="w-1.5 h-1.5 rounded-full bg-white/30" />
+                      Copy
+                    </>
+                  )}
+                </button>
+              </div>
+
+              {/* Code body */}
+              <div className="relative px-6 py-8 md:px-8 md:py-10 font-mono text-sm md:text-base leading-relaxed">
+                <div className="flex gap-4">
+                  {/* Line numbers */}
+                  <div className="select-none text-right text-white/20 font-light tabular-nums">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                  </div>
+                  {/* Code */}
+                  <div className="space-y-0.5">
+                    <div>
+                      <span className="text-cyan-300/90">pip install</span>{" "}
+                      <span className="text-white/90">amai-tari</span>
+                    </div>
+                    <div className="text-white/20">·</div>
+                    <div>
+                      <span className="text-purple-300/90">import</span>{" "}
+                      <span className="text-white/90">amai_tari</span>{" "}
+                      <span className="text-purple-300/90">as</span>{" "}
+                      <span className="text-white/90">tari</span>
+                    </div>
+                    <div className="text-white/20">·</div>
+                    <div>
+                      <span className="text-white/90">tari</span>
+                      <span className="text-white/50">.</span>
+                      <span className="text-cyan-300/90">instrument</span>
+                      <span className="text-white/50">(</span>
+                      <span className="text-amber-300/90">your_agent</span>
+                      <span className="text-white/50">)</span>
+                    </div>
+                    <div>
+                      <span className="text-white/90">score</span>{" "}
+                      <span className="text-white/50">=</span>{" "}
+                      <span className="text-white/90">tari</span>
+                      <span className="text-white/50">.</span>
+                      <span className="text-cyan-300/90">score</span>
+                      <span className="text-white/50">()</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Footer bar */}
+              <div className="relative flex items-center justify-between px-5 py-3 border-t border-white/10 bg-white/[0.02]">
+                <span className="text-[10px] tracking-[0.2em] uppercase text-white/40 font-light">
+                  runs locally
+                </span>
+                <span className="flex items-center gap-1.5 text-[10px] text-white/50 font-light">
+                  <motion.span
+                    className="w-1.5 h-1.5 rounded-full bg-emerald-400"
+                    animate={{ opacity: [0.4, 1, 0.4] }}
+                    transition={{ duration: 1.6, repeat: Infinity }}
+                  />
+                  content-off by default
+                </span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
 
       {/* Placeholder actions section */}
