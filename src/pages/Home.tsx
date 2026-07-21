@@ -854,120 +854,159 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Section 7 — FOR INSTITUTIONS */}
-      <section id="institutions" className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-transparent pointer-events-none" />
-        {/* Teal ambient glow — control/safe counterpart to Risk's red */}
-        <div className="pointer-events-none absolute -right-40 top-1/4 w-[520px] h-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.06),transparent_70%)]" />
+      {/* Section 7 — FOR INSTITUTIONS (editorial / bone-linen) */}
+      <section
+        id="institutions"
+        className="relative py-24 md:py-40 px-4 md:px-8 overflow-hidden"
+        style={{ backgroundColor: '#F1EDE4' }}
+      >
+        <div className="relative z-10 max-w-7xl mx-auto text-[hsl(var(--gray-900))]">
+          {/* Eyebrow row */}
+          <div className="flex items-baseline justify-between">
+            <span className="text-[11px] tracking-[0.35em] uppercase font-normal text-black/70">
+              For institutions
+            </span>
+            <span className="text-[11px] tracking-[0.35em] uppercase font-normal text-black/50">
+              Institutional Brief · No. 01
+            </span>
+          </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
-          {/* LEFT — copy */}
+          {/* Top hairline */}
           <motion.div
-            className="lg:col-span-5 text-left"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            className="mt-6 h-px w-full bg-black/80 origin-left"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <div className="flex items-center gap-3 mb-8">
-              <span className="h-px w-10 bg-white/30" />
-              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">For institutions</span>
-            </div>
+          />
 
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05]">
-              Now you can see it.
-              <br />
-              <span className="text-[hsl(var(--cyan-accent)/0.8)]">And stop it.</span>
-            </h2>
-
-            <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-xl">
-              For organizations running fleets of agents, the AMAI Command Center puts every agent's trust score, its full behavioral trace, and the power to act in one place.
-              <br /><br />
-              When an agent turns, hold the action before it executes — with a human in the loop. All of it content-off: you get the whole picture without a single sensitive byte leaving your walls.
-            </p>
-
-            {/* Three capability beats */}
-            <ol className="mt-16 md:mt-20 space-y-8 md:space-y-10">
-              {[
-                { title: "Watch the fleet", body: "every agent, every run, one console." },
-                { title: "Hold the turn", body: "require human approval before a flagged action proceeds." },
-                { title: "Prove it", body: "a portable trust score any counterparty can verify before trusting an agent to act." },
-              ].map((beat, i) => (
-                <motion.li
-                  key={beat.title}
-                  className="relative pl-6 border-l border-[hsl(var(--cyan-accent)/0.3)]"
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.5 }}
-                  transition={{ duration: 0.7, delay: 0.1 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  <span className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-[hsl(var(--cyan-accent)/0.4)]" />
-                  <div className="text-lg md:text-xl font-light tracking-tight text-[hsl(var(--cyan-accent)/0.9)]">
-                    {beat.title}
-                  </div>
-                  <div className="mt-1 text-sm md:text-base font-light text-white/60 leading-relaxed">
-                    {beat.body}
-                  </div>
-                </motion.li>
-              ))}
-            </ol>
-
-            {/* Sovereignty line */}
+          <div className="mt-14 md:mt-20 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+            {/* LEFT — editorial copy */}
             <motion.div
-              className="mt-16 md:mt-20 pt-10 border-t border-white/10 max-w-xl"
-              initial={{ opacity: 0, y: 12 }}
+              className="lg:col-span-5"
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             >
-              <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-white leading-[1.15]">
-                Your data
+              <h2 className="font-editorial font-normal text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-black">
+                Now you can see it.
                 <br />
-                <span className="text-[hsl(var(--cyan-accent)/0.8)]">never leaves your walls.</span>
-              </p>
-            </motion.div>
+                <em className="italic text-black/70">And stop it.</em>
+              </h2>
 
-            {/* CTA — interest form, not signup */}
-            <motion.div
-              className="mt-10"
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <a
-                href="mailto:team@amai.net?subject=Request%20Access%20%2F%20Enterprise"
-                className="inline-flex items-center gap-2 text-sm font-normal text-black hover:text-white transition-colors duration-300 px-5 py-2.5 rounded-full bg-[hsl(var(--cyan-accent))] hover:bg-[hsl(var(--cyan-accent)/0.85)] border-0"
+              <div className="mt-10 md:mt-12 max-w-xl">
+                <p className="text-base md:text-[17px] font-light text-black/80 leading-[1.75]">
+                  <span className="float-left font-editorial text-6xl md:text-7xl leading-[0.85] mr-3 mt-1 text-black">
+                    F
+                  </span>
+                  or organizations running fleets of agents, the AMAI Command Center puts every agent's trust score, its full behavioral trace, and the power to act in one place.
+                </p>
+                <p className="mt-6 text-base md:text-[17px] font-light text-black/80 leading-[1.75]">
+                  When an agent turns, hold the action before it executes — with a human in the loop. All of it content-off: you get the whole picture without a single sensitive byte leaving your walls.
+                </p>
+              </div>
+
+              {/* Three capability beats — editorial numbered list */}
+              <ol className="mt-14 md:mt-16 space-y-7">
+                {[
+                  { title: "Watch the fleet", body: "every agent, every run, one console." },
+                  { title: "Hold the turn", body: "require human approval before a flagged action proceeds." },
+                  { title: "Prove it", body: "a portable trust score any counterparty can verify before trusting an agent to act." },
+                ].map((beat, i) => (
+                  <motion.li
+                    key={beat.title}
+                    className="grid grid-cols-[auto_1fr] gap-5 items-baseline"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 0.7, delay: 0.1 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    <span className="font-editorial italic text-2xl md:text-3xl text-black/50 leading-none w-8">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <div>
+                      <div className="font-editorial text-xl md:text-2xl text-black leading-tight">
+                        {beat.title}
+                      </div>
+                      <div className="mt-1 text-sm md:text-[15px] font-light text-black/60 leading-relaxed">
+                        {beat.body}
+                      </div>
+                    </div>
+                  </motion.li>
+                ))}
+              </ol>
+
+              {/* Pull quote — sovereignty */}
+              <motion.blockquote
+                className="mt-14 md:mt-16 pl-6 border-l border-black/80"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
               >
-                Request access
-                <span aria-hidden>→</span>
-              </a>
-              <p className="mt-3 text-[11px] text-white/40 font-light tracking-wide">
-                Interest form, not a signup. Enforcement is early-access and gated on our own fleet today.
-              </p>
-            </motion.div>
-          </motion.div>
+                <p className="font-editorial text-3xl md:text-4xl lg:text-5xl leading-[1.1] text-black">
+                  Your data <em className="italic text-black/70">never leaves your walls.</em>
+                </p>
+              </motion.blockquote>
 
-          {/* RIGHT — Command Center screenshot */}
+              {/* CTA — thin outline */}
+              <motion.div
+                className="mt-12"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <a
+                  href="mailto:team@amai.net?subject=Request%20Access%20%2F%20Enterprise"
+                  className="inline-flex items-center gap-3 text-[13px] tracking-[0.2em] uppercase font-normal text-black hover:text-white transition-colors duration-300 px-6 py-3 border border-black hover:bg-black"
+                >
+                  Request access
+                  <span aria-hidden>→</span>
+                </a>
+                <p className="mt-4 text-[11px] text-black/50 font-light tracking-wide max-w-md">
+                  Interest form, not a signup. Enforcement is early-access and gated on our own fleet today.
+                </p>
+              </motion.div>
+            </motion.div>
+
+            {/* RIGHT — dashboard plate */}
+            <motion.figure
+              className="lg:col-span-7 lg:pt-4 m-0"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <div className="relative border border-black/80 bg-white shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)]">
+                <img
+                  src={agentFleetDashboard.url}
+                  alt="AMAI Command Center dashboard showing agent fleet trust scores and conduct distribution"
+                  className="w-full h-auto block"
+                  loading="lazy"
+                />
+              </div>
+              <figcaption className="mt-4 flex items-baseline gap-3 text-[11px] tracking-[0.15em] uppercase text-black/60">
+                <span className="h-px w-6 bg-black/60" />
+                <span className="font-editorial italic text-sm normal-case tracking-normal text-black/70">
+                  Fig. 01 — AMAI Command Center, institutional pilot build.
+                </span>
+              </figcaption>
+            </motion.figure>
+          </div>
+
+          {/* Bottom hairline */}
           <motion.div
-            className="lg:col-span-7 lg:pt-20"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <div className="relative rounded-2xl border border-white/10 bg-black/40 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.8)] overflow-hidden">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.04),transparent_60%)]" />
-              <img
-                src={agentFleetDashboard.url}
-                alt="AMAI Command Center dashboard showing agent fleet trust scores and conduct distribution"
-                className="relative z-10 w-full h-auto"
-                loading="lazy"
-              />
-            </div>
-          </motion.div>
+            className="mt-20 md:mt-28 h-px w-full bg-black/80 origin-left"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          />
         </div>
       </section>
+
 
       {/* Outro — cinematic exhale before the footer */}
       <section className="relative bg-perspective-grid min-h-[80vh] md:min-h-[85vh] flex flex-col items-center justify-center py-32 md:py-48 px-4 md:px-8 overflow-hidden">

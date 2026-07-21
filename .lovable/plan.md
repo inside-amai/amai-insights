@@ -1,28 +1,66 @@
-Refine the SDK card in the Run It section to the selected "Dark glass aesthetic" direction.
+## For Institutions — Editorial Redesign
 
-## What we'll change
+Replace the current dark perspective-grid treatment with a bone-linen editorial layout that reads like a WSJ / FT feature. Provides the tonal contrast the "Run it" section has, but pitched at Fortune 500 / institutional buyers instead of developers.
 
-- The solid-black SDK card on the Run It section (currently in `src/pages/Home.tsx`) will be rebuilt with a dark glass aesthetic: very dark translucent surface, subtle backdrop blur, a faint top-down light gradient, a soft ambient glow behind the card, and a single thin hairline border instead of the heavy offset shadow.
-- The card retains the exact same verified code content, line numbers, and working Copy button.
-- The caption text beneath the card and the "What you get" benefits block below will stay in place; only their surrounding spacing will be adjusted if needed to fit the new card.
+### Visual language
 
-## Design details
+- **Background:** warm bone/linen (`#F1EDE4`-ish, HSL token). No grid, no vignette. Absolute stillness.
+- **Type:** existing Roboto for body, but promote the section headline to a serif (Instrument Serif or similar via Google Fonts) for the editorial voice. Small tracked-out sans eyebrow stays.
+- **Rules:** one hairline black rule spans full width at the top of the section (under the eyebrow row) and one at the bottom, like a print feature framing device.
+- **Palette:** near-black ink (`hsl(var(--gray-900))`) on linen. No teal, no cyan accent in this section — keeps it distinct from the developer sections.
 
-- Card shell: near-black translucent surface (`bg-[#0c0d0e]/95` / `backdrop-blur-xl`), rounded 24px corners, `border-white/10`, soft 32px shadow, and a diffuse ambient glow behind it.
-- Header: same three dots + "SDK" label, Copy button styled as a glass pill with white/10 border and subtle hover.
-- Code block: JetBrains Mono styling, compact line numbers, refined syntax colors — no semantic-token inversion for the terminal surface since this is a deliberately dark element on a light blueprint section.
-- Footer: "Runs Locally" and "content-off by default" with a subtle emerald status dot, kept minimal.
+### Layout (desktop)
 
-## Implementation steps
+```text
+ ┌───────────────────────────────────────────────────────────────┐
+ │ FOR INSTITUTIONS                                    ISSUE 01  │  ← eyebrow row
+ ├───────────────────────────────────────────────────────────────┤  ← hairline rule
+ │                                                               │
+ │  Serif headline (2 lines,     │   [ dashboard screenshot      │
+ │  large, tight leading)        │     framed in thin 1px        │
+ │                               │     black keyline, no crop ]  │
+ │  ── small serif drop-cap ──   │                               │
+ │  Lead paragraph (existing     │   Caption underneath in       │
+ │  body copy, first letter as   │   small italic serif:         │
+ │  a large serif drop-cap).     │   "AMAI institutional         │
+ │                               │    dashboard — pilot build."  │
+ │  Secondary paragraph.         │                               │
+ │                               │                               │
+ │  [ Request access ]  →        │                               │
+ │                               │                               │
+ ├───────────────────────────────────────────────────────────────┤  ← hairline rule
+ └───────────────────────────────────────────────────────────────┘
+```
 
-1. Read the exact current code block and copy handler in `src/pages/Home.tsx`.
-2. Replace the SDK card container and inner styling, preserving the `motion` reveal animation and the copy handler.
-3. Adjust the caption and "What you get" block spacing if the new card height/depth changes the rhythm.
-4. Run the TypeScript check and build to confirm no errors.
-5. Take a preview screenshot of the Run It section to validate the result visually.
+- Two-column grid: text left (~5/12), image right (~7/12), generous gutter.
+- Mobile collapses to single column, image below text, rules remain full-width.
 
-## Constraints
+### Content
 
-- No change to the code snippet itself (still `pip install amai-tari` + `TARIInstrument` flow).
-- No change to the "Copy" button behavior or to the section's light blueprint background.
-- Keep the "What you get" benefits block and the caption text unchanged unless spacing needs minor adjustment.
+Keep the existing headline and body copy verbatim (no rewrite requested). Only add:
+- A small italic serif caption under the screenshot.
+- A right-side eyebrow tag like `ISSUE 01` or `INSTITUTIONAL BRIEF` to complete the editorial feel.
+
+### CTA
+
+Keep the existing "Request access" mailto CTA, restyled as a thin-bordered black outline button with a trailing arrow — matches the editorial restraint rather than a filled pill.
+
+### Motion
+
+- Section fades up on scroll (existing pattern).
+- Hairline rules draw in horizontally (scaleX 0 → 1, 800ms).
+- Drop-cap and headline fade in slightly delayed so the eye lands on the rule first, then the headline, then the body.
+
+### Technical notes
+
+- Edit only `src/pages/Home.tsx` — swap the current Section 7 wrapper background/classes and internal grid.
+- Add Instrument Serif via Google Fonts link in `index.html` (or reuse if already present) and expose as a Tailwind family (`font-serif-editorial`) in `tailwind.config.ts`.
+- Add a linen background token (e.g. `--linen: 40 25% 92%`) in `src/index.css` rather than hardcoding a hex.
+- Preserve the existing dashboard image asset and its uncropped `object-contain` behavior; wrap it in a `border border-black/80` frame.
+- Keep the section id so the header pill nav still targets it correctly.
+
+### Out of scope
+
+- No changes to sections 3, 4, 5, 6, outro, or footer.
+- No copy rewrites beyond adding the caption + right-eyebrow tag.
+- No new imagery.
