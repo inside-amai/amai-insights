@@ -8,7 +8,13 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { Footer } from "@/components/Footer";
 import { TariGauge } from "@/components/TariGauge";
 
-const navItems = ["Score", "Risk", "Methodology", "Bureau", "Coverage", "Docs", "Research"];
+const navItems = [
+  { label: "Score", id: "score" },
+  { label: "Methodology", id: "methodology" },
+  { label: "Install TARI", id: "install-tari" },
+  { label: "Risk", id: "risk" },
+  { label: "Institutions", id: "institutions" },
+];
 
 const CountUp = ({ to, prefix = "", suffix = "" }: { to: number; prefix?: string; suffix?: string }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -37,7 +43,7 @@ const Home = () => {
   const isRtl = language === 'ar';
   const isMobile = useIsMobile();
 
-  const [scrolled, setScrolled] = useState(false);
+  const [copied, setCopied] = useState(false);
   const [copied, setCopied] = useState(false);
 
 
