@@ -172,14 +172,14 @@ const Home = () => {
       </div>
 
       {/* Feature card section */}
-      <section className="relative bg-perspective-grid py-16 md:py-24 px-4 md:px-8">
+      <section className="relative bg-perspective-grid min-h-[90vh] flex flex-col items-center justify-center py-12 md:py-16 px-4 md:px-8">
         {/* Fade from black at top into the normal grid */}
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-transparent pointer-events-none" />
-        <div className="max-w-[95vw] mx-auto relative z-10">
+        <div className="max-w-[95vw] mx-auto relative z-10 w-full">
           {/* Soft outer halo behind the card */}
           <div className="pointer-events-none absolute -inset-3 rounded-[2rem] bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.12),transparent_55%)] blur-2xl opacity-60" />
 
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-2xl shadow-[0_20px_80px_-20px_rgba(0,0,0,0.8),inset_0_1px_0_0_rgba(255,255,255,0.08)] min-h-[70vh] md:min-h-[80vh] flex items-center justify-center">
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-2xl shadow-[0_20px_80px_-20px_rgba(0,0,0,0.8),inset_0_1px_0_0_rgba(255,255,255,0.08)] min-h-0 max-h-[90vh] md:max-h-[75vh] flex items-center justify-center">
             {/* Glass sheen */}
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.06] via-transparent to-transparent" />
             {/* Top-edge light source */}
@@ -188,25 +188,25 @@ const Home = () => {
 
             {/* Center content: zoom-out on scroll into view */}
             <motion.div
-              className="relative z-10 flex flex-col items-center justify-center px-6 py-16 text-center max-w-5xl mx-auto"
+              className="relative z-10 flex flex-col items-center justify-center px-6 py-10 md:py-12 text-center max-w-5xl mx-auto w-full"
               initial={{ scale: 0.55, opacity: 0, filter: "blur(12px)" }}
               whileInView={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
               viewport={{ once: false, amount: 0.5 }}
               transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="mb-10 md:mb-14 w-full">
+              <div className="mb-6 md:mb-8 w-full max-w-[420px] mx-auto">
                 <TariGauge score={812} />
               </div>
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-white leading-[1.05]">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.05]">
                 A credit score for AI agents.
               </h2>
-              <p className="mt-8 md:mt-10 text-lg md:text-2xl lg:text-3xl font-light text-white/80 leading-snug max-w-4xl">
+              <p className="mt-6 md:mt-8 text-lg md:text-xl lg:text-2xl font-light text-white/80 leading-snug max-w-3xl">
                 AMAI reads how an agent behaves, every tool it calls &amp; every boundary it crosses, telling you which ones to trust without ever touching your data.
               </p>
 
               {/* Pill nav strip — five visible anchors + arrow reveals the last two */}
               <motion.nav
-                className="mt-16 md:mt-24"
+                className="mt-8 md:mt-12"
                 initial={{ y: 12 }}
                 whileInView={{ y: 0 }}
                 viewport={{ once: false, amount: 0.5 }}
