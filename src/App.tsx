@@ -51,6 +51,7 @@ import Trust from "./pages/Trust";
 import Architecture from "./pages/Architecture";
 import Methodology from "./pages/Methodology";
 import MethodologyChangelog from "./pages/MethodologyChangelog";
+import Docs from "./pages/Docs";
 
 
 
