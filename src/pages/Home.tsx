@@ -6,7 +6,6 @@ import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Footer } from "@/components/Footer";
-import { HomeThesis } from "@/components/HomeThesis";
 import { TariGauge } from "@/components/TariGauge";
 
 const navItems = ["Score", "Risk", "Methodology", "Bureau", "Coverage", "Docs", "Research"];
@@ -840,20 +839,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Placeholder actions section */}
-      <section className="relative bg-perspective-grid py-16 px-4 md:px-8">
-        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row gap-3 justify-center relative z-10">
-          <button className="bg-white text-black hover:bg-white/90 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300">
-            Primary Action
-          </button>
-          <button className="bg-white/5 text-white border border-white/20 hover:bg-white/10 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 backdrop-blur-sm">
-            Secondary Action
-          </button>
-        </div>
-      </section>
-
-      {/* Long-form thesis below hero */}
-      <HomeThesis />
 
       {/* Institutional Footer */}
       <Footer />
