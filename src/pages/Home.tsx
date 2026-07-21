@@ -128,7 +128,7 @@ const Home = () => {
 
               {/* Pill nav strip */}
               <motion.nav
-                className="mt-12 md:mt-16"
+                className="mt-16 md:mt-24"
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.5 }}
