@@ -1,4 +1,4 @@
-import { useState, useRef, useLayoutEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import amaiLogo from "@/assets/amai-logo-tm.png";
 import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
@@ -7,6 +7,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { Footer } from "@/components/Footer";
 import { HomeThesis } from "@/components/HomeThesis";
 
+const navItems = ["Score", "Risk", "Methodology", "Bureau", "Coverage", "Docs", "Research"];
 
 const Home = () => {
   const { t, language } = useLanguage();
@@ -14,24 +15,7 @@ const Home = () => {
   const isMobile = useIsMobile();
 
   const [scrolled, setScrolled] = useState(false);
-  const [navReady, setNavReady] = useState(false);
-  const [navWidth, setNavWidth] = useState(0);
-  const [lastWidth, setLastWidth] = useState(0);
-  const trackRef = useRef<HTMLUListElement>(null);
-  const lastItemRef = useRef<HTMLButtonElement>(null);
 
-  useLayoutEffect(() => {
-    const measure = () => {
-      if (trackRef.current && lastItemRef.current) {
-        setNavWidth(trackRef.current.scrollWidth);
-        setLastWidth(lastItemRef.current.offsetWidth);
-        setNavReady(true);
-      }
-    };
-    measure();
-    window.addEventListener('resize', measure);
-    return () => window.removeEventListener('resize', measure);
-  }, []);
 
   return (
     <div className="bg-black" dir={isRtl ? 'rtl' : 'ltr'}>
@@ -147,31 +131,26 @@ const Home = () => {
                 AMAI reads how an agent behaves, every tool it calls &amp; every boundary it crosses, telling you which ones to trust without ever touching your data.
               </p>
 
-              {/* Pill nav strip */}
+              {/* Pill nav strip — fixed width, six visible, one more on click */}
               <motion.nav
-                className={`mt-16 md:mt-24 transition-opacity duration-300 ${navReady ? 'opacity-100' : 'opacity-0'}`}
+                className="mt-16 md:mt-24"
                 initial={{ y: 12 }}
                 whileInView={{ y: 0 }}
                 viewport={{ once: false, amount: 0.5 }}
                 transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               >
                 <div className="flex items-center justify-center gap-2">
-                  <div
-                    className="overflow-hidden rounded-full"
-                    style={{ width: navReady && navWidth ? navWidth - lastWidth / 2 : 'auto' }}
-                  >
+                  <div className="overflow-hidden rounded-full w-[calc(6*5rem+5*0.5rem+1rem)] md:w-[calc(6*6rem+5*0.5rem+1rem)]">
                     <motion.ul
-                      ref={trackRef}
-                      className="flex items-center gap-1 md:gap-2 rounded-full border border-white/10 bg-black/50 backdrop-blur-xl px-2 py-2 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.9)] w-max"
-                      animate={{ x: scrolled ? -(lastWidth / 2) : 0 }}
+                      className="flex items-center gap-2 rounded-full border border-white/10 bg-black/50 backdrop-blur-xl px-2 py-2 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.9)]"
+                      animate={{ x: scrolled ? "calc(-5rem - 0.5rem)" : 0 }}
                       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                     >
-                      {["Score", "Risk", "Methodology", "Bureau", "Coverage", "Docs", "Research"].map((label, i) => (
+                      {navItems.map((label) => (
                         <li key={label}>
                           <button
-                            ref={i === 6 ? lastItemRef : undefined}
                             type="button"
-                            className="px-4 md:px-6 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-light tracking-wide text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-300 whitespace-nowrap"
+                            className="w-20 md:w-24 px-0 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-light tracking-wide text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-300 whitespace-nowrap"
                           >
                             {label}
                           </button>
@@ -189,6 +168,7 @@ const Home = () => {
                   </button>
                 </div>
               </motion.nav>
+
             </motion.div>
 
           </div>
