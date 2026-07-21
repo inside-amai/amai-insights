@@ -246,6 +246,7 @@ const Methodology = () => {
                         </div>
                       </div>
                     ))}
+                    <div className="bg-black hidden md:block" aria-hidden />
                   </div>
                   <p className="mt-6 text-sm font-light text-white/55 leading-relaxed max-w-3xl">
                     Weights are documented expert priors (rank-order centroid),
