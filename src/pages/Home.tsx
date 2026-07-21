@@ -111,19 +111,34 @@ const Home = () => {
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.06] via-transparent to-transparent" />
             <div className="pointer-events-none absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.08),transparent_50%)]" />
 
-            {/* Content placeholder */}
-            <div className="relative z-10 flex flex-col items-center justify-center gap-8 px-6 py-16 text-center">
-              <div className="text-xs uppercase tracking-[0.3em] text-white/40">Placeholder</div>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <button className="bg-white text-black hover:bg-white/90 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300">
-                  Primary Action
-                </button>
-                <button className="bg-white/5 text-white border border-white/20 hover:bg-white/10 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 backdrop-blur-sm">
-                  Secondary Action
-                </button>
-              </div>
-            </div>
+            {/* Center content: zoom-out on scroll into view */}
+            <motion.div
+              className="relative z-10 flex flex-col items-center justify-center px-6 py-16 text-center max-w-5xl mx-auto"
+              initial={{ scale: 0.55, opacity: 0, filter: "blur(12px)" }}
+              whileInView={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
+              viewport={{ once: false, amount: 0.5 }}
+              transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05]">
+                A credit score for AI agents.
+              </h2>
+              <p className="mt-8 md:mt-10 text-lg md:text-2xl lg:text-3xl font-light text-white/80 leading-snug max-w-4xl">
+                AMAI reads how an agent behaves, every tool it calls &amp; every boundary it crosses, telling you which ones to trust without ever touching your data.
+              </p>
+            </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Placeholder actions section */}
+      <section className="relative bg-perspective-grid py-16 px-4 md:px-8">
+        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row gap-3 justify-center relative z-10">
+          <button className="bg-white text-black hover:bg-white/90 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300">
+            Primary Action
+          </button>
+          <button className="bg-white/5 text-white border border-white/20 hover:bg-white/10 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 backdrop-blur-sm">
+            Secondary Action
+          </button>
         </div>
       </section>
 
