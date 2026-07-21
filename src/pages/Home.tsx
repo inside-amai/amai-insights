@@ -228,12 +228,12 @@ const Home = () => {
                     {navItems.map((item) => (
                       <li key={item.label} className="snap-start">
                         {'href' in item ? (
-                          <a
-                            href={item.href}
+                          <Link
+                            to={item.href}
                             className="inline-flex items-center justify-center w-16 md:w-32 px-0 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-light tracking-wide text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-300 whitespace-nowrap"
                           >
                             {item.label}
-                          </a>
+                          </Link>
                         ) : (
                           <button
                             type="button"
