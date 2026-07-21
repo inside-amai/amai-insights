@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Copy, Check } from "lucide-react";
 import amaiLogo from "@/assets/amai-logo-tm.png";
 import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -513,17 +514,21 @@ const Home = () => {
                     setCopied(true);
                     setTimeout(() => setCopied(false), 2000);
                   }}
-                  className="text-[10px] tracking-[0.2em] uppercase font-light text-white/50 hover:text-white transition-colors duration-300 flex items-center gap-1.5"
+                  className="group flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/15 bg-white/[0.06] hover:bg-white/[0.12] hover:border-white/30 transition-all duration-300"
                 >
                   {copied ? (
                     <>
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                      Copied
+                      <Check className="w-3.5 h-3.5 text-emerald-300" strokeWidth={2} />
+                      <span className="text-[10px] tracking-[0.2em] uppercase font-light text-emerald-100">
+                        Copied
+                      </span>
                     </>
                   ) : (
                     <>
-                      <span className="w-1.5 h-1.5 rounded-full bg-white/30" />
-                      Copy
+                      <Copy className="w-3.5 h-3.5 text-white/60 group-hover:text-white/90 transition-colors duration-300" strokeWidth={2} />
+                      <span className="text-[10px] tracking-[0.2em] uppercase font-light text-white/60 group-hover:text-white/90 transition-colors duration-300">
+                        Copy
+                      </span>
                     </>
                   )}
                 </button>
