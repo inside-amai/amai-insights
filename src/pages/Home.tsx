@@ -135,7 +135,7 @@ const Home = () => {
                 transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               >
                 <ul className="flex items-center gap-1 md:gap-2 rounded-full border border-white/10 bg-black/50 backdrop-blur-xl px-2 py-2 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.9)]">
-                  {["Score", "Bureau", "Methodology", "Coverage", "Research", "Access"].map((label) => (
+                  {["Score", "Risk", "Methodology", "Bureau", "Coverage", "Research", "Docs"].map((label) => (
                     <li key={label}>
                       <button
                         type="button"
