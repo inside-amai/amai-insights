@@ -269,84 +269,39 @@ const Home = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-transparent pointer-events-none" />
         <div className="pointer-events-none absolute -right-40 top-1/4 w-[520px] h-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.05),transparent_70%)]" />
 
-        <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
-          {/* LEFT — copy + steps */}
-          <motion.div
-            className="lg:col-span-7 text-left"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <div className="flex items-center gap-3 mb-8">
-              <span className="h-px w-10 bg-white/30" />
-              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">How it works</span>
-            </div>
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+            {/* LEFT — copy */}
+            <motion.div
+              className="lg:col-span-7 text-left"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <div className="flex items-center gap-3 mb-8">
+                <span className="h-px w-10 bg-white/30" />
+                <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">How it works</span>
+              </div>
 
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05]">
-              It reads the shape of
-              <br />
-              what your agent did.
-            </h2>
-
-            <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-2xl">
-              Every agent leaves a trace: the tools it calls, the order it calls them, the boundaries it crosses. TARI reads that shape, and only that shape: the names and the timing, never your prompts, your data, or a word the agent wrote. From it, the patterns that betray a compromised agent, a secret pulled and quietly pushed out, an agent drifting past the task it was given, move the score.
-            </p>
-
-            <ol className="mt-12 md:mt-14 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-8">
-              {[
-                { title: "Instrument", body: "Three lines of code. Your agent emits a trace of what it did." },
-                { title: "Read the behavior", body: "Tool by tool, boundary by boundary. Content-off: the moves, never the message." },
-                { title: "Score the pattern", body: "An exfiltration chain, a scope drift, a call to a model it shouldn't reach. What looks like compromise moves the number." },
-              ].map((step, i) => (
-                <motion.li
-                  key={step.title}
-                  className="relative pt-6 border-t border-white/10"
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.4 }}
-                  transition={{ duration: 0.7, delay: 0.1 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  <span className="block text-xs tracking-[0.3em] font-light text-white/40 mb-3">
-                    0{i + 1}
-                  </span>
-                  <div className="text-lg md:text-xl font-light tracking-tight text-white">
-                    {step.title}
-                  </div>
-                  <div className="mt-2 text-sm font-light text-white/60 leading-relaxed">
-                    {step.body}
-                  </div>
-                </motion.li>
-              ))}
-            </ol>
-
-            <div className="mt-16 md:mt-20 pt-10 border-t border-white/10 max-w-2xl">
-              <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-white leading-[1.15]">
-                It never reads a word,
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05]">
+                It reads the shape of
                 <br />
-                <span className="text-white/50">and it doesn't need to.</span>
+                what your agent did.
+              </h2>
+
+              <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-2xl">
+                Every agent leaves a trace: the tools it calls, the order it calls them, the boundaries it crosses. TARI reads that shape, and only that shape: the names and the timing, never your prompts, your data, or a word the agent wrote. From it, the patterns that betray a compromised agent, a secret pulled and quietly pushed out, an agent drifting past the task it was given, move the score.
               </p>
-            </div>
-
-            <div className="mt-12">
-              <a
-                href="/methodology"
-                className="inline-flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors duration-300 border-b border-white/20 hover:border-white/60 pb-1"
-              >
-                Read the full methodology
-                <span aria-hidden>→</span>
-              </a>
-            </div>
-          </motion.div>
-
-          {/* RIGHT — live trace visual */}
-          <motion.div
-            className="lg:col-span-5 lg:pt-4 lg:sticky lg:top-24"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          >
+            </motion.div>
+            {/* RIGHT — live trace visual */}
+            <motion.div
+              className="lg:col-span-5"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            >
             <div className="relative rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl overflow-hidden shadow-[0_20px_80px_-20px_rgba(0,0,0,0.9)]">
               <div className="flex items-center justify-between px-5 py-3 border-b border-white/10 bg-white/[0.02]">
                 <div className="flex items-center gap-2">
@@ -426,7 +381,53 @@ const Home = () => {
             <div className="mt-4 text-[11px] tracking-[0.25em] uppercase text-white/30 font-light text-center">
               read_file → base64_encode → post_to_url
             </div>
-          </motion.div>
+            </motion.div>
+          </div>
+
+          {/* Full-width steps */}
+          <ol className="mt-20 md:mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 lg:gap-14">
+            {[
+              { title: "Instrument", body: "Three lines of code. Your agent emits a trace of what it did." },
+              { title: "Read the behavior", body: "Tool by tool, boundary by boundary. Content-off: the moves, never the message." },
+              { title: "Score the pattern", body: "An exfiltration chain, a scope drift, a call to a model it shouldn't reach. What looks like compromise moves the number." },
+            ].map((step, i) => (
+              <motion.li
+                key={step.title}
+                className="relative pt-6 border-t border-white/10"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.7, delay: 0.1 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <span className="block text-xs tracking-[0.3em] font-light text-white/40 mb-3">
+                  0{i + 1}
+                </span>
+                <div className="text-xl md:text-2xl font-light tracking-tight text-white">
+                  {step.title}
+                </div>
+                <div className="mt-2 text-sm md:text-base font-light text-white/60 leading-relaxed">
+                  {step.body}
+                </div>
+              </motion.li>
+            ))}
+          </ol>
+
+          <div className="mt-16 md:mt-20 pt-10 border-t border-white/10">
+            <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-white leading-[1.15]">
+              It never reads a word,
+              <br />
+              <span className="text-white/50">and it doesn't need to.</span>
+            </p>
+            <div className="mt-10">
+              <a
+                href="/methodology"
+                className="inline-flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors duration-300 border-b border-white/20 hover:border-white/60 pb-1"
+              >
+                Read the full methodology
+                <span aria-hidden>→</span>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
