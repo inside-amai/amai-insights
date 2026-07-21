@@ -1373,9 +1373,6 @@ const translations: Record<Language, Record<string, string>> = {
     'home.thesis': 'THESIS',
     'home.headline': '',
     'home.body': 'Humans have FICO. Businesses have D&B.\n\nAI Agents have TARI™.',
-    'home.body.line1': 'Humans have FICO.',
-    'home.body.line2': 'Businesses have D&B.',
-    'home.body.line3': 'AI Agents have TARI™.',
     'home.cta.architecture': 'View Architecture',
     'home.cta.thesis': 'Explore The Thesis',
 
@@ -2851,9 +2848,6 @@ const translations: Record<Language, Record<string, string>> = {
     'home.thesis': '主題',
     'home.headline': 'チャットボットから受託者へ。',
     'home.body': '自律型ソフトウェアは現在「安全でない」存在であり、資金を託されるための身元を持っていない。AMAIはそれらを責任あるものにするx702信頼レイヤーを提供する。',
-    'home.body.line1': '人間にはFICO。',
-    'home.body.line2': '企業にはD&B。',
-    'home.body.line3': 'AIエージェントにはTARI™。',
     'home.cta.architecture': '設計を見る',
     'home.cta.thesis': '主題を探索',
 
@@ -4376,9 +4370,6 @@ const translations: Record<Language, Record<string, string>> = {
     'home.thesis': 'الأطروحة',
     'home.headline': 'من روبوتات المحادثة إلى الوكلاء الائتمانيين.',
     'home.body': 'البرمجيات المستقلة حالياً "غير آمنة" وتفتقر إلى الهوية اللازمة للوثوق بها في إدارة الأموال. توفر AMAI طبقة الثقة x702 التي تجعلها خاضعة للمساءلة.',
-    'home.body.line1': 'للبشر FICO.',
-    'home.body.line2': 'للشركات D&B.',
-    'home.body.line3': 'لوكلاء الذكاء الاصطناعي TARI™.',
     'home.cta.architecture': 'عرض البنية',
     'home.cta.thesis': 'استكشاف الأطروحة',
 

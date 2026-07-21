@@ -73,21 +73,19 @@ const Home = () => {
 
             {/* Body Text */}
             <motion.div
-              className="mb-8 md:mb-10 max-w-2xl mx-auto"
+              className="mb-8 md:mb-10 max-w-xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <p className="text-xl md:text-2xl text-white/70 font-light leading-relaxed tracking-wide whitespace-pre-line">
+              <p className="text-sm md:text-base text-white/70 font-light leading-relaxed tracking-wide whitespace-pre-line">
                 {t('home.body')}
               </p>
             </motion.div>
 
-
-
             {/* Scroll indicator */}
             <motion.div
-              className="mt-16 md:mt-24 flex flex-col items-center gap-4"
+              className="mt-10 md:mt-14 flex flex-col items-center gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
