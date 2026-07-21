@@ -2,6 +2,8 @@ import { useState, useEffect, useRef, ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import { Copy, Check } from "lucide-react";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { PilotAccessForm } from "@/components/PilotAccessForm";
 
 const sectionLinks = [
