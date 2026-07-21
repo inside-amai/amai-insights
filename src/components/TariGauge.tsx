@@ -8,6 +8,7 @@ import { animate, motion, useInView } from "framer-motion";
 export const TariGauge = ({ score = 812 }: { score?: number }) => {
   const gaugeRef = useRef<HTMLDivElement>(null);
   const needleRef = useRef<SVGGElement>(null);
+  const numberRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(gaugeRef, { once: false, amount: 0.4 });
 
   const MIN = 300;
@@ -59,6 +60,20 @@ export const TariGauge = ({ score = 812 }: { score?: number }) => {
 
     return () => controls.stop();
   }, [cx, cy, isInView, needleSweep]);
+
+  useEffect(() => {
+    const el = numberRef.current;
+    if (!el) return;
+    const controls = animate(isInView ? MIN : clamped, isInView ? clamped : MIN, {
+      duration: isInView ? 2.2 : 0.4,
+      ease: [0.16, 1, 0.3, 1],
+      delay: isInView ? 0.4 : 0,
+      onUpdate: (latest) => {
+        el.textContent = String(Math.round(latest));
+      },
+    });
+    return () => controls.stop();
+  }, [isInView, clamped]);
 
   // Tier label
   const tier =
@@ -186,14 +201,15 @@ export const TariGauge = ({ score = 812 }: { score?: number }) => {
           TARI™ Score
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, scale: 0.85 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          ref={numberRef}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: false, amount: 0.4 }}
-          transition={{ duration: 1, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.5, delay: 0.35 }}
           className="mt-2 text-6xl md:text-7xl font-light tabular-nums text-white leading-none tracking-tight"
           style={{ textShadow: "0 0 40px rgba(166,252,252,0.25)" }}
         >
-          {clamped}
+          {MIN}
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
