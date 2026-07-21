@@ -4,11 +4,17 @@ import { Copy, Check } from "lucide-react";
 import amaiLogo from "@/assets/amai-logo-tm.png";
 import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useIsMobile } from "@/hooks/use-mobile";
+
 import { Footer } from "@/components/Footer";
 import { TariGauge } from "@/components/TariGauge";
 
-const navItems = ["Score", "Risk", "Methodology", "Bureau", "Coverage", "Docs", "Research"];
+const navItems = [
+  { label: "Score", id: "score" },
+  { label: "Methodology", id: "methodology" },
+  { label: "Install TARI", id: "install-tari" },
+  { label: "Risk", id: "risk" },
+  { label: "Institutions", id: "institutions" },
+];
 
 const CountUp = ({ to, prefix = "", suffix = "" }: { to: number; prefix?: string; suffix?: string }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -35,9 +41,8 @@ const CountUp = ({ to, prefix = "", suffix = "" }: { to: number; prefix?: string
 const Home = () => {
   const { t, language } = useLanguage();
   const isRtl = language === 'ar';
-  const isMobile = useIsMobile();
+  
 
-  const [scrolled, setScrolled] = useState(false);
   const [copied, setCopied] = useState(false);
 
 
@@ -163,7 +168,7 @@ const Home = () => {
                 AMAI reads how an agent behaves, every tool it calls &amp; every boundary it crosses, telling you which ones to trust without ever touching your data.
               </p>
 
-              {/* Pill nav strip — fixed width, six visible, one more on click */}
+              {/* Pill nav strip — five real anchors */}
               <motion.nav
                 className="mt-16 md:mt-24"
                 initial={{ y: 12 }}
@@ -171,33 +176,20 @@ const Home = () => {
                 viewport={{ once: false, amount: 0.5 }}
                 transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               >
-                <div className="flex items-center justify-center gap-2">
-                  <div className="overflow-hidden rounded-full border border-white/10 bg-black/50 backdrop-blur-xl px-2 py-2 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.9)] w-[calc(6*5rem+5*0.5rem+1rem)] md:w-[calc(6*6rem+5*0.5rem+1rem)]">
-                    <motion.ul
-                      className="flex items-center gap-2"
-                      animate={{ x: scrolled ? (isMobile ? "-5.5rem" : "-6.5rem") : 0 }}
-                      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                    >
-                      {navItems.map((label) => (
-                        <li key={label}>
-                          <button
-                            type="button"
-                            className="w-20 md:w-24 px-0 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-light tracking-wide text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-300 whitespace-nowrap"
-                          >
-                            {label}
-                          </button>
-                        </li>
-                      ))}
-                    </motion.ul>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => setScrolled(s => !s)}
-                    className="flex items-center justify-center w-8 h-8 rounded-full border border-white/10 bg-black/50 backdrop-blur-xl text-white/60 hover:text-white hover:bg-white/[0.08] transition-all duration-300"
-                    aria-label={scrolled ? "Show earlier items" : "Show more items"}
-                  >
-                    <span className="text-sm">{scrolled ? '‹' : '›'}</span>
-                  </button>
+                <div className="overflow-hidden rounded-full border border-white/10 bg-black/50 backdrop-blur-xl px-2 py-2 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.9)] w-[calc(5*5rem+4*0.5rem+1rem)] md:w-[calc(5*6rem+4*0.5rem+1rem)]">
+                  <ul className="flex items-center gap-2">
+                    {navItems.map(({ label, id }) => (
+                      <li key={id}>
+                        <button
+                          type="button"
+                          onClick={() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })}
+                          className="w-20 md:w-24 px-0 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-light tracking-wide text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-300 whitespace-nowrap"
+                        >
+                          {label}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </motion.nav>
 
@@ -208,7 +200,7 @@ const Home = () => {
       </section>
 
       {/* Section 3 — SCORE */}
-      <section className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
+      <section id="score" className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-transparent pointer-events-none" />
         {/* Ambient glow */}
         <div className="pointer-events-none absolute -left-40 top-1/3 w-[520px] h-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.06),transparent_70%)]" />
@@ -293,7 +285,7 @@ const Home = () => {
       </section>
 
       {/* Section 4 — HOW IT WORKS */}
-      <section className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
+      <section id="methodology" className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-transparent pointer-events-none" />
         <div className="pointer-events-none absolute -right-40 top-1/4 w-[520px] h-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.05),transparent_70%)]" />
 
@@ -463,7 +455,7 @@ const Home = () => {
       </section>
 
 {/* Section 5 — RUN IT (Light Blueprint Inversion) */}
-      <section className="relative bg-[#fafafa] py-24 md:py-40 px-4 md:px-8 overflow-hidden">
+      <section id="install-tari" className="relative bg-[#fafafa] py-24 md:py-40 px-4 md:px-8 overflow-hidden">
         {/* Inverted blueprint grid */}
         <div
           className="absolute inset-0 opacity-[0.07] pointer-events-none"
@@ -641,7 +633,7 @@ const Home = () => {
       </section>
 
       {/* Section 6 — RISK */}
-      <section className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
+      <section id="risk" className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-transparent pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
@@ -733,7 +725,7 @@ const Home = () => {
       </section>
 
       {/* Section 7 — FOR INSTITUTIONS */}
-      <section className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
+      <section id="institutions" className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-transparent pointer-events-none" />
         {/* Teal ambient glow — control/safe counterpart to Risk's red */}
         <div className="pointer-events-none absolute -right-40 top-1/4 w-[520px] h-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.06),transparent_70%)]" />
