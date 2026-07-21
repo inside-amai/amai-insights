@@ -116,37 +116,12 @@ export const SiteHeader = () => {
               </a>
             )}
             {!isDeckPage && (
-              <Link 
-                to="/architecture"
-                className="text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase"
-              >
-                Architecture
-              </Link>
-            )}
-            {!isDeckPage && (
-              <Link 
-                to="/thesis"
-                className="text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase"
-              >
-                Thesis
-              </Link>
-            )}
-            {!isDeckPage && (
-              <Link
-                to="/methodology"
-                className="text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase"
-              >
-                Methodology
-              </Link>
-            )}
-            {!isDeckPage && (
               <a
-                href="https://bureau.amai.net"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase"
+                href="mailto:team@amai.net?subject=Request%20Access"
+                onClick={handleContactClick}
+                className="px-4 py-2 rounded-full bg-white/85 text-black hover:bg-white font-medium tracking-[0.05em] uppercase transition-all"
               >
-                Bureau
+                Request Access
               </a>
             )}
             <div className="flex items-center gap-1">
@@ -169,6 +144,7 @@ export const SiteHeader = () => {
               ))}
             </div>
           </div>
+
 
           {/* Mobile Hamburger */}
           {!isDeckPage && (
