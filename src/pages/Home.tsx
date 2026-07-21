@@ -1,6 +1,4 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
 import amaiLogo from "@/assets/amai-logo-tm.png";
 import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -56,28 +54,48 @@ const Home = () => {
               </p>
             </motion.div>
 
-            {/* CTAs */}
+            {/* Scroll indicator */}
             <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center"
+              className="mt-10 md:mt-14 flex flex-col items-center gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <Link
-                to="/thesis"
-                className="group inline-flex items-center gap-3 text-sm font-medium text-black bg-white hover:bg-white/90 px-7 py-3.5 rounded-full transition-all duration-300 text-center"
-              >
-                {t('home.cta.thesis')}
-                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-              <a
-                href="https://terminal.amai.net"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center text-sm font-medium text-white/80 hover:text-white bg-white/[0.06] hover:bg-white/[0.10] border border-white/20 hover:border-white/35 px-7 py-3.5 rounded-full transition-all duration-300 text-center backdrop-blur-sm"
-              >
-                Access the Bureau
-              </a>
+              <span className="text-[10px] md:text-xs uppercase tracking-[0.35em] text-white/50 font-light">
+                Scroll
+              </span>
+              <div className="relative w-8 h-14 flex items-center justify-center">
+                {/* Animated track */}
+                <div className="absolute inset-x-3 top-1 bottom-1 rounded-full border border-white/15" />
+                {/* Floating orb */}
+                <motion.div
+                  className="absolute w-1.5 h-1.5 rounded-full bg-white/80 shadow-[0_0_10px_rgba(255,255,255,0.5)]"
+                  animate={{ y: [-12, 12, -12] }}
+                  transition={{ duration: 2.2, ease: "easeInOut", repeat: Infinity }}
+                />
+                {/* Decorative symbols */}
+                <motion.span
+                  className="absolute -top-4 -left-5 text-white/25 text-xs"
+                  animate={{ opacity: [0.25, 0.55, 0.25], rotate: [0, 12, 0] }}
+                  transition={{ duration: 3.5, repeat: Infinity }}
+                >
+                  ✦
+                </motion.span>
+                <motion.span
+                  className="absolute -bottom-3 -right-5 text-white/25 text-xs"
+                  animate={{ opacity: [0.25, 0.5, 0.25], rotate: [0, -12, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
+                >
+                  ◇
+                </motion.span>
+                <motion.span
+                  className="absolute -top-2 -right-4 text-white/20 text-[10px]"
+                  animate={{ opacity: [0.2, 0.45, 0.2], y: [0, 4, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, delay: 1 }}
+                >
+                  +
+                </motion.span>
+              </div>
             </motion.div>
           </div>
         </div>
