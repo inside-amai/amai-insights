@@ -140,13 +140,12 @@ const Home = () => {
                 transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               >
                 <div className="flex items-center justify-center gap-2">
-                  <div className="overflow-hidden rounded-full w-[calc(6*5rem+5*0.5rem+1rem)] md:w-[calc(6*6rem+5*0.5rem+1rem)]">
+                  <div className="overflow-hidden rounded-full border border-white/10 bg-black/50 backdrop-blur-xl px-2 py-2 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.9)] w-[calc(6*5rem+5*0.5rem+1rem)] md:w-[calc(6*6rem+5*0.5rem+1rem)]">
                     <motion.ul
-                      className="flex items-center gap-2 rounded-full border border-white/10 bg-black/50 backdrop-blur-xl px-2 py-2 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.9)]"
-                      animate={{ x: scrolled ? (isMobile ? "-6rem" : "-7rem") : 0 }}
+                      className="flex items-center gap-2"
+                      animate={{ x: scrolled ? (isMobile ? "-5.5rem" : "-6.5rem") : 0 }}
                       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                     >
-
                       {navItems.map((label) => (
                         <li key={label}>
                           <button
