@@ -83,7 +83,9 @@ const Home = () => {
 
       {/* Feature card section */}
       <section className="relative bg-perspective-grid py-16 md:py-24 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto">
+        {/* Fade from black at top into the normal grid */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-transparent pointer-events-none" />
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-2xl shadow-[0_20px_80px_-20px_rgba(0,0,0,0.8)] min-h-[520px] md:min-h-[640px] flex items-center justify-center">
             {/* Glass sheen */}
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.06] via-transparent to-transparent" />
