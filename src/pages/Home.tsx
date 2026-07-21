@@ -149,27 +149,45 @@ const Home = () => {
 
               {/* Pill nav strip */}
               <motion.nav
-                className="mt-16 md:mt-24"
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                className={`mt-16 md:mt-24 transition-opacity duration-300 ${navReady ? 'opacity-100' : 'opacity-0'}`}
+                initial={{ y: 12 }}
+                whileInView={{ y: 0 }}
                 viewport={{ once: false, amount: 0.5 }}
                 transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               >
-                <ul className="flex items-center gap-1 md:gap-2 rounded-full border border-white/10 bg-black/50 backdrop-blur-xl px-2 py-2 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.9)]">
-                  {["Score", "Risk", "Methodology", "Bureau", "Coverage", "Research", "Docs"].map((label) => (
-                    <li key={label}>
-                      <button
-                        type="button"
-                        className="px-4 md:px-6 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-light tracking-wide text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-300 whitespace-nowrap"
-                      >
-                        {label}
-                      </button>
-                    </li>
-                  ))}
-                  <li aria-hidden="true">
-                    <span className="hidden md:inline-flex px-3 py-2 text-white/40 text-sm">›</span>
-                  </li>
-                </ul>
+                <div className="flex items-center justify-center gap-2">
+                  <div
+                    className="overflow-hidden rounded-full"
+                    style={{ width: navReady && navWidth ? navWidth - lastWidth / 2 : 'auto' }}
+                  >
+                    <motion.ul
+                      ref={trackRef}
+                      className="flex items-center gap-1 md:gap-2 rounded-full border border-white/10 bg-black/50 backdrop-blur-xl px-2 py-2 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.9)] w-max"
+                      animate={{ x: scrolled ? -(lastWidth / 2) : 0 }}
+                      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                      {["Score", "Risk", "Methodology", "Bureau", "Coverage", "Docs", "Research"].map((label, i) => (
+                        <li key={label}>
+                          <button
+                            ref={i === 6 ? lastItemRef : undefined}
+                            type="button"
+                            className="px-4 md:px-6 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-light tracking-wide text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-300 whitespace-nowrap"
+                          >
+                            {label}
+                          </button>
+                        </li>
+                      ))}
+                    </motion.ul>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setScrolled(s => !s)}
+                    className="flex items-center justify-center w-8 h-8 rounded-full border border-white/10 bg-black/50 backdrop-blur-xl text-white/60 hover:text-white hover:bg-white/[0.08] transition-all duration-300"
+                    aria-label={scrolled ? "Show earlier items" : "Show more items"}
+                  >
+                    <span className="text-sm">{scrolled ? '‹' : '›'}</span>
+                  </button>
+                </div>
               </motion.nav>
             </motion.div>
 
