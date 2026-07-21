@@ -208,7 +208,7 @@ const Home = () => {
       </section>
 
       {/* Section 3 — SCORE */}
-      <section className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
+      <section id="score" className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-transparent pointer-events-none" />
         {/* Ambient glow */}
         <div className="pointer-events-none absolute -left-40 top-1/3 w-[520px] h-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.06),transparent_70%)]" />
@@ -293,7 +293,7 @@ const Home = () => {
       </section>
 
       {/* Section 4 — HOW IT WORKS */}
-      <section className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
+      <section id="methodology" className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-transparent pointer-events-none" />
         <div className="pointer-events-none absolute -right-40 top-1/4 w-[520px] h-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.05),transparent_70%)]" />
 
@@ -463,7 +463,7 @@ const Home = () => {
       </section>
 
 {/* Section 5 — RUN IT (Light Blueprint Inversion) */}
-      <section className="relative bg-[#fafafa] py-24 md:py-40 px-4 md:px-8 overflow-hidden">
+      <section id="install-tari" className="relative bg-[#fafafa] py-24 md:py-40 px-4 md:px-8 overflow-hidden">
         {/* Inverted blueprint grid */}
         <div
           className="absolute inset-0 opacity-[0.07] pointer-events-none"
@@ -641,7 +641,7 @@ const Home = () => {
       </section>
 
       {/* Section 6 — RISK */}
-      <section className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
+      <section id="risk" className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-transparent pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
@@ -733,7 +733,7 @@ const Home = () => {
       </section>
 
       {/* Section 7 — FOR INSTITUTIONS */}
-      <section className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
+      <section id="institutions" className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-transparent pointer-events-none" />
         {/* Teal ambient glow — control/safe counterpart to Risk's red */}
         <div className="pointer-events-none absolute -right-40 top-1/4 w-[520px] h-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.06),transparent_70%)]" />
