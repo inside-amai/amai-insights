@@ -37,6 +37,7 @@ const CopyEmailButton = () => {
 export const SiteHeader = () => {
   const { language, setLanguage } = useLanguage();
   const location = useLocation();
+  const navigate = useNavigate();
   const isThesisPage = location.pathname === '/thesis';
   const isHomePage = location.pathname === '/' || location.pathname === '/home';
   const isDeckPage = location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/briefing' || location.pathname === '/pitch';
@@ -57,6 +58,22 @@ export const SiteHeader = () => {
     return () => { document.body.style.overflow = ''; };
   }, [mobileOpen]);
 
+
+  const scrollToRunIt = () => {
+    const el = document.getElementById('install-tari');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleGetStarted = () => {
+    if (isHomePage) {
+      scrollToRunIt();
+    } else {
+      navigate('/');
+      setTimeout(scrollToRunIt, 300);
+    }
+  };
 
   const handleContactClick = () => {
     setTimeout(() => {
