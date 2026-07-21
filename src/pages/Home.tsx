@@ -510,7 +510,7 @@ const Home = () => {
                   <span className="w-2 h-2 rounded-full bg-emerald-400/60" />
                 </div>
                 <span className="text-[10px] tracking-[0.3em] uppercase text-white/40 font-light">
-                  sdk · local-only
+                  sdk
                 </span>
                 <button
                   type="button"
