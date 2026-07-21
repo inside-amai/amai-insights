@@ -1,5 +1,5 @@
 import { useLanguage, Language } from '@/contexts/LanguageContext';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from '@/hooks/use-toast';
 import { Copy, Check, Globe, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
@@ -37,6 +37,7 @@ const CopyEmailButton = () => {
 export const SiteHeader = () => {
   const { language, setLanguage } = useLanguage();
   const location = useLocation();
+  const navigate = useNavigate();
   const isThesisPage = location.pathname === '/thesis';
   const isHomePage = location.pathname === '/' || location.pathname === '/home';
   const isDeckPage = location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/briefing' || location.pathname === '/pitch';
@@ -57,6 +58,22 @@ export const SiteHeader = () => {
     return () => { document.body.style.overflow = ''; };
   }, [mobileOpen]);
 
+
+  const scrollToRunIt = () => {
+    const el = document.getElementById('install-tari');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleGetStarted = () => {
+    if (isHomePage) {
+      scrollToRunIt();
+    } else {
+      navigate('/');
+      setTimeout(scrollToRunIt, 300);
+    }
+  };
 
   const handleContactClick = () => {
     setTimeout(() => {
@@ -116,13 +133,13 @@ export const SiteHeader = () => {
               </a>
             )}
             {!isDeckPage && (
-              <a
-                href="mailto:team@amai.net?subject=Request%20Access"
-                onClick={handleContactClick}
+              <button
+                type="button"
+                onClick={handleGetStarted}
                 className="px-4 py-2 rounded-full bg-white/85 text-black hover:bg-white font-medium tracking-[0.05em] uppercase transition-all"
               >
-                Request Access
-              </a>
+                GET STARTED
+              </button>
             )}
             <div className="flex items-center gap-1">
               {languages.map((lang, index) => (
@@ -179,13 +196,13 @@ export const SiteHeader = () => {
           </div>
 
           <nav className="flex-1 flex flex-col justify-center px-8 gap-2">
-            <a
-              href="mailto:team@amai.net?subject=Request%20Access"
-              onClick={() => { setMobileOpen(false); handleContactClick(); }}
-              className="block py-4 text-2xl font-light text-white/90 hover:text-white tracking-tight border-b border-white/10"
+            <button
+              type="button"
+              onClick={() => { setMobileOpen(false); handleGetStarted(); }}
+              className="block text-left py-4 text-2xl font-light text-white/90 hover:text-white tracking-tight border-b border-white/10"
             >
-              Request Access
-            </a>
+              GET STARTED
+            </button>
             <a
               href={mailto}
               onClick={() => { setMobileOpen(false); handleContactClick(); }}
