@@ -46,13 +46,18 @@ const Home = () => {
   
 
   const [copied, setCopied] = useState(false);
-  const [showNavArrow, setShowNavArrow] = useState(true);
+  const [showLeftNavArrow, setShowLeftNavArrow] = useState(false);
+  const [showRightNavArrow, setShowRightNavArrow] = useState(true);
   const navListRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
     const el = navListRef.current;
     if (!el) return;
-    const update = () => setShowNavArrow(el.scrollLeft + el.clientWidth < el.scrollWidth - 2);
+    const update = () => {
+      const maxScroll = el.scrollWidth - el.clientWidth;
+      setShowLeftNavArrow(el.scrollLeft > 2);
+      setShowRightNavArrow(el.scrollLeft < maxScroll - 2);
+    };
     update();
     el.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
@@ -65,9 +70,13 @@ const Home = () => {
   const scrollNavRight = () => {
     const el = navListRef.current;
     if (!el) return;
-    const item = el.querySelector("li");
-    const itemWidth = item?.getBoundingClientRect().width ?? 96;
-    el.scrollBy({ left: itemWidth * 2 + 16, behavior: "smooth" });
+    el.scrollTo({ left: el.scrollWidth - el.clientWidth, behavior: "smooth" });
+  };
+
+  const scrollNavLeft = () => {
+    const el = navListRef.current;
+    if (!el) return;
+    el.scrollTo({ left: 0, behavior: "smooth" });
   };
 
 
