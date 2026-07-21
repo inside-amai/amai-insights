@@ -125,6 +125,9 @@ const Home = () => {
               viewport={{ once: false, amount: 0.5 }}
               transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
             >
+              <div className="mb-10 md:mb-14 w-full">
+                <TariGauge score={812} />
+              </div>
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-white leading-[1.05]">
                 A credit score for AI agents.
               </h2>
