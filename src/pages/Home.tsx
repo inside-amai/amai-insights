@@ -1,3 +1,4 @@
+import { useState, useRef, useLayoutEffect } from "react";
 import { motion } from "framer-motion";
 import amaiLogo from "@/assets/amai-logo-tm.png";
 import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
