@@ -59,29 +59,39 @@ const Home = () => {
             animate={{ scale: [1, 1.12, 1] }}
             transition={{ duration: 18, ease: "easeInOut", repeat: Infinity }}
           />
-          <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
+          <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
             {/* AMAI Logo */}
             <motion.img
               src={amaiLogo}
               alt="AMAI Labs"
-              className="h-12 md:h-20 w-auto mx-auto mb-8 md:mb-10 brightness-110"
+              className="h-12 md:h-20 w-auto mx-auto mb-10 md:mb-14 brightness-110"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             />
 
 
-            {/* Body Text */}
-            <motion.div
-              className="mb-8 md:mb-10 max-w-xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              <p className="text-sm md:text-base text-white/70 font-light leading-relaxed tracking-wide whitespace-pre-line">
-                {t('home.body')}
-              </p>
-            </motion.div>
+            {/* Headline */}
+            <div className="max-w-4xl mx-auto">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight leading-[1.05]">
+                {[
+                  { key: 'home.body.line1', delay: 0.4, cls: 'text-white/55' },
+                  { key: 'home.body.line2', delay: 0.55, cls: 'text-white/55' },
+                  { key: 'home.body.line3', delay: 0.7, cls: 'text-white' },
+                ].map(({ key, delay, cls }) => (
+                  <motion.span
+                    key={key}
+                    className={`block ${cls}`}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay }}
+                  >
+                    {t(key)}
+                  </motion.span>
+                ))}
+              </h1>
+            </div>
+
 
             {/* Scroll indicator */}
             <motion.div

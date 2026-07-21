@@ -4376,6 +4376,9 @@ const translations: Record<Language, Record<string, string>> = {
     'home.thesis': 'الأطروحة',
     'home.headline': 'من روبوتات المحادثة إلى الوكلاء الائتمانيين.',
     'home.body': 'البرمجيات المستقلة حالياً "غير آمنة" وتفتقر إلى الهوية اللازمة للوثوق بها في إدارة الأموال. توفر AMAI طبقة الثقة x702 التي تجعلها خاضعة للمساءلة.',
+    'home.body.line1': 'للبشر FICO.',
+    'home.body.line2': 'للشركات D&B.',
+    'home.body.line3': 'لوكلاء الذكاء الاصطناعي TARI™.',
     'home.cta.architecture': 'عرض البنية',
     'home.cta.thesis': 'استكشاف الأطروحة',
 
