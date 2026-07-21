@@ -302,11 +302,6 @@ const Home = () => {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             >
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          >
             <div className="relative rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl overflow-hidden shadow-[0_20px_80px_-20px_rgba(0,0,0,0.9)]">
               <div className="flex items-center justify-between px-5 py-3 border-b border-white/10 bg-white/[0.02]">
                 <div className="flex items-center gap-2">
