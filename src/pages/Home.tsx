@@ -179,7 +179,7 @@ const Home = () => {
           {/* Soft outer halo behind the card */}
           <div className="pointer-events-none absolute -inset-3 rounded-[2rem] bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.12),transparent_55%)] blur-2xl opacity-60" />
 
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-2xl shadow-[0_20px_80px_-20px_rgba(0,0,0,0.8),inset_0_1px_0_0_rgba(255,255,255,0.08)] min-h-0 max-h-[90vh] md:max-h-[75vh] flex items-center justify-center">
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-2xl shadow-[0_20px_80px_-20px_rgba(0,0,0,0.8),inset_0_1px_0_0_rgba(255,255,255,0.08)] min-h-0 max-h-[95vh] md:max-h-[80vh] flex items-center justify-center">
             {/* Glass sheen */}
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.06] via-transparent to-transparent" />
             {/* Top-edge light source */}
@@ -194,7 +194,7 @@ const Home = () => {
               viewport={{ once: false, amount: 0.5 }}
               transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="mb-6 md:mb-8 w-full max-w-[420px] mx-auto">
+              <div className="mb-6 md:mb-8 w-full max-w-[480px] mx-auto">
                 <TariGauge score={812} />
               </div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.05]">
