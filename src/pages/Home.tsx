@@ -293,7 +293,7 @@ const Home = () => {
               Every agent leaves a trace: the tools it calls, the order it calls them, the boundaries it crosses. TARI reads that shape, and only that shape: the names and the timing, never your prompts, your data, or a word the agent wrote. From it, the patterns that betray a compromised agent, a secret pulled and quietly pushed out, an agent drifting past the task it was given, move the score.
             </p>
 
-            <ol className="mt-14 md:mt-16 space-y-8 md:space-y-10 max-w-2xl">
+            <ol className="mt-12 md:mt-14 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-8">
               {[
                 { title: "Instrument", body: "Three lines of code. Your agent emits a trace of what it did." },
                 { title: "Read the behavior", body: "Tool by tool, boundary by boundary. Content-off: the moves, never the message." },
@@ -301,22 +301,20 @@ const Home = () => {
               ].map((step, i) => (
                 <motion.li
                   key={step.title}
-                  className="flex gap-6 md:gap-8"
+                  className="relative pt-6 border-t border-white/10"
                   initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.4 }}
                   transition={{ duration: 0.7, delay: 0.1 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <span className="flex-shrink-0 text-xs tracking-[0.3em] font-light text-white/40 pt-1 w-8">
+                  <span className="block text-xs tracking-[0.3em] font-light text-white/40 mb-3">
                     0{i + 1}
                   </span>
-                  <div>
-                    <div className="text-xl md:text-2xl font-light tracking-tight text-white">
-                      {step.title}
-                    </div>
-                    <div className="mt-2 text-sm md:text-base font-light text-white/60 leading-relaxed">
-                      {step.body}
-                    </div>
+                  <div className="text-lg md:text-xl font-light tracking-tight text-white">
+                    {step.title}
+                  </div>
+                  <div className="mt-2 text-sm font-light text-white/60 leading-relaxed">
+                    {step.body}
                   </div>
                 </motion.li>
               ))}
