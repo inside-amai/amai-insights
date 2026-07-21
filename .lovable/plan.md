@@ -1,45 +1,28 @@
-Implement the selected "Light Blueprint Inversion" direction for Section 5 (RUN IT) on the homepage. This section will deliberately break from the dark-grid-glass-card formula of Sections 2–4 with a high-contrast, light-drafted paper section.
+Refine the SDK card in the Run It section to the selected "Dark glass aesthetic" direction.
 
-## What will change
+## What we'll change
 
-- **Section 5** (lines 441–609 of `src/pages/Home.tsx`) will be rebuilt as a full-bleed light section: off-white background, faint cyan blueprint grid, black typography, and a hard-shadow black terminal card.
-- The surrounding sections (Hero, Section 2–4, HomeThesis, Footer) are **not** changing.
-- The actual SDK copy and commands stay the same:
-  - Eyebrow: `RUN IT`
-  - Headline: `Don't take our word for it. Run it.`
-  - Body: `pip install amai-tari` …
-  - Code card: `pip install amai-tari` + 3-line instrument snippet
-  - CTA: `Read the docs →`
-  - Closing beat: `Free to run. Private by construction.`
+- The solid-black SDK card on the Run It section (currently in `src/pages/Home.tsx`) will be rebuilt with a dark glass aesthetic: very dark translucent surface, subtle backdrop blur, a faint top-down light gradient, a soft ambient glow behind the card, and a single thin hairline border instead of the heavy offset shadow.
+- The card retains the exact same verified code content, line numbers, and working Copy button.
+- The caption text beneath the card and the "What you get" benefits block below will stay in place; only their surrounding spacing will be adjusted if needed to fit the new card.
 
 ## Design details
 
-- **Background:** `#fafafa` or `#f5f5f5` with two layers of faint cyan blueprint grid lines (`#0055ff` at very low opacity), mirroring the dark-site blueprint language but inverted.
-- **Layout:** Two-column split on desktop.
-  - Left: eyebrow, headline, body, docs link, closing beat.
-  - Right: a solid black terminal/code card with a heavy offset shadow (or layered drop shadow) and no glass/blur.
-- **Typography:** Roboto, keep body light/unbolded, headline in heavier weight for impact.
-- **Colors:** Black text on white; accent the code keywords in the existing cyan/purple/amber syntax palette used elsewhere; terminal traffic dots remain red/amber/emerald.
-- **No floating glassmorphism.** The card sits on the page as a solid object — a deliberate break from the prior sections.
-- **Transition:** Add a subtle gradient seam between the dark Section 4 and the light Section 5 so the inversion feels intentional rather than jarring.
-- **Motion:** Keep `framer-motion` scroll reveals consistent with the rest of the page (fade-up on enter). No heavy animation on the card itself beyond the copy-to-clipboard button.
-- **Copy button:** Keep the existing copy button and `copied` state, but style it to fit the light section (e.g., dark pill with `Copy`/`Check` icon).
-- **Responsive:** Stack columns on mobile; reduce headline size; ensure the terminal card remains readable.
+- Card shell: near-black translucent surface (`bg-[#0c0d0e]/95` / `backdrop-blur-xl`), rounded 24px corners, `border-white/10`, soft 32px shadow, and a diffuse ambient glow behind it.
+- Header: same three dots + "SDK" label, Copy button styled as a glass pill with white/10 border and subtle hover.
+- Code block: JetBrains Mono styling, compact line numbers, refined syntax colors — no semantic-token inversion for the terminal surface since this is a deliberately dark element on a light blueprint section.
+- Footer: "Runs Locally" and "content-off by default" with a subtle emerald status dot, kept minimal.
 
-## Files to edit
+## Implementation steps
 
-- `src/pages/Home.tsx` — rebuild Section 5.
+1. Read the exact current code block and copy handler in `src/pages/Home.tsx`.
+2. Replace the SDK card container and inner styling, preserving the `motion` reveal animation and the copy handler.
+3. Adjust the caption and "What you get" block spacing if the new card height/depth changes the rhythm.
+4. Run the TypeScript check and build to confirm no errors.
+5. Take a preview screenshot of the Run It section to validate the result visually.
 
-## Out of scope
+## Constraints
 
-- No changes to other sections, header, footer, or navigation.
-- No new dependencies or routes.
-- No auth or backend changes.
-
-## Acceptance check
-
-- Section 5 renders as a light section with a blueprint grid.
-- The SDK command and 3-line snippet are visible and copyable.
-- The closing beat and docs link remain.
-- Mobile layout stacks cleanly.
-- The section still respects the dark theme of the rest of the page, acting as a single intentional contrast moment.
+- No change to the code snippet itself (still `pip install amai-tari` + `TARIInstrument` flow).
+- No change to the "Copy" button behavior or to the section's light blueprint background.
+- Keep the "What you get" benefits block and the caption text unchanged unless spacing needs minor adjustment.
