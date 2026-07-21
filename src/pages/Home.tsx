@@ -16,7 +16,7 @@ const navItems = [
   { label: "Install", id: "install-tari" },
   { label: "Risk", id: "risk" },
   { label: "Institutions", id: "institutions" },
-  { label: "Bureau", id: "bureau" },
+  { label: "Bureau", href: "https://bureau.amai.net", external: true },
   { label: "Docs", href: "/docs" },
 ];
 
@@ -229,12 +229,23 @@ const Home = () => {
                     {navItems.map((item) => (
                       <li key={item.label} className="snap-start">
                         {'href' in item ? (
-                          <Link
-                            to={item.href}
-                            className="inline-flex items-center justify-center w-16 md:w-32 px-0 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-light tracking-wide text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-300 whitespace-nowrap"
-                          >
-                            {item.label}
-                          </Link>
+                          item.external ? (
+                            <a
+                              href={item.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center justify-center w-16 md:w-32 px-0 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-light tracking-wide text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-300 whitespace-nowrap"
+                            >
+                              {item.label}
+                            </a>
+                          ) : (
+                            <Link
+                              to={item.href}
+                              className="inline-flex items-center justify-center w-16 md:w-32 px-0 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-light tracking-wide text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-300 whitespace-nowrap"
+                            >
+                              {item.label}
+                            </Link>
+                          )
                         ) : (
                           <button
                             type="button"
