@@ -179,6 +179,93 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Section 3 — SCORE */}
+      <section className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-transparent pointer-events-none" />
+        {/* Ambient glow */}
+        <div className="pointer-events-none absolute -left-40 top-1/3 w-[520px] h-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.06),transparent_70%)]" />
+
+        <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
+          {/* LEFT — copy */}
+          <motion.div
+            className="lg:col-span-7 text-left"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="flex items-center gap-3 mb-8">
+              <span className="h-px w-10 bg-white/30" />
+              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">Score</span>
+            </div>
+
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05]">
+              A number you already
+              <br />
+              know how to read.
+            </h2>
+
+            <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-2xl">
+              Every agent earns one TARI score, 300 to 850, the scale the world already trusts. It doesn't predict the future, and it never calls an agent safe. It ranks behavior: the higher the number, the less an agent has done to earn suspicion. And when the signal is too thin to judge, TARI says <span className="text-white font-normal tracking-wide">UNRATED</span>, never a guess.
+            </p>
+
+            <div className="mt-16 md:mt-20 pt-10 border-t border-white/10 max-w-2xl">
+              <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-white leading-[1.15]">
+                It measures what an agent <span className="italic text-white/90">did</span>
+                <br />
+                <span className="text-white/50">not what it promised.</span>
+              </p>
+            </div>
+          </motion.div>
+
+          {/* RIGHT — bands */}
+          <motion.div
+            className="lg:col-span-5 lg:pt-4"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="relative pl-8 md:pl-10">
+              {/* Vertical spine */}
+              <div className="absolute left-0 top-2 bottom-2 w-px bg-gradient-to-b from-cyan-300/40 via-emerald-300/30 via-amber-300/30 to-red-400/40" />
+
+              {[
+                { range: "800–850", color: "bg-cyan-300", text: "text-cyan-200", label: "No adverse signal. Earned, not certified." },
+                { range: "650–799", color: "bg-emerald-300", text: "text-emerald-200", label: "Clean and unremarkable. Acting within bounds." },
+                { range: "550–649", color: "bg-amber-300", text: "text-amber-200", label: "Worth a second look." },
+                { range: "300–549", color: "bg-red-400", text: "text-red-300", label: "Anomalous. Behavior that doesn't add up." },
+                { range: "UNRATED", color: "bg-white/40", text: "text-white/60", label: "Not enough evidence. We won't pretend otherwise." },
+              ].map((band, i) => (
+                <motion.div
+                  key={band.range}
+                  className="relative py-6 md:py-7 first:pt-0"
+                  initial={{ opacity: 0, x: 16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{ duration: 0.7, delay: 0.1 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  {/* Node on spine */}
+                  <span className={`absolute -left-[34px] md:-left-[42px] top-8 md:top-9 flex items-center justify-center`}>
+                    <span className={`absolute w-3.5 h-3.5 rounded-full ${band.color} opacity-20 blur-[3px]`} />
+                    <span className={`relative w-1.5 h-1.5 rounded-full ${band.color}`} />
+                  </span>
+
+                  <div className={`text-2xl md:text-3xl font-light tracking-tight ${band.text}`}>
+                    {band.range}
+                  </div>
+                  <div className="mt-2 text-sm md:text-base font-light text-white/60 leading-relaxed max-w-md">
+                    {band.label}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+
+
       {/* Placeholder actions section */}
       <section className="relative bg-perspective-grid py-16 px-4 md:px-8">
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row gap-3 justify-center relative z-10">
