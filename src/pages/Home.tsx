@@ -125,7 +125,33 @@ const Home = () => {
               <p className="mt-8 md:mt-10 text-lg md:text-2xl lg:text-3xl font-light text-white/80 leading-snug max-w-4xl">
                 AMAI reads how an agent behaves, every tool it calls &amp; every boundary it crosses, telling you which ones to trust without ever touching your data.
               </p>
+
+              {/* Pill nav strip */}
+              <motion.nav
+                className="mt-12 md:mt-16"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.5 }}
+                transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <ul className="flex items-center gap-1 md:gap-2 rounded-full border border-white/10 bg-black/50 backdrop-blur-xl px-2 py-2 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.9)]">
+                  {["Score", "Bureau", "Methodology", "Coverage", "Research", "Access"].map((label) => (
+                    <li key={label}>
+                      <button
+                        type="button"
+                        className="px-4 md:px-6 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-light tracking-wide text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-300 whitespace-nowrap"
+                      >
+                        {label}
+                      </button>
+                    </li>
+                  ))}
+                  <li aria-hidden="true">
+                    <span className="hidden md:inline-flex px-3 py-2 text-white/40 text-sm">›</span>
+                  </li>
+                </ul>
+              </motion.nav>
             </motion.div>
+
           </div>
         </div>
       </section>
