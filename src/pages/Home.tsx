@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, useInView, animate } from "framer-motion";
-import { Copy, Check, ChevronRight } from "lucide-react";
+import { Copy, Check, ChevronRight, ChevronLeft } from "lucide-react";
 import amaiLogo from "@/assets/amai-logo-tm.png";
 import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -46,13 +46,18 @@ const Home = () => {
   
 
   const [copied, setCopied] = useState(false);
-  const [showNavArrow, setShowNavArrow] = useState(true);
+  const [showLeftNavArrow, setShowLeftNavArrow] = useState(false);
+  const [showRightNavArrow, setShowRightNavArrow] = useState(true);
   const navListRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
     const el = navListRef.current;
     if (!el) return;
-    const update = () => setShowNavArrow(el.scrollLeft + el.clientWidth < el.scrollWidth - 2);
+    const update = () => {
+      const maxScroll = el.scrollWidth - el.clientWidth;
+      setShowLeftNavArrow(el.scrollLeft > 2);
+      setShowRightNavArrow(el.scrollLeft < maxScroll - 2);
+    };
     update();
     el.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
@@ -65,9 +70,13 @@ const Home = () => {
   const scrollNavRight = () => {
     const el = navListRef.current;
     if (!el) return;
-    const item = el.querySelector("li");
-    const itemWidth = item?.getBoundingClientRect().width ?? 96;
-    el.scrollBy({ left: itemWidth * 2 + 16, behavior: "smooth" });
+    el.scrollTo({ left: el.scrollWidth - el.clientWidth, behavior: "smooth" });
+  };
+
+  const scrollNavLeft = () => {
+    const el = navListRef.current;
+    if (!el) return;
+    el.scrollTo({ left: 0, behavior: "smooth" });
   };
 
 
@@ -201,10 +210,18 @@ const Home = () => {
                 viewport={{ once: false, amount: 0.5 }}
                 transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               >
-                <div className="flex items-center overflow-hidden rounded-full border border-white/10 bg-black/50 backdrop-blur-xl px-2 py-2 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.9)] w-[calc(4*4rem+3*0.5rem+2rem+1rem)] md:w-[calc(5*6rem+4*0.5rem+2rem+1rem)]">
+                <div className="flex items-center overflow-hidden rounded-full border border-white/10 bg-black/50 backdrop-blur-xl px-2 py-2 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.9)] w-[calc(4*4rem+3*0.5rem+2*2rem+1rem)] md:w-[calc(5*6rem+4*0.5rem+2*2rem+1rem)]">
+                  <button
+                    type="button"
+                    onClick={scrollNavLeft}
+                    className={`h-7 w-7 md:h-8 md:w-8 flex-shrink-0 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center text-white/70 hover:text-white transition-all duration-300 ${showLeftNavArrow ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+                    aria-label="Show previous links"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                  </button>
                   <ul
                     ref={navListRef}
-                    className="flex items-center gap-2 overflow-x-auto scroll-smooth snap-x snap-mandatory w-[calc(4*4rem+3*0.5rem)] md:w-[calc(5*6rem+4*0.5rem)]"
+                    className="flex items-center gap-2 overflow-x-auto scroll-smooth snap-x snap-mandatory w-[calc(4*4rem+3*0.5rem)] md:w-[calc(5*6rem+4*0.5rem)] mx-2"
                     style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
                   >
                     {navItems.map(({ label, id }) => (
@@ -219,16 +236,14 @@ const Home = () => {
                       </li>
                     ))}
                   </ul>
-                  {showNavArrow && (
-                    <button
-                      type="button"
-                      onClick={scrollNavRight}
-                      className="ml-2 h-7 w-7 md:h-8 md:w-8 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center text-white/70 hover:text-white transition-all duration-300"
-                      aria-label="Show more links"
-                    >
-                      <ChevronRight className="w-4 h-4" />
-                    </button>
-                  )}
+                  <button
+                    type="button"
+                    onClick={scrollNavRight}
+                    className={`h-7 w-7 md:h-8 md:w-8 flex-shrink-0 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center text-white/70 hover:text-white transition-all duration-300 ${showRightNavArrow ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+                    aria-label="Show more links"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
                 </div>
               </motion.nav>
 
