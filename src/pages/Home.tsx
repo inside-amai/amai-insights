@@ -638,6 +638,7 @@ const Home = () => {
                     <div>3</div>
                     <div>4</div>
                     <div>5</div>
+                    <div>6</div>
                   </div>
                   {/* Code */}
                   <div className="space-y-0.5">
@@ -645,29 +646,48 @@ const Home = () => {
                       <span className="text-cyan-300/90">pip install</span>{" "}
                       <span className="text-white/90">amai-tari</span>
                     </div>
-                    <div className="text-white/20">·</div>
                     <div>
+                      <span className="text-purple-300/90">from</span>{" "}
+                      <span className="text-white/90">tari</span>{" "}
                       <span className="text-purple-300/90">import</span>{" "}
-                      <span className="text-white/90">amai_tari</span>{" "}
-                      <span className="text-purple-300/90">as</span>{" "}
-                      <span className="text-white/90">tari</span>
+                      <span className="text-white/90">TARIInstrument</span>
                     </div>
-                    <div className="text-white/20">·</div>
                     <div>
-                      <span className="text-white/90">tari</span>
-                      <span className="text-white/50">.</span>
-                      <span className="text-cyan-300/90">instrument</span>
+                      <span className="text-white/90">tari</span>{" "}
+                      <span className="text-white/50">=</span>{" "}
+                      <span className="text-cyan-300/90">TARIInstrument</span>
                       <span className="text-white/50">(</span>
-                      <span className="text-amber-300/90">your_agent</span>
+                      <span className="text-amber-300/90">"my-agent"</span>
+                      <span className="text-white/50">,</span>{" "}
+                      <span className="text-white/90">store</span>
+                      <span className="text-white/50">=</span>
+                      <span className="text-amber-300/90">"./.tari"</span>
                       <span className="text-white/50">)</span>
                     </div>
                     <div>
-                      <span className="text-white/90">score</span>{" "}
+                      <span className="text-white/90">provider</span>
+                      <span className="text-white/50">,</span>{" "}
+                      <span className="text-white/90">exporter</span>{" "}
                       <span className="text-white/50">=</span>{" "}
                       <span className="text-white/90">tari</span>
                       <span className="text-white/50">.</span>
-                      <span className="text-cyan-300/90">score</span>
+                      <span className="text-cyan-300/90">start_otel_capture</span>
                       <span className="text-white/50">()</span>
+                    </div>
+                    <div>
+                      <span className="text-white/40 italic"># ... run your agent ...</span>
+                    </div>
+                    <div>
+                      <span className="text-white/90">tari</span>
+                      <span className="text-white/50">.</span>
+                      <span className="text-cyan-300/90">score</span>
+                      <span className="text-white/50">(</span>
+                      <span className="text-white/90">tari</span>
+                      <span className="text-white/50">.</span>
+                      <span className="text-cyan-300/90">trajectory_from_exporter</span>
+                      <span className="text-white/50">(</span>
+                      <span className="text-white/90">exporter</span>
+                      <span className="text-white/50">))</span>
                     </div>
                   </div>
                 </div>
