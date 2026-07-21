@@ -717,6 +717,40 @@ const Home = () => {
             <p className="mt-5 text-xs md:text-sm text-black/70 font-light tracking-wide text-center">
               Then TARI dashboard opens your console: the full trace, the score, and every flagged move, all local.
             </p>
+
+            {/* What you get — benefits block */}
+            <motion.div
+              className="mt-12 md:mt-16 pt-8 border-t border-black/10"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <span className="text-[10px] tracking-[0.35em] font-light text-black/50 uppercase">What you get</span>
+                <span className="h-px flex-1 bg-black/10" />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6">
+                {[
+                  { lead: "See exactly what your agent did", body: "every tool, every move, in plain English. What it actually did, not what it reported." },
+                  { lead: "Catch it the moment it turns", body: "the read→encode→send chain, a scope drift, a call it shouldn't make, flagged live." },
+                  { lead: "One trust score", body: "300 to 850, earned from behavior." },
+                  { lead: "And your data never moves", body: "content-off: all of it, without a single byte leaving your machine." },
+                ].map((item, i) => (
+                  <motion.div
+                    key={item.lead}
+                    className="text-sm md:text-base font-light text-black/60 leading-relaxed"
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 0.7, delay: 0.1 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    <span className="font-normal text-black/90">{item.lead}</span> — {item.body}
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
