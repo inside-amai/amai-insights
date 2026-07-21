@@ -100,8 +100,9 @@ const Home = () => {
             animate={{ scale: [1, 1.12, 1] }}
             transition={{ duration: 18, ease: "easeInOut", repeat: Infinity }}
           />
-          {/* Soft teal glow rising from the bottom of the grid */}
+          {/* Soft teal glow rising from the bottom and top of the grid */}
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_100%,rgba(166,252,252,0.14),transparent_60%)]" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_0%,rgba(166,252,252,0.14),transparent_60%)]" />
           <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
             {/* AMAI Logo */}
             <motion.img
