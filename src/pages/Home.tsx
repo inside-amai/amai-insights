@@ -11,7 +11,7 @@ import { TariGauge } from "@/components/TariGauge";
 const navItems = [
   { label: "Score", id: "score" },
   { label: "Methodology", id: "methodology" },
-  { label: "Install TARI", id: "install-tari" },
+  { label: "Install", id: "install-tari" },
   { label: "Risk", id: "risk" },
   { label: "Institutions", id: "institutions" },
   { label: "Bureau", id: "bureau" },
