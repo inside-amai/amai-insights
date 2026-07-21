@@ -210,10 +210,20 @@ const Home = () => {
                 viewport={{ once: false, amount: 0.5 }}
                 transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               >
-                <div className="flex items-center overflow-hidden rounded-full border border-white/10 bg-black/50 backdrop-blur-xl px-2 py-2 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.9)] w-[calc(4*4rem+3*0.5rem+2rem+1rem)] md:w-[calc(5*6rem+4*0.5rem+2rem+1rem)]">
+                <div className="relative flex items-center overflow-hidden rounded-full border border-white/10 bg-black/50 backdrop-blur-xl px-2 py-2 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.9)] w-[calc(4*4rem+3*0.5rem+2rem+1rem)] md:w-[calc(5*6rem+4*0.5rem+2rem+1rem)]">
+                  {showLeftNavArrow && (
+                    <button
+                      type="button"
+                      onClick={scrollNavLeft}
+                      className="absolute left-2 z-10 h-7 w-7 md:h-8 md:w-8 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center text-white/70 hover:text-white transition-all duration-300"
+                      aria-label="Show previous links"
+                    >
+                      <ChevronLeft className="w-4 h-4" />
+                    </button>
+                  )}
                   <ul
                     ref={navListRef}
-                    className="flex items-center gap-2 overflow-x-auto scroll-smooth snap-x snap-mandatory w-[calc(4*4rem+3*0.5rem)] md:w-[calc(5*6rem+4*0.5rem)]"
+                    className="flex items-center gap-2 overflow-x-auto scroll-smooth snap-x snap-mandatory w-[calc(4*4rem+3*0.5rem)] md:w-[calc(5*6rem+4*0.5rem)] px-9 md:px-10"
                     style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
                   >
                     {navItems.map(({ label, id }) => (
@@ -228,11 +238,11 @@ const Home = () => {
                       </li>
                     ))}
                   </ul>
-                  {showNavArrow && (
+                  {showRightNavArrow && (
                     <button
                       type="button"
                       onClick={scrollNavRight}
-                      className="ml-2 h-7 w-7 md:h-8 md:w-8 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center text-white/70 hover:text-white transition-all duration-300"
+                      className="absolute right-2 z-10 h-7 w-7 md:h-8 md:w-8 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center text-white/70 hover:text-white transition-all duration-300"
                       aria-label="Show more links"
                     >
                       <ChevronRight className="w-4 h-4" />
