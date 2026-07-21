@@ -584,7 +584,7 @@ const Home = () => {
             <div className="mt-10">
               <a
                 href="/docs"
-                className="inline-flex items-center gap-2 text-sm font-normal text-black hover:text-white transition-colors duration-300 px-5 py-2.5 rounded-full border border-black/30 hover:bg-black hover:border-black"
+                className="inline-flex items-center gap-2 text-sm font-normal text-white bg-black hover:bg-black/80 transition-colors duration-300 px-5 py-2.5 rounded-full border border-black"
               >
                 Read the docs
                 <span aria-hidden>→</span>
