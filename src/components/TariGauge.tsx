@@ -201,14 +201,15 @@ export const TariGauge = ({ score = 812 }: { score?: number }) => {
           TARI™ Score
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, scale: 0.85 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          ref={numberRef}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: false, amount: 0.4 }}
-          transition={{ duration: 1, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.5, delay: 0.35 }}
           className="mt-2 text-6xl md:text-7xl font-light tabular-nums text-white leading-none tracking-tight"
           style={{ textShadow: "0 0 40px rgba(166,252,252,0.25)" }}
         >
-          {clamped}
+          {MIN}
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
