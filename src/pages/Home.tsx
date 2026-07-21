@@ -468,8 +468,8 @@ const Home = () => {
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="flex items-center gap-3 mb-8">
-              <span className="h-px w-10 bg-black/20" />
-              <span className="text-[11px] tracking-[0.35em] font-light text-black/50 uppercase">Run it</span>
+              <span className="h-px w-10 bg-black/30" />
+              <span className="text-[11px] tracking-[0.35em] font-light text-black/80 uppercase">Run it</span>
             </div>
 
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-black leading-[1.05]">
@@ -485,7 +485,7 @@ const Home = () => {
             <div className="mt-10">
               <a
                 href="/docs"
-                className="inline-flex items-center gap-2 text-sm font-light text-black/60 hover:text-black transition-colors duration-300 border-b border-black/20 hover:border-black/60 pb-1"
+                className="inline-flex items-center gap-2 text-sm font-normal text-black hover:text-white transition-colors duration-300 px-5 py-2.5 rounded-full border border-black/30 hover:bg-black hover:border-black"
               >
                 Read the docs
                 <span aria-hidden>→</span>
@@ -609,7 +609,7 @@ const Home = () => {
             </div>
 
             {/* Caption beneath the code card */}
-            <p className="mt-5 text-xs md:text-sm text-black/50 font-light tracking-wide text-center">
+            <p className="mt-5 text-xs md:text-sm text-black/70 font-light tracking-wide text-center">
               Then TARI dashboard opens your console: the full trace, the score, and every flagged move, all local.
             </p>
           </motion.div>
