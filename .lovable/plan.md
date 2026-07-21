@@ -1,45 +1,42 @@
-Implement the selected "Light Blueprint Inversion" direction for Section 5 (RUN IT) on the homepage. This section will deliberately break from the dark-grid-glass-card formula of Sections 2–4 with a high-contrast, light-drafted paper section.
+## The problem
 
-## What will change
+You're right, the current hero is under-designed for what follows. That tagline — **"Humans have FICO. Businesses have D&B. AI Agents have TARI™."** — is a three-beat punchline; it's a headline pretending to be a caption. Meanwhile every section below opens at `text-6xl/7xl`. Result: the page whispers, then shouts.
 
-- **Section 5** (lines 441–609 of `src/pages/Home.tsx`) will be rebuilt as a full-bleed light section: off-white background, faint cyan blueprint grid, black typography, and a hard-shadow black terminal card.
-- The surrounding sections (Hero, Section 2–4, HomeThesis, Footer) are **not** changing.
-- The actual SDK copy and commands stay the same:
-  - Eyebrow: `RUN IT`
-  - Headline: `Don't take our word for it. Run it.`
-  - Body: `pip install amai-tari` …
-  - Code card: `pip install amai-tari` + 3-line instrument snippet
-  - CTA: `Read the docs →`
-  - Closing beat: `Free to run. Private by construction.`
+That line deserves to *land*.
 
-## Design details
+## What to change
 
-- **Background:** `#fafafa` or `#f5f5f5` with two layers of faint cyan blueprint grid lines (`#0055ff` at very low opacity), mirroring the dark-site blueprint language but inverted.
-- **Layout:** Two-column split on desktop.
-  - Left: eyebrow, headline, body, docs link, closing beat.
-  - Right: a solid black terminal/code card with a heavy offset shadow (or layered drop shadow) and no glass/blur.
-- **Typography:** Roboto, keep body light/unbolded, headline in heavier weight for impact.
-- **Colors:** Black text on white; accent the code keywords in the existing cyan/purple/amber syntax palette used elsewhere; terminal traffic dots remain red/amber/emerald.
-- **No floating glassmorphism.** The card sits on the page as a solid object — a deliberate break from the prior sections.
-- **Transition:** Add a subtle gradient seam between the dark Section 4 and the light Section 5 so the inversion feels intentional rather than jarring.
-- **Motion:** Keep `framer-motion` scroll reveals consistent with the rest of the page (fade-up on enter). No heavy animation on the card itself beyond the copy-to-clipboard button.
-- **Copy button:** Keep the existing copy button and `copied` state, but style it to fit the light section (e.g., dark pill with `Copy`/`Check` icon).
-- **Responsive:** Stack columns on mobile; reduce headline size; ensure the terminal card remains readable.
+Only the hero copy block on `src/pages/Home.tsx` (lines ~62-84). Logo, animated grid, scroll cue, and every section below stay exactly as they are.
 
-## Files to edit
+**Treat the tagline as the hero H1** — same visual register as the section H2s below.
 
-- `src/pages/Home.tsx` — rebuild Section 5.
+- Render the three beats as **three stacked lines**, not one wrapped paragraph:
+  - `Humans have FICO.`
+  - `Businesses have D&B.`
+  - `AI Agents have TARI™.`
+- Scale: `text-4xl md:text-6xl lg:text-7xl`, `font-light`, `tracking-tight`, `leading-[1.05]` — matching the section H2s.
+- Hierarchy inside the stanza:
+  - First two lines in `text-white/55` (setup — quieter).
+  - Third line in full `text-white` with `TARI™` given a subtle accent (either italic, or the same cyan `text-cyan-200` used in the Score band, TBD when building).
+- Stagger the three lines in with the existing motion timing (0.4s / 0.55s / 0.7s delays) so the punchline lands last.
+- Center-aligned, capped at `max-w-4xl` so the lines break cleanly.
+- Bump `max-w-3xl` on the outer container up to `max-w-5xl` to fit.
+
+## Logo + scroll cue
+
+- Logo: unchanged (`h-12 md:h-20`). It reads as a mark above the headline, which is the right role for it.
+- Scroll cue: unchanged, but push its top margin up a bit (`mt-16 md:mt-24`) so it doesn't crowd the now-larger headline.
+
+## Copy source
+
+The `t('home.body')` key currently holds the full tagline as one string. I'll split it into three lines at render time (or split the translation into three keys — will confirm the cleanest path when building so EN/JA/AR stay in sync).
 
 ## Out of scope
 
-- No changes to other sections, header, footer, or navigation.
-- No new dependencies or routes.
-- No auth or backend changes.
+- No changes to sections 2+.
+- No new CTAs, buttons, or hero visuals.
+- No changes to the animated grid background.
 
-## Acceptance check
+## Result
 
-- Section 5 renders as a light section with a blueprint grid.
-- The SDK command and 3-line snippet are visible and copyable.
-- The closing beat and docs link remain.
-- Mobile layout stacks cleanly.
-- The section still respects the dark theme of the rest of the page, acting as a single intentional contrast moment.
+The hero and the sections below finally speak at the same volume. The tagline reads like the thesis of the whole page instead of a subtitle under the logo.
