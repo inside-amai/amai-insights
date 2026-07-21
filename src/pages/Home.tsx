@@ -889,12 +889,12 @@ const Home = () => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="relative aspect-[16/10] rounded-2xl border border-white/10 bg-black/40 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.8)] overflow-hidden">
+            <div className="relative rounded-2xl border border-white/10 bg-black/40 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.8)] overflow-hidden">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.04),transparent_60%)]" />
               <img
                 src={agentFleetDashboard.url}
                 alt="AMAI Command Center dashboard showing agent fleet trust scores and conduct distribution"
-                className="relative z-10 w-full h-full object-cover"
+                className="relative z-10 w-full h-auto"
                 loading="lazy"
               />
             </div>
