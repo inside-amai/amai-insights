@@ -1373,6 +1373,9 @@ const translations: Record<Language, Record<string, string>> = {
     'home.thesis': 'THESIS',
     'home.headline': '',
     'home.body': 'Humans have FICO. Businesses have D&B.\n\nAI Agents have TARI™.',
+    'home.body.line1': 'Humans have FICO.',
+    'home.body.line2': 'Businesses have D&B.',
+    'home.body.line3': 'AI Agents have TARI™.',
     'home.cta.architecture': 'View Architecture',
     'home.cta.thesis': 'Explore The Thesis',
 
