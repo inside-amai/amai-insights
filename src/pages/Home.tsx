@@ -1,4 +1,4 @@
-import { useState, useRef, useLayoutEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import amaiLogo from "@/assets/amai-logo-tm.png";
 import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
@@ -7,6 +7,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { Footer } from "@/components/Footer";
 import { HomeThesis } from "@/components/HomeThesis";
 
+const navItems = ["Score", "Risk", "Methodology", "Bureau", "Coverage", "Docs", "Research"];
 
 const Home = () => {
   const { t, language } = useLanguage();
@@ -14,24 +15,7 @@ const Home = () => {
   const isMobile = useIsMobile();
 
   const [scrolled, setScrolled] = useState(false);
-  const [navReady, setNavReady] = useState(false);
-  const [navWidth, setNavWidth] = useState(0);
-  const [lastWidth, setLastWidth] = useState(0);
-  const trackRef = useRef<HTMLUListElement>(null);
-  const lastItemRef = useRef<HTMLButtonElement>(null);
 
-  useLayoutEffect(() => {
-    const measure = () => {
-      if (trackRef.current && lastItemRef.current) {
-        setNavWidth(trackRef.current.scrollWidth);
-        setLastWidth(lastItemRef.current.offsetWidth);
-        setNavReady(true);
-      }
-    };
-    measure();
-    window.addEventListener('resize', measure);
-    return () => window.removeEventListener('resize', measure);
-  }, []);
 
   return (
     <div className="bg-black" dir={isRtl ? 'rtl' : 'ltr'}>
