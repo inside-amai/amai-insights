@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
+import { motion, useInView, animate } from "framer-motion";
 import { Copy, Check } from "lucide-react";
 import amaiLogo from "@/assets/amai-logo-tm.png";
 import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
