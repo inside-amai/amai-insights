@@ -16,6 +16,7 @@ const Home = () => {
   const isMobile = useIsMobile();
 
   const [scrolled, setScrolled] = useState(false);
+  const [copied, setCopied] = useState(false);
 
 
   return (
