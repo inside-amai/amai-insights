@@ -1024,8 +1024,8 @@ const Home = () => {
 
       {/* Outro — cinematic exhale before the footer */}
       <section className="relative bg-perspective-grid min-h-[80vh] md:min-h-[85vh] flex flex-col items-center justify-center py-32 md:py-48 px-4 md:px-8 overflow-hidden">
-        {/* Soft teal horizon glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_100%,hsl(var(--cyan-accent)/0.12),transparent_60%)] pointer-events-none" />
+        {/* Soft teal glow from the top */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,hsl(var(--cyan-accent)/0.12),transparent_60%)] pointer-events-none" />
         {/* Center vignette for depth */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)] pointer-events-none" />
 
