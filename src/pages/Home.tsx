@@ -234,7 +234,7 @@ const Home = () => {
             </h2>
 
             <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-2xl">
-              Every agent earns one TARI score, 300 to 850, the scale the world already trusts. It doesn't predict the future, and it never calls an agent safe. It ranks behavior: the higher the number, the less an agent has done to earn suspicion. And when the signal is too thin to judge, TARI says <span className="text-white font-normal tracking-wide">UNRATED</span>, never a guess.
+              Every agent earns one TARI score, 300 to 850, the scale the world already trusts. It doesn't predict the future, and it never calls an agent safe. It ranks behavior: the higher the number, the less an agent has done to earn suspicion.
             </p>
 
             <div className="mt-16 md:mt-20 pt-10 border-t border-white/10 max-w-2xl">
