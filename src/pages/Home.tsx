@@ -562,7 +562,7 @@ const Home = () => {
             </h2>
 
             <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-black/70 leading-relaxed max-w-xl">
-              <span className="text-black font-normal">pip install amai-tari</span>, three lines, and point it at your own agent. Watch what it actually does — every tool, the full trace, the score — on your machine, in about a minute.
+              <span className="text-black font-normal">pip install amai-tari</span> and point it at your own agent. Watch what it actually does — every tool, the full trace, the score — on your machine, in about a minute.
               <br /><br />
               No account. Nothing leaves your walls.
             </p>
