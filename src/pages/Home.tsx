@@ -124,7 +124,7 @@ const Home = () => {
               viewport={{ once: false, amount: 0.5 }}
               transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
             >
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05]">
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-white leading-[1.05]">
                 A credit score for AI agents.
               </h2>
               <p className="mt-8 md:mt-10 text-lg md:text-2xl lg:text-3xl font-light text-white/80 leading-snug max-w-4xl">
