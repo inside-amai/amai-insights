@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import amaiLogo from "@/assets/amai-logo-tm.png";
 import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -64,17 +65,18 @@ const Home = () => {
             >
               <Link
                 to="/thesis"
-                className="text-sm text-white/70 hover:text-white bg-black/50 border border-white/20 hover:border-white/40 px-6 py-3 rounded transition-all duration-300 uppercase tracking-[0.15em] text-center backdrop-blur-sm"
+                className="group inline-flex items-center gap-3 text-sm font-medium text-black bg-white hover:bg-white/90 px-7 py-3.5 rounded-full transition-all duration-300 text-center"
               >
                 {t('home.cta.thesis')}
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
               <a
                 href="https://terminal.amai.net"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-white/70 hover:text-white bg-black/50 border border-white/20 hover:border-white/40 px-6 py-3 rounded transition-all duration-300 uppercase tracking-[0.15em] text-center backdrop-blur-sm"
+                className="inline-flex items-center justify-center text-sm font-medium text-white/80 hover:text-white bg-white/[0.06] hover:bg-white/[0.10] border border-white/20 hover:border-white/35 px-7 py-3.5 rounded-full transition-all duration-300 text-center backdrop-blur-sm"
               >
-                ACCESS THE BUREAU
+                Access the Bureau
               </a>
             </motion.div>
           </div>
