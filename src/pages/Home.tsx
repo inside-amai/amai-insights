@@ -16,7 +16,7 @@ const navItems = [
   { label: "Install", id: "install-tari" },
   { label: "Risk", id: "risk" },
   { label: "Institutions", id: "institutions" },
-  { label: "Bureau", id: "bureau" },
+  { label: "Bureau", href: "https://bureau.amai.net", external: true },
   { label: "Docs", href: "/docs" },
 ];
 
