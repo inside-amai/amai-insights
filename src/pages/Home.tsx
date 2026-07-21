@@ -842,6 +842,29 @@ const Home = () => {
         </div>
       </section>
 
+      {/* VISION — the exhale before the footer */}
+      <section className="relative bg-perspective-grid py-32 md:py-48 px-4 md:px-8 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.03),transparent_60%)]" />
+        <motion.div
+          className="relative z-10 max-w-4xl mx-auto text-center"
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <span className="text-[11px] tracking-[0.35em] uppercase text-white/40 font-light">
+            The Thesis
+          </span>
+          <h2 className="mt-8 md:mt-10 text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05]">
+            Trust is the infrastructure
+            <br />
+            the agent economy is missing.
+          </h2>
+          <p className="mt-10 md:mt-14 text-lg md:text-xl font-light text-white/60 leading-relaxed max-w-3xl mx-auto">
+            Every era of autonomy needed a new layer of trust before capital would flow into it. Credit bureaus unlocked lending. Ratings unlocked markets. As trillions of decisions move to autonomous agents, someone independent has to certify which of them can be trusted. AMAI Labs is building that layer — neutral, verifiable, and built to outlast any single model.
+          </p>
+        </motion.div>
+      </section>
 
       {/* Institutional Footer */}
       <Footer />
