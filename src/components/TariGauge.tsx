@@ -62,7 +62,7 @@ export const TariGauge = ({ score = 812 }: { score?: number }) => {
 
   // Tier label
   const tier =
-    clamped >= 800 ? "Exceptional" :
+    clamped >= 800 ? "EXCELLENT" :
     clamped >= 740 ? "Very Good" :
     clamped >= 670 ? "Good" :
     clamped >= 580 ? "Fair" : "Poor";
