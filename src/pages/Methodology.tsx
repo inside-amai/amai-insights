@@ -109,8 +109,8 @@ const Methodology = () => {
                     commit.
                   </p>
                   <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[10px] tracking-[0.28em] uppercase text-white/40 font-mono">
-                    <span>Canonical as of 2026:07:21</span>
-                    <span>Post #130 promote</span>
+                    <span>Canonical as of 2026-07-21</span>
+                    <span>post-#130 promote</span>
                     <span>Source: claims:registry</span>
                   </div>
                 </motion.div>
@@ -138,7 +138,7 @@ const Methodology = () => {
                     <H3>Conduct</H3>
                     <Body>
                       Scores instrumented agents: how an agent behaves,
-                      content:off.
+                      content-off.
                     </Body>
                   </div>
                   <div className="bg-black p-8 md:p-10">
@@ -147,7 +147,7 @@ const Methodology = () => {
                     </div>
                     <H3>Credit</H3>
                     <Body>
-                      Scores on:chain wallets: repayment behavior from public
+                      Scores on-chain wallets: repayment behavior from public
                       lending data.
                     </Body>
                   </div>
@@ -174,12 +174,12 @@ const Methodology = () => {
                   viewport={{ once: true }}
                 >
                   <SectionNum>02 // The conduct engine (agents)</SectionNum>
-                  <H2>What it reads, content:off.</H2>
+                  <H2>What it reads, content-off.</H2>
                   <p className="mt-6 text-sm md:text-base font-light text-white/60 leading-relaxed max-w-3xl">
                     Only the agent's tool names, order, and timing. Never
                     prompts, tool arguments, or model outputs, and nothing
                     leaves the machine. That single constraint is what lets a
-                    developer self:install with zero privacy risk, and a
+                    developer self-install with zero privacy risk, and a
                     sovereign institution deploy without exporting a sensitive
                     byte.
                   </p>
@@ -189,7 +189,7 @@ const Methodology = () => {
                 <div className="mt-14">
                   <SectionNum>Five scored dimensions</SectionNum>
                   <p className="text-sm font-light text-white/55 leading-relaxed max-w-3xl mb-8">
-                    Each bound to OWASP ASI01 to 10 and MITRE ATLAS, so an
+                    Each bound to OWASP ASI01–10 and MITRE ATLAS, so an
                     auditor traces every point.
                   </p>
                   <div className="grid md:grid-cols-2 gap-px bg-white/10 border border-white/10">
@@ -197,7 +197,7 @@ const Methodology = () => {
                       {
                         n: 'D1',
                         t: 'Exfiltration Risk',
-                        d: 'Data:handling; the read to encode to external:POST shape. Highest:weighted.',
+                        d: 'Data:handling; the read → encode → external-POST shape. Highest:weighted.',
                         hi: true,
                       },
                       {
@@ -248,10 +248,10 @@ const Methodology = () => {
                     ))}
                   </div>
                   <p className="mt-6 text-sm font-light text-white/55 leading-relaxed max-w-3xl">
-                    Weights are documented expert priors (rank:order centroid),
-                    carried with a wide confidence band and re:fit as real
+                    Weights are documented expert priors (rank-order centroid),
+                    carried with a wide confidence band and re-fit as real
                     labels accrue. Never equal weights, and never presented as
-                    fitted. Exfiltration is a first:class dimension by design:
+                    fitted. Exfiltration is a first-class dimension by design:
                     the exfil sequence is what most tools never score.
                   </p>
                 </div>
@@ -260,32 +260,32 @@ const Methodology = () => {
                 <div className="mt-16">
                   <SectionNum>Validation</SectionNum>
                   <p className="text-sm font-light text-white/55 leading-relaxed max-w-3xl mb-8">
-                    AgentDojo important_instructions, injection:compromise
+                    AgentDojo important_instructions, injection-compromise
                     discrimination.
                   </p>
                   <div className="grid md:grid-cols-3 gap-x-10 gap-y-8">
                     <Stat
                       value="AUC 0.835"
-                      label="gpt:4o, single model"
-                      note="n = 726. The single:model headline."
+                      label="gpt-4o, single model"
+                      note="n = 726. The single-model headline."
                     />
                     <Stat
                       value="AUC 0.797"
                       label="Two:model pooled"
-                      note="gpt:4o + gpt:4o:mini, n = 1,452."
+                      note="gpt-4o + gpt-4o-mini, n = 1,452."
                     />
                     <Stat
                       value="AUC 0.769"
-                      label="gpt:4o:mini"
+                      label="gpt-4o-mini"
                       note="Harness soundness confirmed. Attack:success 0.55 contains AgentDojo's published 0.531."
                     />
                   </div>
                   <div className="mt-10">
                     <Callout>
                       The defensible claim, stated plainly: the score
-                      discriminates injection:compromised behavior on
+                      discriminates injection-compromised behavior on
                       benchmarks. It is not a validated prediction of
-                      real:world incidents. We say "discriminates," not
+                      real-world incidents. We say "discriminates," not
                       "predicts."
                     </Callout>
                   </div>
@@ -299,7 +299,7 @@ const Methodology = () => {
                       <H3>Competence entanglement</H3>
                       <Body>
                         A low score correlates slightly with task failure, not
-                        only compromise (competence:control AUC 0.585 gpt:4o
+                        only compromise (competence:control AUC 0.585 gpt-4o
                         and 0.680 mini). The score is most trustworthy on
                         capable agents.
                       </Body>
@@ -339,9 +339,9 @@ const Methodology = () => {
 
                 {/* Bands */}
                 <div className="mt-16">
-                  <SectionNum>The bands (per:run, at moderate confidence)</SectionNum>
+                  <SectionNum>The bands (per-run, at moderate confidence)</SectionNum>
                   <p className="text-sm font-light text-white/55 leading-relaxed max-w-3xl mb-6">
-                    Benchmark:conditional fractions. Not real:world
+                    Benchmark:conditional fractions. Not real-world
                     probabilities.
                   </p>
                   <div className="grid md:grid-cols-4 gap-px bg-white/10 border border-white/10">
@@ -430,34 +430,34 @@ const Methodology = () => {
                   viewport={{ once: true }}
                 >
                   <SectionNum>03 // The credit engine (wallets)</SectionNum>
-                  <H2>An on:chain WOE logistic scorecard over real DeFi lending behavior.</H2>
+                  <H2>An on-chain WOE logistic scorecard over real DeFi lending behavior.</H2>
                   <p className="mt-6 text-sm md:text-base font-light text-white/60 leading-relaxed max-w-3xl">
-                    Aave v2 and v3, Morpho, on Ethereum and Base. Target:
+                    Aave v2/v3, Morpho, on Ethereum + Base. Target:
                     liquidation:driven default (<Mono>bad_liq</Mono>). Rigor:
-                    per:wallet relative 12 and 12 month windows. Features
+                    per-wallet relative 12/12-month windows. Features
                     drawn only from the observation window, the label only
                     from a later performance window, so there is no leakage.
-                    It rank:orders default risk on 300 to 850. It is not a
+                    It rank-orders default risk on 300 to 850. It is not a
                     calibrated probability of default.
                   </p>
                 </motion.div>
 
                 {/* OOT Validation */}
                 <div className="mt-14">
-                  <SectionNum>Validation (out:of:time)</SectionNum>
+                  <SectionNum>Validation (out-of-time)</SectionNum>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="border border-white/10 bg-black p-6 md:p-8">
                       <div className="text-[10px] font-mono tracking-[0.28em] uppercase text-teal-300/80 mb-3">
-                        Headline (like:for:like)
+                        Headline (like-for-like)
                       </div>
                       <div className="text-4xl font-light text-white tracking-tight">
                         Gini 0.630
                       </div>
                       <div className="text-sm font-light text-white/65 mt-3">
-                        Ethereum:only OOT, n = 21,518.
+                        Ethereum-only OOT, n = 21,518.
                       </div>
                       <div className="text-xs font-light text-white/45 mt-3 leading-relaxed">
-                        The prior 2026:07:13 snapshot read 0.638. This moved
+                        The prior 2026-07-13 snapshot read 0.638. This moved
                         within the ±0.03 tolerance on a normal weekly data
                         refresh. Discrimination held.
                       </div>
@@ -475,7 +475,7 @@ const Methodology = () => {
                       <div className="text-xs font-light text-amber-100/70 mt-3 leading-relaxed">
                         Composition:flattered (a Simpson effect from Base
                         being ~half the sample). We lead with the
-                        Ethereum:only 0.630 or the per:venue figures, and
+                        Ethereum-only 0.630 or the per-venue figures, and
                         never quote the pooled Gini alone. These pooled
                         companions belong to 0.528. They are never welded to
                         the 0.630 cut.
@@ -486,7 +486,7 @@ const Methodology = () => {
 
                 {/* Per-venue */}
                 <div className="mt-14">
-                  <SectionNum>Per:venue OOT Gini (all rank:order)</SectionNum>
+                  <SectionNum>Per-venue OOT Gini (all rank-order)</SectionNum>
                   <div className="border border-white/10">
                     {[
                       { v: 'Aave v2 Ethereum', g: '0.68' },
@@ -539,7 +539,7 @@ const Methodology = () => {
 
                 {/* Per-chain calibration */}
                 <div className="mt-14">
-                  <SectionNum>Per:chain calibration + the economic:stake floor</SectionNum>
+                  <SectionNum>Per-chain calibration + the economic:stake floor</SectionNum>
                   <p className="text-sm font-light text-white/60 leading-relaxed max-w-3xl mb-6">
                     Tier cutpoints differ by chain, so a served tier never
                     understates its Ethereum:validated risk on the chain the
@@ -576,7 +576,7 @@ const Methodology = () => {
                       below the chain's economic:stake floor. Below it, no
                       real liquidation test occurred, so an absent bad
                       outcome is not evidence of safety. A served Base file
-                      at or below $10 is a thin:file group estimate,
+                      at or below $10 is a thin-file group estimate,
                       disclosed as such, not an individual track record.
                     </Callout>
                   </div>
@@ -584,7 +584,7 @@ const Methodology = () => {
 
                 {/* Served tiers */}
                 <div className="mt-14">
-                  <SectionNum>Served tiers (public Bureau/hub, post per:chain gate)</SectionNum>
+                  <SectionNum>Served tiers (public Bureau/hub, post per-chain gate)</SectionNum>
                   <div className="border border-white/10">
                     {[
                       {
@@ -631,7 +631,7 @@ const Methodology = () => {
                     ))}
                   </div>
                   <p className="mt-5 text-sm font-light text-white/55 leading-relaxed">
-                    32,259 files carry the thin:file actuarial disclosure.
+                    32,259 files carry the thin-file actuarial disclosure.
                   </p>
                 </div>
 
@@ -640,10 +640,10 @@ const Methodology = () => {
                   <SectionNum>Honest limitation</SectionNum>
                   <div className="max-w-4xl">
                     <Callout>
-                      The model is not yet calibrated in:band (calibration
-                      ratio 0.27 to 0.90 vs a 0.80 to 1.20 target). It
-                      over:predicts default (conservative), from real
-                      base:rate drift. Rank:ordering is unaffected. We
+                      The model is not yet calibrated in-band (calibration
+                      ratio 0.27–0.90 vs a 0.80–1.20 target). It
+                      over-predicts default (conservative), from real
+                      base-rate drift. Rank:ordering is unaffected. We
                       disclose it rather than smooth it.
                     </Callout>
                   </div>
@@ -667,10 +667,10 @@ const Methodology = () => {
                 <div className="grid md:grid-cols-3 gap-px bg-white/10 border border-white/10 mt-14">
                   <div className="bg-black p-8">
                     <div className="text-[10px] font-mono tracking-[0.28em] uppercase text-white/40 mb-4">
-                      Reproducible, not black:box
+                      Reproducible, not black-box
                     </div>
                     <Body>
-                      Same inputs plus ledger state produce the same score,
+                      Same inputs + ledger state produce the same score,
                       recomputable and auditable.
                     </Body>
                   </div>
@@ -693,7 +693,7 @@ const Methodology = () => {
                       Our own automated checks recompute every published
                       claim from the raw artifacts on each commit: the band
                       statements (<Mono>band_claims_check</Mono>), the
-                      per:chain tier transport (
+                      per-chain tier transport (
                       <Mono>check_tier_transport</Mono>), and a
                       claims:registry drift check that fails the build if
                       any number here drifts from source. The page and the
