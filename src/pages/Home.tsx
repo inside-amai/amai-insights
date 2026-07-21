@@ -44,7 +44,6 @@ const Home = () => {
   const isMobile = useIsMobile();
 
   const [copied, setCopied] = useState(false);
-  const [copied, setCopied] = useState(false);
 
 
   return (
