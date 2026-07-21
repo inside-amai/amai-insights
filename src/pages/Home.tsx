@@ -599,6 +599,11 @@ const Home = () => {
                 </span>
               </div>
             </div>
+
+            {/* Caption beneath the code card */}
+            <p className="mt-4 text-[11px] md:text-xs text-white/40 font-light tracking-wide text-center">
+              Then TARI dashboard opens your console: the full trace, the score, and every flagged move, all local.
+            </p>
           </motion.div>
         </div>
       </section>
