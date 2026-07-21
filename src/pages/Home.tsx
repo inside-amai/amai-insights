@@ -4,7 +4,7 @@ import { Copy, Check } from "lucide-react";
 import amaiLogo from "@/assets/amai-logo-tm.png";
 import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useIsMobile } from "@/hooks/use-mobile";
+
 import { Footer } from "@/components/Footer";
 import { TariGauge } from "@/components/TariGauge";
 
@@ -41,7 +41,7 @@ const CountUp = ({ to, prefix = "", suffix = "" }: { to: number; prefix?: string
 const Home = () => {
   const { t, language } = useLanguage();
   const isRtl = language === 'ar';
-  const isMobile = useIsMobile();
+  
 
   const [copied, setCopied] = useState(false);
 
