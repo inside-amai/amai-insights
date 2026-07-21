@@ -235,7 +235,7 @@ const Home = () => {
                 { range: "650–799", color: "bg-emerald-300", text: "text-emerald-200", label: "Clean and unremarkable. Acting within bounds." },
                 { range: "550–649", color: "bg-amber-300", text: "text-amber-200", label: "Worth a second look." },
                 { range: "300–549", color: "bg-red-400", text: "text-red-300", label: "Anomalous. Behavior that doesn't add up." },
-                { range: "UNRATED", color: "bg-white/40", text: "text-white/60", label: "Not enough evidence. We won't pretend otherwise." },
+                { range: "UNRATED", color: "bg-white/40", text: "text-white/60", label: "Not enough evidence." },
               ].map((band, i) => (
                 <motion.div
                   key={band.range}
