@@ -730,6 +730,116 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Section 7 — FOR INSTITUTIONS */}
+      <section className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black pointer-events-none" />
+        {/* Teal ambient glow — control/safe counterpart to Risk's red */}
+        <div className="pointer-events-none absolute -right-40 top-1/4 w-[520px] h-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.06),transparent_70%)]" />
+
+        <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
+          {/* LEFT — copy */}
+          <motion.div
+            className="lg:col-span-5 text-left"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="flex items-center gap-3 mb-8">
+              <span className="h-px w-10 bg-white/30" />
+              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">For institutions</span>
+            </div>
+
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05]">
+              Now you can see it.
+              <br />
+              <span className="text-[hsl(var(--cyan-accent)/0.8)]">And stop it.</span>
+            </h2>
+
+            <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-xl">
+              For organizations running fleets of agents, the AMAI Command Center puts every agent's trust score, its full behavioral trace, and the power to act in one place. When an agent turns, hold the action before it executes — with a human in the loop. All of it content-off: you get the whole picture without a single sensitive byte leaving your walls.
+            </p>
+
+            {/* Three capability beats */}
+            <ol className="mt-16 md:mt-20 space-y-8 md:space-y-10">
+              {[
+                { title: "Watch the fleet", body: "every agent, every run, one console." },
+                { title: "Hold the turn", body: "require human approval before a flagged action proceeds." },
+                { title: "Prove it", body: "a portable trust score any counterparty can verify before trusting an agent to act." },
+              ].map((beat, i) => (
+                <motion.li
+                  key={beat.title}
+                  className="relative pl-6 border-l border-[hsl(var(--cyan-accent)/0.3)]"
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{ duration: 0.7, delay: 0.1 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <span className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-[hsl(var(--cyan-accent)/0.4)]" />
+                  <div className="text-lg md:text-xl font-light tracking-tight text-[hsl(var(--cyan-accent)/0.9)]">
+                    {beat.title}
+                  </div>
+                  <div className="mt-1 text-sm md:text-base font-light text-white/60 leading-relaxed">
+                    {beat.body}
+                  </div>
+                </motion.li>
+              ))}
+            </ol>
+
+            {/* Sovereignty line */}
+            <motion.div
+              className="mt-16 md:mt-20 pt-10 border-t border-white/10 max-w-xl"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-white leading-[1.15]">
+                Your data
+                <br />
+                <span className="text-[hsl(var(--cyan-accent)/0.8)]">never leaves your walls.</span>
+              </p>
+            </motion.div>
+
+            {/* CTA — interest form, not signup */}
+            <motion.div
+              className="mt-10"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <a
+                href="mailto:team@amai.net?subject=Request%20Access%20%2F%20Enterprise"
+                className="inline-flex items-center gap-2 text-sm font-normal text-black hover:text-white transition-colors duration-300 px-5 py-2.5 rounded-full bg-[hsl(var(--cyan-accent))] hover:bg-[hsl(var(--cyan-accent)/0.85)] border-0"
+              >
+                Request access
+                <span aria-hidden>→</span>
+              </a>
+              <p className="mt-3 text-[11px] text-white/40 font-light tracking-wide">
+                Interest form, not a signup. Enforcement is early-access and gated on our own fleet today.
+              </p>
+            </motion.div>
+          </motion.div>
+
+          {/* RIGHT — placeholder for real Command Center screenshot */}
+          <motion.div
+            className="lg:col-span-7 lg:pt-20"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="relative aspect-[16/10] rounded-2xl border border-dashed border-white/15 bg-white/[0.02] backdrop-blur-sm flex flex-col items-center justify-center gap-4 overflow-hidden">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.04),transparent_60%)]" />
+              <span className="text-[10px] tracking-[0.3em] uppercase text-white/30 font-light">Command Center</span>
+              <span className="text-sm font-light text-white/40">Screenshot placeholder — real UI to be added</span>
+              <div className="absolute inset-x-8 bottom-8 h-px bg-white/10" />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Placeholder actions section */}
       <section className="relative bg-perspective-grid py-16 px-4 md:px-8">
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row gap-3 justify-center relative z-10">
