@@ -6,6 +6,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Footer } from "@/components/Footer";
 import { HomeThesis } from "@/components/HomeThesis";
+import { TariGauge } from "@/components/TariGauge";
 
 const navItems = ["Score", "Risk", "Methodology", "Bureau", "Coverage", "Docs", "Research"];
 
@@ -124,6 +125,9 @@ const Home = () => {
               viewport={{ once: false, amount: 0.5 }}
               transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
             >
+              <div className="mb-10 md:mb-14 w-full">
+                <TariGauge score={812} />
+              </div>
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-white leading-[1.05]">
                 A credit score for AI agents.
               </h2>
