@@ -598,7 +598,7 @@ const Home = () => {
               {/* Ambient glow */}
               <div className="absolute -inset-3 -z-10 rounded-[32px] bg-gradient-to-br from-white/10 via-white/5 to-transparent blur-2xl opacity-60" />
 
-              <div className="relative bg-[hsla(var(--gray-900),0.95)] backdrop-blur-xl rounded-3xl overflow-hidden border border-white/10 shadow-2xl after:absolute after:inset-x-0 after:top-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-white/20 after:to-transparent">
+              <div className="relative bg-[hsl(var(--gray-900))] rounded-3xl overflow-hidden border border-white/10 shadow-2xl after:absolute after:inset-x-0 after:top-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-white/20 after:to-transparent">
                 {/* Header bar */}
                 <div className="flex items-center justify-between px-5 py-3.5 border-b border-white/[0.08]">
                   <div className="flex items-center gap-2">
@@ -606,7 +606,7 @@ const Home = () => {
                     <span className="w-2.5 h-2.5 rounded-full bg-amber-300/80" />
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/80" />
                   </div>
-                  <span className="text-[10px] tracking-[0.3em] uppercase text-white/40 font-light">
+                  <span className="text-[10px] tracking-[0.3em] uppercase text-white/50 font-light">
                     sdk
                   </span>
                   <button
@@ -640,7 +640,7 @@ const Home = () => {
                 <div className="px-6 py-8 md:px-8 md:py-10 font-mono text-sm md:text-[15px] leading-relaxed">
                   <div className="flex gap-4">
                     {/* Line numbers */}
-                    <div className="select-none text-right text-white/15 font-light tabular-nums">
+                    <div className="select-none text-right text-white/20 font-light tabular-nums">
                       <div>1</div>
                       <div>2</div>
                       <div>3</div>
@@ -651,25 +651,25 @@ const Home = () => {
                     {/* Code */}
                     <div className="space-y-0.5">
                       <div>
-                        <span className="text-[hsl(var(--cyan-accent))]">pip install</span>{" "}
+                        <span className="text-sky-300">pip install</span>{" "}
                         <span className="text-white/90">amai-tari</span>
                       </div>
                       <div>
-                        <span className="text-[hsl(var(--purple-accent))]">from</span>{" "}
+                        <span className="text-purple-400">from</span>{" "}
                         <span className="text-white/90">tari</span>{" "}
-                        <span className="text-[hsl(var(--purple-accent))]">import</span>{" "}
+                        <span className="text-purple-400">import</span>{" "}
                         <span className="text-white/90">TARIInstrument</span>
                       </div>
                       <div>
                         <span className="text-white/90">tari</span>{" "}
                         <span className="text-white/50">=</span>{" "}
-                        <span className="text-amber-300">TARIInstrument</span>
+                        <span className="text-amber-400">TARIInstrument</span>
                         <span className="text-white/50">(</span>
-                        <span className="text-emerald-300">"my-agent"</span>
+                        <span className="text-lime-400">"my-agent"</span>
                         <span className="text-white/50">,</span>{" "}
                         <span className="text-white/90">store</span>
                         <span className="text-white/50">=</span>
-                        <span className="text-emerald-300">"./.tari"</span>
+                        <span className="text-lime-400">"./.tari"</span>
                         <span className="text-white/50">)</span>
                       </div>
                       <div>
@@ -679,20 +679,20 @@ const Home = () => {
                         <span className="text-white/50">=</span>{" "}
                         <span className="text-white/90">tari</span>
                         <span className="text-white/50">.</span>
-                        <span className="text-[hsl(var(--cyan-accent))]">start_otel_capture</span>
+                        <span className="text-sky-400">start_otel_capture</span>
                         <span className="text-white/50">()</span>
                       </div>
                       <div>
-                        <span className="text-white/30 italic"># ... run your agent ...</span>
+                        <span className="text-white/40 italic"># ... run your agent ...</span>
                       </div>
                       <div>
                         <span className="text-white/90">tari</span>
                         <span className="text-white/50">.</span>
-                        <span className="text-[hsl(var(--cyan-accent))]">score</span>
+                        <span className="text-sky-400">score</span>
                         <span className="text-white/50">(</span>
                         <span className="text-white/90">tari</span>
                         <span className="text-white/50">.</span>
-                        <span className="text-[hsl(var(--cyan-accent))]">trajectory_from_exporter</span>
+                        <span className="text-sky-400">trajectory_from_exporter</span>
                         <span className="text-white/50">(</span>
                         <span className="text-white/90">exporter</span>
                         <span className="text-white/50">))</span>
@@ -703,10 +703,10 @@ const Home = () => {
 
                 {/* Footer bar */}
                 <div className="flex items-center justify-between px-5 py-3.5 border-t border-white/[0.08]">
-                  <span className="text-[10px] tracking-[0.2em] uppercase text-white/40 font-light">
+                  <span className="text-[10px] tracking-[0.2em] uppercase text-white/50 font-light">
                     runs locally
                   </span>
-                  <span className="flex items-center gap-1.5 text-[10px] text-white/50 font-light">
+                  <span className="flex items-center gap-1.5 text-[10px] text-white/60 font-light">
                     <motion.span
                       className="w-1.5 h-1.5 rounded-full bg-emerald-400"
                       animate={{ opacity: [0.4, 1, 0.4] }}
