@@ -111,43 +111,59 @@ const Home = () => {
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.06] via-transparent to-transparent" />
             <div className="pointer-events-none absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.08),transparent_50%)]" />
 
-            {/* Squiggle field — topographic contour lines, faded away from center */}
+            {/* Squiggle blob — nested organic contour rings around the edges */}
             <div
               className="pointer-events-none absolute inset-0 overflow-hidden"
               style={{
                 WebkitMaskImage:
-                  "radial-gradient(ellipse 55% 55% at 50% 50%, transparent 0%, transparent 25%, rgba(0,0,0,0.5) 55%, black 85%)",
+                  "radial-gradient(ellipse 45% 50% at 50% 50%, transparent 0%, transparent 30%, rgba(0,0,0,0.6) 60%, black 100%)",
                 maskImage:
-                  "radial-gradient(ellipse 55% 55% at 50% 50%, transparent 0%, transparent 25%, rgba(0,0,0,0.5) 55%, black 85%)",
+                  "radial-gradient(ellipse 45% 50% at 50% 50%, transparent 0%, transparent 30%, rgba(0,0,0,0.6) 60%, black 100%)",
               }}
             >
               <motion.svg
                 className="absolute inset-0 w-full h-full"
                 viewBox="0 0 1200 800"
-                preserveAspectRatio="none"
+                preserveAspectRatio="xMidYMid slice"
                 fill="none"
-                animate={{ x: [0, -20, 10, 0], y: [0, 8, -6, 0] }}
-                transition={{ duration: 26, ease: "easeInOut", repeat: Infinity }}
+                animate={{ rotate: [0, 2, -2, 0], scale: [1, 1.03, 0.98, 1] }}
+                transition={{ duration: 40, ease: "easeInOut", repeat: Infinity }}
+                style={{ transformOrigin: "50% 50%" }}
               >
                 <defs>
                   <linearGradient id="squiggleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="hsl(180 100% 82%)" stopOpacity="0.55" />
-                    <stop offset="50%" stopColor="hsl(210 60% 75%)" stopOpacity="0.35" />
-                    <stop offset="100%" stopColor="hsl(270 87% 82%)" stopOpacity="0.5" />
+                    <stop offset="0%" stopColor="hsl(180 100% 82%)" stopOpacity="0.6" />
+                    <stop offset="50%" stopColor="hsl(210 60% 78%)" stopOpacity="0.4" />
+                    <stop offset="100%" stopColor="hsl(270 87% 82%)" stopOpacity="0.55" />
                   </linearGradient>
                 </defs>
-                {Array.from({ length: 22 }).map((_, i) => {
-                  const offset = i * 22 - 60;
-                  const amp = 40 + (i % 5) * 8;
-                  const phase = (i % 4) * 60;
+                {Array.from({ length: 28 }).map((_, i) => {
+                  // Nested wobbling ellipses around center — creates the blob feel
+                  const cx = 600;
+                  const cy = 400;
+                  const rx = 260 + i * 26;
+                  const ry = 180 + i * 20;
+                  // Wobble control points for an organic, non-perfect ellipse
+                  const w1 = 30 + ((i * 17) % 40);
+                  const w2 = 20 + ((i * 23) % 50);
+                  const w3 = 25 + ((i * 11) % 45);
+                  const w4 = 35 + ((i * 29) % 40);
+                  const d = `
+                    M ${cx - rx} ${cy}
+                    C ${cx - rx + w1} ${cy - ry - w2}, ${cx - w3} ${cy - ry}, ${cx} ${cy - ry + w1}
+                    S ${cx + rx - w2} ${cy - ry - w4}, ${cx + rx} ${cy}
+                    S ${cx + rx - w1} ${cy + ry + w3}, ${cx} ${cy + ry - w2}
+                    S ${cx - rx + w4} ${cy + ry + w1}, ${cx - rx} ${cy}
+                    Z
+                  `;
                   return (
                     <path
                       key={i}
-                      d={`M -100 ${offset + 200} C 200 ${offset + 200 - amp + phase}, 400 ${offset + 200 + amp}, 600 ${offset + 220 - amp / 2}, S 1000 ${offset + 180 + amp}, 1300 ${offset + 210 - amp / 3}`}
+                      d={d}
                       stroke="url(#squiggleGrad)"
                       strokeWidth="1"
                       strokeLinecap="round"
-                      opacity={0.35 + (i % 3) * 0.15}
+                      opacity={0.28 + (i % 4) * 0.12}
                     />
                   );
                 })}
