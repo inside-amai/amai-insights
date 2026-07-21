@@ -386,7 +386,53 @@ const Home = () => {
             <div className="mt-4 text-[11px] tracking-[0.25em] uppercase text-white/30 font-light text-center">
               read_file → base64_encode → post_to_url
             </div>
-          </motion.div>
+            </motion.div>
+          </div>
+
+          {/* Full-width steps */}
+          <ol className="mt-20 md:mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 lg:gap-14">
+            {[
+              { title: "Instrument", body: "Three lines of code. Your agent emits a trace of what it did." },
+              { title: "Read the behavior", body: "Tool by tool, boundary by boundary. Content-off: the moves, never the message." },
+              { title: "Score the pattern", body: "An exfiltration chain, a scope drift, a call to a model it shouldn't reach. What looks like compromise moves the number." },
+            ].map((step, i) => (
+              <motion.li
+                key={step.title}
+                className="relative pt-6 border-t border-white/10"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.7, delay: 0.1 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <span className="block text-xs tracking-[0.3em] font-light text-white/40 mb-3">
+                  0{i + 1}
+                </span>
+                <div className="text-xl md:text-2xl font-light tracking-tight text-white">
+                  {step.title}
+                </div>
+                <div className="mt-2 text-sm md:text-base font-light text-white/60 leading-relaxed">
+                  {step.body}
+                </div>
+              </motion.li>
+            ))}
+          </ol>
+
+          <div className="mt-16 md:mt-20 pt-10 border-t border-white/10">
+            <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-white leading-[1.15]">
+              It never reads a word,
+              <br />
+              <span className="text-white/50">and it doesn't need to.</span>
+            </p>
+            <div className="mt-10">
+              <a
+                href="/methodology"
+                className="inline-flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors duration-300 border-b border-white/20 hover:border-white/60 pb-1"
+              >
+                Read the full methodology
+                <span aria-hidden>→</span>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
