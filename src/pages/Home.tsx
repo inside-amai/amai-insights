@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Copy, Check, ChevronRight, ChevronLeft } from "lucide-react";
 import amaiLogo from "@/assets/amai-logo-tm.png";
 import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
+import agentFleetDashboard from "@/assets/agent-fleet-dashboard.png.asset.json";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 import { Footer } from "@/components/Footer";
@@ -880,7 +881,7 @@ const Home = () => {
             </motion.div>
           </motion.div>
 
-          {/* RIGHT — placeholder for real Command Center screenshot */}
+          {/* RIGHT — Command Center screenshot */}
           <motion.div
             className="lg:col-span-7 lg:pt-20"
             initial={{ opacity: 0, y: 24 }}
@@ -888,11 +889,14 @@ const Home = () => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="relative aspect-[16/10] rounded-2xl border border-dashed border-white/15 bg-white/[0.02] backdrop-blur-sm flex flex-col items-center justify-center gap-4 overflow-hidden">
+            <div className="relative aspect-[16/10] rounded-2xl border border-white/10 bg-black/40 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.8)] overflow-hidden">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.04),transparent_60%)]" />
-              <span className="text-[10px] tracking-[0.3em] uppercase text-white/30 font-light">Command Center</span>
-              <span className="text-sm font-light text-white/40">Screenshot placeholder — real UI to be added</span>
-              <div className="absolute inset-x-8 bottom-8 h-px bg-white/10" />
+              <img
+                src={agentFleetDashboard.url}
+                alt="AMAI Command Center dashboard showing agent fleet trust scores and conduct distribution"
+                className="relative z-10 w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
           </motion.div>
         </div>
