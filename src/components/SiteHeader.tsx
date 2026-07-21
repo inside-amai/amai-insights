@@ -179,37 +179,12 @@ export const SiteHeader = () => {
           </div>
 
           <nav className="flex-1 flex flex-col justify-center px-8 gap-2">
-            <Link
-              to="/"
-              className="block py-4 text-2xl font-light text-white/90 hover:text-white tracking-tight border-b border-white/10"
-            >
-              Home
-            </Link>
-            <Link
-              to="/architecture"
-              className="block py-4 text-2xl font-light text-white/90 hover:text-white tracking-tight border-b border-white/10"
-            >
-              Architecture
-            </Link>
-            <Link
-              to="/thesis"
-              className="block py-4 text-2xl font-light text-white/90 hover:text-white tracking-tight border-b border-white/10"
-            >
-              Thesis
-            </Link>
-            <Link
-              to="/methodology"
-              className="block py-4 text-2xl font-light text-white/90 hover:text-white tracking-tight border-b border-white/10"
-            >
-              Methodology
-            </Link>
             <a
-              href="https://bureau.amai.net"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:team@amai.net?subject=Request%20Access"
+              onClick={() => { setMobileOpen(false); handleContactClick(); }}
               className="block py-4 text-2xl font-light text-white/90 hover:text-white tracking-tight border-b border-white/10"
             >
-              Bureau
+              Request Access
             </a>
             <a
               href={mailto}
@@ -219,6 +194,7 @@ export const SiteHeader = () => {
               Contact
             </a>
           </nav>
+
 
           <div className="px-8 pb-12 pt-6">
             <div className="text-[10px] tracking-[0.3em] uppercase text-white/40 mb-4 flex items-center gap-2">
