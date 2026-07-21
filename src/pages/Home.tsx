@@ -503,7 +503,7 @@ const Home = () => {
 
           {/* RIGHT — solid black terminal card */}
           <motion.div
-            className="lg:col-span-7"
+            className="lg:col-span-7 lg:mt-14"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
