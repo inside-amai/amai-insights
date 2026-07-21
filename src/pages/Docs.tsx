@@ -18,7 +18,7 @@ const sectionLinks = [
 
 const CodeBlock = ({
   code,
-  language,
+  language = "text",
   filename,
   showLineNumbers = true,
 }: {
@@ -35,7 +35,7 @@ const CodeBlock = ({
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const lines = code.split("\n");
+  const mono = "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace";
 
   return (
     <div className="relative rounded-xl border border-white/10 bg-black/80 overflow-hidden shadow-[0_20px_60px_-20px_rgba(0,0,0,0.8)]">
@@ -80,19 +80,36 @@ const CodeBlock = ({
           )}
         </button>
       </div>
-      <div className="px-4 py-6 md:px-6 md:py-8 font-mono text-sm leading-relaxed overflow-x-auto">
-        <div className="flex gap-4">
-          {showLineNumbers && (
-            <div className="select-none text-right text-white/20 font-light tabular-nums">
-              {lines.map((_, i) => (
-                <div key={i}>{i + 1}</div>
-              ))}
-            </div>
-          )}
-          <pre className="text-white/90 whitespace-pre">
-            <code>{code}</code>
-          </pre>
-        </div>
+      <div className="px-4 py-6 md:px-6 md:py-8 text-sm leading-relaxed overflow-x-auto">
+        <SyntaxHighlighter
+          language={language}
+          style={vscDarkPlus}
+          showLineNumbers={showLineNumbers}
+          wrapLines={false}
+          customStyle={{
+            margin: 0,
+            padding: 0,
+            background: "transparent",
+            fontSize: "0.875rem",
+            lineHeight: "1.625",
+            fontFamily: mono,
+          }}
+          lineNumberStyle={{
+            color: "rgba(255,255,255,0.2)",
+            fontFamily: mono,
+            fontSize: "0.875rem",
+            paddingRight: "1rem",
+            minWidth: "2rem",
+            textAlign: "right",
+          }}
+          codeTagProps={{
+            style: {
+              fontFamily: mono,
+            },
+          }}
+        >
+          {code.trimEnd()}
+        </SyntaxHighlighter>
       </div>
     </div>
   );
