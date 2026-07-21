@@ -175,7 +175,7 @@ export const TariGauge = ({ score = 812 }: { score?: number }) => {
       </svg>
 
       {/* Center readout — overlaid, absolute so it sits inside the arc */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none pt-[18%]">
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none pt-[4%]">
         <motion.div
           initial={{ opacity: 0, y: 6 }}
           whileInView={{ opacity: 1, y: 0 }}
