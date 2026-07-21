@@ -61,6 +61,20 @@ export const TariGauge = ({ score = 812 }: { score?: number }) => {
     return () => controls.stop();
   }, [cx, cy, isInView, needleSweep]);
 
+  useEffect(() => {
+    const el = numberRef.current;
+    if (!el) return;
+    const controls = animate(isInView ? MIN : clamped, isInView ? clamped : MIN, {
+      duration: isInView ? 2.2 : 0.4,
+      ease: [0.16, 1, 0.3, 1],
+      delay: isInView ? 0.4 : 0,
+      onUpdate: (latest) => {
+        el.textContent = String(Math.round(latest));
+      },
+    });
+    return () => controls.stop();
+  }, [isInView, clamped]);
+
   // Tier label
   const tier =
     clamped >= 800 ? "EXCELLENT" :
