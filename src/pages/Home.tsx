@@ -602,7 +602,7 @@ const Home = () => {
                 >
                   {c.inst.cta}<span aria-hidden>{isRtl ? '←' : '→'}</span>
                 </a>
-                <p className="mt-4 text-[11px] text-black/50 font-light tracking-wide max-w-md">{c.inst.ctaNote}</p>
+                
               </motion.div>
             </motion.div>
 
