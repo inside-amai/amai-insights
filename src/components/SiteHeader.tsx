@@ -40,7 +40,7 @@ export const SiteHeader = () => {
   const navigate = useNavigate();
   const isThesisPage = location.pathname === '/thesis';
   const isHomePage = location.pathname === '/' || location.pathname === '/home';
-  const isDeckPage = location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/briefing' || location.pathname === '/pitch';
+  const isDeckPage = location.pathname === '/briefing' || location.pathname === '/pitch';
   const [mobileOpen, setMobileOpen] = useState(false);
 
   // Close menu on route change
