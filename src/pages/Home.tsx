@@ -124,7 +124,8 @@ const Home = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <p className="text-xl md:text-2xl text-white/70 font-light leading-relaxed tracking-wide whitespace-pre-line">
-                {t('home.body')}
+                {t('home.bodyPrefix') || t('home.body')}
+                <span className="text-white/95 font-normal">{t('home.bodyHighlight')}</span>
               </p>
             </motion.div>
 
