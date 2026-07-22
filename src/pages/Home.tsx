@@ -526,7 +526,17 @@ const Home = () => {
               <br />
               <span className="text-white/50">and it doesn't need to.</span>
             </p>
+            <div className="mt-10">
+              <a
+                href="/methodology"
+                className="inline-flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors duration-300 border-b border-white/20 hover:border-white/60 pb-1"
+              >
+                Read the full methodology
+                <span aria-hidden>→</span>
+              </a>
+            </div>
           </div>
+
         </div>
       </section>
 
