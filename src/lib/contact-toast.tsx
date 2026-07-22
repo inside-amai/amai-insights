@@ -31,7 +31,7 @@ export const showEmailFallbackToast = () => {
       // Force dark styling so it stays legible on light sections
       className:
         '!bg-neutral-900 !border-white/10 !text-white shadow-[0_8px_32px_rgba(0,0,0,0.5)]',
-      title: <span className="text-white">Email not opening?</span>,
+      title: 'Email not opening?',
       description: (
         <div className="flex items-center gap-3 mt-1">
           <span className="text-white/80">Reach us at team@amai.net</span>
