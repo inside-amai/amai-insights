@@ -194,7 +194,7 @@ export const TariGauge = ({ score = 812 }: { score?: number }) => {
         <motion.div
           initial={{ opacity: 0, y: 6 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.4 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, delay: 0.9 }}
           className="text-[10px] md:text-xs uppercase tracking-[0.4em] text-white/50 font-light"
         >
@@ -204,7 +204,7 @@ export const TariGauge = ({ score = 812 }: { score?: number }) => {
           ref={numberRef}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: false, amount: 0.4 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5, delay: 0.35 }}
           className="mt-2 text-6xl md:text-7xl font-light tabular-nums text-white leading-none tracking-tight"
           style={{ textShadow: "0 0 40px rgba(166,252,252,0.25)" }}
@@ -214,7 +214,7 @@ export const TariGauge = ({ score = 812 }: { score?: number }) => {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: false, amount: 0.4 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, delay: 1.4 }}
           className="mt-2 flex items-center gap-2 text-[10px] md:text-xs uppercase tracking-[0.35em] font-light"
         >
