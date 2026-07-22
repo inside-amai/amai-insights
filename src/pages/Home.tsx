@@ -307,7 +307,7 @@ const Home = () => {
             </h2>
 
             <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-2xl">
-              Every agent earns one TARI™ score, 300 to 850, the scale the world already trusts.
+              Every agent earns one <span className="font-normal text-white">TARI™ score</span>, 300 to 850, the scale the world already trusts.
               <br /><br />
               It doesn't predict the future, and it never calls an agent safe. It ranks behavior: the higher the number, the less an agent has done to earn suspicion.
             </p>
