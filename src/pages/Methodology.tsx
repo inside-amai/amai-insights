@@ -102,7 +102,7 @@ const Methodology = () => {
                     How the score is built, and how to check our work.
                   </h1>
                   <p className="mt-8 text-base md:text-lg font-light text-white/60 leading-relaxed max-w-3xl">
-                    TARI is not a black box. Given the same inputs, a score is
+                    TARI™ is not a black box. Given the same inputs, a score is
                     recomputable and auditable. Below is the full method, the
                     validation numbers, and the limitations we disclose: the
                     same figures our own automated checks enforce on every
@@ -127,7 +127,7 @@ const Methodology = () => {
                   viewport={{ once: true }}
                 >
                   <SectionNum>01 // Two engines, one index</SectionNum>
-                  <H2>TARI is two independent scoring engines under one 300 to 850 scale.</H2>
+                  <H2>TARI™ is two independent scoring engines under one 300 to 850 scale.</H2>
                 </motion.div>
 
                 <div className="grid md:grid-cols-2 gap-px bg-white/10 border border-white/10 mt-14">

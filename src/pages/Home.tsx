@@ -307,7 +307,7 @@ const Home = () => {
             </h2>
 
             <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-2xl">
-              Every agent earns one TARI score, 300 to 850, the scale the world already trusts.
+              Every agent earns one TARI™ score, 300 to 850, the scale the world already trusts.
               <br /><br />
               It doesn't predict the future, and it never calls an agent safe. It ranks behavior: the higher the number, the less an agent has done to earn suspicion.
             </p>
@@ -394,7 +394,7 @@ const Home = () => {
               </h2>
 
               <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-2xl">
-                Every agent leaves a trace: the tools it calls, the order it calls them, the boundaries it crosses. TARI reads that shape, and only that shape: the names and the timing, never your prompts, your data, or a word the agent wrote.
+                Every agent leaves a trace: the tools it calls, the order it calls them, the boundaries it crosses. TARI™ reads that shape, and only that shape: the names and the timing, never your prompts, your data, or a word the agent wrote.
                 <br />
                 <br />
                 From it, the patterns that betray a compromised agent, a secret pulled and quietly pushed out, an agent drifting past the task it was given, move the score.
@@ -474,7 +474,7 @@ const Home = () => {
                   </div>
                   <div className="text-right">
                     <div className="text-[10px] tracking-[0.2em] uppercase text-white/40 font-light">
-                      TARI Δ
+                      TARI™ Δ
                     </div>
                     <div className="mt-1 text-lg font-light text-red-300 tabular-nums">
                       −247
@@ -736,7 +736,7 @@ const Home = () => {
 
             {/* Caption beneath the code card */}
             <p className="mt-5 text-xs md:text-sm text-black/70 font-light tracking-wide text-center">
-              Then TARI dashboard opens your console: the full trace, the score, and every flagged move, all local.
+              Then TARI™ dashboard opens your console: the full trace, the score, and every flagged move, all local.
             </p>
 
             {/* What you get — benefits block */}

@@ -157,7 +157,7 @@ const Docs = () => {
   const [showPilotForm, setShowPilotForm] = useState(false);
 
   useEffect(() => {
-    document.title = "TARI Lens — Docs · AMAI Labs";
+    document.title = "TARI™ Lens — Docs · AMAI Labs";
   }, []);
 
   return (
@@ -190,13 +190,13 @@ const Docs = () => {
             <FadeIn>
               <div className="mb-16 md:mb-24">
                 <span className="text-[10px] tracking-[0.35em] uppercase text-white/40 font-light">
-                  TARI Lens — Docs
+                  TARI™ Lens — Docs
                 </span>
                 <h1 className="font-serif mt-6 text-4xl md:text-6xl lg:text-7xl font-normal tracking-tight text-white leading-[1.05]">
                   See what your AI agent actually did — content-off, in about a minute.
                 </h1>
                 <p className="mt-8 text-lg md:text-xl font-light text-white/60 max-w-3xl leading-relaxed">
-                  TARI Lens is a local developer console for the TARI score. It reads the behavioral shape of any agent run, shows you the trace, the verdict, and the dimensions that moved — without reading a single prompt, argument, or model output.
+                  TARI™ Lens is a local developer console for the TARI™ score. It reads the behavioral shape of any agent run, shows you the trace, the verdict, and the dimensions that moved — without reading a single prompt, argument, or model output.
                 </p>
               </div>
             </FadeIn>
@@ -316,7 +316,7 @@ tari interceptor approvals stats   # false-positive-rate stats`}
             <FadeIn className="mb-20 md:mb-28">
               <SectionHeading eyebrow="Privacy" title="Content-off by design" id="privacy" />
               <p className="mt-8 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-3xl">
-                TARI reconstructs what your agent did from behavioral metadata alone: enough to rebuild the trace, catch an exfiltration pattern, and point at a likely third-party source — with zero content read.
+                TARI™ reconstructs what your agent did from behavioral metadata alone: enough to rebuild the trace, catch an exfiltration pattern, and point at a likely third-party source — with zero content read.
               </p>
             </FadeIn>
 
