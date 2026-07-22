@@ -132,7 +132,7 @@ export const TariGauge = ({ score = 812 }: { score?: number }) => {
           strokeDasharray={arcLen}
           initial={{ strokeDashoffset: arcLen }}
           whileInView={{ strokeDashoffset: arcLen * (1 - pct) }}
-          viewport={{ once: false, amount: 0.4 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 2, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
           filter="url(#tari-glow)"
         />
