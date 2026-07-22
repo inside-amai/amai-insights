@@ -11,22 +11,7 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://amai-insights.lovable.app/agent-architecture</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://amai-insights.lovable.app/economic-substrate</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://amai-insights.lovable.app/trust-mechanics</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://amai-insights.lovable.app/treasury-dynamics</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -37,11 +22,6 @@
   </url>
   <url>
     <loc>https://amai-insights.lovable.app/protocol-internals</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://amai-insights.lovable.app/token</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -69,11 +49,6 @@
     <loc>https://amai-insights.lovable.app/thesis</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://amai-insights.lovable.app/deck</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://amai-insights.lovable.app/llms.txt</loc>
