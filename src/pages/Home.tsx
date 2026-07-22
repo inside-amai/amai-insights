@@ -806,10 +806,10 @@ const Home = () => {
             </p>
 
             <div className="mt-16 md:mt-20 pt-10 border-t border-white/10 max-w-xl">
-              <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-white leading-[1.15]">
+              <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-white/50 leading-[1.15]">
                 The worst part isn't that it happens.
                 <br />
-                <span className="text-white/50">It's that you can't see it.</span>
+                <span className="text-white">It's that you can't see it.</span>
               </p>
             </div>
           </motion.div>
