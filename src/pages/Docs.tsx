@@ -5,27 +5,23 @@ import { Copy, Check } from "lucide-react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { PilotAccessForm } from "@/components/PilotAccessForm";
-
-const sectionLinks = [
-  { label: "Install", href: "#install" },
-  { label: "Quickstart", href: "#quickstart" },
-  { label: "Core concepts", href: "#concepts" },
-  { label: "The CLI", href: "#cli" },
-  { label: "Privacy", href: "#privacy" },
-  { label: "Dashboard", href: "#dashboard" },
-  { label: "Team / hosted", href: "#hosted" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
+import { pickDocs } from "@/i18n/pageContent";
 
 const CodeBlock = ({
   code,
   language = "text",
   filename,
   showLineNumbers = true,
+  copyCopiedLabel = "Copied",
+  copyLabel = "Copy",
 }: {
   code: string;
   language?: string;
   filename?: string;
   showLineNumbers?: boolean;
+  copyCopiedLabel?: string;
+  copyLabel?: string;
 }) => {
   const [copied, setCopied] = useState(false);
 
@@ -38,7 +34,10 @@ const CodeBlock = ({
   const mono = "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace";
 
   return (
-    <div className="relative rounded-xl border border-white/10 bg-black/80 overflow-hidden shadow-[0_20px_60px_-20px_rgba(0,0,0,0.8)]">
+    <div
+      className="relative rounded-xl border border-white/10 bg-black/80 overflow-hidden shadow-[0_20px_60px_-20px_rgba(0,0,0,0.8)] keep-ltr"
+      dir="ltr"
+    >
       <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-white/[0.03]">
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-1.5">
@@ -67,14 +66,14 @@ const CodeBlock = ({
             <>
               <Check className="w-3.5 h-3.5 text-emerald-300" strokeWidth={2} />
               <span className="text-[10px] tracking-[0.2em] uppercase font-light text-emerald-100">
-                Copied
+                {copyCopiedLabel}
               </span>
             </>
           ) : (
             <>
               <Copy className="w-3.5 h-3.5 text-white/50 group-hover:text-white/80 transition-colors duration-300" strokeWidth={2} />
               <span className="text-[10px] tracking-[0.2em] uppercase font-light text-white/50 group-hover:text-white/80 transition-colors duration-300">
-                Copy
+                {copyLabel}
               </span>
             </>
           )}
@@ -155,13 +154,26 @@ const FadeIn = ({ children, className = "" }: { children: ReactNode; className?:
 
 const Docs = () => {
   const [showPilotForm, setShowPilotForm] = useState(false);
+  const { language } = useLanguage();
+  const c = pickDocs(language);
+  const isRtl = language === 'ar';
 
   useEffect(() => {
-    document.title = "TARI™ Lens — Docs · AMAI Labs";
-  }, []);
+    document.title = c.title;
+  }, [c.title]);
+
+  const sectionLinks = [
+    { label: c.nav.install, href: "#install" },
+    { label: c.nav.quickstart, href: "#quickstart" },
+    { label: c.nav.concepts, href: "#concepts" },
+    { label: c.nav.cli, href: "#cli" },
+    { label: c.nav.privacy, href: "#privacy" },
+    { label: c.nav.dashboard, href: "#dashboard" },
+    { label: c.nav.hosted, href: "#hosted" },
+  ];
 
   return (
-    <div className="min-h-screen bg-black bg-perspective-grid text-white/90">
+    <div className="min-h-screen bg-black bg-perspective-grid text-white/90" dir={isRtl ? 'rtl' : 'ltr'}>
       <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 lg:px-12 pt-32 pb-24">
@@ -170,13 +182,13 @@ const Docs = () => {
           <aside className="hidden lg:block">
             <nav className="sticky top-32 space-y-1">
               <div className="text-[10px] tracking-[0.3em] uppercase text-white/30 font-medium mb-5">
-                On this page
+                {c.nav.onThisPage}
               </div>
               {sectionLinks.map(({ label, href }) => (
                 <a
                   key={href}
                   href={href}
-                  className="block py-2 text-sm font-light text-white/50 hover:text-[hsl(var(--cyan-accent))] transition-colors border-l border-white/5 pl-4 hover:border-[hsl(var(--cyan-accent)/0.5)]"
+                  className={`block py-2 text-sm font-light text-white/50 hover:text-[hsl(var(--cyan-accent))] transition-colors ${isRtl ? 'border-r pr-4 border-white/5 hover:border-[hsl(var(--cyan-accent)/0.5)]' : 'border-l pl-4 border-white/5 hover:border-[hsl(var(--cyan-accent)/0.5)]'}`}
                 >
                   {label}
                 </a>
@@ -186,54 +198,50 @@ const Docs = () => {
 
           {/* Main content */}
           <main className="min-w-0">
-            {/* Header */}
             <FadeIn>
               <div className="mb-16 md:mb-24">
                 <span className="text-[10px] tracking-[0.35em] uppercase text-white/40 font-light">
-                  TARI™ Lens — Docs
+                  {c.header.eyebrow}
                 </span>
                 <h1 className="font-serif mt-6 text-4xl md:text-6xl lg:text-7xl font-normal tracking-tight text-white leading-[1.05]">
-                  See what your AI agent actually did — content-off, in about a minute.
+                  {c.header.title}
                 </h1>
                 <p className="mt-8 text-lg md:text-xl font-light text-white/60 max-w-3xl leading-relaxed">
-                  TARI™ Lens is a local developer console for the TARI™ score. It reads the behavioral shape of any agent run, shows you the trace, the verdict, and the dimensions that moved — without reading a single prompt, argument, or model output.
+                  {c.header.body}
                 </p>
               </div>
             </FadeIn>
 
-            {/* Install */}
             <FadeIn className="mb-20 md:mb-28">
-              <SectionHeading eyebrow="Install" title="pip install amai-tari" id="install" />
+              <SectionHeading eyebrow={c.install.eyebrow} title={c.install.title} id="install" />
               <p className="mt-8 text-lg font-light text-white/70 leading-relaxed max-w-3xl">
-                Pure-Python, Node-free. The dashboard UI ships pre-built inside the package.
+                {c.install.body}
               </p>
               <div className="mt-8">
-                <CodeBlock code="pip install amai-tari" language="bash" />
+                <CodeBlock code="pip install amai-tari" language="bash" copyLabel={c.footer.copyCopied === c.footer.copyCopied ? (language==='ja'?'コピー':language==='ar'?'نسخ':'Copy') : 'Copy'} copyCopiedLabel={c.footer.copyCopied} />
               </div>
             </FadeIn>
 
-            {/* Quickstart */}
             <FadeIn className="mb-20 md:mb-28">
-              <SectionHeading eyebrow="Quickstart" title="~60 seconds" id="quickstart" />
+              <SectionHeading eyebrow={c.quickstart.eyebrow} title={c.quickstart.title} id="quickstart" />
               <div className="mt-8 space-y-6 text-lg font-light text-white/70 leading-relaxed max-w-3xl">
-                <p>
-                  Three steps: name it, capture it, score it. OpenTelemetry auto-instrumentation for LangGraph and CrewAI works through the openinference-* packages, so step 2 is often automatic.
-                </p>
+                <p>{c.quickstart.p1}</p>
               </div>
               <div className="mt-8">
                 <CodeBlock
                   code={`from tari import TARIInstrument
 
-tari = TARIInstrument("my-agent", store="./.tari")   # ① name it, pick a local store
-provider, exporter = tari.start_otel_capture()        # ② capture (attach to your OTel tracer)
+tari = TARIInstrument("my-agent", store="./.tari")   # \u2460 name it, pick a local store
+provider, exporter = tari.start_otel_capture()        # \u2461 capture (attach to your OTel tracer)
 # ... run your agent ...
-tari.score(tari.trajectory_from_exporter(exporter))   # ③ score → writes a content-off run`}
+tari.score(tari.trajectory_from_exporter(exporter))   # \u2462 score \u2192 writes a content-off run`}
                   language="python"
                   filename="quickstart.py"
+                  copyCopiedLabel={c.footer.copyCopied}
                 />
               </div>
               <div className="mt-6 space-y-4 text-lg font-light text-white/70 leading-relaxed max-w-3xl">
-                <p>Then open your dashboard:</p>
+                <p>{c.quickstart.openLead}</p>
               </div>
               <div className="mt-6">
                 <CodeBlock
@@ -241,35 +249,18 @@ tari.score(tari.trajectory_from_exporter(exporter))   # ③ score → writes a c
 tari dashboard   # your own runs, from ./.tari`}
                   language="bash"
                   showLineNumbers={false}
+                  copyCopiedLabel={c.footer.copyCopied}
                 />
               </div>
               <p className="mt-6 text-base font-light text-white/60 leading-relaxed max-w-3xl">
-                Your dashboard opens locally in the browser. No account, no login — nothing leaves your machine. With OpenTelemetry auto-instrumentation (LangGraph / CrewAI via the openinference-* packages), step ② is automatic.
+                {c.quickstart.note}
               </p>
             </FadeIn>
 
-            {/* Core concepts */}
             <FadeIn className="mb-20 md:mb-28">
-              <SectionHeading eyebrow="Core concepts" title="Four ideas worth reading once" id="concepts" />
+              <SectionHeading eyebrow={c.concepts.eyebrow} title={c.concepts.title} id="concepts" />
               <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
-                {[
-                  {
-                    title: "Content-off",
-                    body: "Reads only tool names, sink classes, operation types, token counts, and timing. Never prompts, tool arguments, or model outputs. Nothing leaves the agent boundary.",
-                  },
-                  {
-                    title: "The score",
-                    body: "One conduct score, 300–850. It triages, it never gates: a high score means no adverse signal, not a safety certificate. Low confidence → UNRATED, not a confident green.",
-                  },
-                  {
-                    title: "The five dimensions",
-                    body: "Scope Integrity, Consistency, Exfiltration Risk (highest-weighted — the read → encode → external-POST shape), Resilience, Reliability. Each mapped to OWASP ASI / MITRE ATLAS.",
-                  },
-                  {
-                    title: "Baselines",
-                    body: "A per-agent, per-task known-good run you promote explicitly. Nothing is promoted automatically.",
-                  },
-                ].map((concept) => (
+                {c.concepts.items.map((concept) => (
                   <div
                     key={concept.title}
                     className="rounded-xl border border-white/10 bg-white/[0.03] p-6 md:p-8 hover:border-[hsl(var(--cyan-accent)/0.3)] transition-colors"
@@ -285,15 +276,14 @@ tari dashboard   # your own runs, from ./.tari`}
               </div>
             </FadeIn>
 
-            {/* The CLI */}
             <FadeIn className="mb-20 md:mb-28">
-              <SectionHeading eyebrow="The CLI" title="tari &lt;command&gt;" id="cli" />
+              <SectionHeading eyebrow={c.cli.eyebrow} title={c.cli.title} id="cli" />
               <p className="mt-8 text-lg font-light text-white/70 leading-relaxed max-w-3xl">
-                The CLI drives the local dashboard, baseline management, drift checks, and the interceptor approval queue.
+                {c.cli.body}
               </p>
               <div className="mt-8">
                 <CodeBlock
-                  code={`tari dashboard                     # launch the local TARI™ Lens dashboard
+                  code={`tari dashboard                     # launch the local TARI\u2122 Lens dashboard
 tari demo                          # dashboard on the bundled sample
 tari baseline promote <args>       # promote a known-good run as a baseline
 tari baseline list                 # list promoted baselines
@@ -305,39 +295,35 @@ tari interceptor approvals deny    # deny a held action (labels it a true positi
 tari interceptor approvals stats   # false-positive-rate stats`}
                   language="bash"
                   showLineNumbers={false}
+                  copyCopiedLabel={c.footer.copyCopied}
                 />
               </div>
               <p className="mt-6 text-base font-light text-white/60">
-                Run <code className="text-white/90 font-mono text-sm">tari &lt;command&gt; --help</code> for full flags.
+                {c.cli.helpPre}
+                <code className="text-white/90 font-mono text-sm keep-ltr" dir="ltr">tari &lt;command&gt; --help</code>
+                {c.cli.helpPost}
               </p>
             </FadeIn>
 
-            {/* Privacy */}
             <FadeIn className="mb-20 md:mb-28">
-              <SectionHeading eyebrow="Privacy" title="Content-off by design" id="privacy" />
+              <SectionHeading eyebrow={c.privacy.eyebrow} title={c.privacy.title} id="privacy" />
               <p className="mt-8 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-3xl">
-                TARI™ reconstructs what your agent did from behavioral metadata alone: enough to rebuild the trace, catch an exfiltration pattern, and point at a likely third-party source — with zero content read.
+                {c.privacy.body}
               </p>
             </FadeIn>
 
-            {/* Dashboard */}
             <FadeIn className="mb-20 md:mb-28">
-              <SectionHeading eyebrow="Dashboard" title="tari dashboard" id="dashboard" />
+              <SectionHeading eyebrow={c.dashboard.eyebrow} title={c.dashboard.title} id="dashboard" />
               <p className="mt-8 text-lg font-light text-white/70 leading-relaxed max-w-3xl">
-                The dashboard opens your console locally: the verdict, the full trace timeline, the score and five dimensions, and findings with next steps. A full walkthrough with screenshots lands with the next release.
+                {c.dashboard.body}
               </p>
             </FadeIn>
 
-            {/* Team / hosted */}
             <FadeIn className="mb-24 md:mb-36">
-              <SectionHeading eyebrow="Team / hosted" title="Early access for fleets" id="hosted" />
+              <SectionHeading eyebrow={c.hosted.eyebrow} title={c.hosted.title} id="hosted" />
               <div className="mt-8 max-w-3xl space-y-6 text-lg font-light text-white/70 leading-relaxed">
-                <p>
-                  Running a fleet? The hosted Command Center adds a shared store and the enforcement layer (HOLD). Early-access today.
-                </p>
-                <p>
-                  The local Lens above needs none of it.
-                </p>
+                <p>{c.hosted.p1}</p>
+                <p>{c.hosted.p2}</p>
               </div>
               <div className="mt-10">
                 <button
@@ -345,11 +331,11 @@ tari interceptor approvals stats   # false-positive-rate stats`}
                   onClick={() => setShowPilotForm(true)}
                   className="inline-flex items-center gap-2 text-sm font-normal text-black bg-white hover:bg-white/90 transition-colors duration-300 px-6 py-3 rounded-full"
                 >
-                  Request access
-                  <span aria-hidden>→</span>
+                  {c.hosted.cta}
+                  <span aria-hidden>{isRtl ? '←' : '→'}</span>
                 </button>
                 <p className="mt-3 text-[11px] text-white/40 font-light tracking-wide">
-                  Interest form, not a signup.
+                  {c.hosted.note}
                 </p>
               </div>
             </FadeIn>
@@ -357,12 +343,11 @@ tari interceptor approvals stats   # false-positive-rate stats`}
         </div>
       </div>
 
-      {/* Footer */}
       <footer className="relative z-10 border-t border-white/10 bg-black">
         <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm font-light text-white/50">
             <Link to="/methodology" className="hover:text-white transition-colors">
-              Methodology
+              {c.footer.methodology}
             </Link>
             <span className="text-white/20">·</span>
             <a
@@ -371,22 +356,23 @@ tari interceptor approvals stats   # false-positive-rate stats`}
               rel="noopener noreferrer"
               className="hover:text-white transition-colors"
             >
-              The Bureau
+              {c.footer.bureau}
             </a>
             <span className="text-white/20">·</span>
             <a
               href="https://www.apache.org/licenses/LICENSE-2.0"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
+              className="hover:text-white transition-colors keep-ltr"
+              dir="ltr"
             >
               Apache-2.0
             </a>
             <span className="text-white/20">·</span>
-            <CopyCommand text="pip install amai-tari" />
+            <CopyCommand text="pip install amai-tari" copiedLabel={c.footer.copyCopied} />
           </div>
           <div className="text-[11px] tracking-[0.3em] uppercase text-white/30 font-light">
-            AMAI Labs · Infrastructure & Research
+            {c.footer.tag}
           </div>
         </div>
       </footer>
@@ -396,7 +382,7 @@ tari interceptor approvals stats   # false-positive-rate stats`}
   );
 };
 
-const CopyCommand = ({ text }: { text: string }) => {
+const CopyCommand = ({ text, copiedLabel }: { text: string; copiedLabel: string }) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
@@ -409,14 +395,15 @@ const CopyCommand = ({ text }: { text: string }) => {
     <button
       type="button"
       onClick={handleCopy}
-      className="group inline-flex items-center gap-2 font-mono text-sm text-white/50 hover:text-white transition-colors"
+      className="group inline-flex items-center gap-2 font-mono text-sm text-white/50 hover:text-white transition-colors keep-ltr"
+      dir="ltr"
     >
       {copied ? (
         <Check className="w-3.5 h-3.5 text-emerald-300" strokeWidth={2} />
       ) : (
         <Copy className="w-3.5 h-3.5 text-white/40 group-hover:text-white/80 transition-colors" strokeWidth={2} />
       )}
-      <span>{copied ? "Copied" : text}</span>
+      <span>{copied ? copiedLabel : text}</span>
     </button>
   );
 };
