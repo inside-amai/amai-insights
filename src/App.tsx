@@ -13,9 +13,6 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import Explainer from "./pages/Explainer";
-import Diagram from "./pages/Diagram";
-import Diagram2 from "./pages/Diagram2";
-import UI from "./pages/UI";
 import TechnicalDocs from "./pages/TechnicalDocs";
 import GenesisMint from "./pages/GenesisMint";
 import FoundersMint from "./pages/FoundersMint";
@@ -23,32 +20,23 @@ import Briefing from "./pages/Briefing";
 import AdminPilotRequests from "./pages/admin/PilotRequests";
 import StateOfAgentTrust from "./pages/StateOfAgentTrust";
 
-import Deck from "./pages/Deck";
-import Tether from "./pages/Tether";
 import NotFound from "./pages/NotFound";
 
 // Whitepaper sections (eagerly loaded to avoid Suspense loading screen)
 import SummaryVision from "./pages/whitepaper/SummaryVision";
-import SystemArchitecture from "./pages/whitepaper/SystemArchitecture";
 import TechnicalFoundation from "./pages/whitepaper/TechnicalFoundation";
-import TechnicalDeepDive from "./pages/whitepaper/TechnicalDeepDive";
-import TreasuryDynamics from "./pages/whitepaper/TreasuryDynamics";
 import AgentEconomyKIPs from "./pages/whitepaper/AgentEconomyKIPs";
 import ProtocolInternals from "./pages/whitepaper/ProtocolInternals";
-import Token from "./pages/whitepaper/Token";
 import AgentEconomy from "./pages/whitepaper/AgentEconomy";
 import AgentLifecycle from "./pages/whitepaper/AgentLifecycle";
 import OperationalScenarios from "./pages/OperationalScenarios";
 import Research from "./pages/Research";
-import TrustFormula from "./pages/TrustFormula";
 import Home from "./pages/Home";
 import Legal from "./pages/Legal";
 import Pitch from "./pages/Pitch";
 import Thesis from "./pages/Thesis";
 import Thesis2 from "./pages/Thesis2";
 import Thesis3 from "./pages/Thesis3";
-import Trust from "./pages/Trust";
-import Architecture from "./pages/Architecture";
 import Methodology from "./pages/Methodology";
 import MethodologyChangelog from "./pages/MethodologyChangelog";
 import Docs from "./pages/Docs";
@@ -61,7 +49,7 @@ const ConditionalTermsModal = () => {
   const location = useLocation();
   
   // Only show terms modal on architecture pages
-  if (location.pathname !== '/system-architecture' && location.pathname !== '/architecture') {
+  if (location.pathname !== '/system-architecture') {
     return null;
   }
   
@@ -76,7 +64,7 @@ const FullBleedRouteHandler = () => {
     const root = document.getElementById('root');
     if (!root) return;
     
-    const isFullBleed = location.pathname === '/deck' || location.pathname === '/tether' || location.pathname === '/thesis' || location.pathname === '/thesis2' || location.pathname === '/briefing' || location.pathname === '/pitch' || location.pathname === '/trust';
+    const isFullBleed = location.pathname === '/thesis' || location.pathname === '/thesis2' || location.pathname === '/briefing' || location.pathname === '/pitch';
     
     if (isFullBleed) {
       root.classList.add('full-bleed');
@@ -112,41 +100,28 @@ const App = () => (
                 </AuthGuard>
               } />
               <Route path="/system-architecture" element={<TechnicalDocs />} />
-              <Route path="/architecture" element={<Architecture />} />
               <Route path="/genesis-mint" element={<GenesisMint />} />
               <Route path="/founders-mint" element={<FoundersMint />} />
             
             <Route path="/system-overview" element={<SummaryVision />} />
-            <Route path="/agent-architecture" element={<SystemArchitecture />} />
             <Route path="/economic-substrate" element={<TechnicalFoundation />} />
-            <Route path="/trust-mechanics" element={<TechnicalDeepDive />} />
-            <Route path="/treasury-dynamics" element={<TreasuryDynamics />} />
             <Route path="/kernelized-intelligence" element={<AgentEconomyKIPs />} />
             <Route path="/protocol-internals" element={<ProtocolInternals />} />
-            <Route path="/token-model" element={<Token />} />
             <Route path="/agent-economy" element={<AgentEconomy />} />
             <Route path="/agent-lifecycle" element={<AgentLifecycle />} />
             <Route path="/operational-scenarios" element={<OperationalScenarios />} />
             <Route path="/research" element={<Research />} />
-            <Route path="/trust-formula" element={<TrustFormula />} />
             <Route path="/legal" element={<Legal />} />
             <Route path="/index" element={<Index />} />
             
-            <Route path="/deck" element={<Deck />} />
-            <Route path="/tether" element={<Tether />} />
             <Route path="/pitch" element={<Pitch />} />
             <Route path="/thesis" element={<Thesis />} />
             <Route path="/thesis2" element={<Thesis2 />} />
             <Route path="/thesis3" element={<Thesis3 />} />
             <Route path="/briefing" element={<Briefing />} />
-            <Route path="/trust" element={<Trust />} />
             <Route path="/methodology" element={<Methodology />} />
             <Route path="/methodology/changelog" element={<MethodologyChangelog />} />
             <Route path="/docs" element={<Docs />} />
-
-            <Route path="/diagram" element={<Diagram />} />
-            <Route path="/diagram2" element={<Diagram2 />} />
-            <Route path="/ui" element={<UI />} />
             {/* Admin routes */}
             <Route path="/admin/pilot-requests" element={<AdminPilotRequests />} />
             <Route path="/state-of-agent-trust" element={<StateOfAgentTrust />} />
