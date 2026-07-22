@@ -1,6 +1,6 @@
 import { useLanguage, Language } from '@/contexts/LanguageContext';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { toast } from '@/hooks/use-toast';
+import { showEmailFallbackToast } from '@/lib/contact-toast';
 import { Copy, Check, Globe, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import headerIcon from '@/assets/amai-header-icon.png';
@@ -76,17 +76,7 @@ export const SiteHeader = () => {
   };
 
   const handleContactClick = () => {
-    setTimeout(() => {
-      toast({
-        title: "Email not opening?",
-        description: (
-          <div className="flex items-center gap-3 mt-1">
-            <span className="text-white/80">Reach us at team@amai.net</span>
-            <CopyEmailButton />
-          </div>
-        ),
-      });
-    }, 500);
+    showEmailFallbackToast();
   };
 
   const mailto = "mailto:team@amai.net?subject=Mission%20Briefing%20%2F%2F%20%5BOrganization%20Name%5D&body=To%20the%20AMAI%20Labs%20Team%2C%0A%0AWe%20are%20reaching%20out%20regarding%20the%20%5BThesis%20%2F%20Architecture%5D.%0A%0AName%3A%20%0AOrganization%3A%20%0AIntent%3A%20";

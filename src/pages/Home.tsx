@@ -3,6 +3,7 @@ import { motion, useInView, animate } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Copy, Check, ChevronRight, ChevronLeft } from "lucide-react";
 import amaiLogo from "@/assets/amai-logo-tm.png";
+import { showEmailFallbackToast } from "@/lib/contact-toast";
 import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
 import agentFleetDashboard from "@/assets/agent-fleet-dashboard.png.asset.json";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -975,6 +976,7 @@ const Home = () => {
               >
                 <a
                   href="mailto:team@amai.net?subject=Request%20Access%20%2F%20Enterprise"
+                  onClick={() => showEmailFallbackToast()}
                   className="inline-flex items-center gap-3 text-[13px] tracking-[0.2em] uppercase font-normal text-black hover:text-white transition-colors duration-300 px-6 py-3 border border-black hover:bg-black"
                 >
                   Request access
