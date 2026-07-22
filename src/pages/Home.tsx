@@ -373,60 +373,67 @@ const Home = () => {
         <div className="pointer-events-none absolute -right-40 top-1/4 w-[520px] h-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.05),transparent_70%)]" />
 
         {/* Constellation — drifting star map */}
-        <div className="pointer-events-none absolute inset-0 overflow-hidden z-0 opacity-70">
+        <div className="pointer-events-none absolute inset-0 overflow-hidden z-0 opacity-90">
           <svg
-            className="absolute -top-10 -right-20 md:top-0 md:right-0 lg:right-8 w-[360px] h-[360px] md:w-[520px] md:h-[520px]"
-            viewBox="0 0 520 520"
+            className="absolute -top-10 -right-20 md:top-0 md:right-0 lg:right-8 w-[380px] h-[380px] md:w-[560px] md:h-[560px]"
+            viewBox="0 0 560 560"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
             {/* Connecting filaments */}
-            <g stroke="url(#constellationGradient)" strokeWidth="1" opacity="0.35">
-              <line x1="120" y1="180" x2="180" y2="150" />
-              <line x1="180" y1="150" x2="240" y2="185" />
-              <line x1="240" y1="185" x2="310" y2="165" />
-              <line x1="310" y1="165" x2="380" y2="200" />
-              <line x1="180" y1="150" x2="160" y2="110" />
-              <line x1="240" y1="185" x2="230" y2="240" />
-              <line x1="230" y1="240" x2="285" y2="270" />
-              <line x1="285" y1="270" x2="360" y2="260" />
-              <line x1="285" y1="270" x2="290" y2="335" />
-              <line x1="120" y1="180" x2="90" y2="230" />
-              <line x1="90" y1="230" x2="130" y2="280" />
-              <line x1="130" y1="280" x2="200" y2="300" />
-              <line x1="200" y1="300" x2="260" y2="350" />
-              <line x1="260" y1="350" x2="330" y2="340" />
+            <g stroke="url(#constellationGradient)" strokeWidth="1.2" opacity="0.45">
+              <line x1="130" y1="200" x2="195" y2="165" />
+              <line x1="195" y1="165" x2="260" y2="200" />
+              <line x1="260" y1="200" x2="335" y2="180" />
+              <line x1="335" y1="180" x2="410" y2="220" />
+              <line x1="195" y1="165" x2="175" y2="120" />
+              <line x1="260" y1="200" x2="250" y2="260" />
+              <line x1="250" y1="260" x2="310" y2="290" />
+              <line x1="310" y1="290" x2="390" y2="280" />
+              <line x1="310" y1="290" x2="315" y2="360" />
+              <line x1="130" y1="200" x2="100" y2="255" />
+              <line x1="100" y1="255" x2="145" y2="310" />
+              <line x1="145" y1="310" x2="220" y2="330" />
+              <line x1="220" y1="330" x2="285" y2="385" />
+              <line x1="285" y1="385" x2="360" y2="370" />
+              <line x1="410" y1="220" x2="460" y2="190" />
+              <line x1="315" y1="360" x2="370" y2="400" />
             </g>
 
             {/* Stars */}
             {[
-              { cx: 120, cy: 180, r: 3, o: 1 },
-              { cx: 180, cy: 150, r: 5, o: 1 },
-              { cx: 160, cy: 110, r: 2.5, o: 0.7 },
-              { cx: 240, cy: 185, r: 4, o: 0.9 },
-              { cx: 310, cy: 165, r: 3.5, o: 0.85 },
-              { cx: 380, cy: 200, r: 2.5, o: 0.6 },
-              { cx: 230, cy: 240, r: 3, o: 0.75 },
-              { cx: 285, cy: 270, r: 4.5, o: 1 },
-              { cx: 360, cy: 260, r: 2.5, o: 0.65 },
-              { cx: 290, cy: 335, r: 3, o: 0.8 },
-              { cx: 90, cy: 230, r: 2.5, o: 0.6 },
-              { cx: 130, cy: 280, r: 3.5, o: 0.85 },
-              { cx: 200, cy: 300, r: 4, o: 0.95 },
-              { cx: 260, cy: 350, r: 3, o: 0.75 },
-              { cx: 330, cy: 340, r: 2.5, o: 0.6 },
-              { cx: 200, cy: 120, r: 2, o: 0.5 },
-              { cx: 340, cy: 130, r: 2, o: 0.45 },
-              { cx: 410, cy: 260, r: 2, o: 0.4 },
-              { cx: 150, cy: 360, r: 2, o: 0.4 },
+              { cx: 130, cy: 200, r: 3, o: 1 },
+              { cx: 195, cy: 165, r: 5.5, o: 1 },
+              { cx: 175, cy: 120, r: 3, o: 0.8 },
+              { cx: 260, cy: 200, r: 4.5, o: 0.95 },
+              { cx: 335, cy: 180, r: 4, o: 0.9 },
+              { cx: 410, cy: 220, r: 3, o: 0.75 },
+              { cx: 460, cy: 190, r: 2.5, o: 0.6 },
+              { cx: 250, cy: 260, r: 3.5, o: 0.85 },
+              { cx: 310, cy: 290, r: 5, o: 1 },
+              { cx: 390, cy: 280, r: 3, o: 0.75 },
+              { cx: 315, cy: 360, r: 3.5, o: 0.9 },
+              { cx: 370, cy: 400, r: 2.5, o: 0.65 },
+              { cx: 100, cy: 255, r: 3, o: 0.7 },
+              { cx: 145, cy: 310, r: 4, o: 0.9 },
+              { cx: 220, cy: 330, r: 4.5, o: 1 },
+              { cx: 285, cy: 385, r: 3.5, o: 0.85 },
+              { cx: 360, cy: 370, r: 3, o: 0.7 },
+              { cx: 220, cy: 130, r: 2.5, o: 0.55 },
+              { cx: 370, cy: 140, r: 2.5, o: 0.5 },
+              { cx: 440, cy: 280, r: 2, o: 0.45 },
+              { cx: 165, cy: 400, r: 2, o: 0.45 },
+              { cx: 280, cy: 460, r: 2, o: 0.4 },
+              { cx: 490, cy: 240, r: 1.8, o: 0.35 },
+              { cx: 70, cy: 220, r: 1.8, o: 0.35 },
             ].map((star, i) => (
               <g key={i}>
                 <circle
                   cx={star.cx}
                   cy={star.cy}
-                  r={star.r * 2.5}
+                  r={star.r * 3}
                   fill="url(#starGlow)"
-                  opacity={star.o * 0.25}
+                  opacity={star.o * 0.3}
                 />
                 <circle
                   cx={star.cx}
@@ -434,14 +441,13 @@ const Home = () => {
                   r={star.r}
                   fill="white"
                   opacity={star.o}
-                  className="origin-center"
                 >
                   <animate
                     attributeName="opacity"
-                    values={`${star.o};${Math.min(star.o + 0.25, 1)};${star.o}`}
-                    dur={`${3 + (i % 4)}s`}
+                    values={`${star.o};${Math.min(star.o + 0.2, 1)};${star.o}`}
+                    dur={`${3.2 + (i % 5)}s`}
                     repeatCount="indefinite"
-                    begin={`${i * 0.15}s`}
+                    begin={`${i * 0.12}s`}
                   />
                 </circle>
               </g>
@@ -449,12 +455,13 @@ const Home = () => {
 
             <defs>
               <radialGradient id="starGlow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#A6FCFC" stopOpacity="0.6" />
+                <stop offset="0%" stopColor="#A6FCFC" stopOpacity="0.7" />
+                <stop offset="60%" stopColor="#D6A6FC" stopOpacity="0.2" />
                 <stop offset="100%" stopColor="#A6FCFC" stopOpacity="0" />
               </radialGradient>
-              <linearGradient id="constellationGradient" x1="0" y1="0" x2="520" y2="520" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stopColor="#A6FCFC" stopOpacity="0.5" />
-                <stop offset="100%" stopColor="#D6A6FC" stopOpacity="0.3" />
+              <linearGradient id="constellationGradient" x1="0" y1="0" x2="560" y2="560" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#A6FCFC" stopOpacity="0.55" />
+                <stop offset="100%" stopColor="#D6A6FC" stopOpacity="0.35" />
               </linearGradient>
             </defs>
           </svg>
