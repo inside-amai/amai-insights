@@ -174,7 +174,7 @@ export const SiteHeader = () => {
               src={headerIcon}
               alt="AMAI" 
               className="h-7 w-auto opacity-90"
-              style={{ transform: 'translateZ(0)', imageRendering: 'crisp-edges', backfaceVisibility: 'hidden' }}
+              style={{ transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
             />
             <button
               onClick={() => setMobileOpen(false)}
