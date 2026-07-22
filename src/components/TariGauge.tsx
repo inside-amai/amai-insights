@@ -9,7 +9,7 @@ export const TariGauge = ({ score = 812 }: { score?: number }) => {
   const gaugeRef = useRef<HTMLDivElement>(null);
   const needleRef = useRef<SVGGElement>(null);
   const numberRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(gaugeRef, { once: false, amount: 0.4 });
+  const isInView = useInView(gaugeRef, { once: true, amount: 0.3 });
 
   const MIN = 300;
   const MAX = 850;
