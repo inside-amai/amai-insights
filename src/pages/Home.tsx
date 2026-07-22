@@ -608,17 +608,13 @@ const Home = () => {
             </motion.div>
 
             <motion.figure className="lg:col-span-7 lg:pt-4 m-0" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}>
-              <div className="relative border border-black/80 bg-white shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)]">
+              <button type="button" onClick={() => setLightboxSrc(agentFleetDashboard.url)} className="block w-full relative border border-black/80 bg-white shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)] cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-black/40">
                 <img src={agentFleetDashboard.url} alt={c.inst.figAlt} className="w-full h-auto block" loading="lazy" />
-              </div>
-              <figcaption className="mt-4 flex items-baseline gap-3 text-[11px] tracking-[0.15em] uppercase text-black/60">
-                <span className="h-px w-6 bg-black/60" />
-                <span className="font-editorial italic text-sm normal-case tracking-normal text-black/70">{c.inst.figCaption}</span>
-              </figcaption>
+              </button>
 
-              <div className="relative border border-black/80 bg-white shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)] mt-10 md:mt-14">
+              <button type="button" onClick={() => setLightboxSrc(institutionsResearch.url)} className="block w-full relative border border-black/80 bg-white shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)] mt-4 md:mt-6 cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-black/40">
                 <img src={institutionsResearch.url} alt={c.inst.figAlt} className="w-full h-auto block" loading="lazy" />
-              </div>
+              </button>
             </motion.figure>
           </div>
 
