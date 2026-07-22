@@ -372,6 +372,94 @@ const Home = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-transparent pointer-events-none" />
         <div className="pointer-events-none absolute -right-40 top-1/4 w-[520px] h-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.05),transparent_70%)]" />
 
+        {/* Constellation — drifting star map */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden z-0 opacity-70">
+          <svg
+            className="absolute -top-10 -right-20 md:top-0 md:right-0 lg:right-8 w-[360px] h-[360px] md:w-[520px] md:h-[520px]"
+            viewBox="0 0 520 520"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            {/* Connecting filaments */}
+            <g stroke="url(#constellationGradient)" strokeWidth="1" opacity="0.35">
+              <line x1="120" y1="180" x2="180" y2="150" />
+              <line x1="180" y1="150" x2="240" y2="185" />
+              <line x1="240" y1="185" x2="310" y2="165" />
+              <line x1="310" y1="165" x2="380" y2="200" />
+              <line x1="180" y1="150" x2="160" y2="110" />
+              <line x1="240" y1="185" x2="230" y2="240" />
+              <line x1="230" y1="240" x2="285" y2="270" />
+              <line x1="285" y1="270" x2="360" y2="260" />
+              <line x1="285" y1="270" x2="290" y2="335" />
+              <line x1="120" y1="180" x2="90" y2="230" />
+              <line x1="90" y1="230" x2="130" y2="280" />
+              <line x1="130" y1="280" x2="200" y2="300" />
+              <line x1="200" y1="300" x2="260" y2="350" />
+              <line x1="260" y1="350" x2="330" y2="340" />
+            </g>
+
+            {/* Stars */}
+            {[
+              { cx: 120, cy: 180, r: 3, o: 1 },
+              { cx: 180, cy: 150, r: 5, o: 1 },
+              { cx: 160, cy: 110, r: 2.5, o: 0.7 },
+              { cx: 240, cy: 185, r: 4, o: 0.9 },
+              { cx: 310, cy: 165, r: 3.5, o: 0.85 },
+              { cx: 380, cy: 200, r: 2.5, o: 0.6 },
+              { cx: 230, cy: 240, r: 3, o: 0.75 },
+              { cx: 285, cy: 270, r: 4.5, o: 1 },
+              { cx: 360, cy: 260, r: 2.5, o: 0.65 },
+              { cx: 290, cy: 335, r: 3, o: 0.8 },
+              { cx: 90, cy: 230, r: 2.5, o: 0.6 },
+              { cx: 130, cy: 280, r: 3.5, o: 0.85 },
+              { cx: 200, cy: 300, r: 4, o: 0.95 },
+              { cx: 260, cy: 350, r: 3, o: 0.75 },
+              { cx: 330, cy: 340, r: 2.5, o: 0.6 },
+              { cx: 200, cy: 120, r: 2, o: 0.5 },
+              { cx: 340, cy: 130, r: 2, o: 0.45 },
+              { cx: 410, cy: 260, r: 2, o: 0.4 },
+              { cx: 150, cy: 360, r: 2, o: 0.4 },
+            ].map((star, i) => (
+              <g key={i}>
+                <circle
+                  cx={star.cx}
+                  cy={star.cy}
+                  r={star.r * 2.5}
+                  fill="url(#starGlow)"
+                  opacity={star.o * 0.25}
+                />
+                <circle
+                  cx={star.cx}
+                  cy={star.cy}
+                  r={star.r}
+                  fill="white"
+                  opacity={star.o}
+                  className="origin-center"
+                >
+                  <animate
+                    attributeName="opacity"
+                    values={`${star.o};${Math.min(star.o + 0.25, 1)};${star.o}`}
+                    dur={`${3 + (i % 4)}s`}
+                    repeatCount="indefinite"
+                    begin={`${i * 0.15}s`}
+                  />
+                </circle>
+              </g>
+            ))}
+
+            <defs>
+              <radialGradient id="starGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#A6FCFC" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#A6FCFC" stopOpacity="0" />
+              </radialGradient>
+              <linearGradient id="constellationGradient" x1="0" y1="0" x2="520" y2="520" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#A6FCFC" stopOpacity="0.5" />
+                <stop offset="100%" stopColor="#D6A6FC" stopOpacity="0.3" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
             {/* LEFT — copy */}
