@@ -975,6 +975,7 @@ const Home = () => {
               >
                 <a
                   href="mailto:team@amai.net?subject=Request%20Access%20%2F%20Enterprise"
+                  onClick={() => showEmailFallbackToast()}
                   className="inline-flex items-center gap-3 text-[13px] tracking-[0.2em] uppercase font-normal text-black hover:text-white transition-colors duration-300 px-6 py-3 border border-black hover:bg-black"
                 >
                   Request access
