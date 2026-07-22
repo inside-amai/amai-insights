@@ -574,11 +574,10 @@ const Home = () => {
             </div>
 
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-black leading-[1.05]">
-              <span className="font-extralight text-black/60">Don't take our word for it.</span>
+              Don't take our word for it.
               <br />
               Run it.
             </h2>
-
 
             <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-black/70 leading-relaxed max-w-xl">
               <span className="text-black font-normal">pip install amai-tari</span> and point it at your own agent. Watch what it actually does — every tool, the full trace, the score — on your machine, in about a minute.
