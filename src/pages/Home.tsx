@@ -752,10 +752,10 @@ const Home = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6">
                 {[
-                  { lead: "See exactly what your agent did", body: "every tool, every move, in plain English. What it actually did, not what it reported." },
-                  { lead: "Catch it the moment it turns", body: "the read→encode→send chain, a scope drift, a call it shouldn't make, flagged live." },
-                  { lead: "One trust score", body: "300 to 850, earned from behavior." },
-                  { lead: "And your data never moves", body: "content-off: all of it, without a single byte leaving your machine." },
+                  { lead: "See exactly what your agent did", body: "Every tool, every move, in plain English. What it actually did, not what it reported." },
+                  { lead: "Catch it the moment it turns", body: "The read→encode→send chain, a scope drift, a call it shouldn't make, flagged live." },
+                  { lead: "One trust score", body: "A 300–850 score earned from behavior." },
+                  { lead: "And your data never moves", body: "Content-off: all of it, without a single byte leaving your machine." },
                 ].map((item, i) => (
                   <motion.div
                     key={item.lead}
@@ -765,7 +765,8 @@ const Home = () => {
                     viewport={{ once: true, amount: 0.5 }}
                     transition={{ duration: 0.7, delay: 0.1 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
                   >
-                    <span className="font-normal text-black">{item.lead}</span> — {item.body}
+                    <span className="font-normal text-black block">{item.lead}</span>
+                    <span className="block mt-1 text-black/70">{item.body}</span>
                   </motion.div>
                 ))}
               </div>
