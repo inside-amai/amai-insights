@@ -1373,6 +1373,8 @@ const translations: Record<Language, Record<string, string>> = {
     'home.thesis': 'THESIS',
     'home.headline': '',
     'home.body': 'Humans have FICO. Businesses have D&B.\n\nAI Agents have TARI™.',
+    'home.bodyPrefix': 'Humans have FICO. Businesses have D&B.\n\n',
+    'home.bodyHighlight': 'AI Agents have TARI™.',
     'home.cta.architecture': 'View Architecture',
     'home.cta.thesis': 'Explore The Thesis',
 
