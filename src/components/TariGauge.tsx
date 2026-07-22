@@ -9,7 +9,7 @@ export const TariGauge = ({ score = 812 }: { score?: number }) => {
   const gaugeRef = useRef<HTMLDivElement>(null);
   const needleRef = useRef<SVGGElement>(null);
   const numberRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(gaugeRef, { once: false, amount: 0.4 });
+  const isInView = useInView(gaugeRef, { once: true, amount: 0.3 });
 
   const MIN = 300;
   const MAX = 850;
@@ -132,7 +132,7 @@ export const TariGauge = ({ score = 812 }: { score?: number }) => {
           strokeDasharray={arcLen}
           initial={{ strokeDashoffset: arcLen }}
           whileInView={{ strokeDashoffset: arcLen * (1 - pct) }}
-          viewport={{ once: false, amount: 0.4 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 2, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
           filter="url(#tari-glow)"
         />
@@ -194,7 +194,7 @@ export const TariGauge = ({ score = 812 }: { score?: number }) => {
         <motion.div
           initial={{ opacity: 0, y: 6 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.4 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, delay: 0.9 }}
           className="text-[10px] md:text-xs uppercase tracking-[0.4em] text-white/50 font-light"
         >
@@ -204,7 +204,7 @@ export const TariGauge = ({ score = 812 }: { score?: number }) => {
           ref={numberRef}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: false, amount: 0.4 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5, delay: 0.35 }}
           className="mt-2 text-6xl md:text-7xl font-light tabular-nums text-white leading-none tracking-tight"
           style={{ textShadow: "0 0 40px rgba(166,252,252,0.25)" }}
@@ -214,7 +214,7 @@ export const TariGauge = ({ score = 812 }: { score?: number }) => {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: false, amount: 0.4 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, delay: 1.4 }}
           className="mt-2 flex items-center gap-2 text-[10px] md:text-xs uppercase tracking-[0.35em] font-light"
         >
