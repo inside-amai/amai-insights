@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 export type Language = 'en' | 'ja' | 'ar';
 
@@ -4596,7 +4596,26 @@ const translations: Record<Language, Record<string, string>> = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguageState] = useState<Language>(() => {
+    if (typeof window === 'undefined') return 'en';
+    const stored = window.localStorage.getItem('amai.lang') as Language | null;
+    return stored === 'ja' || stored === 'ar' || stored === 'en' ? stored : 'en';
+  });
+
+  const setLanguage = (lang: Language) => {
+    setLanguageState(lang);
+    try { window.localStorage.setItem('amai.lang', lang); } catch {}
+  };
+
+  useEffect(() => {
+    const html = document.documentElement;
+    html.lang = language;
+    html.dir = language === 'ar' ? 'rtl' : 'ltr';
+    html.classList.remove('lang-en', 'lang-ja', 'lang-ar');
+    html.classList.add(`lang-${language}`);
+    document.body.classList.remove('lang-en', 'lang-ja', 'lang-ar');
+    document.body.classList.add(`lang-${language}`);
+  }, [language]);
 
   const t = (key: string): string => {
     return translations[language][key] || translations['en'][key] || key;
@@ -4608,6 +4627,7 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
     </LanguageContext.Provider>
   );
 };
+
 
 export const useLanguage = (): LanguageContextType => {
   const context = useContext(LanguageContext);

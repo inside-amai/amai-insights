@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Footer } from '@/components/Footer';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { pickMethodology } from '@/i18n/pageContent';
 
 const Eyebrow = ({ children }: { children: React.ReactNode }) => (
   <span className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium block mb-4">
@@ -10,7 +12,7 @@ const Eyebrow = ({ children }: { children: React.ReactNode }) => (
 );
 
 const SectionNum = ({ children }: { children: React.ReactNode }) => (
-  <div className="text-[10px] tracking-[0.28em] uppercase text-white/40 mb-6 font-mono">
+  <div className="text-[10px] tracking-[0.28em] uppercase text-white/40 mb-6 font-mono keep-ltr" dir="ltr">
     {children}
   </div>
 );
@@ -34,7 +36,7 @@ const Body = ({ children }: { children: React.ReactNode }) => (
 );
 
 const Mono = ({ children }: { children: React.ReactNode }) => (
-  <span className="font-mono text-white/85">{children}</span>
+  <span className="font-mono text-white/85 keep-ltr" dir="ltr">{children}</span>
 );
 
 const Stat = ({
@@ -47,7 +49,7 @@ const Stat = ({
   note?: string;
 }) => (
   <div className="border-t border-white/10 pt-5">
-    <div className="text-2xl md:text-3xl font-light text-white tracking-tight">
+    <div className="text-2xl md:text-3xl font-light text-white tracking-tight keep-ltr" dir="ltr">
       {value}
     </div>
     <div className="text-[10px] tracking-[0.28em] uppercase text-white/50 font-mono mt-2">
@@ -80,13 +82,17 @@ const Callout = ({
 );
 
 const Methodology = () => {
+  const { language } = useLanguage();
+  const c = pickMethodology(language);
+  const isRtl = language === 'ar';
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
     <>
-      <div className="overflow-x-hidden">
+      <div className="overflow-x-hidden" dir={isRtl ? 'rtl' : 'ltr'}>
         <div className="relative bg-perspective-grid">
           <div className="relative z-10">
             {/* HERO */}
@@ -97,21 +103,15 @@ const Methodology = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <Eyebrow>Methodology</Eyebrow>
+                  <Eyebrow>{c.hero.eyebrow}</Eyebrow>
                   <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-[1.05] tracking-tight max-w-4xl">
-                    How the score is built, and how to check our work.
+                    {c.hero.title}
                   </h1>
                   <p className="mt-8 text-base md:text-lg font-light text-white/60 leading-relaxed max-w-3xl">
-                    TARI™ is not a black box. Given the same inputs, a score is
-                    recomputable and auditable. Below is the full method, the
-                    validation numbers, and the limitations we disclose: the
-                    same figures our own automated checks enforce on every
-                    commit.
+                    {c.hero.body}
                   </p>
                   <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[10px] tracking-[0.28em] uppercase text-white/40 font-mono">
-                    <span>Canonical as of 2026-07-21</span>
-                    <span>post-#130 promote</span>
-                    <span>Source: claims-registry</span>
+                    {c.hero.meta.map((m) => <span key={m}>{m}</span>)}
                   </div>
                 </motion.div>
               </div>
@@ -126,40 +126,29 @@ const Methodology = () => {
                   transition={{ duration: 0.6 }}
                   viewport={{ once: true }}
                 >
-                  <SectionNum>01 // Two engines, one index</SectionNum>
-                  <H2>TARI™ is two independent scoring engines under one 300 to 850 scale.</H2>
+                  <SectionNum>{c.s01.num}</SectionNum>
+                  <H2>{c.s01.title}</H2>
                 </motion.div>
 
                 <div className="grid md:grid-cols-2 gap-px bg-white/10 border border-white/10 mt-14">
                   <div className="bg-black p-8 md:p-10">
                     <div className="text-[10px] tracking-[0.28em] uppercase text-white/40 mb-3 font-mono">
-                      Engine A
+                      {c.s01.engineA}
                     </div>
-                    <H3>Conduct</H3>
-                    <Body>
-                      Scores instrumented agents: how an agent behaves,
-                      content-off.
-                    </Body>
+                    <H3>{c.s01.conduct}</H3>
+                    <Body>{c.s01.conductBody}</Body>
                   </div>
                   <div className="bg-black p-8 md:p-10">
                     <div className="text-[10px] tracking-[0.28em] uppercase text-white/40 mb-3 font-mono">
-                      Engine B
+                      {c.s01.engineB}
                     </div>
-                    <H3>Credit</H3>
-                    <Body>
-                      Scores on-chain wallets: repayment behavior from public
-                      lending data.
-                    </Body>
+                    <H3>{c.s01.credit}</H3>
+                    <Body>{c.s01.creditBody}</Body>
                   </div>
                 </div>
 
                 <div className="mt-8">
-                  <Callout>
-                    They share a scale, not data. There is no identity link
-                    between a wallet and an agent. A subject carrying both
-                    halves is the end state, not today's data. Never read a
-                    null conduct score as a zero.
-                  </Callout>
+                  <Callout>{c.s01.callout}</Callout>
                 </div>
               </div>
             </section>
@@ -173,69 +162,31 @@ const Methodology = () => {
                   transition={{ duration: 0.6 }}
                   viewport={{ once: true }}
                 >
-                  <SectionNum>02 // The conduct engine (agents)</SectionNum>
-                  <H2>What it reads, content-off.</H2>
+                  <SectionNum>{c.s02.num}</SectionNum>
+                  <H2>{c.s02.title}</H2>
                   <p className="mt-6 text-sm md:text-base font-light text-white/60 leading-relaxed max-w-3xl">
-                    Only the agent's tool names, order, and timing. Never
-                    prompts, tool arguments, or model outputs, and nothing
-                    leaves the machine. That single constraint is what lets a
-                    developer self-install with zero privacy risk, and a
-                    sovereign institution deploy without exporting a sensitive
-                    byte.
+                    {c.s02.intro}
                   </p>
                 </motion.div>
 
-                {/* Five dimensions */}
                 <div className="mt-14">
-                  <SectionNum>Five scored dimensions</SectionNum>
+                  <SectionNum>{c.s02.dimsHead}</SectionNum>
                   <p className="text-sm font-light text-white/55 leading-relaxed max-w-3xl mb-8">
-                    Each bound to OWASP ASI01–10 and MITRE ATLAS, so an
-                    auditor traces every point.
+                    {c.s02.dimsIntro}
                   </p>
                   <div className="grid md:grid-cols-2 gap-px bg-white/10 border border-white/10">
-                    {[
-                      {
-                        n: 'D1',
-                        t: 'Exfiltration Risk',
-                        d: 'Data-handling; the read → encode → external-POST shape. Highest-weighted.',
-                        hi: true,
-                      },
-                      {
-                        n: 'D2',
-                        t: 'Resilience',
-                        d: 'Resistance to injection and attack.',
-                      },
-                      {
-                        n: 'D3',
-                        t: 'Scope Integrity',
-                        d: 'Staying within mandate.',
-                      },
-                      {
-                        n: 'D4',
-                        t: 'Reliability',
-                        d: 'Clean completion; errors, retries, stalls.',
-                      },
-                      {
-                        n: 'D5',
-                        t: 'Consistency',
-                        d: 'Drift and anomaly over time.',
-                      },
-                    ].map((d) => (
+                    {c.s02.dims.map((d) => (
                       <div key={d.n} className="bg-black p-6 md:p-8">
                         <div className="flex items-baseline gap-4">
-                          <span className="font-mono text-[10px] tracking-[0.28em] uppercase text-white/40">
+                          <span className="font-mono text-[10px] tracking-[0.28em] uppercase text-white/40 keep-ltr" dir="ltr">
                             {d.n}
                           </span>
                           <div>
-                            <h4
-                              className={`text-base md:text-lg font-light tracking-tight ${
-                                d.hi ? 'text-white' : 'text-white/90'
-                              }`}
-                            >
+                            <h4 className={`text-base md:text-lg font-light tracking-tight ${('hi' in d && d.hi) ? 'text-white' : 'text-white/90'}`}>
                               {d.t}
-                              {d.hi && (
+                              {'hi' in d && d.hi && (
                                 <span className="ml-3 text-[9px] font-mono tracking-[0.28em] uppercase text-teal-300/80">
-                                  Top weight
+                                  {c.s02.topWeight}
                                 </span>
                               )}
                             </h4>
@@ -249,90 +200,47 @@ const Methodology = () => {
                     <div className="bg-black hidden md:block" aria-hidden />
                   </div>
                   <p className="mt-6 text-sm font-light text-white/55 leading-relaxed max-w-3xl">
-                    Weights are documented expert priors (rank-order centroid),
-                    carried with a wide confidence band and re-fit as real
-                    labels accrue. Never equal weights, and never presented as
-                    fitted. Exfiltration is a first-class dimension by design:
-                    the exfil sequence is what most tools never score.
+                    {c.s02.dimsNote}
                   </p>
                 </div>
 
                 {/* Validation */}
                 <div className="mt-16">
-                  <SectionNum>Validation</SectionNum>
+                  <SectionNum>{c.s02.valHead}</SectionNum>
                   <p className="text-sm font-light text-white/55 leading-relaxed max-w-3xl mb-8">
-                    AgentDojo important_instructions, injection-compromise
-                    discrimination.
+                    {c.s02.valIntro}
                   </p>
                   <div className="grid md:grid-cols-3 gap-x-10 gap-y-8">
-                    <Stat
-                      value="AUC 0.835"
-                      label="gpt-4o, single model"
-                      note="n = 726. The single-model headline."
-                    />
-                    <Stat
-                      value="AUC 0.797"
-                      label="Two-model pooled"
-                      note="gpt-4o + gpt-4o-mini, n = 1,452."
-                    />
-                    <Stat
-                      value="AUC 0.769"
-                      label="gpt-4o-mini"
-                      note="Harness soundness confirmed. Attack-success 0.55 contains AgentDojo's published 0.531."
-                    />
+                    {c.s02.stats.map((s) => (
+                      <Stat key={s.value + s.label} value={s.value} label={s.label} note={s.note} />
+                    ))}
                   </div>
                   <div className="mt-10">
-                    <Callout>
-                      The defensible claim, stated plainly: the score
-                      discriminates injection-compromised behavior on
-                      benchmarks. It is not a validated prediction of
-                      real-world incidents. We say "discriminates," not
-                      "predicts."
-                    </Callout>
+                    <Callout>{c.s02.valCallout}</Callout>
                   </div>
                 </div>
 
                 {/* Limitations */}
                 <div className="mt-16">
-                  <SectionNum>Honest limitations</SectionNum>
+                  <SectionNum>{c.s02.limHead}</SectionNum>
                   <div className="space-y-6 max-w-4xl">
                     <div className="border-t border-white/10 pt-5">
-                      <H3>Competence entanglement</H3>
-                      <Body>
-                        A low score correlates slightly with task failure, not
-                        only compromise (competence-control AUC 0.585 gpt-4o
-                        and 0.680 mini). The score is most trustworthy on
-                        capable agents.
-                      </Body>
+                      <H3>{c.s02.compTitle}</H3>
+                      <Body>{c.s02.compBody}</Body>
                     </div>
                     <div className="border-t border-white/10 pt-5">
-                      <H3>Coverage</H3>
+                      <H3>{c.s02.coverageTitle}</H3>
                       <div className="grid sm:grid-cols-3 gap-4 mt-2">
-                        <div className="border border-white/10 bg-black p-4">
-                          <div className="text-[10px] font-mono tracking-[0.28em] uppercase text-teal-300/80 mb-2">
-                            Strong
+                        {c.s02.coverage.map((cov, i) => (
+                          <div key={cov.tag} className="border border-white/10 bg-black p-4">
+                            <div className={`text-[10px] font-mono tracking-[0.28em] uppercase mb-2 ${
+                              i === 0 ? 'text-teal-300/80' : i === 1 ? 'text-amber-300/80' : 'text-white/40'
+                            }`}>
+                              {cov.tag}
+                            </div>
+                            <div className="text-sm font-light text-white/70">{cov.body}</div>
                           </div>
-                          <div className="text-sm font-light text-white/70">
-                            Injection and exfiltration (AUC ≥ 0.797)
-                          </div>
-                        </div>
-                        <div className="border border-white/10 bg-black p-4">
-                          <div className="text-[10px] font-mono tracking-[0.28em] uppercase text-amber-300/80 mb-2">
-                            Partial
-                          </div>
-                          <div className="text-sm font-light text-white/70">
-                            Data-leak
-                          </div>
-                        </div>
-                        <div className="border border-white/10 bg-black p-4">
-                          <div className="text-[10px] font-mono tracking-[0.28em] uppercase text-white/40 mb-2">
-                            Blind
-                          </div>
-                          <div className="text-sm font-light text-white/70">
-                            Content-compliance by design. We never read
-                            content.
-                          </div>
-                        </div>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -340,82 +248,41 @@ const Methodology = () => {
 
                 {/* Bands */}
                 <div className="mt-16">
-                  <SectionNum>The bands (per-run, at moderate confidence)</SectionNum>
+                  <SectionNum>{c.s02.bandsHead}</SectionNum>
                   <p className="text-sm font-light text-white/55 leading-relaxed max-w-3xl mb-6">
-                    Benchmark-conditional fractions. Not real-world
-                    probabilities.
+                    {c.s02.bandsIntro}
                   </p>
                   <div className="grid md:grid-cols-4 gap-px bg-white/10 border border-white/10">
-                    {[
-                      {
-                        r: '800 to 850',
-                        v: '~6.9% compromised',
-                        c: 'text-teal-300/90',
-                      },
-                      {
-                        r: '650 to 799',
-                        v: '≈ base rate',
-                        c: 'text-green-300/90',
-                        note: 'Band membership uninformative, non-monotone.',
-                      },
-                      {
-                        r: '550 to 649',
-                        v: '~72% compromised',
-                        c: 'text-orange-300/90',
-                      },
-                      {
-                        r: '300 to 549',
-                        v: 'Insufficient data',
-                        c: 'text-red-300/90',
-                      },
-                    ].map((b) => (
-                      <div key={b.r} className="bg-black p-5">
-                        <div
-                          className={`text-[10px] tracking-[0.28em] uppercase font-mono ${b.c} mb-2`}
-                        >
-                          {b.r}
-                        </div>
-                        <div className="text-sm font-light text-white">
-                          {b.v}
-                        </div>
-                        {b.note && (
-                          <div className="text-xs font-light text-white/45 mt-2 leading-relaxed">
-                            {b.note}
+                    {c.s02.bands.map((b, i) => {
+                      const colors = ['text-teal-300/90', 'text-green-300/90', 'text-orange-300/90', 'text-red-300/90'];
+                      return (
+                        <div key={b.r} className="bg-black p-5">
+                          <div className={`text-[10px] tracking-[0.28em] uppercase font-mono ${colors[i]} mb-2 keep-ltr`} dir="ltr">
+                            {b.r}
                           </div>
-                        )}
-                      </div>
-                    ))}
+                          <div className="text-sm font-light text-white">{b.v}</div>
+                          {'note' in b && b.note && (
+                            <div className="text-xs font-light text-white/45 mt-2 leading-relaxed">{b.note}</div>
+                          )}
+                        </div>
+                      );
+                    })}
                   </div>
                   <div className="mt-6">
-                    <Callout tone="warn">
-                      A real 725 to 749 pocket runs ~78% compromised in
-                      benchmark data. Do not read 780 as safer than 700. The
-                      bands rank, they do not certify.
-                    </Callout>
+                    <Callout tone="warn">{c.s02.bandsWarn}</Callout>
                   </div>
                 </div>
 
                 {/* Triage */}
                 <div className="mt-16">
-                  <SectionNum>Triage, not gate</SectionNum>
+                  <SectionNum>{c.s02.triageHead}</SectionNum>
                   <div className="grid md:grid-cols-2 gap-6 max-w-4xl">
-                    <div className="border border-white/10 bg-black p-6">
-                      <H3>UNRATED</H3>
-                      <Body>
-                        Do not act on the number. Instrument first. When
-                        confidence is low the subject is UNRATED, and
-                        confidence is two-level, so a "high-confidence" agent
-                        claim is unreachable by construction.
-                      </Body>
-                    </div>
-                    <div className="border border-white/10 bg-black p-6">
-                      <H3>800+</H3>
-                      <Body>
-                        No adverse signal. Not a safety certificate. Any
-                        gating is done by a policy you set, never by the
-                        score alone.
-                      </Body>
-                    </div>
+                    {c.s02.triage.map((tr) => (
+                      <div key={tr.t} className="border border-white/10 bg-black p-6">
+                        <H3><span className="keep-ltr" dir="ltr">{tr.t}</span></H3>
+                        <Body>{tr.b}</Body>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -430,92 +297,57 @@ const Methodology = () => {
                   transition={{ duration: 0.6 }}
                   viewport={{ once: true }}
                 >
-                  <SectionNum>03 // The credit engine (wallets)</SectionNum>
-                  <H2>An on-chain WOE logistic scorecard over real DeFi lending behavior.</H2>
+                  <SectionNum>{c.s03.num}</SectionNum>
+                  <H2>{c.s03.title}</H2>
                   <p className="mt-6 text-sm md:text-base font-light text-white/60 leading-relaxed max-w-3xl">
-                    Aave v2/v3, Morpho, on Ethereum + Base. Target:
-                    liquidation-driven default (<Mono>bad_liq</Mono>). Rigor:
-                    per-wallet relative 12/12-month windows. Features
-                    drawn only from the observation window, the label only
-                    from a later performance window, so there is no leakage.
-                    It rank-orders default risk on 300 to 850. It is not a
-                    calibrated probability of default.
+                    {c.s03.intro1}<Mono>bad_liq</Mono>{c.s03.intro2}
                   </p>
                 </motion.div>
 
-                {/* OOT Validation */}
                 <div className="mt-14">
-                  <SectionNum>Validation (out-of-time)</SectionNum>
+                  <SectionNum>{c.s03.valHead}</SectionNum>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="border border-white/10 bg-black p-6 md:p-8">
                       <div className="text-[10px] font-mono tracking-[0.28em] uppercase text-teal-300/80 mb-3">
-                        Headline (like-for-like)
+                        {c.s03.headline}
                       </div>
-                      <div className="text-4xl font-light text-white tracking-tight">
-                        Gini 0.630
+                      <div className="text-4xl font-light text-white tracking-tight keep-ltr" dir="ltr">
+                        {c.s03.headlineValue}
                       </div>
-                      <div className="text-sm font-light text-white/65 mt-3">
-                        Ethereum-only OOT, n = 21,518.
-                      </div>
+                      <div className="text-sm font-light text-white/65 mt-3">{c.s03.headlineSample}</div>
                       <div className="text-xs font-light text-white/45 mt-3 leading-relaxed">
-                        The prior 2026-07-13 snapshot read 0.638. This moved
-                        within the ±0.03 tolerance on a normal weekly data
-                        refresh. Discrimination held.
+                        {c.s03.headlineNote}
                       </div>
                     </div>
                     <div className="border border-amber-400/30 bg-amber-400/[0.02] p-6 md:p-8">
                       <div className="text-[10px] font-mono tracking-[0.28em] uppercase text-amber-300/90 mb-3">
-                        Pooled cut, use with care
+                        {c.s03.pooledLabel}
                       </div>
-                      <div className="text-3xl font-light text-white tracking-tight">
-                        Gini 0.528
+                      <div className="text-3xl font-light text-white tracking-tight keep-ltr" dir="ltr">
+                        {c.s03.pooledValue}
                       </div>
-                      <div className="text-sm font-light text-white/65 mt-3">
-                        AUC 0.764 · KS 0.395 · PSI 0.062 · n = 46,693.
-                      </div>
+                      <div className="text-sm font-light text-white/65 mt-3 keep-ltr" dir="ltr">{c.s03.pooledSample}</div>
                       <div className="text-xs font-light text-amber-100/70 mt-3 leading-relaxed">
-                        Composition-flattered (a Simpson effect from Base
-                        being ~half the sample). We lead with the
-                        Ethereum-only 0.630 or the per-venue figures, and
-                        never quote the pooled Gini alone. These pooled
-                        companions belong to 0.528. They are never welded to
-                        the 0.630 cut.
+                        {c.s03.pooledNote}
                       </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Per-venue */}
                 <div className="mt-14">
-                  <SectionNum>Per-venue OOT Gini (all rank-order)</SectionNum>
+                  <SectionNum>{c.s03.venueHead}</SectionNum>
                   <div className="border border-white/10">
-                    {[
-                      { v: 'Aave v2 Ethereum', g: '0.68' },
-                      { v: 'Aave v3 Ethereum', g: '0.53' },
-                      { v: 'Aave v3 Base', g: '0.41' },
-                      { v: 'Morpho Ethereum', g: '0.36' },
-                      {
-                        v: 'Morpho Base',
-                        g: '0.91',
-                        note: 'n = 500. Tiny. Not a headline.',
-                      },
-                    ].map((row, i) => (
+                    {c.s03.venues.map((row, i) => (
                       <div
                         key={row.v}
-                        className={`flex flex-wrap items-baseline justify-between gap-4 bg-black px-6 py-4 ${
-                          i > 0 ? 'border-t border-white/10' : ''
-                        }`}
+                        className={`flex flex-wrap items-baseline justify-between gap-4 bg-black px-6 py-4 ${i > 0 ? 'border-t border-white/10' : ''}`}
                       >
-                        <span className="text-sm font-light text-white/80">
-                          {row.v}
-                        </span>
+                        <span className="text-sm font-light text-white/80 keep-ltr" dir="ltr">{row.v}</span>
                         <span className="flex items-baseline gap-4">
-                          {row.note && (
-                            <span className="text-xs font-light text-amber-300/80">
-                              {row.note}
-                            </span>
+                          {'note' in row && row.note && (
+                            <span className="text-xs font-light text-amber-300/80">{row.note}</span>
                           )}
-                          <span className="font-mono text-lg font-light text-white tracking-tight">
+                          <span className="font-mono text-lg font-light text-white tracking-tight keep-ltr" dir="ltr">
                             {row.g}
                           </span>
                         </span>
@@ -524,129 +356,73 @@ const Methodology = () => {
                   </div>
                 </div>
 
-                {/* Population */}
                 <div className="mt-14">
-                  <SectionNum>Scored population</SectionNum>
+                  <SectionNum>{c.s03.popHead}</SectionNum>
                   <div className="grid md:grid-cols-3 gap-x-10 gap-y-8">
-                    <Stat
-                      value="155,634"
-                      label="Eligible wallets"
-                      note="This is the pool size, not the sample size of any Gini figure."
-                    />
-                    <Stat value="~410,000" label="Raw wallets" />
-                    <Stat value="~15M" label="Events processed" />
+                    {c.s03.popStats.map((s) => (
+                      <Stat key={s.value} value={s.value} label={s.label} note={'note' in s ? s.note : undefined} />
+                    ))}
                   </div>
                 </div>
 
-                {/* Per-chain calibration */}
                 <div className="mt-14">
-                  <SectionNum>Per-chain calibration + the economic-stake floor</SectionNum>
+                  <SectionNum>{c.s03.calHead}</SectionNum>
                   <p className="text-sm font-light text-white/60 leading-relaxed max-w-3xl mb-6">
-                    Tier cutpoints differ by chain, so a served tier never
-                    understates its Ethereum-validated risk on the chain the
-                    wallet actually transacted on.
+                    {c.s03.calIntro}
                   </p>
                   <div className="grid md:grid-cols-2 gap-px bg-white/10 border border-white/10">
                     <div className="bg-black p-6 md:p-8">
                       <div className="text-[10px] font-mono tracking-[0.28em] uppercase text-white/40 mb-3">
-                        Ethereum cutpoints
+                        {c.s03.ethLabel}
                       </div>
-                      <div className="font-mono text-xl text-white/90">
-                        580 / 670 / 740
-                      </div>
-                      <div className="text-xs font-light text-white/50 mt-3 leading-relaxed">
-                        Economic-stake floor ~$10.
-                      </div>
+                      <div className="font-mono text-xl text-white/90 keep-ltr" dir="ltr">{c.s03.ethCuts}</div>
+                      <div className="text-xs font-light text-white/50 mt-3 leading-relaxed">{c.s03.ethNote}</div>
                     </div>
                     <div className="bg-black p-6 md:p-8">
                       <div className="text-[10px] font-mono tracking-[0.28em] uppercase text-white/40 mb-3">
-                        Base cutpoints
+                        {c.s03.baseLabel}
                       </div>
-                      <div className="font-mono text-xl text-white/90">
-                        624 / 728 / 777
-                      </div>
-                      <div className="text-xs font-light text-white/50 mt-3 leading-relaxed">
-                        Economic-stake floor ~$0. Base is compressed and
-                        safer (Base OOT Gini 0.41 vs Ethereum 0.63).
-                      </div>
+                      <div className="font-mono text-xl text-white/90 keep-ltr" dir="ltr">{c.s03.baseCuts}</div>
+                      <div className="text-xs font-light text-white/50 mt-3 leading-relaxed">{c.s03.baseNote}</div>
                     </div>
                   </div>
                   <div className="mt-6">
-                    <Callout>
-                      A wallet is UNRATED when its exposure is unpriced, or
-                      below the chain's economic-stake floor. Below it, no
-                      real liquidation test occurred, so an absent bad
-                      outcome is not evidence of safety. A served Base file
-                      at or below $10 is a thin-file group estimate,
-                      disclosed as such, not an individual track record.
-                    </Callout>
+                    <Callout>{c.s03.calCallout}</Callout>
                   </div>
                 </div>
 
-                {/* Served tiers */}
                 <div className="mt-14">
-                  <SectionNum>Served tiers (public Bureau/hub, post per-chain gate)</SectionNum>
+                  <SectionNum>{c.s03.tiersHead}</SectionNum>
                   <div className="border border-white/10">
-                    {[
-                      {
-                        t: 'Excellent',
-                        n: '6,787',
-                        c: 'text-teal-300/90',
-                      },
-                      {
-                        t: 'Good',
-                        n: '11,859',
-                        c: 'text-green-300/90',
-                      },
-                      { t: 'Fair', n: '77,790', c: 'text-white/80' },
-                      { t: 'Poor', n: '36,233', c: 'text-orange-300/90' },
-                      {
-                        t: 'UNRATED',
-                        n: '22,965',
-                        c: 'text-white/50',
-                        note: '14.8%',
-                      },
-                    ].map((r, i) => (
-                      <div
-                        key={r.t}
-                        className={`flex flex-wrap items-baseline justify-between gap-4 bg-black px-6 py-4 ${
-                          i > 0 ? 'border-t border-white/10' : ''
-                        }`}
-                      >
-                        <span
-                          className={`text-[10px] font-mono tracking-[0.28em] uppercase ${r.c}`}
+                    {c.s03.tiers.map((r, i) => {
+                      const colors = ['text-teal-300/90', 'text-green-300/90', 'text-white/80', 'text-orange-300/90', 'text-white/50'];
+                      return (
+                        <div
+                          key={r.t}
+                          className={`flex flex-wrap items-baseline justify-between gap-4 bg-black px-6 py-4 ${i > 0 ? 'border-t border-white/10' : ''}`}
                         >
-                          {r.t}
-                        </span>
-                        <span className="flex items-baseline gap-4">
-                          {r.note && (
-                            <span className="text-xs font-light text-white/45">
-                              {r.note}
-                            </span>
-                          )}
-                          <span className="font-mono text-lg font-light text-white tracking-tight">
-                            {r.n}
+                          <span className={`text-[10px] font-mono tracking-[0.28em] uppercase ${colors[i]} keep-ltr`} dir="ltr">
+                            {r.t}
                           </span>
-                        </span>
-                      </div>
-                    ))}
+                          <span className="flex items-baseline gap-4">
+                            {'note' in r && r.note && (
+                              <span className="text-xs font-light text-white/45 keep-ltr" dir="ltr">{r.note}</span>
+                            )}
+                            <span className="font-mono text-lg font-light text-white tracking-tight keep-ltr" dir="ltr">
+                              {r.n}
+                            </span>
+                          </span>
+                        </div>
+                      );
+                    })}
                   </div>
-                  <p className="mt-5 text-sm font-light text-white/55 leading-relaxed">
-                    32,259 files carry the thin-file actuarial disclosure.
-                  </p>
+                  <p className="mt-5 text-sm font-light text-white/55 leading-relaxed">{c.s03.tiersFoot}</p>
                 </div>
 
-                {/* Honest limitation */}
                 <div className="mt-14">
-                  <SectionNum>Honest limitation</SectionNum>
+                  <SectionNum>{c.s03.limHead}</SectionNum>
                   <div className="max-w-4xl">
-                    <Callout>
-                      The model is not yet calibrated in-band (calibration
-                      ratio 0.27–0.90 vs a 0.80–1.20 target). It
-                      over-predicts default (conservative), from real
-                      base-rate drift. Rank-ordering is unaffected. We
-                      disclose it rather than smooth it.
-                    </Callout>
+                    <Callout>{c.s03.limCallout}</Callout>
                   </div>
                 </div>
               </div>
@@ -661,46 +437,27 @@ const Methodology = () => {
                   transition={{ duration: 0.6 }}
                   viewport={{ once: true }}
                 >
-                  <SectionNum>04 // Why you can trust the number</SectionNum>
-                  <H2>Reproducible. Honest by construction. Mechanically enforced.</H2>
+                  <SectionNum>{c.s04.num}</SectionNum>
+                  <H2>{c.s04.title}</H2>
                 </motion.div>
 
                 <div className="grid md:grid-cols-3 gap-px bg-white/10 border border-white/10 mt-14">
-                  <div className="bg-black p-8">
-                    <div className="text-[10px] font-mono tracking-[0.28em] uppercase text-white/40 mb-4">
-                      Reproducible, not black-box
+                  {c.s04.cards.map((card, i) => (
+                    <div key={card.label} className="bg-black p-8">
+                      <div className="text-[10px] font-mono tracking-[0.28em] uppercase text-white/40 mb-4">
+                        {card.label}
+                      </div>
+                      <Body>
+                        {i === 2 && 'bodyPre' in card ? (
+                          <>
+                            {card.bodyPre}<Mono>band_claims_check</Mono>{card.bodyMid1}<Mono>check_tier_transport</Mono>{card.bodyMid2}
+                          </>
+                        ) : (
+                          'body' in card ? card.body : null
+                        )}
+                      </Body>
                     </div>
-                    <Body>
-                      Same inputs + ledger state produce the same score,
-                      recomputable and auditable.
-                    </Body>
-                  </div>
-                  <div className="bg-black p-8">
-                    <div className="text-[10px] font-mono tracking-[0.28em] uppercase text-white/40 mb-4">
-                      Honest by construction
-                    </div>
-                    <Body>
-                      UNRATED when we can't tell. Disclosed limitations
-                      travel with every figure. "Not a safety certificate"
-                      and "not a calibrated probability" are stated, not
-                      buried.
-                    </Body>
-                  </div>
-                  <div className="bg-black p-8">
-                    <div className="text-[10px] font-mono tracking-[0.28em] uppercase text-white/40 mb-4">
-                      Mechanically enforced
-                    </div>
-                    <Body>
-                      Our own automated checks recompute every published
-                      claim from the raw artifacts on each commit: the band
-                      statements (<Mono>band_claims_check</Mono>), the
-                      per-chain tier transport (
-                      <Mono>check_tier_transport</Mono>), and a
-                      claims-registry drift check that fails the build if
-                      any number here drifts from source. The page and the
-                      product cannot silently disagree.
-                    </Body>
-                  </div>
+                  ))}
                 </div>
               </div>
             </section>
@@ -710,18 +467,17 @@ const Methodology = () => {
               <div className="container mx-auto px-6 max-w-5xl">
                 <div className="flex flex-wrap items-baseline justify-between gap-6">
                   <div>
-                    <Eyebrow>Versioned. Auditable.</Eyebrow>
+                    <Eyebrow>{c.changelog.eyebrow}</Eyebrow>
                     <p className="text-lg md:text-xl font-light text-white/75 max-w-2xl leading-relaxed">
-                      Every material change is recorded as an immutable
-                      methodology version.
+                      {c.changelog.body}
                     </p>
                   </div>
                   <Link
                     to="/methodology/changelog"
                     className="inline-flex items-center gap-2 text-sm font-mono tracking-[0.2em] uppercase text-white/85 hover:text-white border-b border-white/20 hover:border-white/60 pb-1 transition-colors"
                   >
-                    View changelog
-                    <span aria-hidden="true">→</span>
+                    {c.changelog.link}
+                    <span aria-hidden="true">{isRtl ? '←' : '→'}</span>
                   </Link>
                 </div>
               </div>
