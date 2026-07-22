@@ -1045,7 +1045,7 @@ const Home = () => {
 
           {/* One line only */}
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-white leading-[1.1]">
-            The trust layer for the autonomous economy.
+            The Trust Layer For The Autonomous Economy.
           </h2>
 
           {/* Tracked-out tag leading into the footer */}
