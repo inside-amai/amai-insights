@@ -5,7 +5,8 @@ import { Copy, Check, ChevronRight, ChevronLeft } from "lucide-react";
 import amaiLogo from "@/assets/amai-logo-tm.png";
 import { showEmailFallbackToast } from "@/lib/contact-toast";
 import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
-import agentFleetDashboard from "@/assets/agent-fleet-dashboard.png.asset.json";
+import agentFleetDashboard from "@/assets/institutions-fleet.png.asset.json";
+import institutionsResearch from "@/assets/institutions-research.png.asset.json";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { pickHome } from "@/i18n/pageContent";
 
@@ -614,6 +615,10 @@ const Home = () => {
                 <span className="h-px w-6 bg-black/60" />
                 <span className="font-editorial italic text-sm normal-case tracking-normal text-black/70">{c.inst.figCaption}</span>
               </figcaption>
+
+              <div className="relative border border-black/80 bg-white shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)] mt-10 md:mt-14">
+                <img src={institutionsResearch.url} alt={c.inst.figAlt} className="w-full h-auto block" loading="lazy" />
+              </div>
             </motion.figure>
           </div>
 
