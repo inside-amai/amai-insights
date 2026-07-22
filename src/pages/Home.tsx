@@ -53,6 +53,16 @@ const Home = () => {
   const [copied, setCopied] = useState(false);
   const [showLeftNavArrow, setShowLeftNavArrow] = useState(false);
   const [showRightNavArrow, setShowRightNavArrow] = useState(true);
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!lightboxSrc) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setLightboxSrc(null); };
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKey);
+    return () => { window.removeEventListener('keydown', onKey); document.body.style.overflow = prevOverflow; };
+  }, [lightboxSrc]);
   const navListRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
@@ -608,17 +618,13 @@ const Home = () => {
             </motion.div>
 
             <motion.figure className="lg:col-span-7 lg:pt-4 m-0" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}>
-              <div className="relative border border-black/80 bg-white shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)]">
+              <button type="button" onClick={() => setLightboxSrc(agentFleetDashboard.url)} className="block w-full relative border border-black/80 bg-white shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)] cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-black/40">
                 <img src={agentFleetDashboard.url} alt={c.inst.figAlt} className="w-full h-auto block" loading="lazy" />
-              </div>
-              <figcaption className="mt-4 flex items-baseline gap-3 text-[11px] tracking-[0.15em] uppercase text-black/60">
-                <span className="h-px w-6 bg-black/60" />
-                <span className="font-editorial italic text-sm normal-case tracking-normal text-black/70">{c.inst.figCaption}</span>
-              </figcaption>
+              </button>
 
-              <div className="relative border border-black/80 bg-white shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)] mt-10 md:mt-14">
+              <button type="button" onClick={() => setLightboxSrc(institutionsResearch.url)} className="block w-full relative border border-black/80 bg-white shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)] mt-4 md:mt-6 cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-black/40">
                 <img src={institutionsResearch.url} alt={c.inst.figAlt} className="w-full h-auto block" loading="lazy" />
-              </div>
+              </button>
             </motion.figure>
           </div>
 
@@ -643,6 +649,30 @@ const Home = () => {
       </section>
 
       <Footer />
+
+      {lightboxSrc && (
+        <div
+          className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-10 cursor-zoom-out"
+          onClick={() => setLightboxSrc(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <button
+            type="button"
+            onClick={(e) => { e.stopPropagation(); setLightboxSrc(null); }}
+            className="absolute top-4 right-4 md:top-6 md:right-6 text-white/80 hover:text-white text-2xl leading-none w-10 h-10 flex items-center justify-center border border-white/20 rounded-full"
+            aria-label="Close"
+          >
+            ×
+          </button>
+          <img
+            src={lightboxSrc}
+            alt=""
+            onClick={(e) => e.stopPropagation()}
+            className="max-w-full max-h-full w-auto h-auto object-contain shadow-2xl cursor-default"
+          />
+        </div>
+      )}
     </div>
   );
 };
