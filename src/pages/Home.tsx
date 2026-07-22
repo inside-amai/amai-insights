@@ -962,8 +962,8 @@ const Home = () => {
                 viewport={{ once: true, amount: 0.5 }}
                 transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
               >
-                <p className="font-editorial text-3xl md:text-4xl lg:text-5xl leading-[1.1] text-black">
-                  Your data <em className="italic text-black/70">never leaves your walls.</em>
+                <p className="font-editorial text-3xl md:text-4xl lg:text-5xl leading-[1.1] text-black/70">
+                  Your data <em className="italic text-black">never leaves your walls.</em>
                 </p>
               </motion.blockquote>
 
