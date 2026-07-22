@@ -1035,6 +1035,102 @@ const Home = () => {
         {/* Center vignette for depth */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)] pointer-events-none" />
 
+        {/* Constellation — drifting star map behind the mark */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden z-0 opacity-50">
+          <svg
+            className="absolute left-1/2 top-[40%] -translate-x-1/2 -translate-y-1/2 w-[440px] h-[440px] md:w-[720px] md:h-[720px]"
+            viewBox="0 0 560 560"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            {/* Connecting filaments */}
+            <g stroke="url(#constellationGradient)" strokeWidth="1.2" opacity="0.45">
+              <line x1="130" y1="200" x2="195" y2="165" />
+              <line x1="195" y1="165" x2="260" y2="200" />
+              <line x1="260" y1="200" x2="335" y2="180" />
+              <line x1="335" y1="180" x2="410" y2="220" />
+              <line x1="195" y1="165" x2="175" y2="120" />
+              <line x1="260" y1="200" x2="250" y2="260" />
+              <line x1="250" y1="260" x2="310" y2="290" />
+              <line x1="310" y1="290" x2="390" y2="280" />
+              <line x1="310" y1="290" x2="315" y2="360" />
+              <line x1="130" y1="200" x2="100" y2="255" />
+              <line x1="100" y1="255" x2="145" y2="310" />
+              <line x1="145" y1="310" x2="220" y2="330" />
+              <line x1="220" y1="330" x2="285" y2="385" />
+              <line x1="285" y1="385" x2="360" y2="370" />
+              <line x1="410" y1="220" x2="460" y2="190" />
+              <line x1="315" y1="360" x2="370" y2="400" />
+            </g>
+
+            {/* Stars */}
+            {[
+              { cx: 130, cy: 200, r: 3, o: 1 },
+              { cx: 195, cy: 165, r: 5.5, o: 1 },
+              { cx: 175, cy: 120, r: 3, o: 0.8 },
+              { cx: 260, cy: 200, r: 4.5, o: 0.95 },
+              { cx: 335, cy: 180, r: 4, o: 0.9 },
+              { cx: 410, cy: 220, r: 3, o: 0.75 },
+              { cx: 460, cy: 190, r: 2.5, o: 0.6 },
+              { cx: 250, cy: 260, r: 3.5, o: 0.85 },
+              { cx: 310, cy: 290, r: 5, o: 1 },
+              { cx: 390, cy: 280, r: 3, o: 0.75 },
+              { cx: 315, cy: 360, r: 3.5, o: 0.9 },
+              { cx: 370, cy: 400, r: 2.5, o: 0.65 },
+              { cx: 100, cy: 255, r: 3, o: 0.7 },
+              { cx: 145, cy: 310, r: 4, o: 0.9 },
+              { cx: 220, cy: 330, r: 4.5, o: 1 },
+              { cx: 285, cy: 385, r: 3.5, o: 0.85 },
+              { cx: 360, cy: 370, r: 3, o: 0.7 },
+              { cx: 220, cy: 130, r: 2.5, o: 0.55 },
+              { cx: 370, cy: 140, r: 2.5, o: 0.5 },
+              { cx: 440, cy: 280, r: 2, o: 0.45 },
+              { cx: 165, cy: 400, r: 2, o: 0.45 },
+              { cx: 280, cy: 460, r: 2, o: 0.4 },
+              { cx: 490, cy: 240, r: 1.8, o: 0.35 },
+              { cx: 70, cy: 220, r: 1.8, o: 0.35 },
+            ].map((star, i) => (
+              <g key={i}>
+                <circle
+                  cx={star.cx}
+                  cy={star.cy}
+                  r={star.r * 3}
+                  fill="url(#starGlow)"
+                  opacity={star.o * 0.3}
+                />
+                <circle
+                  cx={star.cx}
+                  cy={star.cy}
+                  r={star.r}
+                  fill="white"
+                  opacity={star.o}
+                >
+                  <animate
+                    attributeName="opacity"
+                    values={`${star.o};${Math.min(star.o + 0.2, 1)};${star.o}`}
+                    dur={`${3.2 + (i % 5)}s`}
+                    repeatCount="indefinite"
+                    begin={`${i * 0.12}s`}
+                  />
+                </circle>
+              </g>
+            ))}
+
+            <defs>
+              <radialGradient id="starGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#A6FCFC" stopOpacity="0.7" />
+                <stop offset="60%" stopColor="#D6A6FC" stopOpacity="0.2" />
+                <stop offset="100%" stopColor="#A6FCFC" stopOpacity="0" />
+              </radialGradient>
+              <linearGradient id="constellationGradient" x1="0" y1="0" x2="560" y2="560" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#A6FCFC" stopOpacity="0.55" />
+                <stop offset="100%" stopColor="#D6A6FC" stopOpacity="0.35" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+
         <motion.div
           className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center"
           initial={{ opacity: 0, y: 40 }}
