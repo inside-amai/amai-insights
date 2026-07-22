@@ -206,7 +206,7 @@ const Home = () => {
                 A credit score for AI agents.
               </h2>
               <p className="mt-8 md:mt-10 text-lg md:text-2xl lg:text-3xl font-light text-white/80 leading-snug max-w-4xl">
-                AMAI reads how an agent behaves, every tool it calls &amp; every boundary it crosses, telling you which ones to trust without ever touching your data.
+                AMAI reads how an agent behaves, every tool it calls &amp; every boundary it crosses, telling you which ones to trust <span className="font-normal text-white/95">without ever touching your data.</span>
               </p>
 
               {/* Pill nav strip — five visible anchors + arrow reveals the last two */}
