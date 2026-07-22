@@ -591,7 +591,7 @@ const Home = () => {
               </a>
             </div>
 
-            <div className="mt-16 md:mt-20 pt-10 border-t border-black/10 max-w-xl">
+            <div className="mt-16 md:mt-20 pt-10 max-w-xl">
               <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-black leading-[1.15]">
                 Free to run.
                 <br />
