@@ -409,9 +409,9 @@ const Home = () => {
             <div className="relative rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl overflow-hidden shadow-[0_20px_80px_-20px_rgba(0,0,0,0.9)]">
               <div className="flex items-center justify-between px-5 py-3 border-b border-white/10 bg-white/[0.02]">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-white/20" />
-                  <span className="w-2 h-2 rounded-full bg-white/20" />
-                  <span className="w-2 h-2 rounded-full bg-white/20" />
+                  <span className="w-2 h-2 rounded-full bg-red-400/80" />
+                  <span className="w-2 h-2 rounded-full bg-amber-300/80" />
+                  <span className="w-2 h-2 rounded-full bg-emerald-400/80" />
                 </div>
                 <span className="text-[10px] tracking-[0.3em] uppercase text-white/40 font-light">
                   live trace · content-off
