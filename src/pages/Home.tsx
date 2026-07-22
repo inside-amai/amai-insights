@@ -616,9 +616,9 @@ const Home = () => {
                 {/* Header bar */}
                 <div className="flex items-center justify-between px-5 py-3.5 border-b border-white/[0.08]">
                   <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-red-500" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-green-500" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-amber-300/80" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/80" />
                   </div>
                   <span className="text-[10px] tracking-[0.3em] uppercase text-white/50 font-light">
                     sdk
