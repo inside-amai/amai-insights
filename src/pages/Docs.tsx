@@ -293,7 +293,7 @@ tari dashboard   # your own runs, from ./.tari`}
               </p>
               <div className="mt-8">
                 <CodeBlock
-                  code={`tari dashboard                     # launch the local TARI Lens dashboard
+                  code={`tari dashboard                     # launch the local TARI™ Lens dashboard
 tari demo                          # dashboard on the bundled sample
 tari baseline promote <args>       # promote a known-good run as a baseline
 tari baseline list                 # list promoted baselines
