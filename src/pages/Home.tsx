@@ -5,7 +5,8 @@ import { Copy, Check, ChevronRight, ChevronLeft } from "lucide-react";
 import amaiLogo from "@/assets/amai-logo-tm.png";
 import { showEmailFallbackToast } from "@/lib/contact-toast";
 import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
-import agentFleetDashboard from "@/assets/agent-fleet-dashboard.png.asset.json";
+import agentFleetDashboard from "@/assets/institutions-fleet.png.asset.json";
+import institutionsResearch from "@/assets/institutions-research.png.asset.json";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { pickHome } from "@/i18n/pageContent";
 
