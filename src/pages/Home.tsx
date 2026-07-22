@@ -906,10 +906,10 @@ const Home = () => {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             >
-              <h2 className="font-editorial font-normal text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-black">
+              <h2 className="font-editorial font-normal text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-black/70">
                 Now you can see it.
                 <br />
-                <em className="italic text-black/70">And stop it.</em>
+                <em className="italic text-black">And stop it.</em>
               </h2>
 
               <div className="mt-10 md:mt-12 max-w-xl">
