@@ -297,7 +297,7 @@ const Home = () => {
           >
             <div className="flex items-center gap-3 mb-8">
               <span className="h-px w-10 bg-white/30" />
-              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">Score</span>
+              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">TARI™ — Trust &amp; Risk Index</span>
             </div>
 
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05]">
@@ -399,6 +399,16 @@ const Home = () => {
                 <br />
                 From it, the patterns that betray a compromised agent, a secret pulled and quietly pushed out, an agent drifting past the task it was given, move the score.
               </p>
+
+              <div className="mt-10">
+                <a
+                  href="/methodology"
+                  className="inline-flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors duration-300 border-b border-white/20 hover:border-white/60 pb-1"
+                >
+                  Read the full methodology
+                  <span aria-hidden>→</span>
+                </a>
+              </div>
             </motion.div>
             {/* RIGHT — live trace visual */}
             <motion.div
@@ -524,15 +534,6 @@ const Home = () => {
               <br />
               <span className="text-white/50">and it doesn't need to.</span>
             </p>
-            <div className="mt-10">
-              <a
-                href="/methodology"
-                className="inline-flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors duration-300 border-b border-white/20 hover:border-white/60 pb-1"
-              >
-                Read the full methodology
-                <span aria-hidden>→</span>
-              </a>
-            </div>
           </div>
         </div>
       </section>
