@@ -99,10 +99,10 @@ export const SiteHeader = () => {
                   className="h-7 md:h-10 w-auto opacity-90 hover:opacity-100 transition-opacity"
                   style={{ 
                     transform: 'translateZ(0)', 
-                    imageRendering: 'crisp-edges',
                     backfaceVisibility: 'hidden'
                   }}
                   loading="eager"
+                  decoding="async"
                 />
               </Link>
               <span className="hidden sm:block text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium">
