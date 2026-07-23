@@ -8,6 +8,7 @@ import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
 import institutionsLens from "@/assets/institutions-lens-v3.png.asset.json";
 import institutionsApprovals from "@/assets/institutions-approvals.png.asset.json";
 import institutionsFleetNew from "@/assets/institutions-fleet-new.png.asset.json";
+import liveTraceImage from "@/assets/live-trace.png.asset.json";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { pickHome } from "@/i18n/pageContent";
 
