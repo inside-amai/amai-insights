@@ -431,54 +431,93 @@ const Home = () => {
           <motion.div className="lg:col-span-7 lg:mt-14" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}>
             <div className="relative">
               <div className="absolute -inset-3 -z-10 rounded-[32px] bg-gradient-to-br from-white/10 via-white/5 to-transparent blur-2xl opacity-60" />
-              <div className="relative bg-[hsl(var(--gray-900))] rounded-3xl overflow-hidden border border-white/10 shadow-2xl after:absolute after:inset-x-0 after:top-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-white/20 after:to-transparent keep-ltr" dir="ltr">
-                <div className="flex items-center justify-between px-5 py-3.5 border-b border-white/[0.08]">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-amber-300/80" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/80" />
+              <div className="relative bg-[hsl(var(--gray-900))] rounded-3xl overflow-hidden border border-white/10 shadow-2xl after:absolute after:inset-x-0 after:top-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-white/20 after:to-transparent keep-ltr p-5 md:p-6 space-y-6" dir="ltr">
+                {/* Step 1 · Install */}
+                <div>
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-xs tracking-[0.25em] font-medium text-white/60 uppercase">{c.run.step1Label}</span>
+                    <span className="h-px flex-1 bg-white/10" />
                   </div>
-                  <span className="text-[10px] tracking-[0.3em] uppercase text-white/50 font-light">{c.run.terminalLabel}</span>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      navigator.clipboard.writeText(`pip install amai-tari\n\nfrom tari import TARIInstrument\ntari = TARIInstrument("my-agent", store="./.tari")\nprovider, exporter = tari.start_otel_capture()\n# ... run your agent ...\ntari.score(tari.trajectory_from_exporter(exporter))`);
-                      setCopied(true);
-                      setTimeout(() => setCopied(false), 2000);
-                    }}
-                    className="group flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/10 bg-white/[0.05] hover:bg-white/[0.10] hover:border-white/20 transition-all duration-300"
-                  >
-                    {copied ? (
-                      <>
-                        <Check className="w-3.5 h-3.5 text-emerald-300" strokeWidth={2} />
-                        <span className="text-[10px] tracking-[0.2em] uppercase font-light text-emerald-100">{c.run.copied}</span>
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="w-3.5 h-3.5 text-white/60 group-hover:text-white/90 transition-colors duration-300" strokeWidth={2} />
-                        <span className="text-[10px] tracking-[0.2em] uppercase font-light text-white/60 group-hover:text-white/90 transition-colors duration-300">{c.run.copy}</span>
-                      </>
-                    )}
-                  </button>
-                </div>
-
-                <div className="px-6 py-8 md:px-8 md:py-10 font-mono text-sm md:text-[15px] leading-relaxed">
-                  <div className="flex gap-4">
-                    <div className="select-none text-right text-white/20 font-light tabular-nums">
-                      <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div>
+                  <div className="relative bg-black/30 rounded-2xl overflow-hidden border border-white/[0.08]">
+                    <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.06] bg-white/[0.02]">
+                      <span className="text-[10px] tracking-[0.3em] uppercase text-white/50 font-light">{c.run.terminalHeader}</span>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          navigator.clipboard.writeText('pip install amai-tari');
+                          setCopiedTerminal(true);
+                          setTimeout(() => setCopiedTerminal(false), 2000);
+                        }}
+                        className="group flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.05] hover:bg-white/[0.10] hover:border-white/20 transition-all duration-300"
+                      >
+                        {copiedTerminal ? (
+                          <>
+                            <Check className="w-3.5 h-3.5 text-emerald-300" strokeWidth={2} />
+                            <span className="text-[10px] tracking-[0.2em] uppercase font-light text-emerald-100">{c.run.copied}</span>
+                          </>
+                        ) : (
+                          <>
+                            <Copy className="w-3.5 h-3.5 text-white/60 group-hover:text-white/90 transition-colors duration-300" strokeWidth={2} />
+                            <span className="text-[10px] tracking-[0.2em] uppercase font-light text-white/60 group-hover:text-white/90 transition-colors duration-300">{c.run.copy}</span>
+                          </>
+                        )}
+                      </button>
                     </div>
-                    <div className="space-y-0.5">
-                      <div><span className="text-sky-300">pip install</span> <span className="text-white/90">amai-tari</span></div>
-                      <div><span className="text-purple-400">from</span> <span className="text-white/90">tari</span> <span className="text-purple-400">import</span> <span className="text-white/90">TARIInstrument</span></div>
-                      <div><span className="text-white/90">tari</span> <span className="text-white/50">=</span> <span className="text-amber-400">TARIInstrument</span><span className="text-white/50">(</span><span className="text-lime-400">"my-agent"</span><span className="text-white/50">,</span> <span className="text-white/90">store</span><span className="text-white/50">=</span><span className="text-lime-400">"./.tari"</span><span className="text-white/50">)</span></div>
-                      <div><span className="text-white/90">provider</span><span className="text-white/50">,</span> <span className="text-white/90">exporter</span> <span className="text-white/50">=</span> <span className="text-white/90">tari</span><span className="text-white/50">.</span><span className="text-sky-400">start_otel_capture</span><span className="text-white/50">()</span></div>
-                      <div><span className="text-white/40 italic"># ... run your agent ...</span></div>
-                      <div><span className="text-white/90">tari</span><span className="text-white/50">.</span><span className="text-sky-400">score</span><span className="text-white/50">(</span><span className="text-white/90">tari</span><span className="text-white/50">.</span><span className="text-sky-400">trajectory_from_exporter</span><span className="text-white/50">(</span><span className="text-white/90">exporter</span><span className="text-white/50">))</span></div>
+                    <div className="px-4 py-3.5 md:px-5 md:py-4 font-mono text-sm md:text-[15px] leading-relaxed">
+                      <span className="text-sky-300">pip install</span> <span className="text-white/90">amai-tari</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between px-5 py-3.5 border-t border-white/[0.08]">
+                {/* Step 2 · Add to your agent */}
+                <div>
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-xs tracking-[0.25em] font-medium text-white/60 uppercase">{c.run.step2Label}</span>
+                    <span className="h-px flex-1 bg-white/10" />
+                  </div>
+                  <div className="relative bg-black/30 rounded-2xl overflow-hidden border border-white/[0.08]">
+                    <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.06] bg-white/[0.02]">
+                      <span className="text-[10px] tracking-[0.3em] uppercase text-white/50 font-light">{c.run.pythonHeader}</span>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          navigator.clipboard.writeText(`from tari import TARIInstrument\ntari = TARIInstrument("my-agent", store="./.tari")\nprovider, exporter = tari.start_otel_capture()\n# ... run your agent ...\ntari.score(tari.trajectory_from_exporter(exporter))`);
+                          setCopiedPython(true);
+                          setTimeout(() => setCopiedPython(false), 2000);
+                        }}
+                        className="group flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.05] hover:bg-white/[0.10] hover:border-white/20 transition-all duration-300"
+                      >
+                        {copiedPython ? (
+                          <>
+                            <Check className="w-3.5 h-3.5 text-emerald-300" strokeWidth={2} />
+                            <span className="text-[10px] tracking-[0.2em] uppercase font-light text-emerald-100">{c.run.copied}</span>
+                          </>
+                        ) : (
+                          <>
+                            <Copy className="w-3.5 h-3.5 text-white/60 group-hover:text-white/90 transition-colors duration-300" strokeWidth={2} />
+                            <span className="text-[10px] tracking-[0.2em] uppercase font-light text-white/60 group-hover:text-white/90 transition-colors duration-300">{c.run.copy}</span>
+                          </>
+                        )}
+                      </button>
+                    </div>
+                    <div className="px-4 py-4 md:px-5 md:py-5 font-mono text-sm md:text-[15px] leading-relaxed">
+                      <div className="flex gap-4">
+                        <div className="select-none text-right text-white/20 font-light tabular-nums">
+                          <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div>
+                        </div>
+                        <div className="space-y-0.5">
+                          <div><span className="text-purple-400">from</span> <span className="text-white/90">tari</span> <span className="text-purple-400">import</span> <span className="text-white/90">TARIInstrument</span></div>
+                          <div><span className="text-white/90">tari</span> <span className="text-white/50">=</span> <span className="text-amber-400">TARIInstrument</span><span className="text-white/50">(</span><span className="text-lime-400">"my-agent"</span><span className="text-white/50">,</span> <span className="text-white/90">store</span><span className="text-white/50">=</span><span className="text-lime-400">"./.tari"</span><span className="text-white/50">)</span></div>
+                          <div><span className="text-white/90">provider</span><span className="text-white/50">,</span> <span className="text-white/90">exporter</span> <span className="text-white/50">=</span> <span className="text-white/90">tari</span><span className="text-white/50">.</span><span className="text-sky-400">start_otel_capture</span><span className="text-white/50">()</span></div>
+                          <div><span className="text-white/40 italic"># ... run your agent ...</span></div>
+                          <div><span className="text-white/90">tari</span><span className="text-white/50">.</span><span className="text-sky-400">score</span><span className="text-white/50">(</span><span className="text-white/90">tari</span><span className="text-white/50">.</span><span className="text-sky-400">trajectory_from_exporter</span><span className="text-white/50">(</span><span className="text-white/90">exporter</span><span className="text-white/50">))</span></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between px-1 pt-2">
                   <span className="text-[10px] tracking-[0.2em] uppercase text-white/50 font-light">{c.run.footerRuns}</span>
                   <span className="flex items-center gap-1.5 text-[10px] text-white/60 font-light">
                     <motion.span className="w-1.5 h-1.5 rounded-full bg-emerald-400" animate={{ opacity: [0.4, 1, 0.4] }} transition={{ duration: 1.6, repeat: Infinity }} />
@@ -488,8 +527,11 @@ const Home = () => {
               </div>
             </div>
 
-            <p className="mt-5 text-xs md:text-sm text-black/70 font-light tracking-wide text-center">
+            <p className="mt-6 text-sm md:text-base text-black/70 font-light tracking-wide text-center">
               {c.run.caption}
+            </p>
+            <p className="mt-2 text-xs md:text-sm text-black/60 font-light text-center">
+              {c.run.exampleLine}
             </p>
 
             <motion.div className="mt-12 md:mt-16" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}>
