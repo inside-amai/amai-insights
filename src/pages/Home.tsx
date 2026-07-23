@@ -55,20 +55,24 @@ const Home = () => {
   const [copiedPython, setCopiedPython] = useState(false);
   const [showLeftNavArrow, setShowLeftNavArrow] = useState(false);
   const [showRightNavArrow, setShowRightNavArrow] = useState(true);
-  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
   const institutionImages = [institutionsLens.url, institutionsApprovals.url, institutionsFleetNew.url];
   const [instIndex, setInstIndex] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   const goPrev = () => setInstIndex((i) => (i - 1 + institutionImages.length) % institutionImages.length);
   const goNext = () => setInstIndex((i) => (i + 1) % institutionImages.length);
 
   useEffect(() => {
-    if (!lightboxSrc) return;
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setLightboxSrc(null); };
+    if (!lightboxOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setLightboxOpen(false);
+      if (e.key === 'ArrowLeft') goPrev();
+      if (e.key === 'ArrowRight') goNext();
+    };
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     window.addEventListener('keydown', onKey);
     return () => { window.removeEventListener('keydown', onKey); document.body.style.overflow = prevOverflow; };
-  }, [lightboxSrc]);
+  }, [lightboxOpen]);
   const navListRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
@@ -666,7 +670,7 @@ const Home = () => {
 
             <motion.figure className="lg:col-span-7 lg:pt-4 m-0" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}>
               <div className="relative">
-                <button type="button" onClick={() => setLightboxSrc(institutionImages[instIndex])} className="block w-full relative border border-black/80 bg-white shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)] cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-black/40">
+                <button type="button" onClick={() => setLightboxOpen(true)} className="block w-full relative border border-black/80 bg-white shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)] cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-black/40">
                   <img src={institutionImages[instIndex]} alt={c.inst.figAlt} className="w-full h-auto block" loading="lazy" />
                 </button>
                 <button
@@ -722,27 +726,54 @@ const Home = () => {
 
       <Footer />
 
-      {lightboxSrc && (
+      {lightboxOpen && (
         <div
           className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-10 cursor-zoom-out"
-          onClick={() => setLightboxSrc(null)}
+          onClick={() => setLightboxOpen(false)}
           role="dialog"
           aria-modal="true"
         >
           <button
             type="button"
-            onClick={(e) => { e.stopPropagation(); setLightboxSrc(null); }}
-            className="absolute top-4 right-4 md:top-6 md:right-6 text-white/80 hover:text-white text-2xl leading-none w-10 h-10 flex items-center justify-center border border-white/20 rounded-full"
+            onClick={(e) => { e.stopPropagation(); setLightboxOpen(false); }}
+            className="absolute top-4 right-4 md:top-6 md:right-6 text-white/80 hover:text-white text-2xl leading-none w-10 h-10 flex items-center justify-center border border-white/20 rounded-full z-10"
             aria-label="Close"
           >
             ×
           </button>
+          <button
+            type="button"
+            onClick={(e) => { e.stopPropagation(); goPrev(); }}
+            aria-label="Previous image"
+            className="absolute top-1/2 -translate-y-1/2 left-3 md:left-6 w-11 h-11 md:w-14 md:h-14 flex items-center justify-center text-white/80 hover:text-white border border-white/20 hover:border-white/60 rounded-full bg-black/30 backdrop-blur-sm transition-colors z-10"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          <button
+            type="button"
+            onClick={(e) => { e.stopPropagation(); goNext(); }}
+            aria-label="Next image"
+            className="absolute top-1/2 -translate-y-1/2 right-3 md:right-6 w-11 h-11 md:w-14 md:h-14 flex items-center justify-center text-white/80 hover:text-white border border-white/20 hover:border-white/60 rounded-full bg-black/30 backdrop-blur-sm transition-colors z-10"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
           <img
-            src={lightboxSrc}
+            src={institutionImages[instIndex]}
             alt=""
             onClick={(e) => e.stopPropagation()}
             className="max-w-full max-h-full w-auto h-auto object-contain shadow-2xl cursor-default"
           />
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2" dir="ltr" onClick={(e) => e.stopPropagation()}>
+            {institutionImages.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => setInstIndex(i)}
+                aria-label={`Go to image ${i + 1}`}
+                className={`h-1.5 transition-all ${i === instIndex ? 'w-8 bg-white' : 'w-4 bg-white/30 hover:bg-white/60'}`}
+              />
+            ))}
+          </div>
         </div>
       )}
     </div>
