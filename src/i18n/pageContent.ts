@@ -340,6 +340,11 @@ export const homeContent = {
       footerRuns: 'يعمل محلياً',
       footerPrivacy: 'content-off افتراضياً',
       caption: 'ثم تفتح لوحة TARI™ وحدتك محلياً: الأثر الكامل، الدرجة، وكل حركة مُعلَّمة، كل ذلك محلياً.',
+      exampleLine: 'ليس لديك وكيل لتجربته بعد؟ شغِّل tari example واحصل على درجة حقيقية خلال ثوانٍ.',
+      step1Label: 'الخطوة 1 · التثبيت',
+      step2Label: 'الخطوة 2 · أضِفه إلى كود الوكيل',
+      terminalHeader: 'الطرفيّة',
+      pythonHeader: 'PYTHON · داخل كود الوكيل',
       whatYouGet: 'ما تحصل عليه',
       benefits: [
         { lead: 'ترى بالضبط ما فعله وكيلك', body: 'كل أداة، كل حركة، بلغةٍ واضحة. ما فعله فعلاً، لا ما أفاد به.' },
