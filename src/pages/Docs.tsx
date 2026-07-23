@@ -291,6 +291,7 @@ python3 -m tari dashboard`}
                 <CodeBlock
                   code={`python3 -m tari dashboard
 python3 -m tari demo
+python3 -m tari example
 python3 -m tari baseline promote <args>
 python3 -m tari baseline list
 python3 -m tari baseline show <agent>
