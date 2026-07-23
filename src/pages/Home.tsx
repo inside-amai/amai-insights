@@ -542,7 +542,7 @@ const Home = () => {
             <p className="mt-2 text-xs md:text-sm text-black/60 font-light text-center">
               {c.run.exampleLine}
             </p>
-            <div className="mt-8 md:mt-10 text-center">
+            <div className="mt-8 md:mt-10 text-start">
               <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-black leading-[1.15]">
                 {c.run.pullA}<br /><span className="text-black/50">{c.run.pullB}</span>
               </p>
