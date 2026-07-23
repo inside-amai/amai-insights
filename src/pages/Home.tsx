@@ -547,21 +547,6 @@ const Home = () => {
             <p className="mt-2 text-xs md:text-sm text-black/60 font-light text-center">
               {c.run.exampleLine}
             </p>
-
-            <motion.div className="mt-12 md:mt-16" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}>
-              <div className="flex items-center gap-3 mb-6">
-                <span className="text-xs md:text-sm tracking-[0.25em] font-medium text-black uppercase">{c.run.whatYouGet}</span>
-                <span className="h-px flex-1 bg-black/20" />
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6">
-                {c.run.benefits.map((item, i) => (
-                  <motion.div key={item.lead} className="text-sm md:text-base font-light text-black/80 leading-relaxed" initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.7, delay: 0.1 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}>
-                    <span className="font-normal text-black block">{item.lead}</span>
-                    <span className="block mt-1 text-black/70">{item.body}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
           </motion.div>
         </div>
       </section>
