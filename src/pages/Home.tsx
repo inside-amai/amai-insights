@@ -431,11 +431,6 @@ const Home = () => {
                 {c.run.docs}<span aria-hidden>{isRtl ? '←' : '→'}</span>
               </a>
             </div>
-            <div className="mt-10">
-              <a href="/docs" className="inline-flex items-center gap-2 text-sm font-normal text-white bg-black hover:bg-black/80 transition-colors duration-300 px-5 py-2.5 rounded-full border border-black">
-                {c.run.docs}<span aria-hidden>{isRtl ? '←' : '→'}</span>
-              </a>
-            </div>
             <motion.div className="mt-10 md:mt-12 max-w-xl" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}>
               <div className="flex items-center gap-3 mb-6">
                 <span className="text-xs md:text-sm tracking-[0.25em] font-medium text-black uppercase">{c.run.whatYouGet}</span>
