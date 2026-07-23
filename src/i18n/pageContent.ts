@@ -876,7 +876,7 @@ export const docsContent = {
     cli: {
       eyebrow: 'The CLI',
       title: 'tari <command>',
-      body: 'The CLI drives the local dashboard, baseline management, drift checks, and the interceptor approval queue.',
+      body: 'The CLI drives the local dashboard, a bundled example, baseline management, drift checks, and the interceptor approval queue.',
       helpPre: 'Run ',
       helpPost: ' for full flags.',
     },
@@ -950,7 +950,7 @@ export const docsContent = {
     cli: {
       eyebrow: 'CLI',
       title: 'tari <command>',
-      body: 'CLI はローカルダッシュボード、ベースライン管理、ドリフトチェック、そしてインターセプターの承認キューを操作します。',
+      body: 'CLI はローカルダッシュボード、同梱のサンプル、ベースライン管理、ドリフトチェック、そしてインターセプターの承認キューを操作します。',
       helpPre: '完全なフラグは ',
       helpPost: ' を実行してください。',
     },
@@ -1024,7 +1024,7 @@ export const docsContent = {
     cli: {
       eyebrow: 'CLI',
       title: 'tari <command>',
-      body: 'تُشغِّل الـ CLI اللوحة المحلية، وإدارة الأسس المرجعية، وفحوص الانحراف، وطابور موافقات الحاجب.',
+      body: 'تُشغِّل الـ CLI اللوحة المحلية، والمثال المُرفق، وإدارة الأسس المرجعية، وفحوص الانحراف، وطابور موافقات الحاجب.',
       helpPre: 'شغِّل ',
       helpPost: ' للحصول على كل الأعلام.',
     },
