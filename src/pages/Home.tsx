@@ -335,7 +335,7 @@ const Home = () => {
                 <img
                   src={liveTraceImage.url}
                   alt="TARI live trace showing a flagged read to external sink pattern across nine steps"
-                  className="block w-full h-auto"
+                  className="block w-full h-auto scale-110"
                   loading="lazy"
                 />
               </div>
