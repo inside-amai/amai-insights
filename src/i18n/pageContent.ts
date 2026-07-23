@@ -852,14 +852,15 @@ export const docsContent = {
     install: {
       eyebrow: 'Install',
       title: 'python3 -m pip install amai-tari',
-      body: 'Pure-Python, Node-free. The dashboard UI ships pre-built inside the package.',
+      body: 'Requires Python 3.9+. Pure-Python, Node-free. The dashboard UI ships pre-built inside the package.',
+      note: 'python3 -m always works regardless of PATH. If pip and tari are already on your PATH, the short pip install amai-tari / tari demo work too.',
     },
     quickstart: {
       eyebrow: 'Quickstart',
       title: '~60 seconds',
       p1: 'Three steps: name it, capture it, score it. OpenTelemetry auto-instrumentation for LangGraph and CrewAI works through the openinference-* packages, so step 2 is often automatic.',
       openLead: 'Then open your dashboard:',
-      openNote: 'The demo command opens the dashboard on a sample fleet. The dashboard command opens your own runs, from ./.tari.',
+      openNote: 'python3 -m tari demo opens the dashboard on a sample fleet. python3 -m tari dashboard opens your own runs, from ./.tari.',
       note: 'Your dashboard opens locally in the browser. No account, no login — nothing leaves your machine. With OpenTelemetry auto-instrumentation (LangGraph / CrewAI via the openinference-* packages), step ② is automatic.',
     },
     concepts: {
