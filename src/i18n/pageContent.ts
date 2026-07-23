@@ -851,7 +851,7 @@ export const docsContent = {
     },
     install: {
       eyebrow: 'Install',
-      title: 'pip install amai-tari',
+      title: 'python3 -m pip install amai-tari',
       body: 'Pure-Python, Node-free. The dashboard UI ships pre-built inside the package.',
     },
     quickstart: {
@@ -859,6 +859,7 @@ export const docsContent = {
       title: '~60 seconds',
       p1: 'Three steps: name it, capture it, score it. OpenTelemetry auto-instrumentation for LangGraph and CrewAI works through the openinference-* packages, so step 2 is often automatic.',
       openLead: 'Then open your dashboard:',
+      openNote: 'The demo command opens the dashboard on a sample fleet. The dashboard command opens your own runs, from ./.tari.',
       note: 'Your dashboard opens locally in the browser. No account, no login — nothing leaves your machine. With OpenTelemetry auto-instrumentation (LangGraph / CrewAI via the openinference-* packages), step ② is automatic.',
     },
     concepts: {
@@ -923,7 +924,7 @@ export const docsContent = {
     },
     install: {
       eyebrow: 'インストール',
-      title: 'pip install amai-tari',
+      title: 'python3 -m pip install amai-tari',
       body: '純 Python 実装、Node 不要。ダッシュボード UI はパッケージにビルド済みで同梱されます。',
     },
     quickstart: {
@@ -931,6 +932,7 @@ export const docsContent = {
       title: '約 60 秒',
       p1: '三段階です。名前を付け、キャプチャし、採点します。LangGraph と CrewAI 向けの OpenTelemetry 自動計装は openinference-* パッケージ経由で動作するため、ステップ 2 は多くの場合自動化されます。',
       openLead: '続いてダッシュボードを開きます。',
+      openNote: 'demo コマンドはサンプル艦隊のダッシュボードを開きます。dashboard コマンドは ./.tari からご自身の実行結果を開きます。',
       note: 'ダッシュボードはブラウザ上でローカルに開きます。アカウントもログインも不要で、データが手元の環境を離れることはありません。OpenTelemetry の自動計装(openinference-* を介した LangGraph / CrewAI)を用いる場合、ステップ ② は自動になります。',
     },
     concepts: {
@@ -995,7 +997,7 @@ export const docsContent = {
     },
     install: {
       eyebrow: 'التثبيت',
-      title: 'pip install amai-tari',
+      title: 'python3 -m pip install amai-tari',
       body: 'Python خالص، دون Node. تُشحن واجهة اللوحة مبنيّةً مسبقاً داخل الحزمة.',
     },
     quickstart: {
@@ -1003,6 +1005,7 @@ export const docsContent = {
       title: 'نحو 60 ثانية',
       p1: 'ثلاث خطوات: سمِّه، والتقطه، وقيِّمه. تعمل أَتْمَتَة OpenTelemetry لـ LangGraph و CrewAI عبر حزم openinference-*، فتكون الخطوة الثانية آلية في الغالب.',
       openLead: 'ثم افتح لوحتك:',
+      openNote: 'أمر demo يفتح لوحة معينة لأسطول نموذجي. أمر dashboard يفتح تشغيلاتك الخاصة من ./.tari.',
       note: 'تُفتح اللوحة محلياً في متصفّحك. لا حساب، ولا تسجيل دخول — ولا شيء يغادر جهازك. مع أَتْمَتَة OpenTelemetry (LangGraph / CrewAI عبر حزم openinference-*)، تكون الخطوة ② آلية.',
     },
     concepts: {
