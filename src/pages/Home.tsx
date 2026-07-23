@@ -55,20 +55,24 @@ const Home = () => {
   const [copiedPython, setCopiedPython] = useState(false);
   const [showLeftNavArrow, setShowLeftNavArrow] = useState(false);
   const [showRightNavArrow, setShowRightNavArrow] = useState(true);
-  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
   const institutionImages = [institutionsLens.url, institutionsApprovals.url, institutionsFleetNew.url];
   const [instIndex, setInstIndex] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   const goPrev = () => setInstIndex((i) => (i - 1 + institutionImages.length) % institutionImages.length);
   const goNext = () => setInstIndex((i) => (i + 1) % institutionImages.length);
 
   useEffect(() => {
-    if (!lightboxSrc) return;
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setLightboxSrc(null); };
+    if (!lightboxOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setLightboxOpen(false);
+      if (e.key === 'ArrowLeft') goPrev();
+      if (e.key === 'ArrowRight') goNext();
+    };
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     window.addEventListener('keydown', onKey);
     return () => { window.removeEventListener('keydown', onKey); document.body.style.overflow = prevOverflow; };
-  }, [lightboxSrc]);
+  }, [lightboxOpen]);
   const navListRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
