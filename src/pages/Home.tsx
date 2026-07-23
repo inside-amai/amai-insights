@@ -5,8 +5,9 @@ import { Copy, Check, ChevronRight, ChevronLeft } from "lucide-react";
 import amaiLogo from "@/assets/amai-logo-tm.png";
 import { showEmailFallbackToast } from "@/lib/contact-toast";
 import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
-import agentFleetDashboard from "@/assets/institutions-fleet.png.asset.json";
-import institutionsResearch from "@/assets/institutions-research.png.asset.json";
+import institutionsLens from "@/assets/institutions-lens.png.asset.json";
+import institutionsApprovals from "@/assets/institutions-approvals.png.asset.json";
+import institutionsFleetNew from "@/assets/institutions-fleet-new.png.asset.json";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { pickHome } from "@/i18n/pageContent";
 
@@ -55,6 +56,10 @@ const Home = () => {
   const [showLeftNavArrow, setShowLeftNavArrow] = useState(false);
   const [showRightNavArrow, setShowRightNavArrow] = useState(true);
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
+  const institutionImages = [institutionsLens.url, institutionsApprovals.url, institutionsFleetNew.url];
+  const [instIndex, setInstIndex] = useState(0);
+  const goPrev = () => setInstIndex((i) => (i - 1 + institutionImages.length) % institutionImages.length);
+  const goNext = () => setInstIndex((i) => (i + 1) % institutionImages.length);
 
   useEffect(() => {
     if (!lightboxSrc) return;
@@ -660,13 +665,38 @@ const Home = () => {
             </motion.div>
 
             <motion.figure className="lg:col-span-7 lg:pt-4 m-0" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}>
-              <button type="button" onClick={() => setLightboxSrc(agentFleetDashboard.url)} className="block w-full relative border border-black/80 bg-white shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)] cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-black/40">
-                <img src={agentFleetDashboard.url} alt={c.inst.figAlt} className="w-full h-auto block" loading="lazy" />
-              </button>
-
-              <button type="button" onClick={() => setLightboxSrc(institutionsResearch.url)} className="block w-full relative border border-black/80 bg-white shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)] mt-4 md:mt-6 cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-black/40">
-                <img src={institutionsResearch.url} alt={c.inst.figAlt} className="w-full h-auto block" loading="lazy" />
-              </button>
+              <div className="relative">
+                <button type="button" onClick={() => setLightboxSrc(institutionImages[instIndex])} className="block w-full relative border border-black/80 bg-white shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)] cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-black/40">
+                  <img src={institutionImages[instIndex]} alt={c.inst.figAlt} className="w-full h-auto block" loading="lazy" />
+                </button>
+                <button
+                  type="button"
+                  onClick={goPrev}
+                  aria-label="Previous image"
+                  className="absolute top-1/2 -translate-y-1/2 left-2 md:-left-5 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-white border border-black/80 text-black hover:bg-black hover:text-white transition-colors shadow-[0_10px_30px_-10px_rgba(0,0,0,0.4)] focus:outline-none focus:ring-2 focus:ring-black/40"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <button
+                  type="button"
+                  onClick={goNext}
+                  aria-label="Next image"
+                  className="absolute top-1/2 -translate-y-1/2 right-2 md:-right-5 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-white border border-black/80 text-black hover:bg-black hover:text-white transition-colors shadow-[0_10px_30px_-10px_rgba(0,0,0,0.4)] focus:outline-none focus:ring-2 focus:ring-black/40"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              </div>
+              <div className="mt-4 flex items-center justify-center gap-2" dir="ltr">
+                {institutionImages.map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => setInstIndex(i)}
+                    aria-label={`Go to image ${i + 1}`}
+                    className={`h-1.5 transition-all ${i === instIndex ? 'w-8 bg-black' : 'w-4 bg-black/25 hover:bg-black/50'}`}
+                  />
+                ))}
+              </div>
             </motion.figure>
           </div>
 
