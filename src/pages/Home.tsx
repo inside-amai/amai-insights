@@ -5,7 +5,7 @@ import { Copy, Check, ChevronRight, ChevronLeft } from "lucide-react";
 import amaiLogo from "@/assets/amai-logo-tm.png";
 import { showEmailFallbackToast } from "@/lib/contact-toast";
 import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
-import institutionsLens from "@/assets/institutions-lens.png.asset.json";
+import institutionsLens from "@/assets/tari-lens-dashboard.png.asset.json";
 import institutionsApprovals from "@/assets/institutions-approvals.png.asset.json";
 import institutionsFleetNew from "@/assets/institutions-fleet-new.png.asset.json";
 import { useLanguage } from "@/contexts/LanguageContext";
