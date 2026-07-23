@@ -315,7 +315,7 @@ const Home = () => {
 
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
-            <motion.div className="lg:col-span-6 text-start" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}>
+            <motion.div className="lg:col-span-7 text-start" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}>
               <div className="flex items-center gap-3 mb-8">
                 <span className="h-px w-10 bg-white/30" />
                 <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">{c.how.eyebrow}</span>
@@ -330,12 +330,12 @@ const Home = () => {
               </p>
             </motion.div>
 
-            <motion.div className="lg:col-span-6 lg:pt-12" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}>
+            <motion.div className="lg:col-span-5 lg:pt-12" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}>
               <div className="relative rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl overflow-hidden shadow-[0_20px_80px_-20px_rgba(0,0,0,0.9)]" dir="ltr">
                 <img
                   src={liveTraceImage.url}
                   alt="TARI live trace showing a flagged read to external sink pattern across nine steps"
-                  className="block w-[95%] h-auto mx-auto"
+                  className="block w-full h-auto"
                   loading="lazy"
                 />
               </div>
