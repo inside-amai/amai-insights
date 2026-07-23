@@ -330,7 +330,7 @@ const Home = () => {
               </p>
             </motion.div>
 
-            <motion.div className="lg:col-span-5" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}>
+            <motion.div className="lg:col-span-5 lg:pt-12" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}>
               <div className="relative rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl overflow-hidden shadow-[0_20px_80px_-20px_rgba(0,0,0,0.9)]" dir="ltr">
                 <img
                   src={liveTraceImage.url}
@@ -338,10 +338,6 @@ const Home = () => {
                   className="block w-full h-auto"
                   loading="lazy"
                 />
-              </div>
-
-              <div className="mt-4 text-[11px] tracking-[0.25em] uppercase text-white/30 font-light text-center keep-ltr" dir="ltr">
-                {c.how.chain}
               </div>
             </motion.div>
           </div>
