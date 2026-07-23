@@ -926,14 +926,15 @@ export const docsContent = {
     install: {
       eyebrow: 'インストール',
       title: 'python3 -m pip install amai-tari',
-      body: '純 Python 実装、Node 不要。ダッシュボード UI はパッケージにビルド済みで同梱されます。',
+      body: 'Python 3.9+ が必要です。純 Python 実装、Node 不要。ダッシュボード UI はパッケージにビルド済みで同梱されます。',
+      note: 'python3 -m は PATH の有無に関わらず動作します。pip と tari が PATH に入っている場合、短い pip install amai-tari / tari demo でも動作します。',
     },
     quickstart: {
       eyebrow: 'クイックスタート',
       title: '約 60 秒',
       p1: '三段階です。名前を付け、キャプチャし、採点します。LangGraph と CrewAI 向けの OpenTelemetry 自動計装は openinference-* パッケージ経由で動作するため、ステップ 2 は多くの場合自動化されます。',
       openLead: '続いてダッシュボードを開きます。',
-      openNote: 'demo コマンドはサンプル艦隊のダッシュボードを開きます。dashboard コマンドは ./.tari からご自身の実行結果を開きます。',
+      openNote: 'python3 -m tari demo はサンプル艦隊のダッシュボードを開きます。python3 -m tari dashboard は ./.tari からご自身の実行結果を開きます。',
       note: 'ダッシュボードはブラウザ上でローカルに開きます。アカウントもログインも不要で、データが手元の環境を離れることはありません。OpenTelemetry の自動計装(openinference-* を介した LangGraph / CrewAI)を用いる場合、ステップ ② は自動になります。',
     },
     concepts: {
