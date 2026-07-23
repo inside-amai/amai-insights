@@ -88,7 +88,7 @@ export const homeContent = {
       step1Label: 'Step 1 · Install',
       step2Label: 'Step 2 · Open it',
       step3Label: 'Step 3 · Add to your agent',
-      step2Caption: 'opens the dashboard on a sample fleet — see it live before instrumenting anything.',
+      step2Caption: "your Lens. On your first run you'll see a live example to explore — clearly badged 'not your data' — with a 'Ready to begin' button to start your own.",
       terminalHeader: 'TERMINAL',
       pythonHeader: "PYTHON · in your agent's code",
       whatYouGet: 'What you get',
@@ -348,7 +348,7 @@ export const homeContent = {
       step1Label: 'الخطوة 1 · التثبيت',
       step2Label: 'الخطوة 2 · افتحه',
       step3Label: 'الخطوة 3 · أضِفه إلى كود الوكيل',
-      step2Caption: 'يفتح لوحة معينة لأسطول نموذجي — شاهدها حيةً قبل تجهيز أي شيء.',
+      step2Caption: 'لوحتك. في أول تشغيل، ستجد مثالاً حياً للاستكشاف — مُعلَّماً بوضوح بأنه «ليس بياناتك» — مع زر «جاهز للبدء» لبدء مسارك الخاص.'
       terminalHeader: 'الطرفيّة',
       pythonHeader: 'PYTHON · داخل كود الوكيل',
       whatYouGet: 'ما تحصل عليه',
