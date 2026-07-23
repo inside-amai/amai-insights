@@ -52,6 +52,7 @@ const Home = () => {
   ] as const;
 
   const [copiedTerminal, setCopiedTerminal] = useState(false);
+  const [copiedDemo, setCopiedDemo] = useState(false);
   const [copiedPython, setCopiedPython] = useState(false);
   const [showLeftNavArrow, setShowLeftNavArrow] = useState(false);
   const [showRightNavArrow, setShowRightNavArrow] = useState(true);
@@ -425,6 +426,11 @@ const Home = () => {
               <br /><br />
               {c.run.body2}
             </p>
+            <div className="mt-10">
+              <a href="/docs" className="inline-flex items-center gap-2 text-sm font-normal text-white bg-black hover:bg-black/80 transition-colors duration-300 px-5 py-2.5 rounded-full border border-black">
+                {c.run.docs}<span aria-hidden>{isRtl ? '←' : '→'}</span>
+              </a>
+            </div>
             <div className="mt-10">
               <a href="/docs" className="inline-flex items-center gap-2 text-sm font-normal text-white bg-black hover:bg-black/80 transition-colors duration-300 px-5 py-2.5 rounded-full border border-black">
                 {c.run.docs}<span aria-hidden>{isRtl ? '←' : '→'}</span>
