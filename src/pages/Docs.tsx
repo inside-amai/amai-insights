@@ -248,13 +248,16 @@ tari.score(tari.trajectory_from_exporter(exporter))   # \u2462 score \u2192 writ
               </div>
               <div className="mt-6">
                 <CodeBlock
-                  code={`tari demo        # see it now on a bundled sample  (alias for tari dashboard)
-tari dashboard   # your own runs, from ./.tari`}
+                  code={`python3 -m tari demo
+python3 -m tari dashboard`}
                   language="bash"
                   showLineNumbers={false}
                   copyCopiedLabel={c.footer.copyCopied}
                 />
               </div>
+              <p className="mt-4 text-base font-light text-white/60 leading-relaxed max-w-3xl">
+                {c.quickstart.openNote}
+              </p>
               <p className="mt-6 text-base font-light text-white/60 leading-relaxed max-w-3xl">
                 {c.quickstart.note}
               </p>
