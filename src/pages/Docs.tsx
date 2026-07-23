@@ -375,7 +375,7 @@ python3 -m tari interceptor approvals stats`}
               Apache-2.0
             </a>
             <span className="text-white/20">·</span>
-            <CopyCommand text="pip install amai-tari" copiedLabel={c.footer.copyCopied} />
+            <CopyCommand text="python3 -m pip install amai-tari" copiedLabel={c.footer.copyCopied} />
           </div>
           <div className="text-[11px] tracking-[0.3em] uppercase text-white/30 font-light">
             {c.footer.tag}
