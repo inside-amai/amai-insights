@@ -58,7 +58,7 @@ export const homeContent = {
       flagLabel: 'pattern flagged',
       flagName: 'exfiltration chain',
       deltaLabel: 'TARI™ Δ',
-      chain: 'read_file → base64_encode → post_to_url',
+      chain: 'READ → TRANSFORM → EXTERNAL SINK',
       steps: [
         { title: 'Instrument', body: 'Three lines of code. Your agent emits a trace of what it did.' },
         { title: 'Read the behavior', body: 'Tool by tool, boundary by boundary. Content-off: the moves, never the message.' },
@@ -188,7 +188,7 @@ export const homeContent = {
       flagLabel: '検知されたパターン',
       flagName: '流出の連鎖',
       deltaLabel: 'TARI™ Δ',
-      chain: 'read_file → base64_encode → post_to_url',
+      chain: 'READ → TRANSFORM → EXTERNAL SINK',
       steps: [
         { title: '計装する', body: 'コード三行。エージェントが自らの行動のトレースを発します。' },
         { title: '振る舞いを読む', body: 'ツールごと、境界ごとに。コンテンツオフ——動作のみを、決してその中身は読みません。' },
@@ -318,7 +318,7 @@ export const homeContent = {
       flagLabel: 'نمط مُعلَّم',
       flagName: 'سلسلة تسريب',
       deltaLabel: 'TARI™ Δ',
-      chain: 'read_file → base64_encode → post_to_url',
+      chain: 'READ → TRANSFORM → EXTERNAL SINK',
       steps: [
         { title: 'التجهيز', body: 'ثلاثة أسطر من التعليمات البرمجية. يُصدر الوكيل أثراً لما فعله.' },
         { title: 'قراءة السلوك', body: 'أداةً أداةً، وحدّاً حدّاً. content-off: الحركات، لا المضمون.' },

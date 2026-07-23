@@ -339,6 +339,9 @@ const Home = () => {
                   loading="lazy"
                 />
               </div>
+              <div className="mt-4 text-[11px] tracking-[0.25em] uppercase text-white/30 font-light text-center keep-ltr" dir="ltr">
+                {c.how.chain}
+              </div>
             </motion.div>
           </div>
 
