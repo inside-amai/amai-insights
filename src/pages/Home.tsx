@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion, useInView, animate } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Copy, Check, ChevronRight, ChevronLeft } from "lucide-react";
-import amaiLogo from "@/assets/amai-logo-hero-2026.png.asset.json";
+import amaiLogo from "@/assets/amai-logo-tm.png";
 import { showEmailFallbackToast } from "@/lib/contact-toast";
 import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
 import agentFleetDashboard from "@/assets/institutions-fleet.png.asset.json";
@@ -100,46 +100,19 @@ const Home = () => {
       <div className="h-svh md:h-screen flex flex-col">
         <div className="h-16 bg-black flex-shrink-0" />
         <div className="flex-1 flex items-center justify-center overflow-hidden relative">
-          {/* Mobile: single grid */}
           <motion.img
             src={homeFallbackBg}
             alt=""
-            className="md:hidden absolute inset-0 w-full h-full object-cover will-change-transform"
+            className="absolute inset-0 w-full h-full object-cover will-change-transform"
             initial={{ scale: 1 }}
             animate={{ scale: [1, 1.12, 1] }}
             transition={{ duration: 18, ease: "easeInOut", repeat: Infinity }}
           />
-          {/* Desktop: two grids side-by-side */}
-          <div className="hidden md:block absolute inset-0">
-            <motion.img
-              src={homeFallbackBg}
-              alt=""
-              className="absolute inset-y-0 left-0 w-1/2 h-full object-cover will-change-transform"
-              initial={{ scale: 1 }}
-              animate={{ scale: [1, 1.12, 1] }}
-              transition={{ duration: 18, ease: "easeInOut", repeat: Infinity }}
-            />
-            <motion.img
-              src={homeFallbackBg}
-              alt=""
-              className="absolute inset-y-0 right-0 w-1/2 h-full object-cover will-change-transform"
-              initial={{ scale: 1 }}
-              animate={{ scale: [1, 1.12, 1] }}
-              transition={{ duration: 18, ease: "easeInOut", repeat: Infinity, delay: 1 }}
-            />
-            <div className="absolute inset-y-0 left-1/2 w-px bg-white/10" />
-          </div>
-          {/* Mobile teal glows: top + bottom */}
-          <div className="md:hidden pointer-events-none absolute inset-x-0 bottom-0 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_100%,rgba(166,252,252,0.14),transparent_60%)]" />
-          <div className="md:hidden pointer-events-none absolute inset-x-0 top-0 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_0%,rgba(166,252,252,0.14),transparent_60%)]" />
-          {/* Desktop teal glows: four corners */}
-          <div className="hidden md:block pointer-events-none absolute top-0 left-0 w-1/2 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_0%,rgba(166,252,252,0.14),transparent_60%)]" />
-          <div className="hidden md:block pointer-events-none absolute top-0 right-0 w-1/2 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_0%,rgba(166,252,252,0.14),transparent_60%)]" />
-          <div className="hidden md:block pointer-events-none absolute bottom-0 left-0 w-1/2 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_100%,rgba(166,252,252,0.14),transparent_60%)]" />
-          <div className="hidden md:block pointer-events-none absolute bottom-0 right-0 w-1/2 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_100%,rgba(166,252,252,0.14),transparent_60%)]" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_100%,rgba(166,252,252,0.14),transparent_60%)]" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_0%,rgba(166,252,252,0.14),transparent_60%)]" />
           <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
             <motion.img
-              src={amaiLogo.url}
+              src={amaiLogo}
               alt="AMAI Labs"
               className="h-12 md:h-20 w-auto mx-auto mb-8 md:mb-10 brightness-110"
               initial={{ opacity: 0, scale: 0.8 }}
@@ -665,7 +638,7 @@ const Home = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)] pointer-events-none" />
 
         <motion.div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}>
-          <img src={amaiLogo.url} alt={c.outro.logoAlt} className="h-20 md:h-32 w-auto mx-auto mb-12 md:mb-16 brightness-110 drop-shadow-[0_0_40px_rgba(166,252,252,0.25)]" />
+          <img src={amaiLogo} alt={c.outro.logoAlt} className="h-20 md:h-32 w-auto mx-auto mb-12 md:mb-16 brightness-110 drop-shadow-[0_0_40px_rgba(166,252,252,0.25)]" />
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-white leading-[1.1]">
             {c.outro.line}
           </h2>
