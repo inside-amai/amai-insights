@@ -218,8 +218,11 @@ const Docs = () => {
                 {c.install.body}
               </p>
               <div className="mt-8">
-                <CodeBlock code="pip install amai-tari" language="bash" copyLabel={c.footer.copyCopied === c.footer.copyCopied ? (language==='ja'?'コピー':language==='ar'?'نسخ':'Copy') : 'Copy'} copyCopiedLabel={c.footer.copyCopied} />
+                <CodeBlock code="python3 -m pip install amai-tari" language="bash" copyLabel={c.footer.copyCopied === c.footer.copyCopied ? (language==='ja'?'コピー':language==='ar'?'نسخ':'Copy') : 'Copy'} copyCopiedLabel={c.footer.copyCopied} />
               </div>
+              <p className="mt-4 text-base font-light text-white/60 leading-relaxed max-w-3xl">
+                {c.install.note}
+              </p>
             </FadeIn>
 
             <FadeIn className="mb-20 md:mb-28">
@@ -245,13 +248,16 @@ tari.score(tari.trajectory_from_exporter(exporter))   # \u2462 score \u2192 writ
               </div>
               <div className="mt-6">
                 <CodeBlock
-                  code={`tari demo        # see it now on a bundled sample  (alias for tari dashboard)
-tari dashboard   # your own runs, from ./.tari`}
+                  code={`python3 -m tari demo
+python3 -m tari dashboard`}
                   language="bash"
                   showLineNumbers={false}
                   copyCopiedLabel={c.footer.copyCopied}
                 />
               </div>
+              <p className="mt-4 text-base font-light text-white/60 leading-relaxed max-w-3xl">
+                {c.quickstart.openNote}
+              </p>
               <p className="mt-6 text-base font-light text-white/60 leading-relaxed max-w-3xl">
                 {c.quickstart.note}
               </p>
@@ -283,16 +289,16 @@ tari dashboard   # your own runs, from ./.tari`}
               </p>
               <div className="mt-8">
                 <CodeBlock
-                  code={`tari dashboard                     # launch the local TARI\u2122 Lens dashboard
-tari demo                          # dashboard on the bundled sample
-tari baseline promote <args>       # promote a known-good run as a baseline
-tari baseline list                 # list promoted baselines
-tari baseline show <agent>         # print one agent's baseline
-tari drift check <args>            # conduct-drift checks against a promoted baseline
-tari interceptor approvals list    # holds paused awaiting a human decision
-tari interceptor approvals allow   # allow a held action (labels it a false positive)
-tari interceptor approvals deny    # deny a held action (labels it a true positive)
-tari interceptor approvals stats   # false-positive-rate stats`}
+                  code={`python3 -m tari dashboard
+python3 -m tari demo
+python3 -m tari baseline promote <args>
+python3 -m tari baseline list
+python3 -m tari baseline show <agent>
+python3 -m tari drift check <args>
+python3 -m tari interceptor approvals list
+python3 -m tari interceptor approvals allow
+python3 -m tari interceptor approvals deny
+python3 -m tari interceptor approvals stats`}
                   language="bash"
                   showLineNumbers={false}
                   copyCopiedLabel={c.footer.copyCopied}
@@ -369,7 +375,7 @@ tari interceptor approvals stats   # false-positive-rate stats`}
               Apache-2.0
             </a>
             <span className="text-white/20">·</span>
-            <CopyCommand text="pip install amai-tari" copiedLabel={c.footer.copyCopied} />
+            <CopyCommand text="python3 -m pip install amai-tari" copiedLabel={c.footer.copyCopied} />
           </div>
           <div className="text-[11px] tracking-[0.3em] uppercase text-white/30 font-light">
             {c.footer.tag}
