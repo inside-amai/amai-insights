@@ -950,7 +950,7 @@ export const docsContent = {
     cli: {
       eyebrow: 'CLI',
       title: 'tari <command>',
-      body: 'CLI はローカルダッシュボード、ベースライン管理、ドリフトチェック、そしてインターセプターの承認キューを操作します。',
+      body: 'CLI はローカルダッシュボード、同梱のサンプル、ベースライン管理、ドリフトチェック、そしてインターセプターの承認キューを操作します。',
       helpPre: '完全なフラグは ',
       helpPost: ' を実行してください。',
     },
