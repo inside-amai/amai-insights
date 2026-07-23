@@ -279,13 +279,13 @@ const Home = () => {
 
           <motion.div className="lg:col-span-5 lg:pt-4" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}>
             <div className={`relative ${isRtl ? 'pr-8 md:pr-10' : 'pl-8 md:pl-10'}`}>
-              <div className={`absolute ${isRtl ? 'right-0' : 'left-0'} top-2 bottom-2 w-px bg-gradient-to-b from-cyan-300/40 via-emerald-300/30 via-amber-300/30 to-red-400/40`} />
+              <div className={`absolute ${isRtl ? 'right-0' : 'left-0'} top-2 bottom-2 w-px bg-gradient-to-b from-[#7dd3d8]/50 via-[#5ec9a8]/40 via-[#e8b25a]/40 to-[#e15a3b]/50`} />
               {c.score.bands.map((band, i) => {
                 const colors = [
-                  { color: 'bg-cyan-300', text: 'text-cyan-200' },
-                  { color: 'bg-emerald-300', text: 'text-emerald-200' },
-                  { color: 'bg-amber-300', text: 'text-amber-200' },
-                  { color: 'bg-red-400', text: 'text-red-300' },
+                  { color: 'bg-[#7dd3d8]', text: 'text-[#a6e3e6]' },
+                  { color: 'bg-[#5ec9a8]', text: 'text-[#9fdcc4]' },
+                  { color: 'bg-[#e8b25a]', text: 'text-[#f0c98a]' },
+                  { color: 'bg-[#e15a3b]', text: 'text-[#f0a08a]' },
                   { color: 'bg-white/40', text: 'text-white/60' },
                 ][i];
                 return (
