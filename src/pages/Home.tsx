@@ -500,7 +500,7 @@ const Home = () => {
                       <button
                         type="button"
                         onClick={() => {
-                          navigator.clipboard.writeText('python3 -m tari demo');
+                          navigator.clipboard.writeText('python3 -m tari dashboard');
                           setCopiedDemo(true);
                           setTimeout(() => setCopiedDemo(false), 2000);
                         }}
@@ -520,7 +520,7 @@ const Home = () => {
                       </button>
                     </div>
                     <div className="px-4 py-3.5 md:px-5 md:py-4 font-mono text-sm md:text-[15px] leading-relaxed">
-                      <span className="text-sky-300">python3 -m</span> <span className="text-white/90">tari demo</span>
+                      <span className="text-sky-300">python3 -m</span> <span className="text-white/90">tari dashboard</span>
                     </div>
                   </div>
                   <p className="mt-3 text-xs md:text-sm text-white/50 font-light leading-relaxed">
