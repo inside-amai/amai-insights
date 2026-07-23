@@ -472,7 +472,7 @@ const Home = () => {
                 {/* Step 2 · Add to your agent */}
                 <div>
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="text-xs tracking-[0.25em] font-medium text-white/60 uppercase">{c.run.step2Label}</span>
+                    <span className="text-xs md:text-sm tracking-[0.35em] font-semibold text-white/90 uppercase">{c.run.step2Label}</span>
                     <span className="h-px flex-1 bg-white/10" />
                   </div>
                   <div className="relative bg-black/30 rounded-2xl overflow-hidden border border-white/[0.08]">
