@@ -463,7 +463,7 @@ const Home = () => {
                       <button
                         type="button"
                         onClick={() => {
-                          navigator.clipboard.writeText('pip install amai-tari');
+                          navigator.clipboard.writeText('python3 -m pip install amai-tari');
                           setCopiedTerminal(true);
                           setTimeout(() => setCopiedTerminal(false), 2000);
                         }}
@@ -483,15 +483,55 @@ const Home = () => {
                       </button>
                     </div>
                     <div className="px-4 py-3.5 md:px-5 md:py-4 font-mono text-sm md:text-[15px] leading-relaxed">
-                      <span className="text-sky-300">pip install</span> <span className="text-white/90">amai-tari</span>
+                      <span className="text-sky-300">python3 -m pip install</span> <span className="text-white/90">amai-tari</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Step 2 · Add to your agent */}
+                {/* Step 2 · Open it */}
                 <div>
                   <div className="flex items-center gap-3 mb-3">
                     <span className="text-xs md:text-sm tracking-[0.35em] font-semibold text-white/90 uppercase">{c.run.step2Label}</span>
+                    <span className="h-px flex-1 bg-white/10" />
+                  </div>
+                  <div className="relative bg-black/70 rounded-2xl overflow-hidden border border-white/[0.06]">
+                    <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.06] bg-white/[0.02]">
+                      <span className="text-[10px] tracking-[0.3em] uppercase text-white/50 font-light">{c.run.terminalHeader}</span>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          navigator.clipboard.writeText('python3 -m tari demo');
+                          setCopiedDemo(true);
+                          setTimeout(() => setCopiedDemo(false), 2000);
+                        }}
+                        className="group flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.05] hover:bg-white/[0.10] hover:border-white/20 transition-all duration-300"
+                      >
+                        {copiedDemo ? (
+                          <>
+                            <Check className="w-3.5 h-3.5 text-emerald-300" strokeWidth={2} />
+                            <span className="text-[10px] tracking-[0.2em] uppercase font-semibold text-emerald-100">{c.run.copied}</span>
+                          </>
+                        ) : (
+                          <>
+                            <Copy className="w-3.5 h-3.5 text-white/60 group-hover:text-white/90 transition-colors duration-300" strokeWidth={2} />
+                            <span className="text-[10px] tracking-[0.2em] uppercase font-semibold text-white/70 group-hover:text-white transition-colors duration-300">{c.run.copy}</span>
+                          </>
+                        )}
+                      </button>
+                    </div>
+                    <div className="px-4 py-3.5 md:px-5 md:py-4 font-mono text-sm md:text-[15px] leading-relaxed">
+                      <span className="text-sky-300">python3 -m</span> <span className="text-white/90">tari demo</span>
+                    </div>
+                  </div>
+                  <p className="mt-3 text-xs md:text-sm text-white/50 font-light leading-relaxed">
+                    {c.run.step2Caption}
+                  </p>
+                </div>
+
+                {/* Step 3 · Add to your agent */}
+                <div>
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-xs md:text-sm tracking-[0.35em] font-semibold text-white/90 uppercase">{c.run.step3Label}</span>
                     <span className="h-px flex-1 bg-white/10" />
                   </div>
                   <div className="relative bg-black/70 rounded-2xl overflow-hidden border border-white/[0.06]">
