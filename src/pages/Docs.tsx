@@ -218,8 +218,11 @@ const Docs = () => {
                 {c.install.body}
               </p>
               <div className="mt-8">
-                <CodeBlock code="pip install amai-tari" language="bash" copyLabel={c.footer.copyCopied === c.footer.copyCopied ? (language==='ja'?'コピー':language==='ar'?'نسخ':'Copy') : 'Copy'} copyCopiedLabel={c.footer.copyCopied} />
+                <CodeBlock code="python3 -m pip install amai-tari" language="bash" copyLabel={c.footer.copyCopied === c.footer.copyCopied ? (language==='ja'?'コピー':language==='ar'?'نسخ':'Copy') : 'Copy'} copyCopiedLabel={c.footer.copyCopied} />
               </div>
+              <p className="mt-4 text-base font-light text-white/60 leading-relaxed max-w-3xl">
+                {c.install.note}
+              </p>
             </FadeIn>
 
             <FadeIn className="mb-20 md:mb-28">
