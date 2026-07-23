@@ -289,16 +289,16 @@ python3 -m tari dashboard`}
               </p>
               <div className="mt-8">
                 <CodeBlock
-                  code={`tari dashboard                     # launch the local TARI\u2122 Lens dashboard
-tari demo                          # dashboard on the bundled sample
-tari baseline promote <args>       # promote a known-good run as a baseline
-tari baseline list                 # list promoted baselines
-tari baseline show <agent>         # print one agent's baseline
-tari drift check <args>            # conduct-drift checks against a promoted baseline
-tari interceptor approvals list    # holds paused awaiting a human decision
-tari interceptor approvals allow   # allow a held action (labels it a false positive)
-tari interceptor approvals deny    # deny a held action (labels it a true positive)
-tari interceptor approvals stats   # false-positive-rate stats`}
+                  code={`python3 -m tari dashboard
+python3 -m tari demo
+python3 -m tari baseline promote <args>
+python3 -m tari baseline list
+python3 -m tari baseline show <agent>
+python3 -m tari drift check <args>
+python3 -m tari interceptor approvals list
+python3 -m tari interceptor approvals allow
+python3 -m tari interceptor approvals deny
+python3 -m tari interceptor approvals stats`}
                   language="bash"
                   showLineNumbers={false}
                   copyCopiedLabel={c.footer.copyCopied}
