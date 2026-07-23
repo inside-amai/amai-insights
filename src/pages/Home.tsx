@@ -438,7 +438,7 @@ const Home = () => {
                     <span className="text-xs md:text-sm tracking-[0.35em] font-semibold text-white/90 uppercase">{c.run.step1Label}</span>
                     <span className="h-px flex-1 bg-white/10" />
                   </div>
-                  <div className="relative bg-black/30 rounded-2xl overflow-hidden border border-white/[0.08]">
+                  <div className="relative bg-black/70 rounded-2xl overflow-hidden border border-white/[0.06]">
                     <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.06] bg-white/[0.02]">
                       <span className="text-[10px] tracking-[0.3em] uppercase text-white/50 font-light">{c.run.terminalHeader}</span>
                       <button
@@ -453,12 +453,12 @@ const Home = () => {
                         {copiedTerminal ? (
                           <>
                             <Check className="w-3.5 h-3.5 text-emerald-300" strokeWidth={2} />
-                            <span className="text-[10px] tracking-[0.2em] uppercase font-light text-emerald-100">{c.run.copied}</span>
+                            <span className="text-[10px] tracking-[0.2em] uppercase font-semibold text-emerald-100">{c.run.copied}</span>
                           </>
                         ) : (
                           <>
                             <Copy className="w-3.5 h-3.5 text-white/60 group-hover:text-white/90 transition-colors duration-300" strokeWidth={2} />
-                            <span className="text-[10px] tracking-[0.2em] uppercase font-light text-white/60 group-hover:text-white/90 transition-colors duration-300">{c.run.copy}</span>
+                            <span className="text-[10px] tracking-[0.2em] uppercase font-semibold text-white/70 group-hover:text-white transition-colors duration-300">{c.run.copy}</span>
                           </>
                         )}
                       </button>
@@ -475,7 +475,7 @@ const Home = () => {
                     <span className="text-xs md:text-sm tracking-[0.35em] font-semibold text-white/90 uppercase">{c.run.step2Label}</span>
                     <span className="h-px flex-1 bg-white/10" />
                   </div>
-                  <div className="relative bg-black/30 rounded-2xl overflow-hidden border border-white/[0.08]">
+                  <div className="relative bg-black/70 rounded-2xl overflow-hidden border border-white/[0.06]">
                     <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.06] bg-white/[0.02]">
                       <span className="text-[10px] tracking-[0.3em] uppercase text-white/50 font-light">{c.run.pythonHeader}</span>
                       <button
@@ -490,12 +490,12 @@ const Home = () => {
                         {copiedPython ? (
                           <>
                             <Check className="w-3.5 h-3.5 text-emerald-300" strokeWidth={2} />
-                            <span className="text-[10px] tracking-[0.2em] uppercase font-light text-emerald-100">{c.run.copied}</span>
+                            <span className="text-[10px] tracking-[0.2em] uppercase font-semibold text-emerald-100">{c.run.copied}</span>
                           </>
                         ) : (
                           <>
                             <Copy className="w-3.5 h-3.5 text-white/60 group-hover:text-white/90 transition-colors duration-300" strokeWidth={2} />
-                            <span className="text-[10px] tracking-[0.2em] uppercase font-light text-white/60 group-hover:text-white/90 transition-colors duration-300">{c.run.copy}</span>
+                            <span className="text-[10px] tracking-[0.2em] uppercase font-semibold text-white/70 group-hover:text-white transition-colors duration-300">{c.run.copy}</span>
                           </>
                         )}
                       </button>
