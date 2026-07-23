@@ -218,7 +218,7 @@ export const homeContent = {
       step1Label: 'ステップ 1 · インストール',
       step2Label: 'ステップ 2 · 開く',
       step3Label: 'ステップ 3 · エージェントに組み込む',
-      step2Caption: 'サンプル艦隊のダッシュボードを開きます。計装前に実際の動作を確認してください。',
+      step2Caption: 'あなたの Lens。初回実行時には、探索用のライブサンプルが表示されます — 「これはあなたのデータではありません」と明確に表示され、自分のデータを始める「Ready to begin」ボタンがあります。',
       terminalHeader: 'ターミナル',
       pythonHeader: 'PYTHON · エージェントのコード内',
       whatYouGet: '得られるもの',
