@@ -50,7 +50,8 @@ const Home = () => {
     { label: c.nav.docs, href: "/docs" },
   ] as const;
 
-  const [copied, setCopied] = useState(false);
+  const [copiedTerminal, setCopiedTerminal] = useState(false);
+  const [copiedPython, setCopiedPython] = useState(false);
   const [showLeftNavArrow, setShowLeftNavArrow] = useState(false);
   const [showRightNavArrow, setShowRightNavArrow] = useState(true);
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
