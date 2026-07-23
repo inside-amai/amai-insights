@@ -1000,14 +1000,15 @@ export const docsContent = {
     install: {
       eyebrow: 'التثبيت',
       title: 'python3 -m pip install amai-tari',
-      body: 'Python خالص، دون Node. تُشحن واجهة اللوحة مبنيّةً مسبقاً داخل الحزمة.',
+      body: 'يتطلّب Python 3.9+. Python خالص، دون Node. تُشحن واجهة اللوحة مبنيّةً مسبقاً داخل الحزمة.',
+      note: 'يعمل python3 -m دائماً بغض النظر عن PATH. إذا كان pip و tari موجودين على PATH لديك، فستعمل الصيغ المختصرة pip install amai-tari / tari demo أيضاً.',
     },
     quickstart: {
       eyebrow: 'البدء السريع',
       title: 'نحو 60 ثانية',
       p1: 'ثلاث خطوات: سمِّه، والتقطه، وقيِّمه. تعمل أَتْمَتَة OpenTelemetry لـ LangGraph و CrewAI عبر حزم openinference-*، فتكون الخطوة الثانية آلية في الغالب.',
       openLead: 'ثم افتح لوحتك:',
-      openNote: 'أمر demo يفتح لوحة معينة لأسطول نموذجي. أمر dashboard يفتح تشغيلاتك الخاصة من ./.tari.',
+      openNote: 'يفتح python3 -m tari demo لوحة معينة لأسطول نموذجي. يفتح python3 -m tari dashboard تشغيلاتك الخاصة من ./.tari.',
       note: 'تُفتح اللوحة محلياً في متصفّحك. لا حساب، ولا تسجيل دخول — ولا شيء يغادر جهازك. مع أَتْمَتَة OpenTelemetry (LangGraph / CrewAI عبر حزم openinference-*)، تكون الخطوة ② آلية.',
     },
     concepts: {
