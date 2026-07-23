@@ -307,7 +307,7 @@ python3 -m tari interceptor approvals stats`}
               </div>
               <p className="mt-6 text-base font-light text-white/60">
                 {c.cli.helpPre}
-                <code className="text-white/90 font-mono text-sm keep-ltr" dir="ltr">tari &lt;command&gt; --help</code>
+                <code className="text-white/90 font-mono text-sm keep-ltr" dir="ltr">python3 -m tari &lt;command&gt; --help</code>
                 {c.cli.helpPost}
               </p>
             </FadeIn>
