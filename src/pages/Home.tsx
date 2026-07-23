@@ -112,7 +112,7 @@ const Home = () => {
           <div className="pointer-events-none absolute inset-x-0 top-0 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_0%,rgba(166,252,252,0.14),transparent_60%)]" />
           <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
             <motion.img
-              src={amaiLogo}
+              src={amaiLogo.url}
               alt="AMAI Labs"
               className="h-12 md:h-20 w-auto mx-auto mb-8 md:mb-10 brightness-110"
               initial={{ opacity: 0, scale: 0.8 }}
@@ -638,7 +638,7 @@ const Home = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)] pointer-events-none" />
 
         <motion.div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}>
-          <img src={amaiLogo} alt={c.outro.logoAlt} className="h-20 md:h-32 w-auto mx-auto mb-12 md:mb-16 brightness-110 drop-shadow-[0_0_40px_rgba(166,252,252,0.25)]" />
+          <img src={amaiLogo.url} alt={c.outro.logoAlt} className="h-20 md:h-32 w-auto mx-auto mb-12 md:mb-16 brightness-110 drop-shadow-[0_0_40px_rgba(166,252,252,0.25)]" />
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-white leading-[1.1]">
             {c.outro.line}
           </h2>
