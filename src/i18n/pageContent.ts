@@ -876,7 +876,7 @@ export const docsContent = {
     cli: {
       eyebrow: 'The CLI',
       title: 'tari <command>',
-      body: 'The CLI drives the local dashboard, baseline management, drift checks, and the interceptor approval queue.',
+      body: 'The CLI drives the local dashboard, a bundled example, baseline management, drift checks, and the interceptor approval queue.',
       helpPre: 'Run ',
       helpPost: ' for full flags.',
     },
