@@ -100,16 +100,43 @@ const Home = () => {
       <div className="h-svh md:h-screen flex flex-col">
         <div className="h-16 bg-black flex-shrink-0" />
         <div className="flex-1 flex items-center justify-center overflow-hidden relative">
+          {/* Mobile: single grid */}
           <motion.img
             src={homeFallbackBg}
             alt=""
-            className="absolute inset-0 w-full h-full object-cover will-change-transform"
+            className="md:hidden absolute inset-0 w-full h-full object-cover will-change-transform"
             initial={{ scale: 1 }}
             animate={{ scale: [1, 1.12, 1] }}
             transition={{ duration: 18, ease: "easeInOut", repeat: Infinity }}
           />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_100%,rgba(166,252,252,0.14),transparent_60%)]" />
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_0%,rgba(166,252,252,0.14),transparent_60%)]" />
+          {/* Desktop: two grids side-by-side */}
+          <div className="hidden md:block absolute inset-0">
+            <motion.img
+              src={homeFallbackBg}
+              alt=""
+              className="absolute inset-y-0 left-0 w-1/2 h-full object-cover will-change-transform"
+              initial={{ scale: 1 }}
+              animate={{ scale: [1, 1.12, 1] }}
+              transition={{ duration: 18, ease: "easeInOut", repeat: Infinity }}
+            />
+            <motion.img
+              src={homeFallbackBg}
+              alt=""
+              className="absolute inset-y-0 right-0 w-1/2 h-full object-cover will-change-transform"
+              initial={{ scale: 1 }}
+              animate={{ scale: [1, 1.12, 1] }}
+              transition={{ duration: 18, ease: "easeInOut", repeat: Infinity, delay: 1 }}
+            />
+            <div className="absolute inset-y-0 left-1/2 w-px bg-white/10" />
+          </div>
+          {/* Mobile teal glows: top + bottom */}
+          <div className="md:hidden pointer-events-none absolute inset-x-0 bottom-0 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_100%,rgba(166,252,252,0.14),transparent_60%)]" />
+          <div className="md:hidden pointer-events-none absolute inset-x-0 top-0 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_0%,rgba(166,252,252,0.14),transparent_60%)]" />
+          {/* Desktop teal glows: four corners */}
+          <div className="hidden md:block pointer-events-none absolute top-0 left-0 w-1/2 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_0%,rgba(166,252,252,0.14),transparent_60%)]" />
+          <div className="hidden md:block pointer-events-none absolute top-0 right-0 w-1/2 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_0%,rgba(166,252,252,0.14),transparent_60%)]" />
+          <div className="hidden md:block pointer-events-none absolute bottom-0 left-0 w-1/2 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_100%,rgba(166,252,252,0.14),transparent_60%)]" />
+          <div className="hidden md:block pointer-events-none absolute bottom-0 right-0 w-1/2 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_100%,rgba(166,252,252,0.14),transparent_60%)]" />
           <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
             <motion.img
               src={amaiLogo.url}
