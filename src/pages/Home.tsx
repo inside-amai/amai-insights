@@ -421,12 +421,7 @@ const Home = () => {
                 {c.run.docs}<span aria-hidden>{isRtl ? '←' : '→'}</span>
               </a>
             </div>
-            <div className="mt-10 md:mt-12 max-w-xl">
-              <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-black leading-[1.15]">
-                {c.run.pullA}<br /><span className="text-black/50">{c.run.pullB}</span>
-              </p>
-            </div>
-            <motion.div className="mt-12 md:mt-16 max-w-xl" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}>
+            <motion.div className="mt-10 md:mt-12 max-w-xl" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}>
               <div className="flex items-center gap-3 mb-6">
                 <span className="text-xs md:text-sm tracking-[0.25em] font-medium text-black uppercase">{c.run.whatYouGet}</span>
                 <span className="h-px flex-1 bg-black/20" />
