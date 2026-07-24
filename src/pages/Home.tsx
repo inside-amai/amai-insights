@@ -60,6 +60,7 @@ const Home = () => {
   const institutionImages = [institutionsLens.url, institutionsApprovals.url, institutionsFleetNew.url];
   const [instIndex, setInstIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [traceLightboxOpen, setTraceLightboxOpen] = useState(false);
   const goPrev = () => setInstIndex((i) => (i - 1 + institutionImages.length) % institutionImages.length);
   const goNext = () => setInstIndex((i) => (i + 1) % institutionImages.length);
 
@@ -75,6 +76,18 @@ const Home = () => {
     window.addEventListener('keydown', onKey);
     return () => { window.removeEventListener('keydown', onKey); document.body.style.overflow = prevOverflow; };
   }, [lightboxOpen]);
+
+  useEffect(() => {
+    if (!traceLightboxOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setTraceLightboxOpen(false);
+    };
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKey);
+    return () => { window.removeEventListener('keydown', onKey); document.body.style.overflow = prevOverflow; };
+  }, [traceLightboxOpen]);
+
   const navListRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
@@ -331,14 +344,20 @@ const Home = () => {
             </motion.div>
 
             <motion.div className="lg:col-span-5 lg:pt-12" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}>
-              <div className="relative rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl overflow-hidden shadow-[0_20px_80px_-20px_rgba(0,0,0,0.9)]" dir="ltr">
+              <button
+                type="button"
+                onClick={() => setTraceLightboxOpen(true)}
+                className="block w-full relative rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl overflow-hidden shadow-[0_20px_80px_-20px_rgba(0,0,0,0.9)] cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-white/30 text-start"
+                dir="ltr"
+                aria-label="Open TARI live trace image"
+              >
                 <img
                   src={liveTraceImage.url}
                   alt="TARI live trace showing a flagged read to external sink pattern across nine steps"
                   className="block w-full h-auto"
                   loading="lazy"
                 />
-              </div>
+              </button>
               <div className="mt-4 text-[11px] tracking-[0.25em] uppercase text-white/30 font-light text-center keep-ltr" dir="ltr">
                 {c.how.chain}
               </div>
@@ -777,6 +796,30 @@ const Home = () => {
               />
             ))}
           </div>
+        </div>
+      )}
+
+      {traceLightboxOpen && (
+        <div
+          className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-10 cursor-zoom-out"
+          onClick={() => setTraceLightboxOpen(false)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <button
+            type="button"
+            onClick={(e) => { e.stopPropagation(); setTraceLightboxOpen(false); }}
+            className="absolute top-4 right-4 md:top-6 md:right-6 text-white/80 hover:text-white text-2xl leading-none w-10 h-10 flex items-center justify-center border border-white/20 rounded-full z-10"
+            aria-label="Close"
+          >
+            ×
+          </button>
+          <img
+            src={liveTraceImage.url}
+            alt="TARI live trace showing a flagged read to external sink pattern across nine steps"
+            onClick={(e) => e.stopPropagation()}
+            className="max-w-full max-h-full w-auto h-auto object-contain shadow-2xl cursor-default"
+          />
         </div>
       )}
     </div>
