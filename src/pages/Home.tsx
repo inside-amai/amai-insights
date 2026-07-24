@@ -798,6 +798,30 @@ const Home = () => {
           </div>
         </div>
       )}
+
+      {traceLightboxOpen && (
+        <div
+          className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-10 cursor-zoom-out"
+          onClick={() => setTraceLightboxOpen(false)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <button
+            type="button"
+            onClick={(e) => { e.stopPropagation(); setTraceLightboxOpen(false); }}
+            className="absolute top-4 right-4 md:top-6 md:right-6 text-white/80 hover:text-white text-2xl leading-none w-10 h-10 flex items-center justify-center border border-white/20 rounded-full z-10"
+            aria-label="Close"
+          >
+            ×
+          </button>
+          <img
+            src={liveTraceImage.url}
+            alt="TARI live trace showing a flagged read to external sink pattern across nine steps"
+            onClick={(e) => e.stopPropagation()}
+            className="max-w-full max-h-full w-auto h-auto object-contain shadow-2xl cursor-default"
+          />
+        </div>
+      )}
     </div>
   );
 };
