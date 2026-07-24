@@ -60,6 +60,7 @@ const Home = () => {
   const institutionImages = [institutionsLens.url, institutionsApprovals.url, institutionsFleetNew.url];
   const [instIndex, setInstIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [traceLightboxOpen, setTraceLightboxOpen] = useState(false);
   const goPrev = () => setInstIndex((i) => (i - 1 + institutionImages.length) % institutionImages.length);
   const goNext = () => setInstIndex((i) => (i + 1) % institutionImages.length);
 
