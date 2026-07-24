@@ -332,14 +332,20 @@ const Home = () => {
             </motion.div>
 
             <motion.div className="lg:col-span-5 lg:pt-12" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}>
-              <div className="relative rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl overflow-hidden shadow-[0_20px_80px_-20px_rgba(0,0,0,0.9)]" dir="ltr">
+              <button
+                type="button"
+                onClick={() => setTraceLightboxOpen(true)}
+                className="block w-full relative rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl overflow-hidden shadow-[0_20px_80px_-20px_rgba(0,0,0,0.9)] cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-white/30 text-start"
+                dir="ltr"
+                aria-label="Open TARI live trace image"
+              >
                 <img
                   src={liveTraceImage.url}
                   alt="TARI live trace showing a flagged read to external sink pattern across nine steps"
                   className="block w-full h-auto"
                   loading="lazy"
                 />
-              </div>
+              </button>
               <div className="mt-4 text-[11px] tracking-[0.25em] uppercase text-white/30 font-light text-center keep-ltr" dir="ltr">
                 {c.how.chain}
               </div>
