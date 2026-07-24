@@ -504,9 +504,6 @@ const Home = () => {
                       <span className="text-sky-300">python3 -m</span> <span className="text-white/90">tari dashboard</span>
                     </div>
                   </div>
-                  <p className="mt-3 text-xs md:text-sm text-white/50 font-light leading-relaxed">
-                    {c.run.step2Caption}
-                  </p>
                 </div>
 
                 {/* Step 3 · Add to your agent */}
@@ -569,9 +566,6 @@ const Home = () => {
 
             <p className="mt-6 text-sm md:text-base text-black/70 font-light tracking-wide text-center">
               {c.run.caption}
-            </p>
-            <p className="mt-2 text-xs md:text-sm text-black/60 font-light text-center">
-              {c.run.exampleLine}
             </p>
             <div className="mt-8 md:mt-10 text-end">
               <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-black leading-[1.15]">
