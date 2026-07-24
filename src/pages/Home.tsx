@@ -434,10 +434,11 @@ const Home = () => {
               <div className="absolute -inset-4 -z-10 rounded-[40px] bg-[radial-gradient(circle_at_50%_0%,rgba(166,252,252,0.12),transparent_55%)] blur-2xl opacity-60" />
               <div className="absolute -inset-4 -z-10 rounded-[40px] bg-[radial-gradient(circle_at_50%_100%,rgba(214,166,252,0.08),transparent_55%)] blur-2xl opacity-60" />
 
-              <div className="relative rounded-3xl overflow-hidden border border-white/15 bg-gradient-to-b from-black/60 to-black/30 backdrop-blur-2xl shadow-[0_20px_80px_-20px_rgba(0,0,0,0.35)] after:absolute after:inset-x-0 after:top-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-white/20 after:to-transparent keep-ltr p-5 md:p-6 space-y-6" dir="ltr">
+              <div className="relative rounded-3xl overflow-hidden border border-white/20 bg-gradient-to-b from-black/55 to-black/35 backdrop-blur-2xl shadow-[0_20px_80px_-20px_rgba(0,0,0,0.35),inset_0_1px_0_0_rgba(255,255,255,0.08)] after:absolute after:inset-x-0 after:top-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-white/25 after:to-transparent keep-ltr p-5 md:p-6 space-y-6" dir="ltr">
                 <div className="pointer-events-none absolute inset-0 opacity-100" style={{ backgroundImage: 'linear-gradient(rgba(0,85,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,85,255,0.04) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.07] via-transparent to-transparent" />
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white/[0.10] to-transparent" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.10] via-transparent to-transparent" />
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-white/[0.14] to-transparent" />
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.16),transparent_55%)]" />
                 {/* Step 1 · Install */}
                 <div>
                   <div className="flex items-center gap-3 mb-3">
