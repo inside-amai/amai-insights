@@ -431,7 +431,7 @@ const Home = () => {
           <motion.div className="lg:col-span-7 lg:mt-14" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}>
             <div className="relative">
               <div className="absolute -inset-3 -z-10 rounded-[32px] bg-gradient-to-br from-white/10 via-white/5 to-transparent blur-2xl opacity-60" />
-              <div className="relative bg-[hsl(var(--gray-800))] rounded-3xl overflow-hidden border border-white/15 shadow-2xl after:absolute after:inset-x-0 after:top-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-white/25 after:to-transparent keep-ltr p-5 md:p-6 space-y-6" dir="ltr">
+              <div className="relative bg-[hsl(var(--gray-900))] rounded-3xl overflow-hidden border border-white/15 shadow-2xl after:absolute after:inset-x-0 after:top-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-white/25 after:to-transparent keep-ltr p-5 md:p-6 space-y-6" dir="ltr">
                 {/* Step 1 · Install */}
                 <div>
                   <div className="flex items-center gap-3 mb-3">
