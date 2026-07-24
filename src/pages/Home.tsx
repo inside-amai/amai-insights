@@ -447,7 +447,7 @@ const Home = () => {
                   </div>
                   <div className="relative bg-black rounded-2xl overflow-hidden border border-white/[0.08]">
                     <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.06] bg-white/[0.02]">
-                      <span className="text-[10px] tracking-[0.3em] uppercase text-white/50 font-light">{c.run.terminalHeader}</span>
+                      <span className="text-[10px] tracking-[0.3em] uppercase text-white/70 font-light">{c.run.terminalHeader}</span>
                       <button
                         type="button"
                         onClick={() => {
@@ -484,7 +484,7 @@ const Home = () => {
                   </div>
                   <div className="relative bg-black rounded-2xl overflow-hidden border border-white/[0.08]">
                     <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.06] bg-white/[0.02]">
-                      <span className="text-[10px] tracking-[0.3em] uppercase text-white/50 font-light">{c.run.terminalHeader}</span>
+                      <span className="text-[10px] tracking-[0.3em] uppercase text-white/70 font-light">{c.run.terminalHeader}</span>
                       <button
                         type="button"
                         onClick={() => {
@@ -511,7 +511,7 @@ const Home = () => {
                       <span className="text-sky-300">python3 -m</span> <span className="text-white/90">tari dashboard</span>
                     </div>
                   </div>
-                  <p className="mt-3 text-xs md:text-sm text-white/50 font-light leading-relaxed">
+                  <p className="mt-3 text-xs md:text-sm text-white/70 font-light leading-relaxed">
                     {c.run.step2Caption}
                   </p>
                 </div>
@@ -524,7 +524,7 @@ const Home = () => {
                   </div>
                   <div className="relative bg-black rounded-2xl overflow-hidden border border-white/[0.08]">
                     <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.06] bg-white/[0.02]">
-                      <span className="text-[10px] tracking-[0.3em] uppercase text-white/50 font-light">{c.run.pythonHeader}</span>
+                      <span className="text-[10px] tracking-[0.3em] uppercase text-white/70 font-light">{c.run.pythonHeader}</span>
                       <button
                         type="button"
                         onClick={() => {
@@ -565,8 +565,8 @@ const Home = () => {
                 </div>
 
                 <div className="flex items-center justify-between px-1 pt-2">
-                  <span className="text-[10px] tracking-[0.2em] uppercase text-white/50 font-light">{c.run.footerRuns}</span>
-                  <span className="flex items-center gap-1.5 text-[10px] text-white/60 font-light">
+                  <span className="text-[10px] tracking-[0.2em] uppercase text-white/70 font-light">{c.run.footerRuns}</span>
+                  <span className="flex items-center gap-1.5 text-[10px] text-white/80 font-light">
                     <motion.span className="w-1.5 h-1.5 rounded-full bg-emerald-400" animate={{ opacity: [0.4, 1, 0.4] }} transition={{ duration: 1.6, repeat: Infinity }} />
                     {c.run.footerPrivacy}
                   </span>
