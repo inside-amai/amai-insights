@@ -76,6 +76,18 @@ const Home = () => {
     window.addEventListener('keydown', onKey);
     return () => { window.removeEventListener('keydown', onKey); document.body.style.overflow = prevOverflow; };
   }, [lightboxOpen]);
+
+  useEffect(() => {
+    if (!traceLightboxOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setTraceLightboxOpen(false);
+    };
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKey);
+    return () => { window.removeEventListener('keydown', onKey); document.body.style.overflow = prevOverflow; };
+  }, [traceLightboxOpen]);
+
   const navListRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
