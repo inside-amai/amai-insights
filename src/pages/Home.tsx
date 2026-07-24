@@ -439,7 +439,7 @@ const Home = () => {
                 {/* Step 1 · Install */}
                 <div>
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="text-xs md:text-sm tracking-[0.35em] font-semibold text-white/90 uppercase">{c.run.step1Label}</span>
+                    <span className="text-xs md:text-sm tracking-[0.35em] font-semibold text-white/80 uppercase">{c.run.step1Label}</span>
                     <span className="h-px flex-1 bg-white/10" />
                   </div>
                   <div className="relative bg-black rounded-2xl overflow-hidden border border-white/[0.08]">
@@ -476,7 +476,7 @@ const Home = () => {
                 {/* Step 2 · Open it */}
                 <div>
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="text-xs md:text-sm tracking-[0.35em] font-semibold text-white/90 uppercase">{c.run.step2Label}</span>
+                    <span className="text-xs md:text-sm tracking-[0.35em] font-semibold text-white/80 uppercase">{c.run.step2Label}</span>
                     <span className="h-px flex-1 bg-white/10" />
                   </div>
                   <div className="relative bg-black rounded-2xl overflow-hidden border border-white/[0.08]">
@@ -516,7 +516,7 @@ const Home = () => {
                 {/* Step 3 · Add to your agent */}
                 <div>
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="text-xs md:text-sm tracking-[0.35em] font-semibold text-white/90 uppercase">{c.run.step3Label}</span>
+                    <span className="text-xs md:text-sm tracking-[0.35em] font-semibold text-white/80 uppercase">{c.run.step3Label}</span>
                     <span className="h-px flex-1 bg-white/10" />
                   </div>
                   <div className="relative bg-black rounded-2xl overflow-hidden border border-white/[0.08]">
