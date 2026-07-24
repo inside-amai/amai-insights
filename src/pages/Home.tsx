@@ -442,7 +442,7 @@ const Home = () => {
                     <span className="text-xs md:text-sm tracking-[0.35em] font-semibold text-white/90 uppercase">{c.run.step1Label}</span>
                     <span className="h-px flex-1 bg-white/10" />
                   </div>
-                  <div className="relative bg-black/70 rounded-2xl overflow-hidden border border-white/[0.06]">
+                  <div className="relative bg-black rounded-2xl overflow-hidden border border-white/[0.08]">
                     <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.06] bg-white/[0.02]">
                       <span className="text-[10px] tracking-[0.3em] uppercase text-white/50 font-light">{c.run.terminalHeader}</span>
                       <button
@@ -479,7 +479,7 @@ const Home = () => {
                     <span className="text-xs md:text-sm tracking-[0.35em] font-semibold text-white/90 uppercase">{c.run.step2Label}</span>
                     <span className="h-px flex-1 bg-white/10" />
                   </div>
-                  <div className="relative bg-black/70 rounded-2xl overflow-hidden border border-white/[0.06]">
+                  <div className="relative bg-black rounded-2xl overflow-hidden border border-white/[0.08]">
                     <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.06] bg-white/[0.02]">
                       <span className="text-[10px] tracking-[0.3em] uppercase text-white/50 font-light">{c.run.terminalHeader}</span>
                       <button
@@ -519,7 +519,7 @@ const Home = () => {
                     <span className="text-xs md:text-sm tracking-[0.35em] font-semibold text-white/90 uppercase">{c.run.step3Label}</span>
                     <span className="h-px flex-1 bg-white/10" />
                   </div>
-                  <div className="relative bg-black/70 rounded-2xl overflow-hidden border border-white/[0.06]">
+                  <div className="relative bg-black rounded-2xl overflow-hidden border border-white/[0.08]">
                     <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.06] bg-white/[0.02]">
                       <span className="text-[10px] tracking-[0.3em] uppercase text-white/50 font-light">{c.run.pythonHeader}</span>
                       <button
