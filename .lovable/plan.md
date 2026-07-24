@@ -1,23 +1,27 @@
-## Plan
+Plan: Redesign the outer shell of the homepage "Run it" SDK card (Section 5) with a dark smoky glassmorphism treatment that feels premium and expensive, while leaving the three inner black terminal/Python blocks untouched.
 
-Rebalance the "Run it" section (Section 5) on the home page now that the SDK card is taller.
+### What will change
 
-### Changes to `src/pages/Home.tsx`
+- The flat gray outer card (`bg-[hsl(var(--gray-800))]`) will become a dark smoky glass panel:
+  - `bg-black/45` or `bg-[hsl(var(--gray-900))]/50` with `backdrop-blur-2xl`.
+  - `border border-white/10` plus a subtle inner top highlight (`inset_0_1px_0_0_rgba(255,255,255,0.08)`).
+  - Layered shadow: a soft lift shadow plus a 1px inner border to keep the edge crisp.
+- A faint ambient glow behind the card so it floats above the light blueprint grid background:
+  - Cyan top radial glow (`rgba(166,252,252,0.10)`) and a very subtle purple bottom glow.
+- Optional: a blueprint grid texture inside the glass surface at very low opacity (matching the existing technical-resources pattern) so the card echoes the section background without looking like a pasted-on box.
+- Step label typography kept as light uppercase tracking, but refined to sit cleanly on the glass (white/90, slightly more contrast).
 
-1. Tighten the left-column spacing
-   - Reduce the gap between the "Read the docs" button and the "Free to run. / Private by construction." tagline so the tagline sits directly under the button.
+### What will NOT change
 
-2. Move "What you get" into the left column
-   - Relocate the 4-point benefits grid from the right column to just below the "Free to run" tagline in the left column.
-   - Keep the same 2x2 grid, typography, and staggered reveal animation.
+- The three inner command blocks (Step 1, Step 2, Step 3) remain black with the same code, colors, and copy buttons.
+- The section text, "Read the docs" button, "What you get" benefits, and the "Free to run. Private by construction." line stay as-is.
+- No copy, routes, or backend changes.
 
-3. Keep the right column focused on the SDK card
-   - The right column retains: the two-step TERMINAL + PYTHON card, the caption below it, and the "tari example" line.
+### Files to edit
 
-### Result
+- `src/pages/Home.tsx` — Section 5 outer card wrapper only.
 
-- The left column becomes a continuous vertical composition (headline → body → docs button → tagline → benefits) that roughly matches the new card height.
-- The two columns regain visual balance instead of leaving a large dead space on the left.
-- Mobile layout stays as a single natural flow: text, tagline, benefits, then the card, caption, and example line.
+### Verification
 
-No copy or content changes.
+- Visual check in the preview: the card should look like a dark smoky glass slab floating over the blueprint grid, with the inner black terminal blocks still readable and high-contrast.
+- Type-check / build check to ensure no Tailwind syntax errors.

@@ -391,7 +391,7 @@ const Home = () => {
       <section id="install-tari" className="relative bg-[#fafafa] py-24 md:py-40 px-4 md:px-8 overflow-hidden">
         <div className="absolute inset-0 opacity-[0.07] pointer-events-none" style={{ backgroundImage: "linear-gradient(#0055ff 1px, transparent 1px), linear-gradient(90deg, #0055ff 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
         <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{ backgroundImage: "linear-gradient(#0055ff 1px, transparent 1px), linear-gradient(90deg, #0055ff 1px, transparent 1px)", backgroundSize: "8px 8px" }} />
-        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black to-transparent pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
           <motion.div className="lg:col-span-5 text-start" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}>
@@ -430,17 +430,24 @@ const Home = () => {
 
           <motion.div className="lg:col-span-7 lg:mt-14" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}>
             <div className="relative">
-              <div className="absolute -inset-3 -z-10 rounded-[32px] bg-gradient-to-br from-white/10 via-white/5 to-transparent blur-2xl opacity-60" />
-              <div className="relative bg-[hsl(var(--gray-800))] rounded-3xl overflow-hidden border border-white/15 shadow-2xl after:absolute after:inset-x-0 after:top-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-white/25 after:to-transparent keep-ltr p-5 md:p-6 space-y-6" dir="ltr">
+              {/* Ambient glow behind the card */}
+              <div className="absolute -inset-4 -z-10 rounded-[40px] bg-[radial-gradient(circle_at_50%_0%,rgba(166,252,252,0.12),transparent_55%)] blur-2xl opacity-60" />
+              <div className="absolute -inset-4 -z-10 rounded-[40px] bg-[radial-gradient(circle_at_50%_100%,rgba(214,166,252,0.08),transparent_55%)] blur-2xl opacity-60" />
+
+              <div className="relative rounded-3xl overflow-hidden border border-white/20 bg-gradient-to-b from-black/55 to-black/35 backdrop-blur-2xl shadow-[0_20px_80px_-20px_rgba(0,0,0,0.35),inset_0_1px_0_0_rgba(255,255,255,0.08)] after:absolute after:inset-x-0 after:top-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-white/25 after:to-transparent keep-ltr p-5 md:p-6 space-y-6" dir="ltr">
+                <div className="pointer-events-none absolute inset-0 opacity-100" style={{ backgroundImage: 'linear-gradient(rgba(0,85,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,85,255,0.04) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.10] via-transparent to-transparent" />
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-white/[0.14] to-transparent" />
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.16),transparent_55%)]" />
                 {/* Step 1 · Install */}
                 <div>
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="text-xs md:text-sm tracking-[0.35em] font-semibold text-white/90 uppercase">{c.run.step1Label}</span>
+                    <span className="text-xs md:text-sm tracking-[0.35em] font-semibold text-white/80 uppercase">{c.run.step1Label}</span>
                     <span className="h-px flex-1 bg-white/10" />
                   </div>
-                  <div className="relative bg-black/70 rounded-2xl overflow-hidden border border-white/[0.06]">
+                  <div className="relative bg-black rounded-2xl overflow-hidden border border-white/[0.08]">
                     <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.06] bg-white/[0.02]">
-                      <span className="text-[10px] tracking-[0.3em] uppercase text-white/50 font-light">{c.run.terminalHeader}</span>
+                      <span className="text-[10px] tracking-[0.3em] uppercase text-white/70 font-light">{c.run.terminalHeader}</span>
                       <button
                         type="button"
                         onClick={() => {
@@ -472,12 +479,12 @@ const Home = () => {
                 {/* Step 2 · Open it */}
                 <div>
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="text-xs md:text-sm tracking-[0.35em] font-semibold text-white/90 uppercase">{c.run.step2Label}</span>
+                    <span className="text-xs md:text-sm tracking-[0.35em] font-semibold text-white/80 uppercase">{c.run.step2Label}</span>
                     <span className="h-px flex-1 bg-white/10" />
                   </div>
-                  <div className="relative bg-black/70 rounded-2xl overflow-hidden border border-white/[0.06]">
+                  <div className="relative bg-black rounded-2xl overflow-hidden border border-white/[0.08]">
                     <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.06] bg-white/[0.02]">
-                      <span className="text-[10px] tracking-[0.3em] uppercase text-white/50 font-light">{c.run.terminalHeader}</span>
+                      <span className="text-[10px] tracking-[0.3em] uppercase text-white/70 font-light">{c.run.terminalHeader}</span>
                       <button
                         type="button"
                         onClick={() => {
@@ -504,7 +511,7 @@ const Home = () => {
                       <span className="text-sky-300">python3 -m</span> <span className="text-white/90">tari dashboard</span>
                     </div>
                   </div>
-                  <p className="mt-3 text-xs md:text-sm text-white/50 font-light leading-relaxed">
+                  <p className="mt-3 text-xs md:text-sm text-white/70 font-light leading-relaxed">
                     {c.run.step2Caption}
                   </p>
                 </div>
@@ -512,12 +519,12 @@ const Home = () => {
                 {/* Step 3 · Add to your agent */}
                 <div>
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="text-xs md:text-sm tracking-[0.35em] font-semibold text-white/90 uppercase">{c.run.step3Label}</span>
+                    <span className="text-xs md:text-sm tracking-[0.35em] font-semibold text-white/80 uppercase">{c.run.step3Label}</span>
                     <span className="h-px flex-1 bg-white/10" />
                   </div>
-                  <div className="relative bg-black/70 rounded-2xl overflow-hidden border border-white/[0.06]">
+                  <div className="relative bg-black rounded-2xl overflow-hidden border border-white/[0.08]">
                     <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.06] bg-white/[0.02]">
-                      <span className="text-[10px] tracking-[0.3em] uppercase text-white/50 font-light">{c.run.pythonHeader}</span>
+                      <span className="text-[10px] tracking-[0.3em] uppercase text-white/70 font-light">{c.run.pythonHeader}</span>
                       <button
                         type="button"
                         onClick={() => {
@@ -558,8 +565,8 @@ const Home = () => {
                 </div>
 
                 <div className="flex items-center justify-between px-1 pt-2">
-                  <span className="text-[10px] tracking-[0.2em] uppercase text-white/50 font-light">{c.run.footerRuns}</span>
-                  <span className="flex items-center gap-1.5 text-[10px] text-white/60 font-light">
+                  <span className="text-[10px] tracking-[0.2em] uppercase text-white/70 font-light">{c.run.footerRuns}</span>
+                  <span className="flex items-center gap-1.5 text-[10px] text-white/80 font-light">
                     <motion.span className="w-1.5 h-1.5 rounded-full bg-emerald-400" animate={{ opacity: [0.4, 1, 0.4] }} transition={{ duration: 1.6, repeat: Infinity }} />
                     {c.run.footerPrivacy}
                   </span>
