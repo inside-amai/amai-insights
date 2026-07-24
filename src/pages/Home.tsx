@@ -430,8 +430,12 @@ const Home = () => {
 
           <motion.div className="lg:col-span-7 lg:mt-14" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}>
             <div className="relative">
-              <div className="absolute -inset-3 -z-10 rounded-[32px] bg-gradient-to-br from-white/10 via-white/5 to-transparent blur-2xl opacity-60" />
-              <div className="relative bg-[hsl(var(--gray-800))] rounded-3xl overflow-hidden border border-white/15 shadow-2xl after:absolute after:inset-x-0 after:top-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-white/25 after:to-transparent keep-ltr p-5 md:p-6 space-y-6" dir="ltr">
+              {/* Ambient glow behind the card */}
+              <div className="absolute -inset-4 -z-10 rounded-[40px] bg-[radial-gradient(circle_at_50%_0%,rgba(166,252,252,0.12),transparent_55%)] blur-2xl opacity-60" />
+              <div className="absolute -inset-4 -z-10 rounded-[40px] bg-[radial-gradient(circle_at_50%_100%,rgba(214,166,252,0.08),transparent_55%)] blur-2xl opacity-60" />
+
+              <div className="relative rounded-3xl overflow-hidden border border-white/10 bg-black/65 backdrop-blur-2xl shadow-[0_20px_80px_-20px_rgba(0,0,0,0.35)] after:absolute after:inset-x-0 after:top-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-white/15 after:to-transparent keep-ltr p-5 md:p-6 space-y-6" dir="ltr">
+                <div className="pointer-events-none absolute inset-0 opacity-70" style={{ backgroundImage: 'linear-gradient(rgba(0,85,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,85,255,0.03) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
                 {/* Step 1 · Install */}
                 <div>
                   <div className="flex items-center gap-3 mb-3">
