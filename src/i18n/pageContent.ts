@@ -30,7 +30,7 @@ export const homeContent = {
       bodyHighlight: 'without ever touching your data.',
     },
     score: {
-      eyebrow: 'TARI™ — Trust & Risk Index',
+      eyebrow: 'TARI™ · Trust & Risk Index',
       titleA: 'A number you already',
       titleB: 'know how to read.',
       body1a: 'Every agent earns one ',
@@ -73,7 +73,7 @@ export const homeContent = {
       titleA: "Don't take our word for it.",
       titleB: 'Run it.',
       cmd: 'python3 -m pip install amai-tari',
-      body1a: ' and point it at your own agent. Watch what it actually does — every tool, the full trace, the score — on your machine, in about a minute.',
+      body1a: ' and point it at your own agent. Watch what it actually does: every tool, the full trace, the score, on your machine, in about a minute.',
       body2: 'No account. Nothing leaves your walls.',
       docs: 'Read the docs',
       pullA: 'Free to run.',
@@ -83,7 +83,7 @@ export const homeContent = {
       copied: 'Copied',
       footerRuns: 'runs locally',
       footerPrivacy: 'content-off by default',
-      caption: 'Then python3 -m tari dashboard shows your own runs — the full trace, the score, every flagged move, all local.',
+      caption: 'Then python3 -m tari dashboard shows your own runs: the full trace, the score, every flagged move, all local.',
       step1Label: 'Step 1 · Install',
       step2Label: 'Step 2 · Open it',
       step3Label: 'Step 3 · Add to your agent',
@@ -100,7 +100,7 @@ export const homeContent = {
     risk: {
       eyebrow: 'Risk',
       title: 'One hidden instruction is all it takes.',
-      body1: 'Your agents act on untrusted input: a document, a web page, a third-party tool — with real privileges and no one watching.',
+      body1: 'Your agents act on untrusted input: a document, a web page, a third-party tool, with real privileges and no one watching.',
       body2: 'A single poisoned instruction, buried where no one looks, can turn an agent against you: read a secret, disguise it, ship it out and report back "task complete." You\'d never see it happen.',
       pullDim: "The worst part isn't that it happens.",
       pullBright: "It's that you can't see it.",
@@ -118,7 +118,7 @@ export const homeContent = {
       titleEm: 'And stop it.',
       p1lead: 'F',
       p1rest: 'or organizations running fleets of agents, the AMAI Command Center puts every agent\u2019s trust score, its full behavioral trace, and the power to act in one place.',
-      p2: 'When an agent turns, hold the action before it executes — with a human in the loop. All of it content-off: you get the whole picture without a single sensitive byte leaving your walls.',
+      p2: 'When an agent turns, hold the action before it executes, with a human in the loop. All of it content-off: you get the whole picture without a single sensitive byte leaving your walls.',
       beats: [
         { title: 'Watch the fleet', body: 'every agent, every run, one console.' },
         { title: 'Hold the turn', body: 'require human approval before a flagged action proceeds.' },
@@ -128,7 +128,7 @@ export const homeContent = {
       pullEm: 'never leaves your walls.',
       cta: 'Request access',
       figAlt: 'AMAI Command Center dashboard showing agent fleet trust scores and conduct distribution',
-      figCaption: 'Fig. 01 — AMAI Command Center, institutional pilot build.',
+      figCaption: 'Fig. 01 · AMAI Command Center, institutional pilot build.',
     },
     outro: {
       logoAlt: 'AMAI Labs',
@@ -827,7 +827,7 @@ export const methodologyContent = {
 // ============================================================
 export const docsContent = {
   en: {
-    title: 'TARI™ Lens — Docs · AMAI Labs',
+    title: 'TARI™ Lens · Docs · AMAI Labs',
     nav: {
       onThisPage: 'On this page',
       install: 'Install',
@@ -839,9 +839,9 @@ export const docsContent = {
       hosted: 'Team / hosted',
     },
     header: {
-      eyebrow: 'TARI™ Lens — Docs',
-      title: 'See what your AI agent actually did — content-off, in about a minute.',
-      body: 'TARI™ Lens is a local developer console for the TARI™ score. It reads the behavioral shape of any agent run, shows you the trace, the verdict, and the dimensions that moved — without reading a single prompt, argument, or model output.',
+      eyebrow: 'TARI™ Lens · Docs',
+      title: 'See what your AI agent actually did, content-off, in about a minute.',
+      body: 'TARI™ Lens is a local developer console for the TARI™ score. It reads the behavioral shape of any agent run, shows you the trace, the verdict, and the dimensions that moved, without reading a single prompt, argument, or model output.',
     },
     install: {
       eyebrow: 'Install',
@@ -855,7 +855,7 @@ export const docsContent = {
       p1: 'Three steps: name it, capture it, score it. OpenTelemetry auto-instrumentation for LangGraph and CrewAI works through the openinference-* packages, so step 2 is often automatic.',
       openLead: 'Then open your dashboard:',
       openNote: 'python3 -m tari demo opens the dashboard on a sample fleet. python3 -m tari dashboard opens your own runs, from ./.tari.',
-      note: 'Your dashboard opens locally in the browser. No account, no login — nothing leaves your machine. With OpenTelemetry auto-instrumentation (LangGraph / CrewAI via the openinference-* packages), step ② is automatic.',
+      note: 'Your dashboard opens locally in the browser. No account, no login. Nothing leaves your machine. With OpenTelemetry auto-instrumentation (LangGraph / CrewAI via the openinference-* packages), step ② is automatic.',
     },
     concepts: {
       eyebrow: 'Core concepts',
@@ -863,7 +863,7 @@ export const docsContent = {
       items: [
         { title: 'Content-off', body: 'Reads only tool names, sink classes, operation types, token counts, and timing. Never prompts, tool arguments, or model outputs. Nothing leaves the agent boundary.' },
         { title: 'The score', body: 'One conduct score, 300–850. It triages, it never gates: a high score means no adverse signal, not a safety certificate. Low confidence → UNRATED, not a confident green.' },
-        { title: 'The five dimensions', body: 'Scope Integrity, Consistency, Exfiltration Risk (highest-weighted — the read → encode → external-POST shape), Resilience, Reliability. Each mapped to OWASP ASI / MITRE ATLAS.' },
+        { title: 'The five dimensions', body: 'Scope Integrity, Consistency, Exfiltration Risk (highest-weighted: the read → encode → external-POST shape), Resilience, Reliability. Each mapped to OWASP ASI / MITRE ATLAS.' },
         { title: 'Baselines', body: 'A per-agent, per-task known-good run you promote explicitly. Nothing is promoted automatically.' },
       ],
     },
@@ -877,7 +877,7 @@ export const docsContent = {
     privacy: {
       eyebrow: 'Privacy',
       title: 'Content-off by design',
-      body: 'TARI™ reconstructs what your agent did from behavioral metadata alone: enough to rebuild the trace, catch an exfiltration pattern, and point at a likely third-party source — with zero content read.',
+      body: 'TARI™ reconstructs what your agent did from behavioral metadata alone: enough to rebuild the trace, catch an exfiltration pattern, and point at a likely third-party source, with zero content read.',
     },
     dashboard: {
       eyebrow: 'Dashboard',
@@ -901,7 +901,7 @@ export const docsContent = {
   },
 
   ja: {
-    title: 'TARI™ Lens — Docs · AMAI Labs',
+    title: 'TARI™ Lens · Docs · AMAI Labs',
     nav: {
       onThisPage: '本ページの目次',
       install: 'インストール',
@@ -913,7 +913,7 @@ export const docsContent = {
       hosted: 'チーム / ホステッド',
     },
     header: {
-      eyebrow: 'TARI™ Lens — Docs',
+      eyebrow: 'TARI™ Lens · Docs',
       title: 'エージェントが実際に行ったことを、content-off で、約一分で確認する。',
       body: 'TARI™ Lens は TARI™ スコアのためのローカル開発者コンソールです。任意のエージェント実行の行動的な「かたち」を読み取り、トレース、判定、動いた次元を提示します。プロンプト、引数、モデル出力は一切参照しません。',
     },
@@ -975,7 +975,7 @@ export const docsContent = {
   },
 
   ar: {
-    title: 'TARI™ Lens — Docs · AMAI Labs',
+    title: 'TARI™ Lens · Docs · AMAI Labs',
     nav: {
       onThisPage: 'في هذه الصفحة',
       install: 'التثبيت',
@@ -987,7 +987,7 @@ export const docsContent = {
       hosted: 'الفِرق / الاستضافة',
     },
     header: {
-      eyebrow: 'TARI™ Lens — Docs',
+      eyebrow: 'TARI™ Lens · Docs',
       title: 'شاهد ما فعله وكيلك فعلاً — content-off، في نحو دقيقة.',
       body: 'TARI™ Lens وحدة تحكّم محلية للمطوّرين لدرجة TARI™. تقرأ الشكل السلوكي لأي تشغيل وكيل، وتُظهر لك الأثر والحكم والأبعاد التي تحرّكت — دون قراءة أي أمر أو وسيطة أو مخرج نموذج.',
     },
