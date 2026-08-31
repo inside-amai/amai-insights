@@ -226,7 +226,7 @@ const StateOfAgentTrust = () => {
             }}
           >
             AI agents went from demo to deployed. The security surface moved
-            with them — from the model's weights to the agent's conduct.
+            with them, from the model's weights to the agent's conduct.
             Almost no one can measure it. This is the first independent index
             that does.
           </p>
@@ -256,13 +256,13 @@ const StateOfAgentTrust = () => {
             {[
               {
                 n: "01",
-                title: "Conduct is the attack surface — and it's being exploited.",
+                title: "Conduct is the attack surface, and it's being exploited.",
                 body: "The frontier of AI risk has moved from what a model says to what an agent does. Injection escalates into tool misuse, and tool misuse escalates into code execution on real systems.",
               },
               {
                 n: "02",
                 title: "The supply chain feeding agents is unvetted.",
-                body: "Static, one-time scanning cannot vouch for runtime behavior. Skills, MCP servers, and tools ship signed but mutate in the wild — and scanners were never built to watch what runs next.",
+                body: "Static, one-time scanning cannot vouch for runtime behavior. Skills, MCP servers, and tools ship signed but mutate in the wild, and scanners were never built to watch what runs next.",
               },
               {
                 n: "03",
@@ -306,7 +306,7 @@ const StateOfAgentTrust = () => {
           </div>
           <Callout>
             There is no independent, privacy-preserving measure of agent
-            conduct-under-attack. That is the gap TARI fills — a 300–850 score
+            conduct-under-attack. That is the gap TARI fills: a 300–850 score
             computed from an agent's tool-call behavior alone, never its
             prompts or data.
           </Callout>
@@ -365,7 +365,7 @@ const StateOfAgentTrust = () => {
             The attack surface is conduct: from injection to execution.
           </SectionHeading>
           <Body>
-            Prompt injection used to be a chatbot problem — coax the model
+            Prompt injection used to be a chatbot problem, coax the model
             into saying the wrong thing. In an agent, injection becomes an
             execution primitive: the agent is talked into <em>doing</em>, not
             saying. The payload is a tool call. The blast radius is whatever
@@ -373,7 +373,7 @@ const StateOfAgentTrust = () => {
           </Body>
           <Body>
             The CVEs below are not research artifacts. They are NVD-verified
-            vulnerabilities in production coding agents — the exact class of
+            vulnerabilities in production coding agents, the exact class of
             closed, in-app agents that an SDK cannot instrument from the
             outside.
           </Body>
@@ -400,7 +400,7 @@ const StateOfAgentTrust = () => {
             style={{ color: MUTED, lineHeight: 1.65 }}
           >
             All NVD-verified. Closed, in-app coding agents are a first-class
-            attack surface — and the exact agents an SDK can't instrument.
+            attack surface, and the exact agents an SDK can't instrument.
           </p>
         </section>
 
@@ -417,11 +417,11 @@ const StateOfAgentTrust = () => {
             proof-of-concept skill to a public agent marketplace. It passed
             both Cisco and NVIDIA's static scanners, was signed, and was
             distributed to roughly 26,000 agents. After review, the skill
-            fetched a swapped external payload at runtime — behavior no
+            fetched a swapped external payload at runtime, behavior no
             pre-publish scan had any way to see.
           </Body>
           <Callout>
-            A disclosure demo, not an in-the-wild attack — which is exactly
+            A disclosure demo, not an in-the-wild attack, which is exactly
             the point. A one-time scan cannot vouch for runtime behavior.
           </Callout>
           <div className="my-12">
@@ -442,7 +442,7 @@ const StateOfAgentTrust = () => {
           </SectionHeading>
           <Body>
             The other side of the conduct problem is that AI is now on both
-            sides of the fence. This is no longer a forecast — the incident
+            sides of the fence. This is no longer a forecast. The incident
             data has caught up.
           </Body>
           <div className="grid md:grid-cols-3 gap-6 my-12">
@@ -453,7 +453,7 @@ const StateOfAgentTrust = () => {
             />
             <StatCard
               value="832"
-              caption="Accounts banned by Anthropic for cyber-misuse — ransomware development, DPRK employment fraud — March 2025–March 2026. Anthropic threat intelligence."
+              caption="Accounts banned by Anthropic for cyber-misuse: ransomware development and DPRK employment fraud. March 2025–March 2026. Anthropic threat intelligence."
               small
             />
             <StatCard
@@ -488,7 +488,7 @@ const StateOfAgentTrust = () => {
             Privacy is architectural, not promised.
           </Body>
           <Callout>
-            So can conduct-under-attack actually be measured — consistently,
+            So can conduct-under-attack actually be measured, consistently,
             across models, without reading anyone's data? Here is the
             instrument.
           </Callout>
@@ -511,8 +511,8 @@ const StateOfAgentTrust = () => {
           <Body>
             We ran AgentDojo's strongest targeted prompt-injection (
             <em>important_instructions</em>) across six current-generation
-            models — both frontier size tiers from Anthropic, OpenAI, and
-            Google — capturing every run content-off and scoring its trajectory
+            models, both frontier size tiers from Anthropic, OpenAI, and
+            Google, capturing every run content-off and scoring its trajectory
             on the TARI 300–850 conduct scale. 1,746 runs; injection-success
             labels kept entirely separate from the score. This is not a "who's
             safest" ranking. It is a demonstration that agent conduct-under-attack
@@ -615,7 +615,7 @@ const StateOfAgentTrust = () => {
             className="text-sm max-w-3xl mb-12"
             style={{ color: MUTED, lineHeight: 1.65 }}
           >
-            All six models on identical coverage — 194 attacked runs each,
+            All six models on identical coverage: 194 attacked runs each,
             injections confirmed present, zero errored runs.
           </p>
 
@@ -652,7 +652,7 @@ const StateOfAgentTrust = () => {
               <li>
                 This is not a safety verdict on any model. One attack class, one
                 benchmark, a single snapshot. Gemini 2.5 showed real partial
-                compromise on this specific test — a measured result, not a claim
+                compromise on this specific test, a measured result, not a claim
                 that the model is "unsafe."
               </li>
               <li>
@@ -678,10 +678,10 @@ const StateOfAgentTrust = () => {
 
           <Body>
             <strong style={{ color: INK, fontWeight: 500 }}>Caveats.</strong>{" "}
-            (1) One attack, one benchmark, one snapshot — models change. (2)
-            Zero-compromise models can't be discriminated within — their conduct
+            (1) One attack, one benchmark, one snapshot, models change. (2)
+            Zero-compromise models can't be discriminated within, their conduct
             is a clean-conduct measure entangled with competence. (3) Content-off
-            has a disclosed blind spot — injections leaving no
+            has a disclosed blind spot: injections leaving no
             read→external-sink trace are invisible. (4) A proxy, not incident
             prediction. (5) No vendor ranking, ever.
           </Body>
@@ -777,7 +777,7 @@ const StateOfAgentTrust = () => {
             </strong>{" "}
             Findings compiled from published incident data, NVD advisories, and
             AMAI Labs' own instrumented tool telemetry. TARI scores are
-            computed content-off — from tool-call structure only — over sealed
+            computed content-off, from tool-call structure only, over sealed
             adversarial benchmarks.
           </div>
           <div className="mb-10">
