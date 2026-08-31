@@ -165,7 +165,7 @@ const StateOfAgentTrust = () => {
     document.title = "The State of Agent Trust — 2026 · AMAI Labs";
     const meta = document.querySelector('meta[name="description"]');
     const content =
-      "AMAI Labs' independent research on AI-agent conduct risk. Introducing TARI™ — the Trust & Risk Index for AI agents.";
+      "AMAI Labs' independent research on AI-agent conduct risk. Introducing TARI™, the Trust & Risk Index for AI agents.";
     if (meta) meta.setAttribute("content", content);
   }, []);
 
@@ -324,8 +324,8 @@ const StateOfAgentTrust = () => {
             The Model Context Protocol has, in under two years, become the
             default way agents acquire tools. Every major agent framework now
             speaks it; thousands of servers publish capabilities against it.
-            What was designed as a plumbing spec is now a distribution channel
-            — and the distribution channel is largely unauthenticated.
+            What was designed as a plumbing spec is now a distribution channel,
+            and the distribution channel is largely unauthenticated.
           </Body>
           <Body>
             Independent internet scans have found tens of thousands of MCP
@@ -484,7 +484,7 @@ const StateOfAgentTrust = () => {
             This is the category AMAI Labs is planting with TARI: a 300–850
             conduct score, on the same axis of intuition as a credit score.
             &ldquo;Content-off&rdquo; means we capture tool names, order,
-            timing, and sink-class — never prompts, arguments, or results.
+            timing, and sink-class, never prompts, arguments, or results.
             Privacy is architectural, not promised.
           </Body>
           <Callout>
@@ -656,8 +656,8 @@ const StateOfAgentTrust = () => {
                 that the model is "unsafe."
               </li>
               <li>
-                The point is that the instrument works. Where compromises happened
-                — Gemini's runs — a low TARI conduct score reliably picked them
+                The point is that the instrument works. Where compromises happened,
+                in Gemini's runs, a low TARI conduct score reliably picked them
                 out (discrimination AUC ~0.89–0.90), computed with no access to
                 prompts or data. Conduct-under-attack is measurable, and TARI
                 measures it.
@@ -791,12 +791,12 @@ const StateOfAgentTrust = () => {
               className="grid sm:grid-cols-2 gap-y-2 gap-x-8 text-sm"
               style={{ color: INK, opacity: 0.75 }}
             >
-              <li>IBM — Cost of a Data Breach 2025</li>
-              <li>NVD — CVE advisories (all cited)</li>
-              <li>OX Security · Cloud Security Alliance — MCP scans</li>
-              <li>Anthropic — Threat intelligence, 2025–2026</li>
-              <li>CSO Online — AIR skill disclosure</li>
-              <li>AgentDojo — Benchmark suite</li>
+              <li>IBM · Cost of a Data Breach 2025</li>
+              <li>NVD · CVE advisories (all cited)</li>
+              <li>OX Security · Cloud Security Alliance · MCP scans</li>
+              <li>Anthropic · Threat intelligence, 2025–2026</li>
+              <li>CSO Online · AIR skill disclosure</li>
+              <li>AgentDojo · Benchmark suite</li>
             </ul>
           </div>
           <div
