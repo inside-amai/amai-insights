@@ -850,7 +850,7 @@ export const docsContent = {
       eyebrow: 'Install',
       title: 'python3 -m pip install amai-tari',
       body: 'Requires Python 3.9+. Pure-Python, Node-free. The dashboard UI ships pre-built inside the package.',
-      note: 'python3 -m always works regardless of PATH. If pip and tari are already on your PATH, the short pip install amai-tari / tari demo work too.',
+      note: 'Homebrew, Debian and Ubuntu Pythons refuse system-wide installs — the venv line avoids it. Already in a venv, conda or uv project? Just the pip line. New terminal later? source .venv/bin/activate first.',
     },
     quickstart: {
       eyebrow: 'Quickstart',
@@ -924,7 +924,7 @@ export const docsContent = {
       eyebrow: 'インストール',
       title: 'python3 -m pip install amai-tari',
       body: 'Python 3.9+ が必要です。純 Python 実装、Node 不要。ダッシュボード UI はパッケージにビルド済みで同梱されます。',
-      note: 'python3 -m は PATH の有無に関わらず動作します。pip と tari が PATH に入っている場合、短い pip install amai-tari / tari demo でも動作します。',
+      note: 'Homebrew, Debian and Ubuntu Pythons refuse system-wide installs — the venv line avoids it. Already in a venv, conda or uv project? Just the pip line. New terminal later? source .venv/bin/activate first.',
     },
     quickstart: {
       eyebrow: 'クイックスタート',
@@ -998,7 +998,7 @@ export const docsContent = {
       eyebrow: 'التثبيت',
       title: 'python3 -m pip install amai-tari',
       body: 'يتطلّب Python 3.9+. Python خالص، دون Node. تُشحن واجهة اللوحة مبنيّةً مسبقاً داخل الحزمة.',
-      note: 'يعمل python3 -m دائماً بغض النظر عن PATH. إذا كان pip و tari موجودين على PATH لديك، فستعمل الصيغ المختصرة pip install amai-tari / tari demo أيضاً.',
+      note: 'Homebrew, Debian and Ubuntu Pythons refuse system-wide installs — the venv line avoids it. Already in a venv, conda or uv project? Just the pip line. New terminal later? source .venv/bin/activate first.',
     },
     quickstart: {
       eyebrow: 'البدء السريع',
