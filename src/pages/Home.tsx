@@ -444,7 +444,7 @@ const Home = () => {
                       <button
                         type="button"
                         onClick={() => {
-                          navigator.clipboard.writeText('python3 -m pip install amai-tari');
+                          navigator.clipboard.writeText('python3 -m venv .venv && source .venv/bin/activate\npython3 -m pip install amai-tari');
                           setCopiedTerminal(true);
                           setTimeout(() => setCopiedTerminal(false), 2000);
                         }}
@@ -463,10 +463,14 @@ const Home = () => {
                         )}
                       </button>
                     </div>
-                    <div className="px-4 py-3.5 md:px-5 md:py-4 font-mono text-sm md:text-[15px] leading-relaxed">
-                      <span className="text-sky-300">python3 -m pip install</span> <span className="text-white/90">amai-tari</span>
+                    <div className="px-4 py-3.5 md:px-5 md:py-4 font-mono text-sm md:text-[15px] leading-relaxed space-y-1">
+                      <div><span className="text-sky-300">python3 -m venv .venv</span> <span className="text-white/50">&&</span> <span className="text-sky-300">source</span> <span className="text-white/90">.venv/bin/activate</span></div>
+                      <div><span className="text-sky-300">python3 -m pip install</span> <span className="text-white/90">amai-tari</span></div>
                     </div>
                   </div>
+                  <p className="mt-3 text-[10px] tracking-[0.2em] uppercase text-white/50 font-light leading-relaxed">
+                    {c.run.installNote}
+                  </p>
                 </div>
 
                 {/* Step 2 · Open it */}
