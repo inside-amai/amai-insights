@@ -468,9 +468,6 @@ const Home = () => {
                       <div><span className="text-sky-300">python3 -m pip install</span> <span className="text-white/90">amai-tari</span></div>
                     </div>
                   </div>
-                  <p className="mt-3 text-[10px] tracking-[0.2em] uppercase text-white/50 font-light leading-relaxed">
-                    {c.run.installNote}
-                  </p>
                 </div>
 
                 {/* Step 2 · Open it */}
