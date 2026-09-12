@@ -377,7 +377,7 @@ const HomepageCopy = () => {
 
           <div className="mt-16 md:mt-20 pt-10 border-t border-white/10">
             <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-white leading-[1.15]">
-              You don&apos;t have to trust it.<br /><span className="text-white/50">You can check it.</span>
+              The record is public.<br /><span className="text-white/50">Read it any time.</span>
             </p>
             <div className="mt-10">
               <a href="/methodology" className="inline-flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors duration-300 border-b border-white/20 hover:border-white/60 pb-1">
