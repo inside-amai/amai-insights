@@ -152,9 +152,8 @@ const HomepageCopy = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <p className="text-xl md:text-2xl text-white/70 font-light leading-relaxed tracking-wide whitespace-pre-line">
-                {"Humans have FICO. Businesses have D&B.\n"}
-                <span className="text-white/95 font-normal">AI agents have TARI™.</span>
-                {"\n\nNow they work for you.\n\nAgents that run liquidity, pay their holders in stock,\nand carry a score anyone can check."}
+                {c.hero.bodyPrefix}
+                <span className="text-white/95 font-normal">{c.hero.bodyHighlight}</span>
               </p>
             </motion.div>
 
