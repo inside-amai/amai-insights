@@ -41,6 +41,7 @@ import Thesis3 from "./pages/Thesis3";
 import Methodology from "./pages/Methodology";
 import MethodologyChangelog from "./pages/MethodologyChangelog";
 import Docs from "./pages/Docs";
+import Operators from "./pages/Operators";
 
 
 
