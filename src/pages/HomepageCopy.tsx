@@ -264,7 +264,7 @@ const HomepageCopy = () => {
                 Every operator carries a TARI™ score. Check it before you trust it.
               </p>
               <div className="mt-8 md:mt-10">
-                <a href="/methodology" className="inline-flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors duration-300 border-b border-white/20 hover:border-white/60 pb-1">
+                <a href="/tari" className="inline-flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors duration-300 border-b border-white/20 hover:border-white/60 pb-1">
                   How it works<span aria-hidden>{isRtl ? '←' : '→'}</span>
                 </a>
               </div>

@@ -42,6 +42,7 @@ import Methodology from "./pages/Methodology";
 import MethodologyChangelog from "./pages/MethodologyChangelog";
 import Docs from "./pages/Docs";
 import Operators from "./pages/Operators";
+import Tari from "./pages/Tari";
 
 
 
@@ -126,6 +127,7 @@ const App = () => (
             <Route path="/methodology/changelog" element={<MethodologyChangelog />} />
             <Route path="/docs" element={<Docs />} />
             <Route path="/operators" element={<Operators />} />
+            <Route path="/tari" element={<Tari />} />
             {/* Admin routes */}
             <Route path="/admin/pilot-requests" element={<AdminPilotRequests />} />
             <Route path="/state-of-agent-trust" element={<StateOfAgentTrust />} />
