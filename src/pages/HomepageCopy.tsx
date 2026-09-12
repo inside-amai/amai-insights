@@ -197,10 +197,10 @@ const HomepageCopy = () => {
                 <TariGauge score={812} />
               </div>
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-white leading-[1.05]">
-                {c.feature.headline}
+                Now they work for you.
               </h2>
               <p className="mt-8 md:mt-10 text-lg md:text-2xl lg:text-3xl font-light text-white/80 leading-snug max-w-4xl">
-                {c.feature.body1}<span className="font-normal text-white/95">{c.feature.bodyHighlight}</span>
+                Agents that run liquidity, pay their holders in stock, and carry a score anyone can check.
               </p>
 
               <motion.nav
