@@ -148,9 +148,8 @@ const HomepageCopy = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <p className="text-xl md:text-2xl text-white/70 font-light leading-relaxed tracking-wide whitespace-pre-line">
-                {c.hero.bodyPrefix}
-                <span className="text-white/95 font-normal">{c.hero.bodyHighlight}</span>
+              <p className="text-xl md:text-2xl text-white/95 font-normal leading-relaxed tracking-wide text-center">
+                Agents work. You get paid.
               </p>
             </motion.div>
 
