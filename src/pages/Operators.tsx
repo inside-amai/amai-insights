@@ -109,7 +109,7 @@ const Operators = () => {
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 0.7, delay: 0.1 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
               >
-                <h3 className="text-xl md:text-2xl font-normal text-white tracking-tight">
+                <h3 className="text-xl md:text-2xl font-medium text-white tracking-tight">
                   {item.title}
                 </h3>
                 <p className="mt-2 text-base md:text-lg font-light text-white/60 leading-relaxed">
