@@ -398,33 +398,32 @@ const HomepageCopy = () => {
           <motion.div className="lg:col-span-5 text-start" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}>
             <div className="flex items-center gap-3 mb-8">
               <span className="h-px w-10 bg-black/30" />
-              <span className="text-[11px] tracking-[0.35em] font-light text-black/80 uppercase">{c.run.eyebrow}</span>
+              <span className="text-[11px] tracking-[0.35em] font-light text-black/80 uppercase">ALREADY HAVE A TOKEN?</span>
             </div>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-black leading-[1.05]">
-              {c.run.titleA}<br />{c.run.titleB}
+              Hire an operator.<br />No relaunch.<br />No capital.
             </h2>
             <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-black/70 leading-relaxed max-w-xl">
-              <span className="text-black font-normal keep-ltr" dir="ltr">{c.run.cmd}</span>{c.run.body1a}
-              <br /><br />
-              {c.run.body2}
+              Point your pool's fee recipient at an operator and it goes to work — collecting, converting, paying your holders in stock. It never holds your principal. Turn it off whenever you like.
             </p>
-            <div className="mt-10">
-              <a href="/docs" className="inline-flex items-center gap-2 text-sm font-normal text-white bg-black hover:bg-black/80 transition-colors duration-300 px-5 py-2.5 rounded-full border border-black">
-                {c.run.docs}<span aria-hidden>{isRtl ? '←' : '→'}</span>
-              </a>
-            </div>
             <motion.div className="mt-10 md:mt-12 max-w-xl" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}>
               <div className="flex items-center gap-3 mb-6">
-                <span className="text-xs md:text-sm tracking-[0.25em] font-medium text-black uppercase">{c.run.whatYouGet}</span>
+                <span className="text-xs md:text-sm tracking-[0.25em] font-medium text-black uppercase">WHAT YOU GET</span>
                 <span className="h-px flex-1 bg-black/20" />
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6">
-                {c.run.benefits.map((item, i) => (
-                  <motion.div key={item.lead} className="text-sm md:text-base font-light text-black/80 leading-relaxed" initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.7, delay: 0.1 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}>
-                    <span className="font-normal text-black block">{item.lead}</span>
-                    <span className="block mt-1 text-black/70">{item.body}</span>
-                  </motion.div>
-                ))}
+              <div className="grid grid-cols-1 gap-y-6">
+                <motion.div className="text-sm md:text-base font-light text-black/80 leading-relaxed" initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}>
+                  <span className="font-normal text-black block">One transaction</span>
+                  <span className="block mt-1 text-black/70">Set the fee recipient. That's the whole integration.</span>
+                </motion.div>
+                <motion.div className="text-sm md:text-base font-light text-black/80 leading-relaxed" initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.7, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}>
+                  <span className="font-normal text-black block">Nothing to hand over</span>
+                  <span className="block mt-1 text-black/70">The operator can collect fees. It cannot touch the principal. The chain enforces it.</span>
+                </motion.div>
+                <motion.div className="text-sm md:text-base font-light text-black/80 leading-relaxed" initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.7, delay: 0.26, ease: [0.16, 1, 0.3, 1] }}>
+                  <span className="font-normal text-black block">Fire it any time</span>
+                  <span className="block mt-1 text-black/70">Set the recipient back. No permission needed from us.</span>
+                </motion.div>
               </div>
             </motion.div>
           </motion.div>
@@ -433,145 +432,55 @@ const HomepageCopy = () => {
             <div className="relative">
               <div className="absolute -inset-3 -z-10 rounded-[32px] bg-gradient-to-br from-white/10 via-white/5 to-transparent blur-2xl opacity-60" />
               <div className="relative bg-[hsl(var(--gray-900))] rounded-3xl overflow-hidden border border-white/15 shadow-2xl after:absolute after:inset-x-0 after:top-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-white/25 after:to-transparent keep-ltr p-5 md:p-6 space-y-6" dir="ltr">
-                {/* Step 1 · Install */}
+                {/* Step 1 · POINT */}
                 <div>
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="text-xs md:text-sm tracking-[0.35em] font-semibold text-white/90 uppercase">{c.run.step1Label}</span>
+                    <span className="text-xs md:text-sm tracking-[0.35em] font-semibold text-white/90 uppercase">STEP 1 · POINT</span>
                     <span className="h-px flex-1 bg-white/10" />
                   </div>
-                  <div className="relative bg-black/70 rounded-2xl overflow-hidden border border-white/[0.06]">
-                    <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.06] bg-white/[0.02]">
-                      <span className="text-[10px] tracking-[0.3em] uppercase text-white/50 font-light">{c.run.terminalHeader}</span>
-                      <button
-                        type="button"
-                        onClick={() => {
-                          navigator.clipboard.writeText('python3 -m venv .venv && source .venv/bin/activate\npython3 -m pip install amai-tari');
-                          setCopiedTerminal(true);
-                          setTimeout(() => setCopiedTerminal(false), 2000);
-                        }}
-                        className="group flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.05] hover:bg-white/[0.10] hover:border-white/20 transition-all duration-300"
-                      >
-                        {copiedTerminal ? (
-                          <>
-                            <Check className="w-3.5 h-3.5 text-emerald-300" strokeWidth={2} />
-                            <span className="text-[10px] tracking-[0.2em] uppercase font-semibold text-emerald-100">{c.run.copied}</span>
-                          </>
-                        ) : (
-                          <>
-                            <Copy className="w-3.5 h-3.5 text-white/60 group-hover:text-white/90 transition-colors duration-300" strokeWidth={2} />
-                            <span className="text-[10px] tracking-[0.2em] uppercase font-semibold text-white/70 group-hover:text-white transition-colors duration-300">{c.run.copy}</span>
-                          </>
-                        )}
-                      </button>
-                    </div>
-                    <div className="px-4 py-3.5 md:px-5 md:py-4 font-mono text-sm md:text-[15px] leading-relaxed space-y-1">
-                      <div><span className="text-sky-300">python3 -m venv .venv</span> <span className="text-white/50">&&</span> <span className="text-sky-300">source</span> <span className="text-white/90">.venv/bin/activate</span></div>
-                      <div><span className="text-sky-300">python3 -m pip install</span> <span className="text-white/90">amai-tari</span></div>
-                    </div>
+                  <div className="relative bg-black/70 rounded-2xl border border-white/[0.06] px-4 py-3.5 md:px-5 md:py-4 font-mono text-sm md:text-[15px] leading-relaxed text-white/90">
+                    Set your launchpad's creator-fee recipient to the operator's address.
                   </div>
                 </div>
 
-                {/* Step 2 · Open it */}
+                {/* Step 2 · WORK */}
                 <div>
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="text-xs md:text-sm tracking-[0.35em] font-semibold text-white/90 uppercase">{c.run.step2Label}</span>
+                    <span className="text-xs md:text-sm tracking-[0.35em] font-semibold text-white/90 uppercase">STEP 2 · WORK</span>
                     <span className="h-px flex-1 bg-white/10" />
                   </div>
-                  <div className="relative bg-black/70 rounded-2xl overflow-hidden border border-white/[0.06]">
-                    <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.06] bg-white/[0.02]">
-                      <span className="text-[10px] tracking-[0.3em] uppercase text-white/50 font-light">{c.run.terminalHeader}</span>
-                      <button
-                        type="button"
-                        onClick={() => {
-                          navigator.clipboard.writeText('python3 -m tari dashboard');
-                          setCopiedDemo(true);
-                          setTimeout(() => setCopiedDemo(false), 2000);
-                        }}
-                        className="group flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.05] hover:bg-white/[0.10] hover:border-white/20 transition-all duration-300"
-                      >
-                        {copiedDemo ? (
-                          <>
-                            <Check className="w-3.5 h-3.5 text-emerald-300" strokeWidth={2} />
-                            <span className="text-[10px] tracking-[0.2em] uppercase font-semibold text-emerald-100">{c.run.copied}</span>
-                          </>
-                        ) : (
-                          <>
-                            <Copy className="w-3.5 h-3.5 text-white/60 group-hover:text-white/90 transition-colors duration-300" strokeWidth={2} />
-                            <span className="text-[10px] tracking-[0.2em] uppercase font-semibold text-white/70 group-hover:text-white transition-colors duration-300">{c.run.copy}</span>
-                          </>
-                        )}
-                      </button>
-                    </div>
-                    <div className="px-4 py-3.5 md:px-5 md:py-4 font-mono text-sm md:text-[15px] leading-relaxed">
-                      <span className="text-sky-300">python3 -m</span> <span className="text-white/90">tari dashboard</span>
-                    </div>
+                  <div className="relative bg-black/70 rounded-2xl border border-white/[0.06] px-4 py-3.5 md:px-5 md:py-4 font-mono text-sm md:text-[15px] leading-relaxed text-white/90">
+                    Fees arrive. The operator converts them to stock and pays every holder. Every move receipted.
                   </div>
                 </div>
 
-                {/* Step 3 · Add to your agent */}
+                {/* Step 3 · WATCH */}
                 <div>
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="text-xs md:text-sm tracking-[0.35em] font-semibold text-white/90 uppercase">{c.run.step3Label}</span>
+                    <span className="text-xs md:text-sm tracking-[0.35em] font-semibold text-white/90 uppercase">STEP 3 · WATCH</span>
                     <span className="h-px flex-1 bg-white/10" />
                   </div>
-                  <div className="relative bg-black/70 rounded-2xl overflow-hidden border border-white/[0.06]">
-                    <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.06] bg-white/[0.02]">
-                      <span className="text-[10px] tracking-[0.3em] uppercase text-white/50 font-light">{c.run.pythonHeader}</span>
-                      <button
-                        type="button"
-                        onClick={() => {
-                          navigator.clipboard.writeText(`from tari import TARIInstrument\ntari = TARIInstrument("my-agent", store="./.tari")\nprovider, exporter = tari.start_otel_capture()\n# ... run your agent ...\ntari.score(tari.trajectory_from_exporter(exporter))`);
-                          setCopiedPython(true);
-                          setTimeout(() => setCopiedPython(false), 2000);
-                        }}
-                        className="group flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.05] hover:bg-white/[0.10] hover:border-white/20 transition-all duration-300"
-                      >
-                        {copiedPython ? (
-                          <>
-                            <Check className="w-3.5 h-3.5 text-emerald-300" strokeWidth={2} />
-                            <span className="text-[10px] tracking-[0.2em] uppercase font-semibold text-emerald-100">{c.run.copied}</span>
-                          </>
-                        ) : (
-                          <>
-                            <Copy className="w-3.5 h-3.5 text-white/60 group-hover:text-white/90 transition-colors duration-300" strokeWidth={2} />
-                            <span className="text-[10px] tracking-[0.2em] uppercase font-semibold text-white/70 group-hover:text-white transition-colors duration-300">{c.run.copy}</span>
-                          </>
-                        )}
-                      </button>
-                    </div>
-                    <div className="px-4 py-4 md:px-5 md:py-5 font-mono text-sm md:text-[15px] leading-relaxed">
-                      <div className="flex gap-4">
-                        <div className="select-none text-right text-white/20 font-light tabular-nums">
-                          <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div>
-                        </div>
-                        <div className="space-y-0.5">
-                          <div><span className="text-purple-400">from</span> <span className="text-white/90">tari</span> <span className="text-purple-400">import</span> <span className="text-white/90">TARIInstrument</span></div>
-                          <div><span className="text-white/90">tari</span> <span className="text-white/50">=</span> <span className="text-amber-400">TARIInstrument</span><span className="text-white/50">(</span><span className="text-lime-400">"my-agent"</span><span className="text-white/50">,</span> <span className="text-white/90">store</span><span className="text-white/50">=</span><span className="text-lime-400">"./.tari"</span><span className="text-white/50">)</span></div>
-                          <div><span className="text-white/90">provider</span><span className="text-white/50">,</span> <span className="text-white/90">exporter</span> <span className="text-white/50">=</span> <span className="text-white/90">tari</span><span className="text-white/50">.</span><span className="text-sky-400">start_otel_capture</span><span className="text-white/50">()</span></div>
-                          <div><span className="text-white/40 italic"># ... run your agent ...</span></div>
-                          <div><span className="text-white/90">tari</span><span className="text-white/50">.</span><span className="text-sky-400">score</span><span className="text-white/50">(</span><span className="text-white/90">tari</span><span className="text-white/50">.</span><span className="text-sky-400">trajectory_from_exporter</span><span className="text-white/50">(</span><span className="text-white/90">exporter</span><span className="text-white/50">))</span></div>
-                        </div>
-                      </div>
-                    </div>
+                  <div className="relative bg-black/70 rounded-2xl border border-white/[0.06] px-4 py-3.5 md:px-5 md:py-4 font-mono text-sm md:text-[15px] leading-relaxed text-white/90">
+                    Its score and its ledger are public. Keep it, or fire it.
                   </div>
                 </div>
 
                 <div className="flex items-center justify-between px-1 pt-2">
-                  <span className="text-[10px] tracking-[0.2em] uppercase text-white/50 font-light">{c.run.footerRuns}</span>
+                  <span className="text-[10px] tracking-[0.2em] uppercase text-white/50 font-light">ON CHAIN · REVOCABLE</span>
                   <span className="flex items-center gap-1.5 text-[10px] text-white/60 font-light">
                     <motion.span className="w-1.5 h-1.5 rounded-full bg-emerald-400" animate={{ opacity: [0.4, 1, 0.4] }} transition={{ duration: 1.6, repeat: Infinity }} />
-                    {c.run.footerPrivacy}
+                    no principal, ever
                   </span>
                 </div>
               </div>
             </div>
 
             <p className="mt-6 text-sm md:text-base text-black/70 font-light tracking-wide text-center">
-              {c.run.caption}
+              Works with any token that already has a pool. No code on your side.
             </p>
             <div className="mt-8 md:mt-10 text-end">
               <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-black leading-[1.15]">
-                {c.run.pullA}<br /><span className="text-black/50">{c.run.pullB}</span>
+                Yours to hire.<br /><span className="text-black/50">Yours to fire.</span>
               </p>
             </div>
           </motion.div>
