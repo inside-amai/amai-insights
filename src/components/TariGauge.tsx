@@ -5,7 +5,7 @@ import { animate, motion, useInView } from "framer-motion";
  * TARI™ Gauge — sophisticated FICO-style score dial.
  * Semicircular arc from 300 → 850, animated on scroll into view.
  */
-export const TariGauge = ({ score = 812 }: { score?: number }) => {
+export const TariGauge = ({ score = 812, label = "TARI™ Score" }: { score?: number; label?: string }) => {
   const gaugeRef = useRef<HTMLDivElement>(null);
   const needleRef = useRef<SVGGElement>(null);
   const numberRef = useRef<HTMLDivElement>(null);
@@ -198,7 +198,7 @@ export const TariGauge = ({ score = 812 }: { score?: number }) => {
           transition={{ duration: 0.6, delay: 0.9 }}
           className="text-[10px] md:text-xs uppercase tracking-[0.4em] text-white/50 font-light"
         >
-          TARI™ Score
+          {label}
         </motion.div>
         <motion.div
           ref={numberRef}
