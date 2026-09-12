@@ -506,7 +506,7 @@ const HomepageCopy = () => {
               <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-white/50 leading-[1.15]">
                 Every number is live.<br />
                 <span className="text-white">
-                  <a href="https://bureau.amai.net" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-[#7dd3d8] transition-colors duration-300">See it on the Bureau <span aria-hidden>→</span></a>
+                  <a href="https://bureau.amai.net" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors duration-300 border-b border-white/20 hover:border-white/60 pb-1">See it on the Bureau<span aria-hidden>{isRtl ? '←' : '→'}</span></a>
                 </span>
               </p>
             </div>
