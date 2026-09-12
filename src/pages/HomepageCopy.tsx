@@ -37,7 +37,7 @@ const CountUp = ({ to, prefix = "", suffix = "" }: { to: number; prefix?: string
   );
 };
 
-const Home = () => {
+const HomepageCopy = () => {
   const { language } = useLanguage();
   const c = pickHome(language);
   const isRtl = language === 'ar';
@@ -821,4 +821,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomepageCopy;
