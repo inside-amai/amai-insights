@@ -43,13 +43,10 @@ const HomepageCopy = () => {
   const isRtl = language === 'ar';
 
   const navItems = [
-    { label: c.nav.score, id: "score" },
-    { label: c.nav.methodology, id: "methodology" },
-    { label: c.nav.install, id: "install-tari" },
-    { label: c.nav.risk, id: "risk" },
-    { label: c.nav.institutions, id: "institutions" },
-    { label: c.nav.bureau, href: "https://bureau.amai.net", external: true },
-    { label: c.nav.docs, href: "/docs" },
+    { label: "Operators", id: "operators" },
+    { label: "Launchpad", id: "launchpad" },
+    { label: "TARI", id: "tari" },
+    { label: "Bureau", href: "https://bureau.amai.net", external: true },
   ] as const;
 
   const [copiedTerminal, setCopiedTerminal] = useState(false);
