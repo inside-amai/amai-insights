@@ -552,23 +552,27 @@ const HomepageCopy = () => {
           <div className="mt-14 md:mt-20 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
             <motion.div className="lg:col-span-5" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}>
               <h2 className="font-editorial font-normal text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-black/70">
-                {c.inst.titleDim}<br /><em className="italic text-black">{c.inst.titleEm}</em>
+                Now you can see it.<br /><em className="italic text-black">And stop it.</em>
               </h2>
 
               <div className="mt-10 md:mt-12 max-w-xl">
                 <p className="text-base md:text-[17px] font-light text-black/80 leading-[1.75]">
                   <span className={`${isRtl ? 'float-right ml-3' : 'float-left mr-3'} font-editorial text-6xl md:text-7xl leading-[0.85] mt-1 text-black`}>
-                    {c.inst.p1lead}
+                    E
                   </span>
-                  {c.inst.p1rest}
+                  very operator runs under the Lens. It records what the agent does, tool by tool, without reading a word of its data. When a move looks wrong, the Interceptor holds it until a human says yes.
                 </p>
                 <p className="mt-6 text-base md:text-[17px] font-light text-black/80 leading-[1.75]">
-                  {c.inst.p2}
+                  All of it lands on the record.
                 </p>
               </div>
 
               <ol className="mt-14 md:mt-16 space-y-7">
-                {c.inst.beats.map((beat, i) => (
+                {[
+                  { title: "Watch it", body: "every action, every run, one console." },
+                  { title: "Hold it", body: "a flagged move waits for a human before it executes." },
+                  { title: "Prove it", body: "every action carries a signed receipt anyone can verify." },
+                ].map((beat, i) => (
                   <motion.li key={beat.title} className="grid grid-cols-[auto_1fr] gap-5 items-baseline" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.7, delay: 0.1 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}>
                     <span className="font-editorial italic text-2xl md:text-3xl text-black/50 leading-none w-8 keep-ltr" dir="ltr">
                       {String(i + 1).padStart(2, '0')}
@@ -583,19 +587,17 @@ const HomepageCopy = () => {
 
               <motion.blockquote className={`mt-14 md:mt-16 ${isRtl ? 'pr-6 border-r' : 'pl-6 border-l'} border-black/80`} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}>
                 <p className="font-editorial text-3xl md:text-4xl lg:text-5xl leading-[1.1] text-black/70">
-                  {c.inst.pullDim}<em className="italic text-black">{c.inst.pullEm}</em>
+                  Nothing moves <em className="italic text-black">without a receipt.</em>
                 </p>
               </motion.blockquote>
 
               <motion.div className="mt-12" initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}>
                 <a
-                  href="mailto:team@amai.net?subject=Request%20Access%20%2F%20Enterprise"
-                  onClick={() => showEmailFallbackToast()}
+                  href="/docs"
                   className="inline-flex items-center gap-3 text-[13px] tracking-[0.2em] uppercase font-normal text-black hover:text-white transition-colors duration-300 px-6 py-3 border border-black hover:bg-black"
                 >
-                  {c.inst.cta}<span aria-hidden>{isRtl ? '←' : '→'}</span>
+                  SEE THE LENS<span aria-hidden>{isRtl ? '←' : '→'}</span>
                 </a>
-                
               </motion.div>
             </motion.div>
 
