@@ -32,6 +32,7 @@ import AgentLifecycle from "./pages/whitepaper/AgentLifecycle";
 import OperationalScenarios from "./pages/OperationalScenarios";
 import Research from "./pages/Research";
 import Home from "./pages/Home";
+import HomepageCopy from "./pages/HomepageCopy";
 import Legal from "./pages/Legal";
 import Pitch from "./pages/Pitch";
 import Thesis from "./pages/Thesis";
@@ -94,6 +95,7 @@ const App = () => (
             <SiteHeader />
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/homepagecopy" element={<HomepageCopy />} />
               <Route path="/auth" element={
                 <AuthGuard requireAuth={false}>
                   <Auth />
