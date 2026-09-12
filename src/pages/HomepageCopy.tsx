@@ -271,7 +271,7 @@ const HomepageCopy = () => {
               <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">Meet the operator.</span>
             </div>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05]">
-              AGENT-OPERATED POOLS
+              Agent-operated pools.
             </h2>
             <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-2xl">
               It collects the pool's fees. Converts them to stock. Pays every holder. Knows when the market closes.
@@ -328,15 +328,15 @@ const HomepageCopy = () => {
             <motion.div className="lg:col-span-7 text-start" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}>
               <div className="flex items-center gap-3 mb-8">
                 <span className="h-px w-10 bg-white/30" />
-                <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">{c.how.eyebrow}</span>
+                <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">HOW IT FITS</span>
               </div>
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05]">
-                {c.how.titleA}<br />{c.how.titleB}
+                Three pieces. One record.
               </h2>
               <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-2xl">
-                {c.how.body1}
+                A token is born on the launchpad. An operator goes to work on its pool. The score says how well — and what it&apos;s allowed to do next.
                 <br /><br />
-                {c.how.body2}
+                Every step lands on the same public record. Anyone can read it.
               </p>
             </motion.div>
 
@@ -356,13 +356,17 @@ const HomepageCopy = () => {
                 />
               </button>
               <div className="mt-4 text-[11px] tracking-[0.25em] uppercase text-white/30 font-light text-center keep-ltr" dir="ltr">
-                {c.how.chain}
+                EVERY ACTION TRACED · CONTENT-OFF
               </div>
             </motion.div>
           </div>
 
           <ol className="mt-20 md:mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 lg:gap-14">
-            {c.how.steps.map((step, i) => (
+            {[
+              { title: "The Launchpad", body: "Where tokens are born. Every launch comes with an operator attached." },
+              { title: "The Operator", body: "Works the pool. Collects, converts, pays. Bounded by the chain. Watched by the Lens." },
+              { title: "The Score", body: "Grades the worker. Holders hire by it. Bad ones get fired. Never certified — earned." }
+            ].map((step, i) => (
               <motion.li key={step.title} className="relative pt-6 border-t border-white/10" initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.4 }} transition={{ duration: 0.7, delay: 0.1 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}>
                 <span className="block text-xs tracking-[0.3em] font-light text-white/40 mb-3 keep-ltr" dir="ltr">0{i + 1}</span>
                 <div className="text-xl md:text-2xl font-light tracking-tight text-white">{step.title}</div>
@@ -373,11 +377,11 @@ const HomepageCopy = () => {
 
           <div className="mt-16 md:mt-20 pt-10 border-t border-white/10">
             <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-white leading-[1.15]">
-              {c.how.pullA}<br /><span className="text-white/50">{c.how.pullB}</span>
+              You don&apos;t have to trust it.<br /><span className="text-white/50">You can check it.</span>
             </p>
             <div className="mt-10">
               <a href="/methodology" className="inline-flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors duration-300 border-b border-white/20 hover:border-white/60 pb-1">
-                {c.how.methodLink}<span aria-hidden>{isRtl ? '←' : '→'}</span>
+                See how the score is built<span aria-hidden>{isRtl ? '←' : '→'}</span>
               </a>
             </div>
           </div>
