@@ -544,8 +544,8 @@ const HomepageCopy = () => {
       <section id="institutions" className="relative py-24 md:py-40 px-4 md:px-8 overflow-hidden" style={{ backgroundColor: '#F1EDE4' }}>
         <div className="relative z-10 max-w-7xl mx-auto text-[hsl(var(--gray-900))]">
           <div className="flex items-baseline justify-between">
-            <span className="text-[11px] tracking-[0.35em] uppercase font-normal text-black/70">{c.inst.eyebrow}</span>
-            <span className="text-[11px] tracking-[0.35em] uppercase font-normal text-black/50 keep-ltr" dir="ltr">{c.inst.brief}</span>
+            <span className="text-[11px] tracking-[0.35em] uppercase font-normal text-black/70">THE LENS</span>
+            <span className="text-[11px] tracking-[0.35em] uppercase font-normal text-black/50 keep-ltr" dir="ltr">EVERY OPERATOR · EVERY MOVE</span>
           </div>
           <motion.div className="mt-6 h-px w-full bg-black/80 origin-left" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true, amount: 0.4 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }} />
 
@@ -649,11 +649,16 @@ const HomepageCopy = () => {
         <motion.div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}>
           <img src={amaiLogo} alt={c.outro.logoAlt} className="h-20 md:h-32 w-auto mx-auto mb-12 md:mb-16 brightness-110 drop-shadow-[0_0_40px_rgba(166,252,252,0.25)]" />
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-white leading-[1.1]">
-            {c.outro.line}
+            The trust layer for the autonomous economy.
           </h2>
           <span className="mt-16 md:mt-20 text-[10px] md:text-[11px] tracking-[0.35em] uppercase text-white/40 font-light keep-ltr" dir="ltr">
             {c.outro.tag}
           </span>
+          <div className="mt-5 flex items-center gap-3 text-[10px] md:text-[11px] tracking-[0.35em] uppercase text-white/40 font-light keep-ltr" dir="ltr">
+            <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300">FOLLOW ON X</a>
+            <span>·</span>
+            <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300">JOIN THE TELEGRAM</a>
+          </div>
         </motion.div>
       </section>
 
