@@ -175,6 +175,65 @@ const HomepageCopy = () => {
         </div>
       </div>
 
+      {/* Section 3 MEET THE OPERATOR */}
+      <section id="score" className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-transparent pointer-events-none" />
+        <div className="pointer-events-none absolute -left-40 top-1/3 w-[520px] h-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.06),transparent_70%)]" />
+
+        <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
+          <motion.div className="lg:col-span-7 text-start" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}>
+            <div className="flex items-center gap-3 mb-8">
+              <span className="h-px w-10 bg-white/30" />
+              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">Meet the operator.</span>
+            </div>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05]">
+              Agent operated pools.
+            </h2>
+            <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-2xl">
+              It collects the pool's fees. Converts them to stock. Pays every holder. Knows when the market closes.
+              <br /><br />
+              It never touches the principal. The chain won't let it.
+            </p>
+            <div className="mt-16 md:mt-20 pt-10 border-t border-white/10 max-w-2xl">
+              <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-white leading-[1.15]">
+                Every move it makes,
+                <br />
+                <span className="text-white/50">on the record.</span>
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div className="lg:col-span-5 lg:pt-4" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}>
+            <div className="mb-6">
+              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase font-mono">THE OPERATOR'S LOG</span>
+            </div>
+            <div className={`relative ${isRtl ? 'pr-8 md:pr-10' : 'pl-8 md:pl-10'}`}>
+              <div className={`absolute ${isRtl ? 'right-0' : 'left-0'} top-2 bottom-2 w-px bg-gradient-to-b from-[#7dd3d8]/50 via-[#5ec9a8]/40 via-[#e8b25a]/40 to-[#e15a3b]/50`} />
+              {[
+                { first: "Collected 3.02 ETH → 0.90 NVDA", second: "paid to 2,141 holders · receipt 0x18f6…6c5b", color: 'bg-[#7dd3d8]', text: 'text-[#a6e3e6]' },
+                { first: "Market close", second: "position pulled in until the open · receipt 0x9b2e…f104", color: 'bg-[#7dd3d8]', text: 'text-[#a6e3e6]' },
+                { first: "Collection skipped", second: "NVDA corporate action detected · resumed next window · receipt 0xc4a1…9e02", color: 'bg-white/40', text: 'text-white/60' },
+                { first: "Collected 2.41 ETH → 0.86 NVDA · 0.31 TSLA", second: "paid to 2,138 holders · receipt 0x5d77…31af", color: 'bg-[#7dd3d8]', text: 'text-[#a6e3e6]' },
+                { first: "HELD", second: "payout to a new address · waiting for a human · nothing sent", color: 'bg-[#e8b25a]', text: 'text-[#f0c98a]' },
+              ].map((row, i) => (
+                <motion.div key={row.first} className="relative py-6 md:py-7 first:pt-0" initial={{ opacity: 0, x: 16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.4 }} transition={{ duration: 0.7, delay: 0.1 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}>
+                  <span className={`absolute ${isRtl ? '-right-[34px] md:-right-[42px]' : '-left-[34px] md:-left-[42px]'} top-8 md:top-9 flex items-center justify-center`}>
+                    <span className={`absolute w-3.5 h-3.5 rounded-full ${row.color} opacity-20 blur-[3px]`} />
+                    <span className={`relative w-1.5 h-1.5 rounded-full ${row.color}`} />
+                  </span>
+                  <div className={`text-lg md:text-xl font-normal tracking-tight ${row.text} keep-ltr`} dir="ltr">
+                    {row.first}
+                  </div>
+                  <div className="mt-2 text-sm md:text-base font-light text-white/60 leading-relaxed max-w-md">
+                    {row.second}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Feature card */}
       <section className="relative bg-perspective-grid py-16 md:py-24 px-4 md:px-8">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-transparent pointer-events-none" />
@@ -255,65 +314,6 @@ const HomepageCopy = () => {
               </motion.nav>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* Section 3 AGENT-OPERATED POOLS */}
-      <section id="score" className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-transparent pointer-events-none" />
-        <div className="pointer-events-none absolute -left-40 top-1/3 w-[520px] h-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.06),transparent_70%)]" />
-
-        <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
-          <motion.div className="lg:col-span-7 text-start" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}>
-            <div className="flex items-center gap-3 mb-8">
-              <span className="h-px w-10 bg-white/30" />
-              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">Meet the operator.</span>
-            </div>
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05]">
-              Agent-operated pools.
-            </h2>
-            <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-2xl">
-              It collects the pool's fees. Converts them to stock. Pays every holder. Knows when the market closes.
-              <br /><br />
-              It never touches the principal. The chain won't let it.
-            </p>
-            <div className="mt-16 md:mt-20 pt-10 border-t border-white/10 max-w-2xl">
-              <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-white leading-[1.15]">
-                Every move it makes,
-                <br />
-                <span className="text-white/50">on the record.</span>
-              </p>
-            </div>
-          </motion.div>
-
-          <motion.div className="lg:col-span-5 lg:pt-4" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}>
-            <div className="mb-6">
-              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase font-mono">ILLUSTRATIVE · ONE DAY IN THE LOG</span>
-            </div>
-            <div className={`relative ${isRtl ? 'pr-8 md:pr-10' : 'pl-8 md:pl-10'}`}>
-              <div className={`absolute ${isRtl ? 'right-0' : 'left-0'} top-2 bottom-2 w-px bg-gradient-to-b from-[#7dd3d8]/50 via-[#5ec9a8]/40 via-[#e8b25a]/40 to-[#e15a3b]/50`} />
-              {[
-                { first: "Collected 3.02 ETH → 0.90 NVDA", second: "paid to 2,141 holders · receipt 0x18f6…6c5b", color: 'bg-[#7dd3d8]', text: 'text-[#a6e3e6]' },
-                { first: "Market close", second: "position pulled in until the open · receipt 0x9b2e…f104", color: 'bg-[#7dd3d8]', text: 'text-[#a6e3e6]' },
-                { first: "Collection skipped", second: "NVDA corporate action detected · resumed next window · receipt 0xc4a1…9e02", color: 'bg-white/40', text: 'text-white/60' },
-                { first: "Collected 2.41 ETH → 0.86 NVDA · 0.31 TSLA", second: "paid to 2,138 holders · receipt 0x5d77…31af", color: 'bg-[#7dd3d8]', text: 'text-[#a6e3e6]' },
-                { first: "HELD", second: "payout to a new address · waiting for a human · nothing sent", color: 'bg-[#e8b25a]', text: 'text-[#f0c98a]' },
-              ].map((row, i) => (
-                <motion.div key={row.first} className="relative py-6 md:py-7 first:pt-0" initial={{ opacity: 0, x: 16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.4 }} transition={{ duration: 0.7, delay: 0.1 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}>
-                  <span className={`absolute ${isRtl ? '-right-[34px] md:-right-[42px]' : '-left-[34px] md:-left-[42px]'} top-8 md:top-9 flex items-center justify-center`}>
-                    <span className={`absolute w-3.5 h-3.5 rounded-full ${row.color} opacity-20 blur-[3px]`} />
-                    <span className={`relative w-1.5 h-1.5 rounded-full ${row.color}`} />
-                  </span>
-                  <div className={`text-lg md:text-xl font-normal tracking-tight ${row.text} keep-ltr`} dir="ltr">
-                    {row.first}
-                  </div>
-                  <div className="mt-2 text-sm md:text-base font-light text-white/60 leading-relaxed max-w-md">
-                    {row.second}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </section>
 
