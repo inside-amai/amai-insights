@@ -585,17 +585,20 @@ const HomepageCopy = () => {
           <motion.div className="lg:col-span-5 text-start" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}>
             <div className="flex items-center gap-3 mb-8">
               <span className="h-px w-10 bg-white/30" />
-              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">BUILT FIRST</span>
+              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">ALREADY LIVE</span>
             </div>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05]">
-              Two years before the first pool.
+              Built. Running. Measured.
             </h2>
             <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-xl">
-              Before there was anything to run, there was the score. The camera, the referee, the record, the registry — live, measured, and published with their limits.
+              The score, the camera, the record, the registry. Live today, published with their limits.
             </p>
             <div className="mt-16 md:mt-20 pt-10 border-t border-white/10 max-w-xl">
               <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-white/50 leading-[1.15]">
-                Nothing here is a promise.<br /><span className="text-white">All of it is running.</span>
+                Every number is live.<br />
+                <span className="text-white">
+                  <a href="https://bureau.amai.net" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-[#7dd3d8] transition-colors duration-300">See it on the Bureau <span aria-hidden>→</span></a>
+                </span>
               </p>
             </div>
           </motion.div>
