@@ -268,10 +268,10 @@ const HomepageCopy = () => {
           <motion.div className="lg:col-span-7 text-start" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}>
             <div className="flex items-center gap-3 mb-8">
               <span className="h-px w-10 bg-white/30" />
-              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">AGENT-OPERATED POOLS</span>
+              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">Meet the operator.</span>
             </div>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05]">
-              Meet the operator.
+              AGENT-OPERATED POOLS
             </h2>
             <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-2xl">
               It collects the pool's fees. Converts them to stock. Pays every holder. Knows when the market closes.
