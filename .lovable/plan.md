@@ -1,23 +1,22 @@
-## Plan
+# TARI page
 
-Rebalance the "Run it" section (Section 5) on the home page now that the SDK card is taller.
+## Build
 
-### Changes to `src/pages/Home.tsx`
+- Add a new public `/tari` page using the home page’s dark grid, lightweight typography, generous hero and closer, and tighter explanatory sections.
+- Build the eight requested sections with the supplied copy: animated 812 gauge hero, two score sources, operator inputs, score bands, scoped metrics table, operating tiers, light installation section, and plain language caveats with Bureau closer.
+- Keep tables and cards responsive by switching to stacked layouts where needed on smaller screens.
 
-1. Tighten the left-column spacing
-   - Reduce the gap between the "Read the docs" button and the "Free to run. / Private by construction." tagline so the tagline sits directly under the button.
+## Integration
 
-2. Move "What you get" into the left column
-   - Relocate the 4-point benefits grid from the right column to just below the "Free to run" tagline in the left column.
-   - Keep the same 2x2 grid, typography, and staggered reveal animation.
+- Reuse the existing TARI gauge without changing its animation, adding only a configurable display label so this page can show `TARI SCORE`.
+- Add `/tari` to the public routes.
+- Point the home page’s score explanation link to `/tari`, while retaining the methodology and docs links inside the new page.
 
-3. Keep the right column focused on the SDK card
-   - The right column retains: the two-step TERMINAL + PYTHON card, the caption below it, and the "tari example" line.
+## Copy handling
 
-### Result
+- Preserve the provided wording and command names.
+- Avoid decorative dashes and hyphens in prose; retain the required hyphen in the literal package command `amai-tari` and model identifiers where accuracy requires it.
 
-- The left column becomes a continuous vertical composition (headline → body → docs button → tagline → benefits) that roughly matches the new card height.
-- The two columns regain visual balance instead of leaving a large dead space on the left.
-- Mobile layout stays as a single natural flow: text, tagline, benefits, then the card, caption, and example line.
+## Validation
 
-No copy or content changes.
+- Check the page at desktop and mobile sizes, confirm the gauge reaches 812, verify internal and external links, and confirm the project builds cleanly.
