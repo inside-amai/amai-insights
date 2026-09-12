@@ -43,6 +43,7 @@ import MethodologyChangelog from "./pages/MethodologyChangelog";
 import Docs from "./pages/Docs";
 import Operators from "./pages/Operators";
 import Tari from "./pages/Tari";
+import Launchpad from "./pages/Launchpad";
 
 
 
@@ -128,6 +129,7 @@ const App = () => (
             <Route path="/docs" element={<Docs />} />
             <Route path="/operators" element={<Operators />} />
             <Route path="/tari" element={<Tari />} />
+            <Route path="/launchpad" element={<Launchpad />} />
             {/* Admin routes */}
             <Route path="/admin/pilot-requests" element={<AdminPilotRequests />} />
             <Route path="/state-of-agent-trust" element={<StateOfAgentTrust />} />
