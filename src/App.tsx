@@ -125,6 +125,7 @@ const App = () => (
             <Route path="/methodology" element={<Methodology />} />
             <Route path="/methodology/changelog" element={<MethodologyChangelog />} />
             <Route path="/docs" element={<Docs />} />
+            <Route path="/operators" element={<Operators />} />
             {/* Admin routes */}
             <Route path="/admin/pilot-requests" element={<AdminPilotRequests />} />
             <Route path="/state-of-agent-trust" element={<StateOfAgentTrust />} />
