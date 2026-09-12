@@ -223,18 +223,15 @@ const Operators = () => {
           <div className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 max-w-6xl">
             {steps.map((step, i) => (
               <motion.div
-                key={step.num}
+                key={step.lead}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 0.7, delay: 0.1 + i * 0.12, ease: [0.16, 1, 0.3, 1] }}
                 className="border-t border-white/10 pt-8"
               >
-                <span className="block text-4xl md:text-5xl font-light text-white/30 leading-none mb-5">
-                  {step.num}
-                </span>
                 <p className="text-lg md:text-xl font-light text-white/80 leading-relaxed">
-                  {step.body}
+                  <span className="font-medium text-white">{step.lead}</span> {step.body}
                 </p>
               </motion.div>
             ))}
