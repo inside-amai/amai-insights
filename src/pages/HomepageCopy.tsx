@@ -585,43 +585,44 @@ const HomepageCopy = () => {
           <motion.div className="lg:col-span-5 text-start" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}>
             <div className="flex items-center gap-3 mb-8">
               <span className="h-px w-10 bg-white/30" />
-              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">{c.risk.eyebrow}</span>
+              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">BUILT FIRST</span>
             </div>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05]">
-              {c.risk.title}
+              Two years before the first pool.
             </h2>
             <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-xl">
-              {c.risk.body1}<br /><br />{c.risk.body2}
+              Before there was anything to run, there was the score. The camera, the referee, the record, the registry — live, measured, and published with their limits.
             </p>
             <div className="mt-16 md:mt-20 pt-10 border-t border-white/10 max-w-xl">
               <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-white/50 leading-[1.15]">
-                {c.risk.pullDim}<br /><span className="text-white">{c.risk.pullBright}</span>
+                Nothing here is a promise.<br /><span className="text-white">All of it is running.</span>
               </p>
             </div>
           </motion.div>
 
           <div className="lg:col-span-7 flex flex-col gap-8 md:gap-12">
             <motion.div className="border-b border-white/10 pb-8 md:pb-12" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}>
-              <div className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-[hsl(var(--trust-red)/0.8)] leading-none">
-                <CountUp to={16} suffix="%" />
+              <div className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-[#7dd3d8] leading-none">
+                158,128
               </div>
-              <p className="mt-4 text-base md:text-lg font-light text-white/70 max-w-md">{c.risk.stat1}</p>
-              <span className="mt-2 inline-block text-[11px] tracking-[0.2em] uppercase text-white/40 font-light keep-ltr" dir="ltr">{c.risk.stat1Src}</span>
+              <p className="mt-4 text-base md:text-lg font-light text-white/70 max-w-md">wallets scored on the Bureau, live</p>
+              <span className="mt-2 inline-block text-[11px] tracking-[0.2em] uppercase text-white/40 font-light keep-ltr" dir="ltr">bureau.amai.net</span>
             </motion.div>
 
             <motion.div className="border-b border-white/10 pb-8 md:pb-12" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}>
-              <div className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-[hsl(var(--trust-red)/0.8)] leading-none">
-                <CountUp to={200000} prefix="~" />
+              <div className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-[#7dd3d8] leading-none">
+                0.835
               </div>
-              <p className="mt-4 text-base md:text-lg font-light text-white/70 max-w-md">{c.risk.stat2}</p>
-              <span className="mt-2 inline-block text-[11px] tracking-[0.2em] uppercase text-white/40 font-light">{c.risk.stat2Src}</span>
+              <p className="mt-4 text-base md:text-lg font-light text-white/70 max-w-md">benchmark AUC, the conduct engine</p>
+              <span className="mt-2 inline-block text-[11px] tracking-[0.2em] uppercase text-white/40 font-light">methodology, out-of-time, published with limits</span>
             </motion.div>
 
             <motion.div className="border-b border-white/10 pb-8 md:pb-12" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}>
-              <div className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-[hsl(var(--trust-red)/0.8)] leading-none keep-ltr" dir="ltr">
-                {c.risk.stat3Cve}
+              <div className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-[#7dd3d8] leading-none keep-ltr" dir="ltr">
+                pip install amai-tari
               </div>
-              <p className="mt-4 text-base md:text-lg font-light text-white/70 max-w-md">{c.risk.stat3}</p>
+              <p className="mt-4 text-base md:text-lg font-light text-white/70 max-w-md">the SDK. Runs locally. Nothing leaves your machine.</p>
+              <span className="mt-2 inline-block text-[11px] tracking-[0.2em] uppercase text-white/40 font-light keep-ltr" dir="ltr">on PyPI</span>
             </motion.div>
           </div>
         </div>
