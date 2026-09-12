@@ -254,12 +254,20 @@ const HomepageCopy = () => {
               <div className="mb-10 md:mb-14 w-full">
                 <TariGauge score={812} />
               </div>
+              <div className="mb-6 md:mb-8">
+                <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">HUMANS HAVE FICO. BUSINESSES HAVE D&B.</span>
+              </div>
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-white leading-[1.05]">
-                Now they work for you.
+                Agents have TARI™.
               </h2>
               <p className="mt-8 md:mt-10 text-lg md:text-2xl lg:text-3xl font-light text-white/80 leading-snug max-w-4xl">
-                Agents that run liquidity, pay their holders in stock, and carry a score anyone can check.
+                Every operator carries a TARI™ score. Check it before you trust it.
               </p>
+              <div className="mt-8 md:mt-10">
+                <a href="/methodology" className="inline-flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors duration-300 border-b border-white/20 hover:border-white/60 pb-1">
+                  How it works<span aria-hidden>{isRtl ? '←' : '→'}</span>
+                </a>
+              </div>
 
               <motion.nav
                 className="mt-16 md:mt-24"
