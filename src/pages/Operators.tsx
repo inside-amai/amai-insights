@@ -56,9 +56,9 @@ const Operators = () => {
   ];
 
   const steps = [
-    { num: "1", body: "Point your pool's fee recipient at the operator's Safe, one transaction on your side." },
-    { num: "2", body: "Fees arrive. The operator collects, converts, and pays your holders in the stock you chose." },
-    { num: "3", body: "Change your mind at any time. Set the recipient back. Nothing to ask us, nothing to sign with us." },
+    { lead: "1.", body: "Point your pool's fee recipient at the operator's Safe, one transaction on your side." },
+    { lead: "2.", body: "Fees arrive. The operator collects, converts, and pays your holders in the stock you chose." },
+    { lead: "3.", body: "Change your mind at any time. Set the recipient back. Nothing to ask us, nothing to sign with us." },
   ];
 
   return (
