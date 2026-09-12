@@ -43,13 +43,10 @@ const HomepageCopy = () => {
   const isRtl = language === 'ar';
 
   const navItems = [
-    { label: c.nav.score, id: "score" },
-    { label: c.nav.methodology, id: "methodology" },
-    { label: c.nav.install, id: "install-tari" },
-    { label: c.nav.risk, id: "risk" },
-    { label: c.nav.institutions, id: "institutions" },
-    { label: c.nav.bureau, href: "https://bureau.amai.net", external: true },
-    { label: c.nav.docs, href: "/docs" },
+    { label: "Operators", id: "operators" },
+    { label: "Launchpad", id: "launchpad" },
+    { label: "TARI", id: "tari" },
+    { label: "Bureau", href: "https://bureau.amai.net", external: true },
   ] as const;
 
   const [copiedTerminal, setCopiedTerminal] = useState(false);
@@ -200,10 +197,10 @@ const HomepageCopy = () => {
                 <TariGauge score={812} />
               </div>
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-white leading-[1.05]">
-                {c.feature.headline}
+                Now they work for you.
               </h2>
               <p className="mt-8 md:mt-10 text-lg md:text-2xl lg:text-3xl font-light text-white/80 leading-snug max-w-4xl">
-                {c.feature.body1}<span className="font-normal text-white/95">{c.feature.bodyHighlight}</span>
+                Agents that run liquidity, pay their holders in stock, and carry a score anyone can check.
               </p>
 
               <motion.nav
@@ -213,7 +210,7 @@ const HomepageCopy = () => {
                 viewport={{ once: false, amount: 0.5 }}
                 transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               >
-                <div className="flex items-center overflow-hidden rounded-full border border-white/10 bg-black/50 backdrop-blur-xl px-2 py-2 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.9)] w-[calc(4*4rem+3*0.5rem+2*2rem+1rem)] md:w-[calc(5*8rem+4*0.5rem+2*2rem+1rem)]">
+                <div className="flex items-center overflow-hidden rounded-full border border-white/10 bg-black/50 backdrop-blur-xl px-2 py-2 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.9)] w-[calc(4*4rem+3*0.5rem+2*2rem+1rem)] md:w-[calc(4*8rem+3*0.5rem+2*2rem+1rem)]">
                   <button
                     type="button"
                     onClick={scrollNavLeft}
@@ -224,7 +221,7 @@ const HomepageCopy = () => {
                   </button>
                   <ul
                     ref={navListRef}
-                    className="flex items-center gap-2 overflow-x-auto scroll-smooth snap-x snap-mandatory w-[calc(4*4rem+3*0.5rem)] md:w-[calc(5*8rem+4*0.5rem)] mx-2"
+                    className="flex items-center gap-2 overflow-x-auto scroll-smooth snap-x snap-mandatory w-[calc(4*4rem+3*0.5rem)] md:w-[calc(4*8rem+3*0.5rem)] mx-2"
                     style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
                   >
                     {navItems.map((item) => (
