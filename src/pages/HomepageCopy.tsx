@@ -340,7 +340,8 @@ const HomepageCopy = () => {
             >
               <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">Agent-operated pools.</span>
               <h2 className="mt-6 md:mt-8 text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.05] tracking-[-0.02em] text-white/90 font-medium">
-                Liquidity Pools.<br />Now managed by Agents.
+                <span className="block">Liquidity Pools.</span>
+                <span className="block mt-1 md:mt-2">Now managed by Agents.</span>
               </h2>
               <p className="mt-8 md:mt-10 text-base md:text-lg font-light text-white/65 leading-relaxed max-w-[42ch]">
                 AMAI gives liquidity pools an operator.<br /><br />
