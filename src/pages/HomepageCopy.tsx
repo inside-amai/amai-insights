@@ -359,8 +359,8 @@ const HomepageCopy = () => {
                 <span className="text-[11px] tracking-[0.2em] font-light text-cyan-accent/70 uppercase">What that means</span>
               </div>
               {[
-                ["1", "Collect", "Collect the swap fees the pool’s position has earned. A standard Uniswap call."],
-                ["2", "Convert", "Swap those fees into the stock the community chose, on Uniswap. NVDA is the default; holders can vote to change it."],
+                ["1", "Collect", "Collect the swap fees the pool’s position has earned."],
+                ["2", "Convert", "Swap those fees into the stock the community chose, such as NVDA, TSLA and more."],
                 ["3", "Pay", "Send the stock to holders by snapshot; keep the creator’s and the protocol’s shares."],
                 ["4", "Lend idle", "Park idle treasury in an allowlisted lending venue and pull it back when needed."],
                 ["5", "Rebalance", "Keep its own liquidity range centred so the position earns more fees per dollar."],
