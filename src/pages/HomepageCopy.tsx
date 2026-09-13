@@ -383,18 +383,23 @@ const HomepageCopy = () => {
                 ["5", "Rebalance", "Adjust the liquidity range as conditions change."],
                 ["6", "Sit out", "Pause collections around specified market events."],
               ].map(([num, job, desc]) => (
-                <div key={num} className="grid grid-cols-[130px_1fr] md:grid-cols-[170px_1fr] gap-x-6 py-5 md:py-6 border-b border-white/10">
-                  <div className="text-sm md:text-base font-light text-white whitespace-nowrap">
-                    <span className="text-cyan-accent/80 font-mono mr-1.5">{num}</span>
+                <div
+                  key={num}
+                  className="group relative grid grid-cols-[130px_1fr] md:grid-cols-[170px_1fr] gap-x-6 py-5 md:py-6 transition-colors duration-[250ms] hover:bg-cyan-accent/[0.04]"
+                >
+                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-white/20 via-white/10 to-transparent group-hover:from-cyan-accent/40 group-hover:via-cyan-accent/20 group-hover:to-transparent transition-all duration-[250ms]" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-white/[0.05] via-white/[0.02] to-transparent pointer-events-none" />
+                  <div className="relative text-sm md:text-base font-normal text-white/90 whitespace-nowrap">
+                    <span className="text-cyan-accent/60 group-hover:text-cyan-accent/90 font-mono mr-1.5 transition-colors duration-[250ms]">{num}</span>
                     <span className="text-white/30 mx-0.5">·</span> {job}
                   </div>
-                  <p className="text-sm md:text-base font-light text-white/55 leading-relaxed">{desc}</p>
+                  <p className="relative text-sm md:text-base font-light text-white/60 leading-relaxed">{desc}</p>
                 </div>
               ))}
-              <div className="mt-10 md:mt-12 border border-white/10 border-l-2 border-l-cyan-accent/60 bg-white/[0.03] px-6 md:px-8 py-6 md:py-7">
-                <span className="text-[11px] tracking-[0.3em] font-light text-white/50 uppercase">What it never does</span>
-                <p className="mt-4 text-sm md:text-base font-light text-white/70 leading-relaxed">
-                  <span className="text-white font-normal">It never trades.</span> It never takes a directional bet with holder money. It never sends funds to an address outside its policy. It is a treasurer, and the wallet policy makes that a rule.
+              <div className="mt-10 md:mt-12 pl-4 md:pl-5 border-l border-cyan-accent/60">
+                <span className="text-[11px] tracking-[0.3em] font-light text-white/50 uppercase">Denied Permissions</span>
+                <p className="mt-3 text-sm md:text-base font-light text-white/70 leading-relaxed">
+                  The operator cannot withdraw the pool’s principal.
                 </p>
               </div>
             </motion.div>
