@@ -121,7 +121,7 @@ export const EcosystemSection = () => (
             </div>
             <div className="md:justify-self-end">
               {"href" in product && product.href && product.link && (
-                product.external ? (
+                "external" in product && product.external ? (
                   <a href={product.href} target="_blank" rel="noopener noreferrer" className={linkClasses}>
                     {product.link} <span aria-hidden="true">↗</span>
                   </a>
