@@ -134,7 +134,7 @@ export const SiteHeader = () => {
             <Link to="/launchpad" className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Launchpad</Link>
             <Link to="/tari" className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Tari</Link>
             <a href="https://bureau.amai.net" target="_blank" rel="noopener noreferrer" className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Bureau ↗</a>
-            <button type="button" onClick={handleTeamClick} className="py-3 text-left text-xl font-light uppercase text-white/90 border-b border-white/10">Team</button>
+            <Link to="/team" className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Team</Link>
             <a href={mailto} onClick={() => { setMobileOpen(false); handleContactClick(); }} className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Contact</a>
           </nav>
 
