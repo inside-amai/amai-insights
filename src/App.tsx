@@ -44,6 +44,7 @@ import Docs from "./pages/Docs";
 import Operators from "./pages/Operators";
 import Tari from "./pages/Tari";
 import Launchpad from "./pages/Launchpad";
+import Team from "./pages/Team";
 
 
 
