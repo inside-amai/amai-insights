@@ -15,7 +15,6 @@ export const SiteHeader = () => {
   const { language, setLanguage } = useLanguage();
   const location = useLocation();
   const navigate = useNavigate();
-  const isDeckPage = location.pathname === '/briefing' || location.pathname === '/pitch';
   const [mobileOpen, setMobileOpen] = useState(false);
 
   // Close menu on route change
@@ -45,6 +44,9 @@ export const SiteHeader = () => {
       return;
     }
     navigate('/#team');
+    window.setTimeout(() => {
+      document.getElementById('team')?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
   };
 
   const mailto = "mailto:team@amai.net?subject=Mission%20Briefing%20%2F%2F%20%5BOrganization%20Name%5D&body=To%20the%20AMAI%20Labs%20Team%2C%0A%0AWe%20are%20reaching%20out%20regarding%20the%20%5BThesis%20%2F%20Architecture%5D.%0A%0AName%3A%20%0AOrganization%3A%20%0AIntent%3A%20";
@@ -53,10 +55,8 @@ export const SiteHeader = () => {
     <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none bg-black/80 backdrop-blur-md border-b border-white/5">
 
       <div className="container mx-auto px-6 py-4">
-        <div className={`flex items-center ${isDeckPage ? 'justify-center' : 'justify-between'}`}>
-          {/* Logo + Site Title - Hidden on /deck page */}
-          {!isDeckPage && (
-            <div className="flex items-center gap-4 flex-shrink-0">
+        <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3 md:gap-4 flex-shrink-0 min-w-0">
               <Link 
                 to="/" 
                 className="pointer-events-auto flex-shrink-0"
@@ -73,11 +73,10 @@ export const SiteHeader = () => {
                   decoding="async"
                 />
               </Link>
-              <span className="hidden sm:block text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium">
+              <span className="block max-w-[150px] sm:max-w-none text-[8px] sm:text-[11px] leading-relaxed tracking-[0.2em] sm:tracking-[0.3em] uppercase text-white/40 font-medium">
                 AMAI Labs · Infrastructure & Research
               </span>
             </div>
-          )}
 
           {/* Desktop Nav */}
           <nav className="pointer-events-auto hidden xl:flex items-center text-[11px] tracking-[0.1em] flex-shrink-0 whitespace-nowrap uppercase text-white/60">
@@ -101,7 +100,7 @@ export const SiteHeader = () => {
                         : 'text-white/40 hover:text-white/70'
                     }`}
                   >
-                    {lang.code === 'ja' ? 'JPN' : lang.label}
+                    {lang.label}
                   </button>
                   {index < languages.length - 1 && (
                     <span className="text-white/20 mx-2">·</span>
@@ -113,7 +112,6 @@ export const SiteHeader = () => {
 
 
           {/* Mobile Hamburger */}
-          {!isDeckPage && (
             <button
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
@@ -121,7 +119,6 @@ export const SiteHeader = () => {
             >
               <Menu className="h-5 w-5" strokeWidth={1.5} />
             </button>
-          )}
         </div>
       </div>
 
@@ -170,7 +167,7 @@ export const SiteHeader = () => {
                       : 'text-white/40 hover:text-white/70'
                   }`}
                 >
-                    {lang.code === 'ja' ? 'JPN' : lang.label}
+                    {lang.label}
                 </button>
               ))}
             </div>
