@@ -83,7 +83,9 @@ const REFUSAL_ATTEMPTS = [
   "Change the policy",
 ];
 
-const RefusalsSequence = ({ active }: { active: boolean }) => {
+const RefusalsSequence = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const active = useInView(ref, { amount: 0.3 });
   const [line, setLine] = useState(0);
   const [chars, setChars] = useState(0);
   const [phase, setPhase] = useState<"typing" | "strike" | "holdall">("typing");
@@ -128,6 +130,7 @@ const RefusalsSequence = ({ active }: { active: boolean }) => {
 
   return (
     <motion.div
+      ref={ref}
       className="w-full font-mono text-2xl md:text-3xl leading-snug"
       animate={{ opacity: visible ? 1 : 0 }}
       transition={{ duration: 0.6 }}
@@ -460,6 +463,51 @@ const HomepageCopy = () => {
           <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">
             Stock tokens on Robinhood Chain
           </span>
+        </div>
+      </section>
+
+      {/* THE CHAIN WON'T LET IT / refusals */}
+      <section className="relative bg-black bg-perspective-grid min-h-screen flex items-center px-4 md:px-8 py-24 md:py-32 overflow-hidden">
+        <div className="relative z-10 max-w-7xl mx-auto w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="flex items-center gap-3 mb-8">
+              <span className="h-px w-10 bg-white/30" />
+              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">The chain won't let it</span>
+            </div>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05]">
+              It can pause.
+              <br />
+              It cannot take.
+            </h2>
+            <p className="mt-10 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-[60ch]">
+              The operator's wallet is a Safe with one short list of what its key may do. Everything else is refused by the chain itself. Every refusal below was proved by attempting it.
+            </p>
+          </motion.div>
+
+          <div className="mt-14 md:mt-20">
+            <RefusalsSequence />
+          </div>
+
+          <motion.p
+            className="mt-14 md:mt-20 text-lg md:text-xl font-light text-white leading-relaxed max-w-[60ch]"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          >
+            What it may do fits on one line: collect the fees, wrap the ETH, swap into the chosen stock, pay the holders.
+          </motion.p>
+
+          <div className="mt-10">
+            <Link to="/operators" className="inline-flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors duration-300 border-b border-white/20 hover:border-white/60 pb-1">
+              Every rule, on the record<span aria-hidden>{isRtl ? '←' : '→'}</span>
+            </Link>
+          </div>
         </div>
       </section>
 
