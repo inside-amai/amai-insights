@@ -74,7 +74,7 @@ export const SiteHeader = () => {
               <Link to="/launchpad" className="hover:text-white/90 transition-colors">Launchpad</Link><span className="text-white/20">·</span>
               <Link to="/tari" className="hover:text-white/90 transition-colors">Tari</Link><span className="text-white/20">·</span>
               <a href="https://bureau.amai.net" target="_blank" rel="noopener noreferrer" className="hover:text-white/90 transition-colors">Bureau ↗</a><span className="text-white/20">·</span>
-              <button type="button" onClick={handleTeamClick} className="uppercase hover:text-white/90 transition-colors">Team</button><span className="text-white/20">·</span>
+              <Link to="/team" className="hover:text-white/90 transition-colors">Team</Link><span className="text-white/20">·</span>
               <a href={mailto} onClick={handleContactClick} className="hover:text-white/90 transition-colors">Contact</a>
             </div>
             <div className="flex items-center gap-1 ml-5 pl-5 border-l border-white/10">
