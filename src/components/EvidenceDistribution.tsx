@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useState } from "react";
 
 type Bin = {
   lower: number;
@@ -34,67 +34,233 @@ const Y_MAX = 40;
 
 const TICKS = [550, 600, 650, 700, 750, 800, 850];
 
-// viewBox geometry
-const W = 900;
-const H = 420;
-const PAD = { top: 24, right: 24, bottom: 56, left: 56 };
-const PLOT_W = W - PAD.left - PAD.right;
-const PLOT_H = H - PAD.top - PAD.bottom;
-
-const xScale = (score: number) =>
-  PAD.left + ((score - X_MIN) / (X_MAX - X_MIN)) * PLOT_W;
-const yScale = (pct: number) => PAD.top + PLOT_H - (pct / Y_MAX) * PLOT_H;
-
 const pct = (count: number, total: number) => (count / total) * 100;
-
-const steppedPath = (key: "uncompromised" | "compromised", total: number) => {
-  let d = `M ${xScale(X_MIN)} ${yScale(0)}`;
-  BINS.forEach((bin) => {
-    const y = yScale(pct(bin[key], total));
-    d += ` L ${xScale(bin.lower)} ${y} L ${xScale(bin.upper)} ${y}`;
-  });
-  d += ` L ${xScale(X_MAX)} ${yScale(0)} Z`;
-  return d;
-};
-
-const steppedLine = (key: "uncompromised" | "compromised", total: number) => {
-  let d = "";
-  BINS.forEach((bin, i) => {
-    const y = yScale(pct(bin[key], total));
-    d += `${i === 0 ? "M" : " L"} ${xScale(bin.lower)} ${y} L ${xScale(bin.upper)} ${y}`;
-  });
-  return d;
-};
-
 const fmt = (n: number) => `${n.toFixed(1)}%`;
 
-export const EvidenceDistribution = () => {
-  const [active, setActive] = useState<number | null>(null);
-  const [detailsOpen, setDetailsOpen] = useState(false);
-  const wrapRef = useRef<HTMLDivElement>(null);
+const A11Y_SUMMARY =
+  "Stepped distribution chart of TARI conduct scores in 25 point bins from 550 to 850. Compromised runs (343) concentrate between 575 and 650, peaking at 27.7 percent in the 600 to 624 bin. Uncompromised runs (383) concentrate between 750 and 850, peaking at 38.1 percent in the 825 to 849 bin. The two distributions overlap, most visibly between 650 and 800.";
 
-  const paths = useMemo(
-    () => ({
-      unArea: steppedPath("uncompromised", UNCOMPROMISED_TOTAL),
-      unLine: steppedLine("uncompromised", UNCOMPROMISED_TOTAL),
-      coArea: steppedPath("compromised", COMPROMISED_TOTAL),
-      coLine: steppedLine("compromised", COMPROMISED_TOTAL),
-    }),
-    []
-  );
+type Dims = {
+  w: number;
+  h: number;
+  pad: { top: number; right: number; bottom: number; left: number };
+  fs: number;
+  axisFs: number;
+};
+
+const DESKTOP: Dims = {
+  w: 900,
+  h: 420,
+  pad: { top: 26, right: 24, bottom: 58, left: 58 },
+  fs: 12,
+  axisFs: 11,
+};
+
+const MOBILE: Dims = {
+  w: 400,
+  h: 420,
+  pad: { top: 20, right: 10, bottom: 54, left: 44 },
+  fs: 12,
+  axisFs: 11,
+};
+
+const Plot = ({
+  dims,
+  active,
+  setActive,
+}: {
+  dims: Dims;
+  active: number | null;
+  setActive: (i: number | null) => void;
+}) => {
+  const { w, h, pad, fs, axisFs } = dims;
+  const plotW = w - pad.left - pad.right;
+  const plotH = h - pad.top - pad.bottom;
+  const x = (score: number) =>
+    pad.left + ((score - X_MIN) / (X_MAX - X_MIN)) * plotW;
+  const y = (p: number) => pad.top + plotH - (p / Y_MAX) * plotH;
+
+  const area = (key: "uncompromised" | "compromised", total: number) => {
+    let d = `M ${x(X_MIN)} ${y(0)}`;
+    BINS.forEach((bin) => {
+      const yy = y(pct(bin[key], total));
+      d += ` L ${x(bin.lower)} ${yy} L ${x(bin.upper)} ${yy}`;
+    });
+    return d + ` L ${x(X_MAX)} ${y(0)} Z`;
+  };
+  const line = (key: "uncompromised" | "compromised", total: number) => {
+    let d = "";
+    BINS.forEach((bin, i) => {
+      const yy = y(pct(bin[key], total));
+      d += `${i === 0 ? "M" : " L"} ${x(bin.lower)} ${yy} L ${x(bin.upper)} ${yy}`;
+    });
+    return d;
+  };
 
   const activeBin = active === null ? null : BINS[active];
 
   return (
+    <svg
+      viewBox={`0 0 ${w} ${h}`}
+      className="w-full h-full"
+      role="img"
+      aria-label={A11Y_SUMMARY}
+      onMouseLeave={() => setActive(null)}
+    >
+      {[0, 10, 20, 30, 40].map((v) => (
+        <g key={v}>
+          <line
+            x1={pad.left}
+            x2={w - pad.right}
+            y1={y(v)}
+            y2={y(v)}
+            stroke="rgba(255,255,255,0.08)"
+            strokeWidth={1}
+            vectorEffect="non-scaling-stroke"
+          />
+          <text
+            x={pad.left - 10}
+            y={y(v)}
+            textAnchor="end"
+            dominantBaseline="middle"
+            className="fill-white/40"
+            style={{ fontSize: fs, fontWeight: 300 }}
+          >
+            {v}%
+          </text>
+        </g>
+      ))}
+
+      {TICKS.map((t) => (
+        <g key={t}>
+          <line
+            x1={x(t)}
+            x2={x(t)}
+            y1={y(0)}
+            y2={y(0) + 6}
+            stroke="rgba(255,255,255,0.25)"
+            strokeWidth={1}
+            vectorEffect="non-scaling-stroke"
+          />
+          <text
+            x={x(t)}
+            y={y(0) + 22}
+            textAnchor="middle"
+            className="fill-white/45"
+            style={{ fontSize: fs, fontWeight: 300 }}
+          >
+            {t}
+          </text>
+        </g>
+      ))}
+
+      <text
+        x={pad.left + plotW / 2}
+        y={h - 8}
+        textAnchor="middle"
+        className="fill-white/35"
+        style={{ fontSize: axisFs, letterSpacing: "0.18em" }}
+      >
+        TARI CONDUCT SCORE
+      </text>
+      <text
+        x={13}
+        y={pad.top + plotH / 2}
+        textAnchor="middle"
+        transform={`rotate(-90 13 ${pad.top + plotH / 2})`}
+        className="fill-white/35"
+        style={{ fontSize: axisFs, letterSpacing: "0.18em" }}
+      >
+        SHARE OF EACH GROUP
+      </text>
+
+      {activeBin && (
+        <>
+          <rect
+            x={x(activeBin.lower)}
+            y={pad.top}
+            width={x(activeBin.upper) - x(activeBin.lower)}
+            height={plotH}
+            fill="rgba(255,255,255,0.05)"
+          />
+          <line
+            x1={x((activeBin.lower + activeBin.upper) / 2)}
+            x2={x((activeBin.lower + activeBin.upper) / 2)}
+            y1={pad.top}
+            y2={y(0)}
+            stroke="rgba(255,255,255,0.35)"
+            strokeWidth={1}
+            strokeDasharray="3 4"
+            vectorEffect="non-scaling-stroke"
+          />
+        </>
+      )}
+
+      <path d={area("uncompromised", UNCOMPROMISED_TOTAL)} fill={AQUA} fillOpacity={0.14} />
+      <path d={area("compromised", COMPROMISED_TOTAL)} fill={CORAL} fillOpacity={0.16} />
+      <path
+        d={line("uncompromised", UNCOMPROMISED_TOTAL)}
+        fill="none"
+        stroke={AQUA}
+        strokeWidth={1.6}
+        vectorEffect="non-scaling-stroke"
+      />
+      <path
+        d={line("compromised", COMPROMISED_TOTAL)}
+        fill="none"
+        stroke={CORAL}
+        strokeWidth={1.6}
+        strokeDasharray="6 4"
+        vectorEffect="non-scaling-stroke"
+      />
+
+      <line
+        x1={pad.left}
+        x2={w - pad.right}
+        y1={y(0)}
+        y2={y(0)}
+        stroke="rgba(255,255,255,0.2)"
+        strokeWidth={1}
+        vectorEffect="non-scaling-stroke"
+      />
+
+      {BINS.map((bin, i) => (
+        <rect
+          key={bin.lower}
+          x={x(bin.lower)}
+          y={pad.top}
+          width={x(bin.upper) - x(bin.lower)}
+          height={plotH}
+          fill="transparent"
+          style={{ cursor: "crosshair" }}
+          onMouseEnter={() => setActive(i)}
+          onTouchStart={() => setActive(i)}
+          onFocus={() => setActive(i)}
+          onBlur={() => setActive(null)}
+          tabIndex={0}
+          role="button"
+          aria-label={`${bin.lower} to ${bin.upper - 1}: uncompromised ${bin.uncompromised} runs, ${fmt(pct(bin.uncompromised, UNCOMPROMISED_TOTAL))}; compromised ${bin.compromised} runs, ${fmt(pct(bin.compromised, COMPROMISED_TOTAL))}`}
+        />
+      ))}
+    </svg>
+  );
+};
+
+export const EvidenceDistribution = () => {
+  const [active, setActive] = useState<number | null>(null);
+  const [detailsOpen, setDetailsOpen] = useState(false);
+
+  const activeBin = active === null ? null : BINS[active];
+  const centerFraction =
+    activeBin === null
+      ? 0
+      : ((activeBin.lower + activeBin.upper) / 2 - X_MIN) / (X_MAX - X_MIN);
+
+  return (
     <div className="w-full">
-      {/* Legend */}
       <div className="flex flex-wrap items-center gap-x-8 gap-y-3 mb-6 md:mb-8">
         <span className="inline-flex items-center gap-3 text-xs md:text-sm font-light tracking-wide text-white/70">
-          <span
-            className="h-px w-8"
-            style={{ backgroundColor: AQUA }}
-            aria-hidden
-          />
+          <span className="h-px w-8" style={{ backgroundColor: AQUA }} aria-hidden />
           Uncompromised <span className="text-white/35">·</span> 383 runs
         </span>
         <span className="inline-flex items-center gap-3 text-xs md:text-sm font-light tracking-wide text-white/70">
@@ -107,170 +273,20 @@ export const EvidenceDistribution = () => {
         </span>
       </div>
 
-      <div ref={wrapRef} className="relative w-full">
-        <svg
-          viewBox={`0 0 ${W} ${H}`}
-          className="w-full h-[300px] sm:h-[360px] md:h-[400px] lg:h-[420px] overflow-visible"
-          role="img"
-          aria-label="Stepped distribution chart comparing TARI conduct scores of 383 uncompromised runs and 343 compromised runs across 25 point score bins from 550 to 850. Compromised runs concentrate between 575 and 650, while uncompromised runs concentrate between 750 and 850. The distributions overlap."
-          onMouseLeave={() => setActive(null)}
-        >
-          {/* Y grid + labels */}
-          {[0, 10, 20, 30, 40].map((v) => (
-            <g key={v}>
-              <line
-                x1={PAD.left}
-                x2={W - PAD.right}
-                y1={yScale(v)}
-                y2={yScale(v)}
-                stroke="rgba(255,255,255,0.08)"
-                strokeWidth={1}
-                vectorEffect="non-scaling-stroke"
-              />
-              <text
-                x={PAD.left - 12}
-                y={yScale(v)}
-                textAnchor="end"
-                dominantBaseline="middle"
-                className="fill-white/40"
-                style={{ fontSize: 12, fontWeight: 300 }}
-              >
-                {v}%
-              </text>
-            </g>
-          ))}
+      <div className="relative w-full">
+        <div className="hidden md:block h-[400px] lg:h-[420px]">
+          <Plot dims={DESKTOP} active={active} setActive={setActive} />
+        </div>
+        <div className="md:hidden h-[380px]">
+          <Plot dims={MOBILE} active={active} setActive={setActive} />
+        </div>
 
-          {/* X ticks */}
-          {TICKS.map((t) => (
-            <g key={t}>
-              <line
-                x1={xScale(t)}
-                x2={xScale(t)}
-                y1={yScale(0)}
-                y2={yScale(0) + 7}
-                stroke="rgba(255,255,255,0.25)"
-                strokeWidth={1}
-                vectorEffect="non-scaling-stroke"
-              />
-              <text
-                x={xScale(t)}
-                y={yScale(0) + 26}
-                textAnchor="middle"
-                className="fill-white/45"
-                style={{ fontSize: 12, fontWeight: 300 }}
-              >
-                {t}
-              </text>
-            </g>
-          ))}
-
-          {/* Axis labels */}
-          <text
-            x={PAD.left + PLOT_W / 2}
-            y={H - 6}
-            textAnchor="middle"
-            className="fill-white/35"
-            style={{ fontSize: 11, letterSpacing: "0.18em" }}
-          >
-            TARI CONDUCT SCORE
-          </text>
-          <text
-            x={14}
-            y={PAD.top + PLOT_H / 2}
-            textAnchor="middle"
-            transform={`rotate(-90 14 ${PAD.top + PLOT_H / 2})`}
-            className="fill-white/35"
-            style={{ fontSize: 11, letterSpacing: "0.18em" }}
-          >
-            SHARE OF EACH GROUP
-          </text>
-
-          {/* Active guide */}
-          {activeBin && (
-            <rect
-              x={xScale(activeBin.lower)}
-              y={PAD.top}
-              width={xScale(activeBin.upper) - xScale(activeBin.lower)}
-              height={PLOT_H}
-              fill="rgba(255,255,255,0.05)"
-            />
-          )}
-          {activeBin && (
-            <line
-              x1={xScale((activeBin.lower + activeBin.upper) / 2)}
-              x2={xScale((activeBin.lower + activeBin.upper) / 2)}
-              y1={PAD.top}
-              y2={yScale(0)}
-              stroke="rgba(255,255,255,0.35)"
-              strokeWidth={1}
-              strokeDasharray="3 4"
-              vectorEffect="non-scaling-stroke"
-            />
-          )}
-
-          {/* Distributions */}
-          <g className="animate-fade-in">
-            <path d={paths.unArea} fill={AQUA} fillOpacity={0.14} />
-            <path d={paths.coArea} fill={CORAL} fillOpacity={0.16} />
-            <path
-              d={paths.unLine}
-              fill="none"
-              stroke={AQUA}
-              strokeWidth={1.6}
-              vectorEffect="non-scaling-stroke"
-            />
-            <path
-              d={paths.coLine}
-              fill="none"
-              stroke={CORAL}
-              strokeWidth={1.6}
-              strokeDasharray="6 4"
-              vectorEffect="non-scaling-stroke"
-            />
-          </g>
-
-          {/* Baseline */}
-          <line
-            x1={PAD.left}
-            x2={W - PAD.right}
-            y1={yScale(0)}
-            y2={yScale(0)}
-            stroke="rgba(255,255,255,0.2)"
-            strokeWidth={1}
-            vectorEffect="non-scaling-stroke"
-          />
-
-          {/* Hit areas */}
-          {BINS.map((bin, i) => (
-            <rect
-              key={bin.lower}
-              x={xScale(bin.lower)}
-              y={PAD.top}
-              width={xScale(bin.upper) - xScale(bin.lower)}
-              height={PLOT_H}
-              fill="transparent"
-              style={{ cursor: "crosshair" }}
-              onMouseEnter={() => setActive(i)}
-              onTouchStart={() => setActive(i)}
-              onFocus={() => setActive(i)}
-              onBlur={() => setActive(null)}
-              tabIndex={0}
-              role="button"
-              aria-label={`${bin.lower} to ${bin.upper - 1}: uncompromised ${bin.uncompromised} runs, ${fmt(pct(bin.uncompromised, UNCOMPROMISED_TOTAL))}; compromised ${bin.compromised} runs, ${fmt(pct(bin.compromised, COMPROMISED_TOTAL))}`}
-            />
-          ))}
-        </svg>
-
-        {/* Tooltip */}
         {activeBin && (
           <div
-            className="pointer-events-none absolute top-2 z-20 w-[13.5rem] border border-white/12 bg-black/90 backdrop-blur-md px-4 py-3"
+            className="pointer-events-none absolute top-1 z-20 w-[13.5rem] max-w-[80%] border border-white/10 bg-black/90 backdrop-blur-md px-4 py-3"
             style={{
-              left: `${(((xScale((activeBin.lower + activeBin.upper) / 2) - PAD.left) / PLOT_W) * 100).toFixed(2)}%`,
-              transform:
-                active !== null && active > BINS.length / 2
-                  ? "translateX(-100%)"
-                  : "translateX(0)",
+              left: `${(6 + centerFraction * 88).toFixed(2)}%`,
+              transform: centerFraction > 0.55 ? "translateX(-100%)" : "translateX(0)",
             }}
           >
             <div className="text-xs tracking-[0.2em] text-white/55 uppercase">
@@ -278,15 +294,11 @@ export const EvidenceDistribution = () => {
             </div>
             <div className="mt-3 space-y-2">
               <div className="flex items-baseline justify-between gap-4">
-                <span
-                  className="text-xs font-light"
-                  style={{ color: AQUA }}
-                >
+                <span className="text-xs font-light" style={{ color: AQUA }}>
                   Uncompromised
                 </span>
                 <span className="text-xs font-light text-white/80 tabular-nums">
-                  {activeBin.uncompromised} ·{" "}
-                  {fmt(pct(activeBin.uncompromised, UNCOMPROMISED_TOTAL))}
+                  {activeBin.uncompromised} · {fmt(pct(activeBin.uncompromised, UNCOMPROMISED_TOTAL))}
                 </span>
               </div>
               <div className="flex items-baseline justify-between gap-4">
@@ -294,8 +306,7 @@ export const EvidenceDistribution = () => {
                   Compromised
                 </span>
                 <span className="text-xs font-light text-white/80 tabular-nums">
-                  {activeBin.compromised} ·{" "}
-                  {fmt(pct(activeBin.compromised, COMPROMISED_TOTAL))}
+                  {activeBin.compromised} · {fmt(pct(activeBin.compromised, COMPROMISED_TOTAL))}
                 </span>
               </div>
             </div>
@@ -303,11 +314,12 @@ export const EvidenceDistribution = () => {
         )}
       </div>
 
+      <p className="sr-only">{A11Y_SUMMARY}</p>
+
       <p className="mt-6 text-xs font-light text-white/40 leading-relaxed">
         Observed distributions shown from 550–850. Full TARI scale: 300–850.
       </p>
 
-      {/* Study caption */}
       <div className="mt-8 pt-8 border-t border-white/10">
         <p className="text-xs md:text-sm font-mono tracking-wide text-white/60">
           AgentDojo <span className="text-white/30">·</span> GPT-4o{" "}
@@ -315,8 +327,8 @@ export const EvidenceDistribution = () => {
           <span className="text-white/30">·</span> Four task suites
         </p>
         <p className="mt-4 text-sm md:text-base font-light text-white/55 leading-relaxed max-w-2xl">
-          The distributions overlap. This measures discrimination on a benchmark,
-          not prediction of real-world incidents.
+          The distributions overlap. This measures discrimination on a benchmark, not
+          prediction of real-world incidents.
         </p>
         <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-4">
           <a
@@ -342,8 +354,8 @@ export const EvidenceDistribution = () => {
             <li>Suites: workspace, banking, slack, travel.</li>
             <li>97 benign runs and 629 attacked runs.</li>
             <li>
-              The uncompromised group includes benign runs and attacked runs
-              where the injection did not succeed.
+              The uncompromised group includes benign runs and attacked runs where the
+              injection did not succeed.
             </li>
             <li>Outcomes come from the benchmark labels.</li>
           </ul>
