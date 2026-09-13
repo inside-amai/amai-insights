@@ -263,7 +263,7 @@ const Vertical = ({ stage, still }: StageProps) => {
       {/* operator */}
       <OperatorTower idp={idp} cx={200} top={250} bottom={470} mid={360} half={52} lit={s2} />
       <motion.g initial={{ opacity: 0 }} animate={{ opacity: s2 ? 1 : 0 }} transition={{ duration: 0.6 }}>
-        <Label x={200} y={498}>Operator</Label>
+        <Label x={124} y={500} anchor="end">Operator</Label>
       </motion.g>
 
       {/* outgoing */}
