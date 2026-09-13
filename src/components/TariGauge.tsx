@@ -95,7 +95,7 @@ export const TariGauge = ({
       <svg
         viewBox={`0 0 ${size} ${size * 0.62}`}
         className="w-full h-auto overflow-visible"
-        aria-label={`TARI score ${clamped} out of ${MAX}`}
+        aria-label={presentation ? `TARI score scale from ${MIN} to ${MAX}` : `TARI score ${clamped} out of ${MAX}`}
       >
         <defs>
           {/* Arc gradient — deep red → amber → emerald → cyan */}
