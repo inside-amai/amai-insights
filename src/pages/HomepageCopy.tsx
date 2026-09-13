@@ -351,6 +351,15 @@ const HomepageCopy = () => {
               <p className="mt-8 md:mt-10 text-base md:text-lg font-light text-white/65 leading-relaxed max-w-[36ch]">
                 It collects the fees, converts them into Stock Tokens, and distributes a share to the people holding the token.
               </p>
+              <motion.p
+                className="mt-10 md:mt-12 text-lg md:text-2xl font-light tracking-tight text-white/70"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.9 }}
+              >
+                Every cycle leaves a record.
+              </motion.p>
             </motion.div>
 
             <div className="lg:col-span-7">
@@ -358,15 +367,6 @@ const HomepageCopy = () => {
             </div>
           </div>
 
-          <motion.p
-            className="mt-20 md:mt-32 text-start text-lg md:text-2xl font-light tracking-tight text-white/70"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.9 }}
-          >
-            Every cycle leaves a record.
-          </motion.p>
         </div>
       </section>
 
