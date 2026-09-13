@@ -43,63 +43,74 @@ const CountUp = ({ to, prefix = "", suffix = "" }: { to: number; prefix?: string
 const TICKERS = ["NVDA", "TSLA"];
 
 const CURRENCY_SYMBOLS = ["$", "€", "¥", "£"] as const;
-const PAID_LETTERS = ["p", "a", "i", "d"] as const;
 
 const PaidCurrencyRoll = () => {
-  const [reels, setReels] = useState<Array<{ symbol: string; tick: number }>>(() =>
-    CURRENCY_SYMBOLS.map((symbol, index) => ({ symbol, tick: index }))
-  );
-  const [rolling, setRolling] = useState([true, true, true, true]);
+  const [locked, setLocked] = useState([false, false, false, false]);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setRolling([false, false, false, false]);
+      setLocked([true, true, true, true]);
       return;
     }
 
     const lockTimes = [3800, 4150, 4500, 4850];
-    const speeds = [190, 225, 205, 240];
-    const intervals = speeds.map((speed, reelIndex) => window.setInterval(() => {
-      setReels((current) => current.map((reel, index) => index === reelIndex
-        ? {
-            symbol: CURRENCY_SYMBOLS[(CURRENCY_SYMBOLS.indexOf(reel.symbol as typeof CURRENCY_SYMBOLS[number]) + 1 + reelIndex) % CURRENCY_SYMBOLS.length],
-            tick: reel.tick + 1,
-          }
-        : reel));
-    }, speed));
-    const locks = lockTimes.map((lockTime, reelIndex) => window.setTimeout(() => {
-      window.clearInterval(intervals[reelIndex]);
-      setRolling((current) => current.map((value, index) => index === reelIndex ? false : value));
-    }, lockTime));
+    const timers = lockTimes.map((time, reelIndex) =>
+      window.setTimeout(() => {
+        setLocked((current) => {
+          const next = [...current];
+          next[reelIndex] = true;
+          return next;
+        });
+      }, time)
+    );
 
-    return () => {
-      intervals.forEach(window.clearInterval);
-      locks.forEach(window.clearTimeout);
-    };
+    return () => timers.forEach(window.clearTimeout);
   }, []);
+
+  // Same speed for every reel, but staggered starting phase so they cascade
+  // like a slot machine rather than rolling in perfect parallel.
+  const phases = [0, -25, -12.5, -37.5];
 
   return (
     <span className="relative inline-block align-baseline" dir="ltr" aria-label="paid">
       <span>paid</span>
-      <span className="absolute inset-x-0 top-[0.08em] bottom-[0.08em] grid grid-cols-4 overflow-hidden [clip-path:inset(0)] [contain:paint]" aria-hidden="true">
-          {reels.map((reel, reelIndex) => (
-            <span key={reelIndex} className={`relative min-w-0 overflow-hidden [clip-path:inset(0)] [contain:paint] ${rolling[reelIndex] ? "bg-black" : "bg-transparent"}`}>
-              {rolling[reelIndex] && (
-                <AnimatePresence initial={false}>
-                  <motion.span
-                    key={`${reel.symbol}-${reel.tick}`}
-                    className="absolute inset-0 flex items-center justify-center leading-none"
-                    initial={{ y: "78%" }}
-                    animate={{ y: 0 }}
-                    exit={{ y: "-78%" }}
-                    transition={{ duration: 0.16, ease: "linear" }}
-                  >
-                    {reel.symbol}
-                  </motion.span>
-                </AnimatePresence>
+      <span
+        className="absolute inset-x-0 top-[0.05em] bottom-[0.05em] grid grid-cols-4 overflow-hidden pointer-events-none select-none"
+        aria-hidden="true"
+      >
+        {phases.map((phase, reelIndex) => (
+          <span
+            key={reelIndex}
+            className={`relative min-w-0 overflow-hidden transition-colors duration-150 ${
+              locked[reelIndex] ? "bg-transparent" : "bg-black"
+            }`}
+          >
+            <AnimatePresence initial={false}>
+              {!locked[reelIndex] && (
+                <motion.span
+                  key={`reel-${reelIndex}`}
+                  className="absolute inset-0 flex flex-col h-[800%] will-change-transform"
+                  initial={{ y: `${phase}%`, opacity: 1 }}
+                  animate={{ y: `${phase - 50}%` }}
+                  exit={{ opacity: 0 }}
+                  transition={{
+                    y: { duration: 1.0, repeat: Infinity, ease: "linear" },
+                    opacity: { duration: 0.12 },
+                  }}
+                >
+                  {[...CURRENCY_SYMBOLS, ...CURRENCY_SYMBOLS].map((symbol, idx) => (
+                    <span
+                      key={idx}
+                      className="flex-1 flex items-center justify-center leading-none"
+                    >
+                      {symbol}
+                    </span>
+                  ))}
+                </motion.span>
               )}
-            </span>
-          ))}
+            </AnimatePresence>
+          </span>
+        ))}
       </span>
     </span>
   );
