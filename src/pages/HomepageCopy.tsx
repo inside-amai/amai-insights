@@ -82,20 +82,22 @@ const PaidCurrencyRoll = () => {
     <span className="relative inline-block align-baseline" dir="ltr" aria-label="paid">
       <span>paid</span>
       <span className="absolute inset-x-0 top-[0.08em] bottom-[0.08em] grid grid-cols-4 overflow-hidden [clip-path:inset(0)] [contain:paint]" aria-hidden="true">
-          {reels.map((reel, reelIndex) => rolling[reelIndex] && (
+          {reels.map((reel, reelIndex) => (
             <span key={reelIndex} className="relative min-w-0 overflow-hidden bg-black [clip-path:inset(0)] [contain:paint]">
-              <AnimatePresence initial={false}>
-                <motion.span
-                  key={`${reel.symbol}-${reel.tick}`}
-                  className="absolute inset-0 flex items-center justify-center leading-none"
-                  initial={{ y: "78%" }}
-                  animate={{ y: 0 }}
-                  exit={{ y: "-78%" }}
-                  transition={{ duration: 0.16, ease: "linear" }}
-                >
-                  {reel.symbol}
-                </motion.span>
-              </AnimatePresence>
+              {rolling[reelIndex] && (
+                <AnimatePresence initial={false}>
+                  <motion.span
+                    key={`${reel.symbol}-${reel.tick}`}
+                    className="absolute inset-0 flex items-center justify-center leading-none"
+                    initial={{ y: "78%" }}
+                    animate={{ y: 0 }}
+                    exit={{ y: "-78%" }}
+                    transition={{ duration: 0.16, ease: "linear" }}
+                  >
+                    {reel.symbol}
+                  </motion.span>
+                </AnimatePresence>
+              )}
             </span>
           ))}
       </span>
