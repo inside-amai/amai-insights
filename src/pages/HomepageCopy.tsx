@@ -14,6 +14,8 @@ import { pickHome } from "@/i18n/pageContent";
 
 import { Footer } from "@/components/Footer";
 import { TariGauge } from "@/components/TariGauge";
+import { OperatorFlowDiagram } from "@/components/OperatorFlowDiagram";
+
 
 const CountUp = ({ to, prefix = "", suffix = "" }: { to: number; prefix?: string; suffix?: string }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -187,14 +189,6 @@ const HomepageCopy = () => {
     { label: "Bureau", href: "https://bureau.amai.net", external: true },
   ] as const;
 
-  const logEntries = [
-    { first: "Collected 3.02 ETH → 0.90 NVDA", second: "paid to 2,141 holders · receipt 0x18f6…6c5b", color: 'bg-[#7dd3d8]', text: 'text-[#a6e3e6]' },
-    { first: "Market close", second: "position pulled in until the open · receipt 0x9b2e…f104", color: 'bg-[#7dd3d8]', text: 'text-[#a6e3e6]' },
-    { first: "Collection skipped", second: "NVDA corporate action detected · resumed next window · receipt 0xc4a1…9e02", color: 'bg-white/40', text: 'text-white/60' },
-    { first: "Collected 2.41 ETH → 0.86 NVDA · 0.31 TSLA", second: "paid to 2,138 holders · receipt 0x5d77…31af", color: 'bg-[#7dd3d8]', text: 'text-[#a6e3e6]' },
-    { first: "HELD", second: "payout to a new address · waiting for a human · nothing sent", color: 'bg-[#e8b25a]', text: 'text-[#f0c98a]' },
-  ] as const;
-
   const [copiedTerminal, setCopiedTerminal] = useState(false);
   const [copiedDemo, setCopiedDemo] = useState(false);
   const [copiedPython, setCopiedPython] = useState(false);
@@ -204,24 +198,7 @@ const HomepageCopy = () => {
   const [instIndex, setInstIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [traceLightboxOpen, setTraceLightboxOpen] = useState(false);
-  const logRef = useRef<HTMLDivElement>(null);
-  const logInView = useInView(logRef, { once: true, amount: 0.3 });
-  const [logIndex, setLogIndex] = useState(-1);
 
-  useEffect(() => {
-    if (!logInView) return;
-    setLogIndex(0);
-    const timer = setInterval(() => {
-      setLogIndex((prev) => {
-        if (prev >= logEntries.length - 1) {
-          clearInterval(timer);
-          return prev;
-        }
-        return prev + 1;
-      });
-    }, 1000);
-    return () => clearInterval(timer);
-  }, [logInView, logEntries.length]);
   const goPrev = () => setInstIndex((i) => (i - 1 + institutionImages.length) % institutionImages.length);
   const goNext = () => setInstIndex((i) => (i + 1) % institutionImages.length);
 
@@ -350,116 +327,49 @@ const HomepageCopy = () => {
 
       {/* Section 3 MEET THE OPERATOR */}
       <section id="score" className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-transparent pointer-events-none" />
-        <div className="pointer-events-none absolute -left-40 top-1/3 w-[520px] h-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.06),transparent_70%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-transparent pointer-events-none" />
+        <div className="pointer-events-none absolute right-0 top-1/4 w-[720px] h-[720px] rounded-full bg-[radial-gradient(circle_at_center,rgba(125,211,216,0.07),transparent_70%)]" />
 
-        <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
-          <motion.div className="lg:col-span-7 text-start" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}>
-            <div className="flex items-center gap-3 mb-8">
-              <span className="h-px w-10 bg-white/30" />
-              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">Meet the operator.</span>
-            </div>
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05]">
-              Agent operated pools.
-            </h2>
-            <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-2xl">
-              It collects the pool's fees. Converts them to stock. Pays every holder. Knows when the market closes.
-              <br /><br />
-              It never touches the principal. The chain won't let it.
-            </p>
-            <div className="mt-16 md:mt-20 pt-10 border-t border-white/10 max-w-2xl">
-              <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-white leading-[1.15]">
-                Every move it makes,
-                <br />
-                <span className="text-white/50">on the record.</span>
-              </p>
-            </div>
-          </motion.div>
-
-          <motion.div className="lg:col-span-5 lg:pt-4" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}>
-            <div className="mb-6">
-              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase font-mono">THE OPERATOR'S LOG</span>
-            </div>
-            <div ref={logRef} className={`relative ${isRtl ? 'pr-8 md:pr-10' : 'pl-8 md:pl-10'}`}>
-              <div className={`absolute ${isRtl ? 'right-0' : 'left-0'} top-2 bottom-2 w-px bg-gradient-to-b from-[#7dd3d8]/50 via-[#5ec9a8]/40 via-[#e8b25a]/40 to-[#e15a3b]/50`} />
-              <div>
-                {logEntries.map((row, i) => (
-                  i <= logIndex ? (
-                    <motion.div key={row.first} className="relative py-6 md:py-7 first:pt-0" initial={{ opacity: 1 }}>
-                      <span className={`absolute ${isRtl ? '-right-[34px] md:-right-[42px]' : '-left-[34px] md:-left-[42px]'} top-8 md:top-9 flex items-center justify-center`}>
-                        {/* anticipation: hollow ring flickers before the dot lands */}
-                        <motion.span
-                          className={`absolute w-3.5 h-3.5 rounded-full border ${row.color.replace('bg-', 'border-')}`}
-                          initial={{ opacity: 0, scale: 0.6 }}
-                          animate={{ opacity: [0, 0.9, 0.2, 0.9, 0], scale: [0.6, 1.1, 0.9, 1.2, 0.9] }}
-                          transition={{ duration: 0.5, times: [0, 0.3, 0.55, 0.8, 1], ease: "easeInOut" }}
-                        />
-                        {/* dot lands */}
-                        <motion.span
-                          className={`absolute w-3.5 h-3.5 rounded-full ${row.color} opacity-30 blur-[4px]`}
-                          initial={{ scale: 0, opacity: 0 }}
-                          animate={{ scale: 1, opacity: 0.35 }}
-                          transition={{ delay: 0.45, type: "spring", stiffness: 400, damping: 18 }}
-                        />
-                        <motion.span
-                          className={`relative w-1.5 h-1.5 rounded-full ${row.color}`}
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          transition={{ delay: 0.45, type: "spring", stiffness: 500, damping: 15 }}
-                        />
-                        {/* ping rings */}
-                        <motion.span
-                          className={`absolute w-1.5 h-1.5 rounded-full ${row.color}`}
-                          initial={{ scale: 1, opacity: 0.8 }}
-                          animate={{ scale: 4.2, opacity: 0 }}
-                          transition={{ delay: 0.5, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                        />
-                        <motion.span
-                          className={`absolute w-1.5 h-1.5 rounded-full ${row.color}`}
-                          initial={{ scale: 1, opacity: 0.5 }}
-                          animate={{ scale: 7, opacity: 0 }}
-                          transition={{ delay: 0.62, duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-                        />
-                      </span>
-                      <div className="relative overflow-hidden">
-                        <motion.div
-                          className={`text-lg md:text-xl font-normal tracking-tight ${row.text} keep-ltr`}
-                          dir="ltr"
-                          initial={{ opacity: 0, y: 12, filter: "blur(8px)" }}
-                          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                          transition={{ delay: 0.5, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-                        >
-                          {row.first}
-                        </motion.div>
-                        {/* light sweep across the line */}
-                        <motion.div
-                          className="pointer-events-none absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                          initial={{ x: "-160%" }}
-                          animate={{ x: "460%" }}
-                          transition={{ delay: 0.5, duration: 0.8, ease: [0.3, 0.6, 0.3, 1] }}
-                        />
-                      </div>
-                      <motion.div
-                        className="mt-2 text-sm md:text-base font-light text-white/60 leading-relaxed max-w-md"
-                        initial={{ opacity: 0, y: 8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.78, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                      >
-                        {row.second}
-                      </motion.div>
-                    </motion.div>
-                  ) : (
-                    <div key={row.first} className="relative py-6 md:py-7 first:pt-0 invisible" aria-hidden="true">
-                      <div className="text-lg md:text-xl font-normal tracking-tight keep-ltr" dir="ltr">{row.first}</div>
-                      <div className="mt-2 text-sm md:text-base font-light leading-relaxed max-w-md">{row.second}</div>
-                    </div>
-                  )
-                ))}
+        <div className="relative z-10 max-w-[1400px] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-16 items-center">
+            <motion.div
+              className="lg:col-span-5 text-start"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <div className="flex items-center gap-3 mb-8">
+                <span className="h-px w-10 bg-white/30" />
+                <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">Meet the operator</span>
               </div>
+              <h2 className="text-3xl md:text-5xl font-light tracking-tight text-white leading-[1.12]">
+                The pool earns fees.
+                <br />
+                The operator gets to work.
+              </h2>
+              <p className="mt-8 md:mt-10 text-base md:text-lg font-light text-white/65 leading-relaxed max-w-[36ch]">
+                It collects the fees, converts them into Stock Tokens, and distributes a share to the people holding the token.
+              </p>
+            </motion.div>
+
+            <div className="lg:col-span-7">
+              <OperatorFlowDiagram />
             </div>
-          </motion.div>
+          </div>
+
+          <motion.p
+            className="mt-20 md:mt-32 text-start text-lg md:text-2xl font-light tracking-tight text-white/70"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.9 }}
+          >
+            Every cycle leaves a record.
+          </motion.p>
         </div>
       </section>
+
 
       {/* HOLD THE TOKEN / ticker section */}
       <section className="relative bg-perspective-grid min-h-screen flex items-center justify-center px-4 md:px-8 overflow-hidden">
