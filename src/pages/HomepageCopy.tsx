@@ -42,6 +42,58 @@ const CountUp = ({ to, prefix = "", suffix = "" }: { to: number; prefix?: string
 
 const TICKERS = ["NVDA", "TSLA"];
 
+const CURRENCY_SYMBOLS = ["$", "€", "¥", "£", "₹", "₩"] as const;
+const PAID_LETTERS = ["P", "A", "I", "D"] as const;
+
+const PaidCurrencyRoll = () => {
+  const [characters, setCharacters] = useState<string[]>(["$", "€", "¥", "£"]);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setCharacters([...PAID_LETTERS]);
+      return;
+    }
+
+    const startedAt = window.performance.now();
+    const lockTimes = [3800, 4150, 4500, 4850];
+    const timer = window.setInterval(() => {
+      const elapsed = window.performance.now() - startedAt;
+      setCharacters((current) => current.map((character, index) => {
+        if (elapsed >= lockTimes[index]) return PAID_LETTERS[index];
+        const currentSymbol = CURRENCY_SYMBOLS.indexOf(character as typeof CURRENCY_SYMBOLS[number]);
+        const nextSymbol = (Math.max(currentSymbol, index) + 1 + index) % CURRENCY_SYMBOLS.length;
+        return CURRENCY_SYMBOLS[nextSymbol];
+      }));
+
+      if (elapsed >= 5000) window.clearInterval(timer);
+    }, 110);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
+  return (
+    <span className="inline-flex font-mono text-cyan-accent" dir="ltr" aria-label="paid">
+      {characters.map((character, index) => (
+        <span key={index} className="relative inline-block w-[0.72em] overflow-hidden align-bottom">
+          <span className="invisible">M</span>
+          <AnimatePresence initial={false} mode="popLayout">
+            <motion.span
+              key={character}
+              className="absolute inset-0 flex items-center justify-center"
+              initial={{ y: "90%", opacity: 0, filter: "blur(3px)" }}
+              animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+              exit={{ y: "-90%", opacity: 0, filter: "blur(3px)" }}
+              transition={{ duration: 0.1, ease: "linear" }}
+            >
+              {character}
+            </motion.span>
+          </AnimatePresence>
+        </span>
+      ))}
+    </span>
+  );
+};
+
 const TickerRoll = () => {
   const [tickerIndex, setTickerIndex] = useState(0);
 
@@ -292,7 +344,7 @@ const HomepageCopy = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              Agents work. You get paid.
+              Agents work. You get <PaidCurrencyRoll />.
             </motion.h1>
 
             <motion.p
