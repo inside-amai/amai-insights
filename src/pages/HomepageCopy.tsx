@@ -43,73 +43,6 @@ const CountUp = ({ to, prefix = "", suffix = "" }: { to: number; prefix?: string
 
 const TICKERS = ["NVDA", "TSLA"];
 
-const CURRENCY_SYMBOLS = ["$", "€", "¥", "£"] as const;
-
-const PAID_LETTERS = ["p", "a", "i", "d"] as const;
-
-const PaidCurrencyRoll = () => {
-  const [locked, setLocked] = useState([false, false, false, false]);
-
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setLocked([true, true, true, true]);
-      return;
-    }
-
-    const lockTimes = [3800, 4150, 4500, 4850];
-    const timers = lockTimes.map((time, reelIndex) =>
-      window.setTimeout(() => {
-        setLocked((current) => {
-          const next = [...current];
-          next[reelIndex] = true;
-          return next;
-        });
-      }, time)
-    );
-
-    return () => timers.forEach(window.clearTimeout);
-  }, []);
-
-  // Every reel rolls at the same speed, but each starts at a different phase
-  // so the columns cascade instead of rolling in perfect parallel.
-  const phaseDelays = [0, -0.32, -0.61, -0.18];
-
-  return (
-    <span className="relative inline-block align-baseline" dir="ltr" aria-label="paid">
-      {/* Real word: keeps layout, spacing and typography; revealed per letter on lock */}
-      {PAID_LETTERS.map((letter, i) => (
-        <span key={letter} className={locked[i] ? "" : "opacity-0"}>
-          {letter}
-        </span>
-      ))}
-      {/* Rolling overlay, clipped to the exact word box */}
-      <span
-        className="absolute inset-x-0 top-[0.07em] bottom-[0.09em] grid grid-cols-4 overflow-hidden pointer-events-none select-none"
-        aria-hidden="true"
-      >
-        {phaseDelays.map((delay, reelIndex) => (
-          <span key={reelIndex} className="relative min-w-0 overflow-hidden">
-            {!locked[reelIndex] && (
-              <span
-                className="currency-reel-strip absolute inset-x-0 top-0 flex flex-col h-[800%]"
-                style={{ animationDelay: `${delay}s` }}
-              >
-                {[...CURRENCY_SYMBOLS, ...CURRENCY_SYMBOLS].map((symbol, idx) => (
-                  <span
-                    key={idx}
-                    className="flex-1 flex items-center justify-center leading-none bg-black"
-                  >
-                    {symbol}
-                  </span>
-                ))}
-              </span>
-            )}
-          </span>
-        ))}
-      </span>
-    </span>
-  );
-};
 
 const TickerRoll = () => {
   const [tickerIndex, setTickerIndex] = useState(0);
@@ -361,7 +294,7 @@ const HomepageCopy = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              Agents work. You get <PaidCurrencyRoll />.
+              Agents work. You get paid.
             </motion.h1>
 
             <motion.p
