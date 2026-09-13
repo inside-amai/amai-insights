@@ -1,140 +1,264 @@
+import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import amaiLogo from "@/assets/amai-logo-tm.png";
-import amaiPoolGraphic from "@/assets/AMAI_graphic.svg";
-import { TariGauge } from "@/components/TariGauge";
+import { motion, AnimatePresence } from "framer-motion";
+import { Plus, Minus } from "lucide-react";
 
 const linkClasses =
-  "inline-flex items-center gap-2 text-sm font-light text-white/60 transition-colors duration-200 hover:text-cyan-accent focus:outline-none focus-visible:text-cyan-accent focus-visible:ring-1 focus-visible:ring-cyan-accent/60 focus-visible:ring-offset-4 focus-visible:ring-offset-black";
+  "inline-flex items-center gap-1.5 text-sm font-light text-cyan-accent/80 transition-colors duration-200 hover:text-cyan-accent focus:outline-none focus-visible:text-cyan-accent focus-visible:ring-1 focus-visible:ring-cyan-accent/60 focus-visible:ring-offset-4 focus-visible:ring-offset-black";
 
-const supportingProducts = [
-  {
-    name: "Launchpad",
-    description: "Where new tokens and their pools begin.",
-    href: "/launchpad",
-    link: "Explore Launchpad",
-  },
-  {
-    name: "Lens",
-    description: "Inspect recorded agent actions, findings, and history.",
-    detail: "Interceptor · Human approval controls",
-  },
-  {
-    name: "Bureau",
-    description: "Look up onchain credit scores and the records behind them.",
-    href: "https://bureau.amai.net",
-    link: "Open the Bureau",
-    external: true,
-  },
-] as const;
+const externalLinkClasses =
+  "inline-flex items-center gap-1.5 text-sm font-light text-cyan-accent/80 transition-colors duration-200 hover:text-cyan-accent focus:outline-none focus-visible:text-cyan-accent focus-visible:ring-1 focus-visible:ring-cyan-accent/60 focus-visible:ring-offset-4 focus-visible:ring-offset-black";
 
-export const EcosystemSection = () => (
-  <section
-    id="ecosystem"
-    aria-labelledby="ecosystem-heading"
-    className="relative overflow-hidden bg-black bg-perspective-grid px-4 py-28 md:px-8 md:py-40"
-  >
-    <div className="relative mx-auto max-w-7xl">
-      <header className="border-b border-white/10 pb-14 md:pb-20">
-        <div className="flex items-center gap-3">
-          <span className="h-px w-10 bg-cyan-accent/60" aria-hidden="true" />
-          <span className="text-[11px] font-light uppercase tracking-[0.35em] text-white/60">
+const faqs = [
+  {
+    num: "01",
+    question: "What are AMAI Operators?",
+    answer: (
+      <>
+        Operators are agents assigned to manage a pool's trading-fee income. They collect fees, convert them into selected Stock Tokens, and distribute the holders' share. Each operator has a defined job and wallet permissions that limit what it can do.{" "}
+        <Link to="/operators" className={linkClasses}>
+          Explore Operators <span aria-hidden="true">→</span>
+        </Link>
+      </>
+    ),
+  },
+  {
+    num: "02",
+    question: "What is TARI?",
+    answer: (
+      <>
+        TARI is AMAI's Trust & Risk Index. It has two separate scoring engines: one assesses observed AI-agent behavior, and the other assesses onchain wallet credit history. Scores include confidence information. They help you assess risk, but do not guarantee safety.{" "}
+        <Link to="/tari" className={linkClasses}>
+          Explore TARI <span aria-hidden="true">→</span>
+        </Link>{" "}
+        <Link to="/methodology" className={linkClasses}>
+          Read the methodology <span aria-hidden="true">→</span>
+        </Link>
+      </>
+    ),
+  },
+  {
+    num: "03",
+    question: "What is the Launchpad?",
+    answer: (
+      <>
+        The Launchpad brings token creation, a liquidity pool, and an attached operator into one flow. It is designed for projects that want an operator to manage their pool's fee income and distribute a share to their token holders.{" "}
+        <Link to="/launchpad" className={linkClasses}>
+          Explore Launchpad <span aria-hidden="true">→</span>
+        </Link>
+      </>
+    ),
+  },
+  {
+    num: "04",
+    question: "What is Lens?",
+    answer: (
+      <>
+        Lens makes an agent's activity inspectable through recorded tool calls, findings, and history. Its content-off approach focuses on tool-use metadata rather than the contents of prompts or documents. Where configured, Interceptor can hold a tool call for human approval before it executes.
+      </>
+    ),
+  },
+  {
+    num: "05",
+    question: "What is the Bureau?",
+    answer: (
+      <>
+        The Bureau is AMAI's public interface for onchain credit scores. Explore supported wallet records, their scores, and the evidence behind them. It gives the credit research a place where people can inspect individual results.{" "}
+        <a href="https://bureau.amai.net/" target="_blank" rel="noopener noreferrer" className={externalLinkClasses}>
+          Open the Bureau <span aria-hidden="true">↗</span>
+        </a>
+      </>
+    ),
+  },
+  {
+    num: "06",
+    question: "Which token makes me eligible for distributions?",
+    answer: (
+      <>
+        Eligibility is tied to the token specified for each participating pool and your balance at its distribution snapshot. For the $AMAI pool, that token is $AMAI. For another project's pool, it is that project's token. Each pool's distribution rules determine the eligible holders and their shares.
+      </>
+    ),
+  },
+  {
+    num: "07",
+    question: "Where do the distributions come from?",
+    answer: (
+      <>
+        Distributions are funded by trading fees earned by the pool's liquidity position. The operator converts collected fees into the selected Stock Tokens and allocates the holders' share under the pool's rules. Amounts depend on trading activity, costs, and those rules. There is no fixed payout.
+      </>
+    ),
+  },
+  {
+    num: "08",
+    question: "What are Stock Tokens?",
+    answer: (
+      <>
+        Robinhood Stock Tokens are tokenized debt securities that provide economic exposure to underlying stocks or ETFs. They do not confer ownership of the underlying shares. Availability and eligibility depend on the issuer's terms and jurisdiction.{" "}
+        <a href="https://docs.robinhood.com/chain/stock-tokens/" target="_blank" rel="noopener noreferrer" className={externalLinkClasses}>
+          About Stock Tokens <span aria-hidden="true">↗</span>
+        </a>
+      </>
+    ),
+  },
+  {
+    num: "09",
+    question: "Can an operator withdraw the pool's principal?",
+    answer: (
+      <>
+        The operator's role excludes withdrawing pool principal and changing its own permissions. These restrictions apply to the operator role. They do not eliminate market risk or every risk involving collected fees.
+      </>
+    ),
+  },
+  {
+    num: "10",
+    question: "What can I use today?",
+    answer: (
+      <>
+        You can explore the{" "}
+        <a href="https://bureau.amai.net/" target="_blank" rel="noopener noreferrer" className={externalLinkClasses}>
+          Bureau <span aria-hidden="true">↗</span>
+        </a>
+        , read the published{" "}
+        <Link to="/methodology" className={linkClasses}>
+          methodology <span aria-hidden="true">→</span>
+        </Link>{" "}
+        and benchmark results, and use the TARI SDK for local agent observation on{" "}
+        <a href="https://pypi.org/project/amai-tari/" target="_blank" rel="noopener noreferrer" className={externalLinkClasses}>
+          PyPI <span aria-hidden="true">↗</span>
+        </a>
+        . The integrated operator and launchpad experience is still being built and tested. The demonstrated pool payout cycle ran on a local fork of Robinhood Chain.
+      </>
+    ),
+  },
+];
+
+export const EcosystemSection = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [reducedMotion, setReducedMotion] = useState(false);
+  const itemRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  useEffect(() => {
+    const mql = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mql.matches);
+    const handler = () => setReducedMotion(mql.matches);
+    mql.addEventListener("change", handler);
+    return () => mql.removeEventListener("change", handler);
+  }, []);
+
+  const handleToggle = (index: number) => {
+    setOpenIndex((current) => (current === index ? null : index));
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>, index: number) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleToggle(index);
+    } else if (e.key === "ArrowDown") {
+      e.preventDefault();
+      const next = (index + 1) % faqs.length;
+      itemRefs.current[next]?.focus();
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      const prev = (index - 1 + faqs.length) % faqs.length;
+      itemRefs.current[prev]?.focus();
+    } else if (e.key === "Home") {
+      e.preventDefault();
+      itemRefs.current[0]?.focus();
+    } else if (e.key === "End") {
+      e.preventDefault();
+      itemRefs.current[faqs.length - 1]?.focus();
+    }
+  };
+
+  return (
+    <section
+      id="ecosystem"
+      aria-labelledby="ecosystem-heading"
+      className="relative overflow-hidden bg-black bg-perspective-grid px-4 py-24 md:px-8 md:py-40"
+    >
+      <div className="relative mx-auto max-w-[1000px]">
+        {/* Masthead */}
+        <header className="text-center pb-16 md:pb-24 border-b border-white/10">
+          <span className="text-[11px] font-light uppercase tracking-[0.35em] text-white/50">
             The Ecosystem
           </span>
-        </div>
-
-        <div className="mt-8 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div>
-            <h2
-              id="ecosystem-heading"
-              className="text-6xl font-medium leading-none text-white md:text-8xl"
-            >
-              AMAI Labs.
-            </h2>
-            <p className="mt-5 text-sm font-light uppercase tracking-[0.3em] text-white/55 md:text-base">
-              Infrastructure &amp; Research
-            </p>
-          </div>
-          <img src={amaiLogo} alt="AMAI" className="h-8 w-auto self-start opacity-75 md:h-10 md:self-end" />
-        </div>
-      </header>
-
-      <div className="grid grid-cols-1 border-b border-white/10 lg:grid-cols-[11fr_9fr]">
-        <article className="group/feature relative border-b border-white/10 bg-gradient-to-b from-white/[0.045] to-transparent px-0 py-12 transition-colors duration-200 hover:from-white/[0.065] lg:border-b-0 lg:border-r lg:px-10 lg:py-16 xl:px-14">
-          <div className="flex min-h-[300px] items-center justify-center md:min-h-[390px]">
-            <img
-              src={amaiPoolGraphic}
-              alt="Transparent AMAI liquidity pool sculpture"
-              className="block h-auto w-full max-w-[420px] object-contain"
-              loading="lazy"
-            />
-          </div>
-          <div className="mt-8 max-w-md">
-            <h3 className="text-4xl font-medium text-white md:text-5xl">Operators</h3>
-            <p className="mt-4 text-base font-light leading-relaxed text-white/70 md:text-lg">
-              AI agents that manage pool fees within defined permissions.
-            </p>
-            <Link to="/operators" className={`${linkClasses} mt-7`}>
-              Explore Operators <span aria-hidden="true">→</span>
-            </Link>
-          </div>
-        </article>
-
-        <article className="group/feature bg-gradient-to-b from-white/[0.03] to-transparent px-0 py-12 transition-colors duration-200 hover:from-white/[0.055] lg:px-10 lg:py-16 xl:px-14">
-          <div className="flex min-h-[300px] items-center justify-center md:min-h-[390px]">
-            <div className="w-full max-w-[430px]">
-              <TariGauge presentation />
-            </div>
-          </div>
-          <div className="mt-8 max-w-md">
-            <h3 className="text-4xl font-medium text-white md:text-5xl">TARI</h3>
-            <p className="mt-4 text-base font-light leading-relaxed text-white/70 md:text-lg">
-              Trust and risk scoring for agents and onchain wallets.
-            </p>
-            <div className="mt-7 flex flex-col items-start gap-3">
-              <Link to="/tari" className={linkClasses}>
-                Explore TARI <span aria-hidden="true">→</span>
-              </Link>
-              <Link to="/methodology" className="text-xs font-light text-white/45 transition-colors duration-200 hover:text-cyan-accent focus:outline-none focus-visible:text-cyan-accent focus-visible:ring-1 focus-visible:ring-cyan-accent/60">
-                Read the methodology <span aria-hidden="true">→</span>
-              </Link>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <div className="border-b border-white/10">
-        {supportingProducts.map((product) => (
-          <article
-            key={product.name}
-            className="group/product grid grid-cols-1 gap-4 border-t border-white/10 py-8 transition-colors duration-200 first:border-t-0 hover:bg-white/[0.025] focus-within:bg-white/[0.025] md:grid-cols-[minmax(180px,0.8fr)_minmax(320px,1.6fr)_minmax(180px,0.6fr)] md:items-center md:gap-10 md:px-4 md:py-9"
+          <h2
+            id="ecosystem-heading"
+            className="mt-6 text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-white leading-[1.05]"
           >
-            <h3 className="text-2xl font-medium text-white/90 transition-colors duration-200 group-hover/product:text-white md:text-3xl">
-              {product.name}
-            </h3>
-            <div>
-              <p className="text-base font-light leading-relaxed text-white/70">
-                {product.description}
-              </p>
-              {"detail" in product && product.detail && (
-                <p className="mt-2 text-xs font-light tracking-wide text-white/45">{product.detail}</p>
-              )}
-            </div>
-            <div className="md:justify-self-end">
-              {"href" in product && product.href && product.link && (
-                "external" in product && product.external ? (
-                  <a href={product.href} target="_blank" rel="noopener noreferrer" className={linkClasses}>
-                    {product.link} <span aria-hidden="true">↗</span>
-                  </a>
-                ) : (
-                  <Link to={product.href} className={linkClasses}>
-                    {product.link} <span aria-hidden="true">→</span>
-                  </Link>
-                )
-              )}
-            </div>
-          </article>
-        ))}
+            AMAI Labs.
+          </h2>
+          <p className="mt-4 text-sm md:text-base font-light uppercase tracking-[0.3em] text-white/55">
+            Infrastructure &amp; Research
+          </p>
+        </header>
+
+        {/* Accordion */}
+        <div className="mt-10 md:mt-14" role="region" aria-label="Frequently asked questions">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <div
+                key={faq.num}
+                className={`border-b border-white/10 transition-colors duration-[250ms] ${
+                  isOpen ? "bg-white/[0.04]" : "hover:bg-white/[0.03]"
+                }`}
+              >
+                <button
+                  ref={(el) => { itemRefs.current[index] = el; }}
+                  type="button"
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${index}`}
+                  onClick={() => handleToggle(index)}
+                  onKeyDown={(e) => handleKeyDown(e, index)}
+                  className="w-full text-left focus:outline-none focus-visible:bg-white/[0.05] focus-visible:ring-1 focus-visible:ring-cyan-accent/60 focus-visible:ring-inset"
+                >
+                  <div className="flex items-start gap-4 md:gap-6 py-6 md:py-7 px-2 md:px-4">
+                    <span className="flex-shrink-0 w-8 md:w-10 pt-1 text-sm md:text-base font-mono text-cyan-accent/70 tabular-nums">
+                      {faq.num}
+                    </span>
+                    <span
+                      id={`faq-question-${index}`}
+                      className="flex-1 text-[19px] md:text-[22px] font-normal text-white/90 leading-tight pr-4"
+                    >
+                      {faq.question}
+                    </span>
+                    <span className="flex-shrink-0 pt-1.5 text-white/50" aria-hidden="true">
+                      {isOpen ? (
+                        <Minus className="w-5 h-5" strokeWidth={1.5} />
+                      ) : (
+                        <Plus className="w-5 h-5" strokeWidth={1.5} />
+                      )}
+                    </span>
+                  </div>
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      id={`faq-answer-${index}`}
+                      role="region"
+                      aria-labelledby={`faq-question-${index}`}
+                      initial={reducedMotion ? { opacity: 1 } : { opacity: 0, height: 0 }}
+                      animate={reducedMotion ? { opacity: 1 } : { opacity: 1, height: "auto" }}
+                      exit={reducedMotion ? { opacity: 1 } : { opacity: 0, height: 0 }}
+                      transition={reducedMotion ? { duration: 0 } : { duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                      <div className="pb-7 md:pb-8 px-2 md:px-4">
+                        <div className="pl-12 md:pl-16 max-w-[65ch]">
+                          <p className="text-base md:text-[17px] font-light leading-relaxed text-white/65">
+                            {faq.answer}
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
