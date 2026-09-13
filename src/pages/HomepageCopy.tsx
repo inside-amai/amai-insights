@@ -66,6 +66,17 @@ const HomepageCopy = () => {
   const [instIndex, setInstIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [traceLightboxOpen, setTraceLightboxOpen] = useState(false);
+  const logRef = useRef<HTMLDivElement>(null);
+  const logInView = useInView(logRef, { once: false, amount: 0.3 });
+  const [logIndex, setLogIndex] = useState(0);
+
+  useEffect(() => {
+    if (!logInView) return;
+    const timer = setInterval(() => {
+      setLogIndex((prev) => (prev + 1) % logEntries.length);
+    }, 1500);
+    return () => clearInterval(timer);
+  }, [logInView]);
   const goPrev = () => setInstIndex((i) => (i - 1 + institutionImages.length) % institutionImages.length);
   const goNext = () => setInstIndex((i) => (i + 1) % institutionImages.length);
 
