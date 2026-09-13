@@ -375,13 +375,13 @@ const HomepageCopy = () => {
                 <span className="text-[11px] tracking-[0.2em] font-light text-cyan-accent/70 uppercase">Job</span>
                 <span className="text-[11px] tracking-[0.2em] font-light text-cyan-accent/70 uppercase">AMAI Operator</span>
               </div>
-              {[
+{[
                 ["1", "Collect", "Collect the swap fees the pool’s position has earned."],
-                ["2", "Convert", "Swap those fees into the stock the community chose, such as NVDA, TSLA and more."],
-                ["3", "Pay", "Send the stock to holders by snapshot; keep the creator’s and the protocol’s shares."],
-                ["4", "Lend idle", "Park idle treasury in an allowlisted lending venue and pull it back when needed."],
-                ["5", "Rebalance", "Keep its own liquidity range centred so the position earns more fees per dollar."],
-                ["6", "Sit out", "Skip a collection when a dividend or split adjustment is posting on the stock token."],
+                ["2", "Convert", "Swap those fees into the tokenized stocks, such as NVDA, TSLA and more."],
+                ["3", "Pay", "Distribute the holders' share to their wallets."],
+                ["4", "Lend idle", "Put idle treasury to work within defined limits."],
+                ["5", "Rebalance", "Adjust the liquidity range as conditions change."],
+                ["6", "Sit out", "Pause collections around specified market events."],
               ].map(([num, job, desc]) => (
                 <div key={num} className="grid grid-cols-[130px_1fr] md:grid-cols-[170px_1fr] gap-x-6 py-5 md:py-6 border-b border-white/10">
                   <div className="text-sm md:text-base font-light text-white whitespace-nowrap">
