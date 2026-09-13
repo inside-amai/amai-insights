@@ -440,9 +440,14 @@ const HomepageCopy = () => {
                         {row.second}
                       </motion.div>
                     </motion.div>
+                  ) : (
+                    <div key={row.first} className="relative py-6 md:py-7 first:pt-0 invisible" aria-hidden="true">
+                      <div className="text-lg md:text-xl font-normal tracking-tight keep-ltr" dir="ltr">{row.first}</div>
+                      <div className="mt-2 text-sm md:text-base font-light leading-relaxed max-w-md">{row.second}</div>
+                    </div>
                   )
                 ))}
-              </AnimatePresence>
+              </div>
             </div>
           </motion.div>
         </div>
