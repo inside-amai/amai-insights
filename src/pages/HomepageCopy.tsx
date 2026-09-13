@@ -333,7 +333,7 @@ const HomepageCopy = () => {
         <div className="relative z-10 max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-16 items-center">
             <motion.div
-              className="lg:col-span-2 text-start"
+              className="lg:col-span-5 text-start"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
@@ -353,7 +353,7 @@ const HomepageCopy = () => {
               </p>
             </motion.div>
 
-            <div className="lg:col-span-3">
+            <div className="lg:col-span-7">
               <OperatorFlowDiagram />
             </div>
           </div>
