@@ -387,7 +387,7 @@ const HomepageCopy = () => {
               The record is public.<br /><span className="text-white/50">Read it any time.</span>
             </p>
             <div className="mt-10">
-              <a href="/methodology" className="inline-flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors duration-300 border-b border-white/20 hover:border-white/60 pb-1">
+              <a href="/tari" className="inline-flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors duration-300 border-b border-white/20 hover:border-white/60 pb-1">
                 See how the score is built<span aria-hidden>{isRtl ? '←' : '→'}</span>
               </a>
             </div>
