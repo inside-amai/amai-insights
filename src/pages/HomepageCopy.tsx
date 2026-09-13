@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { motion, useInView, animate } from "framer-motion";
+import { motion, useInView, animate, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Copy, Check, ChevronRight, ChevronLeft } from "lucide-react";
 import amaiLogo from "@/assets/amai-logo-tm.png";
@@ -47,6 +47,14 @@ const HomepageCopy = () => {
     { label: "Launchpad", id: "launchpad" },
     { label: "TARI", id: "tari" },
     { label: "Bureau", href: "https://bureau.amai.net", external: true },
+  ] as const;
+
+  const logEntries = [
+    { first: "Collected 3.02 ETH → 0.90 NVDA", second: "paid to 2,141 holders · receipt 0x18f6…6c5b", color: 'bg-[#7dd3d8]', text: 'text-[#a6e3e6]' },
+    { first: "Market close", second: "position pulled in until the open · receipt 0x9b2e…f104", color: 'bg-[#7dd3d8]', text: 'text-[#a6e3e6]' },
+    { first: "Collection skipped", second: "NVDA corporate action detected · resumed next window · receipt 0xc4a1…9e02", color: 'bg-white/40', text: 'text-white/60' },
+    { first: "Collected 2.41 ETH → 0.86 NVDA · 0.31 TSLA", second: "paid to 2,138 holders · receipt 0x5d77…31af", color: 'bg-[#7dd3d8]', text: 'text-[#a6e3e6]' },
+    { first: "HELD", second: "payout to a new address · waiting for a human · nothing sent", color: 'bg-[#e8b25a]', text: 'text-[#f0c98a]' },
   ] as const;
 
   const [copiedTerminal, setCopiedTerminal] = useState(false);
