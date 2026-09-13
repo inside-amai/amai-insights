@@ -89,14 +89,14 @@ const FlowSvg = ({ compact = false }: FlowSvgProps) => {
         {outgoing.map((path) => <path key={path} d={path} vectorEffect="non-scaling-stroke" />)}
       </g>
 
-      <g className="incoming-halos" fill="none" stroke="hsl(var(--white))" strokeLinecap="round" strokeOpacity="0">
+      <g className="incoming-halos" fill="none" stroke="hsl(var(--white))" strokeLinecap="round">
         {incoming.map((path) => (
-          <path key={path} className="incoming-halo" d={path} pathLength="1000" strokeWidth="7" strokeDasharray="64 936" vectorEffect="non-scaling-stroke" filter={`url(#flow-soft-${compact ? "m" : "d"})`} />
+          <path key={path} className="incoming-halo" d={path} pathLength="1000" strokeWidth="7" strokeDasharray="64 936" opacity="0" vectorEffect="non-scaling-stroke" filter={`url(#flow-soft-${compact ? "m" : "d"})`} />
         ))}
       </g>
-      <g className="incoming-cores" fill="none" stroke="hsl(var(--white))" strokeLinecap="round" strokeOpacity="0">
+      <g className="incoming-cores" fill="none" stroke="hsl(var(--white))" strokeLinecap="round">
         {incoming.map((path) => (
-          <path key={path} className="incoming-core" d={path} pathLength="1000" strokeWidth="1.6" strokeDasharray="42 958" vectorEffect="non-scaling-stroke" />
+          <path key={path} className="incoming-core" d={path} pathLength="1000" strokeWidth="1.6" strokeDasharray="42 958" opacity="0" vectorEffect="non-scaling-stroke" />
         ))}
       </g>
 
@@ -105,14 +105,14 @@ const FlowSvg = ({ compact = false }: FlowSvgProps) => {
         <line className="operator-seam" x1={seamX} x2={seamX} y1={seamTop} y2={seamBottom} stroke="hsl(var(--cyan-accent))" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.62" vectorEffect="non-scaling-stroke" />
       </g>
 
-      <g className="outgoing-halos" fill="none" stroke="hsl(var(--cyan-accent))" strokeLinecap="round" strokeOpacity="0">
+      <g className="outgoing-halos" fill="none" stroke="hsl(var(--cyan-accent))" strokeLinecap="round">
         {outgoing.map((path) => (
-          <path key={path} className="outgoing-halo" d={path} pathLength="1000" strokeWidth="8" strokeDasharray="72 928" vectorEffect="non-scaling-stroke" filter={`url(#flow-soft-${compact ? "m" : "d"})`} />
+          <path key={path} className="outgoing-halo" d={path} pathLength="1000" strokeWidth="8" strokeDasharray="72 928" opacity="0" vectorEffect="non-scaling-stroke" filter={`url(#flow-soft-${compact ? "m" : "d"})`} />
         ))}
       </g>
-      <g className="outgoing-cores" fill="none" stroke="hsl(var(--cyan-accent))" strokeLinecap="round" strokeOpacity="0">
+      <g className="outgoing-cores" fill="none" stroke="hsl(var(--cyan-accent))" strokeLinecap="round">
         {outgoing.map((path) => (
-          <path key={path} className="outgoing-core" d={path} pathLength="1000" strokeWidth="1.8" strokeDasharray="48 952" vectorEffect="non-scaling-stroke" />
+          <path key={path} className="outgoing-core" d={path} pathLength="1000" strokeWidth="1.8" strokeDasharray="48 952" opacity="0" vectorEffect="non-scaling-stroke" />
         ))}
       </g>
 
