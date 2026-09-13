@@ -1,7 +1,7 @@
 import { useLanguage, Language } from '@/contexts/LanguageContext';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { showEmailFallbackToast } from '@/lib/contact-toast';
-import { Copy, Check, Globe, Menu, X } from 'lucide-react';
+import { Globe, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import headerIcon from '@/assets/amai-header-icon.png';
 
@@ -11,35 +11,10 @@ const languages: { code: Language; label: string }[] = [
   { code: 'ar', label: 'AR' },
 ];
 
-// Self-contained copy button that manages its own state
-const CopyEmailButton = () => {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    navigator.clipboard.writeText('team@amai.net').then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  };
-
-  return (
-    <button
-      onClick={handleCopy}
-      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-medium text-white transition-all"
-    >
-      {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
-      {copied ? 'Copied!' : 'Copy'}
-    </button>
-  );
-};
-
 export const SiteHeader = () => {
   const { language, setLanguage } = useLanguage();
   const location = useLocation();
   const navigate = useNavigate();
-  const isThesisPage = location.pathname === '/thesis';
-  const isHomePage = location.pathname === '/' || location.pathname === '/home';
   const isDeckPage = location.pathname === '/briefing' || location.pathname === '/pitch';
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -59,24 +34,17 @@ export const SiteHeader = () => {
   }, [mobileOpen]);
 
 
-  const scrollToRunIt = () => {
-    const el = document.getElementById('install-tari');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleGetStarted = () => {
-    if (isHomePage) {
-      scrollToRunIt();
-    } else {
-      navigate('/');
-      setTimeout(scrollToRunIt, 300);
-    }
-  };
-
   const handleContactClick = () => {
     showEmailFallbackToast();
+  };
+
+  const handleTeamClick = () => {
+    setMobileOpen(false);
+    if (location.pathname === '/') {
+      document.getElementById('team')?.scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+    navigate('/#team');
   };
 
   const mailto = "mailto:team@amai.net?subject=Mission%20Briefing%20%2F%2F%20%5BOrganization%20Name%5D&body=To%20the%20AMAI%20Labs%20Team%2C%0A%0AWe%20are%20reaching%20out%20regarding%20the%20%5BThesis%20%2F%20Architecture%5D.%0A%0AName%3A%20%0AOrganization%3A%20%0AIntent%3A%20";
@@ -112,26 +80,17 @@ export const SiteHeader = () => {
           )}
 
           {/* Desktop Nav */}
-          <div className="pointer-events-auto hidden sm:flex items-center gap-4 text-[11px] tracking-wide flex-shrink-0 whitespace-nowrap">
-            {!isDeckPage && (
-              <a 
-                href={mailto}
-                onClick={handleContactClick}
-                className="text-white/60 hover:text-white/90 transition-opacity tracking-[0.1em] uppercase"
-              >
-                Contact
-              </a>
-            )}
-            {!isDeckPage && (
-              <button
-                type="button"
-                onClick={handleGetStarted}
-                className="px-4 py-2 rounded-full bg-white/85 text-black hover:bg-white font-medium tracking-[0.05em] uppercase transition-all"
-              >
-                GET STARTED
-              </button>
-            )}
-            <div className="flex items-center gap-1">
+          <nav className="pointer-events-auto hidden xl:flex items-center text-[11px] tracking-[0.1em] flex-shrink-0 whitespace-nowrap uppercase text-white/60">
+            <div className="flex items-center gap-2">
+              <Link to="/" className="hover:text-white/90 transition-colors">Home</Link><span className="text-white/20">·</span>
+              <Link to="/operators" className="hover:text-white/90 transition-colors">Operators</Link><span className="text-white/20">·</span>
+              <Link to="/launchpad" className="hover:text-white/90 transition-colors">Launchpad</Link><span className="text-white/20">·</span>
+              <Link to="/tari" className="hover:text-white/90 transition-colors">Tari</Link><span className="text-white/20">·</span>
+              <a href="https://bureau.amai.net" target="_blank" rel="noopener noreferrer" className="hover:text-white/90 transition-colors">Bureau ↗</a><span className="text-white/20">·</span>
+              <button type="button" onClick={handleTeamClick} className="uppercase hover:text-white/90 transition-colors">Team</button><span className="text-white/20">·</span>
+              <a href={mailto} onClick={handleContactClick} className="hover:text-white/90 transition-colors">Contact</a>
+            </div>
+            <div className="flex items-center gap-1 ml-5 pl-5 border-l border-white/10">
               {languages.map((lang, index) => (
                 <span key={lang.code} className="flex items-center">
                   <button
@@ -142,7 +101,7 @@ export const SiteHeader = () => {
                         : 'text-white/40 hover:text-white/70'
                     }`}
                   >
-                    {lang.label}
+                    {lang.code === 'ja' ? 'JPN' : lang.label}
                   </button>
                   {index < languages.length - 1 && (
                     <span className="text-white/20 mx-2">·</span>
@@ -150,7 +109,7 @@ export const SiteHeader = () => {
                 </span>
               ))}
             </div>
-          </div>
+          </nav>
 
 
           {/* Mobile Hamburger */}
@@ -158,7 +117,7 @@ export const SiteHeader = () => {
             <button
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
-              className="pointer-events-auto sm:hidden flex items-center justify-center w-10 h-10 -mr-2 text-white/80 hover:text-white transition-colors"
+              className="pointer-events-auto xl:hidden flex items-center justify-center w-10 h-10 -mr-2 text-white/80 hover:text-white transition-colors"
             >
               <Menu className="h-5 w-5" strokeWidth={1.5} />
             </button>
@@ -168,7 +127,7 @@ export const SiteHeader = () => {
 
       {/* Mobile Overlay Menu */}
       {mobileOpen && (
-        <div className="pointer-events-auto sm:hidden fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex flex-col">
+        <div className="pointer-events-auto xl:hidden fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex flex-col">
           <div className="container mx-auto px-6 py-4 flex items-center justify-between">
             <img 
               src={headerIcon}
@@ -185,21 +144,14 @@ export const SiteHeader = () => {
             </button>
           </div>
 
-          <nav className="flex-1 flex flex-col justify-center px-8 gap-2">
-            <button
-              type="button"
-              onClick={() => { setMobileOpen(false); handleGetStarted(); }}
-              className="block text-left py-4 text-2xl font-light text-white/90 hover:text-white tracking-tight border-b border-white/10"
-            >
-              GET STARTED
-            </button>
-            <a
-              href={mailto}
-              onClick={() => { setMobileOpen(false); handleContactClick(); }}
-              className="block py-4 text-2xl font-light text-white/90 hover:text-white tracking-tight border-b border-white/10"
-            >
-              Contact
-            </a>
+          <nav className="flex-1 flex flex-col justify-center px-8">
+            <Link to="/" className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Home</Link>
+            <Link to="/operators" className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Operators</Link>
+            <Link to="/launchpad" className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Launchpad</Link>
+            <Link to="/tari" className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Tari</Link>
+            <a href="https://bureau.amai.net" target="_blank" rel="noopener noreferrer" className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Bureau ↗</a>
+            <button type="button" onClick={handleTeamClick} className="py-3 text-left text-xl font-light uppercase text-white/90 border-b border-white/10">Team</button>
+            <a href={mailto} onClick={() => { setMobileOpen(false); handleContactClick(); }} className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Contact</a>
           </nav>
 
 
@@ -218,7 +170,7 @@ export const SiteHeader = () => {
                       : 'text-white/40 hover:text-white/70'
                   }`}
                 >
-                  {lang.label}
+                    {lang.code === 'ja' ? 'JPN' : lang.label}
                 </button>
               ))}
             </div>

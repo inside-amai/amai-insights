@@ -627,7 +627,7 @@ const Home = () => {
       </section>
 
       {/* Section 7 FOR INSTITUTIONS */}
-      <section id="institutions" className="relative py-24 md:py-40 px-4 md:px-8 overflow-hidden" style={{ backgroundColor: '#F1EDE4' }}>
+      <section id="team" className="relative py-24 md:py-40 px-4 md:px-8 overflow-hidden" style={{ backgroundColor: '#F1EDE4' }}>
         <div className="relative z-10 max-w-7xl mx-auto text-[hsl(var(--gray-900))]">
           <div className="flex items-baseline justify-between">
             <span className="text-[11px] tracking-[0.35em] uppercase font-normal text-black/70">{c.inst.eyebrow}</span>
