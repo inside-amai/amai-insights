@@ -207,28 +207,26 @@ const HomepageCopy = () => {
             <div className="mb-6">
               <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase font-mono">THE OPERATOR'S LOG</span>
             </div>
-            <div className={`relative ${isRtl ? 'pr-8 md:pr-10' : 'pl-8 md:pl-10'}`}>
+            <div ref={logRef} className={`relative ${isRtl ? 'pr-8 md:pr-10' : 'pl-8 md:pl-10'}`}>
               <div className={`absolute ${isRtl ? 'right-0' : 'left-0'} top-2 bottom-2 w-px bg-gradient-to-b from-[#7dd3d8]/50 via-[#5ec9a8]/40 via-[#e8b25a]/40 to-[#e15a3b]/50`} />
-              {[
-                { first: "Collected 3.02 ETH → 0.90 NVDA", second: "paid to 2,141 holders · receipt 0x18f6…6c5b", color: 'bg-[#7dd3d8]', text: 'text-[#a6e3e6]' },
-                { first: "Market close", second: "position pulled in until the open · receipt 0x9b2e…f104", color: 'bg-[#7dd3d8]', text: 'text-[#a6e3e6]' },
-                { first: "Collection skipped", second: "NVDA corporate action detected · resumed next window · receipt 0xc4a1…9e02", color: 'bg-white/40', text: 'text-white/60' },
-                { first: "Collected 2.41 ETH → 0.86 NVDA · 0.31 TSLA", second: "paid to 2,138 holders · receipt 0x5d77…31af", color: 'bg-[#7dd3d8]', text: 'text-[#a6e3e6]' },
-                { first: "HELD", second: "payout to a new address · waiting for a human · nothing sent", color: 'bg-[#e8b25a]', text: 'text-[#f0c98a]' },
-              ].map((row, i) => (
-                <motion.div key={row.first} className="relative py-6 md:py-7 first:pt-0" initial={{ opacity: 0, x: 16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.4 }} transition={{ duration: 0.7, delay: 0.1 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}>
-                  <span className={`absolute ${isRtl ? '-right-[34px] md:-right-[42px]' : '-left-[34px] md:-left-[42px]'} top-8 md:top-9 flex items-center justify-center`}>
-                    <span className={`absolute w-3.5 h-3.5 rounded-full ${row.color} opacity-20 blur-[3px]`} />
-                    <span className={`relative w-1.5 h-1.5 rounded-full ${row.color}`} />
-                  </span>
-                  <div className={`text-lg md:text-xl font-normal tracking-tight ${row.text} keep-ltr`} dir="ltr">
-                    {row.first}
-                  </div>
-                  <div className="mt-2 text-sm md:text-base font-light text-white/60 leading-relaxed max-w-md">
-                    {row.second}
-                  </div>
-                </motion.div>
-              ))}
+              <AnimatePresence mode="popLayout">
+                {logEntries.map((row, i) => (
+                  i <= logIndex && (
+                    <motion.div key={row.first} layout className="relative py-6 md:py-7 first:pt-0" initial={{ opacity: 0, x: 16 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}>
+                      <span className={`absolute ${isRtl ? '-right-[34px] md:-right-[42px]' : '-left-[34px] md:-left-[42px]'} top-8 md:top-9 flex items-center justify-center`}>
+                        <span className={`absolute w-3.5 h-3.5 rounded-full ${row.color} opacity-20 blur-[3px]`} />
+                        <span className={`relative w-1.5 h-1.5 rounded-full ${row.color}`} />
+                      </span>
+                      <div className={`text-lg md:text-xl font-normal tracking-tight ${row.text} keep-ltr`} dir="ltr">
+                        {row.first}
+                      </div>
+                      <div className="mt-2 text-sm md:text-base font-light text-white/60 leading-relaxed max-w-md">
+                        {row.second}
+                      </div>
+                    </motion.div>
+                  )
+                ))}
+              </AnimatePresence>
             </div>
           </motion.div>
         </div>
