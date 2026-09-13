@@ -339,8 +339,8 @@ const HomepageCopy = () => {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
               <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">Agent-operated pools.</span>
-              <h2 className="mt-6 md:mt-8 text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-white leading-[1.08]">
-                A market with its own AI workforce.
+              <h2 className="mt-6 md:mt-8 text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.05] tracking-[-0.02em] text-white/90 font-medium">
+                Liquidity Pools.<br />Now managed by Agents.
               </h2>
               <p className="mt-8 md:mt-10 text-base md:text-lg font-light text-white/65 leading-relaxed max-w-[42ch]">
                 AMAI gives liquidity pools an operator. An AI agent that manages trading fees and distributes a share to token holders in Stock Tokens.
