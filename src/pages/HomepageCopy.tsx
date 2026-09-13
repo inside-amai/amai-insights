@@ -268,17 +268,68 @@ const HomepageCopy = () => {
               <AnimatePresence mode="popLayout">
                 {logEntries.map((row, i) => (
                   i <= logIndex && (
-                    <motion.div key={row.first} layout className="relative py-6 md:py-7 first:pt-0" initial={{ opacity: 0, x: 16 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}>
+                    <motion.div key={row.first} layout className="relative py-6 md:py-7 first:pt-0" initial={{ opacity: 1 }} exit={{ opacity: 0, transition: { duration: 0.3 } }}>
                       <span className={`absolute ${isRtl ? '-right-[34px] md:-right-[42px]' : '-left-[34px] md:-left-[42px]'} top-8 md:top-9 flex items-center justify-center`}>
-                        <span className={`absolute w-3.5 h-3.5 rounded-full ${row.color} opacity-20 blur-[3px]`} />
-                        <span className={`relative w-1.5 h-1.5 rounded-full ${row.color}`} />
+                        {/* anticipation: hollow ring flickers before the dot lands */}
+                        <motion.span
+                          className={`absolute w-3.5 h-3.5 rounded-full border ${row.color.replace('bg-', 'border-')}`}
+                          initial={{ opacity: 0, scale: 0.6 }}
+                          animate={{ opacity: [0, 0.9, 0.2, 0.9, 0], scale: [0.6, 1.1, 0.9, 1.2, 0.9] }}
+                          transition={{ duration: 0.5, times: [0, 0.3, 0.55, 0.8, 1], ease: "easeInOut" }}
+                        />
+                        {/* dot lands */}
+                        <motion.span
+                          className={`absolute w-3.5 h-3.5 rounded-full ${row.color} opacity-30 blur-[4px]`}
+                          initial={{ scale: 0, opacity: 0 }}
+                          animate={{ scale: 1, opacity: 0.35 }}
+                          transition={{ delay: 0.45, type: "spring", stiffness: 400, damping: 18 }}
+                        />
+                        <motion.span
+                          className={`relative w-1.5 h-1.5 rounded-full ${row.color}`}
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          transition={{ delay: 0.45, type: "spring", stiffness: 500, damping: 15 }}
+                        />
+                        {/* ping rings */}
+                        <motion.span
+                          className={`absolute w-1.5 h-1.5 rounded-full ${row.color}`}
+                          initial={{ scale: 1, opacity: 0.8 }}
+                          animate={{ scale: 4.2, opacity: 0 }}
+                          transition={{ delay: 0.5, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                        />
+                        <motion.span
+                          className={`absolute w-1.5 h-1.5 rounded-full ${row.color}`}
+                          initial={{ scale: 1, opacity: 0.5 }}
+                          animate={{ scale: 7, opacity: 0 }}
+                          transition={{ delay: 0.62, duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+                        />
                       </span>
-                      <div className={`text-lg md:text-xl font-normal tracking-tight ${row.text} keep-ltr`} dir="ltr">
-                        {row.first}
+                      <div className="relative overflow-hidden">
+                        <motion.div
+                          className={`text-lg md:text-xl font-normal tracking-tight ${row.text} keep-ltr`}
+                          dir="ltr"
+                          initial={{ opacity: 0, y: 12, filter: "blur(8px)" }}
+                          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                          transition={{ delay: 0.5, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+                        >
+                          {row.first}
+                        </motion.div>
+                        {/* light sweep across the line */}
+                        <motion.div
+                          className="pointer-events-none absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                          initial={{ x: "-160%" }}
+                          animate={{ x: "460%" }}
+                          transition={{ delay: 0.5, duration: 0.8, ease: [0.3, 0.6, 0.3, 1] }}
+                        />
                       </div>
-                      <div className="mt-2 text-sm md:text-base font-light text-white/60 leading-relaxed max-w-md">
+                      <motion.div
+                        className="mt-2 text-sm md:text-base font-light text-white/60 leading-relaxed max-w-md"
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.78, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                      >
                         {row.second}
-                      </div>
+                      </motion.div>
                     </motion.div>
                   )
                 ))}
