@@ -14,7 +14,7 @@ import { pickHome } from "@/i18n/pageContent";
 
 import { Footer } from "@/components/Footer";
 import { TariGauge } from "@/components/TariGauge";
-import { OperatorFlowDiagram } from "@/components/OperatorFlowDiagram";
+
 
 
 const CountUp = ({ to, prefix = "", suffix = "" }: { to: number; prefix?: string; suffix?: string }) => {
