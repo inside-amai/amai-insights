@@ -583,6 +583,44 @@ const HomepageCopy = () => {
         </div>
       </section>
 
+      {/* THE EVIDENCE */}
+      <section id="evidence" className="relative bg-black bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-[30%_1fr] gap-14 lg:gap-16">
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <span className="text-xs tracking-[0.35em] uppercase text-white/50">THE EVIDENCE</span>
+              <h2 className="mt-6 text-3xl md:text-5xl font-medium tracking-tight text-white leading-[1.08]">
+                Compromise leaves a pattern.
+              </h2>
+              <p className="mt-6 text-base md:text-lg font-light text-white/60 leading-relaxed max-w-xl">
+                Across 726 benchmark runs, compromised agents tended to score lower. TARI measured the difference using tool-call metadata alone.
+              </p>
+              <div className="mt-10 pt-8 border-t border-white/10">
+                <div className="text-5xl md:text-6xl font-mono font-light tracking-tight text-cyan-accent tabular-nums">0.835</div>
+                <div className="mt-3 text-xs tracking-[0.2em] uppercase text-white/50">AUC · Benchmark discrimination</div>
+                <div className="mt-2 text-xs font-light text-white/35">95% confidence interval: 0.805–0.864</div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
+              <EvidenceDistribution />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+
+
 
 
       {/* HOLD THE TOKEN / ticker section */}
