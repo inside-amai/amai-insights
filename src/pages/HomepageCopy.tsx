@@ -206,16 +206,23 @@ const HomepageCopy = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [traceLightboxOpen, setTraceLightboxOpen] = useState(false);
   const logRef = useRef<HTMLDivElement>(null);
-  const logInView = useInView(logRef, { once: false, amount: 0.3 });
-  const [logIndex, setLogIndex] = useState(0);
+  const logInView = useInView(logRef, { once: true, amount: 0.3 });
+  const [logIndex, setLogIndex] = useState(-1);
 
   useEffect(() => {
     if (!logInView) return;
+    setLogIndex(0);
     const timer = setInterval(() => {
-      setLogIndex((prev) => (prev + 1) % logEntries.length);
-    }, 1500);
+      setLogIndex((prev) => {
+        if (prev >= logEntries.length - 1) {
+          clearInterval(timer);
+          return prev;
+        }
+        return prev + 1;
+      });
+    }, 1000);
     return () => clearInterval(timer);
-  }, [logInView]);
+  }, [logInView, logEntries.length]);
   const goPrev = () => setInstIndex((i) => (i - 1 + institutionImages.length) % institutionImages.length);
   const goNext = () => setInstIndex((i) => (i + 1) % institutionImages.length);
 
