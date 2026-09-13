@@ -420,68 +420,6 @@ const HomepageCopy = () => {
         </div>
       </section>
 
-
-
-      {/* HOLD THE TOKEN / ticker section */}
-      <section className="relative bg-perspective-grid min-h-screen flex items-center justify-center px-4 md:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60 pointer-events-none" />
-        <motion.div
-          className="relative z-10 text-center"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <h2 className="font-medium tracking-tight text-white leading-[1.05] text-[clamp(2.75rem,11vw,10rem)]">
-            Hold the token.
-            <br />
-            Get paid in
-            <br />
-            <TickerRoll /><span className="text-white">.</span>
-          </h2>
-        </motion.div>
-        <div className="absolute bottom-8 inset-x-0 z-10 flex justify-center">
-          <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">
-            Stock tokens on Robinhood Chain
-          </span>
-        </div>
-      </section>
-
-      {/* THE CHAIN MAKES SURE */}
-      <section className="relative bg-black bg-perspective-grid min-h-screen flex items-center px-4 md:px-8 py-24 md:py-32 overflow-hidden">
-        <div className="relative z-10 max-w-7xl mx-auto w-full">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <div className="flex items-center gap-3 mb-8">
-              <span className="h-px w-10 bg-white/30" />
-              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">The chain makes sure</span>
-            </div>
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05]">
-              It works for you.
-              <br />
-              The chain makes sure.
-            </h2>
-            <p className="mt-10 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-[60ch]">
-              Its key has four permissions. We tried to give it a fifth, on chain, in public.
-            </p>
-          </motion.div>
-
-          <div className="mt-14 md:mt-20">
-            <ChainMakesSureSequence />
-          </div>
-
-          <div className="mt-10">
-            <Link to="/operators" className="inline-flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors duration-300 border-b border-white/20 hover:border-white/60 pb-1">
-              Every rule, on the record<span aria-hidden>{isRtl ? '←' : '→'}</span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* Feature card */}
       <section className="relative bg-perspective-grid py-16 md:py-24 px-4 md:px-8">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-transparent pointer-events-none" />
@@ -505,12 +443,12 @@ const HomepageCopy = () => {
               <div className="mb-6 md:mb-8">
                 <span className="inline-flex items-center gap-3 text-xs md:text-sm tracking-[0.3em] font-medium text-white/90 uppercase">
                   <span className="h-px w-8 bg-cyan-accent/60" />
-                  HUMANS HAVE FICO. BUSINESSES HAVE D&B.
+                  TRUST & RISK INDEX
                   <span className="h-px w-8 bg-cyan-accent/60" />
                 </span>
               </div>
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-white leading-[1.05]">
-                Agents have TARI™.
+                Backed By TARI™.
               </h2>
               <p className="mt-8 md:mt-10 text-lg md:text-2xl lg:text-3xl font-light text-white/80 leading-snug max-w-4xl">
                 Every operator carries a TARI™ score. Check it before you trust it.
@@ -576,6 +514,69 @@ const HomepageCopy = () => {
           </div>
         </div>
       </section>
+
+
+
+      {/* HOLD THE TOKEN / ticker section */}
+      <section className="relative bg-perspective-grid min-h-screen flex items-center justify-center px-4 md:px-8 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60 pointer-events-none" />
+        <motion.div
+          className="relative z-10 text-center"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <h2 className="font-medium tracking-tight text-white leading-[1.05] text-[clamp(2.75rem,11vw,10rem)]">
+            Hold the token.
+            <br />
+            Get paid in
+            <br />
+            <TickerRoll /><span className="text-white">.</span>
+          </h2>
+        </motion.div>
+        <div className="absolute bottom-8 inset-x-0 z-10 flex justify-center">
+          <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">
+            Stock tokens on Robinhood Chain
+          </span>
+        </div>
+      </section>
+
+      {/* THE CHAIN MAKES SURE */}
+      <section className="relative bg-black bg-perspective-grid min-h-screen flex items-center px-4 md:px-8 py-24 md:py-32 overflow-hidden">
+        <div className="relative z-10 max-w-7xl mx-auto w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="flex items-center gap-3 mb-8">
+              <span className="h-px w-10 bg-white/30" />
+              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">The chain makes sure</span>
+            </div>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05]">
+              It works for you.
+              <br />
+              The chain makes sure.
+            </h2>
+            <p className="mt-10 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-[60ch]">
+              Its key has four permissions. We tried to give it a fifth, on chain, in public.
+            </p>
+          </motion.div>
+
+          <div className="mt-14 md:mt-20">
+            <ChainMakesSureSequence />
+          </div>
+
+          <div className="mt-10">
+            <Link to="/operators" className="inline-flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors duration-300 border-b border-white/20 hover:border-white/60 pb-1">
+              Every rule, on the record<span aria-hidden>{isRtl ? '←' : '→'}</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
 
       {/* Section 4 HOW IT WORKS */}
       <section id="methodology" className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
