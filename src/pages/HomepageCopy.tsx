@@ -74,6 +74,108 @@ const TickerRoll = () => {
   );
 };
 
+const REFUSAL_ATTEMPTS = [
+  "Withdraw the principal",
+  "Move the position",
+  "Send ETH out of the Safe",
+  "Swap into a different token",
+  "Swap through a different venue",
+  "Change the policy",
+];
+
+const RefusalsSequence = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const active = useInView(ref, { amount: 0.3 });
+  const [line, setLine] = useState(0);
+  const [chars, setChars] = useState(0);
+  const [phase, setPhase] = useState<"typing" | "strike" | "holdall">("typing");
+  const [cycle, setCycle] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    if (!active || phase === "holdall") return;
+    let cancelled = false;
+    const timers: number[] = [];
+    const text = REFUSAL_ATTEMPTS[line];
+    const step = 1000 / text.length;
+    for (let i = 1; i <= text.length; i++) {
+      timers.push(window.setTimeout(() => { if (!cancelled) setChars(i); }, i * step));
+    }
+    timers.push(window.setTimeout(() => { if (!cancelled) setPhase("strike"); }, 1000 + 450));
+    timers.push(window.setTimeout(() => {
+      if (cancelled) return;
+      if (line < REFUSAL_ATTEMPTS.length - 1) {
+        setLine((l) => l + 1);
+        setChars(0);
+        setPhase("typing");
+      } else {
+        setPhase("holdall");
+      }
+    }, 1000 + 450 + 600));
+    return () => { cancelled = true; timers.forEach(clearTimeout); };
+  }, [line, cycle, active, phase === "holdall"]);
+
+  useEffect(() => {
+    if (!active || phase !== "holdall") return;
+    const t1 = window.setTimeout(() => setVisible(false), 4000);
+    const t2 = window.setTimeout(() => {
+      setLine(0);
+      setChars(0);
+      setPhase("typing");
+      setVisible(true);
+      setCycle((c) => c + 1);
+    }, 4700);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
+  }, [phase, active]);
+
+  return (
+    <motion.div
+      ref={ref}
+      className="w-full font-mono text-2xl md:text-3xl leading-snug"
+      animate={{ opacity: visible ? 1 : 0 }}
+      transition={{ duration: 0.6 }}
+      dir="ltr"
+    >
+      {REFUSAL_ATTEMPTS.map((attempt, i) => {
+        if (i > line) return <div key={attempt} className="h-[1.6em] md:h-[1.7em]" />;
+        const isActive = i === line;
+        const struck = !isActive || phase !== "typing";
+        const text = isActive && phase === "typing" ? attempt.slice(0, chars) : attempt;
+        return (
+          <div key={attempt} className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-6 py-1">
+            <span className={`relative inline-block transition-colors duration-500 ${struck ? "text-white/30" : "text-white/90"}`}>
+              {text}
+              {isActive && phase === "typing" && chars < attempt.length && (
+                <span className="inline-block w-[0.55em] h-[1em] bg-white/70 align-[-0.12em] ml-0.5 animate-pulse" />
+              )}
+              {struck && (
+                <motion.span
+                  key={`strike-${cycle}-${i}`}
+                  className="absolute left-0 right-0 top-1/2 h-px bg-white/40 origin-left"
+                  initial={isActive ? { scaleX: 0 } : false}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 0.5, ease: [0.3, 0.6, 0.3, 1] }}
+                />
+              )}
+            </span>
+            {struck && (
+              <motion.span
+                key={`stamp-${cycle}-${i}`}
+                className="text-sm md:text-base tracking-[0.25em] text-[#e8b25a] shrink-0"
+                initial={isActive ? { opacity: 0, scale: 0.85 } : false}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: isActive ? 0.35 : 0, duration: 0.3 }}
+              >
+                REFUSED
+              </motion.span>
+            )}
+          </div>
+        );
+      })}
+    </motion.div>
+  );
+};
+
 const HomepageCopy = () => {
   const { language } = useLanguage();
   const c = pickHome(language);
@@ -361,6 +463,51 @@ const HomepageCopy = () => {
           <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">
             Stock tokens on Robinhood Chain
           </span>
+        </div>
+      </section>
+
+      {/* THE CHAIN WON'T LET IT / refusals */}
+      <section className="relative bg-black bg-perspective-grid min-h-screen flex items-center px-4 md:px-8 py-24 md:py-32 overflow-hidden">
+        <div className="relative z-10 max-w-7xl mx-auto w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="flex items-center gap-3 mb-8">
+              <span className="h-px w-10 bg-white/30" />
+              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">The chain won't let it</span>
+            </div>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05]">
+              It can pause.
+              <br />
+              It cannot take.
+            </h2>
+            <p className="mt-10 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-[60ch]">
+              The operator's wallet is a Safe with one short list of what its key may do. Everything else is refused by the chain itself. Every refusal below was proved by attempting it.
+            </p>
+          </motion.div>
+
+          <div className="mt-14 md:mt-20">
+            <RefusalsSequence />
+          </div>
+
+          <motion.p
+            className="mt-14 md:mt-20 text-lg md:text-xl font-light text-white leading-relaxed max-w-[60ch]"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          >
+            What it may do fits on one line: collect the fees, wrap the ETH, swap into the chosen stock, pay the holders.
+          </motion.p>
+
+          <div className="mt-10">
+            <Link to="/operators" className="inline-flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors duration-300 border-b border-white/20 hover:border-white/60 pb-1">
+              Every rule, on the record<span aria-hidden>{isRtl ? '←' : '→'}</span>
+            </Link>
+          </div>
         </div>
       </section>
 
