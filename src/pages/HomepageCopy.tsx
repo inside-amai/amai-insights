@@ -255,7 +255,11 @@ const HomepageCopy = () => {
                 <TariGauge score={812} />
               </div>
               <div className="mb-6 md:mb-8">
-                <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">HUMANS HAVE FICO. BUSINESSES HAVE D&B.</span>
+                <span className="inline-flex items-center gap-3 text-xs md:text-sm tracking-[0.3em] font-medium text-white/90 uppercase">
+                  <span className="h-px w-8 bg-cyan-accent/60" />
+                  HUMANS HAVE FICO. BUSINESSES HAVE D&B.
+                  <span className="h-px w-8 bg-cyan-accent/60" />
+                </span>
               </div>
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-white leading-[1.05]">
                 Agents have TARI™.
