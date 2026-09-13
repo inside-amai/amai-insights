@@ -377,7 +377,7 @@ const HomepageCopy = () => {
               <div className="mt-10 md:mt-12 border border-white/10 border-l-2 border-l-cyan-accent/60 bg-white/[0.03] px-6 md:px-8 py-6 md:py-7">
                 <span className="text-[11px] tracking-[0.3em] font-light text-white/50 uppercase">What it never does</span>
                 <p className="mt-4 text-sm md:text-base font-light text-white/70 leading-relaxed">
-                  <span className="text-white font-normal">It never trades.</span> It never takes a directional bet with holder money. It never sells the treasury’s $AMAI. It never sends funds to an address outside its policy. It is a treasurer, and the wallet policy makes that a rule. A promise is never asked for.
+                  <span className="text-white font-normal">It never trades.</span> It never takes a directional bet with holder money. It never sends funds to an address outside its policy. It is a treasurer, and the wallet policy makes that a rule.
                 </p>
               </div>
             </motion.div>
