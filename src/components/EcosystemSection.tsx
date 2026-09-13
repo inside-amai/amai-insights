@@ -11,7 +11,6 @@ const externalLinkClasses =
 
 const faqs = [
   {
-    num: "01",
     question: "What are AMAI Operators?",
     answer: (
       <>
@@ -23,7 +22,6 @@ const faqs = [
     ),
   },
   {
-    num: "02",
     question: "What is TARI?",
     answer: (
       <>
@@ -38,7 +36,6 @@ const faqs = [
     ),
   },
   {
-    num: "03",
     question: "What is the Launchpad?",
     answer: (
       <>
@@ -50,7 +47,6 @@ const faqs = [
     ),
   },
   {
-    num: "04",
     question: "What is Lens?",
     answer: (
       <>
@@ -59,7 +55,6 @@ const faqs = [
     ),
   },
   {
-    num: "05",
     question: "What is the Bureau?",
     answer: (
       <>
@@ -71,7 +66,6 @@ const faqs = [
     ),
   },
   {
-    num: "06",
     question: "Which token makes me eligible for distributions?",
     answer: (
       <>
@@ -80,7 +74,6 @@ const faqs = [
     ),
   },
   {
-    num: "07",
     question: "Where do the distributions come from?",
     answer: (
       <>
@@ -89,7 +82,6 @@ const faqs = [
     ),
   },
   {
-    num: "08",
     question: "What are Stock Tokens?",
     answer: (
       <>
@@ -101,7 +93,6 @@ const faqs = [
     ),
   },
   {
-    num: "09",
     question: "Can an operator withdraw the pool's principal?",
     answer: (
       <>
@@ -110,7 +101,6 @@ const faqs = [
     ),
   },
   {
-    num: "10",
     question: "What can I use today?",
     answer: (
       <>
@@ -176,33 +166,31 @@ export const EcosystemSection = () => {
       aria-labelledby="ecosystem-heading"
       className="relative overflow-hidden bg-black bg-perspective-grid px-4 py-24 md:px-8 md:py-40"
     >
-      <div className="relative mx-auto max-w-[1000px]">
+      <div className="relative mx-auto max-w-[920px]">
         {/* Masthead */}
-        <header className="text-center pb-16 md:pb-24 border-b border-white/10">
-          <span className="text-[11px] font-light uppercase tracking-[0.35em] text-white/50">
+        <header className="text-center pb-14 md:pb-20 border-b border-white/[0.08]">
+          <span className="text-[11px] font-light uppercase tracking-[0.35em] text-white/45">
             The Ecosystem
           </span>
           <h2
             id="ecosystem-heading"
-            className="mt-6 text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-white leading-[1.05]"
+            className="mt-5 text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-white leading-[1.05]"
           >
             AMAI Labs.
           </h2>
-          <p className="mt-4 text-sm md:text-base font-light uppercase tracking-[0.3em] text-white/55">
+          <p className="mt-3 text-sm md:text-base font-light uppercase tracking-[0.3em] text-white/50">
             Infrastructure &amp; Research
           </p>
         </header>
 
         {/* Accordion */}
-        <div className="mt-10 md:mt-14" role="region" aria-label="Frequently asked questions">
+        <div className="mt-8 md:mt-12" role="region" aria-label="Frequently asked questions">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
               <div
-                key={faq.num}
-                className={`border-b border-white/10 transition-colors duration-[250ms] ${
-                  isOpen ? "bg-white/[0.04]" : "hover:bg-white/[0.03]"
-                }`}
+                key={index}
+                className="group border-b border-white/[0.07] transition-colors duration-300 hover:bg-white/[0.015]"
               >
                 <button
                   ref={(el) => { itemRefs.current[index] = el; }}
@@ -211,23 +199,27 @@ export const EcosystemSection = () => {
                   aria-controls={`faq-answer-${index}`}
                   onClick={() => handleToggle(index)}
                   onKeyDown={(e) => handleKeyDown(e, index)}
-                  className="w-full text-left focus:outline-none focus-visible:bg-white/[0.05] focus-visible:ring-1 focus-visible:ring-cyan-accent/60 focus-visible:ring-inset"
+                  className="w-full text-left focus:outline-none focus-visible:bg-white/[0.03] focus-visible:ring-1 focus-visible:ring-cyan-accent/50 focus-visible:ring-inset"
                 >
-                  <div className="flex items-start gap-4 md:gap-6 py-6 md:py-7 px-2 md:px-4">
-                    <span className="flex-shrink-0 w-8 md:w-10 pt-1 text-sm md:text-base font-mono text-cyan-accent/70 tabular-nums">
-                      {faq.num}
-                    </span>
+                  <div className="flex items-center justify-between gap-6 py-6 md:py-7">
                     <span
                       id={`faq-question-${index}`}
-                      className="flex-1 text-[19px] md:text-[22px] font-normal text-white/90 leading-tight pr-4"
+                      className={`text-[17px] md:text-[20px] leading-snug tracking-tight transition-colors duration-300 ${
+                        isOpen ? "text-white" : "text-white/80 group-hover:text-white"
+                      }`}
                     >
                       {faq.question}
                     </span>
-                    <span className="flex-shrink-0 pt-1.5 text-white/50" aria-hidden="true">
+                    <span
+                      className={`flex-shrink-0 transition-colors duration-300 ${
+                        isOpen ? "text-white/90" : "text-white/30 group-hover:text-white/60"
+                      }`}
+                      aria-hidden="true"
+                    >
                       {isOpen ? (
-                        <Minus className="w-5 h-5" strokeWidth={1.5} />
+                        <Minus className="w-4 h-4" strokeWidth={1.5} />
                       ) : (
-                        <Plus className="w-5 h-5" strokeWidth={1.5} />
+                        <Plus className="w-4 h-4" strokeWidth={1.5} />
                       )}
                     </span>
                   </div>
@@ -242,14 +234,16 @@ export const EcosystemSection = () => {
                       initial={reducedMotion ? { opacity: 1 } : { opacity: 0, height: 0 }}
                       animate={reducedMotion ? { opacity: 1 } : { opacity: 1, height: "auto" }}
                       exit={reducedMotion ? { opacity: 1 } : { opacity: 0, height: 0 }}
-                      transition={reducedMotion ? { duration: 0 } : { duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                      transition={
+                        reducedMotion
+                          ? { duration: 0 }
+                          : { duration: 0.3, ease: [0.16, 1, 0.3, 1] }
+                      }
                     >
-                      <div className="pb-7 md:pb-8 px-2 md:px-4">
-                        <div className="pl-12 md:pl-16 max-w-[65ch]">
-                          <p className="text-base md:text-[17px] font-light leading-relaxed text-white/65">
-                            {faq.answer}
-                          </p>
-                        </div>
+                      <div className="pb-7 md:pb-8 max-w-[70ch]">
+                        <p className="text-[15px] md:text-[16px] font-light leading-relaxed text-white/55">
+                          {faq.answer}
+                        </p>
                       </div>
                     </motion.div>
                   )}
