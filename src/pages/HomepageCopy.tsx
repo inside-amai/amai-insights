@@ -46,7 +46,7 @@ const CURRENCY_SYMBOLS = ["$", "€", "¥", "£"] as const;
 const PAID_LETTERS = ["P", "A", "I", "D"] as const;
 
 const PaidCurrencyRoll = () => {
-  const [reels, setReels] = useState(() =>
+  const [reels, setReels] = useState<Array<{ symbol: string; tick: number }>>(() =>
     CURRENCY_SYMBOLS.map((symbol, index) => ({ symbol, tick: index }))
   );
 
