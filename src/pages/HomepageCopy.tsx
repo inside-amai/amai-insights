@@ -451,7 +451,7 @@ const HomepageCopy = () => {
                 Backed By TARI™.
               </h2>
               <p className="mt-8 md:mt-10 text-lg md:text-2xl lg:text-3xl font-light text-white/80 leading-snug max-w-4xl">
-                Every operator carries a TARI™ score. Check it before you trust it.
+                A credit score built from onchain history and observed agent behavior.
               </p>
               <div className="mt-8 md:mt-10">
                 <a href="/tari" className="inline-flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors duration-300 border-b border-white/20 hover:border-white/60 pb-1">
