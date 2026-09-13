@@ -177,7 +177,7 @@ const FoundersMint = () => {
               {/* Floating wings */}
               <div className="relative">
                 <img 
-                  src="/lovable-uploads/4aff46bf-7135-435e-af82-c37542b446d7.png"
+                  src="/uploads/4aff46bf-7135-435e-af82-c37542b446d7.png"
                   alt="AMAI Golden Wings"
                   className="w-full h-auto relative z-10"
                   style={{ 
@@ -215,7 +215,7 @@ const FoundersMint = () => {
             <div className="flex justify-end lg:col-span-6">
               <div className="relative overflow-hidden rounded-2xl">
                 <img 
-                  src="/lovable-uploads/8155b2f4-c371-4049-aeac-063428e6f3fc.png"
+                  src="/uploads/8155b2f4-c371-4049-aeac-063428e6f3fc.png"
                   alt="Golden Wings"
                   className="w-full h-[335px] lg:h-[400px] object-cover"
                 />
@@ -318,7 +318,7 @@ const FoundersMint = () => {
               {/* Badge Image */}
               <div className="flex justify-center mb-8">
                 <img 
-                  src="/lovable-uploads/96c48a61-1742-4245-9f95-91de86487e29.png" 
+                  src="/uploads/96c48a61-1742-4245-9f95-91de86487e29.png" 
                   alt="Founders Circle Badge" 
                   className="w-64 h-64 object-contain"
                 />
@@ -416,7 +416,7 @@ const FoundersMint = () => {
       {/* Hero Image Section */}
       <section className="w-full relative z-20 bg-black">
         <img 
-          src="/lovable-uploads/0db2b495-15e0-45cc-889f-aa5d65af0514.png"
+          src="/uploads/0db2b495-15e0-45cc-889f-aa5d65af0514.png"
           alt="Enter the Circle - Golden Wings"
           className="w-full h-auto block"
           style={{ display: 'block' }}

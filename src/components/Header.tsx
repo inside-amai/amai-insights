@@ -67,7 +67,7 @@ export const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-4">
             <img 
-              src="/lovable-uploads/262e27b2-1bd9-4177-aebe-841d7cce6b6a.png"
+              src="/uploads/262e27b2-1bd9-4177-aebe-841d7cce6b6a.png"
               alt="AMAI Logo" 
               className="h-12 w-auto hover:opacity-80 transition-opacity"
               loading="eager"

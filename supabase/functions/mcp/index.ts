@@ -54,7 +54,7 @@ var ALLOWED = /* @__PURE__ */ new Set([
   "roadmap",
   "scenarios"
 ]);
-var SITE = "https://amai-insights.lovable.app";
+var SITE = "https://insights.amai.net";
 var get_documentation_default = defineTool2({
   name: "get_documentation",
   title: "Get AMAI documentation page",
@@ -90,7 +90,7 @@ var get_documentation_default = defineTool2({
 
 // src/lib/mcp/tools/get-full-context.ts
 import { defineTool as defineTool3 } from "npm:@lovable.dev/mcp-js@0.20.0";
-var URL = "https://amai-insights.lovable.app/llms-full.txt";
+var URL = "https://insights.amai.net/llms-full.txt";
 var get_full_context_default = defineTool3({
   name: "get_full_context",
   title: "Get full AMAI context",

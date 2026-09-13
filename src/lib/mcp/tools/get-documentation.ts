@@ -18,7 +18,7 @@ const ALLOWED = new Set([
   "scenarios",
 ]);
 
-const SITE = "https://amai-insights.lovable.app";
+const SITE = "https://insights.amai.net";
 
 export default defineTool({
   name: "get_documentation",
