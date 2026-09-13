@@ -362,8 +362,8 @@ const HomepageCopy = () => {
                 ["1", "Collect", "Collect the swap fees the pool’s position has earned. A standard Uniswap call."],
                 ["2", "Convert", "Swap those fees into the stock the community chose, on Uniswap. NVDA is the default; holders can vote to change it."],
                 ["3", "Pay", "Send the stock to holders by snapshot; keep the creator’s and the protocol’s shares."],
-                ["4", "Lend idle", "Park idle treasury in an allowlisted lending venue and pull it back when needed. Version 1.1, capped, Tier 2 and above; absent from the first version’s policy."],
-                ["5", "Rebalance", "Keep its own liquidity range centred so the position earns more fees per dollar. Principal moves inside the pool and never leaves it. A later version; absent from the first version’s policy."],
+                ["4", "Lend idle", "Park idle treasury in an allowlisted lending venue and pull it back when needed."],
+                ["5", "Rebalance", "Keep its own liquidity range centred so the position earns more fees per dollar."],
                 ["6", "Sit out", "Skip a collection when a dividend or split adjustment is posting on the stock token."],
               ].map(([num, job, desc]) => (
                 <div key={num} className="grid grid-cols-[130px_1fr] md:grid-cols-[170px_1fr] gap-x-6 py-5 md:py-6 border-b border-white/10">
@@ -377,7 +377,7 @@ const HomepageCopy = () => {
               <div className="mt-10 md:mt-12 border border-white/10 border-l-2 border-l-cyan-accent/60 bg-white/[0.03] px-6 md:px-8 py-6 md:py-7">
                 <span className="text-[11px] tracking-[0.3em] font-light text-white/50 uppercase">What it never does</span>
                 <p className="mt-4 text-sm md:text-base font-light text-white/70 leading-relaxed">
-                  <span className="text-white font-normal">It never trades.</span> It never takes a directional bet with holder money. It never sells the treasury’s $AMAI. It never sends funds to an address outside its policy. It is a treasurer, and the wallet policy makes that a rule. A promise is never asked for.
+                  <span className="text-white font-normal">It never trades.</span> It never takes a directional bet with holder money. It never sends funds to an address outside its policy. It is a treasurer, and the wallet policy makes that a rule.
                 </p>
               </div>
             </motion.div>
