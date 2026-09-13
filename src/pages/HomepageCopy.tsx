@@ -325,50 +325,86 @@ const HomepageCopy = () => {
         </div>
       </div>
 
-      {/* Section 3 MEET THE OPERATOR */}
+      {/* Section 2 AGENT-OPERATED POOLS */}
       <section id="score" className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-transparent pointer-events-none" />
-        <div className="pointer-events-none absolute right-0 top-1/4 w-[720px] h-[720px] rounded-full bg-[radial-gradient(circle_at_center,rgba(125,211,216,0.07),transparent_70%)]" />
 
         <div className="relative z-10 max-w-[1400px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 items-start">
             <motion.div
-              className="lg:col-span-5 text-start"
+              className="lg:col-span-5"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="flex items-center gap-3 mb-8">
-                <span className="h-px w-10 bg-white/30" />
-                <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">Meet the operator</span>
-              </div>
-              <h2 className="text-3xl md:text-5xl font-light tracking-tight text-white leading-[1.12]">
-                The pool earns fees.
-                <br />
-                The operator gets to work.
+              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">Agent-operated pools.</span>
+              <h2 className="mt-6 md:mt-8 text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-white leading-[1.08]">
+                A market with its own AI workforce.
               </h2>
-              <p className="mt-8 md:mt-10 text-base md:text-lg font-light text-white/65 leading-relaxed max-w-[36ch]">
-                It collects the fees, converts them into Stock Tokens, and distributes a share to the people holding the token.
+              <p className="mt-8 md:mt-10 text-base md:text-lg font-light text-white/65 leading-relaxed max-w-[42ch]">
+                AMAI gives liquidity pools an operator. An AI agent that manages trading fees and distributes a share to token holders in Stock Tokens.
               </p>
-              <motion.p
-                className="mt-10 md:mt-12 text-lg md:text-2xl font-light tracking-tight text-white/70"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.9 }}
-              >
-                Every cycle leaves a record.
-              </motion.p>
             </motion.div>
 
-            <div className="lg:col-span-7">
-              <OperatorFlowDiagram />
-            </div>
+            <motion.div
+              className="lg:col-span-7"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <div className="border-t border-white/10" />
+              <div className="py-8 md:py-10">
+                <div className="flex items-baseline gap-6">
+                  <span className="font-mono text-sm md:text-base text-cyan-accent/80 tracking-widest">01</span>
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-light tracking-tight text-white">Collect</h3>
+                    <p className="mt-2 text-base md:text-lg font-light text-white/55">Collect the pool’s earned trading fees.</p>
+                  </div>
+                </div>
+              </div>
+              <div className="border-t border-white/10" />
+              <div className="py-8 md:py-10">
+                <div className="flex items-baseline gap-6">
+                  <span className="font-mono text-sm md:text-base text-cyan-accent/80 tracking-widest">02</span>
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-light tracking-tight text-white">Convert</h3>
+                    <p className="mt-2 text-base md:text-lg font-light text-white/55">Convert the fees into the selected Stock Tokens.</p>
+                  </div>
+                </div>
+              </div>
+              <div className="border-t border-white/10" />
+              <div className="py-8 md:py-10">
+                <div className="flex items-baseline gap-6">
+                  <span className="font-mono text-sm md:text-base text-cyan-accent/80 tracking-widest">03</span>
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-light tracking-tight text-white">Pay</h3>
+                    <p className="mt-2 text-base md:text-lg font-light text-white/55">Distribute the holders’ share to their wallets.</p>
+                  </div>
+                </div>
+              </div>
+              <div className="border-t border-white/10" />
+              <p className="mt-8 md:mt-10 text-sm md:text-base font-light text-white/40 tracking-wide">
+                The operator cannot withdraw the pool’s principal.
+              </p>
+            </motion.div>
           </div>
 
+          <motion.div
+            className="mt-24 md:mt-32 flex justify-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.9 }}
+          >
+            <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">
+              TARI <span className="mx-2 text-cyan-accent/60">·</span> The trust score for AI agents
+            </span>
+          </motion.div>
         </div>
       </section>
+
 
 
       {/* HOLD THE TOKEN / ticker section */}
