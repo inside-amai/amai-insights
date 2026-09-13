@@ -49,60 +49,58 @@ const PaidCurrencyRoll = () => {
   const [reels, setReels] = useState<Array<{ symbol: string; tick: number }>>(() =>
     CURRENCY_SYMBOLS.map((symbol, index) => ({ symbol, tick: index }))
   );
-  const [finished, setFinished] = useState(false);
+  const [rolling, setRolling] = useState([true, true, true, true]);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setReels(PAID_LETTERS.map((symbol, index) => ({ symbol, tick: 100 + index })));
-      setFinished(true);
+      setRolling([false, false, false, false]);
       return;
     }
 
-    const startedAt = window.performance.now();
     const lockTimes = [3800, 4150, 4500, 4850];
-    let tick = 0;
-    const timer = window.setInterval(() => {
-      const elapsed = window.performance.now() - startedAt;
-      tick += 1;
-      setReels((current) => current.map((reel, index) => ({
-        symbol: elapsed >= lockTimes[index]
-          ? PAID_LETTERS[index]
-          : CURRENCY_SYMBOLS[(tick + index) % CURRENCY_SYMBOLS.length],
-        tick: reel.symbol === PAID_LETTERS[index] ? reel.tick : tick,
-      })));
+    const speeds = [190, 225, 205, 240];
+    const intervals = speeds.map((speed, reelIndex) => window.setInterval(() => {
+      setReels((current) => current.map((reel, index) => index === reelIndex
+        ? {
+            symbol: CURRENCY_SYMBOLS[(CURRENCY_SYMBOLS.indexOf(reel.symbol as typeof CURRENCY_SYMBOLS[number]) + 1 + reelIndex) % CURRENCY_SYMBOLS.length],
+            tick: reel.tick + 1,
+          }
+        : reel));
+    }, speed));
+    const locks = lockTimes.map((lockTime, reelIndex) => window.setTimeout(() => {
+      window.clearInterval(intervals[reelIndex]);
+      setRolling((current) => current.map((value, index) => index === reelIndex ? false : value));
+    }, lockTime));
 
-      if (elapsed >= 5000) {
-        window.clearInterval(timer);
-        setFinished(true);
-      }
-    }, 120);
-
-    return () => window.clearInterval(timer);
+    return () => {
+      intervals.forEach(window.clearInterval);
+      locks.forEach(window.clearTimeout);
+    };
   }, []);
 
   return (
     <span className="relative inline-block align-baseline" dir="ltr" aria-label="paid">
-      <span className={finished ? "visible" : "invisible"}>paid</span>
-      {!finished && (
-        <span className="absolute inset-0 grid grid-cols-4 overflow-hidden [clip-path:inset(0)] [contain:paint]" aria-hidden="true">
+      <span>paid</span>
+      <span className="absolute inset-x-0 top-[0.08em] bottom-[0.08em] grid grid-cols-4 overflow-hidden [clip-path:inset(0)] [contain:paint]" aria-hidden="true">
           {reels.map((reel, reelIndex) => (
-            <span key={reelIndex} className="relative h-full min-w-0 overflow-hidden [clip-path:inset(0)] [contain:paint]">
-              <AnimatePresence initial={false}>
-                <motion.span
-                  key={`${reel.symbol}-${reel.tick}`}
-                  className="absolute inset-0 flex items-center justify-center leading-[1.05]"
-                  initial={{ y: "92%" }}
-                  animate={{ y: 0 }}
-                  exit={{ y: "-92%" }}
-                  transition={{ duration: 0.11, ease: "linear" }}
-                >
-                  {reel.symbol}
-                </motion.span>
-              </AnimatePresence>
+            <span key={reelIndex} className={`relative min-w-0 overflow-hidden [clip-path:inset(0)] [contain:paint] ${rolling[reelIndex] ? "bg-black" : "bg-transparent"}`}>
+              {rolling[reelIndex] && (
+                <AnimatePresence initial={false}>
+                  <motion.span
+                    key={`${reel.symbol}-${reel.tick}`}
+                    className="absolute inset-0 flex items-center justify-center leading-none"
+                    initial={{ y: "78%" }}
+                    animate={{ y: 0 }}
+                    exit={{ y: "-78%" }}
+                    transition={{ duration: 0.16, ease: "linear" }}
+                  >
+                    {reel.symbol}
+                  </motion.span>
+                </AnimatePresence>
+              )}
             </span>
           ))}
-        </span>
-      )}
+      </span>
     </span>
   );
 };
