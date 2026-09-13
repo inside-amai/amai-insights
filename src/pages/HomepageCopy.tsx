@@ -374,10 +374,10 @@ const HomepageCopy = () => {
             </div>
             <div ref={logRef} className={`relative ${isRtl ? 'pr-8 md:pr-10' : 'pl-8 md:pl-10'}`}>
               <div className={`absolute ${isRtl ? 'right-0' : 'left-0'} top-2 bottom-2 w-px bg-gradient-to-b from-[#7dd3d8]/50 via-[#5ec9a8]/40 via-[#e8b25a]/40 to-[#e15a3b]/50`} />
-              <AnimatePresence mode="popLayout">
+              <div>
                 {logEntries.map((row, i) => (
-                  i <= logIndex && (
-                    <motion.div key={row.first} layout className="relative py-6 md:py-7 first:pt-0" initial={{ opacity: 1 }} exit={{ opacity: 0, transition: { duration: 0.3 } }}>
+                  i <= logIndex ? (
+                    <motion.div key={row.first} className="relative py-6 md:py-7 first:pt-0" initial={{ opacity: 1 }}>
                       <span className={`absolute ${isRtl ? '-right-[34px] md:-right-[42px]' : '-left-[34px] md:-left-[42px]'} top-8 md:top-9 flex items-center justify-center`}>
                         {/* anticipation: hollow ring flickers before the dot lands */}
                         <motion.span
