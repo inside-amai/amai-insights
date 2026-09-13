@@ -83,7 +83,7 @@ const PaidCurrencyRoll = () => {
       <span>paid</span>
       <span className="absolute inset-x-0 top-[0.08em] bottom-[0.08em] grid grid-cols-4 overflow-hidden [clip-path:inset(0)] [contain:paint]" aria-hidden="true">
           {reels.map((reel, reelIndex) => (
-            <span key={reelIndex} className="relative min-w-0 overflow-hidden bg-black [clip-path:inset(0)] [contain:paint]">
+            <span key={reelIndex} className={`relative min-w-0 overflow-hidden [clip-path:inset(0)] [contain:paint] ${rolling[reelIndex] ? "bg-black" : "bg-transparent"}`}>
               {rolling[reelIndex] && (
                 <AnimatePresence initial={false}>
                   <motion.span
