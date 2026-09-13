@@ -477,7 +477,7 @@ const HomepageCopy = () => {
         </div>
       </section>
 
-      {/* THE CHAIN WON'T LET IT / refusals */}
+      {/* THE CHAIN MAKES SURE */}
       <section className="relative bg-black bg-perspective-grid min-h-screen flex items-center px-4 md:px-8 py-24 md:py-32 overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto w-full">
           <motion.div
@@ -488,31 +488,21 @@ const HomepageCopy = () => {
           >
             <div className="flex items-center gap-3 mb-8">
               <span className="h-px w-10 bg-white/30" />
-              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">The chain won't let it</span>
+              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">The chain makes sure</span>
             </div>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05]">
-              It can pause.
+              It works for you.
               <br />
-              It cannot take.
+              The chain makes sure.
             </h2>
             <p className="mt-10 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-[60ch]">
-              The operator's wallet is a Safe with one short list of what its key may do. Everything else is refused by the chain itself. Every refusal below was proved by attempting it.
+              Its key has four permissions. We tried to give it a fifth, on chain, in public.
             </p>
           </motion.div>
 
           <div className="mt-14 md:mt-20">
-            <RefusalsSequence />
+            <ChainMakesSureSequence />
           </div>
-
-          <motion.p
-            className="mt-14 md:mt-20 text-lg md:text-xl font-light text-white leading-relaxed max-w-[60ch]"
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            What it may do fits on one line: collect the fees, wrap the ETH, swap into the chosen stock, pay the holders.
-          </motion.p>
 
           <div className="mt-10">
             <Link to="/operators" className="inline-flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors duration-300 border-b border-white/20 hover:border-white/60 pb-1">
