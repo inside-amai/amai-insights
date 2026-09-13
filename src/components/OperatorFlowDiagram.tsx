@@ -59,7 +59,7 @@ const Label = ({ x, y, children, anchor = "middle" }: { x: number; y: number; ch
 const OperatorTower = ({ idp, cx, top, bottom, mid, half = 44, lit }: {
   idp: string; cx: number; top: number; bottom: number; mid: number; half?: number; lit: boolean;
 }) => {
-  const bevel = 30;
+  const bevel = 34;
   const outer = `${cx - half},${top + bevel} ${cx},${top} ${cx + half},${top + bevel} ${cx + half},${bottom - bevel} ${cx},${bottom} ${cx - half},${bottom - bevel}`;
   const ih = half - 13;
   const inner = `${cx - ih},${top + bevel + 10} ${cx},${top + 12} ${cx + ih},${top + bevel + 10} ${cx + ih},${bottom - bevel - 10} ${cx},${bottom - 12} ${cx - ih},${bottom - bevel - 10}`;
@@ -101,8 +101,8 @@ const OperatorTower = ({ idp, cx, top, bottom, mid, half = 44, lit }: {
 /* ---------------- horizontal (desktop) ---------------- */
 const Horizontal = ({ stage, still }: StageProps) => {
   const idp = "oph";
-  const feePath = "M 300 250 C 360 250, 380 250, 434 250";
-  const outPath = "M 526 250 L 640 250";
+  const feePath = "M 300 250 C 350 250, 370 250, 416 250";
+  const outPath = "M 544 250 L 648 250";
   const holders = [118, 184, 250, 316, 382];
   const s1 = still || stage >= 1;
   const s2 = still || stage >= 2;
@@ -147,12 +147,12 @@ const Horizontal = ({ stage, still }: StageProps) => {
           ))}
         </motion.g>
         <motion.g initial={{ opacity: 0 }} animate={{ opacity: s1 ? 1 : 0 }} transition={{ duration: 0.6 }}>
-          <Label x={367} y={228}>Trading fees</Label>
+          <Label x={358} y={228}>Trading fees</Label>
         </motion.g>
       </g>
 
       {/* ---- CONVERT : the operator ---- */}
-      <OperatorTower idp={idp} cx={480} top={96} bottom={404} mid={250} lit={s2} />
+      <OperatorTower idp={idp} cx={480} top={110} bottom={390} mid={250} half={64} lit={s2} />
       <motion.g initial={{ opacity: 0 }} animate={{ opacity: s2 ? 1 : 0 }} transition={{ duration: 0.6 }}>
         <Label x={480} y={434}>Operator</Label>
       </motion.g>
@@ -173,16 +173,16 @@ const Horizontal = ({ stage, still }: StageProps) => {
           ))}
         </motion.g>
         <motion.g initial={{ opacity: 0 }} animate={{ opacity: s2 ? 1 : 0 }} transition={{ duration: 0.6, delay: 0.4 }}>
-          <Label x={585} y={228} anchor="start">Stock tokens</Label>
+          <Label x={595} y={228} anchor="start">Stock tokens</Label>
         </motion.g>
       </g>
 
       {/* ---- DISTRIBUTE : holders ---- */}
       <g>
-        <motion.line x1="640" x2="640" y1="118" y2="382" stroke={AQUA} strokeOpacity="0.3" strokeWidth="1"
+        <motion.line x1="648" x2="648" y1="118" y2="382" stroke={AQUA} strokeOpacity="0.3" strokeWidth="1"
           initial={{ pathLength: 0 }} animate={{ pathLength: s3 ? 1 : 0 }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }} />
         {holders.map((y, i) => {
-          const d = `M 640 ${y} L 700 ${y} L 800 ${y}`;
+          const d = `M 648 ${y} L 800 ${y}`;
           return (
             <g key={y}>
               <motion.path id={`${idp}-b${i}`} d={d} fill="none" stroke={AQUA} strokeOpacity="0.35" strokeWidth="1"
