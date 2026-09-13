@@ -206,16 +206,23 @@ const HomepageCopy = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [traceLightboxOpen, setTraceLightboxOpen] = useState(false);
   const logRef = useRef<HTMLDivElement>(null);
-  const logInView = useInView(logRef, { once: false, amount: 0.3 });
-  const [logIndex, setLogIndex] = useState(0);
+  const logInView = useInView(logRef, { once: true, amount: 0.3 });
+  const [logIndex, setLogIndex] = useState(-1);
 
   useEffect(() => {
     if (!logInView) return;
+    setLogIndex(0);
     const timer = setInterval(() => {
-      setLogIndex((prev) => (prev + 1) % logEntries.length);
-    }, 1500);
+      setLogIndex((prev) => {
+        if (prev >= logEntries.length - 1) {
+          clearInterval(timer);
+          return prev;
+        }
+        return prev + 1;
+      });
+    }, 1000);
     return () => clearInterval(timer);
-  }, [logInView]);
+  }, [logInView, logEntries.length]);
   const goPrev = () => setInstIndex((i) => (i - 1 + institutionImages.length) % institutionImages.length);
   const goNext = () => setInstIndex((i) => (i + 1) % institutionImages.length);
 
@@ -367,10 +374,10 @@ const HomepageCopy = () => {
             </div>
             <div ref={logRef} className={`relative ${isRtl ? 'pr-8 md:pr-10' : 'pl-8 md:pl-10'}`}>
               <div className={`absolute ${isRtl ? 'right-0' : 'left-0'} top-2 bottom-2 w-px bg-gradient-to-b from-[#7dd3d8]/50 via-[#5ec9a8]/40 via-[#e8b25a]/40 to-[#e15a3b]/50`} />
-              <AnimatePresence mode="popLayout">
+              <div>
                 {logEntries.map((row, i) => (
-                  i <= logIndex && (
-                    <motion.div key={row.first} layout className="relative py-6 md:py-7 first:pt-0" initial={{ opacity: 1 }} exit={{ opacity: 0, transition: { duration: 0.3 } }}>
+                  i <= logIndex ? (
+                    <motion.div key={row.first} className="relative py-6 md:py-7 first:pt-0" initial={{ opacity: 1 }}>
                       <span className={`absolute ${isRtl ? '-right-[34px] md:-right-[42px]' : '-left-[34px] md:-left-[42px]'} top-8 md:top-9 flex items-center justify-center`}>
                         {/* anticipation: hollow ring flickers before the dot lands */}
                         <motion.span
@@ -433,9 +440,14 @@ const HomepageCopy = () => {
                         {row.second}
                       </motion.div>
                     </motion.div>
+                  ) : (
+                    <div key={row.first} className="relative py-6 md:py-7 first:pt-0 invisible" aria-hidden="true">
+                      <div className="text-lg md:text-xl font-normal tracking-tight keep-ltr" dir="ltr">{row.first}</div>
+                      <div className="mt-2 text-sm md:text-base font-light leading-relaxed max-w-md">{row.second}</div>
+                    </div>
                   )
                 ))}
-              </AnimatePresence>
+              </div>
             </div>
           </motion.div>
         </div>
