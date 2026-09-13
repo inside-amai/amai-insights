@@ -59,7 +59,7 @@ const DESKTOP: Dims = {
 const MOBILE: Dims = {
   w: 400,
   h: 420,
-  pad: { top: 20, right: 10, bottom: 54, left: 44 },
+  pad: { top: 20, right: 10, bottom: 54, left: 54 },
   fs: 12,
   axisFs: 11,
 };
