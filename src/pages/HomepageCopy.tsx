@@ -331,7 +331,7 @@ const HomepageCopy = () => {
         <div className="pointer-events-none absolute right-0 top-1/4 w-[720px] h-[720px] rounded-full bg-[radial-gradient(circle_at_center,rgba(125,211,216,0.07),transparent_70%)]" />
 
         <div className="relative z-10 max-w-[1400px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-14 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-16 items-center">
             <motion.div
               className="lg:col-span-2 text-start"
               initial={{ opacity: 0, y: 20 }}
