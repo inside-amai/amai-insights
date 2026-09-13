@@ -5,7 +5,15 @@ import { animate, motion, useInView } from "framer-motion";
  * TARI™ Gauge — sophisticated FICO-style score dial.
  * Semicircular arc from 300 → 850, animated on scroll into view.
  */
-export const TariGauge = ({ score = 812, label = "TARI™ Score" }: { score?: number; label?: string }) => {
+export const TariGauge = ({
+  score = 812,
+  label = "TARI™ Score",
+  presentation = false,
+}: {
+  score?: number;
+  label?: string;
+  presentation?: boolean;
+}) => {
   const gaugeRef = useRef<HTMLDivElement>(null);
   const needleRef = useRef<SVGGElement>(null);
   const numberRef = useRef<HTMLDivElement>(null);
@@ -122,20 +130,31 @@ export const TariGauge = ({ score = 812, label = "TARI™ Score" }: { score?: nu
           strokeLinecap="round"
         />
 
-        {/* Filled arc — animates in */}
-        <motion.path
-          d={arcPath}
-          fill="none"
-          stroke="url(#tari-arc)"
-          strokeWidth={stroke}
-          strokeLinecap="round"
-          strokeDasharray={arcLen}
-          initial={{ strokeDashoffset: arcLen }}
-          whileInView={{ strokeDashoffset: arcLen * (1 - pct) }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 2, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-          filter="url(#tari-glow)"
-        />
+        {/* Filled arc — the product presentation stays still */}
+        {presentation ? (
+          <path
+            d={arcPath}
+            fill="none"
+            stroke="url(#tari-arc)"
+            strokeWidth={stroke}
+            strokeLinecap="round"
+            filter="url(#tari-glow)"
+          />
+        ) : (
+          <motion.path
+            d={arcPath}
+            fill="none"
+            stroke="url(#tari-arc)"
+            strokeWidth={stroke}
+            strokeLinecap="round"
+            strokeDasharray={arcLen}
+            initial={{ strokeDashoffset: arcLen }}
+            whileInView={{ strokeDashoffset: arcLen * (1 - pct) }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 2, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+            filter="url(#tari-glow)"
+          />
+        )}
 
         {/* Fine inner tick ring */}
         {Array.from({ length: 55 }).map((_, i) => {
@@ -171,16 +190,20 @@ export const TariGauge = ({ score = 812, label = "TARI™ Score" }: { score?: nu
           );
         })}
 
-        {/* Needle — stays anchored at the center dot and pivots up to the final score */}
-        <g ref={needleRef} transform={`rotate(0 ${cx} ${cy})`}>
-          <polygon
-            points={`${needleTip.x},${needleTip.y} ${needleBase1.x},${needleBase1.y} ${needleBase2.x},${needleBase2.y}`}
-            fill="rgba(255,255,255,0.95)"
-            filter="url(#tari-glow)"
-          />
-        </g>
-        <circle cx={cx} cy={cy} r={9} fill="#0a0a0a" stroke="rgba(255,255,255,0.6)" strokeWidth={1.2} />
-        <circle cx={cx} cy={cy} r={3} fill="rgba(166,252,252,0.9)" />
+        {!presentation && (
+          <>
+            {/* Needle — stays anchored at the center dot and pivots up to the final score */}
+            <g ref={needleRef} transform={`rotate(0 ${cx} ${cy})`}>
+              <polygon
+                points={`${needleTip.x},${needleTip.y} ${needleBase1.x},${needleBase1.y} ${needleBase2.x},${needleBase2.y}`}
+                fill="rgba(255,255,255,0.95)"
+                filter="url(#tari-glow)"
+              />
+            </g>
+            <circle cx={cx} cy={cy} r={9} fill="#0a0a0a" stroke="rgba(255,255,255,0.6)" strokeWidth={1.2} />
+            <circle cx={cx} cy={cy} r={3} fill="rgba(166,252,252,0.9)" />
+          </>
+        )}
 
         {/* Corner marks — small brackets outside arc endpoints */}
         <g stroke="rgba(255,255,255,0.25)" strokeWidth="1" fill="none">
@@ -190,7 +213,7 @@ export const TariGauge = ({ score = 812, label = "TARI™ Score" }: { score?: nu
       </svg>
 
       {/* Center readout — overlaid, absolute so it sits inside the arc */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none pt-[18%]">
+      {!presentation && <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none pt-[18%]">
         <motion.div
           initial={{ opacity: 0, y: 6 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -222,7 +245,7 @@ export const TariGauge = ({ score = 812, label = "TARI™ Score" }: { score?: nu
           <span className="text-white/70">{tier}</span>
           <span className="h-px w-6 bg-white/30" />
         </motion.div>
-      </div>
+      </div>}
     </div>
   );
 };
