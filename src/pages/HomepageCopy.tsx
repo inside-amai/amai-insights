@@ -343,7 +343,8 @@ const HomepageCopy = () => {
                 Liquidity Pools.<br />Now managed by Agents.
               </h2>
               <p className="mt-8 md:mt-10 text-base md:text-lg font-light text-white/65 leading-relaxed max-w-[42ch]">
-                AMAI gives liquidity pools an operator. An AI agent that manages trading fees and distributes a share to token holders in Stock Tokens.
+                AMAI gives liquidity pools an operator.<br /><br />
+                An AI agent that manages trading fees and distributes a share to token holders in Stock Tokens.
               </p>
             </motion.div>
 
