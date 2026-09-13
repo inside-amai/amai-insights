@@ -300,28 +300,35 @@ const HomepageCopy = () => {
             <motion.img
               src={amaiLogo}
               alt="AMAI Labs"
-              className="h-12 md:h-20 w-auto mx-auto mb-8 md:mb-10 brightness-110"
+              className="h-12 md:h-20 w-auto mx-auto mb-10 md:mb-14 brightness-110"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             />
 
-            <motion.div
-              className="mb-8 md:mb-10 max-w-xl mx-auto"
+            <motion.h1
+              className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.05] tracking-[-0.02em] text-white/90 font-medium whitespace-normal sm:whitespace-nowrap"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
             >
-              <p className="text-xl md:text-2xl text-white/80 font-normal leading-relaxed tracking-wide text-center">
-                Agents work. You get paid.
-              </p>
-            </motion.div>
+              Agents work. You get paid.
+            </motion.h1>
+
+            <motion.p
+              className="mt-4 md:mt-5 mx-auto max-w-[640px] text-base sm:text-lg md:text-xl leading-relaxed text-white/55 font-normal"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+            >
+              Agent operated pools that collect trading fees and distribute a share to holders in Stock Tokens.
+            </motion.p>
 
             <motion.div
-              className="mt-10 md:mt-14 flex flex-col items-center gap-4"
+              className="mt-12 md:mt-16 flex flex-col items-center gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
+              transition={{ duration: 0.8, delay: 0.9 }}
             >
               <span className="text-[10px] md:text-xs uppercase tracking-[0.35em] text-white/50 font-light">
                 {c.hero.scroll}
