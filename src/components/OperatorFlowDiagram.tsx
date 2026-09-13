@@ -153,18 +153,23 @@ export const OperatorFlowDiagram = () => {
       const outgoing = gsap.utils.toArray<SVGPathElement>(".outgoing-core, .outgoing-halo");
       const seams = gsap.utils.toArray<SVGLineElement>(".operator-seam, .operator-seam-halo");
 
-      gsap.set(incoming, { strokeDashoffset: 70, opacity: 0 });
-      gsap.set(outgoing, { strokeDashoffset: 70, opacity: 0 });
+      gsap.set(incoming, { strokeDashoffset: -1000, opacity: 0 });
+      gsap.set(outgoing, { strokeDashoffset: -1000, opacity: 0 });
 
       const timeline = gsap.timeline({ repeat: -1, paused: true, defaults: { ease: "power2.inOut" } });
       timeline
-        .set(incoming, { strokeDashoffset: 70, opacity: 0 }, TIMING.incomingStart)
+        .set(incoming, { strokeDashoffset: -1000, opacity: 0 }, TIMING.incomingStart)
         .to(incoming, {
-          strokeDashoffset: -1000,
+          strokeDashoffset: 70,
           opacity: 0.9,
           duration: TIMING.incomingDuration,
           stagger: TIMING.incomingStagger,
         }, TIMING.incomingStart)
+        .to(incoming, {
+          opacity: 0,
+          duration: TIMING.conversionDuration,
+          ease: "power1.out",
+        }, TIMING.conversionStart)
         .to(seams, {
           attr: { "stroke-opacity": 1 },
           duration: TIMING.conversionDuration / 2,
@@ -172,14 +177,14 @@ export const OperatorFlowDiagram = () => {
           yoyo: true,
           repeat: 1,
         }, TIMING.conversionStart)
-        .set(outgoing, { strokeDashoffset: 70, opacity: 0 }, TIMING.outgoingStart)
+        .set(outgoing, { strokeDashoffset: -1000, opacity: 0 }, TIMING.outgoingStart)
         .to(outgoing, {
-          strokeDashoffset: -1000,
+          strokeDashoffset: 70,
           opacity: 0.92,
           duration: TIMING.outgoingDuration,
           stagger: TIMING.outgoingStagger,
         }, TIMING.outgoingStart)
-        .to([...incoming, ...outgoing], {
+        .to(outgoing, {
           opacity: 0,
           duration: TIMING.fadeDuration,
           ease: "power1.out",
