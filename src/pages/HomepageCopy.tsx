@@ -285,7 +285,7 @@ const HomepageCopy = () => {
       {/* Hero */}
       <div className="h-svh md:h-screen flex flex-col">
         <div className="h-16 bg-black flex-shrink-0" />
-        <div className="flex-1 flex flex-col items-center overflow-hidden relative">
+        <div className="flex-1 flex items-center justify-center overflow-hidden relative">
           <motion.img
             src={homeFallbackBg}
             alt=""
@@ -296,56 +296,55 @@ const HomepageCopy = () => {
           />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_100%,rgba(166,252,252,0.14),transparent_60%)]" />
           <div className="pointer-events-none absolute inset-x-0 top-0 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_0%,rgba(166,252,252,0.14),transparent_60%)]" />
+          <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
+            <div className="h-12 md:h-20" aria-hidden="true" />
 
-          <div className="flex-1 flex items-center justify-center relative z-10 w-full px-6">
-            <div className="text-center max-w-3xl mx-auto">
-              <motion.img
-                src={amaiLogo}
-                alt="AMAI Labs"
-                className="h-12 md:h-20 w-auto mx-auto mb-10 md:mb-14 brightness-110"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              />
+            <motion.img
+              src={amaiLogo}
+              alt="AMAI Labs"
+              className="h-12 md:h-20 w-auto mx-auto mb-8 md:mb-10 brightness-110"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            />
 
-              <motion.h1
-                className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.05] tracking-[-0.02em] text-white/90 font-medium whitespace-normal sm:whitespace-nowrap"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-              >
-                Agents work. You get paid.
-              </motion.h1>
+            <motion.h1
+              className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.05] tracking-[-0.02em] text-white/90 font-medium whitespace-normal sm:whitespace-nowrap"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            >
+              Agents work. You get paid.
+            </motion.h1>
 
-              <motion.p
-                className="mt-4 md:mt-5 mx-auto max-w-[640px] text-base sm:text-lg md:text-xl leading-relaxed text-white/55 font-normal"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.7 }}
-              >
-                Agent operated pools that collect trading fees and distribute a share to holders in Stock Tokens.
-              </motion.p>
-            </div>
+            <motion.p
+              className="mt-4 md:mt-5 mx-auto max-w-[640px] text-base sm:text-lg md:text-xl leading-relaxed text-white/55 font-normal"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+            >
+              Agent operated pools that collect trading fees and distribute a share to holders in Stock Tokens.
+            </motion.p>
+
+            <motion.div
+              className="mt-10 md:mt-12 flex flex-col items-center gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.9 }}
+            >
+              <span className="text-[10px] md:text-xs uppercase tracking-[0.35em] text-white/50 font-light">
+                {c.hero.scroll}
+              </span>
+              <div className="relative w-8 h-14 flex items-center justify-center">
+                <div className="absolute inset-x-3 top-1 bottom-1 rounded-full border border-white/15" />
+                <motion.div
+                  className="absolute w-1.5 h-1.5 rounded-full bg-white/80 shadow-[0_0_10px_rgba(255,255,255,0.5)]"
+                  animate={{ y: [-12, 12, -12] }}
+                  transition={{ duration: 2.2, ease: "easeInOut", repeat: Infinity }}
+                />
+              </div>
+            </motion.div>
           </div>
-
-          <motion.div
-            className="relative z-10 pb-10 md:pb-14 flex flex-col items-center gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-          >
-            <span className="text-[10px] md:text-xs uppercase tracking-[0.35em] text-white/50 font-light">
-              {c.hero.scroll}
-            </span>
-            <div className="relative w-8 h-14 flex items-center justify-center">
-              <div className="absolute inset-x-3 top-1 bottom-1 rounded-full border border-white/15" />
-              <motion.div
-                className="absolute w-1.5 h-1.5 rounded-full bg-white/80 shadow-[0_0_10px_rgba(255,255,255,0.5)]"
-                animate={{ y: [-12, 12, -12] }}
-                transition={{ duration: 2.2, ease: "easeInOut", repeat: Infinity }}
-              />
-            </div>
-          </motion.div>
         </div>
       </div>
 
