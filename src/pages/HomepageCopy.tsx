@@ -44,6 +44,8 @@ const TICKERS = ["NVDA", "TSLA"];
 
 const CURRENCY_SYMBOLS = ["$", "€", "¥", "£"] as const;
 
+const PAID_LETTERS = ["p", "a", "i", "d"] as const;
+
 const PaidCurrencyRoll = () => {
   const [locked, setLocked] = useState([false, false, false, false]);
 
@@ -67,48 +69,40 @@ const PaidCurrencyRoll = () => {
     return () => timers.forEach(window.clearTimeout);
   }, []);
 
-  // Same speed for every reel, but staggered starting phase so they cascade
-  // like a slot machine rather than rolling in perfect parallel.
-  const phases = [0, -25, -12.5, -37.5];
+  // Every reel rolls at the same speed, but each starts at a different phase
+  // so the columns cascade instead of rolling in perfect parallel.
+  const phaseDelays = [0, -0.32, -0.61, -0.18];
 
   return (
     <span className="relative inline-block align-baseline" dir="ltr" aria-label="paid">
-      <span>paid</span>
+      {/* Real word: keeps layout, spacing and typography; revealed per letter on lock */}
+      {PAID_LETTERS.map((letter, i) => (
+        <span key={letter} className={locked[i] ? "" : "opacity-0"}>
+          {letter}
+        </span>
+      ))}
+      {/* Rolling overlay, clipped to the exact word box */}
       <span
-        className="absolute inset-x-0 top-[0.05em] bottom-[0.05em] grid grid-cols-4 overflow-hidden pointer-events-none select-none"
+        className="absolute inset-0 grid grid-cols-4 overflow-hidden pointer-events-none select-none"
         aria-hidden="true"
       >
-        {phases.map((phase, reelIndex) => (
-          <span
-            key={reelIndex}
-            className={`relative min-w-0 overflow-hidden transition-colors duration-150 ${
-              locked[reelIndex] ? "bg-transparent" : "bg-black"
-            }`}
-          >
-            <AnimatePresence initial={false}>
-              {!locked[reelIndex] && (
-                <motion.span
-                  key={`reel-${reelIndex}`}
-                  className="absolute inset-0 flex flex-col h-[800%] will-change-transform"
-                  initial={{ y: `${phase}%`, opacity: 1 }}
-                  animate={{ y: `${phase - 50}%` }}
-                  exit={{ opacity: 0 }}
-                  transition={{
-                    y: { duration: 1.0, repeat: Infinity, ease: "linear" },
-                    opacity: { duration: 0.12 },
-                  }}
-                >
-                  {[...CURRENCY_SYMBOLS, ...CURRENCY_SYMBOLS].map((symbol, idx) => (
-                    <span
-                      key={idx}
-                      className="flex-1 flex items-center justify-center leading-none"
-                    >
-                      {symbol}
-                    </span>
-                  ))}
-                </motion.span>
-              )}
-            </AnimatePresence>
+        {phaseDelays.map((delay, reelIndex) => (
+          <span key={reelIndex} className="relative min-w-0 overflow-hidden">
+            {!locked[reelIndex] && (
+              <span
+                className="currency-reel-strip absolute inset-x-0 top-0 flex flex-col h-[800%]"
+                style={{ animationDelay: `${delay}s` }}
+              >
+                {[...CURRENCY_SYMBOLS, ...CURRENCY_SYMBOLS].map((symbol, idx) => (
+                  <span
+                    key={idx}
+                    className="flex-1 flex items-center justify-center leading-none bg-black"
+                  >
+                    {symbol}
+                  </span>
+                ))}
+              </span>
+            )}
           </span>
         ))}
       </span>
