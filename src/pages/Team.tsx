@@ -21,21 +21,21 @@ const reveal = {
 const founders = [
   {
     name: "Denver Nunley",
-    title: "CEO & Co-Founder",
+    title: "CO-FOUNDER",
     line1: "Lead Product & Vision",
-    line2: "Scaled EcoFI to $250M FDV",
+    line2: "10 year blockchain veteran",
     img: "/images/denver.jpeg",
   },
   {
     name: "Scott Trowbridge",
-    title: "Co-Founder & CBO",
+    title: "CO-FOUNDER",
     line1: "Ex-Stability AI Founding Team",
     line2: "Ex-Circle (USDC), WeWork",
     img: "/images/scott.png",
   },
   {
     name: "Josh Sorbel",
-    title: "Co-Founder & CTO",
+    title: "CO-FOUNDER",
     line1: "25+ Years Enterprise Cybersecurity",
     line2: "Ex-FBI Incident Response Lead",
     img: "/images/josh.png",
