@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { motion, useInView, useScroll, useMotionValueEvent, animate, AnimatePresence } from "framer-motion";
+import { motion, useInView, animate, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Copy, Check, ChevronRight, ChevronLeft } from "lucide-react";
 import amaiLogo from "@/assets/amai-logo-tm.png";
@@ -80,15 +80,6 @@ const CHAIN_LINES = [
   "Swap into the chosen stock",
   "Pay every holder",
   "Withdraw the principal",
-] as const;
-
-const OPERATOR_REVEAL_LINES = [
-  "Every pool in DeFi is a vault.",
-  "This one has a worker.",
-  "The worker is an AI with a credit score.",
-  "The score decides its powers.",
-  "It pays you in stock.",
-  "You can fire it.",
 ] as const;
 
 const ChainMakesSureSequence = () => {
@@ -216,39 +207,6 @@ const HomepageCopy = () => {
   const logRef = useRef<HTMLDivElement>(null);
   const logInView = useInView(logRef, { once: true, amount: 0.3 });
   const [logIndex, setLogIndex] = useState(-1);
-  const operatorSectionRef = useRef<HTMLElement>(null);
-  const [operatorRevealIndex, setOperatorRevealIndex] = useState(-1);
-  const [operatorDesktop, setOperatorDesktop] = useState(() => window.matchMedia("(min-width: 1024px)").matches);
-  const operatorInView = useInView(operatorSectionRef, { once: true, amount: 0.08 });
-  const { scrollYProgress: operatorScrollProgress } = useScroll({
-    target: operatorSectionRef,
-    offset: ["start start", "end end"],
-  });
-
-  useEffect(() => {
-    const query = window.matchMedia("(min-width: 1024px)");
-    const update = () => setOperatorDesktop(query.matches);
-    update();
-    query.addEventListener("change", update);
-    return () => query.removeEventListener("change", update);
-  }, []);
-
-  useMotionValueEvent(operatorScrollProgress, "change", (progress) => {
-    if (!operatorDesktop || progress <= 0) return;
-    const nextIndex = Math.min(6, Math.ceil(progress * 7) - 1);
-    setOperatorRevealIndex((current) => Math.max(current, nextIndex));
-  });
-
-  useEffect(() => {
-    if (operatorDesktop || !operatorInView) return;
-    let nextIndex = 0;
-    const timer = window.setInterval(() => {
-      setOperatorRevealIndex((current) => Math.max(current, nextIndex));
-      nextIndex += 1;
-      if (nextIndex > 6) window.clearInterval(timer);
-    }, 500);
-    return () => window.clearInterval(timer);
-  }, [operatorDesktop, operatorInView]);
 
   useEffect(() => {
     if (!logInView) return;
@@ -382,12 +340,12 @@ const HomepageCopy = () => {
       </div>
 
       {/* Section 3 MEET THE OPERATOR */}
-      <section ref={operatorSectionRef} id="score" className="relative bg-perspective-grid px-4 md:px-8 overflow-visible lg:h-[800vh]">
+      <section id="score" className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-transparent pointer-events-none" />
         <div className="pointer-events-none absolute -left-40 top-1/3 w-[520px] h-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.06),transparent_70%)]" />
 
-        <div className="relative z-10 max-w-7xl mx-auto py-24 md:py-32 lg:py-10 lg:sticky lg:top-16 lg:h-[calc(100svh-4rem)] lg:grid lg:grid-cols-12 lg:gap-20 lg:items-center">
-          <div className="lg:col-span-7 text-start">
+        <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
+          <motion.div className="lg:col-span-7 text-start" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}>
             <div className="flex items-center gap-3 mb-8">
               <span className="h-px w-10 bg-white/30" />
               <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">Meet the operator.</span>
@@ -395,40 +353,23 @@ const HomepageCopy = () => {
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05]">
               Agent operated pools.
             </h2>
-            <div className="mt-10 md:mt-12 max-w-2xl">
-              {OPERATOR_REVEAL_LINES.map((line, index) => {
-                const revealed = index <= operatorRevealIndex;
-                const newest = index === operatorRevealIndex;
-                return (
-                  <motion.div
-                    key={line}
-                    className={`py-2 md:py-2.5 text-2xl md:text-3xl font-normal leading-tight transition-colors duration-400 ${newest ? "text-white" : "text-white/50"}`}
-                    initial={false}
-                    animate={revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 22 }}
-                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                  >
-                    {line}
-                  </motion.div>
-                );
-              })}
-              <motion.p
-                className="mt-8 md:mt-10 text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight text-white leading-[1.12]"
-                initial={false}
-                animate={operatorRevealIndex >= 6 ? { opacity: 1, y: 0 } : { opacity: 0, y: 22 }}
-                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              >
-                Every move it makes, on the record.
-              </motion.p>
+            <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-2xl">
+              It collects the pool's fees. Converts them to stock. Pays every holder. Knows when the market closes.
+              <br /><br />
+              It never touches the principal. The chain won't let it.
+            </p>
+            <div className="mt-16 md:mt-20 pt-10 border-t border-white/10 max-w-2xl">
+              <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-tight text-white leading-[1.15]">
+                Every move it makes,
+                <br />
+                <span className="text-white/50">on the record.</span>
+              </p>
             </div>
-          </div>
+          </motion.div>
 
-          <motion.div className="mt-20 lg:mt-0 lg:col-span-5 lg:pt-4" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}>
-            <div className="mb-6 flex flex-wrap items-center text-[11px] tracking-[0.25em] font-light text-white/50 uppercase font-mono">
-              <span>THE OPERATOR'S LOG</span>
-              <span className="px-2 text-white/25">·</span>
-              <span>TARI <span className="text-cyan-accent">812</span></span>
-              <span className="px-2 text-white/25">·</span>
-              <span>TIER 3</span>
+          <motion.div className="lg:col-span-5 lg:pt-4" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}>
+            <div className="mb-6">
+              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase font-mono">THE OPERATOR'S LOG</span>
             </div>
             <div ref={logRef} className={`relative ${isRtl ? 'pr-8 md:pr-10' : 'pl-8 md:pl-10'}`}>
               <div className={`absolute ${isRtl ? 'right-0' : 'left-0'} top-2 bottom-2 w-px bg-gradient-to-b from-[#7dd3d8]/50 via-[#5ec9a8]/40 via-[#e8b25a]/40 to-[#e15a3b]/50`} />
