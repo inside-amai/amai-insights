@@ -1,5 +1,5 @@
 import { useLanguage, Language } from '@/contexts/LanguageContext';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { showEmailFallbackToast } from '@/lib/contact-toast';
 import { Globe, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
@@ -14,7 +14,6 @@ const languages: { code: Language; label: string }[] = [
 export const SiteHeader = () => {
   const { language, setLanguage } = useLanguage();
   const location = useLocation();
-  const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   // Close menu on route change
@@ -35,18 +34,6 @@ export const SiteHeader = () => {
 
   const handleContactClick = () => {
     showEmailFallbackToast();
-  };
-
-  const handleTeamClick = () => {
-    setMobileOpen(false);
-    if (location.pathname === '/') {
-      document.getElementById('team')?.scrollIntoView({ behavior: 'smooth' });
-      return;
-    }
-    navigate('/#team');
-    window.setTimeout(() => {
-      document.getElementById('team')?.scrollIntoView({ behavior: 'smooth' });
-    }, 100);
   };
 
   const mailto = "mailto:team@amai.net?subject=Mission%20Briefing%20%2F%2F%20%5BOrganization%20Name%5D&body=To%20the%20AMAI%20Labs%20Team%2C%0A%0AWe%20are%20reaching%20out%20regarding%20the%20%5BThesis%20%2F%20Architecture%5D.%0A%0AName%3A%20%0AOrganization%3A%20%0AIntent%3A%20";
@@ -86,7 +73,7 @@ export const SiteHeader = () => {
               <Link to="/launchpad" className="hover:text-white/90 transition-colors">Launchpad</Link><span className="text-white/20">·</span>
               <Link to="/tari" className="hover:text-white/90 transition-colors">Tari</Link><span className="text-white/20">·</span>
               <a href="https://bureau.amai.net" target="_blank" rel="noopener noreferrer" className="hover:text-white/90 transition-colors">Bureau ↗</a><span className="text-white/20">·</span>
-              <button type="button" onClick={handleTeamClick} className="uppercase hover:text-white/90 transition-colors">Team</button><span className="text-white/20">·</span>
+              <Link to="/team" className="hover:text-white/90 transition-colors">Team</Link><span className="text-white/20">·</span>
               <a href={mailto} onClick={handleContactClick} className="hover:text-white/90 transition-colors">Contact</a>
             </div>
             <div className="flex items-center gap-1 ml-5 pl-5 border-l border-white/10">
@@ -147,7 +134,7 @@ export const SiteHeader = () => {
             <Link to="/launchpad" className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Launchpad</Link>
             <Link to="/tari" className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Tari</Link>
             <a href="https://bureau.amai.net" target="_blank" rel="noopener noreferrer" className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Bureau ↗</a>
-            <button type="button" onClick={handleTeamClick} className="py-3 text-left text-xl font-light uppercase text-white/90 border-b border-white/10">Team</button>
+            <Link to="/team" className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Team</Link>
             <a href={mailto} onClick={() => { setMobileOpen(false); handleContactClick(); }} className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Contact</a>
           </nav>
 
