@@ -204,55 +204,56 @@ export const EcosystemSection = () => {
                   isOpen ? "bg-white/[0.04]" : "hover:bg-white/[0.03]"
                 }`}
               >
-                <div className="grid grid-cols-[2rem_1fr_auto] md:grid-cols-[2.5rem_1fr_auto] gap-4 md:gap-6 items-start">
-                  <button
-                    ref={(el) => { itemRefs.current[index] = el; }}
-                    type="button"
-                    aria-expanded={isOpen}
-                    aria-controls={`faq-answer-${index}`}
-                    onClick={() => handleToggle(index)}
-                    onKeyDown={(e) => handleKeyDown(e, index)}
-                    className="col-span-3 grid grid-cols-[subgrid] items-start w-full text-left focus:outline-none focus-visible:bg-white/[0.05] focus-visible:ring-1 focus-visible:ring-cyan-accent/60 focus-visible:ring-inset py-6 md:py-7 px-2 md:px-4"
-                  >
-                    <span className="pt-1 text-sm md:text-base font-mono text-cyan-accent/70 tabular-nums">
+                <button
+                  ref={(el) => { itemRefs.current[index] = el; }}
+                  type="button"
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${index}`}
+                  onClick={() => handleToggle(index)}
+                  onKeyDown={(e) => handleKeyDown(e, index)}
+                  className="w-full text-left focus:outline-none focus-visible:bg-white/[0.05] focus-visible:ring-1 focus-visible:ring-cyan-accent/60 focus-visible:ring-inset"
+                >
+                  <div className="flex items-start gap-4 md:gap-6 py-6 md:py-7 px-2 md:px-4">
+                    <span className="flex-shrink-0 w-8 md:w-10 pt-1 text-sm md:text-base font-mono text-cyan-accent/70 tabular-nums">
                       {faq.num}
                     </span>
                     <span
                       id={`faq-question-${index}`}
-                      className="text-[19px] md:text-[22px] font-normal text-white/90 leading-tight pr-4"
+                      className="flex-1 text-[19px] md:text-[22px] font-normal text-white/90 leading-tight pr-4"
                     >
                       {faq.question}
                     </span>
-                    <span className="pt-1.5 text-white/50" aria-hidden="true">
+                    <span className="flex-shrink-0 pt-1.5 text-white/50" aria-hidden="true">
                       {isOpen ? (
                         <Minus className="w-5 h-5" strokeWidth={1.5} />
                       ) : (
                         <Plus className="w-5 h-5" strokeWidth={1.5} />
                       )}
                     </span>
-                  </button>
+                  </div>
+                </button>
 
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        id={`faq-answer-${index}`}
-                        role="region"
-                        aria-labelledby={`faq-question-${index}`}
-                        className="col-start-2 col-span-2 pb-7 md:pb-8 px-2 md:px-4"
-                        initial={reducedMotion ? { opacity: 1 } : { opacity: 0, height: 0 }}
-                        animate={reducedMotion ? { opacity: 1 } : { opacity: 1, height: "auto" }}
-                        exit={reducedMotion ? { opacity: 1 } : { opacity: 0, height: 0 }}
-                        transition={reducedMotion ? { duration: 0 } : { duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                      >
-                        <div className="max-w-[65ch]">
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      id={`faq-answer-${index}`}
+                      role="region"
+                      aria-labelledby={`faq-question-${index}`}
+                      initial={reducedMotion ? { opacity: 1 } : { opacity: 0, height: 0 }}
+                      animate={reducedMotion ? { opacity: 1 } : { opacity: 1, height: "auto" }}
+                      exit={reducedMotion ? { opacity: 1 } : { opacity: 0, height: 0 }}
+                      transition={reducedMotion ? { duration: 0 } : { duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                      <div className="pb-7 md:pb-8 px-2 md:px-4">
+                        <div className="pl-12 md:pl-16 max-w-[65ch]">
                           <p className="text-base md:text-[17px] font-light leading-relaxed text-white/65">
                             {faq.answer}
                           </p>
                         </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             );
           })}
