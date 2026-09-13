@@ -399,7 +399,8 @@ const HomepageCopy = () => {
               <div className="mt-10 md:mt-12 pl-4 md:pl-5 border-l border-cyan-accent/60">
                 <span className="text-[11px] tracking-[0.3em] font-light text-white/50 uppercase">Denied Permissions</span>
                 <p className="mt-3 text-sm md:text-base font-light text-white/70 leading-relaxed">
-                  The operator cannot withdraw the pool’s principal.
+                  The operator cannot withdraw the pool’s principal.<br />
+                  It cannot expand its own permissions.
                 </p>
               </div>
             </motion.div>
