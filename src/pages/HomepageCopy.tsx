@@ -43,16 +43,18 @@ const CountUp = ({ to, prefix = "", suffix = "" }: { to: number; prefix?: string
 const TICKERS = ["NVDA", "TSLA"];
 
 const CURRENCY_SYMBOLS = ["$", "€", "¥", "£"] as const;
-const PAID_LETTERS = ["P", "A", "I", "D"] as const;
+const PAID_LETTERS = ["p", "a", "i", "d"] as const;
 
 const PaidCurrencyRoll = () => {
   const [reels, setReels] = useState<Array<{ symbol: string; tick: number }>>(() =>
     CURRENCY_SYMBOLS.map((symbol, index) => ({ symbol, tick: index }))
   );
+  const [finished, setFinished] = useState(false);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setReels(PAID_LETTERS.map((symbol, index) => ({ symbol, tick: 100 + index })));
+      setFinished(true);
       return;
     }
 
@@ -69,34 +71,38 @@ const PaidCurrencyRoll = () => {
         tick: reel.symbol === PAID_LETTERS[index] ? reel.tick : tick,
       })));
 
-      if (elapsed >= 5000) window.clearInterval(timer);
+      if (elapsed >= 5000) {
+        window.clearInterval(timer);
+        setFinished(true);
+      }
     }, 120);
 
     return () => window.clearInterval(timer);
   }, []);
 
   return (
-    <span className="inline-flex" dir="ltr" aria-label="paid">
-      {reels.map((reel, reelIndex) => (
-        <span
-          key={reelIndex}
-          className="relative inline-block h-[1.05em] w-[0.7em] overflow-hidden align-[-0.12em]"
-          aria-hidden="true"
-        >
-          <AnimatePresence initial={false}>
-            <motion.span
-              key={`${reel.symbol}-${reel.tick}`}
-              className="absolute inset-0 flex items-center justify-center"
-              initial={{ y: "95%" }}
-              animate={{ y: 0 }}
-              exit={{ y: "-95%" }}
-              transition={{ duration: 0.11, ease: "linear" }}
-            >
-              {reel.symbol}
-            </motion.span>
-          </AnimatePresence>
+    <span className="relative inline-block align-baseline" dir="ltr" aria-label="paid">
+      <span className={finished ? "visible" : "invisible"}>paid</span>
+      {!finished && (
+        <span className="absolute inset-0 grid grid-cols-4 overflow-hidden [clip-path:inset(0)] [contain:paint]" aria-hidden="true">
+          {reels.map((reel, reelIndex) => (
+            <span key={reelIndex} className="relative h-full min-w-0 overflow-hidden [clip-path:inset(0)] [contain:paint]">
+              <AnimatePresence initial={false}>
+                <motion.span
+                  key={`${reel.symbol}-${reel.tick}`}
+                  className="absolute inset-0 flex items-center justify-center leading-[1.05]"
+                  initial={{ y: "92%" }}
+                  animate={{ y: 0 }}
+                  exit={{ y: "-92%" }}
+                  transition={{ duration: 0.11, ease: "linear" }}
+                >
+                  {reel.symbol}
+                </motion.span>
+              </AnimatePresence>
+            </span>
+          ))}
         </span>
-      ))}
+      )}
     </span>
   );
 };
