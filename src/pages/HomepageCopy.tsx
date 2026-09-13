@@ -46,39 +46,55 @@ const CURRENCY_SYMBOLS = ["$", "€", "¥", "£"] as const;
 const PAID_LETTERS = ["P", "A", "I", "D"] as const;
 
 const PaidCurrencyRoll = () => {
-  const reels = PAID_LETTERS.map((letter, reelIndex) => [
-    ...Array.from({ length: 28 + reelIndex * 3 }, (_, index) =>
-      CURRENCY_SYMBOLS[(index + reelIndex) % CURRENCY_SYMBOLS.length]
-    ),
-    letter,
-  ]);
+  const [reels, setReels] = useState(() =>
+    CURRENCY_SYMBOLS.map((symbol, index) => ({ symbol, tick: index }))
+  );
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setReels(PAID_LETTERS.map((symbol, index) => ({ symbol, tick: 100 + index })));
+      return;
+    }
+
+    const startedAt = window.performance.now();
+    const lockTimes = [3800, 4150, 4500, 4850];
+    let tick = 0;
+    const timer = window.setInterval(() => {
+      const elapsed = window.performance.now() - startedAt;
+      tick += 1;
+      setReels((current) => current.map((reel, index) => ({
+        symbol: elapsed >= lockTimes[index]
+          ? PAID_LETTERS[index]
+          : CURRENCY_SYMBOLS[(tick + index) % CURRENCY_SYMBOLS.length],
+        tick: reel.symbol === PAID_LETTERS[index] ? reel.tick : tick,
+      })));
+
+      if (elapsed >= 5000) window.clearInterval(timer);
+    }, 120);
+
+    return () => window.clearInterval(timer);
+  }, []);
 
   return (
     <span className="inline-flex" dir="ltr" aria-label="paid">
       {reels.map((reel, reelIndex) => (
         <span
-          key={PAID_LETTERS[reelIndex]}
+          key={reelIndex}
           className="relative inline-block h-[1.05em] w-[0.7em] overflow-hidden align-[-0.12em]"
           aria-hidden="true"
         >
-          <motion.span
-            className="absolute inset-x-0 top-0 flex flex-col items-center"
-            animate={{ y: ["0em", `-${(reel.length - 1) * 1.05}em`] }}
-            transition={{
-              duration: 3.85 + reelIndex * 0.35,
-              ease: [0.12, 0.72, 0.22, 1],
-              times: [0, 1],
-            }}
-          >
-            {reel.map((character, characterIndex) => (
-              <span
-                key={`${character}-${characterIndex}`}
-                className="flex h-[1.05em] shrink-0 items-center justify-center leading-[1.05]"
-              >
-                {character}
-              </span>
-            ))}
-          </motion.span>
+          <AnimatePresence initial={false}>
+            <motion.span
+              key={`${reel.symbol}-${reel.tick}`}
+              className="absolute inset-0 flex items-center justify-center"
+              initial={{ y: "95%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "-95%" }}
+              transition={{ duration: 0.11, ease: "linear" }}
+            >
+              {reel.symbol}
+            </motion.span>
+          </AnimatePresence>
         </span>
       ))}
     </span>
