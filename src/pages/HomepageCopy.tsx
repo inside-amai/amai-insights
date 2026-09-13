@@ -42,50 +42,57 @@ const CountUp = ({ to, prefix = "", suffix = "" }: { to: number; prefix?: string
 
 const TICKERS = ["NVDA", "TSLA"];
 
-const CURRENCY_SYMBOLS = ["$", "€", "¥", "£", "₹", "₩"] as const;
+const CURRENCY_SYMBOLS = ["$", "€", "¥", "£"] as const;
 const PAID_LETTERS = ["P", "A", "I", "D"] as const;
 
 const PaidCurrencyRoll = () => {
-  const [characters, setCharacters] = useState<string[]>(["$", "€", "¥", "£"]);
+  const [reels, setReels] = useState<Array<{ symbol: string; tick: number }>>(() =>
+    CURRENCY_SYMBOLS.map((symbol, index) => ({ symbol, tick: index }))
+  );
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setCharacters([...PAID_LETTERS]);
+      setReels(PAID_LETTERS.map((symbol, index) => ({ symbol, tick: 100 + index })));
       return;
     }
 
     const startedAt = window.performance.now();
     const lockTimes = [3800, 4150, 4500, 4850];
+    let tick = 0;
     const timer = window.setInterval(() => {
       const elapsed = window.performance.now() - startedAt;
-      setCharacters((current) => current.map((character, index) => {
-        if (elapsed >= lockTimes[index]) return PAID_LETTERS[index];
-        const currentSymbol = CURRENCY_SYMBOLS.indexOf(character as typeof CURRENCY_SYMBOLS[number]);
-        const nextSymbol = (Math.max(currentSymbol, index) + 1 + index) % CURRENCY_SYMBOLS.length;
-        return CURRENCY_SYMBOLS[nextSymbol];
-      }));
+      tick += 1;
+      setReels((current) => current.map((reel, index) => ({
+        symbol: elapsed >= lockTimes[index]
+          ? PAID_LETTERS[index]
+          : CURRENCY_SYMBOLS[(tick + index) % CURRENCY_SYMBOLS.length],
+        tick: reel.symbol === PAID_LETTERS[index] ? reel.tick : tick,
+      })));
 
       if (elapsed >= 5000) window.clearInterval(timer);
-    }, 110);
+    }, 120);
 
     return () => window.clearInterval(timer);
   }, []);
 
   return (
-    <span className="inline-flex font-mono text-cyan-accent" dir="ltr" aria-label="paid">
-      {characters.map((character, index) => (
-        <span key={index} className="relative inline-block w-[0.72em] overflow-hidden align-bottom">
-          <span className="invisible">M</span>
-          <AnimatePresence initial={false} mode="popLayout">
+    <span className="inline-flex" dir="ltr" aria-label="paid">
+      {reels.map((reel, reelIndex) => (
+        <span
+          key={reelIndex}
+          className="relative inline-block h-[1.05em] w-[0.7em] overflow-hidden align-[-0.12em]"
+          aria-hidden="true"
+        >
+          <AnimatePresence initial={false}>
             <motion.span
-              key={character}
+              key={`${reel.symbol}-${reel.tick}`}
               className="absolute inset-0 flex items-center justify-center"
-              initial={{ y: "90%", opacity: 0, filter: "blur(3px)" }}
-              animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-              exit={{ y: "-90%", opacity: 0, filter: "blur(3px)" }}
-              transition={{ duration: 0.1, ease: "linear" }}
+              initial={{ y: "95%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "-95%" }}
+              transition={{ duration: 0.11, ease: "linear" }}
             >
-              {character}
+              {reel.symbol}
             </motion.span>
           </AnimatePresence>
         </span>
