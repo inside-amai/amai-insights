@@ -16,6 +16,7 @@ import { pickHome } from "@/i18n/pageContent";
 import { Footer } from "@/components/Footer";
 import { TariGauge } from "@/components/TariGauge";
 import { EvidenceDistribution } from "@/components/EvidenceDistribution";
+import { EcosystemSection } from "@/components/EcosystemSection";
 
 
 
@@ -552,6 +553,11 @@ const HomepageCopy = () => {
           </div>
         </div>
       </section>
+
+      <EcosystemSection />
+
+
+
 
 
 
