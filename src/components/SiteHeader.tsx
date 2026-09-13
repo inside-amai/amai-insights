@@ -79,7 +79,7 @@ export const SiteHeader = () => {
             </div>
 
           {/* Desktop Nav */}
-          <nav className="pointer-events-auto hidden xl:flex items-center text-[11px] tracking-[0.1em] flex-shrink-0 whitespace-nowrap uppercase text-white/60">
+          <nav className="pointer-events-auto hidden sm:flex items-center text-[11px] tracking-[0.1em] flex-shrink-0 whitespace-nowrap uppercase text-white/60">
             <div className="flex items-center gap-2">
               <Link to="/" className="hover:text-white/90 transition-colors">Home</Link><span className="text-white/20">·</span>
               <Link to="/operators" className="hover:text-white/90 transition-colors">Operators</Link><span className="text-white/20">·</span>
@@ -115,7 +115,7 @@ export const SiteHeader = () => {
             <button
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
-              className="pointer-events-auto xl:hidden flex items-center justify-center w-10 h-10 -mr-2 text-white/80 hover:text-white transition-colors"
+              className="pointer-events-auto sm:hidden flex items-center justify-center w-10 h-10 -mr-2 text-white/80 hover:text-white transition-colors"
             >
               <Menu className="h-5 w-5" strokeWidth={1.5} />
             </button>
@@ -124,7 +124,7 @@ export const SiteHeader = () => {
 
       {/* Mobile Overlay Menu */}
       {mobileOpen && (
-        <div className="pointer-events-auto xl:hidden fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex flex-col">
+        <div className="pointer-events-auto sm:hidden fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex flex-col">
           <div className="container mx-auto px-6 py-4 flex items-center justify-between">
             <img 
               src={headerIcon}
