@@ -74,6 +74,105 @@ const TickerRoll = () => {
   );
 };
 
+const REFUSAL_ATTEMPTS = [
+  "Withdraw the principal",
+  "Move the position",
+  "Send ETH out of the Safe",
+  "Swap into a different token",
+  "Swap through a different venue",
+  "Change the policy",
+];
+
+const RefusalsSequence = ({ active }: { active: boolean }) => {
+  const [line, setLine] = useState(0);
+  const [chars, setChars] = useState(0);
+  const [phase, setPhase] = useState<"typing" | "strike" | "holdall">("typing");
+  const [cycle, setCycle] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    if (!active || phase === "holdall") return;
+    let cancelled = false;
+    const timers: number[] = [];
+    const text = REFUSAL_ATTEMPTS[line];
+    const step = 1000 / text.length;
+    for (let i = 1; i <= text.length; i++) {
+      timers.push(window.setTimeout(() => { if (!cancelled) setChars(i); }, i * step));
+    }
+    timers.push(window.setTimeout(() => { if (!cancelled) setPhase("strike"); }, 1000 + 450));
+    timers.push(window.setTimeout(() => {
+      if (cancelled) return;
+      if (line < REFUSAL_ATTEMPTS.length - 1) {
+        setLine((l) => l + 1);
+        setChars(0);
+        setPhase("typing");
+      } else {
+        setPhase("holdall");
+      }
+    }, 1000 + 450 + 600));
+    return () => { cancelled = true; timers.forEach(clearTimeout); };
+  }, [line, cycle, active, phase === "holdall"]);
+
+  useEffect(() => {
+    if (!active || phase !== "holdall") return;
+    const t1 = window.setTimeout(() => setVisible(false), 4000);
+    const t2 = window.setTimeout(() => {
+      setLine(0);
+      setChars(0);
+      setPhase("typing");
+      setVisible(true);
+      setCycle((c) => c + 1);
+    }, 4700);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
+  }, [phase, active]);
+
+  return (
+    <motion.div
+      className="w-full font-mono text-2xl md:text-3xl leading-snug"
+      animate={{ opacity: visible ? 1 : 0 }}
+      transition={{ duration: 0.6 }}
+      dir="ltr"
+    >
+      {REFUSAL_ATTEMPTS.map((attempt, i) => {
+        if (i > line) return <div key={attempt} className="h-[1.6em] md:h-[1.7em]" />;
+        const isActive = i === line;
+        const struck = !isActive || phase !== "typing";
+        const text = isActive && phase === "typing" ? attempt.slice(0, chars) : attempt;
+        return (
+          <div key={attempt} className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-6 py-1">
+            <span className={`relative inline-block transition-colors duration-500 ${struck ? "text-white/30" : "text-white/90"}`}>
+              {text}
+              {isActive && phase === "typing" && chars < attempt.length && (
+                <span className="inline-block w-[0.55em] h-[1em] bg-white/70 align-[-0.12em] ml-0.5 animate-pulse" />
+              )}
+              {struck && (
+                <motion.span
+                  key={`strike-${cycle}-${i}`}
+                  className="absolute left-0 right-0 top-1/2 h-px bg-white/40 origin-left"
+                  initial={isActive ? { scaleX: 0 } : false}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 0.5, ease: [0.3, 0.6, 0.3, 1] }}
+                />
+              )}
+            </span>
+            {struck && (
+              <motion.span
+                key={`stamp-${cycle}-${i}`}
+                className="text-sm md:text-base tracking-[0.25em] text-[#e8b25a] shrink-0"
+                initial={isActive ? { opacity: 0, scale: 0.85 } : false}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: isActive ? 0.35 : 0, duration: 0.3 }}
+              >
+                REFUSED
+              </motion.span>
+            )}
+          </div>
+        );
+      })}
+    </motion.div>
+  );
+};
+
 const HomepageCopy = () => {
   const { language } = useLanguage();
   const c = pickHome(language);
