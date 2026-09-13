@@ -14,7 +14,6 @@ const languages: { code: Language; label: string }[] = [
 export const SiteHeader = () => {
   const { language, setLanguage } = useLanguage();
   const location = useLocation();
-  const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   // Close menu on route change
