@@ -44,6 +44,7 @@ import Docs from "./pages/Docs";
 import Operators from "./pages/Operators";
 import Tari from "./pages/Tari";
 import Launchpad from "./pages/Launchpad";
+import Team from "./pages/Team";
 
 
 
@@ -130,6 +131,7 @@ const App = () => (
             <Route path="/operators" element={<Operators />} />
             <Route path="/tari" element={<Tari />} />
             <Route path="/launchpad" element={<Launchpad />} />
+            <Route path="/team" element={<Team />} />
             {/* Admin routes */}
             <Route path="/admin/pilot-requests" element={<AdminPilotRequests />} />
             <Route path="/state-of-agent-trust" element={<StateOfAgentTrust />} />
