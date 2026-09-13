@@ -9,6 +9,7 @@ import institutionsLens from "@/assets/institutions-lens-v3.png.asset.json";
 import institutionsApprovals from "@/assets/institutions-approvals.png.asset.json";
 import institutionsFleetNew from "@/assets/institutions-fleet-new.png.asset.json";
 import liveTraceImage from "@/assets/live-trace.png.asset.json";
+import amaiPoolGraphic from "@/assets/AMAI_graphic.svg.asset.json";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { pickHome } from "@/i18n/pageContent";
 
@@ -347,6 +348,20 @@ const HomepageCopy = () => {
                 AMAI gives liquidity pools an operator.<br /><br />
                 An AI agent that manages trading fees and distributes a share to token holders in Stock Tokens.
               </p>
+              <motion.figure
+                className="mt-10 md:mt-14 w-full max-w-[560px] lg:-ml-10"
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.25 }}
+                transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <img
+                  src={amaiPoolGraphic.url}
+                  alt="Conceptual AMAI liquidity pool with an illuminated fee channel"
+                  className="block h-auto w-full"
+                  loading="lazy"
+                />
+              </motion.figure>
             </motion.div>
 
             <motion.div
