@@ -218,7 +218,8 @@ const HomepageCopy = () => {
   const [logIndex, setLogIndex] = useState(-1);
   const operatorSectionRef = useRef<HTMLElement>(null);
   const [operatorRevealIndex, setOperatorRevealIndex] = useState(-1);
-  const [operatorDesktop, setOperatorDesktop] = useState(false);
+  const [operatorDesktop, setOperatorDesktop] = useState(() => window.matchMedia("(min-width: 1024px)").matches);
+  const operatorInView = useInView(operatorSectionRef, { once: true, amount: 0.08 });
   const { scrollYProgress: operatorScrollProgress } = useScroll({
     target: operatorSectionRef,
     offset: ["start start", "end end"],
@@ -237,6 +238,17 @@ const HomepageCopy = () => {
     const nextIndex = Math.min(6, Math.ceil(progress * 7) - 1);
     setOperatorRevealIndex((current) => Math.max(current, nextIndex));
   });
+
+  useEffect(() => {
+    if (operatorDesktop || !operatorInView) return;
+    let nextIndex = 0;
+    const timer = window.setInterval(() => {
+      setOperatorRevealIndex((current) => Math.max(current, nextIndex));
+      nextIndex += 1;
+      if (nextIndex > 6) window.clearInterval(timer);
+    }, 500);
+    return () => window.clearInterval(timer);
+  }, [operatorDesktop, operatorInView]);
 
   useEffect(() => {
     if (!logInView) return;
@@ -394,10 +406,6 @@ const HomepageCopy = () => {
                     initial={false}
                     animate={revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 22 }}
                     transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                    onViewportEnter={() => {
-                      if (!operatorDesktop) setOperatorRevealIndex((current) => Math.max(current, index));
-                    }}
-                    viewport={{ once: true, amount: 0.8 }}
                   >
                     {line}
                   </motion.div>
@@ -408,10 +416,6 @@ const HomepageCopy = () => {
                 initial={false}
                 animate={operatorRevealIndex >= 6 ? { opacity: 1, y: 0 } : { opacity: 0, y: 22 }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                onViewportEnter={() => {
-                  if (!operatorDesktop) setOperatorRevealIndex((current) => Math.max(current, 6));
-                }}
-                viewport={{ once: true, amount: 0.8 }}
               >
                 Every move it makes, on the record.
               </motion.p>
