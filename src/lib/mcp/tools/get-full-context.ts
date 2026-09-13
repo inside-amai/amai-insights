@@ -1,6 +1,6 @@
 import { defineTool } from "@lovable.dev/mcp-js";
 
-const URL = "https://amai-insights.lovable.app/llms-full.txt";
+const URL = "https://insights.amai.net/llms-full.txt";
 
 export default defineTool({
   name: "get_full_context",

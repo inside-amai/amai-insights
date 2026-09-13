@@ -209,7 +209,7 @@ const GenesisMint = () => {
               <div className="flex justify-center items-center w-full">
                 <div className="max-w-sm w-full rounded-2xl border border-primary/20 overflow-hidden">
                   <OptimizedImage 
-                    src="/lovable-uploads/b74c26f1-82a6-4960-827f-c0f680e402ed.png" 
+                    src="/uploads/b74c26f1-82a6-4960-827f-c0f680e402ed.png" 
                     alt="Legendary PudgyAgent"
                     imgClassName="w-full h-auto"
                   />
@@ -220,7 +220,7 @@ const GenesisMint = () => {
             {/* Desktop Image - Horizontal */}
             <div className="hidden md:block relative w-full max-w-4xl mx-auto rounded-2xl overflow-hidden border border-primary/20 backdrop-blur-sm shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)]">
               <OptimizedImage 
-                src="/lovable-uploads/be436350-f096-489a-9ec9-09cc71d0d068.png" 
+                src="/uploads/be436350-f096-489a-9ec9-09cc71d0d068.png" 
                 alt="4-Step Agent Creation Wizard"
                 className="w-full h-auto"
               />
@@ -649,7 +649,7 @@ const GenesisMint = () => {
                 className="transition-all duration-300 hover:scale-105 opacity-60 hover:opacity-100"
               >
                 <img 
-                  src="/lovable-uploads/f688c83b-1c4d-44c4-bbc4-f9328559a323.png" 
+                  src="/uploads/f688c83b-1c4d-44c4-bbc4-f9328559a323.png" 
                   alt="Join Telegram" 
                   className="w-10 h-10 md:w-12 md:h-12 object-contain filter brightness-50 hover:brightness-100 transition-all duration-300"
                   style={{ width: '40px', height: '40px' }}
@@ -663,7 +663,7 @@ const GenesisMint = () => {
                 className="transition-all duration-300 hover:scale-105 opacity-60 hover:opacity-100"
               >
                 <img 
-                  src="/lovable-uploads/53e90b93-7fe0-4c2c-b053-df64d7a767d0.png" 
+                  src="/uploads/53e90b93-7fe0-4c2c-b053-df64d7a767d0.png" 
                   alt="Follow on X" 
                   className="w-10 h-10 md:w-12 md:h-12 object-contain filter brightness-50 hover:brightness-100 transition-all duration-300"
                   style={{ width: '40px', height: '40px' }}
@@ -677,7 +677,7 @@ const GenesisMint = () => {
       {/* Full Width Image Section */}
       <section className="w-full relative z-50">
         <img 
-          src="/lovable-uploads/4a69233f-cbaa-4325-8428-b1a6a904dc87.png" 
+          src="/uploads/4a69233f-cbaa-4325-8428-b1a6a904dc87.png" 
           alt="Hero image"
           className="w-full h-auto object-cover block"
         />
