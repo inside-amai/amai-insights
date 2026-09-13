@@ -83,7 +83,7 @@ const PaidCurrencyRoll = () => {
       ))}
       {/* Rolling overlay, clipped to the exact word box */}
       <span
-        className="absolute inset-0 grid grid-cols-4 overflow-hidden pointer-events-none select-none"
+        className="absolute inset-x-0 top-[0.07em] bottom-[0.09em] grid grid-cols-4 overflow-hidden pointer-events-none select-none"
         aria-hidden="true"
       >
         {phaseDelays.map((delay, reelIndex) => (
