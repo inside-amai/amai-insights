@@ -354,40 +354,32 @@ const HomepageCopy = () => {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="border-t border-white/10" />
-              <div className="py-8 md:py-10">
-                <div className="flex items-baseline gap-6">
-                  <span className="font-mono text-sm md:text-base text-cyan-accent/80 tracking-widest">01</span>
-                  <div>
-                    <h3 className="text-xl md:text-2xl font-light tracking-tight text-white">Collect</h3>
-                    <p className="mt-2 text-base md:text-lg font-light text-white/55">Collect the pool’s earned trading fees.</p>
-                  </div>
-                </div>
+              <div className="grid grid-cols-[130px_1fr] md:grid-cols-[170px_1fr] gap-x-6 pb-3 border-b border-white/15">
+                <span className="text-[11px] tracking-[0.2em] font-light text-cyan-accent/70 uppercase">Job</span>
+                <span className="text-[11px] tracking-[0.2em] font-light text-cyan-accent/70 uppercase">What that means</span>
               </div>
-              <div className="border-t border-white/10" />
-              <div className="py-8 md:py-10">
-                <div className="flex items-baseline gap-6">
-                  <span className="font-mono text-sm md:text-base text-cyan-accent/80 tracking-widest">02</span>
-                  <div>
-                    <h3 className="text-xl md:text-2xl font-light tracking-tight text-white">Convert</h3>
-                    <p className="mt-2 text-base md:text-lg font-light text-white/55">Convert the fees into the selected Stock Tokens.</p>
+              {[
+                ["1", "Collect", "Collect the swap fees the pool’s position has earned. A standard Uniswap call."],
+                ["2", "Convert", "Swap those fees into the stock the community chose, on Uniswap. NVDA is the default; holders can vote to change it."],
+                ["3", "Pay", "Send the stock to holders by snapshot; keep the creator’s and the protocol’s shares."],
+                ["4", "Lend idle", "Park idle treasury in an allowlisted lending venue and pull it back when needed. Version 1.1, capped, Tier 2 and above; absent from the first version’s policy."],
+                ["5", "Rebalance", "Keep its own liquidity range centred so the position earns more fees per dollar. Principal moves inside the pool and never leaves it. A later version; absent from the first version’s policy."],
+                ["6", "Sit out", "Skip a collection when a dividend or split adjustment is posting on the stock token."],
+              ].map(([num, job, desc]) => (
+                <div key={num} className="grid grid-cols-[130px_1fr] md:grid-cols-[170px_1fr] gap-x-6 py-5 md:py-6 border-b border-white/10">
+                  <div className="text-sm md:text-base font-light text-white whitespace-nowrap">
+                    <span className="text-cyan-accent/80 font-mono mr-1.5">{num}</span>
+                    <span className="text-white/30 mx-0.5">·</span> {job}
                   </div>
+                  <p className="text-sm md:text-base font-light text-white/55 leading-relaxed">{desc}</p>
                 </div>
+              ))}
+              <div className="mt-10 md:mt-12 border border-white/10 border-l-2 border-l-cyan-accent/60 bg-white/[0.03] px-6 md:px-8 py-6 md:py-7">
+                <span className="text-[11px] tracking-[0.3em] font-light text-white/50 uppercase">What it never does</span>
+                <p className="mt-4 text-sm md:text-base font-light text-white/70 leading-relaxed">
+                  <span className="text-white font-normal">It never trades.</span> It never takes a directional bet with holder money. It never sells the treasury’s $AMAI. It never sends funds to an address outside its policy. It is a treasurer, and the wallet policy makes that a rule. A promise is never asked for.
+                </p>
               </div>
-              <div className="border-t border-white/10" />
-              <div className="py-8 md:py-10">
-                <div className="flex items-baseline gap-6">
-                  <span className="font-mono text-sm md:text-base text-cyan-accent/80 tracking-widest">03</span>
-                  <div>
-                    <h3 className="text-xl md:text-2xl font-light tracking-tight text-white">Pay</h3>
-                    <p className="mt-2 text-base md:text-lg font-light text-white/55">Distribute the holders’ share to their wallets.</p>
-                  </div>
-                </div>
-              </div>
-              <div className="border-t border-white/10" />
-              <p className="mt-8 md:mt-10 text-sm md:text-base font-light text-white/40 tracking-wide">
-                The operator cannot withdraw the pool’s principal.
-              </p>
             </motion.div>
           </div>
 
