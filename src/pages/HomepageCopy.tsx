@@ -376,7 +376,7 @@ const HomepageCopy = () => {
             >
               <div className="grid grid-cols-[130px_1fr] md:grid-cols-[170px_1fr] gap-x-6 pb-3 border-b border-white/15">
                 <span className="text-[11px] tracking-[0.2em] font-light text-cyan-accent/70 uppercase">Job</span>
-                <span className="text-[11px] tracking-[0.2em] font-light text-cyan-accent/70 uppercase">AMAI Operator</span>
+                <span className="text-[11px] tracking-[0.2em] font-light text-cyan-accent/70 uppercase">AMAI Operator Agent</span>
               </div>
 {([
                 [Download, "Collect", "Collect the swap fees the pool’s position has earned."],
