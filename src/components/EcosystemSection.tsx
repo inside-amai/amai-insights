@@ -199,7 +199,7 @@ export const EcosystemSection = () => {
                   aria-controls={`faq-answer-${index}`}
                   onClick={() => handleToggle(index)}
                   onKeyDown={(e) => handleKeyDown(e, index)}
-                  className="w-full text-left focus:outline-none focus-visible:bg-white/[0.03] focus-visible:ring-1 focus-visible:ring-[#3D896D]/50 focus-visible:ring-inset"
+                  className="w-full text-left focus:outline-none focus-visible:bg-white/[0.03] focus-visible:ring-1 focus-visible:ring-[#B4F6AD]/50 focus-visible:ring-inset"
                 >
                   <div className="flex items-center justify-between gap-6 py-6 md:py-7">
                     <span
