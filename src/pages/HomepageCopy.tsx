@@ -20,6 +20,51 @@ import { EcosystemSection } from "@/components/EcosystemSection";
 
 const TICKERS = ["TSLA", "AMZN", "PLTR", "NFLX", "AMD"];
 
+const OPERATOR_ROWS = [
+  {
+    icon: Download,
+    job: "Collect",
+    desc: "Collect the swap fees the pool’s position has earned.",
+    url: collectGraphic.url,
+    alt: "Pool fees entering the collection chamber while principal stays in place",
+  },
+  {
+    icon: RefreshCw,
+    job: "Convert",
+    desc: "Swap fees into the tokenized stocks. NVDA, TSLA and more.",
+    url: convertGraphic.url,
+    alt: "Collected fees being converted into Stock Tokens",
+  },
+  {
+    icon: Send,
+    job: "Pay",
+    desc: "Distribute the holders' share to their wallets.",
+    url: payGraphic.url,
+    alt: "Stock Tokens reaching holder wallets",
+  },
+  {
+    icon: TrendingUp,
+    job: "Lend idle",
+    desc: "Put idle treasury to work within defined limits.",
+    url: lendIdleGraphic.url,
+    alt: "A capped treasury allocation going to an approved venue with a return path",
+  },
+  {
+    icon: SlidersHorizontal,
+    job: "Rebalance",
+    desc: "Adjust the liquidity range as conditions change.",
+    url: rebalanceGraphic.url,
+    alt: "The liquidity range shifting around the price marker inside the pool",
+  },
+  {
+    icon: Pause,
+    job: "Sit out",
+    desc: "Pause collections around specified market events.",
+    url: sitOutGraphic.url,
+    alt: "The collection gate closed for a market event with fees waiting at the outlet",
+  },
+] as const;
+
 const TickerRoll = () => {
   const [tickerIndex, setTickerIndex] = useState(0);
 
