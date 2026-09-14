@@ -9,7 +9,7 @@ import institutionsLens from "@/assets/institutions-lens-v3.png.asset.json";
 import institutionsApprovals from "@/assets/institutions-approvals.png.asset.json";
 import institutionsFleetNew from "@/assets/institutions-fleet-new.png.asset.json";
 import liveTraceImage from "@/assets/live-trace.png.asset.json";
-import amaiPoolGraphic from "@/assets/amai-fee-channel-mineral.svg.asset.json";
+import amaiPoolGraphic from "@/assets/amai-fee-channel-mineral.svg";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { pickHome } from "@/i18n/pageContent";
 
@@ -347,7 +347,7 @@ const HomepageCopy = () => {
               </div>
               <figure className="mt-8 md:mt-10 w-full max-w-[644px] lg:-ml-12">
                 <img
-                  src={amaiPoolGraphic.url}
+                  src={amaiPoolGraphic}
                   alt="AMAI liquidity pool with a graphite principal plate and brass fee channel leading to the operator"
                   className="block h-auto w-full"
                   loading="lazy"
