@@ -210,7 +210,7 @@ export const TariGauge = ({
               />
             </g>
             <circle cx={cx} cy={cy} r={9} fill="#0a0a0a" stroke="rgba(255,255,255,0.6)" strokeWidth={1.2} />
-            <circle cx={cx} cy={cy} r={3} fill="rgba(166,252,252,0.9)" />
+            <circle cx={cx} cy={cy} r={3} fill={dotColor} />
           </>
         )}
 
