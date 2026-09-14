@@ -9,7 +9,7 @@ import institutionsLens from "@/assets/institutions-lens-v3.png.asset.json";
 import institutionsApprovals from "@/assets/institutions-approvals.png.asset.json";
 import institutionsFleetNew from "@/assets/institutions-fleet-new.png.asset.json";
 import liveTraceImage from "@/assets/live-trace.png.asset.json";
-import amaiPoolGraphic from "@/assets/AMAI_graphic.svg";
+import amaiPoolGraphic from "@/assets/amai-fee-channel-mineral.svg";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { pickHome } from "@/i18n/pageContent";
 
@@ -330,96 +330,78 @@ const HomepageCopy = () => {
       </div>
 
       {/* Section 2 AGENT-OPERATED POOLS */}
-      <section id="score" className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-transparent pointer-events-none" />
-
-        <div className="relative z-10 max-w-[1400px] mx-auto">
+      <section id="score" className="relative bg-[hsl(var(--operator-surface))] py-24 md:py-40 px-4 md:px-8 overflow-hidden">
+        <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 items-start">
-            <motion.div
+            <div
               className="lg:col-span-5"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">Agent-operated pools.</span>
-              <h2 className="mt-6 md:mt-8 text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.05] tracking-[-0.02em] text-white/90 font-medium">
+              <span className="text-[11px] tracking-[0.35em] font-light text-[hsl(var(--operator-brass))] uppercase">Agent-operated pools.</span>
+              <h2 className="mt-6 md:mt-8 text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.05] tracking-normal text-[hsl(var(--operator-primary))] font-medium">
                 <span className="block">Liquidity Pools.</span>
                 <span className="block mt-1 md:mt-2">Now managed by Agents.</span>
               </h2>
-              <p className="mt-8 md:mt-10 text-base md:text-lg font-light text-white/65 leading-relaxed max-w-[42ch]">
-                AMAI gives liquidity pools an operator.<br /><br />
-                An AI agent that manages trading fees and distributes a share to token holders in Stock Tokens.
-              </p>
-              <motion.figure
-                className="mt-10 md:mt-14 w-full max-w-[560px] lg:-ml-10"
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.25 }}
-                transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              >
+              <div className="mt-8 md:mt-10 max-w-[42ch] space-y-2 text-base md:text-lg font-light text-[hsl(var(--operator-body))] leading-relaxed">
+                <p>AMAI gives liquidity pools an operator.</p>
+                <p>An AI agent that manages trading fees and distributes a share to token holders in Stock Tokens.</p>
+              </div>
+              <figure className="mt-8 md:mt-10 w-full lg:w-[115%] max-w-[644px] lg:max-w-none lg:-ml-[7.5%]">
                 <img
                   src={amaiPoolGraphic}
-                  alt="Conceptual AMAI liquidity pool with an illuminated fee channel"
+                  alt="AMAI liquidity pool with a graphite principal plate and brass fee channel leading to the operator"
                   className="block h-auto w-full"
                   loading="lazy"
                 />
-              </motion.figure>
-            </motion.div>
+              </figure>
+            </div>
 
-            <motion.div
+            <div
               className="lg:col-span-7"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="grid grid-cols-[130px_1fr] md:grid-cols-[170px_1fr] gap-x-6 pb-3 border-b border-white/15">
-                <span className="text-[11px] tracking-[0.2em] font-light text-cyan-accent/70 uppercase">Job</span>
-                <span className="text-[11px] tracking-[0.2em] font-light text-cyan-accent/70 uppercase">AMAI Operator</span>
+              <div className="pb-4 border-b border-[hsl(var(--operator-rule))]">
+                <span className="text-[11px] tracking-[0.28em] font-normal text-[hsl(var(--operator-body))] uppercase">Operator Functions</span>
               </div>
-{[
+              {[
                 ["1", "Collect", "Collect the swap fees the pool’s position has earned."],
                 ["2", "Convert", "Swap those fees into the tokenized stocks, such as NVDA, TSLA and more."],
                 ["3", "Pay", "Distribute the holders' share to their wallets."],
                 ["4", "Lend idle", "Put idle treasury to work within defined limits."],
                 ["5", "Rebalance", "Adjust the liquidity range as conditions change."],
                 ["6", "Sit out", "Pause collections around specified market events."],
-              ].map(([num, job, desc]) => (
+              ].map(([num, job, desc], index) => {
+                const primaryFunction = index < 3;
+                return (
                 <div
                   key={num}
-                  className="group relative grid grid-cols-[130px_1fr] md:grid-cols-[170px_1fr] gap-x-6 py-5 md:py-6 transition-colors duration-[250ms] hover:bg-cyan-accent/[0.04]"
+                  className={`grid grid-cols-[28px_minmax(0,1fr)] md:grid-cols-[34px_150px_minmax(0,1fr)] gap-x-3 md:gap-x-5 py-5 md:py-6 border-b border-[hsl(var(--operator-rule))] ${index === 3 ? "mt-4 md:mt-6 border-t" : ""}`}
                 >
-                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-white/20 via-white/10 to-transparent group-hover:from-cyan-accent/40 group-hover:via-cyan-accent/20 group-hover:to-transparent transition-all duration-[250ms]" />
-                  <div className="absolute inset-0 bg-gradient-to-b from-white/[0.05] via-white/[0.02] to-transparent pointer-events-none" />
-                  <div className="relative text-sm md:text-base font-normal text-white/90 whitespace-nowrap">
-                    <span className="text-cyan-accent/60 group-hover:text-cyan-accent/90 font-mono mr-1.5 transition-colors duration-[250ms]">{num}</span>
-                    <span className="text-white/30 mx-0.5">·</span> {job}
-                  </div>
-                  <p className="relative text-sm md:text-base font-light text-white/60 leading-relaxed">{desc}</p>
+                  <span className={`font-mono text-xs md:text-sm pt-0.5 ${primaryFunction ? "text-[hsl(var(--operator-brass))]" : "text-[hsl(var(--operator-quiet))]"}`}>
+                    {num.padStart(2, "0")}
+                  </span>
+                  <span className={`text-sm md:text-base font-normal whitespace-nowrap ${primaryFunction ? "text-[hsl(var(--operator-primary))]" : "text-[hsl(var(--operator-body))]"}`}>
+                    {job}
+                  </span>
+                  <p className="col-start-2 md:col-start-3 mt-2 md:mt-0 text-sm md:text-base font-light text-[hsl(var(--operator-body))] leading-relaxed">{desc}</p>
                 </div>
-              ))}
-              <div className="mt-10 md:mt-12 pl-4 md:pl-5 border-l border-cyan-accent/60">
-                <span className="text-[11px] tracking-[0.3em] font-light text-white/50 uppercase">Denied Permissions</span>
-                <p className="mt-3 text-sm md:text-base font-light text-white/70 leading-relaxed">
+                );
+              })}
+              <div className="mt-10 md:mt-12 pl-4 md:pl-5 border-l-2 border-[hsl(var(--operator-brass))]">
+                <span className="text-[11px] tracking-[0.3em] font-normal text-[hsl(var(--operator-quiet))] uppercase">Denied Permissions</span>
+                <p className="mt-3 text-sm md:text-base font-light text-[hsl(var(--operator-body))] leading-relaxed">
                   The operator cannot withdraw the pool’s principal.<br />
                   It cannot expand its own permissions.
                 </p>
               </div>
-            </motion.div>
+            </div>
           </div>
 
-          <motion.div
+          <div
             className="mt-24 md:mt-32 flex justify-center"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.9 }}
           >
-            <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">
-              TARI <span className="mx-2 text-cyan-accent/60">·</span> The trust score for AI agents
+            <span className="text-[11px] tracking-[0.35em] font-light text-[hsl(var(--operator-quiet))] uppercase">
+              TARI <span className="mx-2 text-[hsl(var(--operator-brass))]">·</span> The trust score for AI agents
             </span>
-          </motion.div>
+          </div>
         </div>
       </section>
 
