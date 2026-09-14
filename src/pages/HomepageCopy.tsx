@@ -9,7 +9,7 @@ import institutionsLens from "@/assets/institutions-lens-v3.png.asset.json";
 import institutionsApprovals from "@/assets/institutions-approvals.png.asset.json";
 import institutionsFleetNew from "@/assets/institutions-fleet-new.png.asset.json";
 import liveTraceImage from "@/assets/live-trace.png.asset.json";
-import amaiPoolGraphic from "@/assets/AMAI_graphic.svg";
+import amaiPoolGraphic from "@/assets/channel_amai.svg.asset.json";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { pickHome } from "@/i18n/pageContent";
 
@@ -359,7 +359,7 @@ const HomepageCopy = () => {
                 transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               >
                 <img
-                  src={amaiPoolGraphic}
+                  src={amaiPoolGraphic.url}
                   alt="Conceptual AMAI liquidity pool with an illuminated fee channel"
                   className="block h-auto w-full"
                   loading="lazy"
