@@ -381,21 +381,11 @@ const HomepageCopy = () => {
 
               <div className="relative mt-8 md:mt-10 pl-12 md:pl-16">
                 {/* loop-back bracket */}
-                <svg
-                  className="pointer-events-none absolute left-0 top-3 bottom-3 w-10 md:w-14 overflow-visible"
-                  preserveAspectRatio="none"
-                  viewBox="0 0 40 100"
+                <div
+                  className="pointer-events-none absolute left-0 top-3 bottom-3 w-8 md:w-11 rounded-l-2xl border-l border-y border-cyan-accent/25"
                   aria-hidden="true"
-                >
-                  <path
-                    d="M34 1 H12 Q2 1 2 11 V89 Q2 99 12 99 H34"
-                    fill="none"
-                    stroke="hsl(var(--cyan-accent))"
-                    strokeOpacity="0.28"
-                    strokeWidth="1"
-                    vectorEffect="non-scaling-stroke"
-                  />
-                </svg>
+                />
+
                 {/* arrowhead into the first step */}
                 <svg className="pointer-events-none absolute left-[26px] md:left-[38px] top-[2px] w-3 h-3" viewBox="0 0 12 12" aria-hidden="true">
                   <path d="M1 1 L9 6 L1 11" fill="none" stroke="hsl(var(--cyan-accent))" strokeOpacity="0.5" strokeWidth="1" vectorEffect="non-scaling-stroke" />
