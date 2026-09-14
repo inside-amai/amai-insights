@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, useInView, animate, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Copy, Check, ChevronRight, ChevronLeft } from "lucide-react";
+import { Copy, Check, ChevronRight, ChevronLeft, Download, RefreshCw, Send, TrendingUp, SlidersHorizontal, Pause } from "lucide-react";
 import amaiLogo from "@/assets/amai-logo-tm.png";
 import { showEmailFallbackToast } from "@/lib/contact-toast";
 import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
