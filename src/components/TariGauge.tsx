@@ -115,8 +115,8 @@ export const TariGauge = ({
             <stop offset="100%" stopColor={arcEnd} />
           </linearGradient>
           <radialGradient id="tari-center-glow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor={glowColor} />
-            <stop offset="100%" stopColor={glowColor.replace(/0\.18\)/, "0)").replace(/\)/, ",0)")} />
+            <stop offset="0%" stopColor={glowStart} />
+            <stop offset="100%" stopColor={glowEnd} />
           </radialGradient>
           <filter id="tari-glow" x="-40%" y="-40%" width="180%" height="180%">
             <feGaussianBlur stdDeviation="4" result="blur" />
