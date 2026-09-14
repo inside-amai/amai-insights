@@ -330,7 +330,7 @@ const HomepageCopy = () => {
       </div>
 
       {/* Section 2 AGENT-OPERATED POOLS */}
-      <section id="score" className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
+      <section id="score" className="relative bg-perspective-grid py-24 md:py-32 px-4 md:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-transparent pointer-events-none" />
 
         <div className="relative z-10 max-w-[1400px] mx-auto">
@@ -409,22 +409,11 @@ const HomepageCopy = () => {
             </motion.div>
           </div>
 
-          <motion.div
-            className="mt-24 md:mt-32 flex justify-center"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.9 }}
-          >
-            <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">
-              TARI <span className="mx-2 text-cyan-accent/60">·</span> The trust score for AI agents
-            </span>
-          </motion.div>
         </div>
       </section>
 
       {/* Feature card */}
-      <section className="relative bg-perspective-grid py-16 md:py-24 px-4 md:px-8">
+      <section className="relative bg-perspective-grid pt-4 md:pt-8 pb-16 md:pb-24 px-4 md:px-8">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-transparent pointer-events-none" />
         <div className="max-w-[95vw] mx-auto relative z-10">
           <div className="pointer-events-none absolute -inset-3 rounded-[2rem] bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.12),transparent_55%)] blur-2xl opacity-60" />
