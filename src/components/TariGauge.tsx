@@ -239,7 +239,7 @@ export const TariGauge = ({
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5, delay: 0.35 }}
           className="mt-2 text-6xl md:text-7xl font-light tabular-nums text-white leading-none tracking-tight"
-          style={{ textShadow: "0 0 40px rgba(166,252,252,0.25)" }}
+          style={{ textShadow: `0 0 40px ${shadowColor}` }}
         >
           {MIN}
         </motion.div>
