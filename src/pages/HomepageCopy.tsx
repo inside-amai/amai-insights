@@ -417,42 +417,42 @@ const HomepageCopy = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-transparent pointer-events-none" />
         <div className="max-w-[95vw] mx-auto relative z-10">
           <div className="pointer-events-none absolute -inset-3 rounded-[2rem] bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.12),transparent_55%)] blur-2xl opacity-60" />
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-2xl shadow-[0_20px_80px_-20px_rgba(0,0,0,0.8),inset_0_1px_0_0_rgba(255,255,255,0.08)] min-h-[70vh] md:min-h-[80vh] flex items-center justify-center">
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-2xl shadow-[0_20px_80px_-20px_rgba(0,0,0,0.8),inset_0_1px_0_0_rgba(255,255,255,0.08)] min-h-[60vh] md:min-h-[70vh] flex items-center justify-center">
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.06] via-transparent to-transparent" />
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white/[0.08] to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/[0.08] to-transparent" />
             <div className="pointer-events-none absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.08),transparent_50%)]" />
 
             <motion.div
-              className="relative z-10 flex flex-col items-center justify-center px-6 py-16 text-center max-w-5xl mx-auto"
+              className="relative z-10 flex flex-col items-center justify-center px-6 py-10 md:py-12 text-center max-w-5xl mx-auto"
               initial={{ scale: 0.55, opacity: 0, filter: "blur(12px)" }}
               whileInView={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
               viewport={{ once: false, amount: 0.5 }}
               transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="mb-10 md:mb-14 w-full">
+              <div className="mb-6 md:mb-8 w-full max-w-[420px] md:max-w-[480px] mx-auto">
                 <TariGauge score={812} />
               </div>
-              <div className="mb-6 md:mb-8">
+              <div className="mb-4 md:mb-5">
                 <span className="inline-flex items-center gap-3 text-xs md:text-sm tracking-[0.3em] font-medium text-white/90 uppercase">
                   <span className="h-px w-8 bg-cyan-accent/60" />
                   TRUST & RISK INDEX
                   <span className="h-px w-8 bg-cyan-accent/60" />
                 </span>
               </div>
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-white leading-[1.05]">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.05]">
                 Backed By TARI™.
               </h2>
-              <p className="mt-8 md:mt-10 text-lg md:text-2xl lg:text-3xl font-light text-white/80 leading-snug max-w-4xl">
+              <p className="mt-5 md:mt-6 text-lg md:text-xl lg:text-2xl font-light text-white/80 leading-snug max-w-4xl">
                 A credit score built from onchain history and observed agent behavior.
               </p>
-              <div className="mt-8 md:mt-10">
+              <div className="mt-5 md:mt-6">
                 <a href="/tari" className="inline-flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors duration-300 border-b border-white/20 hover:border-white/60 pb-1">
                   How it works<span aria-hidden>{isRtl ? '←' : '→'}</span>
                 </a>
               </div>
 
               <motion.nav
-                className="mt-16 md:mt-24"
+                className="mt-8 md:mt-10"
                 initial={{ y: 12 }}
                 whileInView={{ y: 0 }}
                 viewport={{ once: false, amount: 0.5 }}
