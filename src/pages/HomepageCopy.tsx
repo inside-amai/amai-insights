@@ -378,14 +378,14 @@ const HomepageCopy = () => {
                 <span className="text-[11px] tracking-[0.2em] font-light text-cyan-accent/70 uppercase">Job</span>
                 <span className="text-[11px] tracking-[0.2em] font-light text-cyan-accent/70 uppercase">AMAI Operator</span>
               </div>
-{[
+{([
                 [Download, "Collect", "Collect the swap fees the pool’s position has earned."],
                 [RefreshCw, "Convert", "Swap those fees into the tokenized stocks, such as NVDA, TSLA and more."],
                 [Send, "Pay", "Distribute the holders' share to their wallets."],
                 [TrendingUp, "Lend idle", "Put idle treasury to work within defined limits."],
                 [SlidersHorizontal, "Rebalance", "Adjust the liquidity range as conditions change."],
                 [Pause, "Sit out", "Pause collections around specified market events."],
-              ].map(([Icon, job, desc]) => (
+              ] as const).map(([Icon, job, desc]) => (
                 <div
                   key={job}
                   className="group relative grid grid-cols-[130px_1fr] md:grid-cols-[170px_1fr] gap-x-6 py-5 md:py-6 transition-colors duration-[250ms] hover:bg-cyan-accent/[0.04]"
