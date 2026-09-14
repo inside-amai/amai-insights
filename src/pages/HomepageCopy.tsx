@@ -4,12 +4,6 @@ import { Link } from "react-router-dom";
 import { ChevronRight, ChevronLeft, Download, RefreshCw, Send, TrendingUp, SlidersHorizontal, Pause } from "lucide-react";
 import amaiLogo from "@/assets/amai-logo-tm.png";
 import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
-import collectGraphic from "@/assets/01-collect.svg.asset.json";
-import convertGraphic from "@/assets/02-convert.svg.asset.json";
-import payGraphic from "@/assets/03-pay.svg.asset.json";
-import lendIdleGraphic from "@/assets/04-lend-idle.svg.asset.json";
-import rebalanceGraphic from "@/assets/05-rebalance.svg.asset.json";
-import sitOutGraphic from "@/assets/06-sit-out.svg.asset.json";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { pickHome } from "@/i18n/pageContent";
 
@@ -25,42 +19,42 @@ const OPERATOR_ROWS = [
     icon: Download,
     job: "Collect",
     desc: "Collect the swap fees the pool’s position has earned.",
-    url: collectGraphic.url,
+    url: "/uploads/operator/01-collect.svg",
     alt: "Pool fees entering the collection chamber while principal stays in place",
   },
   {
     icon: RefreshCw,
     job: "Convert",
     desc: "Swap fees into the tokenized stocks. NVDA, TSLA and more.",
-    url: convertGraphic.url,
+    url: "/uploads/operator/02-convert.svg",
     alt: "Collected fees being converted into Stock Tokens",
   },
   {
     icon: Send,
     job: "Pay",
     desc: "Distribute the holders' share to their wallets.",
-    url: payGraphic.url,
+    url: "/uploads/operator/03-pay.svg",
     alt: "Stock Tokens reaching holder wallets",
   },
   {
     icon: TrendingUp,
     job: "Lend idle",
     desc: "Put idle treasury to work within defined limits.",
-    url: lendIdleGraphic.url,
+    url: "/uploads/operator/04-lend-idle.svg",
     alt: "A capped treasury allocation going to an approved venue with a return path",
   },
   {
     icon: SlidersHorizontal,
     job: "Rebalance",
     desc: "Adjust the liquidity range as conditions change.",
-    url: rebalanceGraphic.url,
+    url: "/uploads/operator/05-rebalance.svg",
     alt: "The liquidity range shifting around the price marker inside the pool",
   },
   {
     icon: Pause,
     job: "Sit out",
     desc: "Pause collections around specified market events.",
-    url: sitOutGraphic.url,
+    url: "/uploads/operator/06-sit-out.svg",
     alt: "The collection gate closed for a market event with fees waiting at the outlet",
   },
 ] as const;
