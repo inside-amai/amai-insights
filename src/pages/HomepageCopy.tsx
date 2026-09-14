@@ -390,7 +390,7 @@ const HomepageCopy = () => {
                 <svg className="pointer-events-none absolute left-[26px] md:left-[38px] top-[2px] w-3 h-3" viewBox="0 0 12 12" aria-hidden="true">
                   <path d="M1 1 L9 6 L1 11" fill="none" stroke="hsl(var(--cyan-accent))" strokeOpacity="0.5" strokeWidth="1" vectorEffect="non-scaling-stroke" />
                 </svg>
-                <span className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[46%] rotate-[-90deg] text-[9px] md:text-[10px] tracking-[0.35em] font-light text-cyan-accent/40 uppercase select-none">
+                <span className="absolute -left-1 md:-left-2 top-1/2 -translate-y-1/2 -translate-x-full rotate-[-90deg] text-[9px] md:text-[10px] tracking-[0.35em] font-light text-cyan-accent/40 uppercase select-none whitespace-nowrap">
                   Repeats
                 </span>
 
