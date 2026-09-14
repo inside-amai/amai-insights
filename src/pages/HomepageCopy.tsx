@@ -374,31 +374,65 @@ const HomepageCopy = () => {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="grid grid-cols-[130px_1fr] md:grid-cols-[170px_1fr] gap-x-6 pb-3 border-b border-white/15">
-                <span className="text-[11px] tracking-[0.2em] font-light text-cyan-accent/70 uppercase">Job</span>
-                <span className="text-[11px] tracking-[0.2em] font-light text-cyan-accent/70 uppercase">AMAI Operator</span>
+              <div className="flex items-baseline justify-between pb-3 border-b border-white/10">
+                <span className="text-[11px] tracking-[0.2em] font-light text-cyan-accent/70 uppercase">The Cycle</span>
+                <span className="text-[11px] tracking-[0.2em] font-light text-white/40 uppercase">AMAI Operator</span>
               </div>
-{[
-                ["1", "Collect", "Collect the swap fees the pool’s position has earned."],
-                ["2", "Convert", "Swap those fees into the tokenized stocks, such as NVDA, TSLA and more."],
-                ["3", "Pay", "Distribute the holders' share to their wallets."],
-                ["4", "Lend idle", "Put idle treasury to work within defined limits."],
-                ["5", "Rebalance", "Adjust the liquidity range as conditions change."],
-                ["6", "Sit out", "Pause collections around specified market events."],
-              ].map(([num, job, desc]) => (
-                <div
-                  key={num}
-                  className="group relative grid grid-cols-[130px_1fr] md:grid-cols-[170px_1fr] gap-x-6 py-5 md:py-6 transition-colors duration-[250ms] hover:bg-cyan-accent/[0.04]"
+
+              <div className="relative mt-8 md:mt-10 pl-12 md:pl-16">
+                {/* loop-back bracket */}
+                <svg
+                  className="pointer-events-none absolute left-0 top-3 bottom-3 w-10 md:w-14 overflow-visible"
+                  preserveAspectRatio="none"
+                  viewBox="0 0 40 100"
+                  aria-hidden="true"
                 >
-                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-white/20 via-white/10 to-transparent group-hover:from-cyan-accent/40 group-hover:via-cyan-accent/20 group-hover:to-transparent transition-all duration-[250ms]" />
-                  <div className="absolute inset-0 bg-gradient-to-b from-white/[0.05] via-white/[0.02] to-transparent pointer-events-none" />
-                  <div className="relative text-sm md:text-base font-normal text-white/90 whitespace-nowrap">
-                    <span className="text-cyan-accent/60 group-hover:text-cyan-accent/90 font-mono mr-1.5 transition-colors duration-[250ms]">{num}</span>
-                    <span className="text-white/30 mx-0.5">·</span> {job}
+                  <path
+                    d="M34 1 H12 Q2 1 2 11 V89 Q2 99 12 99 H34"
+                    fill="none"
+                    stroke="hsl(var(--cyan-accent))"
+                    strokeOpacity="0.28"
+                    strokeWidth="1"
+                    vectorEffect="non-scaling-stroke"
+                  />
+                </svg>
+                {/* arrowhead into the first step */}
+                <svg className="pointer-events-none absolute left-[26px] md:left-[38px] top-[2px] w-3 h-3" viewBox="0 0 12 12" aria-hidden="true">
+                  <path d="M1 1 L9 6 L1 11" fill="none" stroke="hsl(var(--cyan-accent))" strokeOpacity="0.5" strokeWidth="1" vectorEffect="non-scaling-stroke" />
+                </svg>
+                <span className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[46%] rotate-[-90deg] text-[9px] md:text-[10px] tracking-[0.35em] font-light text-cyan-accent/40 uppercase select-none">
+                  Repeats
+                </span>
+
+                {[
+                  ["Collect", "Collect the swap fees the pool’s position has earned."],
+                  ["Convert", "Swap those fees into the tokenized stocks, such as NVDA, TSLA and more."],
+                  ["Pay", "Distribute the holders' share to their wallets."],
+                  ["Lend idle", "Put idle treasury to work within defined limits."],
+                  ["Rebalance", "Adjust the liquidity range as conditions change."],
+                  ["Sit out", "Pause collections around specified market events."],
+                ].map(([job, desc], i, arr) => (
+                  <div key={job} className="relative">
+                    <div className="group relative grid grid-cols-1 md:grid-cols-[170px_1fr] gap-x-6 gap-y-2 py-4 md:py-5 transition-colors duration-[220ms] hover:bg-cyan-accent/[0.04]">
+                      <span className="pointer-events-none absolute -left-[calc(1.25rem+1px)] md:-left-[calc(1.75rem+1px)] top-[1.65rem] h-[5px] w-[5px] rounded-full bg-cyan-accent/50 group-hover:bg-cyan-accent transition-colors duration-[220ms]" />
+                      <div className="relative text-base md:text-lg font-normal tracking-[-0.01em] text-white/90 group-hover:text-white transition-colors duration-[220ms] whitespace-nowrap">
+                        {job}
+                      </div>
+                      <p className="relative text-sm md:text-base font-light text-white/55 leading-relaxed max-w-[46ch]">{desc}</p>
+                    </div>
+                    {i < arr.length - 1 && (
+                      <div className="flex items-center gap-3 py-1">
+                        <svg className="w-2.5 h-4 shrink-0" viewBox="0 0 10 16" aria-hidden="true">
+                          <path d="M5 0 V11" stroke="hsl(var(--cyan-accent))" strokeOpacity="0.3" strokeWidth="1" vectorEffect="non-scaling-stroke" />
+                          <path d="M1 10 L5 15 L9 10" fill="none" stroke="hsl(var(--cyan-accent))" strokeOpacity="0.45" strokeWidth="1" vectorEffect="non-scaling-stroke" />
+                        </svg>
+                        <span className="h-px flex-1 bg-gradient-to-r from-white/10 to-transparent" />
+                      </div>
+                    )}
                   </div>
-                  <p className="relative text-sm md:text-base font-light text-white/60 leading-relaxed">{desc}</p>
-                </div>
-              ))}
+                ))}
+              </div>
+
               <div className="mt-10 md:mt-12 pl-4 md:pl-5 border-l border-cyan-accent/60">
                 <span className="text-[11px] tracking-[0.3em] font-light text-white/50 uppercase">Denied Permissions</span>
                 <p className="mt-3 text-sm md:text-base font-light text-white/70 leading-relaxed">
