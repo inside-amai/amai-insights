@@ -379,22 +379,22 @@ const HomepageCopy = () => {
                 <span className="text-[11px] tracking-[0.2em] font-light text-cyan-accent/70 uppercase">AMAI Operator</span>
               </div>
 {[
-                ["1", "Collect", "Collect the swap fees the pool’s position has earned."],
-                ["2", "Convert", "Swap those fees into the tokenized stocks, such as NVDA, TSLA and more."],
-                ["3", "Pay", "Distribute the holders' share to their wallets."],
-                ["4", "Lend idle", "Put idle treasury to work within defined limits."],
-                ["5", "Rebalance", "Adjust the liquidity range as conditions change."],
-                ["6", "Sit out", "Pause collections around specified market events."],
-              ].map(([num, job, desc]) => (
+                [Collect, "Collect", "Collect the swap fees the pool’s position has earned."],
+                [RefreshCw, "Convert", "Swap those fees into the tokenized stocks, such as NVDA, TSLA and more."],
+                [Send, "Pay", "Distribute the holders' share to their wallets."],
+                [TrendingUp, "Lend idle", "Put idle treasury to work within defined limits."],
+                [SlidersHorizontal, "Rebalance", "Adjust the liquidity range as conditions change."],
+                [Pause, "Sit out", "Pause collections around specified market events."],
+              ].map(([Icon, job, desc]) => (
                 <div
-                  key={num}
+                  key={job}
                   className="group relative grid grid-cols-[130px_1fr] md:grid-cols-[170px_1fr] gap-x-6 py-5 md:py-6 transition-colors duration-[250ms] hover:bg-cyan-accent/[0.04]"
                 >
                   <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-white/20 via-white/10 to-transparent group-hover:from-cyan-accent/40 group-hover:via-cyan-accent/20 group-hover:to-transparent transition-all duration-[250ms]" />
                   <div className="absolute inset-0 bg-gradient-to-b from-white/[0.05] via-white/[0.02] to-transparent pointer-events-none" />
-                  <div className="relative text-sm md:text-base font-normal text-white/90 whitespace-nowrap">
-                    <span className="text-cyan-accent/60 group-hover:text-cyan-accent/90 font-mono mr-1.5 transition-colors duration-[250ms]">{num}</span>
-                    <span className="text-white/30 mx-0.5">·</span> {job}
+                  <div className="relative flex items-center gap-3 text-sm md:text-base font-normal text-white/90 whitespace-nowrap">
+                    <Icon className="w-4 h-4 text-cyan-accent/60 group-hover:text-cyan-accent/90 transition-colors duration-[250ms]" strokeWidth={1.5} />
+                    {job}
                   </div>
                   <p className="relative text-sm md:text-base font-light text-white/60 leading-relaxed">{desc}</p>
                 </div>
