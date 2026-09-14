@@ -458,11 +458,11 @@ const HomepageCopy = () => {
                 viewport={{ once: false, amount: 0.5 }}
                 transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               >
-                <div className="flex items-center overflow-hidden rounded-full border border-[#B4F6AD] bg-[#CEFFC9] px-2 py-2 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.5)] w-[calc(4*4rem+3*0.5rem+2*2rem+1rem)] md:w-[calc(4*8rem+3*0.5rem+2*2rem+1rem)]">
+                <div className="flex items-center overflow-hidden rounded-full border border-white/10 bg-black/50 backdrop-blur-xl px-2 py-2 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.9)] w-[calc(4*4rem+3*0.5rem+2*2rem+1rem)] md:w-[calc(4*8rem+3*0.5rem+2*2rem+1rem)]">
                   <button
                     type="button"
                     onClick={scrollNavLeft}
-                    className={`h-7 w-7 md:h-8 md:w-8 flex-shrink-0 rounded-full bg-[#D8FDD4] hover:bg-[#D8FDD4]/80 border border-[#B4F6AD]/50 flex items-center justify-center text-[#30021F] hover:text-[#30021F]/80 transition-all duration-300 ${showLeftNavArrow ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+                    className={`h-7 w-7 md:h-8 md:w-8 flex-shrink-0 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center text-white/70 hover:text-white transition-all duration-300 ${showLeftNavArrow ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
                     aria-label="Previous"
                   >
                     <ChevronLeft className="w-4 h-4" />
@@ -476,16 +476,16 @@ const HomepageCopy = () => {
                       <li key={item.label} className="snap-start">
                         {'href' in item ? (
                           'external' in item && item.external ? (
-                            <a href={item.href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-16 md:w-32 px-0 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-light tracking-wide text-[#30021F] hover:text-[#30021F]/70 hover:bg-[#30021F]/[0.06] transition-all duration-300 whitespace-nowrap">
+                            <a href={item.href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-16 md:w-32 px-0 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-light tracking-wide text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-300 whitespace-nowrap">
                               {item.label}
                             </a>
                           ) : (
-                            <Link to={item.href} className="inline-flex items-center justify-center w-16 md:w-32 px-0 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-light tracking-wide text-[#30021F] hover:text-[#30021F]/70 hover:bg-[#30021F]/[0.06] transition-all duration-300 whitespace-nowrap">
+                            <Link to={item.href} className="inline-flex items-center justify-center w-16 md:w-32 px-0 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-light tracking-wide text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-300 whitespace-nowrap">
                               {item.label}
                             </Link>
                           )
                         ) : (
-                          <button type="button" onClick={() => document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' })} className="w-16 md:w-32 px-0 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-light tracking-wide text-[#30021F] hover:text-[#30021F]/70 hover:bg-[#30021F]/[0.06] transition-all duration-300 whitespace-nowrap">
+                          <button type="button" onClick={() => document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' })} className="w-16 md:w-32 px-0 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-light tracking-wide text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-300 whitespace-nowrap">
                             {item.label}
                           </button>
                         )}
@@ -495,7 +495,7 @@ const HomepageCopy = () => {
                   <button
                     type="button"
                     onClick={scrollNavRight}
-                    className={`h-7 w-7 md:h-8 md:w-8 flex-shrink-0 rounded-full bg-[#D8FDD4] hover:bg-[#D8FDD4]/80 border border-[#B4F6AD]/50 flex items-center justify-center text-[#30021F] hover:text-[#30021F]/80 transition-all duration-300 ${showRightNavArrow ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+                    className={`h-7 w-7 md:h-8 md:w-8 flex-shrink-0 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center text-white/70 hover:text-white transition-all duration-300 ${showRightNavArrow ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
                     aria-label="Next"
                   >
                     <ChevronRight className="w-4 h-4" />
