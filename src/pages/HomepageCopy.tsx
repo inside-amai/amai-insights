@@ -334,9 +334,9 @@ const HomepageCopy = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-transparent pointer-events-none" />
 
         <div className="relative z-10 max-w-[1400px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-8 items-start">
             <motion.div
-              className="lg:col-span-5"
+              className="lg:col-span-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
@@ -347,12 +347,12 @@ const HomepageCopy = () => {
                 <span className="block">Liquidity Pools.</span>
                 <span className="block mt-1 md:mt-2">Now managed by Agents.</span>
               </h2>
-              <p className="mt-8 md:mt-10 text-base md:text-lg font-light text-white/65 leading-relaxed max-w-[42ch]">
+              <p className="mt-8 md:mt-10 text-base md:text-lg font-light text-white/65 leading-relaxed max-w-[54ch]">
                 AMAI gives liquidity pools an operator.<br /><br />
                 An AI agent that manages trading fees and distributes a share to token holders in Stock Tokens.
               </p>
               <motion.figure
-                className="mt-10 md:mt-14 w-full max-w-[560px] lg:-ml-10"
+                className="mt-10 md:mt-14 w-full max-w-[680px] lg:-ml-10"
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.25 }}
@@ -368,7 +368,7 @@ const HomepageCopy = () => {
             </motion.div>
 
             <motion.div
-              className="lg:col-span-7"
+              className="lg:col-span-5 lg:col-start-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
