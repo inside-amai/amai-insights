@@ -337,7 +337,7 @@ const HomepageCopy = () => {
               className="lg:col-span-5"
             >
               <span className="text-[11px] tracking-[0.35em] font-light text-[hsl(var(--operator-brass))] uppercase">Agent-operated pools.</span>
-              <h2 className="mt-6 md:mt-8 text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.05] tracking-[-0.015em] text-[hsl(var(--operator-primary))] font-medium">
+              <h2 className="mt-6 md:mt-8 text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.05] tracking-normal text-[hsl(var(--operator-primary))] font-medium">
                 <span className="block">Liquidity Pools.</span>
                 <span className="block mt-1 md:mt-2">Now managed by Agents.</span>
               </h2>
@@ -345,7 +345,7 @@ const HomepageCopy = () => {
                 <p>AMAI gives liquidity pools an operator.</p>
                 <p>An AI agent that manages trading fees and distributes a share to token holders in Stock Tokens.</p>
               </div>
-              <figure className="mt-8 md:mt-10 w-full max-w-[644px] lg:-ml-12">
+              <figure className="mt-8 md:mt-10 w-full lg:w-[115%] max-w-[644px] lg:max-w-none lg:-ml-[7.5%]">
                 <img
                   src={amaiPoolGraphic}
                   alt="AMAI liquidity pool with a graphite principal plate and brass fee channel leading to the operator"
