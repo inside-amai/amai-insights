@@ -262,7 +262,7 @@ const HomepageCopy = () => {
   };
 
   return (
-    <div className="bg-black" dir={isRtl ? 'rtl' : 'ltr'}>
+    <div className="homepage-copy-palette bg-palette-ink" dir={isRtl ? 'rtl' : 'ltr'}>
       {/* Hero */}
       <div className="h-svh md:h-screen flex flex-col">
         <div className="h-16 bg-black flex-shrink-0" />
@@ -275,8 +275,8 @@ const HomepageCopy = () => {
             animate={{ scale: [1, 1.12, 1] }}
             transition={{ duration: 18, ease: "easeInOut", repeat: Infinity }}
           />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_100%,rgba(166,252,252,0.14),transparent_60%)]" />
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_0%,rgba(166,252,252,0.14),transparent_60%)]" />
+           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_100%,hsl(var(--cyan-accent)/0.14),transparent_60%)]" />
+           <div className="pointer-events-none absolute inset-x-0 top-0 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_0%,hsl(var(--purple-accent)/0.1),transparent_62%)]" />
           <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
             <div className="h-12 md:h-20" aria-hidden="true" />
 
@@ -330,7 +330,7 @@ const HomepageCopy = () => {
       </div>
 
       {/* Section 2 AGENT-OPERATED POOLS */}
-      <section id="score" className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
+       <section id="score" className="palette-atmosphere relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-transparent pointer-events-none" />
 
         <div className="relative z-10 max-w-[1400px] mx-auto">
@@ -342,7 +342,7 @@ const HomepageCopy = () => {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">Agent-operated pools.</span>
+                 <span className="text-[11px] tracking-[0.35em] font-light text-cyan-accent/70 uppercase">Agent-operated pools.</span>
               <h2 className="mt-6 md:mt-8 text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.05] tracking-[-0.02em] text-white/90 font-medium">
                 <span className="block">Liquidity Pools.</span>
                 <span className="block mt-1 md:mt-2">Now managed by Agents.</span>
@@ -388,10 +388,10 @@ const HomepageCopy = () => {
               ].map(([num, job, desc]) => (
                 <div
                   key={num}
-                  className="group relative grid grid-cols-[130px_1fr] md:grid-cols-[170px_1fr] gap-x-6 py-5 md:py-6 transition-colors duration-[250ms] hover:bg-cyan-accent/[0.04]"
+                   className="group relative grid grid-cols-[130px_1fr] md:grid-cols-[170px_1fr] gap-x-6 py-5 md:py-6 transition-colors duration-[250ms] hover:bg-gradient-to-r hover:from-cyan-accent/[0.055] hover:via-purple-accent/[0.025] hover:to-transparent"
                 >
                   <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-white/20 via-white/10 to-transparent group-hover:from-cyan-accent/40 group-hover:via-cyan-accent/20 group-hover:to-transparent transition-all duration-[250ms]" />
-                  <div className="absolute inset-0 bg-gradient-to-b from-white/[0.05] via-white/[0.02] to-transparent pointer-events-none" />
+                   <div className="absolute inset-0 bg-gradient-to-b from-purple-accent/[0.035] via-white/[0.018] to-transparent pointer-events-none" />
                   <div className="relative text-sm md:text-base font-normal text-white/90 whitespace-nowrap">
                     <span className="text-cyan-accent/60 group-hover:text-cyan-accent/90 font-mono mr-1.5 transition-colors duration-[250ms]">{num}</span>
                     <span className="text-white/30 mx-0.5">·</span> {job}
@@ -410,7 +410,7 @@ const HomepageCopy = () => {
           </div>
 
           <motion.div
-            className="mt-24 md:mt-32 flex justify-center"
+             className="relative mt-24 md:mt-32 flex justify-center pt-8 before:absolute before:top-0 before:left-1/2 before:h-px before:w-56 before:-translate-x-1/2 before:bg-gradient-to-r before:from-transparent before:via-purple-accent/45 before:to-transparent"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.5 }}
@@ -424,12 +424,12 @@ const HomepageCopy = () => {
       </section>
 
       {/* Feature card */}
-      <section className="relative bg-perspective-grid py-16 md:py-24 px-4 md:px-8">
+       <section className="palette-atmosphere relative bg-perspective-grid py-16 md:py-24 px-4 md:px-8">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-transparent pointer-events-none" />
         <div className="max-w-[95vw] mx-auto relative z-10">
-          <div className="pointer-events-none absolute -inset-3 rounded-[2rem] bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.12),transparent_55%)] blur-2xl opacity-60" />
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-2xl shadow-[0_20px_80px_-20px_rgba(0,0,0,0.8),inset_0_1px_0_0_rgba(255,255,255,0.08)] min-h-[70vh] md:min-h-[80vh] flex items-center justify-center">
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.06] via-transparent to-transparent" />
+           <div className="pointer-events-none absolute -inset-3 rounded-[2rem] bg-[radial-gradient(circle_at_50%_0%,hsl(var(--purple-accent)/0.16),transparent_55%)] blur-2xl opacity-60" />
+           <div className="relative overflow-hidden rounded-3xl border border-purple-accent/15 bg-white/[0.035] backdrop-blur-2xl shadow-[0_20px_80px_-20px_rgba(0,0,0,0.8),inset_0_1px_0_0_hsl(var(--cyan-accent)/0.12)] min-h-[70vh] md:min-h-[80vh] flex items-center justify-center">
+             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-purple-accent/[0.07] via-transparent to-cyan-accent/[0.03]" />
             <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white/[0.08] to-transparent" />
             <div className="pointer-events-none absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.08),transparent_50%)]" />
 
@@ -441,7 +441,7 @@ const HomepageCopy = () => {
               transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="mb-10 md:mb-14 w-full">
-                <TariGauge score={812} />
+                 <TariGauge score={812} palette="spectrum" />
               </div>
               <div className="mb-6 md:mb-8">
                 <span className="inline-flex items-center gap-3 text-xs md:text-sm tracking-[0.3em] font-medium text-white/90 uppercase">
@@ -519,7 +519,7 @@ const HomepageCopy = () => {
       </section>
 
       {/* THE EVIDENCE */}
-      <section id="evidence" className="relative bg-black bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
+       <section id="evidence" className="palette-atmosphere relative bg-palette-ink bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-[30%_1fr] gap-14 lg:gap-16">
             <motion.div
@@ -528,7 +528,7 @@ const HomepageCopy = () => {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span className="text-xs tracking-[0.35em] uppercase text-white/50">THE EVIDENCE</span>
+               <span className="text-xs tracking-[0.35em] uppercase text-purple-accent/70">THE EVIDENCE</span>
               <h2 className="mt-6 text-3xl md:text-5xl font-medium tracking-tight text-white leading-[1.08]">
                 Compromise leaves a pattern.
               </h2>
@@ -564,7 +564,7 @@ const HomepageCopy = () => {
 
 
       {/* HOLD THE TOKEN / ticker section */}
-      <section className="relative bg-perspective-grid min-h-screen flex items-center justify-center px-4 md:px-8 overflow-hidden">
+       <section className="palette-atmosphere relative bg-perspective-grid min-h-screen flex items-center justify-center px-4 md:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60 pointer-events-none" />
         <motion.div
           className="relative z-10 text-center"
@@ -589,7 +589,7 @@ const HomepageCopy = () => {
       </section>
 
       {/* THE CHAIN MAKES SURE */}
-      <section className="relative bg-black bg-perspective-grid min-h-screen flex items-center px-4 md:px-8 py-24 md:py-32 overflow-hidden">
+       <section className="palette-atmosphere relative bg-palette-ink bg-perspective-grid min-h-screen flex items-center px-4 md:px-8 py-24 md:py-32 overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto w-full">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -598,8 +598,8 @@ const HomepageCopy = () => {
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="flex items-center gap-3 mb-8">
-              <span className="h-px w-10 bg-white/30" />
-              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">The chain makes sure</span>
+               <span className="h-px w-10 bg-purple-accent/60" />
+               <span className="text-[11px] tracking-[0.35em] font-light text-purple-accent/70 uppercase">The chain makes sure</span>
             </div>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05]">
               It works for you.
@@ -625,7 +625,7 @@ const HomepageCopy = () => {
 
 
       {/* Section 4 HOW IT WORKS */}
-      <section id="methodology" className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
+       <section id="methodology" className="palette-atmosphere relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-transparent pointer-events-none" />
         <div className="pointer-events-none absolute -right-40 top-1/4 w-[520px] h-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(166,252,252,0.05),transparent_70%)]" />
 
@@ -695,9 +695,9 @@ const HomepageCopy = () => {
       </section>
 
       {/* Section 5 RUN IT */}
-      <section id="install-tari" className="relative bg-[#fafafa] py-24 md:py-40 px-4 md:px-8 overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.07] pointer-events-none" style={{ backgroundImage: "linear-gradient(#0055ff 1px, transparent 1px), linear-gradient(90deg, #0055ff 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
-        <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{ backgroundImage: "linear-gradient(#0055ff 1px, transparent 1px), linear-gradient(90deg, #0055ff 1px, transparent 1px)", backgroundSize: "8px 8px" }} />
+       <section id="install-tari" className="palette-paper relative py-24 md:py-40 px-4 md:px-8 overflow-hidden">
+         <div className="absolute inset-0 opacity-[0.12] pointer-events-none bg-[linear-gradient(hsl(var(--cyan-accent)/0.35)_1px,transparent_1px),linear-gradient(90deg,hsl(var(--purple-accent)/0.3)_1px,transparent_1px)] bg-[size:40px_40px]" />
+         <div className="absolute inset-0 opacity-[0.06] pointer-events-none bg-[linear-gradient(hsl(var(--purple-accent)/0.35)_1px,transparent_1px),linear-gradient(90deg,hsl(var(--cyan-accent)/0.3)_1px,transparent_1px)] bg-[size:8px_8px]" />
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black to-transparent pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
@@ -736,7 +736,7 @@ const HomepageCopy = () => {
 
           <motion.div className="lg:col-span-7 lg:mt-14" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}>
             <div className="relative">
-              <div className="absolute -inset-3 -z-10 rounded-[32px] bg-gradient-to-br from-white/10 via-white/5 to-transparent blur-2xl opacity-60" />
+               <div className="absolute -inset-3 -z-10 rounded-[32px] bg-gradient-to-br from-cyan-accent/20 via-purple-accent/10 to-transparent blur-2xl opacity-60" />
               <div className="relative bg-[hsl(var(--gray-900))] rounded-3xl overflow-hidden border border-white/15 shadow-2xl after:absolute after:inset-x-0 after:top-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-white/25 after:to-transparent keep-ltr p-5 md:p-6 space-y-6" dir="ltr">
                 {/* Step 1 · POINT */}
                 <div>
@@ -794,7 +794,7 @@ const HomepageCopy = () => {
       </section>
 
       {/* Section 6 RISK */}
-      <section id="risk" className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
+       <section id="risk" className="palette-atmosphere relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-transparent pointer-events-none" />
         <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
           <motion.div className="lg:col-span-5 text-start" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}>
@@ -820,7 +820,7 @@ const HomepageCopy = () => {
 
           <div className="lg:col-span-7 flex flex-col gap-8 md:gap-12">
             <motion.div className="border-b border-white/10 pb-8 md:pb-12" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}>
-              <div className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-[#7dd3d8] leading-none">
+               <div className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-cyan-accent leading-none">
                 158,128
               </div>
               <p className="mt-4 text-base md:text-lg font-light text-white/70 max-w-md">wallets scored on the Bureau, live</p>
@@ -828,7 +828,7 @@ const HomepageCopy = () => {
             </motion.div>
 
             <motion.div className="border-b border-white/10 pb-8 md:pb-12" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}>
-              <div className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-[#7dd3d8] leading-none">
+               <div className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-purple-accent leading-none">
                 0.835
               </div>
               <p className="mt-4 text-base md:text-lg font-light text-white/70 max-w-md">benchmark AUC, the conduct engine</p>
@@ -836,7 +836,7 @@ const HomepageCopy = () => {
             </motion.div>
 
             <motion.div className="border-b border-white/10 pb-8 md:pb-12" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}>
-              <div className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-[#7dd3d8] leading-none keep-ltr" dir="ltr">
+               <div className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-cyan-accent leading-none keep-ltr" dir="ltr">
                 pip install amai-tari
               </div>
               <p className="mt-4 text-base md:text-lg font-light text-white/70 max-w-md">the SDK. Runs locally. Nothing leaves your machine.</p>
@@ -847,13 +847,13 @@ const HomepageCopy = () => {
       </section>
 
       {/* Section 7 FOR INSTITUTIONS */}
-      <section id="institutions" className="relative py-24 md:py-40 px-4 md:px-8 overflow-hidden" style={{ backgroundColor: '#F1EDE4' }}>
+       <section id="institutions" className="palette-paper relative py-24 md:py-40 px-4 md:px-8 overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto text-[hsl(var(--gray-900))]">
           <div className="flex items-baseline justify-between">
             <span className="text-[11px] tracking-[0.35em] uppercase font-normal text-black/70">THE LENS</span>
             <span className="text-[11px] tracking-[0.35em] uppercase font-normal text-black/50 keep-ltr" dir="ltr">EVERY OPERATOR · EVERY MOVE</span>
           </div>
-          <motion.div className="mt-6 h-px w-full bg-black/80 origin-left" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true, amount: 0.4 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }} />
+           <motion.div className="mt-6 h-px w-full palette-spectrum-line origin-left" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true, amount: 0.4 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }} />
 
           <div className="mt-14 md:mt-20 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
             <motion.div className="lg:col-span-5" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}>
@@ -943,14 +943,14 @@ const HomepageCopy = () => {
             </motion.figure>
           </div>
 
-          <motion.div className="mt-20 md:mt-28 h-px w-full bg-black/80 origin-left" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true, amount: 0.4 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }} />
+           <motion.div className="mt-20 md:mt-28 h-px w-full palette-spectrum-line origin-left" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true, amount: 0.4 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }} />
         </div>
       </section>
 
       {/* Outro */}
-      <section className="relative bg-perspective-grid min-h-[80vh] md:min-h-[85vh] flex flex-col items-center justify-center py-32 md:py-48 px-4 md:px-8 overflow-hidden">
+       <section className="palette-atmosphere relative bg-perspective-grid min-h-[80vh] md:min-h-[85vh] flex flex-col items-center justify-center py-32 md:py-48 px-4 md:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,hsl(var(--cyan-accent)/0.12),transparent_60%)] pointer-events-none" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)] pointer-events-none" />
+         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_45%,hsl(var(--purple-accent)/0.08),transparent_45%),radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)] pointer-events-none" />
 
         <motion.div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}>
           <img src={amaiLogo} alt={c.outro.logoAlt} className="h-20 md:h-32 w-auto mx-auto mb-12 md:mb-16 brightness-110 drop-shadow-[0_0_40px_rgba(166,252,252,0.25)]" />

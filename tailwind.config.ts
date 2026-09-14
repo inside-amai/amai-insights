@@ -89,6 +89,14 @@ export default {
 				},
 				purple: {
 					accent: 'hsl(var(--purple-accent))',
+				},
+				palette: {
+					ink: 'hsl(var(--palette-ink))',
+					graphite: 'hsl(var(--palette-graphite))',
+					surface: 'hsl(var(--palette-surface))',
+					paper: 'hsl(var(--palette-paper))',
+					aqua: 'hsl(var(--palette-aqua))',
+					violet: 'hsl(var(--palette-violet))',
 				}
 			},
 			backgroundImage: {
