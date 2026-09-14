@@ -9,15 +9,24 @@ export const TariGauge = ({
   score = 812,
   label = "TARI™ Score",
   presentation = false,
+  accent = "cyan",
 }: {
   score?: number;
   label?: string;
   presentation?: boolean;
+  accent?: "cyan" | "green";
 }) => {
   const gaugeRef = useRef<HTMLDivElement>(null);
   const needleRef = useRef<SVGGElement>(null);
   const numberRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(gaugeRef, { once: true, amount: 0.3 });
+
+  const isGreen = accent === "green";
+  const arcEnd = isGreen ? "#157854" : "#a6fcfc";
+  const glowStart = isGreen ? "rgba(21,120,84,0.18)" : "rgba(166,252,252,0.18)";
+  const glowEnd = isGreen ? "rgba(21,120,84,0)" : "rgba(166,252,252,0)";
+  const dotColor = isGreen ? "#B4F6AD" : "rgba(166,252,252,0.9)";
+  const shadowColor = isGreen ? "rgba(21,120,84,0.25)" : "rgba(166,252,252,0.25)";
 
   const MIN = 300;
   const MAX = 850;
@@ -102,12 +111,12 @@ export const TariGauge = ({
           <linearGradient id="tari-arc" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#b23a3a" />
             <stop offset="35%" stopColor="#c8a24a" />
-            <stop offset="70%" stopColor="#4ea67a" />
-            <stop offset="100%" stopColor="#a6fcfc" />
+            <stop offset="70%" stopColor={isGreen ? "#3D896D" : "#4ea67a"} />
+            <stop offset="100%" stopColor={arcEnd} />
           </linearGradient>
           <radialGradient id="tari-center-glow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="rgba(166,252,252,0.18)" />
-            <stop offset="100%" stopColor="rgba(166,252,252,0)" />
+            <stop offset="0%" stopColor={glowStart} />
+            <stop offset="100%" stopColor={glowEnd} />
           </radialGradient>
           <filter id="tari-glow" x="-40%" y="-40%" width="180%" height="180%">
             <feGaussianBlur stdDeviation="4" result="blur" />
@@ -201,7 +210,7 @@ export const TariGauge = ({
               />
             </g>
             <circle cx={cx} cy={cy} r={9} fill="#0a0a0a" stroke="rgba(255,255,255,0.6)" strokeWidth={1.2} />
-            <circle cx={cx} cy={cy} r={3} fill="rgba(166,252,252,0.9)" />
+            <circle cx={cx} cy={cy} r={3} fill={dotColor} />
           </>
         )}
 
@@ -230,7 +239,7 @@ export const TariGauge = ({
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5, delay: 0.35 }}
           className="mt-2 text-6xl md:text-7xl font-light tabular-nums text-white leading-none tracking-tight"
-          style={{ textShadow: "0 0 40px rgba(166,252,252,0.25)" }}
+          style={{ textShadow: `0 0 40px ${shadowColor}` }}
         >
           {MIN}
         </motion.div>
