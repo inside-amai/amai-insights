@@ -63,42 +63,8 @@ const HomepageCopy = () => {
     { label: "Bureau", href: "https://bureau.amai.net", external: true },
   ] as const;
 
-  const [copiedTerminal, setCopiedTerminal] = useState(false);
-  const [copiedDemo, setCopiedDemo] = useState(false);
-  const [copiedPython, setCopiedPython] = useState(false);
   const [showLeftNavArrow, setShowLeftNavArrow] = useState(false);
   const [showRightNavArrow, setShowRightNavArrow] = useState(true);
-  const institutionImages = [institutionsLens.url, institutionsApprovals.url, institutionsFleetNew.url];
-  const [instIndex, setInstIndex] = useState(0);
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [traceLightboxOpen, setTraceLightboxOpen] = useState(false);
-
-  const goPrev = () => setInstIndex((i) => (i - 1 + institutionImages.length) % institutionImages.length);
-  const goNext = () => setInstIndex((i) => (i + 1) % institutionImages.length);
-
-  useEffect(() => {
-    if (!lightboxOpen) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setLightboxOpen(false);
-      if (e.key === 'ArrowLeft') goPrev();
-      if (e.key === 'ArrowRight') goNext();
-    };
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    window.addEventListener('keydown', onKey);
-    return () => { window.removeEventListener('keydown', onKey); document.body.style.overflow = prevOverflow; };
-  }, [lightboxOpen]);
-
-  useEffect(() => {
-    if (!traceLightboxOpen) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setTraceLightboxOpen(false);
-    };
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    window.addEventListener('keydown', onKey);
-    return () => { window.removeEventListener('keydown', onKey); document.body.style.overflow = prevOverflow; };
-  }, [traceLightboxOpen]);
 
   const navListRef = useRef<HTMLUListElement>(null);
 
