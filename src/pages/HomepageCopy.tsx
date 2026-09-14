@@ -4,7 +4,12 @@ import { Link } from "react-router-dom";
 import { ChevronRight, ChevronLeft, Download, RefreshCw, Send, TrendingUp, SlidersHorizontal, Pause } from "lucide-react";
 import amaiLogo from "@/assets/amai-logo-tm.png";
 import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
-import amaiPoolGraphic from "@/assets/channel_amai.svg.asset.json";
+import collectGraphic from "@/assets/01-collect.svg.asset.json";
+import convertGraphic from "@/assets/02-convert.svg.asset.json";
+import payGraphic from "@/assets/03-pay.svg.asset.json";
+import lendIdleGraphic from "@/assets/04-lend-idle.svg.asset.json";
+import rebalanceGraphic from "@/assets/05-rebalance.svg.asset.json";
+import sitOutGraphic from "@/assets/06-sit-out.svg.asset.json";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { pickHome } from "@/i18n/pageContent";
 
