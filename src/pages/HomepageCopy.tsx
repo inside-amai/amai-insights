@@ -14,29 +14,6 @@ import { EvidenceDistribution } from "@/components/EvidenceDistribution";
 import { EcosystemSection } from "@/components/EcosystemSection";
 
 const TICKERS = ["TSLA", "AMZN", "PLTR", "NFLX", "AMD"];
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
-  const [value, setValue] = useState(0);
-
-  useEffect(() => {
-    if (!isInView) return;
-    const controls = animate(0, to, {
-      duration: 1.5,
-      ease: [0.16, 1, 0.3, 1],
-      onUpdate: (v) => setValue(Math.round(v)),
-    });
-    return () => controls.stop();
-  }, [isInView, to]);
-
-  return (
-    <span ref={ref} dir="ltr" className="keep-ltr">
-      {prefix}{value.toLocaleString('en-US')}{suffix}
-    </span>
-  );
-};
-
-const TICKERS = ["TSLA", "AMZN", "PLTR", "NFLX", "AMD"];
-
 
 const TickerRoll = () => {
   const [tickerIndex, setTickerIndex] = useState(0);
