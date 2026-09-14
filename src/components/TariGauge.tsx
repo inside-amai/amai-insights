@@ -9,10 +9,12 @@ export const TariGauge = ({
   score = 812,
   label = "TARI™ Score",
   presentation = false,
+  palette = "classic",
 }: {
   score?: number;
   label?: string;
   presentation?: boolean;
+  palette?: "classic" | "spectrum";
 }) => {
   const gaugeRef = useRef<HTMLDivElement>(null);
   const needleRef = useRef<SVGGElement>(null);
@@ -98,12 +100,23 @@ export const TariGauge = ({
         aria-label={presentation ? `TARI score scale from ${MIN} to ${MAX}` : `TARI score ${clamped} out of ${MAX}`}
       >
         <defs>
-          {/* Arc gradient — violet through white into aqua */}
+          {/* Arc gradient */}
           <linearGradient id="tari-arc" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="hsl(var(--purple-accent))" stopOpacity="0.48" />
-            <stop offset="48%" stopColor="hsl(var(--purple-accent))" stopOpacity="0.9" />
-            <stop offset="72%" stopColor="hsl(var(--white))" stopOpacity="0.9" />
-            <stop offset="100%" stopColor="hsl(var(--cyan-accent))" />
+            {palette === "spectrum" ? (
+              <>
+                <stop offset="0%" stopColor="hsl(var(--purple-accent))" stopOpacity="0.48" />
+                <stop offset="48%" stopColor="hsl(var(--purple-accent))" stopOpacity="0.9" />
+                <stop offset="72%" stopColor="hsl(var(--white))" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="hsl(var(--cyan-accent))" />
+              </>
+            ) : (
+              <>
+                <stop offset="0%" stopColor="#b23a3a" />
+                <stop offset="35%" stopColor="#c8a24a" />
+                <stop offset="70%" stopColor="#4ea67a" />
+                <stop offset="100%" stopColor="#a6fcfc" />
+              </>
+            )}
           </linearGradient>
           <radialGradient id="tari-center-glow" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor="rgba(166,252,252,0.18)" />

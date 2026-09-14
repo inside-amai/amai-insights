@@ -441,7 +441,7 @@ const HomepageCopy = () => {
               transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="mb-10 md:mb-14 w-full">
-                <TariGauge score={812} />
+                 <TariGauge score={812} palette="spectrum" />
               </div>
               <div className="mb-6 md:mb-8">
                 <span className="inline-flex items-center gap-3 text-xs md:text-sm tracking-[0.3em] font-medium text-white/90 uppercase">
