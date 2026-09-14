@@ -23,7 +23,8 @@ export const TariGauge = ({
 
   const isGreen = accent === "green";
   const arcEnd = isGreen ? "#157854" : "#a6fcfc";
-  const glowColor = isGreen ? "rgba(21,120,84,0.18)" : "rgba(166,252,252,0.18)";
+  const glowStart = isGreen ? "rgba(21,120,84,0.18)" : "rgba(166,252,252,0.18)";
+  const glowEnd = isGreen ? "rgba(21,120,84,0)" : "rgba(166,252,252,0)";
   const dotColor = isGreen ? "#B4F6AD" : "rgba(166,252,252,0.9)";
   const shadowColor = isGreen ? "rgba(21,120,84,0.25)" : "rgba(166,252,252,0.25)";
 
