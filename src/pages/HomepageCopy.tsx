@@ -105,6 +105,7 @@ const HomepageCopy = () => {
   const { language } = useLanguage();
   const c = pickHome(language);
   const isRtl = language === 'ar';
+  const [activeOp, setActiveOp] = useState(0);
 
   const navItems = [
     { label: "Operators", id: "operators" },
