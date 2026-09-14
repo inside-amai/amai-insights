@@ -317,21 +317,22 @@ const HomepageCopy = () => {
                 {c.hero.scroll}
               </span>
               <div className="relative w-8 h-14 flex items-center justify-center">
-                <div className="absolute inset-x-3 top-1 bottom-1 rounded-full border border-white/15" />
+                <div className="absolute inset-x-3 top-1 bottom-1 rounded-full border border-[hsl(var(--operator-brass))]" />
                 <motion.div
-                  className="absolute w-1.5 h-1.5 rounded-full bg-white/80 shadow-[0_0_10px_rgba(255,255,255,0.5)]"
+                  className="absolute w-1.5 h-1.5 rounded-full bg-[hsl(var(--operator-brass))] shadow-[0_0_10px_hsl(var(--operator-brass)/0.45)]"
                   animate={{ y: [-12, 12, -12] }}
                   transition={{ duration: 2.2, ease: "easeInOut", repeat: Infinity }}
                 />
               </div>
             </motion.div>
           </div>
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-[140px] bg-[linear-gradient(to_bottom,hsl(var(--operator-surface)/0),hsl(var(--operator-surface)))]" />
         </div>
       </div>
 
       {/* Section 2 AGENT-OPERATED POOLS */}
-      <section id="score" className="relative bg-[hsl(var(--operator-surface))] py-24 md:py-40 px-4 md:px-8 overflow-hidden">
-        <div className="max-w-[1400px] mx-auto">
+      <section id="score" className="operator-material relative py-24 md:py-40 px-4 md:px-8 overflow-hidden">
+        <div className="relative z-10 max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 items-start">
             <div
               className="lg:col-span-5"
@@ -359,7 +360,7 @@ const HomepageCopy = () => {
               className="lg:col-span-7"
             >
               <div className="pb-4 border-b border-[hsl(var(--operator-rule))]">
-                <span className="text-[11px] tracking-[0.28em] font-normal text-[hsl(var(--operator-body))] uppercase">Operator Functions</span>
+                <span className="text-[11px] tracking-[0.35em] font-light text-[hsl(var(--operator-brass))] uppercase">Operator Functions</span>
               </div>
               {[
                 ["1", "Collect", "Collect the swap fees the pool’s position has earned."],
@@ -368,23 +369,20 @@ const HomepageCopy = () => {
                 ["4", "Lend idle", "Put idle treasury to work within defined limits."],
                 ["5", "Rebalance", "Adjust the liquidity range as conditions change."],
                 ["6", "Sit out", "Pause collections around specified market events."],
-              ].map(([num, job, desc], index) => {
-                const primaryFunction = index < 3;
-                return (
+              ].map(([num, job, desc]) => (
                 <div
                   key={num}
-                  className={`grid grid-cols-[28px_minmax(0,1fr)] md:grid-cols-[34px_150px_minmax(0,1fr)] gap-x-3 md:gap-x-5 py-5 md:py-6 border-b border-[hsl(var(--operator-rule))] ${index === 3 ? "mt-4 md:mt-6 border-t" : ""}`}
+                  className="grid grid-cols-[28px_minmax(0,1fr)] md:grid-cols-[34px_150px_minmax(0,1fr)] gap-x-3 md:gap-x-5 py-5 md:py-6 border-b border-[hsl(var(--operator-rule))]"
                 >
-                  <span className={`font-mono text-xs md:text-sm pt-0.5 ${primaryFunction ? "text-[hsl(var(--operator-brass))]" : "text-[hsl(var(--operator-quiet))]"}`}>
+                  <span className="font-mono text-xs md:text-sm pt-0.5 text-[hsl(var(--operator-brass))]">
                     {num.padStart(2, "0")}
                   </span>
-                  <span className={`text-sm md:text-base font-normal whitespace-nowrap ${primaryFunction ? "text-[hsl(var(--operator-primary))]" : "text-[hsl(var(--operator-body))]"}`}>
+                  <span className="text-sm md:text-base font-normal whitespace-nowrap text-[hsl(var(--operator-primary))]">
                     {job}
                   </span>
                   <p className="col-start-2 md:col-start-3 mt-2 md:mt-0 text-sm md:text-base font-light text-[hsl(var(--operator-body))] leading-relaxed">{desc}</p>
                 </div>
-                );
-              })}
+              ))}
               <div className="mt-10 md:mt-12 pl-4 md:pl-5 border-l-2 border-[hsl(var(--operator-brass))]">
                 <span className="text-[11px] tracking-[0.3em] font-normal text-[hsl(var(--operator-quiet))] uppercase">Denied Permissions</span>
                 <p className="mt-3 text-sm md:text-base font-light text-[hsl(var(--operator-body))] leading-relaxed">
