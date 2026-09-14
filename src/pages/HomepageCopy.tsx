@@ -380,7 +380,7 @@ const HomepageCopy = () => {
               </div>
 {([
                 [Download, "Collect", "Collect the swap fees the pool’s position has earned."],
-                [RefreshCw, "Convert", "Swap those fees into the tokenized stocks, such as NVDA, TSLA and more."],
+                [RefreshCw, "Convert", "Swap fees into the tokenized stocks. NVDA, TSLA and more."],
                 [Send, "Pay", "Distribute the holders' share to their wallets."],
                 [TrendingUp, "Lend idle", "Put idle treasury to work within defined limits."],
                 [SlidersHorizontal, "Rebalance", "Adjust the liquidity range as conditions change."],
