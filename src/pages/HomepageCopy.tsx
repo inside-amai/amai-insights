@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { ChevronRight, ChevronLeft, Download, RefreshCw, Send, TrendingUp, SlidersHorizontal, Pause } from "lucide-react";
 import amaiLogo from "@/assets/amai-logo-tm.png";
 import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
-import amaiPoolGraphic from "@/assets/channel_amai.svg.asset.json";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { pickHome } from "@/i18n/pageContent";
 
@@ -14,6 +13,51 @@ import { EvidenceDistribution } from "@/components/EvidenceDistribution";
 import { EcosystemSection } from "@/components/EcosystemSection";
 
 const TICKERS = ["TSLA", "AMZN", "PLTR", "NFLX", "AMD"];
+
+const OPERATOR_ROWS = [
+  {
+    icon: Download,
+    job: "Collect",
+    desc: "Collect the swap fees the pool’s position has earned.",
+    url: "/uploads/operator/01-collect.svg",
+    alt: "Pool fees entering the collection chamber while principal stays in place",
+  },
+  {
+    icon: RefreshCw,
+    job: "Convert",
+    desc: "Swap fees into the tokenized stocks. NVDA, TSLA and more.",
+    url: "/uploads/operator/02-convert.svg",
+    alt: "Collected fees being converted into Stock Tokens",
+  },
+  {
+    icon: Send,
+    job: "Pay",
+    desc: "Distribute the holders' share to their wallets.",
+    url: "/uploads/operator/03-pay.svg",
+    alt: "Stock Tokens reaching holder wallets",
+  },
+  {
+    icon: TrendingUp,
+    job: "Lend idle",
+    desc: "Put idle treasury to work within defined limits.",
+    url: "/uploads/operator/04-lend-idle.svg",
+    alt: "A capped treasury allocation going to an approved venue with a return path",
+  },
+  {
+    icon: SlidersHorizontal,
+    job: "Rebalance",
+    desc: "Adjust the liquidity range as conditions change.",
+    url: "/uploads/operator/05-rebalance.svg",
+    alt: "The liquidity range shifting around the price marker inside the pool",
+  },
+  {
+    icon: Pause,
+    job: "Sit out",
+    desc: "Pause collections around specified market events.",
+    url: "/uploads/operator/06-sit-out.svg",
+    alt: "The collection gate closed for a market event with fees waiting at the outlet",
+  },
+] as const;
 
 const TickerRoll = () => {
   const [tickerIndex, setTickerIndex] = useState(0);
@@ -55,6 +99,7 @@ const HomepageCopy = () => {
   const { language } = useLanguage();
   const c = pickHome(language);
   const isRtl = language === 'ar';
+  const [activeOp, setActiveOp] = useState(0);
 
   const navItems = [
     { label: "Operators", id: "operators" },
@@ -194,12 +239,21 @@ const HomepageCopy = () => {
                 viewport={{ once: true, amount: 0.25 }}
                 transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               >
-                <img
-                  src={amaiPoolGraphic.url}
-                  alt="Conceptual AMAI liquidity pool with an illuminated fee channel"
-                  className="block h-auto w-full"
-                  loading="lazy"
-                />
+                <div className="relative w-full aspect-[1000/650]">
+                  {OPERATOR_ROWS.map((row, i) => (
+                    <img
+                      key={row.job}
+                      src={row.url}
+                      alt={i === activeOp ? row.alt : ""}
+                      aria-hidden={i === activeOp ? undefined : true}
+                      className={`absolute inset-0 block h-full w-full ${i === activeOp ? "opacity-100" : "opacity-0"}`}
+                      decoding="async"
+                    />
+                  ))}
+                </div>
+                <figcaption className="sr-only" aria-live="polite">
+                  {OPERATOR_ROWS[activeOp].job}
+                </figcaption>
               </motion.figure>
             </motion.div>
 
@@ -214,27 +268,29 @@ const HomepageCopy = () => {
                 <span className="text-[11px] tracking-[0.2em] font-medium text-[#CEFFC9]/80 uppercase">Job</span>
                 <span className="text-[11px] tracking-[0.2em] font-medium text-[#CEFFC9]/80 uppercase">AMAI Operator Agent</span>
               </div>
-{([
-                [Download, "Collect", "Collect the swap fees the pool’s position has earned."],
-                [RefreshCw, "Convert", "Swap fees into the tokenized stocks. NVDA, TSLA and more."],
-                [Send, "Pay", "Distribute the holders' share to their wallets."],
-                [TrendingUp, "Lend idle", "Put idle treasury to work within defined limits."],
-                [SlidersHorizontal, "Rebalance", "Adjust the liquidity range as conditions change."],
-                [Pause, "Sit out", "Pause collections around specified market events."],
-              ] as const).map(([Icon, job, desc]) => (
-                <div
-                  key={job}
-                  className="group relative grid grid-cols-[130px_1fr] md:grid-cols-[170px_1fr] gap-x-6 py-5 md:py-6 transition-colors duration-[250ms] hover:bg-cyan-accent/[0.04]"
+              {OPERATOR_ROWS.map((row, i) => {
+                const Icon = row.icon;
+                const isActive = i === activeOp;
+                return (
+                <button
+                  key={row.job}
+                  type="button"
+                  aria-pressed={isActive}
+                  onMouseEnter={() => setActiveOp(i)}
+                  onFocus={() => setActiveOp(i)}
+                  onClick={() => setActiveOp(i)}
+                  className={`group relative w-full text-left grid grid-cols-[130px_1fr] md:grid-cols-[170px_1fr] gap-x-6 py-5 md:py-6 transition-colors duration-[250ms] focus:outline-none focus-visible:ring-1 focus-visible:ring-[#B4F6AD]/70 ${isActive ? "bg-[#157854]/[0.10]" : "hover:bg-[#157854]/[0.06]"}`}
                 >
-                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-white/20 via-white/10 to-transparent group-hover:from-cyan-accent/40 group-hover:via-cyan-accent/20 group-hover:to-transparent transition-all duration-[250ms]" />
+                  <div className={`absolute inset-x-0 top-0 h-px transition-all duration-[250ms] ${isActive ? "bg-gradient-to-r from-[#B4F6AD]/60 via-[#3D896D]/30 to-transparent" : "bg-gradient-to-r from-white/20 via-white/10 to-transparent"}`} />
                   <div className="absolute inset-0 bg-gradient-to-b from-white/[0.05] via-white/[0.02] to-transparent pointer-events-none" />
                   <div className="relative flex items-center gap-3 text-sm md:text-base font-normal text-white/90 whitespace-nowrap">
-                    <Icon className="w-4 h-4 text-[#B4F6AD] group-hover:text-[#B4F6AD] transition-colors duration-[250ms]" strokeWidth={1.5} />
-                    {job}
+                    <Icon className={`w-4 h-4 transition-colors duration-[250ms] ${isActive ? "text-[#CEFFC9]" : "text-[#B4F6AD]"}`} strokeWidth={1.5} />
+                    {row.job}
                   </div>
-                  <p className="relative text-sm md:text-base font-light text-white/60 leading-relaxed">{desc}</p>
-                </div>
-              ))}
+                  <p className="relative text-sm md:text-base font-light text-white/60 leading-relaxed">{row.desc}</p>
+                </button>
+                );
+              })}
               <div className="mt-10 md:mt-12 pl-4 md:pl-5 border-l border-[#157854]">
                 <span className="text-[11px] tracking-[0.3em] font-light text-white/50 uppercase">Denied Permissions</span>
                 <p className="mt-3 text-sm md:text-base font-light text-white/70 leading-relaxed">
