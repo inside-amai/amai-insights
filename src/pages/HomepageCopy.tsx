@@ -379,7 +379,7 @@ const HomepageCopy = () => {
                 <span className="text-[11px] tracking-[0.2em] font-light text-cyan-accent/70 uppercase">AMAI Operator</span>
               </div>
 {[
-                [Collect, "Collect", "Collect the swap fees the pool’s position has earned."],
+                [Download, "Collect", "Collect the swap fees the pool’s position has earned."],
                 [RefreshCw, "Convert", "Swap those fees into the tokenized stocks, such as NVDA, TSLA and more."],
                 [Send, "Pay", "Distribute the holders' share to their wallets."],
                 [TrendingUp, "Lend idle", "Put idle treasury to work within defined limits."],
