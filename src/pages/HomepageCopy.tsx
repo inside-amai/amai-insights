@@ -266,13 +266,13 @@ const HomepageCopy = () => {
               transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="mb-6 md:mb-8 w-full max-w-[420px] md:max-w-[480px] mx-auto">
-                <TariGauge score={812} />
+                <TariGauge score={812} accent="green" />
               </div>
               <div className="mb-4 md:mb-5">
                 <span className="inline-flex items-center gap-3 text-xs md:text-sm tracking-[0.3em] font-medium text-white/90 uppercase">
-                  <span className="h-px w-8 bg-cyan-accent/60" />
+                  <span className="h-px w-8 bg-[#3D896D]/60" />
                   TRUST & RISK INDEX
-                  <span className="h-px w-8 bg-cyan-accent/60" />
+                  <span className="h-px w-8 bg-[#3D896D]/60" />
                 </span>
               </div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.05]">
