@@ -9,10 +9,12 @@ export const TariGauge = ({
   score = 812,
   label = "TARI™ Score",
   presentation = false,
+  accent = "cyan",
 }: {
   score?: number;
   label?: string;
   presentation?: boolean;
+  accent?: "cyan" | "green";
 }) => {
   const gaugeRef = useRef<HTMLDivElement>(null);
   const needleRef = useRef<SVGGElement>(null);
