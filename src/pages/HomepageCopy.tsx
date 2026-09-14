@@ -245,12 +245,21 @@ const HomepageCopy = () => {
                 viewport={{ once: true, amount: 0.25 }}
                 transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               >
-                <img
-                  src={amaiPoolGraphic.url}
-                  alt="Conceptual AMAI liquidity pool with an illuminated fee channel"
-                  className="block h-auto w-full"
-                  loading="lazy"
-                />
+                <div className="relative w-full aspect-[1000/650]">
+                  {OPERATOR_ROWS.map((row, i) => (
+                    <img
+                      key={row.job}
+                      src={row.url}
+                      alt={i === activeOp ? row.alt : ""}
+                      aria-hidden={i === activeOp ? undefined : true}
+                      className={`absolute inset-0 block h-full w-full ${i === activeOp ? "opacity-100" : "opacity-0"}`}
+                      decoding="async"
+                    />
+                  ))}
+                </div>
+                <figcaption className="sr-only" aria-live="polite">
+                  {OPERATOR_ROWS[activeOp].job}
+                </figcaption>
               </motion.figure>
             </motion.div>
 
