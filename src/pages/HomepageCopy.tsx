@@ -264,8 +264,8 @@ const HomepageCopy = () => {
   return (
     <div className="bg-black" dir={isRtl ? 'rtl' : 'ltr'}>
       {/* Hero */}
-      <div className="h-svh md:h-screen flex flex-col">
-        <div className="h-16 bg-black flex-shrink-0" />
+      <div className="h-svh md:h-screen flex flex-col bg-[#070808]">
+        <div className="h-16 bg-[#070808] flex-shrink-0" />
         <div className="flex-1 flex items-center justify-center overflow-hidden relative">
           <motion.img
             src={homeFallbackBg}
@@ -275,8 +275,8 @@ const HomepageCopy = () => {
             animate={{ scale: [1, 1.12, 1] }}
             transition={{ duration: 18, ease: "easeInOut", repeat: Infinity }}
           />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_100%,rgba(166,252,252,0.14),transparent_60%)]" />
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_0%,rgba(166,252,252,0.14),transparent_60%)]" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_100%,rgba(26,28,27,0.32),transparent_55%)]" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_0%,rgba(26,28,27,0.32),transparent_55%)]" />
           <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
             <div className="h-12 md:h-20" aria-hidden="true" />
 
@@ -290,7 +290,7 @@ const HomepageCopy = () => {
             />
 
             <motion.h1
-              className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.05] tracking-[-0.02em] text-white/90 font-medium whitespace-normal sm:whitespace-nowrap"
+              className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.05] tracking-[-0.02em] text-[#EFEADE] font-medium whitespace-normal sm:whitespace-nowrap"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
@@ -299,7 +299,7 @@ const HomepageCopy = () => {
             </motion.h1>
 
             <motion.p
-              className="mt-4 md:mt-5 mx-auto max-w-[640px] text-base sm:text-lg md:text-xl leading-relaxed text-white/55 font-normal"
+              className="mt-4 md:mt-5 mx-auto max-w-[640px] text-base sm:text-lg md:text-xl leading-relaxed text-[#B9B6AE] font-normal"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
