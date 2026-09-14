@@ -42,7 +42,7 @@ const CountUp = ({ to, prefix = "", suffix = "" }: { to: number; prefix?: string
   );
 };
 
-const TICKERS = ["NVDA", "TSLA"];
+const TICKERS = ["TSLA", "AMZN", "PLTR", "NFLX", "AMD"];
 
 
 const TickerRoll = () => {
@@ -51,7 +51,7 @@ const TickerRoll = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setTickerIndex((i) => (i + 1) % TICKERS.length);
-    }, 5000);
+    }, 3000);
     return () => clearInterval(timer);
   }, []);
 
