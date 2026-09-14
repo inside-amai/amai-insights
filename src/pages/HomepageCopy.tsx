@@ -28,7 +28,7 @@ const TickerRoll = () => {
   const ticker = TICKERS[tickerIndex];
 
   return (
-    <span dir="ltr" className="keep-ltr inline-flex font-mono font-medium text-cyan-accent">
+    <span dir="ltr" className="keep-ltr inline-flex font-mono font-medium text-[#B4F6AD]">
       {ticker.split("").map((ch, i) => (
         <span key={i} className="relative inline-block">
           <span className="invisible">0</span>
