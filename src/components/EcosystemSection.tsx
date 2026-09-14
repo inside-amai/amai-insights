@@ -4,10 +4,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
 
 const linkClasses =
-  "inline-flex items-center gap-1.5 text-sm font-light text-cyan-accent/80 transition-colors duration-200 hover:text-cyan-accent focus:outline-none focus-visible:text-cyan-accent focus-visible:ring-1 focus-visible:ring-cyan-accent/60 focus-visible:ring-offset-4 focus-visible:ring-offset-black";
+  "inline-flex items-center gap-1.5 text-sm font-light text-[#3D896D]/80 transition-colors duration-200 hover:text-[#3D896D] focus:outline-none focus-visible:text-[#3D896D] focus-visible:ring-1 focus-visible:ring-[#3D896D]/60 focus-visible:ring-offset-4 focus-visible:ring-offset-black";
 
 const externalLinkClasses =
-  "inline-flex items-center gap-1.5 text-sm font-light text-cyan-accent/80 transition-colors duration-200 hover:text-cyan-accent focus:outline-none focus-visible:text-cyan-accent focus-visible:ring-1 focus-visible:ring-cyan-accent/60 focus-visible:ring-offset-4 focus-visible:ring-offset-black";
+  "inline-flex items-center gap-1.5 text-sm font-light text-[#3D896D]/80 transition-colors duration-200 hover:text-[#3D896D] focus:outline-none focus-visible:text-[#3D896D] focus-visible:ring-1 focus-visible:ring-[#3D896D]/60 focus-visible:ring-offset-4 focus-visible:ring-offset-black";
 
 const faqs = [
   {
