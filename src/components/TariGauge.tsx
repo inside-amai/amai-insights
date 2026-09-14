@@ -98,12 +98,12 @@ export const TariGauge = ({
         aria-label={presentation ? `TARI score scale from ${MIN} to ${MAX}` : `TARI score ${clamped} out of ${MAX}`}
       >
         <defs>
-          {/* Arc gradient — deep red → amber → emerald → cyan */}
+          {/* Arc gradient — violet through white into aqua */}
           <linearGradient id="tari-arc" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#b23a3a" />
-            <stop offset="35%" stopColor="#c8a24a" />
-            <stop offset="70%" stopColor="#4ea67a" />
-            <stop offset="100%" stopColor="#a6fcfc" />
+            <stop offset="0%" stopColor="hsl(var(--purple-accent))" stopOpacity="0.48" />
+            <stop offset="48%" stopColor="hsl(var(--purple-accent))" stopOpacity="0.9" />
+            <stop offset="72%" stopColor="hsl(var(--white))" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="hsl(var(--cyan-accent))" />
           </linearGradient>
           <radialGradient id="tari-center-glow" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor="rgba(166,252,252,0.18)" />
@@ -200,7 +200,7 @@ export const TariGauge = ({
                 filter="url(#tari-glow)"
               />
             </g>
-            <circle cx={cx} cy={cy} r={9} fill="#0a0a0a" stroke="rgba(255,255,255,0.6)" strokeWidth={1.2} />
+             <circle cx={cx} cy={cy} r={9} fill="hsl(var(--gray-900))" stroke="rgba(255,255,255,0.6)" strokeWidth={1.2} />
             <circle cx={cx} cy={cy} r={3} fill="rgba(166,252,252,0.9)" />
           </>
         )}

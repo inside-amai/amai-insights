@@ -25,8 +25,8 @@ const BINS: Bin[] = [
 const UNCOMPROMISED_TOTAL = 383;
 const COMPROMISED_TOTAL = 343;
 
-const AQUA = "#8EDAD5";
-const CORAL = "#DF827C";
+const AQUA = "hsl(var(--cyan-accent))";
+const VIOLET = "hsl(var(--purple-accent))";
 
 const X_MIN = 550;
 const X_MAX = 850;
@@ -197,7 +197,7 @@ const Plot = ({
       )}
 
       <path d={area("uncompromised", UNCOMPROMISED_TOTAL)} fill={AQUA} fillOpacity={0.14} />
-      <path d={area("compromised", COMPROMISED_TOTAL)} fill={CORAL} fillOpacity={0.16} />
+       <path d={area("compromised", COMPROMISED_TOTAL)} fill={VIOLET} fillOpacity={0.13} />
       <path
         d={line("uncompromised", UNCOMPROMISED_TOTAL)}
         fill="none"
@@ -208,7 +208,7 @@ const Plot = ({
       <path
         d={line("compromised", COMPROMISED_TOTAL)}
         fill="none"
-        stroke={CORAL}
+         stroke={VIOLET}
         strokeWidth={1.6}
         strokeDasharray="6 4"
         vectorEffect="non-scaling-stroke"
@@ -266,7 +266,7 @@ export const EvidenceDistribution = () => {
         <span className="inline-flex items-center gap-3 text-xs md:text-sm font-light tracking-wide text-white/70">
           <span
             className="h-px w-8 border-t border-dashed"
-            style={{ borderColor: CORAL }}
+             style={{ borderColor: VIOLET }}
             aria-hidden
           />
           Compromised <span className="text-white/35">·</span> 343 runs
@@ -302,7 +302,7 @@ export const EvidenceDistribution = () => {
                 </span>
               </div>
               <div className="flex items-baseline justify-between gap-4">
-                <span className="text-xs font-light" style={{ color: CORAL }}>
+                 <span className="text-xs font-light" style={{ color: VIOLET }}>
                   Compromised
                 </span>
                 <span className="text-xs font-light text-white/80 tabular-nums">
