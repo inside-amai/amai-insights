@@ -1,14 +1,9 @@
 import { useState, useRef, useEffect } from "react";
-import { motion, useInView, animate, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Copy, Check, ChevronRight, ChevronLeft, Download, RefreshCw, Send, TrendingUp, SlidersHorizontal, Pause } from "lucide-react";
+import { ChevronRight, ChevronLeft, Download, RefreshCw, Send, TrendingUp, SlidersHorizontal, Pause } from "lucide-react";
 import amaiLogo from "@/assets/amai-logo-tm.png";
-import { showEmailFallbackToast } from "@/lib/contact-toast";
 import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
-import institutionsLens from "@/assets/institutions-lens-v3.png.asset.json";
-import institutionsApprovals from "@/assets/institutions-approvals.png.asset.json";
-import institutionsFleetNew from "@/assets/institutions-fleet-new.png.asset.json";
-import liveTraceImage from "@/assets/live-trace.png.asset.json";
 import amaiPoolGraphic from "@/assets/channel_amai.svg.asset.json";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { pickHome } from "@/i18n/pageContent";
@@ -18,9 +13,7 @@ import { TariGauge } from "@/components/TariGauge";
 import { EvidenceDistribution } from "@/components/EvidenceDistribution";
 import { EcosystemSection } from "@/components/EcosystemSection";
 
-
-
-const CountUp = ({ to, prefix = "", suffix = "" }: { to: number; prefix?: string; suffix?: string }) => {
+const TICKERS = ["TSLA", "AMZN", "PLTR", "NFLX", "AMD"];
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
   const [value, setValue] = useState(0);
