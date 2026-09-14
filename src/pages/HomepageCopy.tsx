@@ -9,7 +9,7 @@ import institutionsLens from "@/assets/institutions-lens-v3.png.asset.json";
 import institutionsApprovals from "@/assets/institutions-approvals.png.asset.json";
 import institutionsFleetNew from "@/assets/institutions-fleet-new.png.asset.json";
 import liveTraceImage from "@/assets/live-trace.png.asset.json";
-import amaiPoolGraphic from "@/assets/amai-fee-channel-mineral.svg";
+import amaiPoolGraphic from "@/assets/AMAI_graphic.svg";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { pickHome } from "@/i18n/pageContent";
 
@@ -264,8 +264,8 @@ const HomepageCopy = () => {
   return (
     <div className="bg-black" dir={isRtl ? 'rtl' : 'ltr'}>
       {/* Hero */}
-      <div className="h-svh md:h-screen flex flex-col bg-[#070808]">
-        <div className="h-16 bg-[#070808] flex-shrink-0" />
+      <div className="h-svh md:h-screen flex flex-col">
+        <div className="h-16 bg-black flex-shrink-0" />
         <div className="flex-1 flex items-center justify-center overflow-hidden relative">
           <motion.img
             src={homeFallbackBg}
@@ -275,8 +275,8 @@ const HomepageCopy = () => {
             animate={{ scale: [1, 1.12, 1] }}
             transition={{ duration: 18, ease: "easeInOut", repeat: Infinity }}
           />
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-[58%] z-[1] bg-[linear-gradient(to_bottom,rgba(64,64,64,0.50)_0%,rgba(48,48,48,0.30)_12%,rgba(34,34,34,0.14)_26%,rgba(22,22,22,0.05)_40%,transparent_58%)]" />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[58%] z-[1] bg-[linear-gradient(to_top,rgba(64,64,64,0.50)_0%,rgba(48,48,48,0.30)_12%,rgba(34,34,34,0.14)_26%,rgba(22,22,22,0.05)_40%,transparent_58%)]" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_100%,rgba(166,252,252,0.14),transparent_60%)]" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-[55%] z-[1] bg-[radial-gradient(ellipse_at_50%_0%,rgba(166,252,252,0.14),transparent_60%)]" />
           <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
             <div className="h-12 md:h-20" aria-hidden="true" />
 
@@ -290,7 +290,7 @@ const HomepageCopy = () => {
             />
 
             <motion.h1
-              className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.05] tracking-[-0.02em] text-[#EFEADE] font-medium whitespace-normal sm:whitespace-nowrap"
+              className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.05] tracking-[-0.02em] text-white/90 font-medium whitespace-normal sm:whitespace-nowrap"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
@@ -299,7 +299,7 @@ const HomepageCopy = () => {
             </motion.h1>
 
             <motion.p
-              className="mt-4 md:mt-5 mx-auto max-w-[640px] text-base sm:text-lg md:text-xl leading-relaxed text-[#B9B6AE] font-normal"
+              className="mt-4 md:mt-5 mx-auto max-w-[640px] text-base sm:text-lg md:text-xl leading-relaxed text-white/55 font-normal"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
@@ -317,52 +317,68 @@ const HomepageCopy = () => {
                 {c.hero.scroll}
               </span>
               <div className="relative w-8 h-14 flex items-center justify-center">
-                <div className="absolute inset-x-3 top-1 bottom-1 rounded-full border border-[hsl(var(--operator-brass))]" />
+                <div className="absolute inset-x-3 top-1 bottom-1 rounded-full border border-white/15" />
                 <motion.div
-                  className="absolute w-1.5 h-1.5 rounded-full bg-[hsl(var(--operator-brass))] shadow-[0_0_10px_hsl(var(--operator-brass)/0.45)]"
+                  className="absolute w-1.5 h-1.5 rounded-full bg-white/80 shadow-[0_0_10px_rgba(255,255,255,0.5)]"
                   animate={{ y: [-12, 12, -12] }}
                   transition={{ duration: 2.2, ease: "easeInOut", repeat: Infinity }}
                 />
               </div>
             </motion.div>
           </div>
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-[140px] bg-[linear-gradient(to_bottom,hsl(var(--operator-surface)/0),hsl(var(--operator-surface)))]" />
         </div>
       </div>
 
       {/* Section 2 AGENT-OPERATED POOLS */}
-      <section id="score" className="operator-material relative py-24 md:py-40 px-4 md:px-8 overflow-hidden">
+      <section id="score" className="relative bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-transparent pointer-events-none" />
+
         <div className="relative z-10 max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 items-start">
-            <div
+            <motion.div
               className="lg:col-span-5"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span className="text-[11px] tracking-[0.35em] font-light text-[hsl(var(--operator-brass))] uppercase">Agent-operated pools.</span>
-              <h2 className="mt-6 md:mt-8 text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.05] tracking-normal text-[hsl(var(--operator-primary))] font-medium">
+              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">Agent-operated pools.</span>
+              <h2 className="mt-6 md:mt-8 text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.05] tracking-[-0.02em] text-white/90 font-medium">
                 <span className="block">Liquidity Pools.</span>
                 <span className="block mt-1 md:mt-2">Now managed by Agents.</span>
               </h2>
-              <div className="mt-8 md:mt-10 max-w-[42ch] space-y-2 text-base md:text-lg font-light text-[hsl(var(--operator-body))] leading-relaxed">
-                <p>AMAI gives liquidity pools an operator.</p>
-                <p>An AI agent that manages trading fees and distributes a share to token holders in Stock Tokens.</p>
-              </div>
-              <figure className="mt-8 md:mt-10 w-full lg:w-[115%] max-w-[644px] lg:max-w-none lg:-ml-[7.5%]">
+              <p className="mt-8 md:mt-10 text-base md:text-lg font-light text-white/65 leading-relaxed max-w-[42ch]">
+                AMAI gives liquidity pools an operator.<br /><br />
+                An AI agent that manages trading fees and distributes a share to token holders in Stock Tokens.
+              </p>
+              <motion.figure
+                className="mt-10 md:mt-14 w-full max-w-[560px] lg:-ml-10"
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.25 }}
+                transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              >
                 <img
                   src={amaiPoolGraphic}
-                  alt="AMAI liquidity pool with a graphite principal plate and brass fee channel leading to the operator"
+                  alt="Conceptual AMAI liquidity pool with an illuminated fee channel"
                   className="block h-auto w-full"
                   loading="lazy"
                 />
-              </figure>
-            </div>
+              </motion.figure>
+            </motion.div>
 
-            <div
+            <motion.div
               className="lg:col-span-7"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="pb-4 border-b border-[hsl(var(--operator-rule))]">
-                <span className="text-[11px] tracking-[0.35em] font-light text-[hsl(var(--operator-brass))] uppercase">Operator Functions</span>
+              <div className="grid grid-cols-[130px_1fr] md:grid-cols-[170px_1fr] gap-x-6 pb-3 border-b border-white/15">
+                <span className="text-[11px] tracking-[0.2em] font-light text-cyan-accent/70 uppercase">Job</span>
+                <span className="text-[11px] tracking-[0.2em] font-light text-cyan-accent/70 uppercase">AMAI Operator</span>
               </div>
-              {[
+{[
                 ["1", "Collect", "Collect the swap fees the pool’s position has earned."],
                 ["2", "Convert", "Swap those fees into the tokenized stocks, such as NVDA, TSLA and more."],
                 ["3", "Pay", "Distribute the holders' share to their wallets."],
@@ -372,34 +388,38 @@ const HomepageCopy = () => {
               ].map(([num, job, desc]) => (
                 <div
                   key={num}
-                  className="grid grid-cols-[28px_minmax(0,1fr)] md:grid-cols-[34px_150px_minmax(0,1fr)] gap-x-3 md:gap-x-5 py-5 md:py-6 border-b border-[hsl(var(--operator-rule))]"
+                  className="group relative grid grid-cols-[130px_1fr] md:grid-cols-[170px_1fr] gap-x-6 py-5 md:py-6 transition-colors duration-[250ms] hover:bg-cyan-accent/[0.04]"
                 >
-                  <span className="font-mono text-xs md:text-sm pt-0.5 text-[hsl(var(--operator-brass))]">
-                    {num.padStart(2, "0")}
-                  </span>
-                  <span className="text-sm md:text-base font-normal whitespace-nowrap text-[hsl(var(--operator-primary))]">
-                    {job}
-                  </span>
-                  <p className="col-start-2 md:col-start-3 mt-2 md:mt-0 text-sm md:text-base font-light text-[hsl(var(--operator-body))] leading-relaxed">{desc}</p>
+                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-white/20 via-white/10 to-transparent group-hover:from-cyan-accent/40 group-hover:via-cyan-accent/20 group-hover:to-transparent transition-all duration-[250ms]" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-white/[0.05] via-white/[0.02] to-transparent pointer-events-none" />
+                  <div className="relative text-sm md:text-base font-normal text-white/90 whitespace-nowrap">
+                    <span className="text-cyan-accent/60 group-hover:text-cyan-accent/90 font-mono mr-1.5 transition-colors duration-[250ms]">{num}</span>
+                    <span className="text-white/30 mx-0.5">·</span> {job}
+                  </div>
+                  <p className="relative text-sm md:text-base font-light text-white/60 leading-relaxed">{desc}</p>
                 </div>
               ))}
-              <div className="mt-10 md:mt-12 pl-4 md:pl-5 border-l-2 border-[hsl(var(--operator-brass))]">
-                <span className="text-[11px] tracking-[0.3em] font-normal text-[hsl(var(--operator-quiet))] uppercase">Denied Permissions</span>
-                <p className="mt-3 text-sm md:text-base font-light text-[hsl(var(--operator-body))] leading-relaxed">
+              <div className="mt-10 md:mt-12 pl-4 md:pl-5 border-l border-cyan-accent/60">
+                <span className="text-[11px] tracking-[0.3em] font-light text-white/50 uppercase">Denied Permissions</span>
+                <p className="mt-3 text-sm md:text-base font-light text-white/70 leading-relaxed">
                   The operator cannot withdraw the pool’s principal.<br />
                   It cannot expand its own permissions.
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
 
-          <div
+          <motion.div
             className="mt-24 md:mt-32 flex justify-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.9 }}
           >
-            <span className="text-[11px] tracking-[0.35em] font-light text-[hsl(var(--operator-quiet))] uppercase">
-              TARI <span className="mx-2 text-[hsl(var(--operator-brass))]">·</span> The trust score for AI agents
+            <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">
+              TARI <span className="mx-2 text-cyan-accent/60">·</span> The trust score for AI agents
             </span>
-          </div>
+          </motion.div>
         </div>
       </section>
 
