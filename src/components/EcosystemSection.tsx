@@ -164,12 +164,12 @@ export const EcosystemSection = () => {
     <section
       id="ecosystem"
       aria-labelledby="ecosystem-heading"
-      className="palette-atmosphere relative overflow-hidden bg-palette-graphite palette-grid px-4 py-24 md:px-8 md:py-40"
+      className="relative overflow-hidden bg-black bg-perspective-grid px-4 py-24 md:px-8 md:py-40"
     >
       <div className="relative mx-auto max-w-[920px]">
         {/* Masthead */}
-        <header className="relative text-center pb-14 md:pb-20 border-b border-white/[0.08] after:absolute after:bottom-[-1px] after:left-1/2 after:h-px after:w-40 after:-translate-x-1/2 after:bg-gradient-to-r after:from-transparent after:via-purple-accent/70 after:to-transparent">
-          <span className="text-[11px] font-light uppercase tracking-[0.35em] text-cyan-accent/70">
+        <header className="text-center pb-14 md:pb-20 border-b border-white/[0.08]">
+          <span className="text-[11px] font-light uppercase tracking-[0.35em] text-white/45">
             The Ecosystem
           </span>
           <h2
@@ -190,7 +190,7 @@ export const EcosystemSection = () => {
             return (
               <div
                 key={index}
-                 className={`group border-b border-white/[0.07] transition-colors duration-300 hover:bg-gradient-to-r hover:from-cyan-accent/[0.025] hover:via-purple-accent/[0.018] hover:to-transparent ${isOpen ? 'bg-gradient-to-r from-cyan-accent/[0.035] via-purple-accent/[0.025] to-transparent' : ''}`}
+                className="group border-b border-white/[0.07] transition-colors duration-300 hover:bg-white/[0.015]"
               >
                 <button
                   ref={(el) => { itemRefs.current[index] = el; }}
@@ -212,7 +212,7 @@ export const EcosystemSection = () => {
                     </span>
                     <span
                       className={`flex-shrink-0 transition-colors duration-300 ${
-                         isOpen ? "text-cyan-accent/90" : "text-white/30 group-hover:text-purple-accent/70"
+                        isOpen ? "text-white/90" : "text-white/30 group-hover:text-white/60"
                       }`}
                       aria-hidden="true"
                     >

@@ -25,12 +25,6 @@ All colors MUST be HSL.
     /* User Accent Colors */
     --cyan-accent: 180 100% 82%; /* #A6FCFC */
     --purple-accent: 270 87% 82%; /* #D6A6FC */
-    --palette-ink: 0 0% 0%;
-    --palette-graphite: 240 5% 7%;
-    --palette-surface: 240 5% 10%;
-    --palette-paper: 240 20% 98%;
-    --palette-aqua: var(--cyan-accent);
-    --palette-violet: var(--purple-accent);
 
     /* Design System Colors */
     --background: var(--white);
@@ -166,40 +160,6 @@ All colors MUST be HSL.
   .bg-glass {
     backdrop-filter: blur(14px);
     background-color: rgba(255,255,255,0.08);
-  }
-
-  .homepage-copy-palette {
-    --page-aqua: var(--palette-aqua);
-    --page-violet: var(--palette-violet);
-    --page-graphite: var(--palette-graphite);
-    --page-surface: var(--palette-surface);
-    --page-paper: var(--palette-paper);
-  }
-
-  .homepage-copy-palette .palette-grid {
-    background-color: hsl(var(--page-graphite));
-    background-image:
-      linear-gradient(to right, hsl(var(--page-aqua) / 0.045) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(var(--page-violet) / 0.04) 1px, transparent 1px);
-    background-size: 80px 80px;
-  }
-
-  .homepage-copy-palette .palette-spectrum-line {
-    background: linear-gradient(90deg, transparent, hsl(var(--page-aqua) / 0.75), hsl(var(--page-violet) / 0.75), transparent);
-  }
-
-  .homepage-copy-palette .palette-paper {
-    background-color: hsl(var(--page-paper));
-  }
-
-  .homepage-copy-palette .palette-atmosphere::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background:
-      radial-gradient(ellipse 60% 45% at 15% 15%, hsl(var(--page-aqua) / 0.055), transparent 70%),
-      radial-gradient(ellipse 55% 45% at 85% 80%, hsl(var(--page-violet) / 0.05), transparent 72%);
   }
 }
 
