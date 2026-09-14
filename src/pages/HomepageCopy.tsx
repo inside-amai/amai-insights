@@ -275,8 +275,8 @@ const HomepageCopy = () => {
             animate={{ scale: [1, 1.12, 1] }}
             transition={{ duration: 18, ease: "easeInOut", repeat: Infinity }}
           />
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-[55%] z-[1] bg-[linear-gradient(to_bottom,rgba(34,34,34,0.30)_0%,rgba(28,28,28,0.14)_18%,rgba(22,22,22,0.05)_34%,transparent_55%)]" />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] z-[1] bg-[linear-gradient(to_top,rgba(34,34,34,0.30)_0%,rgba(28,28,28,0.14)_18%,rgba(22,22,22,0.05)_34%,transparent_55%)]" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-[58%] z-[1] bg-[linear-gradient(to_bottom,rgba(64,64,64,0.50)_0%,rgba(48,48,48,0.30)_12%,rgba(34,34,34,0.14)_26%,rgba(22,22,22,0.05)_40%,transparent_58%)]" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[58%] z-[1] bg-[linear-gradient(to_top,rgba(64,64,64,0.50)_0%,rgba(48,48,48,0.30)_12%,rgba(34,34,34,0.14)_26%,rgba(22,22,22,0.05)_40%,transparent_58%)]" />
           <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
             <div className="h-12 md:h-20" aria-hidden="true" />
 
