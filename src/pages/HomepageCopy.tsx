@@ -399,6 +399,11 @@ const HomepageCopy = () => {
         </div>
       </section>
 
+      {/* THE LAUNCHPAD */}
+      <LaunchpadShowcase isRtl={isRtl} />
+
+
+
       {/* THE EVIDENCE */}
       <section id="evidence" className="relative bg-black bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
