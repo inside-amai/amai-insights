@@ -362,11 +362,11 @@ const HomepageCopy = () => {
                 <span className="block">Liquidity Pools.</span>
                 <span className="block mt-1 md:mt-2">Now managed by Agents.</span>
               </h2>
-              <p className="mt-6 md:mt-7 text-base md:text-lg font-semibold text-white/85 leading-relaxed max-w-[54ch]">
+              <p className="mt-8 md:mt-10 text-base md:text-lg font-light text-white/65 leading-relaxed max-w-[54ch]">
                 The world’s first agent operated liquidity pools that pay holders in tokenized stocks.
               </p>
               <motion.figure
-                className="mt-6 md:mt-7 w-full max-w-[680px] lg:-ml-10"
+                className="mt-10 md:mt-14 w-full max-w-[680px] lg:-ml-10"
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.25 }}
