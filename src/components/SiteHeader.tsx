@@ -70,6 +70,7 @@ export const SiteHeader = () => {
             <div className="flex items-center gap-2">
               <Link to="/" className="hover:text-white/90 transition-colors">Home</Link><span className="text-white/20">·</span>
               <Link to="/operators" className="hover:text-white/90 transition-colors">Operators</Link><span className="text-white/20">·</span>
+              <Link to="/token" className="hover:text-white/90 transition-colors">Token</Link><span className="text-white/20">·</span>
               <Link to="/launchpad" className="hover:text-white/90 transition-colors">Launchpad</Link><span className="text-white/20">·</span>
               <Link to="/tari" className="hover:text-white/90 transition-colors">Tari</Link><span className="text-white/20">·</span>
               <a href="https://bureau.amai.net" target="_blank" rel="noopener noreferrer" className="hover:text-white/90 transition-colors">Bureau ↗</a><span className="text-white/20">·</span>
@@ -131,6 +132,7 @@ export const SiteHeader = () => {
           <nav className="flex-1 flex flex-col justify-center px-8">
             <Link to="/" className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Home</Link>
             <Link to="/operators" className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Operators</Link>
+            <Link to="/token" className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Token</Link>
             <Link to="/launchpad" className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Launchpad</Link>
             <Link to="/tari" className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Tari</Link>
             <a href="https://bureau.amai.net" target="_blank" rel="noopener noreferrer" className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Bureau ↗</a>
