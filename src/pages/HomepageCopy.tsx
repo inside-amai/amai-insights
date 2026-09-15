@@ -47,7 +47,7 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
           <button
             type="button"
             onClick={() => setZoomed(true)}
-            className="block w-full text-left cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B4F6AD]/70 rounded-lg"
+            className="block w-full text-left cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#157854]/60 rounded-lg"
             aria-label="Open a larger view of the launchpad"
           >
             <img
