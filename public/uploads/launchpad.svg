@@ -90,11 +90,6 @@
 <text x="78" y="496" fill="#D2EBC9" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600" text-anchor="start" >Token studio</text>
 <text x="44" y="547" fill="#819382" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" text-anchor="start" >Your launch comes</text>
 <text x="44" y="566" fill="#819382" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" text-anchor="start" >with an operator.</text>
-<rect x="34" y="967" width="158" height="149" rx="12" fill="url(#hero)" stroke="#304935" stroke-width="1" />
-<text x="48" y="993" fill="#A4C59E" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="600" text-anchor="start" letter-spacing="1.2" >CREATOR SHARE</text>
-<text x="46" y="1044" fill="#D8FDD4" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="600" text-anchor="start" letter-spacing="-2" >75%</text>
-<text x="48" y="1072" fill="#AAC2A6" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" text-anchor="start" >The fees work</text>
-<text x="48" y="1090" fill="#AAC2A6" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" text-anchor="start" >for your community.</text>
 <g transform="translate(44 1144) scale(0.7083333333333334)" stroke="#798A7A" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
 <path d="M12 5v16m0-16C8 2 4 3 2 4v15c4-1 7-1 10 2 3-3 6-3 10-2V4c-3-1-7-2-10 1Z"/>
 </g>
@@ -281,6 +276,14 @@
 <text x="18" y="237" fill="#E9EEE4" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="600" text-anchor="start" letter-spacing="-0.6" >Mooncat</text>
 <text x="347" y="236" fill="#99AB98" font-family="Menlo, monospace" font-size="11" font-weight="400" text-anchor="end" >$MOONCAT</text>
 <text x="18" y="267" fill="#A1B09E" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" text-anchor="start" >The cat has left the group chat.</text>
+<g transform="" id="market-example-0">
+<title>Illustrative market cap $125K; price change +24.8 percent.</title>
+<text x="244" y="256" fill="#879B85" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="500" text-anchor="start" letter-spacing="0.3" >MC</text>
+<text x="347" y="256" fill="#D5DFCE" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" text-anchor="end" >$125K</text>
+<path d="M244.00 284.00L248.23 282.45L252.46 283.48L256.69 280.90L260.92 281.94L265.15 277.81L269.38 279.87L273.62 275.74L277.85 277.29L282.08 274.19L286.31 276.26L290.54 271.61L294.77 272.65L299.00 268.00" fill="none" stroke="#B4F6AD" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+<circle cx="299.0" cy="268.0" r="1.5" fill="#B4F6AD" />
+<text x="347" y="283" fill="#B4F6AD" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="500" text-anchor="end" >+24.8%</text>
+</g>
 <path d="M18 292H348" fill="none" stroke="#2E3E31" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
 <g transform="translate(18 308) scale(0.6666666666666666)" stroke="#B7C6AF" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
 <path d="m12 2 6 10-6 4-6-4 6-10Zm-6 12 6 8 6-8-6 4-6-4Z"/>
@@ -367,6 +370,14 @@
 <text x="18" y="237" fill="#E9EEE4" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="600" text-anchor="start" letter-spacing="-0.6" >Desk Frog</text>
 <text x="347" y="236" fill="#99AB98" font-family="Menlo, monospace" font-size="11" font-weight="400" text-anchor="end" >$DESK</text>
 <text x="18" y="267" fill="#A1B09E" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" text-anchor="start" >He moved into the terminal.</text>
+<g transform="" id="market-example-1">
+<title>Illustrative market cap $50K; price change +12.6 percent.</title>
+<text x="244" y="256" fill="#879B85" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="500" text-anchor="start" letter-spacing="0.3" >MC</text>
+<text x="347" y="256" fill="#D5DFCE" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" text-anchor="end" >$50K</text>
+<path d="M244.00 283.11L248.23 280.44L252.46 284.00L256.69 279.56L260.92 282.22L265.15 277.78L269.38 278.67L273.62 280.44L277.85 275.11L282.08 277.78L286.31 272.44L290.54 274.22L294.77 269.78L299.00 268.00" fill="none" stroke="#B4F6AD" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+<circle cx="299.0" cy="268.0" r="1.5" fill="#B4F6AD" />
+<text x="347" y="283" fill="#B4F6AD" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="500" text-anchor="end" >+12.6%</text>
+</g>
 <path d="M18 292H348" fill="none" stroke="#2E3E31" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
 <g transform="translate(18 308) scale(0.6666666666666666)" stroke="#B7C6AF" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
 <path d="m12 2 6 10-6 4-6-4 6-10Zm-6 12 6 8 6-8-6 4-6-4Z"/>
@@ -448,6 +459,14 @@
 <text x="18" y="237" fill="#E9EEE4" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="600" text-anchor="start" letter-spacing="-0.6" >Croissant Club</text>
 <text x="347" y="236" fill="#99AB98" font-family="Menlo, monospace" font-size="11" font-weight="400" text-anchor="end" >$BUTTER</text>
 <text x="18" y="267" fill="#A1B09E" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" text-anchor="start" >The market opens with butter.</text>
+<g transform="" id="market-example-2">
+<title>Illustrative market cap $28.4K; price change -4.3 percent.</title>
+<text x="244" y="256" fill="#879B85" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="500" text-anchor="start" letter-spacing="0.3" >MC</text>
+<text x="347" y="256" fill="#D5DFCE" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" text-anchor="end" >$28.4K</text>
+<path d="M244.00 268.84L248.23 271.37L252.46 268.00L256.69 273.89L260.92 270.53L265.15 274.74L269.38 277.26L273.62 273.89L277.85 278.95L282.08 276.42L286.31 280.63L290.54 279.79L294.77 284.00L299.00 282.32" fill="none" stroke="#EF8794" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+<circle cx="299.0" cy="282.3157894736842" r="1.5" fill="#EF8794" />
+<text x="347" y="283" fill="#EF8794" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="500" text-anchor="end" >−4.3%</text>
+</g>
 <path d="M18 292H348" fill="none" stroke="#2E3E31" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
 <g transform="translate(18 308) scale(0.6666666666666666)" stroke="#B7C6AF" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
 <path d="m12 2 6 10-6 4-6-4 6-10Zm-6 12 6 8 6-8-6 4-6-4Z"/>
@@ -509,6 +528,14 @@
 <text x="18" y="237" fill="#E9EEE4" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="600" text-anchor="start" letter-spacing="-0.6" >Cloud Nine</text>
 <text x="347" y="236" fill="#99AB98" font-family="Menlo, monospace" font-size="11" font-weight="400" text-anchor="end" >$CLOUD</text>
 <text x="18" y="267" fill="#A1B09E" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" text-anchor="start" >The forecast looks unusually soft.</text>
+<g transform="" id="market-example-3">
+<title>Illustrative market cap $7K; price change +8.2 percent.</title>
+<text x="244" y="256" fill="#879B85" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="500" text-anchor="start" letter-spacing="0.3" >MC</text>
+<text x="347" y="256" fill="#D5DFCE" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" text-anchor="end" >$7K</text>
+<path d="M244.00 284.00L248.23 280.44L252.46 282.22L256.69 278.67L260.92 283.11L265.15 280.44L269.38 275.11L273.62 276.89L277.85 273.33L282.08 277.78L286.31 272.44L290.54 275.11L294.77 269.78L299.00 268.00" fill="none" stroke="#B4F6AD" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+<circle cx="299.0" cy="268.0" r="1.5" fill="#B4F6AD" />
+<text x="347" y="283" fill="#B4F6AD" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="500" text-anchor="end" >+8.2%</text>
+</g>
 <path d="M18 292H348" fill="none" stroke="#2E3E31" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
 <g transform="translate(18 308) scale(0.6666666666666666)" stroke="#B7C6AF" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
 <path d="m12 2 6 10-6 4-6-4 6-10Zm-6 12 6 8 6-8-6 4-6-4Z"/>
@@ -586,6 +613,14 @@
 <text x="18" y="237" fill="#E9EEE4" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="600" text-anchor="start" letter-spacing="-0.6" >Ramen Capital</text>
 <text x="347" y="236" fill="#99AB98" font-family="Menlo, monospace" font-size="11" font-weight="400" text-anchor="end" >$RAMEN</text>
 <text x="18" y="267" fill="#A1B09E" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" text-anchor="start" >The noodles run the desk.</text>
+<g transform="" id="market-example-4">
+<title>Illustrative market cap $82K; price change +31.5 percent.</title>
+<text x="244" y="256" fill="#879B85" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="500" text-anchor="start" letter-spacing="0.3" >MC</text>
+<text x="347" y="256" fill="#D5DFCE" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" text-anchor="end" >$82K</text>
+<path d="M244.00 284.00L248.23 283.06L252.46 282.12L256.69 283.53L260.92 281.18L265.15 281.65L269.38 278.35L273.62 280.24L277.85 276.47L282.08 277.41L286.31 273.65L290.54 275.53L294.77 271.29L299.00 268.00" fill="none" stroke="#B4F6AD" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+<circle cx="299.0" cy="268.0" r="1.5" fill="#B4F6AD" />
+<text x="347" y="283" fill="#B4F6AD" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="500" text-anchor="end" >+31.5%</text>
+</g>
 <path d="M18 292H348" fill="none" stroke="#2E3E31" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
 <g transform="translate(18 308) scale(0.6666666666666666)" stroke="#B7C6AF" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
 <path d="m12 2 6 10-6 4-6-4 6-10Zm-6 12 6 8 6-8-6 4-6-4Z"/>
@@ -642,6 +677,14 @@
 <text x="18" y="237" fill="#E9EEE4" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="600" text-anchor="start" letter-spacing="-0.6" >Cosmic Pigeon</text>
 <text x="347" y="236" fill="#99AB98" font-family="Menlo, monospace" font-size="11" font-weight="400" text-anchor="end" >$COO</text>
 <text x="18" y="267" fill="#A1B09E" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" text-anchor="start" >The city belongs to the birds.</text>
+<g transform="" id="market-example-5">
+<title>Illustrative market cap $19.6K; price change -6.7 percent.</title>
+<text x="244" y="256" fill="#879B85" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="500" text-anchor="start" letter-spacing="0.3" >MC</text>
+<text x="347" y="256" fill="#D5DFCE" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" text-anchor="end" >$19.6K</text>
+<path d="M244.00 268.00L248.23 271.00L252.46 270.00L256.69 273.00L260.92 271.50L265.15 274.50L269.38 273.50L273.62 277.50L277.85 276.50L282.08 279.50L286.31 278.50L290.54 282.50L294.77 281.50L299.00 284.00" fill="none" stroke="#EF8794" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+<circle cx="299.0" cy="284.0" r="1.5" fill="#EF8794" />
+<text x="347" y="283" fill="#EF8794" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="500" text-anchor="end" >−6.7%</text>
+</g>
 <path d="M18 292H348" fill="none" stroke="#2E3E31" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
 <g transform="translate(18 308) scale(0.6666666666666666)" stroke="#B7C6AF" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
 <path d="m12 2 6 10-6 4-6-4 6-10Zm-6 12 6 8 6-8-6 4-6-4Z"/>
@@ -725,6 +768,14 @@
 <text x="18" y="237" fill="#E9EEE4" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="600" text-anchor="start" letter-spacing="-0.6" >Disco Dog</text>
 <text x="347" y="236" fill="#99AB98" font-family="Menlo, monospace" font-size="11" font-weight="400" text-anchor="end" >$DISCO</text>
 <text x="18" y="267" fill="#A1B09E" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" text-anchor="start" >The disco stays open.</text>
+<g transform="" id="market-example-6">
+<title>Illustrative market cap $104K; price change +18.9 percent.</title>
+<text x="244" y="256" fill="#879B85" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="500" text-anchor="start" letter-spacing="0.3" >MC</text>
+<text x="347" y="256" fill="#D5DFCE" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" text-anchor="end" >$104K</text>
+<path d="M244.00 283.41L248.23 282.22L252.46 284.00L256.69 279.85L260.92 281.63L265.15 278.07L269.38 279.85L273.62 275.70L277.85 278.67L282.08 274.52L286.31 275.70L290.54 271.56L294.77 273.93L299.00 268.00" fill="none" stroke="#B4F6AD" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+<circle cx="299.0" cy="268.0" r="1.5" fill="#B4F6AD" />
+<text x="347" y="283" fill="#B4F6AD" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="500" text-anchor="end" >+18.9%</text>
+</g>
 <path d="M18 292H348" fill="none" stroke="#2E3E31" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
 <g transform="translate(18 308) scale(0.6666666666666666)" stroke="#B7C6AF" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
 <path d="m12 2 6 10-6 4-6-4 6-10Zm-6 12 6 8 6-8-6 4-6-4Z"/>
@@ -795,6 +846,14 @@
 <text x="18" y="237" fill="#E9EEE4" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="600" text-anchor="start" letter-spacing="-0.6" >Koi Society</text>
 <text x="347" y="236" fill="#99AB98" font-family="Menlo, monospace" font-size="11" font-weight="400" text-anchor="end" >$KOI</text>
 <text x="18" y="267" fill="#A1B09E" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" text-anchor="start" >The pond has a long memory.</text>
+<g transform="" id="market-example-7">
+<title>Illustrative market cap $43.2K; price change -2.4 percent.</title>
+<text x="244" y="256" fill="#879B85" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="500" text-anchor="start" letter-spacing="0.3" >MC</text>
+<text x="347" y="256" fill="#D5DFCE" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" text-anchor="end" >$43.2K</text>
+<path d="M244.00 270.46L248.23 274.15L252.46 268.00L256.69 272.92L260.92 270.46L265.15 277.85L269.38 274.15L273.62 276.62L277.85 280.31L282.08 275.38L286.31 280.31L290.54 279.08L294.77 284.00L299.00 281.54" fill="none" stroke="#EF8794" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+<circle cx="299.0" cy="281.53846153846155" r="1.5" fill="#EF8794" />
+<text x="347" y="283" fill="#EF8794" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="500" text-anchor="end" >−2.4%</text>
+</g>
 <path d="M18 292H348" fill="none" stroke="#2E3E31" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
 <g transform="translate(18 308) scale(0.6666666666666666)" stroke="#B7C6AF" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
 <path d="m12 2 6 10-6 4-6-4 6-10Zm-6 12 6 8 6-8-6 4-6-4Z"/>
