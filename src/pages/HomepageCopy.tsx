@@ -83,10 +83,7 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
               transition={{ duration: 1.4, delay: 0.3 }}
               style={{ textShadow: "0 0 26px rgba(180, 246, 173, 0.22)" }}
             >
-              <span className="relative flex h-1.5 w-1.5 shrink-0">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-[#B4F6AD] opacity-50 animate-ping" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#B4F6AD]/90" />
-              </span>
+              <span aria-hidden className="text-[#B4F6AD]/50 font-light">—</span>
               <motion.span
                 className="text-[11px] md:text-xs uppercase font-light text-white/75"
                 initial={{ letterSpacing: "0.95em" }}
