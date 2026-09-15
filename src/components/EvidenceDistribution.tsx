@@ -25,7 +25,7 @@ const BINS: Bin[] = [
 const UNCOMPROMISED_TOTAL = 383;
 const COMPROMISED_TOTAL = 343;
 
-const AQUA = "#8EDAD5";
+const AQUA = "#B4F6AD";
 const CORAL = "#DF827C";
 
 const X_MIN = 550;
