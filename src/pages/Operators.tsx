@@ -40,7 +40,7 @@ chapterLines.forEach((line) => {
     return;
   }
 
-  const current = chapters.at(-1);
+  const current = chapters[chapters.length - 1];
   if (current && line.trim()) current.paragraphs.push(line.trim());
 });
 
