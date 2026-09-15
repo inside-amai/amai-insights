@@ -59,15 +59,16 @@ const chapterNotes: Record<string, string> = {
   "2": "Standard machinery, on purpose",
   "3": "The curve completes, the pool opens",
   "4": "Liquidity locked, fees flowing",
-  "5": "Fees become stock",
-  "6": "Four numbers, in plain words",
-  "7": "Attach without moving capital",
-  "8": "One quarter, four uses",
-  "9": "Frozen at launch, policy can move",
-  "10": "Live on testnet",
+  "5": "Four permissions, nothing else",
+  "6": "One trader wins, every day",
+  "7": "Four numbers, in plain words",
+  "8": "Attach without moving capital",
+  "9": "One quarter, four uses",
+  "10": "Frozen at launch, policy can move",
+  "11": "Live on testnet",
 };
 
-const SCHEDULE_CHAPTER = "6";
+const SCHEDULE_CHAPTER = "7";
 
 const Paragraph = ({ children }: { children: string }) => (
   <p className="text-base font-light leading-8 text-white/62 md:text-lg md:leading-9">{children}</p>
