@@ -19,6 +19,7 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
 
   return (
     <section id="launchpad" className="relative bg-perspective-grid py-24 md:py-32 px-5 md:px-12">
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_20%_22%,hsl(var(--cyan-accent)/0.1),transparent_55%)]" />
       <div className="max-w-[1600px] mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
