@@ -164,21 +164,21 @@ export const EcosystemSection = () => {
     <section
       id="ecosystem"
       aria-labelledby="ecosystem-heading"
-      className="relative overflow-hidden bg-black bg-perspective-grid px-4 py-24 md:px-8 md:py-40"
+      className="relative overflow-hidden bg-white px-4 py-24 md:px-8 md:py-40"
     >
       <div className="relative mx-auto max-w-[920px]">
         {/* Masthead */}
-        <header className="text-center pb-14 md:pb-20 border-b border-white/[0.08]">
-          <span className="text-[11px] font-light uppercase tracking-[0.35em] text-white/45">
+        <header className="text-center pb-14 md:pb-20 border-b border-black/[0.08]">
+          <span className="text-[11px] font-light uppercase tracking-[0.35em] text-black/45">
             The Ecosystem
           </span>
           <h2
             id="ecosystem-heading"
-            className="mt-5 text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-white leading-[1.05]"
+            className="mt-5 text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-black leading-[1.05]"
           >
             AMAI Labs.
           </h2>
-          <p className="mt-3 text-sm md:text-base font-light uppercase tracking-[0.3em] text-white/50">
+          <p className="mt-3 text-sm md:text-base font-light uppercase tracking-[0.3em] text-black/50">
             Infrastructure &amp; Research
           </p>
         </header>
