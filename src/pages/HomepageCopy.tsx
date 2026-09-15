@@ -184,7 +184,7 @@ const HomepageCopy = () => {
 
   useEffect(() => {
     if (!opInView || opPaused) return;
-    const delay = activeOp === 0 ? 4000 : 2000;
+    const delay = activeOp === 0 ? 4000 : 3000;
     const t = window.setTimeout(() => {
       setActiveOp((i) => (i + 1) % OPERATOR_ROWS.length);
     }, delay);
