@@ -445,11 +445,11 @@ const HomepageCopy = () => {
       <section className="relative bg-perspective-grid pt-4 md:pt-8 pb-16 md:pb-24 px-4 md:px-8">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-transparent pointer-events-none" />
         <div className="max-w-[95vw] mx-auto relative z-10">
-          <div className="pointer-events-none absolute -inset-3 rounded-[2rem] bg-[radial-gradient(circle_at_50%_0%,rgba(21,120,84,0.14),transparent_55%)] blur-2xl opacity-70" />
-          <div className="relative overflow-hidden rounded-3xl border border-[#3D896D]/20 bg-white/[0.04] backdrop-blur-2xl shadow-[0_20px_80px_-20px_rgba(0,0,0,0.8),inset_0_1px_0_0_rgba(255,255,255,0.08),0_0_60px_-20px_rgba(21,120,84,0.15)] min-h-[60vh] md:min-h-[70vh] flex items-center justify-center">
+          <div className="pointer-events-none absolute -inset-3 rounded-[2rem] bg-[radial-gradient(circle_at_50%_0%,hsl(var(--cyan-accent)/0.14),transparent_55%)] blur-2xl opacity-70" />
+          <div className="relative overflow-hidden rounded-3xl border border-[#3D896D]/20 bg-white/[0.04] backdrop-blur-2xl shadow-[0_20px_80px_-20px_rgba(0,0,0,0.8),inset_0_1px_0_0_rgba(255,255,255,0.08),0_0_60px_-20px_hsl(var(--cyan-accent)/0.15)] min-h-[60vh] md:min-h-[70vh] flex items-center justify-center">
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#157854]/[0.05] via-transparent to-transparent" />
             <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#3D896D]/[0.08] to-transparent" />
-            <div className="pointer-events-none absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,rgba(21,120,84,0.10),transparent_50%)]" />
+            <div className="pointer-events-none absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,hsl(var(--cyan-accent)/0.10),transparent_50%)]" />
 
             <motion.div
               className="relative z-10 flex flex-col items-center justify-center px-6 py-10 md:py-12 text-center max-w-5xl mx-auto"
