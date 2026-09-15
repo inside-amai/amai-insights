@@ -457,7 +457,7 @@ const HomepageCopy = () => {
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
           <h2 className="font-medium tracking-tight text-white leading-[1.05] text-[clamp(2.75rem,11vw,10rem)]">
-            Hold the token.
+            Hold AMAI.
             <br />
             Get paid in
             <br />
