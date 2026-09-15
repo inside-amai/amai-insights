@@ -70,25 +70,31 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
             viewport={{ once: true, amount: 0.6 }}
           >
             <motion.span
-              className="inline-flex items-center gap-3 whitespace-nowrap"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              aria-hidden
+              className="hidden sm:block h-px w-14 md:w-32 bg-gradient-to-r from-transparent to-[#B4F6AD]/40 origin-right"
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
               viewport={{ once: true, amount: 0.6 }}
-              transition={{ duration: 1.4, delay: 0.3 }}
+              transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+            />
+            <motion.span
+              className="text-[11px] md:text-xs uppercase font-light text-white/75 whitespace-nowrap"
+              initial={{ opacity: 0, letterSpacing: "0.95em" }}
+              whileInView={{ opacity: 1, letterSpacing: "0.5em" }}
+              viewport={{ once: true, amount: 0.6 }}
+              transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
               style={{ textShadow: "0 0 26px rgba(180, 246, 173, 0.22)" }}
             >
-              <span aria-hidden className="text-sm font-light text-[#B4F6AD]/50">— — —</span>
-              <motion.span
-                className="text-[11px] md:text-xs uppercase font-light text-white/75"
-                initial={{ letterSpacing: "0.95em" }}
-                whileInView={{ letterSpacing: "0.5em" }}
-                viewport={{ once: true, amount: 0.6 }}
-                transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-              >
-                Coming Soon
-              </motion.span>
-              <span aria-hidden className="text-sm font-light text-[#B4F6AD]/50">— — —</span>
+              Coming Soon
             </motion.span>
+            <motion.span
+              aria-hidden
+              className="hidden sm:block h-px w-14 md:w-32 bg-gradient-to-l from-transparent to-[#B4F6AD]/40 origin-left"
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true, amount: 0.6 }}
+              transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+            />
           </motion.div>
         </figure>
       </div>
