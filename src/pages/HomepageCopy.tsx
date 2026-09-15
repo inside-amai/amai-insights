@@ -401,8 +401,8 @@ const HomepageCopy = () => {
               transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="grid grid-cols-[130px_1fr] md:grid-cols-[170px_1fr] gap-x-6 pb-3 border-b border-white/15">
-                <span className="text-[11px] tracking-[0.2em] font-medium text-[#CEFFC9]/80 uppercase">Job</span>
-                <span className="text-[11px] tracking-[0.2em] font-medium text-[#CEFFC9]/80 uppercase">AMAI Operator Agent</span>
+                <span className="text-[11px] tracking-[0.2em] font-medium text-white uppercase">Job</span>
+                <span className="text-[11px] tracking-[0.2em] font-medium text-white uppercase">AMAI Operator Agent</span>
               </div>
               {OPERATOR_ROWS.map((row, i) => {
                 const Icon = row.icon;
