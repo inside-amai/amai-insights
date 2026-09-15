@@ -18,7 +18,9 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
   const [zoomed, setZoomed] = useState(false);
 
   return (
-    <section id="launchpad" className="relative bg-white py-24 md:py-32 px-5 md:px-12">
+    <section id="launchpad" className="relative bg-perspective-grid py-24 md:py-32 px-5 md:px-12">
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_20%_22%,hsl(var(--cyan-accent)/0.1),transparent_55%)]" />
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_75%_85%,hsl(var(--cyan-accent)/0.1),transparent_55%)]" />
       <div className="max-w-[1600px] mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
@@ -26,17 +28,17 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="text-xs tracking-[0.35em] uppercase text-black/50">TOKENS THAT PAY</span>
-          <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-black leading-[1.05]">
+          <span className="text-xs tracking-[0.35em] uppercase text-white/50">TOKENS THAT PAY</span>
+          <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.05]">
             The Launchpad.
           </h2>
-          <p className="mt-6 text-base md:text-lg lg:text-xl font-light text-black/60 leading-relaxed max-w-2xl">
+          <p className="mt-6 text-base md:text-lg lg:text-xl font-light text-white/60 leading-relaxed max-w-2xl">
             Every launch comes with an AI operator. You choose the Stock Token and the share your holders receive.
           </p>
           <div className="mt-6">
             <Link
               to="/launchpad"
-              className="inline-flex items-center gap-2 text-sm font-light text-black/60 hover:text-black transition-colors duration-300 border-b border-black/20 hover:border-black/60 pb-1"
+              className="inline-flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors duration-300 border-b border-white/20 hover:border-white/60 pb-1"
             >
               Launchpad details<span aria-hidden>{isRtl ? "←" : "→"}</span>
             </Link>
@@ -47,7 +49,7 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
           <button
             type="button"
             onClick={() => setZoomed(true)}
-            className="block w-full text-left cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#157854]/60 rounded-lg"
+            className="block w-full text-left cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B4F6AD]/70 rounded-lg"
             aria-label="Open a larger view of the launchpad"
           >
             <img
@@ -71,7 +73,7 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
               aria-hidden
               className="hidden sm:block h-px w-14 md:w-32"
               style={{
-                background: 'linear-gradient(to right, transparent, rgba(21, 120, 84, 0.5))',
+                background: 'linear-gradient(to right, transparent, rgba(180, 246, 173, 0.4))',
                 transformOrigin: 'right center',
               }}
               initial={{ scaleX: 0 }}
@@ -80,12 +82,12 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
               transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             />
             <motion.span
-              className="text-[11px] md:text-xs uppercase font-light text-black/70 whitespace-nowrap"
+              className="text-[11px] md:text-xs uppercase font-light text-white/75 whitespace-nowrap"
               initial={{ opacity: 0, letterSpacing: "0.95em" }}
               whileInView={{ opacity: 1, letterSpacing: "0.5em" }}
               viewport={{ once: true, amount: 0.6 }}
               transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-              style={{ textShadow: "0 0 26px rgba(21, 120, 84, 0.15)" }}
+              style={{ textShadow: "0 0 26px rgba(180, 246, 173, 0.22)" }}
             >
               Coming Soon
             </motion.span>
@@ -93,7 +95,7 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
               aria-hidden
               className="hidden sm:block h-px w-14 md:w-32"
               style={{
-                background: 'linear-gradient(to left, transparent, rgba(21, 120, 84, 0.5))',
+                background: 'linear-gradient(to left, transparent, rgba(180, 246, 173, 0.4))',
                 transformOrigin: 'left center',
               }}
               initial={{ scaleX: 0 }}
