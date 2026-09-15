@@ -441,7 +441,37 @@ const HomepageCopy = () => {
         </div>
       </section>
 
+      {/* THE LAUNCHPAD */}
+      <LaunchpadShowcase isRtl={isRtl} />
+
+      {/* HOLD THE TOKEN / ticker section */}
+      <section className="relative bg-perspective-grid min-h-[58vh] md:min-h-screen py-20 md:py-0 flex items-center justify-center px-4 md:px-8 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60 pointer-events-none" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_55%,hsl(var(--cyan-accent)/0.1),transparent_55%)]" />
+        <motion.div
+          className="relative z-10 text-center"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <h2 className="font-medium tracking-tight text-white leading-[1.05] text-[clamp(2.75rem,11vw,10rem)]">
+            Hold the token.
+            <br />
+            Get paid in
+            <br />
+            <TickerRoll /><span className="text-white">.</span>
+          </h2>
+        </motion.div>
+        <div className="absolute bottom-8 inset-x-0 z-10 flex justify-center">
+          <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">
+            Stock tokens on Robinhood Chain
+          </span>
+        </div>
+      </section>
+
       {/* Feature card */}
+
       <section className="relative bg-perspective-grid pt-4 md:pt-8 pb-4 md:pb-8 px-4 md:px-8">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-transparent pointer-events-none" />
         <div className="max-w-[95vw] mx-auto relative z-10">
@@ -536,34 +566,6 @@ const HomepageCopy = () => {
         </div>
       </section>
 
-      {/* THE LAUNCHPAD */}
-      <LaunchpadShowcase isRtl={isRtl} />
-
-      {/* HOLD THE TOKEN / ticker section */}
-      <section className="relative bg-perspective-grid min-h-[58vh] md:min-h-screen py-20 md:py-0 flex items-center justify-center px-4 md:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60 pointer-events-none" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_55%,hsl(var(--cyan-accent)/0.1),transparent_55%)]" />
-        <motion.div
-          className="relative z-10 text-center"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <h2 className="font-medium tracking-tight text-white leading-[1.05] text-[clamp(2.75rem,11vw,10rem)]">
-            Hold the token.
-            <br />
-            Get paid in
-            <br />
-            <TickerRoll /><span className="text-white">.</span>
-          </h2>
-        </motion.div>
-        <div className="absolute bottom-8 inset-x-0 z-10 flex justify-center">
-          <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">
-            Stock tokens on Robinhood Chain
-          </span>
-        </div>
-      </section>
 
       {/* THE EVIDENCE */}
       <section id="evidence" className="relative bg-black bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
