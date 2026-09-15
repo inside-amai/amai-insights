@@ -4,10 +4,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
 
 const linkClasses =
-  "inline-flex items-center gap-1.5 text-sm font-light text-[#B4F6AD]/80 transition-colors duration-200 hover:text-[#B4F6AD] focus:outline-none focus-visible:text-[#B4F6AD] focus-visible:ring-1 focus-visible:ring-[#B4F6AD]/60 focus-visible:ring-offset-4 focus-visible:ring-offset-black";
+  "inline-flex items-center gap-1.5 text-sm font-light text-[#157854]/80 transition-colors duration-200 hover:text-[#157854] focus:outline-none focus-visible:text-[#157854] focus-visible:ring-1 focus-visible:ring-[#157854]/60 focus-visible:ring-offset-4 focus-visible:ring-offset-white";
 
 const externalLinkClasses =
-  "inline-flex items-center gap-1.5 text-sm font-light text-[#B4F6AD]/80 transition-colors duration-200 hover:text-[#B4F6AD] focus:outline-none focus-visible:text-[#B4F6AD] focus-visible:ring-1 focus-visible:ring-[#B4F6AD]/60 focus-visible:ring-offset-4 focus-visible:ring-offset-black";
+  "inline-flex items-center gap-1.5 text-sm font-light text-[#157854]/80 transition-colors duration-200 hover:text-[#157854] focus:outline-none focus-visible:text-[#157854] focus-visible:ring-1 focus-visible:ring-[#157854]/60 focus-visible:ring-offset-4 focus-visible:ring-offset-white";
 
 const faqs = [
   {
@@ -164,21 +164,21 @@ export const EcosystemSection = () => {
     <section
       id="ecosystem"
       aria-labelledby="ecosystem-heading"
-      className="relative overflow-hidden bg-black bg-perspective-grid px-4 py-24 md:px-8 md:py-40"
+      className="relative overflow-hidden bg-white px-4 py-24 md:px-8 md:py-40"
     >
       <div className="relative mx-auto max-w-[920px]">
         {/* Masthead */}
-        <header className="text-center pb-14 md:pb-20 border-b border-white/[0.08]">
-          <span className="text-[11px] font-light uppercase tracking-[0.35em] text-white/45">
+        <header className="text-center pb-14 md:pb-20 border-b border-black/[0.08]">
+          <span className="text-[11px] font-light uppercase tracking-[0.35em] text-black/45">
             The Ecosystem
           </span>
           <h2
             id="ecosystem-heading"
-            className="mt-5 text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-white leading-[1.05]"
+            className="mt-5 text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-black leading-[1.05]"
           >
             AMAI Labs.
           </h2>
-          <p className="mt-3 text-sm md:text-base font-light uppercase tracking-[0.3em] text-white/50">
+          <p className="mt-3 text-sm md:text-base font-light uppercase tracking-[0.3em] text-black/50">
             Infrastructure &amp; Research
           </p>
         </header>
@@ -190,7 +190,7 @@ export const EcosystemSection = () => {
             return (
               <div
                 key={index}
-                className="group border-b border-white/[0.07] transition-colors duration-300 hover:bg-white/[0.015]"
+                className="group border-b border-black/[0.07] transition-colors duration-300 hover:bg-black/[0.02]"
               >
                 <button
                   ref={(el) => { itemRefs.current[index] = el; }}
@@ -199,20 +199,20 @@ export const EcosystemSection = () => {
                   aria-controls={`faq-answer-${index}`}
                   onClick={() => handleToggle(index)}
                   onKeyDown={(e) => handleKeyDown(e, index)}
-                  className="w-full text-left focus:outline-none focus-visible:bg-white/[0.03] focus-visible:ring-1 focus-visible:ring-[#B4F6AD]/50 focus-visible:ring-inset"
+                  className="w-full text-left focus:outline-none focus-visible:bg-black/[0.03] focus-visible:ring-1 focus-visible:ring-[#157854]/50 focus-visible:ring-inset"
                 >
                   <div className="flex items-center justify-between gap-6 py-6 md:py-7">
                     <span
                       id={`faq-question-${index}`}
                       className={`text-[17px] md:text-[20px] leading-snug tracking-tight transition-colors duration-300 ${
-                        isOpen ? "text-white" : "text-white/80 group-hover:text-white"
+                        isOpen ? "text-black" : "text-black/70 group-hover:text-black"
                       }`}
                     >
                       {faq.question}
                     </span>
                     <span
                       className={`flex-shrink-0 transition-colors duration-300 ${
-                        isOpen ? "text-white/90" : "text-white/30 group-hover:text-white/60"
+                        isOpen ? "text-black/80" : "text-black/30 group-hover:text-black/60"
                       }`}
                       aria-hidden="true"
                     >
@@ -241,7 +241,7 @@ export const EcosystemSection = () => {
                       }
                     >
                       <div className="pb-7 md:pb-8 max-w-[70ch]">
-                        <p className="text-[15px] md:text-[16px] font-light leading-relaxed text-white/55">
+                        <p className="text-[15px] md:text-[16px] font-light leading-relaxed text-black/60">
                           {faq.answer}
                         </p>
                       </div>
