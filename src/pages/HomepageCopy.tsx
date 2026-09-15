@@ -368,8 +368,10 @@ const HomepageCopy = () => {
                   key={row.job}
                   type="button"
                   aria-pressed={isActive}
-                  onMouseEnter={() => setActiveOp(i)}
-                  onFocus={() => setActiveOp(i)}
+                  onMouseEnter={() => { setOpPaused(true); setActiveOp(i); }}
+                  onMouseLeave={() => setOpPaused(false)}
+                  onFocus={() => { setOpPaused(true); setActiveOp(i); }}
+                  onBlur={() => setOpPaused(false)}
                   onClick={() => setActiveOp(i)}
                   className={`group relative w-full text-left grid grid-cols-[130px_1fr] md:grid-cols-[170px_1fr] gap-x-6 py-5 md:py-6 transition-colors duration-[250ms] focus:outline-none focus-visible:ring-1 focus-visible:ring-[#B4F6AD]/70 ${isActive ? "bg-[#157854]/[0.10]" : "hover:bg-[#157854]/[0.06]"}`}
                 >
