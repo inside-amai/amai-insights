@@ -71,7 +71,11 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
           >
             <motion.span
               aria-hidden
-              className="hidden sm:block h-px w-14 md:w-32 bg-gradient-to-r from-transparent to-[#B4F6AD]/40 origin-right"
+              className="hidden sm:block h-px w-14 md:w-32"
+              style={{
+                background: 'linear-gradient(to right, transparent, rgba(180, 246, 173, 0.4))',
+                transformOrigin: 'right center',
+              }}
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true, amount: 0.6 }}
@@ -89,7 +93,11 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
             </motion.span>
             <motion.span
               aria-hidden
-              className="hidden sm:block h-px w-14 md:w-32 bg-gradient-to-l from-transparent to-[#B4F6AD]/40 origin-left"
+              className="hidden sm:block h-px w-14 md:w-32"
+              style={{
+                background: 'linear-gradient(to left, transparent, rgba(180, 246, 173, 0.4))',
+                transformOrigin: 'left center',
+              }}
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true, amount: 0.6 }}
