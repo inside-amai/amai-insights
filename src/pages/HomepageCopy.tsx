@@ -444,7 +444,7 @@ const HomepageCopy = () => {
       </section>
 
       {/* Feature card */}
-      <section className="relative bg-perspective-grid pt-4 md:pt-8 pb-16 md:pb-24 px-4 md:px-8">
+      <section className="relative bg-perspective-grid pt-4 md:pt-8 pb-4 md:pb-8 px-4 md:px-8">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-transparent pointer-events-none" />
         <div className="max-w-[95vw] mx-auto relative z-10">
           <div className="pointer-events-none absolute -inset-3 rounded-[2rem] bg-[radial-gradient(circle_at_50%_0%,hsl(var(--cyan-accent)/0.14),transparent_55%)] blur-2xl opacity-70" />
