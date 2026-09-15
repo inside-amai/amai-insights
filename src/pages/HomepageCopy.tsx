@@ -71,7 +71,7 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
               aria-hidden
               className="hidden sm:block h-px w-14 md:w-32"
               style={{
-                background: 'linear-gradient(to right, transparent, rgba(180, 246, 173, 0.4))',
+                background: 'linear-gradient(to right, transparent, rgba(21, 120, 84, 0.5))',
                 transformOrigin: 'right center',
               }}
               initial={{ scaleX: 0 }}
@@ -80,12 +80,12 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
               transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             />
             <motion.span
-              className="text-[11px] md:text-xs uppercase font-light text-white/75 whitespace-nowrap"
+              className="text-[11px] md:text-xs uppercase font-light text-black/70 whitespace-nowrap"
               initial={{ opacity: 0, letterSpacing: "0.95em" }}
               whileInView={{ opacity: 1, letterSpacing: "0.5em" }}
               viewport={{ once: true, amount: 0.6 }}
               transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-              style={{ textShadow: "0 0 26px rgba(180, 246, 173, 0.22)" }}
+              style={{ textShadow: "0 0 26px rgba(21, 120, 84, 0.15)" }}
             >
               Coming Soon
             </motion.span>
@@ -93,7 +93,7 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
               aria-hidden
               className="hidden sm:block h-px w-14 md:w-32"
               style={{
-                background: 'linear-gradient(to left, transparent, rgba(180, 246, 173, 0.4))',
+                background: 'linear-gradient(to left, transparent, rgba(21, 120, 84, 0.5))',
                 transformOrigin: 'left center',
               }}
               initial={{ scaleX: 0 }}
