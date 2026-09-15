@@ -301,9 +301,14 @@ const HomepageCopy = () => {
               src={amaiLogo}
               alt="AMAI Labs"
               className="h-12 md:h-20 w-auto mx-auto mb-8 md:mb-10 brightness-110"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              initial={{ x: "-140vw" }}
+              animate={{ x: ["-140vw", "2.5vw", "0vw"] }}
+              transition={{
+                duration: 0.48,
+                delay: 1,
+                times: [0, 0.82, 1],
+                ease: [0.16, 1, 0.3, 1],
+              }}
             />
 
             <motion.h1
