@@ -18,8 +18,8 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
   const [zoomed, setZoomed] = useState(false);
 
   return (
-    <section id="launchpad" className="relative bg-perspective-grid py-24 md:py-32 px-5 md:px-12">
-      <div className="max-w-[1600px] mx-auto relative z-10">
+    <section id="launchpad" className="relative bg-perspective-grid py-24 md:py-32 px-4 md:px-8">
+      <div className="max-w-[1400px] mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -567,7 +567,7 @@ const HomepageCopy = () => {
 
       {/* THE EVIDENCE */}
       <section id="evidence" className="relative bg-black bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
-        <div className="max-w-7xl mx-auto relative z-10">
+        <div className="max-w-[1400px] mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-[30%_1fr] gap-14 lg:gap-16">
             <motion.div
               initial={{ opacity: 0, y: 18 }}
