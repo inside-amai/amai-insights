@@ -178,6 +178,19 @@ const HomepageCopy = () => {
   const c = pickHome(language);
   const isRtl = language === 'ar';
   const [activeOp, setActiveOp] = useState(0);
+  const [opPaused, setOpPaused] = useState(false);
+  const opSectionRef = useRef<HTMLElement>(null);
+  const opInView = useInView(opSectionRef, { amount: 0.3 });
+
+  useEffect(() => {
+    if (!opInView || opPaused) return;
+    const delay = activeOp === 0 ? 4000 : 2000;
+    const t = window.setTimeout(() => {
+      setActiveOp((i) => (i + 1) % OPERATOR_ROWS.length);
+    }, delay);
+    return () => window.clearTimeout(t);
+  }, [opInView, opPaused, activeOp]);
+
 
   const navItems = [
     { label: "Operators", id: "operators" },
