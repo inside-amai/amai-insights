@@ -46,8 +46,11 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
         <figure className="mt-10">
           <button
             type="button"
-            onClick={() => setZoomed(true)}
-            className="block w-full text-left cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B4F6AD]/70 rounded-lg"
+            onClick={(e) => {
+              if (window.matchMedia("(min-width: 768px)").matches) return;
+              setZoomed(true);
+            }}
+            className="block w-full text-left cursor-zoom-in md:pointer-events-none md:cursor-default focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B4F6AD]/70 rounded-lg"
             aria-label="Open a larger view of the launchpad"
           >
             <img
