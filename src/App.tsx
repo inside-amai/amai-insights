@@ -130,6 +130,7 @@ const App = () => (
             <Route path="/methodology/changelog" element={<MethodologyChangelog />} />
             <Route path="/docs" element={<Docs />} />
             <Route path="/operators" element={<Operators />} />
+            <Route path="/token" element={<Token />} />
             <Route path="/tari" element={<Tari />} />
             <Route path="/launchpad" element={<Launchpad />} />
             <Route path="/team" element={<Team />} />
