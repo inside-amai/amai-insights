@@ -241,7 +241,7 @@ export const EcosystemSection = () => {
                       }
                     >
                       <div className="pb-7 md:pb-8 max-w-[70ch]">
-                        <p className="text-[15px] md:text-[16px] font-light leading-relaxed text-white/55">
+                        <p className="text-[15px] md:text-[16px] font-light leading-relaxed text-black/60">
                           {faq.answer}
                         </p>
                       </div>
