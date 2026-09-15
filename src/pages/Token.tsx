@@ -105,14 +105,19 @@ const Token = () => {
       <section className="border-y border-white/10 bg-[#157854]/[0.055] px-5 py-16 md:px-8 md:py-24">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-3">
-            <p className="font-mono text-[11px] uppercase text-[#B4F6AD]/70">TL;DR</p>
+            <h2 className="text-4xl font-light text-white md:text-6xl">TL;DR</h2>
           </div>
           <div className="lg:col-span-8">
-            {tldr.map((paragraph) => (
-              <p key={paragraph} className="text-xl font-light leading-relaxed text-white/82 md:text-2xl md:leading-relaxed">
-                {paragraph}
-              </p>
-            ))}
+            <ul className="space-y-6">
+              {tldr.map((paragraph) => (
+                <li key={paragraph} className="flex gap-5">
+                  <span aria-hidden="true" className="mt-4 h-px w-7 shrink-0 bg-[#B4F6AD]/45" />
+                  <p className="text-xl font-light leading-relaxed text-white/82 md:text-2xl md:leading-relaxed">
+                    {paragraph.replace(/^- /, "")}
+                  </p>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
