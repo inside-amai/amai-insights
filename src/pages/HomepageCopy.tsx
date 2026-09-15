@@ -63,18 +63,12 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
           </button>
 
           <motion.div
-            className="mt-8 md:mt-10 flex items-center justify-center gap-4 md:gap-7"
+            className="mt-8 md:mt-10 flex items-center justify-center gap-4 md:gap-6"
             aria-label="Coming soon"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.6 }}
           >
-            <motion.span
-              aria-hidden
-              className="h-px w-14 md:w-32 origin-right bg-gradient-to-r from-transparent to-[#B4F6AD]/40"
-              variants={{ hidden: { scaleX: 0, opacity: 0 }, visible: { scaleX: 1, opacity: 1 } }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            />
             <motion.span
               className="inline-flex items-center gap-3 whitespace-nowrap"
               initial={{ opacity: 0 }}
@@ -83,10 +77,7 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
               transition={{ duration: 1.4, delay: 0.3 }}
               style={{ textShadow: "0 0 26px rgba(180, 246, 173, 0.22)" }}
             >
-              <span className="relative flex h-1.5 w-1.5 shrink-0">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-[#B4F6AD] opacity-50 animate-ping" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#B4F6AD]/90" />
-              </span>
+              <span aria-hidden className="text-sm font-light text-[#B4F6AD]/50">— — —</span>
               <motion.span
                 className="text-[11px] md:text-xs uppercase font-light text-white/75"
                 initial={{ letterSpacing: "0.95em" }}
@@ -96,13 +87,8 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
               >
                 Coming Soon
               </motion.span>
+              <span aria-hidden className="text-sm font-light text-[#B4F6AD]/50">— — —</span>
             </motion.span>
-            <motion.span
-              aria-hidden
-              className="h-px w-14 md:w-32 origin-left bg-gradient-to-l from-transparent to-[#B4F6AD]/40"
-              variants={{ hidden: { scaleX: 0, opacity: 0 }, visible: { scaleX: 1, opacity: 1 } }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            />
           </motion.div>
         </figure>
       </div>
