@@ -99,8 +99,8 @@ const App = () => (
             <ConditionalTermsModal />
             <SiteHeader />
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/homepagecopy" element={<HomepageCopy />} />
+              <Route path="/" element={<HomepageCopy />} />
+              <Route path="/homepagecopy" element={<Home />} />
               <Route path="/auth" element={
                 <AuthGuard requireAuth={false}>
                   <Auth />
