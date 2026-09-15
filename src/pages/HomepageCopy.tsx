@@ -96,7 +96,7 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
       <AnimatePresence>
         {zoomed && (
           <motion.div
-            className="fixed inset-0 z-50 bg-black/95 overflow-auto p-4 md:p-8"
+            className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 md:p-8 cursor-zoom-out"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -112,8 +112,7 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
             <img
               src="/uploads/launchpad.svg"
               alt="AMAI Launchpad interface, enlarged view"
-              className="min-w-[900px] w-full max-w-[1840px] h-auto mx-auto"
-              onClick={(e) => e.stopPropagation()}
+              className="w-full max-w-[1840px] max-h-full h-auto object-contain"
             />
           </motion.div>
         )}
@@ -527,7 +526,7 @@ const HomepageCopy = () => {
       <LaunchpadShowcase isRtl={isRtl} />
 
       {/* HOLD THE TOKEN / ticker section */}
-      <section className="relative bg-perspective-grid min-h-screen flex items-center justify-center px-4 md:px-8 overflow-hidden">
+      <section className="relative bg-perspective-grid min-h-[58vh] md:min-h-screen py-20 md:py-0 flex items-center justify-center px-4 md:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60 pointer-events-none" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_55%,hsl(var(--cyan-accent)/0.1),transparent_55%)]" />
         <motion.div
