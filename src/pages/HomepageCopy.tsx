@@ -14,6 +14,87 @@ import { EcosystemSection } from "@/components/EcosystemSection";
 
 const TICKERS = ["TSLA", "AMZN", "PLTR", "NFLX", "AMD"];
 
+const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
+  const [zoomed, setZoomed] = useState(false);
+
+  return (
+    <section id="launchpad" className="relative bg-perspective-grid py-24 md:py-32 px-5 md:px-12">
+      <div className="max-w-[1600px] mx-auto relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <span className="text-xs tracking-[0.35em] uppercase text-white/50">THE LAUNCHPAD</span>
+          <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.05]">
+            Tokens that pay.
+          </h2>
+          <p className="mt-6 text-base md:text-lg lg:text-xl font-light text-white/60 leading-relaxed max-w-2xl">
+            Every launch comes with an AI operator. You choose the Stock Token and the share your holders receive.
+          </p>
+          <div className="mt-6">
+            <Link
+              to="/launchpad"
+              className="inline-flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors duration-300 border-b border-white/20 hover:border-white/60 pb-1"
+            >
+              Launchpad details<span aria-hidden>{isRtl ? "←" : "→"}</span>
+            </Link>
+          </div>
+        </motion.div>
+
+        <figure className="mt-10">
+          <button
+            type="button"
+            onClick={() => setZoomed(true)}
+            className="block w-full text-left cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B4F6AD]/70 rounded-lg"
+            aria-label="Open a larger view of the launchpad"
+          >
+            <img
+              src="/uploads/launchpad.svg"
+              alt="AMAI Launchpad interface showing example token launches, each with an AI operator and a Stock Token payout"
+              width={1840}
+              height={1220}
+              decoding="async"
+              className="w-full h-auto block"
+            />
+          </button>
+          <figcaption className="mt-4 text-xs md:text-sm font-light text-white/40 leading-relaxed max-w-2xl">
+            Illustrative product concept with original example token art. Not a capture of live listings.
+          </figcaption>
+        </figure>
+      </div>
+
+      <AnimatePresence>
+        {zoomed && (
+          <motion.div
+            className="fixed inset-0 z-50 bg-black/95 overflow-auto p-4 md:p-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setZoomed(false)}
+          >
+            <button
+              type="button"
+              onClick={() => setZoomed(false)}
+              className="fixed top-4 right-4 z-10 h-10 px-4 rounded-full border border-white/20 bg-black/70 text-xs tracking-[0.2em] uppercase text-white/80 hover:text-white"
+            >
+              Close
+            </button>
+            <img
+              src="/uploads/launchpad.svg"
+              alt="AMAI Launchpad interface, enlarged view"
+              className="min-w-[900px] w-full max-w-[1840px] h-auto mx-auto"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
+  );
+};
+
+
 const OPERATOR_ROWS = [
   {
     icon: Download,
@@ -398,6 +479,11 @@ const HomepageCopy = () => {
           </div>
         </div>
       </section>
+
+      {/* THE LAUNCHPAD */}
+      <LaunchpadShowcase isRtl={isRtl} />
+
+
 
       {/* THE EVIDENCE */}
       <section id="evidence" className="relative bg-black bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
