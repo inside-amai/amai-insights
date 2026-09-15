@@ -26,17 +26,17 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="text-xs tracking-[0.35em] uppercase text-white/50">TOKENS THAT PAY</span>
-          <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.05]">
+          <span className="text-xs tracking-[0.35em] uppercase text-black/50">TOKENS THAT PAY</span>
+          <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-black leading-[1.05]">
             The Launchpad.
           </h2>
-          <p className="mt-6 text-base md:text-lg lg:text-xl font-light text-white/60 leading-relaxed max-w-2xl">
+          <p className="mt-6 text-base md:text-lg lg:text-xl font-light text-black/60 leading-relaxed max-w-2xl">
             Every launch comes with an AI operator. You choose the Stock Token and the share your holders receive.
           </p>
           <div className="mt-6">
             <Link
               to="/launchpad"
-              className="inline-flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors duration-300 border-b border-white/20 hover:border-white/60 pb-1"
+              className="inline-flex items-center gap-2 text-sm font-light text-black/60 hover:text-black transition-colors duration-300 border-b border-black/20 hover:border-black/60 pb-1"
             >
               Launchpad details<span aria-hidden>{isRtl ? "←" : "→"}</span>
             </Link>
