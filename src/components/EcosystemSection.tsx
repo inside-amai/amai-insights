@@ -190,7 +190,7 @@ export const EcosystemSection = () => {
             return (
               <div
                 key={index}
-                className="group border-b border-white/[0.07] transition-colors duration-300 hover:bg-white/[0.015]"
+                className="group border-b border-black/[0.07] transition-colors duration-300 hover:bg-black/[0.02]"
               >
                 <button
                   ref={(el) => { itemRefs.current[index] = el; }}
@@ -199,20 +199,20 @@ export const EcosystemSection = () => {
                   aria-controls={`faq-answer-${index}`}
                   onClick={() => handleToggle(index)}
                   onKeyDown={(e) => handleKeyDown(e, index)}
-                  className="w-full text-left focus:outline-none focus-visible:bg-white/[0.03] focus-visible:ring-1 focus-visible:ring-[#B4F6AD]/50 focus-visible:ring-inset"
+                  className="w-full text-left focus:outline-none focus-visible:bg-black/[0.03] focus-visible:ring-1 focus-visible:ring-[#157854]/50 focus-visible:ring-inset"
                 >
                   <div className="flex items-center justify-between gap-6 py-6 md:py-7">
                     <span
                       id={`faq-question-${index}`}
                       className={`text-[17px] md:text-[20px] leading-snug tracking-tight transition-colors duration-300 ${
-                        isOpen ? "text-white" : "text-white/80 group-hover:text-white"
+                        isOpen ? "text-black" : "text-black/70 group-hover:text-black"
                       }`}
                     >
                       {faq.question}
                     </span>
                     <span
                       className={`flex-shrink-0 transition-colors duration-300 ${
-                        isOpen ? "text-white/90" : "text-white/30 group-hover:text-white/60"
+                        isOpen ? "text-black/80" : "text-black/30 group-hover:text-black/60"
                       }`}
                       aria-hidden="true"
                     >
