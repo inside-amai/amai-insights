@@ -28,9 +28,9 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="text-xs tracking-[0.35em] uppercase text-white/50">THE LAUNCHPAD</span>
+          <span className="text-xs tracking-[0.35em] uppercase text-white/50">TOKENS THAT PAY</span>
           <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.05]">
-            Tokens that pay.
+            The Launchpad.
           </h2>
           <p className="mt-6 text-base md:text-lg lg:text-xl font-light text-white/60 leading-relaxed max-w-2xl">
             Every launch comes with an AI operator. You choose the Stock Token and the share your holders receive.
