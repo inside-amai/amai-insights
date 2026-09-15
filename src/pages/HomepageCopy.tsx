@@ -36,7 +36,7 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
           <div className="mt-6">
             <Link
               to="/launchpad"
-              className="inline-flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors duration-300 border-b border-white/20 hover:border-white/60 pb-1"
+              className="inline-flex items-center gap-2 text-sm font-light text-[#CEFFC9] hover:text-white transition-colors duration-300 border-b border-[#CEFFC9]/40 hover:border-white/60 pb-1"
             >
               Launchpad details<span aria-hidden>{isRtl ? "←" : "→"}</span>
             </Link>
