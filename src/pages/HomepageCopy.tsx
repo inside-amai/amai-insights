@@ -417,7 +417,7 @@ const HomepageCopy = () => {
                 Across 726 benchmark runs, compromised agents tended to score lower. TARI measured the difference using tool-call metadata alone.
               </p>
               <div className="mt-10 pt-8 border-t border-white/10">
-                <div className="text-5xl md:text-6xl font-mono font-light tracking-tight text-[#B4F6AD] tabular-nums">0.835</div>
+                <div className="text-5xl md:text-6xl font-mono font-light tracking-tight text-white tabular-nums">0.835</div>
                 <div className="mt-3 text-xs tracking-[0.2em] uppercase text-white/50">AUC · Benchmark discrimination</div>
                 <div className="mt-2 text-xs font-light text-white/35">95% confidence interval: 0.805–0.864</div>
               </div>
