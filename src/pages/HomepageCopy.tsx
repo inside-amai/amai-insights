@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ChevronRight, ChevronLeft, Download, RefreshCw, Send, TrendingUp, SlidersHorizontal, Pause } from "lucide-react";
 import amaiLogo from "@/assets/amai-logo-tm.png";
@@ -178,6 +178,19 @@ const HomepageCopy = () => {
   const c = pickHome(language);
   const isRtl = language === 'ar';
   const [activeOp, setActiveOp] = useState(0);
+  const [opPaused, setOpPaused] = useState(false);
+  const opSectionRef = useRef<HTMLElement>(null);
+  const opInView = useInView(opSectionRef, { amount: 0.3 });
+
+  useEffect(() => {
+    if (!opInView || opPaused) return;
+    const delay = activeOp === 0 ? 4000 : 2000;
+    const t = window.setTimeout(() => {
+      setActiveOp((i) => (i + 1) % OPERATOR_ROWS.length);
+    }, delay);
+    return () => window.clearTimeout(t);
+  }, [opInView, opPaused, activeOp]);
+
 
   const navItems = [
     { label: "Operators", id: "operators" },
@@ -289,7 +302,7 @@ const HomepageCopy = () => {
       </div>
 
       {/* Section 2 AGENT-OPERATED POOLS */}
-      <section id="score" className="relative bg-perspective-grid py-24 md:py-32 px-4 md:px-8 overflow-hidden">
+      <section ref={opSectionRef} id="score" className="relative bg-perspective-grid py-24 md:py-32 px-4 md:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-transparent pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_85%,hsl(var(--cyan-accent)/0.1),transparent_55%)] pointer-events-none" />
 
@@ -355,8 +368,10 @@ const HomepageCopy = () => {
                   key={row.job}
                   type="button"
                   aria-pressed={isActive}
-                  onMouseEnter={() => setActiveOp(i)}
-                  onFocus={() => setActiveOp(i)}
+                  onMouseEnter={() => { setOpPaused(true); setActiveOp(i); }}
+                  onMouseLeave={() => setOpPaused(false)}
+                  onFocus={() => { setOpPaused(true); setActiveOp(i); }}
+                  onBlur={() => setOpPaused(false)}
                   onClick={() => setActiveOp(i)}
                   className={`group relative w-full text-left grid grid-cols-[130px_1fr] md:grid-cols-[170px_1fr] gap-x-6 py-5 md:py-6 transition-colors duration-[250ms] focus:outline-none focus-visible:ring-1 focus-visible:ring-[#B4F6AD]/70 ${isActive ? "bg-[#157854]/[0.10]" : "hover:bg-[#157854]/[0.06]"}`}
                 >
