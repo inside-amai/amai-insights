@@ -22,10 +22,10 @@ export const Footer = ({ transparent = false }: FooterProps) => {
             alt="AMAI Labs"
             className="h-5 w-auto opacity-40"
           />
-          <p className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium">
+          <p className="text-center text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium">
             {t('footer.company')}
           </p>
-          <p className="text-xs text-white/25 font-light tracking-wide">
+          <p className="text-center text-xs text-white/25 font-light tracking-wide">
             {t('footer.copyright')}
           </p>
         </div>
