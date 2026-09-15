@@ -484,6 +484,7 @@ const HomepageCopy = () => {
       {/* HOLD THE TOKEN / ticker section */}
       <section className="relative bg-perspective-grid min-h-screen flex items-center justify-center px-4 md:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60 pointer-events-none" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_55%,hsl(var(--cyan-accent)/0.1),transparent_55%)]" />
         <motion.div
           className="relative z-10 text-center"
           initial={{ opacity: 0, y: 24 }}
