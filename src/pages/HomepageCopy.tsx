@@ -291,6 +291,7 @@ const HomepageCopy = () => {
       {/* Section 2 AGENT-OPERATED POOLS */}
       <section id="score" className="relative bg-perspective-grid py-24 md:py-32 px-4 md:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_85%,hsl(var(--cyan-accent)/0.1),transparent_55%)] pointer-events-none" />
 
         <div className="relative z-10 max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-8 items-start">
