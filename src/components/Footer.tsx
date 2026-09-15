@@ -20,7 +20,7 @@ export const Footer = ({ transparent = false }: FooterProps) => {
           <img
             src={amaiLogo}
             alt="AMAI Labs"
-            className="h-5 w-auto opacity-40"
+            className="h-5 w-auto"
           />
           <p className="text-center text-[11px] tracking-[0.3em] uppercase text-white/40 font-medium">
             {t('footer.company')}
