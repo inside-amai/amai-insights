@@ -68,7 +68,6 @@ export const SiteHeader = () => {
           {/* Desktop Nav */}
           <nav className="pointer-events-auto hidden sm:flex items-center text-[11px] tracking-[0.1em] flex-shrink-0 whitespace-nowrap uppercase text-white/60">
             <div className="flex items-center gap-2">
-              <Link to="/" className="hover:text-white/90 transition-colors">Home</Link><span className="text-white/20">·</span>
               <Link to="/operators" className="hover:text-white/90 transition-colors">Operators</Link><span className="text-white/20">·</span>
               <Link to="/token" className="hover:text-white/90 transition-colors">Token</Link><span className="text-white/20">·</span>
               <Link to="/launchpad" className="hover:text-white/90 transition-colors">Launchpad</Link><span className="text-white/20">·</span>
@@ -130,7 +129,6 @@ export const SiteHeader = () => {
           </div>
 
           <nav className="flex-1 flex flex-col justify-center px-8">
-            <Link to="/" className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Home</Link>
             <Link to="/operators" className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Operators</Link>
             <Link to="/token" className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Token</Link>
             <Link to="/launchpad" className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Launchpad</Link>
