@@ -470,7 +470,7 @@ const HomepageCopy = () => {
               Hello, Operator.
             </h2>
             <p className="mt-4 mx-auto max-w-[52ch] text-[15px] md:text-base font-light leading-relaxed text-white/60">
-              Your pool can have an operator of its own. A share of its trading fees becomes Stock Tokens for your holders.
+              Your LP can have an operator of its own. A share of its trading fees becomes Stock Tokens for your holders.
             </p>
             <div className="mt-6">
               <Link
