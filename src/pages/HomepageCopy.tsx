@@ -522,15 +522,17 @@ const HomepageCopy = () => {
       <LaunchpadShowcase isRtl={isRtl} />
 
       {/* Transition: launchpad to token */}
-      <section className="relative bg-black px-4 md:px-8 py-10 md:py-14">
+      <section className="relative bg-black px-4 md:px-8 py-16 md:py-24">
         <motion.p
-          className="relative z-10 mx-auto max-w-[56ch] text-center text-[15px] md:text-base font-light leading-relaxed text-white/60"
-          initial={{ opacity: 0, y: 16 }}
+          className="relative z-10 mx-auto max-w-[24ch] md:max-w-[32ch] text-center font-light tracking-tight leading-[1.25] text-[clamp(1.5rem,3.4vw,2.75rem)] text-white/45"
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
-          A share of trading fees across the launchpad buys and burns AMAI and pays AMAI holders in Stock Tokens.
+          A share of trading fees across the launchpad{' '}
+          <span className="text-white font-normal">buys and burns AMAI</span> and pays AMAI holders
+          in <span className="text-white font-normal">Stock Tokens</span>.
         </motion.p>
       </section>
 
