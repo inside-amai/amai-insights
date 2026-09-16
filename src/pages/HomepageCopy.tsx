@@ -459,13 +459,18 @@ const HomepageCopy = () => {
         aria-labelledby="existing-pools-heading"
         className="relative overflow-hidden bg-black px-4 py-16 md:px-8 md:py-24"
       >
-        {/* Rotated hero grid: converges from the sides, static */}
-        <img
-          src={homeFallbackBg}
-          alt=""
-          aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-1/2 h-[105vw] w-auto max-w-none -translate-x-1/2 -translate-y-1/2 rotate-90 opacity-70"
-        />
+        {/* Rotated hero grid: converges from the sides, same slow zoom pulse as hero */}
+        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[105vw] w-auto -translate-x-1/2 -translate-y-1/2 rotate-90">
+          <motion.img
+            src={homeFallbackBg}
+            alt=""
+            aria-hidden="true"
+            className="h-full w-auto max-w-none opacity-70 will-change-transform"
+            initial={{ scale: 1 }}
+            animate={{ scale: [1, 1.12, 1] }}
+            transition={{ duration: 18, ease: "easeInOut", repeat: Infinity }}
+          />
+        </div>
         <div className="pointer-events-none absolute inset-0 bg-black/35" />
         <div className="pointer-events-none absolute inset-y-0 left-0 w-1/2 bg-[radial-gradient(ellipse_at_0%_50%,hsl(var(--cyan-accent)/0.12),transparent_60%)]" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(ellipse_at_100%_50%,hsl(var(--cyan-accent)/0.12),transparent_60%)]" />
