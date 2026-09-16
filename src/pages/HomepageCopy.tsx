@@ -427,7 +427,7 @@ const HomepageCopy = () => {
                   <div className={`absolute inset-x-0 top-0 h-px transition-all duration-[250ms] ${isActive ? "bg-gradient-to-r from-[#B4F6AD]/60 via-[#3D896D]/30 to-transparent" : "bg-gradient-to-r from-white/20 via-white/10 to-transparent"}`} />
                   <div className="absolute inset-0 bg-gradient-to-b from-white/[0.05] via-white/[0.02] to-transparent pointer-events-none" />
                   <div className="relative flex items-center gap-3 text-sm md:text-base font-normal text-white/90 whitespace-nowrap">
-                    <Icon className={`w-4 h-4 transition-colors duration-[250ms] ${isActive ? "text-[#CEFFC9]" : "text-[#B4F6AD]"}`} strokeWidth={1.5} />
+                    <Icon className={`w-4 h-4 transition-colors duration-[250ms] ${isActive ? "text-white" : "text-white/80"}`} strokeWidth={1.5} />
                     {row.job}
                   </div>
                   <p className="relative text-sm md:text-base font-light text-white/60 leading-relaxed">{row.desc}</p>
