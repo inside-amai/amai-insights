@@ -522,7 +522,7 @@ const HomepageCopy = () => {
       <LaunchpadShowcase isRtl={isRtl} />
 
       {/* Transition: launchpad to token */}
-      <section className="relative bg-black px-4 md:px-8 py-16 md:py-24">
+      <section className="relative bg-perspective-grid px-4 md:px-8 py-16 md:py-24">
         <motion.p
           className="relative z-10 mx-auto max-w-[24ch] md:max-w-[32ch] text-center font-light tracking-tight leading-[1.25] text-[clamp(1.25rem,2.8vw,2.25rem)] text-white/60"
           initial={{ opacity: 0, y: 24 }}
