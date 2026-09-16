@@ -500,7 +500,7 @@ const HomepageCopy = () => {
               Hello, Operator.
             </h2>
             <p className="mt-4 mx-auto max-w-[52ch] text-[15px] md:text-base font-light leading-relaxed text-white/60">
-              Your LP can have an operator of its own. A share of its trading fees becomes Stock Tokens for your holders.
+              Your pool earns fees. Your community gets a share. An AI operator turns that share into Stock Tokens and delivers them to your holders.
             </p>
             <div className="mt-6">
               <Link
