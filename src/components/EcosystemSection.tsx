@@ -164,7 +164,7 @@ export const EcosystemSection = () => {
     <section
       id="ecosystem"
       aria-labelledby="ecosystem-heading"
-      className="relative overflow-hidden bg-white px-4 py-24 md:px-8 md:py-40"
+      className="relative overflow-hidden bg-[#F8F8F5] px-4 py-24 md:px-8 md:py-40"
     >
       <div className="relative mx-auto max-w-[920px]">
         {/* Masthead */}
