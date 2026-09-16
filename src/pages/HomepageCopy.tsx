@@ -450,7 +450,7 @@ const HomepageCopy = () => {
       {/* FOR EXISTING POOLS — thin band on black grid */}
       <section
         aria-labelledby="existing-pools-heading"
-        className="relative overflow-hidden bg-perspective-grid px-4 py-16 md:px-8 md:py-24 border-y border-white/10"
+        className="relative overflow-hidden bg-perspective-grid px-4 py-16 md:px-8 md:py-24"
       >
         <div className="relative z-10 mx-auto max-w-[1400px] text-center">
           <motion.div
