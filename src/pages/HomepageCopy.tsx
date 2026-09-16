@@ -466,7 +466,7 @@ const HomepageCopy = () => {
               id="existing-pools-heading"
               className="mt-4 text-3xl md:text-5xl font-medium tracking-tight text-white leading-[1.05]"
             >
-              Hello, operator.
+              Hello, Operator.
             </h2>
             <p className="mt-4 mx-auto max-w-[52ch] text-[15px] md:text-base font-light leading-relaxed text-white/60">
               Your pool can have an operator of its own. A share of its trading fees becomes Stock Tokens for your holders.
