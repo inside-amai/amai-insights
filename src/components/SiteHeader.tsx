@@ -60,7 +60,7 @@ export const SiteHeader = () => {
                   decoding="async"
                 />
               </Link>
-              <span className="block whitespace-nowrap text-[7px] sm:text-[11px] leading-relaxed tracking-[0.12em] sm:tracking-[0.3em] uppercase text-white/40 font-medium">
+              <span className="block whitespace-nowrap text-[9px] sm:text-[11px] leading-relaxed tracking-[0.1em] sm:tracking-[0.3em] uppercase text-white/40 font-medium">
                 AMAI Labs · Infrastructure & Research
               </span>
             </div>
