@@ -109,7 +109,7 @@ Platform policy, the rates a future launch gets and the way AMAI's quarter is di
 
 ### 11. Where it stands today
 
-The payout contract that pays every holder is built, audited and deployed on Robinhood Chain testnet, and an operator runs full cycles there against Robinhood's own test stock tokens. The launchpad described on this page is the next phase of the build, forked from code that has run at scale and changed by small reviewed steps. No token has launched here yet, and this page describes the design rather than a history.
+The launchpad described on this page is the next phase of the build, forked from code that has run at scale and changed by small reviewed steps. No token has launched here yet, and this page describes the design rather than a history.
 
 ### Glossary
 
