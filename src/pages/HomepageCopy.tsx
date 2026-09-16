@@ -72,7 +72,7 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
           >
             <motion.span
               aria-hidden
-              className="hidden sm:block h-px w-14 md:w-32"
+              className="h-px w-8 sm:w-14 md:w-32"
               style={{
                 background: 'linear-gradient(to right, transparent, rgba(180, 246, 173, 0.4))',
                 transformOrigin: 'right center',
@@ -94,7 +94,7 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
             </motion.span>
             <motion.span
               aria-hidden
-              className="hidden sm:block h-px w-14 md:w-32"
+              className="h-px w-8 sm:w-14 md:w-32"
               style={{
                 background: 'linear-gradient(to left, transparent, rgba(180, 246, 173, 0.4))',
                 transformOrigin: 'left center',
