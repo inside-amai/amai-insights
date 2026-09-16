@@ -497,7 +497,7 @@ const HomepageCopy = () => {
             <div className="mt-6">
               <Link
                 to="/operators"
-                className="group inline-flex items-center gap-2 text-lg md:text-xl font-light text-[#B4F6AD] transition-colors duration-200 hover:text-white focus:outline-none focus-visible:text-white focus-visible:ring-1 focus-visible:ring-[#B4F6AD]/60 focus-visible:ring-offset-4 focus-visible:ring-offset-black"
+                className="group inline-flex items-center gap-2 text-lg md:text-xl font-light text-[#B4F6AD]/60 transition-colors duration-200 hover:text-[#B4F6AD]/85 focus:outline-none focus-visible:text-[#B4F6AD]/85 focus-visible:ring-1 focus-visible:ring-[#B4F6AD]/40 focus-visible:ring-offset-4 focus-visible:ring-offset-black"
               >
                 Meet your operator
                 <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">→</span>
