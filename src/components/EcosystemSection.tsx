@@ -170,7 +170,7 @@ export const EcosystemSection = () => {
         {/* Masthead */}
         <header className="text-center pb-14 md:pb-20 border-b border-black/[0.08]">
           <span className="text-[11px] font-light uppercase tracking-[0.35em] text-black/45">
-            The Ecosystem
+            Questions?
           </span>
           <h2
             id="ecosystem-heading"
