@@ -459,7 +459,7 @@ const HomepageCopy = () => {
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="text-[11px] font-light uppercase tracking-[0.35em] text-[#B4F6AD]/80">
+            <span className="text-[11px] font-light uppercase tracking-[0.35em] text-white/40">
               For Existing Pools
             </span>
             <h2
