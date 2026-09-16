@@ -25,92 +25,100 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
         style={{ background: 'linear-gradient(to bottom, #000 0%, rgba(0,0,0,0) 55%)' }}
       />
       <div className="max-w-[1400px] mx-auto relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <span className="text-xs tracking-[0.35em] uppercase text-white/50">TOKENS THAT PAY</span>
-          <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.05]">
-            The Launchpad.
-          </h2>
-          <p className="mt-6 text-base md:text-lg lg:text-xl font-light text-white/60 leading-relaxed max-w-2xl">
-            Every launch comes with an AI operator. You choose the Stock Token and the share your holders receive.
-          </p>
-          <div className="mt-6">
-            <Link
-              to="/launchpad"
-              className="inline-flex items-center gap-2 text-sm font-light text-[#CEFFC9] hover:text-white transition-colors duration-300 border-b border-[#CEFFC9]/40 hover:border-white/60 pb-1"
-            >
-              Launchpad details<span aria-hidden>{isRtl ? "←" : "→"}</span>
-            </Link>
-          </div>
-        </motion.div>
-
-        <figure className="mt-10">
-          <button
-            type="button"
-            onClick={(e) => {
-              if (window.matchMedia("(min-width: 768px)").matches) return;
-              setZoomed(true);
-            }}
-            className="block w-full text-left cursor-zoom-in md:pointer-events-none md:cursor-default focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B4F6AD]/70 rounded-lg"
-            aria-label="Open a larger view of the launchpad"
-          >
-            <img
-              src="/uploads/launchpad.svg"
-              alt="AMAI Launchpad interface showing example token launches, each with an AI operator and a Stock Token payout"
-              width={1840}
-              height={1220}
-              decoding="async"
-              className="w-full h-auto block"
-            />
-          </button>
-
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] gap-10 lg:gap-16 items-start">
           <motion.div
-            className="mt-8 md:mt-10 flex items-center justify-center gap-4 md:gap-6"
-            aria-label="Coming soon"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.6 }}
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
-            <motion.span
-              aria-hidden
-              className="h-px w-8 sm:w-14 md:w-32"
-              style={{
-                background: 'linear-gradient(to right, transparent, rgba(180, 246, 173, 0.4))',
-                transformOrigin: 'right center',
-              }}
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true, amount: 0.6 }}
-              transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            />
-            <motion.span
-              className="text-[11px] md:text-xs uppercase font-light text-white/75 whitespace-nowrap"
-              initial={{ opacity: 0, letterSpacing: "0.95em" }}
-              whileInView={{ opacity: 1, letterSpacing: "0.5em" }}
-              viewport={{ once: true, amount: 0.6 }}
-              transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-              style={{ textShadow: "0 0 26px rgba(180, 246, 173, 0.22)" }}
-            >
-              Coming Soon
-            </motion.span>
-            <motion.span
-              aria-hidden
-              className="h-px w-8 sm:w-14 md:w-32"
-              style={{
-                background: 'linear-gradient(to left, transparent, rgba(180, 246, 173, 0.4))',
-                transformOrigin: 'left center',
-              }}
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true, amount: 0.6 }}
-              transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            />
+            <span className="text-xs tracking-[0.35em] uppercase text-white/50">TOKENS THAT PAY</span>
+            <h2 className="mt-6 text-4xl md:text-5xl font-medium tracking-tight text-white leading-[1.05]">
+              The Launchpad.
+            </h2>
+            <p className="mt-6 text-base md:text-lg font-normal text-white leading-snug">
+              Your community earns with you.
+            </p>
+            <p className="mt-5 text-sm md:text-base font-light text-white/60 leading-relaxed">
+              Creators launch for $0 and receive 75% of trading fees, before and after graduation.
+            </p>
+            <p className="mt-4 text-sm md:text-base font-light text-white/60 leading-relaxed">
+              You choose the Stock Token and how much of your share goes to holders. Every launch comes with an AI operator to handle the payouts.
+            </p>
+            <div className="mt-7">
+              <Link
+                to="/launchpad"
+                className="inline-flex items-center gap-2 text-sm font-light text-[#CEFFC9] hover:text-white transition-colors duration-300 border-b border-[#CEFFC9]/40 hover:border-white/60 pb-1"
+              >
+                Launchpad details<span aria-hidden>{isRtl ? "←" : "→"}</span>
+              </Link>
+            </div>
           </motion.div>
-        </figure>
+
+          <figure>
+            <button
+              type="button"
+              onClick={(e) => {
+                if (window.matchMedia("(min-width: 768px)").matches) return;
+                setZoomed(true);
+              }}
+              className="block w-full text-left cursor-zoom-in md:pointer-events-none md:cursor-default focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B4F6AD]/70 rounded-lg"
+              aria-label="Open a larger view of the launchpad"
+            >
+              <img
+                src="/uploads/launchpad.svg"
+                alt="AMAI Launchpad interface showing example token launches, each with an AI operator and a Stock Token payout"
+                width={1840}
+                height={1220}
+                decoding="async"
+                className="w-full h-auto block"
+              />
+            </button>
+
+            <motion.div
+              className="mt-6 md:mt-8 flex items-center justify-center gap-4 md:gap-6"
+              aria-label="Coming soon"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.6 }}
+            >
+              <motion.span
+                aria-hidden
+                className="h-px w-8 sm:w-14 md:w-32"
+                style={{
+                  background: 'linear-gradient(to right, transparent, rgba(180, 246, 173, 0.4))',
+                  transformOrigin: 'right center',
+                }}
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true, amount: 0.6 }}
+                transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+              />
+              <motion.span
+                className="text-[11px] md:text-xs uppercase font-light text-white/75 whitespace-nowrap"
+                initial={{ opacity: 0, letterSpacing: "0.95em" }}
+                whileInView={{ opacity: 1, letterSpacing: "0.5em" }}
+                viewport={{ once: true, amount: 0.6 }}
+                transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+                style={{ textShadow: "0 0 26px rgba(180, 246, 173, 0.22)" }}
+              >
+                Coming Soon
+              </motion.span>
+              <motion.span
+                aria-hidden
+                className="h-px w-8 sm:w-14 md:w-32"
+                style={{
+                  background: 'linear-gradient(to left, transparent, rgba(180, 246, 173, 0.4))',
+                  transformOrigin: 'left center',
+                }}
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true, amount: 0.6 }}
+                transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+              />
+            </motion.div>
+          </figure>
+        </div>
       </div>
 
       <AnimatePresence>
