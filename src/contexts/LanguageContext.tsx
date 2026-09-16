@@ -202,7 +202,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Footer
     'footer.company': 'AMAI Labs · Infrastructure & Research',
-    'footer.copyright': '© 2026 AMAI Labs Inc. • DE: 10494625 • Infrastructure & Research',
+    'footer.copyright': '© 2026 AMAI Labs Inc. • Infrastructure & Research',
     'footer.col.protocol': 'Protocol',
     'footer.col.economics': 'Economics',
     'footer.col.research': 'Research',
@@ -1740,7 +1740,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Footer
     'footer.company': 'AMAI Labs · 基盤研究開発',
-    'footer.copyright': '© 2026 AMAI Labs Inc. • DE: 10494625 • Infrastructure & Research',
+    'footer.copyright': '© 2026 AMAI Labs Inc. • Infrastructure & Research',
     'footer.col.protocol': 'プロトコル',
     'footer.col.economics': '経済設計',
     'footer.col.research': '研究',
@@ -3262,7 +3262,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Footer
     'footer.company': 'AMAI Labs · البنية التحتية والأبحاث',
-    'footer.copyright': '© 2026 AMAI Labs Inc. • DE: 10494625 • Infrastructure & Research',
+    'footer.copyright': '© 2026 AMAI Labs Inc. • Infrastructure & Research',
     'footer.col.protocol': 'البروتوكول',
     'footer.col.economics': 'الاقتصاد',
     'footer.col.research': 'الأبحاث',
