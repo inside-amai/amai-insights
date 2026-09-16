@@ -447,6 +447,55 @@ const HomepageCopy = () => {
         </div>
       </section>
 
+      {/* FOR EXISTING POOLS — thin contrasting band */}
+      <section
+        aria-labelledby="existing-pools-heading"
+        className="relative overflow-hidden bg-[#EDF3EE] px-4 py-16 md:px-8 md:py-24 border-y border-[#157854]/15"
+      >
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_85%_0%,rgba(21,120,84,0.08),transparent_55%)]" />
+        <div className="relative z-10 mx-auto grid max-w-[1400px] grid-cols-1 gap-10 md:grid-cols-12 md:items-end md:gap-8">
+          <motion.div
+            className="md:col-span-7"
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <span className="text-[11px] font-light uppercase tracking-[0.35em] text-[#157854]/80">
+              For Existing Pools
+            </span>
+            <h2
+              id="existing-pools-heading"
+              className="mt-4 text-3xl md:text-5xl font-medium tracking-tight text-black leading-[1.05]"
+            >
+              Hello, operator.
+            </h2>
+            <p className="mt-4 max-w-[52ch] text-[15px] md:text-base font-light leading-relaxed text-black/60">
+              Your pool can have an operator of its own. A share of its trading fees becomes Stock Tokens for your holders.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="md:col-span-5 md:text-right"
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <Link
+              to="/operators"
+              className="group inline-flex items-center gap-2 text-lg md:text-xl font-light text-[#157854] transition-colors duration-200 hover:text-[#0f5c40] focus:outline-none focus-visible:text-[#0f5c40] focus-visible:ring-1 focus-visible:ring-[#157854]/60 focus-visible:ring-offset-4 focus-visible:ring-offset-[#EDF3EE]"
+            >
+              Meet your operator
+              <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+            </Link>
+            <p className="mt-3 text-[11px] font-light uppercase tracking-[0.3em] text-black/40">
+              Coming soon on Robinhood Chain.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* THE LAUNCHPAD */}
       <LaunchpadShowcase isRtl={isRtl} />
 
