@@ -524,7 +524,7 @@ const HomepageCopy = () => {
       {/* Transition: launchpad to token */}
       <section className="relative bg-black px-4 md:px-8 py-16 md:py-24">
         <motion.p
-          className="relative z-10 mx-auto max-w-[24ch] md:max-w-[32ch] text-center font-light tracking-tight leading-[1.25] text-[clamp(1.5rem,3.4vw,2.75rem)] text-white/45"
+          className="relative z-10 mx-auto max-w-[24ch] md:max-w-[32ch] text-center font-light tracking-tight leading-[1.25] text-[clamp(1.25rem,2.8vw,2.25rem)] text-white/60"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}
@@ -547,9 +547,6 @@ const HomepageCopy = () => {
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
-          <p className="text-[11px] font-light uppercase tracking-[0.3em] text-white/40">
-            The Token
-          </p>
           <h2 className="font-medium tracking-tight text-white leading-[1.05] text-[clamp(2.75rem,11vw,10rem)]">
             Hold AMAI.
             <br />
