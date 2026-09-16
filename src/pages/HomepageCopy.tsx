@@ -19,6 +19,11 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
 
   return (
     <section id="launchpad" className="relative bg-perspective-grid py-24 md:py-32 px-4 md:px-8 overflow-hidden">
+      {/* Grid visible only in the bottom half, fading to black toward the top */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: 'linear-gradient(to bottom, #000 0%, rgba(0,0,0,0) 55%)' }}
+      />
       <div className="max-w-[1400px] mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
@@ -353,7 +358,10 @@ const HomepageCopy = () => {
 
       {/* Section 2 AGENT-OPERATED POOLS */}
       <section ref={opSectionRef} id="score" className="relative bg-perspective-grid py-24 md:py-32 px-4 md:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-transparent pointer-events-none" />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, #000 100%)' }}
+        />
 
         <div className="relative z-10 max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-8 items-start">
