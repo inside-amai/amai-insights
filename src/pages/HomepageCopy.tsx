@@ -18,7 +18,8 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
   const [zoomed, setZoomed] = useState(false);
 
   return (
-    <section id="launchpad" className="relative bg-perspective-grid py-24 md:py-32 px-4 md:px-8">
+    <section id="launchpad" className="relative bg-perspective-grid py-24 md:py-32 px-4 md:px-8 overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_25%_15%,hsl(var(--cyan-accent)/0.1),transparent_55%)]" />
       <div className="max-w-[1400px] mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
