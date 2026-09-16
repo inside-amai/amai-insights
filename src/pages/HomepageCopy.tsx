@@ -525,7 +525,7 @@ const HomepageCopy = () => {
       <section className="relative bg-perspective-grid px-4 md:px-8 py-16 md:py-24 overflow-hidden">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-1/2 h-[60vh] w-[80vw] md:w-[60vw] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,hsl(var(--cyan-accent)/0.16),transparent_65%)]"
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[60vh] w-[80vw] md:w-[60vw] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,hsl(var(--cyan-accent)/0.16),transparent_65%)] [mask-image:linear-gradient(to_bottom,transparent,black_28%,black_72%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_28%,black_72%,transparent)]"
         />
         <motion.p
           className="relative z-10 mx-auto max-w-[24ch] md:max-w-[32ch] text-center font-light tracking-tight leading-[1.25] text-[clamp(1.25rem,2.8vw,2.25rem)] text-white/60"
