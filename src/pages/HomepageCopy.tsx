@@ -5,7 +5,7 @@ import { ChevronRight, ChevronLeft, Download, RefreshCw, Send, TrendingUp, Slide
 import amaiLogo from "@/assets/amai-logo-tm.png";
 import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { pickHome } from "@/i18n/pageContent";
+import { pickLanding, type LandingCopy } from "@/i18n/landingContent";
 
 import { Footer } from "@/components/Footer";
 import { TariGauge } from "@/components/TariGauge";
@@ -14,7 +14,7 @@ import { EcosystemSection } from "@/components/EcosystemSection";
 
 const TICKERS = ["TSLA", "AMZN", "PLTR", "NFLX", "AMD"];
 
-const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
+const LaunchpadShowcase = ({ copy }: { copy: LandingCopy["launchpad"] }) => {
   const [zoomed, setZoomed] = useState(false);
 
   return (
@@ -32,25 +32,25 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="text-xs tracking-[0.35em] uppercase text-white/50">TOKENS THAT PAY</span>
+            <span className="text-xs tracking-[0.35em] uppercase text-white/50">{copy.eyebrow}</span>
             <h2 className="mt-6 text-4xl md:text-5xl font-medium tracking-tight text-white leading-[1.05]">
-              The Launchpad.
+              {copy.title}
             </h2>
             <p className="mt-6 text-base md:text-lg font-normal text-white leading-snug">
-              Your community earns with you.
+              {copy.lead}
             </p>
             <p className="mt-5 text-sm md:text-base font-light text-white/60 leading-relaxed">
-              Creators launch for $0 and receive 75% of trading fees, before and after graduation.
+              {copy.p1}
             </p>
             <p className="mt-4 text-sm md:text-base font-light text-white/60 leading-relaxed">
-              You choose the Stock Token and how much of your share goes to holders. Every launch comes with an AI operator to handle the payouts.
+              {copy.p2}
             </p>
             <div className="mt-7">
               <Link
                 to="/launchpad"
                 className="inline-flex items-center gap-2 text-sm font-light text-[#CEFFC9] hover:text-white transition-colors duration-300 border-b border-[#CEFFC9]/40 hover:border-white/60 pb-1"
               >
-                Launchpad details<span aria-hidden>{isRtl ? "←" : "→"}</span>
+                {copy.link}<span aria-hidden>→</span>
               </Link>
             </div>
           </motion.div>
@@ -63,7 +63,7 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
                 setZoomed(true);
               }}
               className="block w-full text-left cursor-zoom-in md:pointer-events-none md:cursor-default focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B4F6AD]/70 rounded-lg"
-              aria-label="Open a larger view of the launchpad"
+              aria-label={copy.zoomLabel}
             >
               <img
                 src="/uploads/launchpad.svg"
@@ -77,7 +77,7 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
 
             <motion.div
               className="mt-6 md:mt-8 flex items-center justify-center gap-4 md:gap-6"
-              aria-label="Coming soon"
+              aria-label={copy.comingSoon}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.6 }}
@@ -102,7 +102,7 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
                 transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
                 style={{ textShadow: "0 0 26px rgba(180, 246, 173, 0.22)" }}
               >
-                Coming Soon
+                {copy.comingSoon}
               </motion.span>
               <motion.span
                 aria-hidden
@@ -135,7 +135,7 @@ const LaunchpadShowcase = ({ isRtl }: { isRtl: boolean }) => {
               onClick={() => setZoomed(false)}
               className="fixed top-4 right-4 z-10 h-10 px-4 rounded-full border border-white/20 bg-black/70 text-xs tracking-[0.2em] uppercase text-white/80 hover:text-white"
             >
-              Close
+              {copy.close}
             </button>
             <img
               src="/uploads/launchpad.svg"
@@ -233,8 +233,7 @@ const TickerRoll = () => {
 
 const HomepageCopy = () => {
   const { language } = useLanguage();
-  const c = pickHome(language);
-  const isRtl = language === 'ar';
+  const c = pickLanding(language);
   const [activeOp, setActiveOp] = useState(0);
   const [opPaused, setOpPaused] = useState(false);
   const opSectionRef = useRef<HTMLElement>(null);
@@ -292,7 +291,7 @@ const HomepageCopy = () => {
   };
 
   return (
-    <div className="bg-black" dir={isRtl ? 'rtl' : 'ltr'}>
+    <div className="bg-black">
       {/* Hero */}
       <div className="h-svh md:h-screen flex flex-col">
         <div className="h-16 bg-black flex-shrink-0" />
@@ -325,12 +324,12 @@ const HomepageCopy = () => {
             />
 
             <motion.h1
-              className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.05] tracking-[-0.02em] text-white/90 font-medium whitespace-normal sm:whitespace-nowrap"
+              className={`text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.05] tracking-[-0.02em] text-white/90 font-medium ${language === 'en' ? 'whitespace-normal sm:whitespace-nowrap' : 'whitespace-normal'}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              Agents work. You get paid.
+              {c.hero.headline}
             </motion.h1>
 
             <motion.p
@@ -339,7 +338,7 @@ const HomepageCopy = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
             >
-              Agent operated pools that collect trading fees and distribute a share to holders in Stock Tokens.
+              {c.hero.sub}
             </motion.p>
 
             <motion.div
@@ -381,13 +380,13 @@ const HomepageCopy = () => {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">Agent-operated pools.</span>
+              <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">{c.pools.eyebrow}</span>
               <h2 className="mt-6 md:mt-8 text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.05] tracking-[-0.02em] text-white/90 font-medium">
-                <span className="block">Liquidity Pools.</span>
-                <span className="block mt-1 md:mt-2">Now managed by Agents.</span>
+                <span className="block">{c.pools.titleA}</span>
+                <span className="block mt-1 md:mt-2">{c.pools.titleB}</span>
               </h2>
               <p className="mt-8 md:mt-10 text-base md:text-lg font-light text-white/65 leading-relaxed max-w-[54ch]">
-                The world’s first agent operated liquidity pools that pay holders in tokenized stocks.
+                {c.pools.intro}
               </p>
               <motion.figure
                 className="mt-10 md:mt-14 w-full max-w-[680px] lg:-ml-10"
@@ -409,7 +408,7 @@ const HomepageCopy = () => {
                   ))}
                 </div>
                 <figcaption className="sr-only" aria-live="polite">
-                  {OPERATOR_ROWS[activeOp].job}
+                  {c.pools.rows[activeOp].job}
                 </figcaption>
               </motion.figure>
             </motion.div>
@@ -422,8 +421,8 @@ const HomepageCopy = () => {
               transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="grid grid-cols-[130px_1fr] md:grid-cols-[170px_1fr] gap-x-6 pb-3 border-b border-white/15">
-                <span className="text-[11px] tracking-[0.2em] font-medium text-white uppercase">Job</span>
-                <span className="text-[11px] tracking-[0.2em] font-medium text-white uppercase">AMAI Operator Agent</span>
+                <span className="text-[11px] tracking-[0.2em] font-medium text-white uppercase">{c.pools.colJob}</span>
+                <span className="text-[11px] tracking-[0.2em] font-medium text-white uppercase">{c.pools.colAgent}</span>
               </div>
               {OPERATOR_ROWS.map((row, i) => {
                 const Icon = row.icon;
@@ -442,19 +441,19 @@ const HomepageCopy = () => {
                 >
                   <div className={`absolute inset-x-0 top-0 h-px transition-all duration-[250ms] ${isActive ? "bg-gradient-to-r from-[#B4F6AD]/60 via-[#3D896D]/30 to-transparent" : "bg-gradient-to-r from-white/20 via-white/10 to-transparent"}`} />
                   <div className="absolute inset-0 bg-gradient-to-b from-white/[0.05] via-white/[0.02] to-transparent pointer-events-none" />
-                  <div className="relative flex items-center gap-3 text-sm md:text-base font-normal text-white/90 whitespace-nowrap">
-                    <Icon className={`w-4 h-4 transition-colors duration-[250ms] ${isActive ? "text-white" : "text-white/80"}`} strokeWidth={1.5} />
-                    {row.job}
+                  <div className="relative flex items-center gap-3 text-sm md:text-base font-normal text-white/90">
+                    <Icon className={`w-4 h-4 flex-shrink-0 transition-colors duration-[250ms] ${isActive ? "text-white" : "text-white/80"}`} strokeWidth={1.5} />
+                    {c.pools.rows[i].job}
                   </div>
-                  <p className="relative text-sm md:text-base font-light text-white/60 leading-relaxed">{row.desc}</p>
+                  <p className="relative text-sm md:text-base font-light text-white/60 leading-relaxed">{c.pools.rows[i].desc}</p>
                 </button>
                 );
               })}
               <div className="mt-10 md:mt-12 pl-4 md:pl-5 border-l border-[#157854]">
-                <span className="text-[11px] tracking-[0.3em] font-light text-white/50 uppercase">Denied Permissions</span>
+                <span className="text-[11px] tracking-[0.3em] font-light text-white/50 uppercase">{c.pools.deniedLabel}</span>
                 <p className="mt-3 text-sm md:text-base font-light text-white/70 leading-relaxed">
-                  The operator cannot withdraw the pool’s principal.<br />
-                  It cannot expand its own permissions.
+                  {c.pools.deniedLine1}<br />
+                  {c.pools.deniedLine2}
                 </p>
               </div>
             </motion.div>
@@ -491,27 +490,27 @@ const HomepageCopy = () => {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className="text-[11px] font-light uppercase tracking-[0.35em] text-white/40">
-              For Existing Pools
+              {c.existing.eyebrow}
             </span>
             <h2
               id="existing-pools-heading"
               className="mt-4 text-3xl md:text-5xl font-medium tracking-tight text-white leading-[1.05]"
             >
-              Hello, Operator.
+              {c.existing.title}
             </h2>
             <p className="mt-4 mx-auto max-w-[52ch] text-[15px] md:text-base font-light leading-relaxed text-white/60">
-              Your pool earns fees. Your community gets a share. An AI operator turns that share into Stock Tokens and delivers them to your holders.
+              {c.existing.body}
             </p>
             <div className="mt-6">
               <Link
                 to="/operators"
                 className="group inline-flex items-center gap-2 text-lg md:text-xl font-light text-[#B4F6AD]/60 transition-colors duration-200 hover:text-[#B4F6AD]/85 focus:outline-none focus-visible:text-[#B4F6AD]/85 focus-visible:ring-1 focus-visible:ring-[#B4F6AD]/40 focus-visible:ring-offset-4 focus-visible:ring-offset-black"
               >
-                Meet your operator
+                {c.existing.cta}
                 <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">→</span>
               </Link>
               <p className="mt-3 text-[11px] font-light uppercase tracking-[0.3em] text-white/40">
-                Coming soon on Robinhood Chain.
+                {c.existing.note}
               </p>
             </div>
           </motion.div>
@@ -519,7 +518,7 @@ const HomepageCopy = () => {
       </section>
 
       {/* THE LAUNCHPAD */}
-      <LaunchpadShowcase isRtl={isRtl} />
+      <LaunchpadShowcase copy={c.launchpad} />
 
       {/* Transition: launchpad to token */}
       <section className="relative bg-perspective-grid px-4 md:px-8 py-16 md:py-24 overflow-hidden">
@@ -534,9 +533,11 @@ const HomepageCopy = () => {
           viewport={{ once: true, amount: 0.6 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
-          A share of trading fees across the launchpad{' '}
-          <span className="text-white font-normal">buys and burns AMAI</span> and pays AMAI holders
-          in <span className="text-white font-normal">Stock Tokens</span>.
+          {c.transition.t1}
+          <span className="text-white font-normal">{c.transition.em1}</span>
+          {c.transition.t2}
+          <span className="text-white font-normal">{c.transition.em2}</span>
+          {c.transition.t3}
         </motion.p>
       </section>
 
@@ -552,16 +553,16 @@ const HomepageCopy = () => {
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
           <h2 className="font-medium tracking-tight text-white leading-[1.05] text-[clamp(2.75rem,11vw,10rem)]">
-            Hold AMAI.
+            {c.token.line1}
             <br />
-            Get paid in
+            {c.token.line2}
             <br />
             <TickerRoll /><span className="text-white">.</span>
           </h2>
         </motion.div>
         <div className="absolute bottom-8 inset-x-0 z-10 flex justify-center">
           <span className="text-[11px] tracking-[0.35em] font-light text-white/50 uppercase">
-            Stock tokens on Robinhood Chain
+            {c.token.caption}
           </span>
         </div>
       </section>
@@ -590,19 +591,19 @@ const HomepageCopy = () => {
               <div className="mb-4 md:mb-5">
                 <span className="inline-flex items-center gap-3 text-xs md:text-sm tracking-[0.3em] font-medium text-white/90 uppercase">
                   <span className="h-px w-8 bg-[#3D896D]/60" />
-                  TRUST & RISK INDEX
+                  {c.tari.label}
                   <span className="h-px w-8 bg-[#3D896D]/60" />
                 </span>
               </div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.05]">
-                Backed By TARI™.
+                {c.tari.title}
               </h2>
               <p className="mt-5 md:mt-6 text-lg md:text-xl lg:text-2xl font-light text-white/80 leading-snug max-w-4xl">
-                A credit score built from onchain history and observed agent behavior.
+                {c.tari.body}
               </p>
               <div className="mt-5 md:mt-6">
                 <a href="/tari" className="inline-flex items-center gap-2 text-sm font-light text-white/60 hover:text-white transition-colors duration-300 border-b border-white/20 hover:border-white/60 pb-1">
-                  How it works<span aria-hidden>{isRtl ? '←' : '→'}</span>
+                  {c.tari.link}<span aria-hidden>→</span>
                 </a>
               </div>
 
@@ -673,17 +674,17 @@ const HomepageCopy = () => {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span className="text-xs tracking-[0.35em] uppercase text-white/50">THE EVIDENCE</span>
+              <span className="text-xs tracking-[0.35em] uppercase text-white/50">{c.evidence.eyebrow}</span>
               <h2 className="mt-6 text-3xl md:text-5xl font-medium tracking-tight text-white leading-[1.08]">
-                Compromise leaves a pattern.
+                {c.evidence.title}
               </h2>
               <p className="mt-6 text-base md:text-lg font-light text-white/60 leading-relaxed max-w-xl">
-                Across 726 benchmark runs, compromised agents tended to score lower. TARI measured the difference using tool-call metadata alone.
+                {c.evidence.body}
               </p>
               <div className="mt-10 pt-8 border-t border-white/10">
                 <div className="text-5xl md:text-6xl font-mono font-light tracking-tight text-white tabular-nums">0.835</div>
-                <div className="mt-3 text-xs tracking-[0.2em] uppercase text-white/50">AUC · Benchmark discrimination</div>
-                <div className="mt-2 text-xs font-light text-white/35">95% confidence interval: 0.805–0.864</div>
+                <div className="mt-3 text-xs tracking-[0.2em] uppercase text-white/50">{c.evidence.aucLabel}</div>
+                <div className="mt-2 text-xs font-light text-white/35">{c.evidence.ci}</div>
               </div>
             </motion.div>
 

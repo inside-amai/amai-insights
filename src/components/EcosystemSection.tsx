@@ -2,127 +2,18 @@ import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { pickLanding } from "@/i18n/landingContent";
 
 const linkClasses =
   "inline-flex items-center gap-1.5 text-sm font-light text-[#157854]/80 transition-colors duration-200 hover:text-[#157854] focus:outline-none focus-visible:text-[#157854] focus-visible:ring-1 focus-visible:ring-[#157854]/60 focus-visible:ring-offset-4 focus-visible:ring-offset-white";
 
-const externalLinkClasses =
-  "inline-flex items-center gap-1.5 text-sm font-light text-[#157854]/80 transition-colors duration-200 hover:text-[#157854] focus:outline-none focus-visible:text-[#157854] focus-visible:ring-1 focus-visible:ring-[#157854]/60 focus-visible:ring-offset-4 focus-visible:ring-offset-white";
-
-const faqs = [
-  {
-    question: "What are AMAI Operators?",
-    answer: (
-      <>
-        Operators are agents assigned to manage a pool's trading-fee income. They collect fees, convert them into selected Stock Tokens, and distribute the holders' share. Each operator has a defined job and wallet permissions that limit what it can do.{" "}
-        <Link to="/operators" className={linkClasses}>
-          Explore Operators <span aria-hidden="true">→</span>
-        </Link>
-      </>
-    ),
-  },
-  {
-    question: "What is TARI?",
-    answer: (
-      <>
-        TARI is AMAI's Trust & Risk Index. It has two separate scoring engines: one assesses observed AI-agent behavior, and the other assesses onchain wallet credit history. Scores include confidence information. They help you assess risk, but do not guarantee safety.{" "}
-        <Link to="/tari" className={linkClasses}>
-          Explore TARI <span aria-hidden="true">→</span>
-        </Link>{" "}
-        <Link to="/methodology" className={linkClasses}>
-          Read the methodology <span aria-hidden="true">→</span>
-        </Link>
-      </>
-    ),
-  },
-  {
-    question: "What is the Launchpad?",
-    answer: (
-      <>
-        The Launchpad brings token creation, a liquidity pool, and an attached operator into one flow. It is designed for projects that want an operator to manage their pool's fee income and distribute a share to their token holders.{" "}
-        <Link to="/launchpad" className={linkClasses}>
-          Explore Launchpad <span aria-hidden="true">→</span>
-        </Link>
-      </>
-    ),
-  },
-  {
-    question: "What is Lens?",
-    answer: (
-      <>
-        Lens makes an agent's activity inspectable through recorded tool calls, findings, and history. Its content-off approach focuses on tool-use metadata rather than the contents of prompts or documents. Where configured, Interceptor can hold a tool call for human approval before it executes.
-      </>
-    ),
-  },
-  {
-    question: "What is the Bureau?",
-    answer: (
-      <>
-        The Bureau is AMAI's public interface for onchain credit scores. Explore supported wallet records, their scores, and the evidence behind them. It gives the credit research a place where people can inspect individual results.{" "}
-        <a href="https://bureau.amai.net/" target="_blank" rel="noopener noreferrer" className={externalLinkClasses}>
-          Open the Bureau <span aria-hidden="true">↗</span>
-        </a>
-      </>
-    ),
-  },
-  {
-    question: "Which token makes me eligible for distributions?",
-    answer: (
-      <>
-        Eligibility is tied to the token specified for each participating pool and your balance at its distribution snapshot. For the $AMAI pool, that token is $AMAI. For another project's pool, it is that project's token. Each pool's distribution rules determine the eligible holders and their shares.
-      </>
-    ),
-  },
-  {
-    question: "Where do the distributions come from?",
-    answer: (
-      <>
-        Distributions are funded by trading fees earned by the pool's liquidity position. The operator converts collected fees into the selected Stock Tokens and allocates the holders' share under the pool's rules. Amounts depend on trading activity, costs, and those rules. There is no fixed payout.
-      </>
-    ),
-  },
-  {
-    question: "What are Stock Tokens?",
-    answer: (
-      <>
-        Robinhood Stock Tokens are tokenized debt securities that provide economic exposure to underlying stocks or ETFs. They do not confer ownership of the underlying shares. Availability and eligibility depend on the issuer's terms and jurisdiction.{" "}
-        <a href="https://docs.robinhood.com/chain/stock-tokens/" target="_blank" rel="noopener noreferrer" className={externalLinkClasses}>
-          About Stock Tokens <span aria-hidden="true">↗</span>
-        </a>
-      </>
-    ),
-  },
-  {
-    question: "Can an operator withdraw the pool's principal?",
-    answer: (
-      <>
-        The operator's role excludes withdrawing pool principal and changing its own permissions. These restrictions apply to the operator role. They do not eliminate market risk or every risk involving collected fees.
-      </>
-    ),
-  },
-  {
-    question: "What can I use today?",
-    answer: (
-      <>
-        You can explore the{" "}
-        <a href="https://bureau.amai.net/" target="_blank" rel="noopener noreferrer" className={externalLinkClasses}>
-          Bureau <span aria-hidden="true">↗</span>
-        </a>
-        , read the published{" "}
-        <Link to="/methodology" className={linkClasses}>
-          methodology <span aria-hidden="true">→</span>
-        </Link>{" "}
-        and benchmark results, and use the TARI SDK for local agent observation on{" "}
-        <a href="https://pypi.org/project/amai-tari/" target="_blank" rel="noopener noreferrer" className={externalLinkClasses}>
-          PyPI <span aria-hidden="true">↗</span>
-        </a>
-        . The integrated operator and launchpad experience is still being built and tested. The demonstrated pool payout cycle ran on a local fork of Robinhood Chain.
-      </>
-    ),
-  },
-];
+const externalLinkClasses = linkClasses;
 
 export const EcosystemSection = () => {
+  const { language } = useLanguage();
+  const copy = pickLanding(language).faq;
+  const faqs = copy.items;
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const [reducedMotion, setReducedMotion] = useState(false);
   const itemRefs = useRef<(HTMLButtonElement | null)[]>([]);
@@ -170,16 +61,16 @@ export const EcosystemSection = () => {
         {/* Masthead */}
         <header className="text-center pb-14 md:pb-20 border-b border-black/[0.08]">
           <span className="text-[11px] font-light uppercase tracking-[0.35em] text-black/45">
-            Questions?
+            {copy.eyebrow}
           </span>
           <h2
             id="ecosystem-heading"
             className="mt-5 text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-black leading-[1.05]"
           >
-            AMAI Labs.
+            {copy.title}
           </h2>
           <p className="mt-3 text-sm md:text-base font-light uppercase tracking-[0.3em] text-black/50">
-            Infrastructure &amp; Research
+            {copy.tag}
           </p>
         </header>
 
@@ -208,7 +99,7 @@ export const EcosystemSection = () => {
                         isOpen ? "text-black" : "text-black/70 group-hover:text-black"
                       }`}
                     >
-                      {faq.question}
+                      {faq.q}
                     </span>
                     <span
                       className={`flex-shrink-0 transition-colors duration-300 ${
@@ -242,8 +133,31 @@ export const EcosystemSection = () => {
                     >
                       <div className="pb-7 md:pb-8 max-w-[70ch]">
                         <p className="text-[15px] md:text-[16px] font-light leading-relaxed text-black/60">
-                          {faq.answer}
+                          {faq.a}
                         </p>
+                        {faq.links && faq.links.length > 0 && (
+                          <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
+                            {faq.links.map((link) =>
+                              link.href ? (
+                                <a
+                                  key={link.label}
+                                  href={link.href}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className={externalLinkClasses}
+                                >
+                                  {link.label}
+                                  <span aria-hidden="true">{link.arrow}</span>
+                                </a>
+                              ) : (
+                                <Link key={link.label} to={link.to!} className={linkClasses}>
+                                  {link.label}
+                                  <span aria-hidden="true">{link.arrow}</span>
+                                </Link>
+                              )
+                            )}
+                          </div>
+                        )}
                       </div>
                     </motion.div>
                   )}

@@ -479,34 +479,7 @@ All colors MUST be HSL.
   --font-serif-ar: 'Noto Naskh Arabic', ui-serif, serif;
 }
 
-html.lang-ja body,
-body.lang-ja {
-  font-family: var(--font-sans-ja);
-  /* Prevent awkward mid-word Japanese line breaks */
-  word-break: normal;
-  overflow-wrap: anywhere;
-  line-break: strict;
-}
-html.lang-ja .font-editorial,
-html.lang-ja .font-serif {
-  font-family: var(--font-serif-ja);
-  font-weight: 400;
-}
-
-html.lang-ar body,
-body.lang-ar {
-  font-family: var(--font-sans-ar);
-  letter-spacing: 0 !important;
-}
-html.lang-ar .font-editorial,
-html.lang-ar .font-serif {
-  font-family: var(--font-serif-ar);
-  font-weight: 500;
-}
-
-/* Arabic: strip tracking/uppercase eyebrow styles that don't apply to Arabic script */
-html.lang-ar .uppercase { text-transform: none; }
-html.lang-ar [class*="tracking-["] { letter-spacing: 0 !important; }
+/* Language switching changes text only: no font, tracking, casing or layout overrides. */
 
 /* Global bidi hygiene: code, mono, and .keep-ltr blocks stay LTR + isolated */
 [dir="rtl"] code,

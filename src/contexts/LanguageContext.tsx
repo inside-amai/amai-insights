@@ -4610,7 +4610,7 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
   useEffect(() => {
     const html = document.documentElement;
     html.lang = language;
-    html.dir = language === 'ar' ? 'rtl' : 'ltr';
+    html.dir = 'ltr';
     html.classList.remove('lang-en', 'lang-ja', 'lang-ar');
     html.classList.add(`lang-${language}`);
     document.body.classList.remove('lang-en', 'lang-ja', 'lang-ar');
