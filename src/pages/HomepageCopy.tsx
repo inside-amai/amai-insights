@@ -532,6 +532,9 @@ const HomepageCopy = () => {
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
+          <p className="text-[11px] font-light uppercase tracking-[0.3em] text-white/40">
+            The Token
+          </p>
           <h2 className="font-medium tracking-tight text-white leading-[1.05] text-[clamp(2.75rem,11vw,10rem)]">
             Hold AMAI.
             <br />
