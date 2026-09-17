@@ -1,19 +1,18 @@
-# Stabilize landing-page scrolling in the Google iPhone app
+# Restyle the Operators Page
 
 ## Goal
-Remove the direction-change jump in Google’s iPhone in-app browser without changing the landing page’s appearance or the already-smooth behavior in Safari and Chrome.
+Bring `/operators` into the same visual system as the landing page while preserving every section, chapter, fact, link, and navigation behavior.
 
-## Plan
-1. Add a landing-page-only compatibility mode for the Google iOS in-app browser rather than changing every browser globally.
-2. In that mode, disable automatic scroll anchoring and use stable mobile viewport heights for the few sections still sized with changing `vh` units.
-3. Keep the TARI panel's scroll triggered animation exactly as it is, on mobile and desktop.
-4. Reduce the fixed header’s compositing load in that browser while preserving its size, position, color, navigation, and language controls.
-5. Keep all copy, spacing, grids, glows, imagery, section order, and desktop behavior unchanged.
-6. Verify the landing page at the current phone width, including repeated down-to-up direction changes around the hero, token, TARI, evidence, and FAQ areas. Confirm Safari/Chrome-compatible behavior remains unchanged and check for build or runtime errors.
+## Changes
+1. Replace the oversized ultra-light editorial typography with the landing page’s medium-weight Roboto hierarchy, tighter line heights, and consistent heading scale.
+2. Standardize labels, chapter numbers, body copy, and supporting text to the landing page’s weight and contrast patterns for easier reading.
+3. Replace legacy green accents and tinted panels with the shared cyan design token, black blueprint grid surfaces, and restrained soft glows used on the landing page.
+4. Refine the opening section so its grid, title placement, subtitle, and key figures feel like part of the same product without copying the landing hero.
+5. Restyle the TL;DR, Summary, chapter navigation, twelve chapters, glossary, and closing links as one continuous blueprint document with cleaner spacing and fewer visible dividers.
+6. Preserve the sticky desktop chapter index and compact mobile chapter selector, including keyboard focus and smooth navigation.
 
-## Technical details
-- Scope the workaround to the `/` landing page and the Google iOS app user agent.
-- Use stable small-viewport units for in-flow mobile section heights.
-- Apply `overflow-anchor: none` only for the affected landing-page context.
-- Leave the TARI panel's scroll triggered animation untouched.
-- Avoid changing data, navigation destinations, localization, or other pages.
+## Verification
+- Compare `/operators` with `/` at desktop and mobile widths.
+- Confirm all twelve chapters, glossary, links, figures, and supplied wording remain present.
+- Check typography, text wrapping, focus states, reduced motion, and section transitions for overlaps or layout shifts.
+- Confirm the preview builds without errors.
