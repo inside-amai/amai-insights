@@ -667,6 +667,10 @@ const HomepageCopy = () => {
 
       {/* THE EVIDENCE */}
       <section id="evidence" className="relative bg-black bg-perspective-grid py-24 md:py-40 px-4 md:px-8 overflow-hidden">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute bottom-0 left-0 h-[68%] w-[72%] md:w-[58%] bg-[radial-gradient(ellipse_at_18%_76%,hsl(var(--cyan-accent)/0.1),transparent_58%)] [mask-image:linear-gradient(to_bottom,transparent,black_24%,black_76%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_24%,black_76%,transparent)]"
+        />
         <div className="max-w-[1400px] mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-[30%_1fr] gap-14 lg:gap-16">
             <motion.div
