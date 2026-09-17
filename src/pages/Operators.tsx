@@ -124,7 +124,7 @@ const Operators = () => {
           </div>
           <div className="lg:col-span-8">
             {tldr.map((paragraph) => (
-              <p key={paragraph} className="text-xl font-normal leading-relaxed text-white/85 md:text-2xl md:leading-relaxed">
+              <p key={paragraph} className="text-center text-xl font-normal leading-relaxed text-white/85 md:text-2xl md:leading-relaxed">
                 {paragraph}
               </p>
             ))}
