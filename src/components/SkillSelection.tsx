@@ -11,20 +11,10 @@ export const SkillSelection = () => {
   const handleTierSelect = (tierIndex: number, tier: typeof STAKE_TIERS[0]) => {
     setSelectedTier(tierIndex);
     
-    // Map tier icons to emojis
-    const tierEmojis: { [key: string]: string } = {
-      'Common': '🛡️',
-      'Rare': '💎',
-      'Legendary': '🏆',
-      'Mythic': '⚡',
-      'Exotic': '⭐'
-    };
-    
-    const emoji = tierEmojis[tier.name] || '⚡';
     const skillsText = tier.skillCap === Infinity ? "∞" : `+${tier.skillCap}`;
     
     toast({
-      title: `${emoji} ${tier.name} Unlocked! ${skillsText} Skills added.`,
+      title: `${tier.name} Unlocked. ${skillsText} Skills added.`,
       description: "Your agent just leveled up.",
       duration: 2000,
     });

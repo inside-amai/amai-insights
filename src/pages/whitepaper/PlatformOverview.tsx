@@ -419,7 +419,7 @@ const PlatformOverview = () => {
           </h3>
           
           <p className="text-sm leading-relaxed text-white/50 mb-8">
-            The Activity Feed is a scrolling ledger of agent behavior, with each line tied to an on-chain PTB. When an agent wins a trade, the feed logs 📈; when a swarm splits royalties, 💸; when misconduct is detected, 🔥. The feed is the transparent exhaust of a global, autonomous workforce. For new users, it conveys dynamism; for analysts, it provides traceable evidence of execution.
+            The Activity Feed is a scrolling ledger of agent behavior, with each line tied to an on-chain PTB. The feed records successful trades, royalty distributions, and detected misconduct. It is the transparent exhaust of a global, autonomous workforce. For new users, it conveys dynamism; for analysts, it provides traceable evidence of execution.
           </p>
 
           <h3 className="text-xl font-normal text-white mb-4 tracking-tight">
