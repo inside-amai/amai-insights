@@ -146,22 +146,6 @@ const Launchpad = () => {
         </div>
       </section>
 
-      <section className="px-5 py-20 md:px-8 md:py-28">
-        <div className="mx-auto max-w-[1400px]">
-          <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">Work in progress</p>
-          <h2 className="mt-6 text-4xl font-medium leading-[1.05] tracking-tight md:text-5xl">Every token gets a page.</h2>
-          <p className="mt-6 max-w-[54ch] text-base font-light leading-relaxed text-white/60 md:text-lg md:leading-relaxed">
-            A preview of a token page on the launchpad. Market activity, balances and receipts are illustrative fixtures.
-          </p>
-          <img
-            src="/uploads/mooncat.svg"
-            alt="Mooncat token page concept on the AMAI launchpad"
-            className="mt-10 w-full rounded-xl"
-            loading="lazy"
-          />
-        </div>
-      </section>
-
       <div className="bg-black px-5 py-6 lg:hidden">
         <label htmlFor="launchpad-chapter-nav" className="mb-3 block text-[10px] font-light uppercase tracking-[0.25em] text-white/45">Jump to chapter</label>
         <select
