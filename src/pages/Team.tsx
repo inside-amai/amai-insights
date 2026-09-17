@@ -99,6 +99,14 @@ const Team = () => (
   <div className="bg-black">
     <section className="relative min-h-screen flex items-center bg-perspective-grid pt-24 md:pt-32 py-24 md:py-40 px-4 md:px-8 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.45)_100%)] pointer-events-none" />
+      <div
+        aria-hidden
+        className="absolute left-0 top-0 h-[68%] w-[72%] pointer-events-none bg-[radial-gradient(ellipse_at_18%_24%,hsl(var(--cyan-accent)/0.1),transparent_58%)] [mask-image:linear-gradient(to_bottom,transparent,black_28%,black_72%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_28%,black_72%,transparent)]"
+      />
+      <div
+        aria-hidden
+        className="absolute bottom-0 right-0 h-[68%] w-[72%] pointer-events-none bg-[radial-gradient(ellipse_at_82%_76%,hsl(var(--cyan-accent)/0.1),transparent_58%)] [mask-image:linear-gradient(to_bottom,transparent,black_28%,black_72%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_28%,black_72%,transparent)]"
+      />
       <div className="relative z-10 max-w-5xl mx-auto w-full">
         <motion.div {...reveal}>
           <SectionLabel>THE TEAM</SectionLabel>
