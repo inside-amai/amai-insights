@@ -1,5 +1,10 @@
 import { motion } from "framer-motion";
 import { Footer } from "@/components/Footer";
+import denverImg from "@/assets/team-denver.webp";
+import scottImg from "@/assets/team-scott.webp";
+import joshImg from "@/assets/team-josh.webp";
+import yuImg from "@/assets/team-yu.webp";
+import amitImg from "@/assets/team-amit.webp";
 
 const SectionLabel = ({ children }: { children: React.ReactNode }) => (
   <div className="flex items-center gap-3 mb-6 md:mb-8 justify-center">
@@ -24,21 +29,21 @@ const founders = [
     title: "CO-FOUNDER",
     line1: "Lead Product & Vision",
     line2: "10 year blockchain veteran",
-    img: "/images/denver.jpeg",
+    img: denverImg,
   },
   {
     name: "Scott Trowbridge",
     title: "CO-FOUNDER",
     line1: "Ex-Stability AI Founding Team",
     line2: "Ex-Circle (USDC), WeWork",
-    img: "/images/scott.png",
+    img: scottImg,
   },
   {
     name: "Josh Sorbel",
     title: "CO-FOUNDER",
     line1: "25+ Years Enterprise Cybersecurity",
     line2: "Ex-FBI Incident Response Lead",
-    img: "/images/josh.png",
+    img: joshImg,
   },
 ];
 
@@ -48,21 +53,21 @@ const researchers = [
     title: "Chief Scientist",
     line1: "Fellow, Academy of Social Sciences",
     line2: "Professor, University Of Surrey",
-    img: "/images/yu.jpeg",
+    img: yuImg,
   },
   {
     name: "Dr. Amit Jaiswal",
     title: "AI Researcher",
     line1: "Ph.D. in Information Retrieval (MSCA)",
     line2: "Marie Curie & Former Surrey Research Fellow, Ex-UCL",
-    img: "/images/Amit.jpeg",
+    img: amitImg,
   },
 ];
 
 const PersonCard = ({ person, index }: { person: typeof founders[0]; index: number }) => (
   <motion.div
     key={person.name}
-    className="flex flex-col items-center text-center rounded-xl px-5 py-6 md:py-8 border border-white/10 bg-gradient-to-b from-white/[0.03] to-transparent"
+    className="flex flex-col items-center text-center rounded-xl px-5 py-6 md:py-8 border border-white/10 bg-black"
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, amount: 0.3 }}
@@ -70,7 +75,16 @@ const PersonCard = ({ person, index }: { person: typeof founders[0]; index: numb
   >
     <div className="relative mb-5">
       <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border border-white/10">
-        <img src={person.img} alt={person.name} className="w-full h-full object-cover grayscale" />
+        <img
+          src={person.img}
+          alt={person.name}
+          width={320}
+          height={320}
+          loading="eager"
+          fetchPriority="high"
+          decoding="sync"
+          className="w-full h-full object-cover grayscale"
+        />
       </div>
     </div>
     <h3 className="text-base md:text-lg font-normal text-white tracking-wide mb-1">{person.name}</h3>
