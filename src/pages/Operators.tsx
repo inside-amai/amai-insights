@@ -216,7 +216,7 @@ const Operators = () => {
       </section>
 
       {glossary && (
-        <section id="glossary" className="relative overflow-hidden bg-black px-5 py-24 md:px-8 md:py-32">
+        <section id="glossary" className="relative px-5 py-24 md:px-8 md:py-32">
           
           <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:gap-20">
             <div className="lg:col-span-4">
