@@ -103,7 +103,7 @@ const Team = () => (
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.45)_100%)] pointer-events-none" />
       <div
         aria-hidden
-        className="absolute left-1/2 top-[62%] -translate-x-1/2 -translate-y-1/2 h-[70%] w-[80%] md:w-[64%] pointer-events-none bg-[radial-gradient(ellipse_at_center,hsl(var(--cyan-accent)/0.1),transparent_58%)] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_72%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_72%)]"
+        className="absolute left-1/2 top-[62%] -translate-x-1/2 -translate-y-1/2 h-[110%] w-[130%] md:w-[110%] pointer-events-none bg-[radial-gradient(ellipse_at_center,hsl(var(--cyan-accent)/0.1),transparent_58%)] [mask-image:radial-gradient(ellipse_at_center,black_45%,transparent_78%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_45%,transparent_78%)]"
       />
       <div className="relative z-10 max-w-5xl mx-auto w-full">
         <motion.div {...reveal}>
