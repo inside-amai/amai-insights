@@ -28,7 +28,7 @@ const founders = [
     name: "Denver Nunley",
     title: "CO-FOUNDER",
     line1: "Lead Product & Vision",
-    line2: "10 year blockchain veteran",
+    line2: "10 Year Blockchain Veteran",
     img: denverImg,
   },
   {
