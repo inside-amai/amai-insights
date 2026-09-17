@@ -89,6 +89,11 @@ const Operators = () => {
   return (
     <main className="min-h-screen overflow-x-clip bg-perspective-grid font-roboto text-white">
       <section className="relative flex min-h-[82svh] items-end px-5 pb-14 pt-32 md:min-h-[86svh] md:px-8 md:pb-20 md:pt-40">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-0 top-0 h-[68%] w-[72%] bg-[radial-gradient(ellipse_at_18%_24%,hsl(var(--cyan-accent)/0.1),transparent_58%)] [mask-image:linear-gradient(to_bottom,transparent,black_28%,black_72%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_28%,black_72%,transparent)]"
+        />
+
 
         <motion.div
           className="relative mx-auto w-full max-w-7xl"
