@@ -141,9 +141,15 @@ const Team = () => (
 
         <div className="mt-5 flex flex-col md:flex-row justify-center gap-5">
           {researchers.map((person, i) => (
-            <PersonCard key={person.name} person={person} index={i + 3} />
+            <PersonCard
+              key={person.name}
+              person={person}
+              index={i + 3}
+              className="md:w-[calc((100%-2.5rem)/3)]"
+            />
           ))}
         </div>
+
       </div>
     </section>
 
