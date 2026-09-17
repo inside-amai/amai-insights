@@ -119,12 +119,10 @@ const Operators = () => {
       <section className="relative px-5 py-20 md:px-8 md:py-28">
 
         <div className="relative mx-auto grid max-w-7xl gap-8 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-3">
-            <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">TL;DR</p>
-          </div>
-          <div className="lg:col-span-8">
+          <div className="mx-auto max-w-4xl lg:col-span-8 lg:col-start-5">
+            <p className="text-center text-xs font-light uppercase tracking-[0.35em] text-white/50">TL;DR</p>
             {tldr.map((paragraph) => (
-              <p key={paragraph} className="text-center text-xl font-normal leading-relaxed text-white/85 md:text-2xl md:leading-relaxed">
+              <p key={paragraph} className="mt-6 text-center text-xl font-normal leading-relaxed text-white/85 md:text-2xl md:leading-relaxed">
                 {paragraph}
               </p>
             ))}
