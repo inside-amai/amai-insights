@@ -89,9 +89,9 @@ const en: LandingCopy = {
     zoomLabel: 'Open a larger view of the launchpad',
   },
   transition: {
-    t1: 'A share of trading fees across the launchpad ',
-    em1: 'buys and burns AMAI',
-    t2: ' and pays AMAI holders in ',
+    t1: 'Fees generated ',
+    em1: 'buy and burn AMAI',
+    t2: ', pays AMAI holders in ',
     em2: 'Stock Tokens',
     t3: '.',
   },
@@ -219,11 +219,11 @@ const ja: LandingCopy = {
     zoomLabel: 'ローンチパッドの拡大表示を開く',
   },
   transition: {
-    t1: 'ローンチパッド全体の取引手数料の一部が ',
+    t1: '発生した手数料は ',
     em1: 'AMAI を買い戻してバーン',
     t2: 'し、AMAI 保有者には ',
     em2: '株式トークン',
-    t3: 'で分配されます。',
+    t3: ' が支払われます。',
   },
   token: {
     line1: 'AMAI を保有。',
@@ -349,9 +349,9 @@ const ar: LandingCopy = {
     zoomLabel: 'فتح عرض أوسع لمنصة الإطلاق',
   },
   transition: {
-    t1: 'حصة من رسوم التداول عبر منصة الإطلاق ',
+    t1: 'الرسوم المُحقَّقة ',
     em1: 'تشتري AMAI وتحرقها',
-    t2: ' وتدفع لحاملي AMAI على شكل ',
+    t2: '، وتُدفع لحاملي AMAI على شكل ',
     em2: 'أسهم مرمزة',
     t3: '.',
   },
