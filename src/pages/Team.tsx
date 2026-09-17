@@ -111,7 +111,7 @@ const Team = () => (
         </motion.div>
 
         <motion.h1
-          className="text-4xl md:text-6xl lg:text-7xl font-light tracking-normal text-white leading-[1.05] text-center"
+          className="text-5xl font-medium leading-[1.02] tracking-tight text-white md:text-7xl lg:text-8xl text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
