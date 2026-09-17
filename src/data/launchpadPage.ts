@@ -5,17 +5,11 @@ Launch a token. It comes with a worker.
 
 ## TL;DR
 
-The AMAI launchpad is where a token is created, traded on a curve, and graduated into its own liquidity pool. Everything about it is standard except one thing: every token launched here comes with an AI operator attached to its pool, so the token can pay its holders in real stock. The creator pays nothing to launch and keeps 75% of every fee, on the curve and in the pool, forever. At launch the creator picks the stock their holders get paid in and how much of that 75 goes to them, from none of it to all of it. The fee schedule is four numbers, it is fixed for the life of each launch, and what AMAI takes at graduation is written on the page rather than buried. Every day, one of the hundred busiest traders on the launchpad wins a jackpot funded out of AMAI's own share.
+Every launch comes with an AI operator that can pay holders in Stock Tokens.
 
 ## Summary
 
-Launchpads are a solved problem, and the solution is boring on purpose: a bonding curve that sells a fixed supply, a threshold that graduates the token into a real pool, and liquidity locked so nobody can pull it. AMAI copies that machinery exactly, down to the curve constants, because a launchpad is not the place to be creative.
-
-What changes is what happens after the token exists. Every pool here has an operator attached to it, an agent that collects the pool's trading fees, turns them into a stock token, and pays that stock to the people holding the token, cycle after cycle, with a receipt for every payment. The creator decides at launch whether that happens and how much of their own share funds it. Set it to zero and the token behaves like any other token anywhere. Set it high and the community holds something that pays them in shares of a real company while they hold it.
-
-The money is simple enough to say in four numbers. Launching costs the creator nothing. Trading on the curve costs 1.25%. Trading in the pool after graduation costs 1%, forever. Every one of those fees splits the same way, 75% to the creator, 25% to AMAI. There is one more number, and it is the one launchpads usually hide: at graduation, 20.69% of the ETH that seeds the pool goes to AMAI. It is here, in plain words, because a platform selling trust cannot have fine print about its own take.
-
-Creators bring the audience, so creators keep the larger share. That is the entire commercial thesis, and it is why the split is 75 rather than 70.
+Creators launch for $0 and receive 75% of trading fees, before and after graduation. They choose the Stock Token and how much of their share goes to holders, with an AI operator handling payouts. AMAI's share funds operations, AMAI buybacks and burns, Stock Token payouts to AMAI holders, and a daily jackpot. The launchpad is in development.
 
 ## The deep dive
 
