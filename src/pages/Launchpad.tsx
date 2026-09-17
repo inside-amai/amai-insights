@@ -101,7 +101,7 @@ const Launchpad = () => {
           <p className="mt-6 max-w-2xl text-xl font-light leading-snug text-white/60 md:mt-8 md:text-3xl">
             {subtitle}
           </p>
-          <div className="mt-12 grid max-w-4xl grid-cols-2 border-y border-white/[0.08] md:mt-16 md:grid-cols-4">
+          <div className="mt-12 grid max-w-2xl grid-cols-2 border-y border-white/[0.08] md:mt-16">
             {highlights.map((item) => (
               <div key={item.label} className="border-white/[0.08] px-4 py-5 even:border-l md:border-l md:first:border-l-0">
                 <p className="font-mono text-2xl font-normal text-white md:text-3xl">{item.value}</p>
