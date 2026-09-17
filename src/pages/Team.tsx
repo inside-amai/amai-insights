@@ -103,11 +103,7 @@ const Team = () => (
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.45)_100%)] pointer-events-none" />
       <div
         aria-hidden
-        className="absolute left-0 top-0 h-[68%] w-[72%] pointer-events-none bg-[radial-gradient(ellipse_at_18%_24%,hsl(var(--cyan-accent)/0.1),transparent_58%)] [mask-image:linear-gradient(to_bottom,transparent,black_28%,black_72%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_28%,black_72%,transparent)]"
-      />
-      <div
-        aria-hidden
-        className="absolute bottom-0 right-0 h-[68%] w-[72%] pointer-events-none bg-[radial-gradient(ellipse_at_82%_92%,hsl(var(--cyan-accent)/0.1),transparent_58%)] [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_78%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_30%,black_78%,transparent)]"
+        className="absolute left-1/2 top-[62%] -translate-x-1/2 -translate-y-1/2 h-[70%] w-[80%] md:w-[64%] pointer-events-none bg-[radial-gradient(ellipse_at_center,hsl(var(--cyan-accent)/0.1),transparent_58%)] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_72%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_72%)]"
       />
       <div className="relative z-10 max-w-5xl mx-auto w-full">
         <motion.div {...reveal}>
