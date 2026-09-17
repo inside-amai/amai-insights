@@ -186,11 +186,6 @@ const Operators = () => {
           </aside>
 
           <div>
-            <div className="mb-20 pb-8 md:mb-28">
-              <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">Technical field guide</p>
-              <h2 className="mt-6 text-5xl font-medium leading-[1.05] tracking-tight md:text-6xl">The deep dive</h2>
-            </div>
-
             {mainChapters.map((chapter) => (
               <article
                 key={chapter.id}
