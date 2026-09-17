@@ -73,7 +73,7 @@ const en: LandingCopy = {
   existing: {
     eyebrow: 'For Existing Pools',
     title: 'Hello, Operator.',
-    body: 'Your pool earns fees. Your community gets a share. An AI operator turns that share into Stock Tokens and delivers them to your holders.',
+    body: 'Add an AI Operator to existing pools and your community gets a share of fees earned. The operator turns that share into Stock Tokens and delivers them to your holders.',
     cta: 'Meet your operator',
     note: 'Coming soon on Robinhood Chain.',
   },
@@ -203,7 +203,7 @@ const ja: LandingCopy = {
   existing: {
     eyebrow: '既存プールの方へ',
     title: 'こんにちは、オペレーター。',
-    body: 'あなたのプールは手数料を得ます。その一部はコミュニティへ。AI オペレーターがその取り分を株式トークンに変え、保有者へ届けます。',
+    body: '既存のプールに AI オペレーターを追加すると、コミュニティが得た手数料の取り分を受け取ります。オペレーターがその取り分を株式トークンに変え、保有者へ届けます。',
     cta: 'オペレーターを見る',
     note: 'Robinhood Chain で近日公開。',
   },
@@ -333,7 +333,7 @@ const ar: LandingCopy = {
   existing: {
     eyebrow: 'للمجمعات القائمة',
     title: 'مرحباً، أيها المشغل.',
-    body: 'مجمعك يحقق رسوماً. ومجتمعك يحصل على حصة منها. يحوّل وكيل ذكي تلك الحصة إلى أسهم مرمزة ويوصلها إلى الحاملين.',
+    body: 'أضف وكيلاً ذكياً إلى المجمّعات الحالية ليحصل مجتمعك على حصة من الرسوم المحققة. يحوّل الوكيل تلك الحصة إلى أسهم مرمزة ويوصلها إلى الحاملين.',
     cta: 'تعرف على وكيلك',
     note: 'قريباً على Robinhood Chain.',
   },
