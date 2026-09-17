@@ -76,7 +76,7 @@ const Paragraph = ({ children }: { children: string }) => {
   if (startsWithStage && firstSentence) {
     return (
       <div className="grid gap-2 border-t border-white/[0.08] py-6 first:border-t-0 md:grid-cols-[8rem_1fr] md:gap-8">
-        <p className="text-base font-medium leading-relaxed text-cyan-accent">{firstSentence[1]}</p>
+        <p className="text-base font-medium leading-relaxed text-white/90">{firstSentence[1]}</p>
         <p className="text-base font-light leading-relaxed text-white/60 md:text-lg">{firstSentence[2]}</p>
       </div>
     );
@@ -89,7 +89,7 @@ const Operators = () => {
   return (
     <main className="min-h-screen overflow-hidden bg-black font-roboto text-white">
       <section className="relative flex min-h-[82svh] items-end overflow-hidden bg-perspective-grid px-5 pb-14 pt-32 md:min-h-[86svh] md:px-8 md:pb-20 md:pt-40">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_26%_54%,hsl(var(--cyan-accent)/0.09),transparent_48%),linear-gradient(to_bottom,transparent_40%,hsl(var(--background)/0.9))]" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,transparent_40%,hsl(var(--background)/0.9))]" />
         <motion.div
           className="relative mx-auto w-full max-w-7xl"
           initial={{ opacity: 0, y: 24 }}
@@ -108,7 +108,7 @@ const Operators = () => {
           <div className="mt-12 grid max-w-4xl grid-cols-2 border-y border-white/[0.08] md:mt-16 md:grid-cols-4">
             {highlights.map((item) => (
               <div key={item.label} className="border-white/[0.08] px-4 py-5 even:border-l md:border-l md:first:border-l-0">
-                <p className="font-mono text-2xl font-normal text-cyan-accent md:text-3xl">{item.value}</p>
+                <p className="font-mono text-2xl font-normal text-white md:text-3xl">{item.value}</p>
                 <p className="mt-2 text-[9px] font-light uppercase tracking-[0.12em] text-white/40 md:text-[10px]">{item.label}</p>
               </div>
             ))}
@@ -117,7 +117,6 @@ const Operators = () => {
       </section>
 
       <section className="relative overflow-hidden bg-perspective-grid px-5 py-20 md:px-8 md:py-28">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_18%_50%,hsl(var(--cyan-accent)/0.08),transparent_52%)]" />
         <div className="relative mx-auto grid max-w-7xl gap-8 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-3">
             <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">TL;DR</p>
@@ -148,7 +147,7 @@ const Operators = () => {
         <label htmlFor="chapter-nav" className="mb-3 block text-[10px] font-light uppercase tracking-[0.25em] text-white/45">Jump to chapter</label>
         <select
           id="chapter-nav"
-          className="w-full rounded-sm border border-white/15 bg-black px-3 py-3 text-sm font-light text-white outline-none transition-colors focus:border-cyan-accent/60"
+          className="w-full rounded-sm border border-white/15 bg-black px-3 py-3 text-sm font-light text-white outline-none transition-colors focus:border-white/50"
           defaultValue=""
           onChange={(event) => {
             if (event.target.value) document.querySelector(event.target.value)?.scrollIntoView({ behavior: "smooth" });
@@ -169,9 +168,9 @@ const Operators = () => {
                   <a
                     key={chapter.id}
                     href={`#${chapter.id}`}
-                    className="group grid grid-cols-[1.75rem_1fr] text-xs font-light leading-snug text-white/40 transition-colors hover:text-white focus-visible:outline-none focus-visible:text-cyan-accent"
+                    className="group grid grid-cols-[1.75rem_1fr] text-xs font-light leading-snug text-white/40 transition-colors hover:text-white focus-visible:outline-none focus-visible:text-white"
                   >
-                    <span className="font-mono text-cyan-accent/50 group-hover:text-cyan-accent">{chapter.number.padStart(2, "0")}</span>
+                    <span className="font-mono text-white/40 group-hover:text-white/80">{chapter.number.padStart(2, "0")}</span>
                     <span>{chapter.title}</span>
                   </a>
                 ))}
@@ -198,7 +197,7 @@ const Operators = () => {
                   transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
                   className="mb-10 grid gap-5 md:grid-cols-[5rem_1fr] md:gap-8"
                 >
-                  <span className="font-mono text-sm text-cyan-accent/60">{chapter.number.padStart(2, "0")}</span>
+                  <span className="font-mono text-sm text-white/60">{chapter.number.padStart(2, "0")}</span>
                   <div>
                     <h3 className="text-3xl font-medium leading-[1.08] tracking-tight text-white md:text-5xl">{chapter.title}</h3>
                     <p className="mt-4 text-[10px] font-light uppercase tracking-[0.2em] text-white/40">{chapterNotes[chapter.number]}</p>
@@ -215,7 +214,7 @@ const Operators = () => {
 
       {glossary && (
         <section id="glossary" className="relative overflow-hidden bg-black px-5 py-24 md:px-8 md:py-32">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_82%_50%,hsl(var(--cyan-accent)/0.07),transparent_50%)]" />
+          
           <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:gap-20">
             <div className="lg:col-span-4">
               <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">Reference</p>
@@ -231,14 +230,14 @@ const Operators = () => {
       )}
 
       <section className="relative overflow-hidden bg-perspective-grid px-5 py-28 text-center md:px-8 md:py-40">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_55%,hsl(var(--cyan-accent)/0.09),transparent_52%)]" />
+        
         <div className="relative mx-auto max-w-4xl">
           <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">Every move, on the record</p>
           <h2 className="mt-6 text-4xl font-medium leading-[1.05] tracking-tight md:text-6xl">Check the operator before you trust it.</h2>
           <div className="mt-12 flex flex-col items-center justify-center gap-6 text-sm font-light sm:flex-row sm:gap-10">
-            <a href="https://bureau.amai.net" target="_blank" rel="noopener noreferrer" className="border-b border-cyan-accent/35 pb-1 text-cyan-accent/80 transition-colors hover:text-cyan-accent focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-accent">See the Bureau ↗</a>
-            <a href="/methodology" className="border-b border-white/20 pb-1 text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-accent">How TARI™ is built →</a>
-            <a href="/launchpad" className="border-b border-white/20 pb-1 text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-accent">Launch with an operator →</a>
+            <a href="https://bureau.amai.net" target="_blank" rel="noopener noreferrer" className="border-b border-white/40 pb-1 text-white/85 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">See the Bureau ↗</a>
+            <a href="/methodology" className="border-b border-white/20 pb-1 text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">How TARI™ is built →</a>
+            <a href="/launchpad" className="border-b border-white/20 pb-1 text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">Launch with an operator →</a>
           </div>
         </div>
       </section>
