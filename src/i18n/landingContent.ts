@@ -48,7 +48,7 @@ export type LandingCopy = {
 const en: LandingCopy = {
   hero: {
     headline: 'Agents work. You get paid.',
-    sub: 'Discover how Agent Operated pools can transform the way creators and communities earn together.',
+    sub: 'Discover how Agent Operated pools can transform the way\ncreators and communities earn together.',
     scroll: 'Scroll',
   },
   pools: {

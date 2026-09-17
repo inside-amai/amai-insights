@@ -334,7 +334,7 @@ const HomepageCopy = () => {
             </motion.h1>
 
             <motion.p
-              className="mt-4 md:mt-5 mx-auto max-w-[640px] text-base sm:text-lg md:text-xl leading-relaxed text-white/55 font-normal"
+              className="mt-4 md:mt-5 mx-auto max-w-[640px] text-base sm:text-lg md:text-xl leading-relaxed text-white/55 font-normal whitespace-pre-line"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
