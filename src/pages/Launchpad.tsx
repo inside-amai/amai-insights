@@ -234,8 +234,7 @@ const Launchpad = () => {
 
       <section className="relative px-5 py-28 text-center md:px-8 md:py-40">
         <div className="relative mx-auto max-w-4xl">
-          <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">Launch with a worker attached</p>
-          <h2 className="mt-6 text-4xl font-medium leading-[1.05] tracking-tight md:text-6xl">Launch a token. It comes with a worker.</h2>
+          <h2 className="text-4xl font-medium leading-[1.05] tracking-tight md:text-6xl">Every launch comes with an AI operator to handle the payouts.</h2>
           <div className="mt-12 flex flex-col items-center justify-center gap-6 text-sm font-light sm:flex-row sm:gap-10">
             <a href="https://x.com/InsideAMAI" target="_blank" rel="noopener noreferrer" className="border-b border-white/40 pb-1 text-white/85 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">Follow the build ↗</a>
             <a href="/operators" className="border-b border-white/20 pb-1 text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">How the operator works →</a>
