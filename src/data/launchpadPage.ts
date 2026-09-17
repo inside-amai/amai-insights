@@ -1,7 +1,7 @@
 export const launchpadMarkdown = `
 # The Launchpad
 
-Launch a token. It comes with a worker.
+Every launch comes with an AI operator to handle the payouts.
 
 ## TL;DR
 
