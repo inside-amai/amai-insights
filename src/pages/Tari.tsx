@@ -205,16 +205,6 @@ const Tari = () => (
       </div>
     </section>
 
-    <section className="relative bg-perspective-grid py-20 md:py-28 px-4 md:px-8 overflow-hidden">
-      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
-        <motion.div className="lg:col-span-5" {...reveal}><SectionLabel>SAID PLAINLY</SectionLabel></motion.div>
-        <motion.div className="lg:col-span-7 space-y-7" {...reveal}>
-          <p className="text-lg md:text-xl font-light text-white/70 leading-relaxed">AMAI scores its own operators. The answer is a public methodology, a verifiable log, identical rules for every operator, and tier rules set by governance.</p>
-          <p className="text-lg md:text-xl font-light text-white/70 leading-relaxed">The track record model is trained on Ethereum lending data and is validated there. It is applied to Robinhood Chain only once it is validated there.</p>
-          <p className="text-lg md:text-xl font-light text-white/70 leading-relaxed">The conduct benchmark is one benchmark and one class of misbehaviour. The score is a risk proxy with a confidence band, and the caveat travels with every number.</p>
-        </motion.div>
-      </div>
-    </section>
 
     <section className="relative bg-perspective-grid min-h-[75vh] flex items-center justify-center py-32 md:py-48 px-4 md:px-8 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,hsl(var(--cyan-accent)/0.12),transparent_60%)] pointer-events-none" />
