@@ -225,8 +225,6 @@ const ja: LandingCopy = {
     em2: '株式トークン',
     t3: ' が支払われます。',
   },
-    t3: 'で分配されます。',
-  },
   token: {
     line1: 'AMAI を保有。',
     line2: '受け取るのは',
