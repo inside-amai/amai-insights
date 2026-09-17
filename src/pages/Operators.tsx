@@ -87,7 +87,7 @@ const Paragraph = ({ children }: { children: string }) => {
 
 const Operators = () => {
   return (
-    <main className="min-h-screen overflow-hidden bg-perspective-grid font-roboto text-white">
+    <main className="min-h-screen overflow-x-clip bg-perspective-grid font-roboto text-white">
       <section className="relative flex min-h-[82svh] items-end px-5 pb-14 pt-32 md:min-h-[86svh] md:px-8 md:pb-20 md:pt-40">
 
         <motion.div
