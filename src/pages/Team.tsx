@@ -64,10 +64,11 @@ const researchers = [
   },
 ];
 
-const PersonCard = ({ person, index }: { person: typeof founders[0]; index: number }) => (
+const PersonCard = ({ person, index, className = "" }: { person: typeof founders[0]; index: number; className?: string }) => (
   <motion.div
     key={person.name}
-    className="flex flex-col items-center text-center rounded-xl px-5 py-6 md:py-8 border border-white/10 bg-black"
+    className={`flex flex-col items-center text-center rounded-xl px-5 py-6 md:py-8 border border-white/10 bg-black ${className}`}
+
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, amount: 0.3 }}
