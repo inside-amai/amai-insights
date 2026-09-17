@@ -87,9 +87,9 @@ const Paragraph = ({ children }: { children: string }) => {
 
 const Operators = () => {
   return (
-    <main className="min-h-screen overflow-hidden bg-black font-roboto text-white">
-      <section className="relative flex min-h-[82svh] items-end overflow-hidden bg-perspective-grid px-5 pb-14 pt-32 md:min-h-[86svh] md:px-8 md:pb-20 md:pt-40">
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,transparent_40%,hsl(var(--background)/0.9))]" />
+    <main className="min-h-screen overflow-hidden bg-perspective-grid font-roboto text-white">
+      <section className="relative flex min-h-[82svh] items-end px-5 pb-14 pt-32 md:min-h-[86svh] md:px-8 md:pb-20 md:pt-40">
+
         <motion.div
           className="relative mx-auto w-full max-w-7xl"
           initial={{ opacity: 0, y: 24 }}
@@ -116,7 +116,8 @@ const Operators = () => {
         </motion.div>
       </section>
 
-      <section className="relative overflow-hidden bg-perspective-grid px-5 py-20 md:px-8 md:py-28">
+      <section className="relative px-5 py-20 md:px-8 md:py-28">
+
         <div className="relative mx-auto grid max-w-7xl gap-8 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-3">
             <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">TL;DR</p>
@@ -131,7 +132,8 @@ const Operators = () => {
         </div>
       </section>
 
-      <section id="summary" className="bg-black px-5 py-24 md:px-8 md:py-36">
+      <section id="summary" className="px-5 py-24 md:px-8 md:py-36">
+
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-12 lg:gap-20">
           <header className="lg:col-span-4">
             <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">00 // Summary</p>
@@ -158,7 +160,8 @@ const Operators = () => {
         </select>
       </div>
 
-      <section className="relative bg-perspective-grid px-5 py-20 md:px-8 md:py-32">
+      <section className="relative px-5 py-20 md:px-8 md:py-32">
+
         <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-20">
           <aside className="hidden lg:block">
             <div className="sticky top-28">
@@ -213,7 +216,7 @@ const Operators = () => {
       </section>
 
       {glossary && (
-        <section id="glossary" className="relative overflow-hidden bg-black px-5 py-24 md:px-8 md:py-32">
+        <section id="glossary" className="relative px-5 py-24 md:px-8 md:py-32">
           
           <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:gap-20">
             <div className="lg:col-span-4">
@@ -229,7 +232,8 @@ const Operators = () => {
         </section>
       )}
 
-      <section className="relative overflow-hidden bg-perspective-grid px-5 py-28 text-center md:px-8 md:py-40">
+      <section className="relative px-5 py-28 text-center md:px-8 md:py-40">
+
         
         <div className="relative mx-auto max-w-4xl">
           <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">Every move, on the record</p>
