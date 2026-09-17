@@ -126,7 +126,7 @@ const Tari = () => (
           <div className="border-t border-white/10">
             {bands.map(([range, meaning], index) => (
               <motion.div key={range} className="grid grid-cols-[8.5rem_1fr] md:grid-cols-[10rem_1fr] gap-5 py-5 md:py-6 border-b border-white/10 items-baseline" initial={{ opacity: 0, x: 14 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.6, delay: index * 0.07 }}>
-                <span className="font-mono text-sm md:text-base text-cyan-accent">{range}</span>
+                <span className="font-mono text-sm md:text-base text-white">{range}</span>
                 <span className="text-base md:text-lg font-light text-white/65 leading-relaxed">{meaning}</span>
               </motion.div>
             ))}
@@ -152,7 +152,7 @@ const Tari = () => (
             <tbody>{measures.map(([measure, value, scope], index) => (
               <tr key={measure} className={index < measures.length - 1 ? "border-b border-white/10" : ""}>
                 <td className="px-5 md:px-7 py-5 text-sm md:text-base font-normal text-white/85 align-top w-[28%]">{measure}</td>
-                <td className="px-5 md:px-7 py-5 font-mono text-sm md:text-base text-cyan-accent align-top w-[12%]">{value}</td>
+                <td className="px-5 md:px-7 py-5 font-mono text-sm md:text-base text-white align-top w-[12%]">{value}</td>
                 <td className="px-5 md:px-7 py-5 text-sm md:text-base font-light text-white/60 leading-relaxed align-top">{scope}</td>
               </tr>
             ))}</tbody>
@@ -174,7 +174,7 @@ const Tari = () => (
           {tiers.map(([tier, range, powers], index) => (
             <motion.article key={tier} className="rounded-lg border border-white/10 bg-white/[0.03] p-7 md:p-8" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.7, delay: index * 0.1 }}>
               <h3 className="text-2xl md:text-3xl font-light text-white">{tier}</h3>
-              <p className="mt-3 text-sm md:text-base font-mono text-cyan-accent/80">{range}</p>
+              <p className="mt-3 text-sm md:text-base font-mono text-white/80">{range}</p>
               <p className="mt-6 text-base md:text-lg font-light text-white/65 leading-relaxed">{powers}</p>
             </motion.article>
           ))}
