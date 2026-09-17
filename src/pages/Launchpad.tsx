@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Footer } from "@/components/Footer";
-import { launchpadMarkdown } from "@/data/launchpadPage";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { editorialMarkdown, editorialUi } from "@/i18n/editorialPages";
 
 type Chapter = {
   number: string;
@@ -9,7 +10,8 @@ type Chapter = {
   paragraphs: string[];
 };
 
-const lines = launchpadMarkdown.split("\n");
+const parseMarkdown = (markdown: string) => {
+const lines = markdown.split("\n");
 const title = lines.find((line) => line.startsWith("# "))?.slice(2) ?? "The Launchpad";
 const subtitle = lines.find((line) => line.length > 0 && !line.startsWith("#")) ?? "";
 
@@ -46,26 +48,7 @@ chapterLines.forEach((line) => {
 
 const mainChapters = chapters.filter((chapter) => chapter.id !== "glossary");
 const glossary = chapters.find((chapter) => chapter.id === "glossary");
-
-const highlights = [
-  { value: "FREE", label: "COST TO LAUNCH" },
-  { value: "1.25%", label: "CURVE TRADES" },
-  { value: "1%", label: "POOL TRADES, FOREVER" },
-  { value: "75/25", label: "CREATOR / AMAI SPLIT" },
-];
-
-const chapterNotes: Record<string, string> = {
-  "1": "Name it, pick the stock, launch",
-  "2": "Standard machinery, on purpose",
-  "3": "The curve completes, the pool opens",
-  "4": "Liquidity locked, fees flowing",
-  "5": "Four permissions, nothing else",
-  "6": "One trader wins, every day",
-  "7": "Four numbers, in plain words",
-  "8": "Attach without moving capital",
-  "9": "One quarter, four uses",
-  "10": "Frozen at launch, policy can move",
-  "11": "Live on testnet",
+return { title, subtitle, tldr, summary, mainChapters, glossary };
 };
 
 const SCHEDULE_CHAPTER = "7";
@@ -87,6 +70,11 @@ const ScheduleRow = ({ children }: { children: string }) => {
 };
 
 const Launchpad = () => {
+  const { language } = useLanguage();
+  const { title, subtitle, tldr, summary, mainChapters, glossary } = parseMarkdown(editorialMarkdown[language].launchpad);
+  const copy = editorialUi[language].launchpad;
+  const highlights = ["FREE", "1.25%", "1%", "75/25"].map((value, index) => ({ value, label: copy.highlights[index] }));
+  const chapterNotes = Object.fromEntries(copy.notes.map((note, index) => [String(index + 1), note]));
   return (
     <main className="min-h-screen overflow-x-clip bg-perspective-grid font-roboto text-white">
       <section className="relative flex min-h-[82svh] items-end px-5 pb-14 pt-32 md:min-h-[86svh] md:px-8 md:pb-20 md:pt-40">
@@ -102,7 +90,7 @@ const Launchpad = () => {
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="mb-6 text-xs font-light uppercase tracking-[0.35em] text-white/50 md:mb-8">
-            AMAI Launchpad
+             {copy.eyebrow}
           </div>
           <h1 className="max-w-5xl text-5xl font-medium leading-[1.02] tracking-tight text-white md:text-7xl lg:text-8xl">
             {title}
@@ -137,8 +125,8 @@ const Launchpad = () => {
       <section id="summary" className="px-5 py-24 md:px-8 md:py-36">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-12 lg:gap-20">
           <header className="lg:col-span-4">
-            <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">00 // Summary</p>
-            <h2 className="mt-6 text-4xl font-medium leading-[1.05] tracking-tight md:text-5xl">Every pool comes with a worker.</h2>
+             <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">{copy.summaryLabel}</p>
+             <h2 className="mt-6 text-4xl font-medium leading-[1.05] tracking-tight md:text-5xl">{copy.summaryTitle}</h2>
           </header>
           <div className="space-y-7 lg:col-span-7 lg:col-start-6">
             {summary.map((paragraph) => <Paragraph key={paragraph}>{paragraph}</Paragraph>)}
@@ -147,7 +135,7 @@ const Launchpad = () => {
       </section>
 
       <div className="bg-black px-5 py-6 lg:hidden">
-        <label htmlFor="launchpad-chapter-nav" className="mb-3 block text-[10px] font-light uppercase tracking-[0.25em] text-white/45">Jump to chapter</label>
+         <label htmlFor="launchpad-chapter-nav" className="mb-3 block text-[10px] font-light uppercase tracking-[0.25em] text-white/45">{copy.jump}</label>
         <select
           id="launchpad-chapter-nav"
           className="w-full rounded-sm border border-white/15 bg-black px-3 py-3 text-sm font-light text-white outline-none transition-colors focus:border-white/50"
@@ -156,7 +144,7 @@ const Launchpad = () => {
             if (event.target.value) document.querySelector(event.target.value)?.scrollIntoView({ behavior: "smooth" });
           }}
         >
-          <option value="" disabled>Select a chapter</option>
+           <option value="" disabled>{copy.select}</option>
           {mainChapters.map((chapter) => <option key={chapter.id} value={`#${chapter.id}`}>{chapter.number}. {chapter.title}</option>)}
         </select>
       </div>
@@ -165,8 +153,8 @@ const Launchpad = () => {
         <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-20">
           <aside className="hidden lg:block">
             <div className="sticky top-28">
-              <p className="mb-6 text-[10px] font-light uppercase tracking-[0.3em] text-white/45">The deep dive</p>
-              <nav aria-label="Deep dive chapters" className="space-y-2.5">
+               <p className="mb-6 text-[10px] font-light uppercase tracking-[0.3em] text-white/45">{copy.deepDive}</p>
+               <nav aria-label={copy.navLabel} className="space-y-2.5">
                 {mainChapters.map((chapter) => (
                   <a
                     key={chapter.id}
@@ -220,8 +208,8 @@ const Launchpad = () => {
         <section id="glossary" className="relative px-5 py-24 md:px-8 md:py-32">
           <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:gap-20">
             <div className="lg:col-span-4">
-              <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">Reference</p>
-              <h2 className="mt-6 text-4xl font-medium leading-[1.05] tracking-tight md:text-5xl">Glossary</h2>
+               <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">{copy.reference}</p>
+               <h2 className="mt-6 text-4xl font-medium leading-[1.05] tracking-tight md:text-5xl">{copy.glossary}</h2>
             </div>
             <div className="lg:col-span-7 lg:col-start-6">
               {glossary.paragraphs.map((paragraph) => (
@@ -234,11 +222,11 @@ const Launchpad = () => {
 
       <section className="relative px-5 py-28 text-center md:px-8 md:py-40">
         <div className="relative mx-auto max-w-4xl">
-          <h2 className="text-4xl font-medium leading-[1.05] tracking-tight md:text-6xl">Every launch comes with an AI operator to handle the payouts.</h2>
+           <h2 className="text-4xl font-medium leading-[1.05] tracking-tight md:text-6xl">{copy.closingTitle}</h2>
           <div className="mt-12 flex flex-col items-center justify-center gap-6 text-sm font-light sm:flex-row sm:gap-10">
-            <a href="https://x.com/InsideAMAI" target="_blank" rel="noopener noreferrer" className="border-b border-white/40 pb-1 text-white/85 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">Follow the build ↗</a>
-            <a href="/operators" className="border-b border-white/20 pb-1 text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">How the operator works →</a>
-            <a href="/token" className="border-b border-white/20 pb-1 text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">See the $AMAI page →</a>
+             <a href="https://x.com/InsideAMAI" target="_blank" rel="noopener noreferrer" className="border-b border-white/40 pb-1 text-white/85 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">{copy.links[0]} ↗</a>
+             <a href="/operators" className="border-b border-white/20 pb-1 text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">{copy.links[1]} →</a>
+             <a href="/token" className="border-b border-white/20 pb-1 text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">{copy.links[2]} →</a>
           </div>
         </div>
       </section>

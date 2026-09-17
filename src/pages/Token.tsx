@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Footer } from "@/components/Footer";
-import { tokenMarkdown } from "@/data/tokenPage";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { editorialMarkdown, editorialUi } from "@/i18n/editorialPages";
 
 type Chapter = {
   number: string;
@@ -9,7 +10,8 @@ type Chapter = {
   paragraphs: string[];
 };
 
-const lines = tokenMarkdown.split("\n");
+const parseMarkdown = (markdown: string) => {
+const lines = markdown.split("\n");
 const title = lines.find((line) => line.startsWith("# "))?.slice(2) ?? "$AMAI";
 const subtitle = lines.find((line) => line.length > 0 && !line.startsWith("#")) ?? "";
 
@@ -46,24 +48,7 @@ chapterLines.forEach((line) => {
 
 const mainChapters = chapters.filter((chapter) => chapter.id !== "glossary");
 const glossary = chapters.find((chapter) => chapter.id === "glossary");
-
-const highlights = [
-  { value: "40%", label: "BUYBACK AND BURN" },
-  { value: "25%", label: "PAID IN STOCK" },
-  { value: "5%", label: "DAILY JACKPOT", className: "text-yellow-400" },
-  { value: "30%", label: "TREASURY" },
-];
-
-const chapterNotes: Record<string, string> = {
-  "1": "The token of the launchpad",
-  "2": "One quarter of every fee",
-  "3": "Four uses, one rule",
-  "4": "Paid in stock, not in more token",
-  "5": "AMAI's money, pointed at $AMAI",
-  "6": "One winner every day",
-  "7": "Visible before it takes effect",
-  "8": "No gate, no requirement",
-  "9": "Live on testnet",
+return { title, subtitle, tldr, summary, mainChapters, glossary };
 };
 
 const Paragraph = ({ children }: { children: string }) => (
@@ -71,6 +56,11 @@ const Paragraph = ({ children }: { children: string }) => (
 );
 
 const Token = () => {
+  const { language } = useLanguage();
+  const { title, subtitle, tldr, summary, mainChapters, glossary } = parseMarkdown(editorialMarkdown[language].token);
+  const copy = editorialUi[language].token;
+  const highlights = ["40%", "25%", "5%", "30%"].map((value, index) => ({ value, label: copy.highlights[index], className: index === 2 ? "text-yellow-400" : undefined }));
+  const chapterNotes = Object.fromEntries(copy.notes.map((note, index) => [String(index + 1), note]));
   return (
     <main className="min-h-screen overflow-x-clip bg-perspective-grid font-roboto text-white">
       <section className="relative flex min-h-[82svh] items-end px-5 pb-14 pt-32 md:min-h-[86svh] md:px-8 md:pb-20 md:pt-40">
@@ -86,7 +76,7 @@ const Token = () => {
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="mb-6 text-xs font-light uppercase tracking-[0.35em] text-white/50 md:mb-8">
-            The launchpad token
+            {copy.eyebrow}
           </div>
           <h1 className="max-w-5xl text-5xl font-medium leading-[1.02] tracking-tight text-white md:text-7xl lg:text-8xl">
             {title}
@@ -121,8 +111,8 @@ const Token = () => {
       <section id="summary" className="px-5 py-24 md:px-8 md:py-36">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-12 lg:gap-20">
           <header className="lg:col-span-4">
-            <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">00 // Summary</p>
-            <h2 className="mt-6 text-4xl font-medium leading-[1.05] tracking-tight md:text-5xl">A share of the volume.</h2>
+             <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">{copy.summaryLabel}</p>
+             <h2 className="mt-6 text-4xl font-medium leading-[1.05] tracking-tight md:text-5xl">{copy.summaryTitle}</h2>
           </header>
           <div className="space-y-7 lg:col-span-7 lg:col-start-6">
             {summary.map((paragraph) => <Paragraph key={paragraph}>{paragraph}</Paragraph>)}
@@ -131,7 +121,7 @@ const Token = () => {
       </section>
 
       <div className="bg-black px-5 py-6 lg:hidden">
-        <label htmlFor="token-chapter-nav" className="mb-3 block text-[10px] font-light uppercase tracking-[0.25em] text-white/45">Jump to chapter</label>
+         <label htmlFor="token-chapter-nav" className="mb-3 block text-[10px] font-light uppercase tracking-[0.25em] text-white/45">{copy.jump}</label>
         <select
           id="token-chapter-nav"
           className="w-full rounded-sm border border-white/15 bg-black px-3 py-3 text-sm font-light text-white outline-none transition-colors focus:border-white/50"
@@ -140,7 +130,7 @@ const Token = () => {
             if (event.target.value) document.querySelector(event.target.value)?.scrollIntoView({ behavior: "smooth" });
           }}
         >
-          <option value="" disabled>Select a chapter</option>
+           <option value="" disabled>{copy.select}</option>
           {mainChapters.map((chapter) => <option key={chapter.id} value={`#${chapter.id}`}>{chapter.number}. {chapter.title}</option>)}
         </select>
       </div>
@@ -149,8 +139,8 @@ const Token = () => {
         <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-20">
           <aside className="hidden lg:block">
             <div className="sticky top-28">
-              <p className="mb-6 text-[10px] font-light uppercase tracking-[0.3em] text-white/45">The deep dive</p>
-              <nav aria-label="Deep dive chapters" className="space-y-2.5">
+               <p className="mb-6 text-[10px] font-light uppercase tracking-[0.3em] text-white/45">{copy.deepDive}</p>
+               <nav aria-label={copy.navLabel} className="space-y-2.5">
                 {mainChapters.map((chapter) => (
                   <a
                     key={chapter.id}
@@ -200,8 +190,8 @@ const Token = () => {
         <section id="glossary" className="relative px-5 py-24 md:px-8 md:py-32">
           <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:gap-20">
             <div className="lg:col-span-4">
-              <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">Reference</p>
-              <h2 className="mt-6 text-4xl font-medium leading-[1.05] tracking-tight md:text-5xl">Glossary</h2>
+               <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">{copy.reference}</p>
+               <h2 className="mt-6 text-4xl font-medium leading-[1.05] tracking-tight md:text-5xl">{copy.glossary}</h2>
             </div>
             <div className="lg:col-span-7 lg:col-start-6">
               {glossary.paragraphs.map((paragraph) => (
@@ -214,12 +204,12 @@ const Token = () => {
 
       <section className="relative px-5 py-28 text-center md:px-8 md:py-40">
         <div className="relative mx-auto max-w-4xl">
-          <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">Every payment, on the record</p>
-          <h2 className="mt-6 text-4xl font-medium leading-[1.05] tracking-tight md:text-6xl">Hold the token. Get paid in stock.</h2>
+           <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">{copy.closingLabel}</p>
+           <h2 className="mt-6 text-4xl font-medium leading-[1.05] tracking-tight md:text-6xl">{copy.closingTitle}</h2>
           <div className="mt-12 flex flex-col items-center justify-center gap-6 text-sm font-light sm:flex-row sm:gap-10">
-            <a href="https://bureau.amai.net" target="_blank" rel="noopener noreferrer" className="border-b border-white/40 pb-1 text-white/85 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">See the Bureau ↗</a>
-            <a href="/operators" className="border-b border-white/20 pb-1 text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">How the operator works →</a>
-            <a href="/launchpad" className="border-b border-white/20 pb-1 text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">See the launchpad →</a>
+             <a href="https://bureau.amai.net" target="_blank" rel="noopener noreferrer" className="border-b border-white/40 pb-1 text-white/85 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">{copy.links[0]} ↗</a>
+             <a href="/operators" className="border-b border-white/20 pb-1 text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">{copy.links[1]} →</a>
+             <a href="/launchpad" className="border-b border-white/20 pb-1 text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">{copy.links[2]} →</a>
           </div>
         </div>
       </section>
