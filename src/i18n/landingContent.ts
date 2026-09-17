@@ -55,7 +55,7 @@ const en: LandingCopy = {
     eyebrow: 'Agent-operated pools.',
     titleA: 'Liquidity Pools.',
     titleB: 'Now managed by Agents.',
-    intro: 'The world’s first agent operated liquidity pools that pay holders in tokenized stocks.',
+    intro: 'The world’s first Agent Operated liquidity pools that pay holders in tokenized stocks.',
     colJob: 'Job',
     colAgent: 'AMAI Operator Agent',
     rows: [
