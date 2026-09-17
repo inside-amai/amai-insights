@@ -73,7 +73,7 @@ const en: LandingCopy = {
   existing: {
     eyebrow: 'For Existing Pools',
     title: 'Hello, Operator.',
-    body: 'Add an Operator to existing pools and your community gets a share of fees earned. The operator turns that share into Stock Tokens and delivers them to your holders.',
+    body: 'Add an Operator to existing pools and your community earns. Operators turns fees into Stock Tokens and delivers them to your holders.',
     cta: 'Meet your operator',
     note: 'Coming soon on Robinhood Chain.',
   },
