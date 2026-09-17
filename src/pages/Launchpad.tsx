@@ -103,7 +103,7 @@ const Launchpad = () => {
           </p>
           <div className="mt-12 grid max-w-2xl grid-cols-2 border-y border-white/[0.08] md:mt-16">
             {highlights.map((item) => (
-              <div key={item.label} className="border-white/[0.08] px-4 py-5 even:border-l md:border-l md:first:border-l-0">
+              <div key={item.label} className="border-white/[0.08] bg-black px-4 py-5 even:border-l md:border-l md:first:border-l-0">
                 <p className="font-mono text-2xl font-normal text-white md:text-3xl">{item.value}</p>
                 <p className="mt-2 text-[9px] font-light uppercase tracking-[0.12em] text-white/40 md:text-[10px]">{item.label}</p>
               </div>

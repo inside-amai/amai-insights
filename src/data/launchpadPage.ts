@@ -9,7 +9,7 @@ Every launch comes with an AI operator that can pay holders in Stock Tokens.
 
 ## Summary
 
-Creators launch for $0 and receive 75% of trading fees, before and after graduation. They choose the Stock Token and how much of their share goes to holders, with an AI operator handling payouts. AMAI's share funds operations, AMAI buybacks and burns, Stock Token payouts to AMAI holders, and a daily jackpot. The launchpad is in development.
+Creators launch for $0 and receive 75% of trading fees, before and after graduation. They choose the Stock Token and how much of their share goes to holders, with an AI operator handling payouts. AMAI's share buys and burns the AMAI token, Stock Token payouts to AMAI holders, daily jackpot winner and operations. The launchpad is in development.
 
 ## The deep dive
 
