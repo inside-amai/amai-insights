@@ -527,9 +527,9 @@ const Briefing = () => {
               <div className="bg-black border border-white/10 p-4">
                 <h4 className="text-xs tracking-wider uppercase text-white/50 mb-4">{t('briefing.slide9.built')}</h4>
                 <div className="space-y-3">
-                  <p className="text-white/70 text-sm">✓ {t('briefing.slide9.built1')}</p>
-                  <p className="text-white/70 text-sm">✓ {t('briefing.slide9.built2')}</p>
-                  <p className="text-white/70 text-sm">✓ {t('briefing.slide9.built3')}</p>
+                  <p className="flex items-start gap-2 text-white/70 text-sm"><Check aria-hidden="true" className="mt-0.5 h-3.5 w-3.5 shrink-0" />{t('briefing.slide9.built1')}</p>
+                  <p className="flex items-start gap-2 text-white/70 text-sm"><Check aria-hidden="true" className="mt-0.5 h-3.5 w-3.5 shrink-0" />{t('briefing.slide9.built2')}</p>
+                  <p className="flex items-start gap-2 text-white/70 text-sm"><Check aria-hidden="true" className="mt-0.5 h-3.5 w-3.5 shrink-0" />{t('briefing.slide9.built3')}</p>
                 </div>
               </div>
               <div className="bg-black border border-white/10 p-4">

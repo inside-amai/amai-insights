@@ -624,7 +624,7 @@ const Thesis = () => {
                     transition={{ duration: 2, repeat: Infinity, delay: i * 0.4 }}
                   />
                   <span className="text-xs md:text-sm font-mono text-white/60 tracking-wide">{item.score}</span>
-                  <span className={`text-xs md:text-sm font-mono font-bold tracking-[0.15em] ${item.color}`}>✦ {item.result}</span>
+                  <span className={`flex items-center gap-2 text-xs md:text-sm font-mono font-bold tracking-[0.15em] ${item.color}`}><span aria-hidden="true" className="h-1.5 w-1.5 rotate-45 border border-current" />{item.result}</span>
                 </motion.div>
               ))}
             </div>
