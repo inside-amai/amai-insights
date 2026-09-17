@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { TariGauge } from "@/components/TariGauge";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { tariPageContent } from "@/i18n/editorialPages";
 
 const SectionLabel = ({ children, light = false }: { children: React.ReactNode; light?: boolean }) => (
   <div className="flex items-center gap-3 mb-6 md:mb-8">
@@ -27,35 +29,6 @@ const ArrowLink = ({ href, children, external = false, light = false }: { href: 
   </a>
 );
 
-const scoreInputs = [
-  ["Acted inside its policy.", "every action within the wallet's allowed list."],
-  ["Collected on schedule.", "every cycle inside its window."],
-  ["Delivered the stock.", "payouts that landed, by receipt."],
-  ["Raised its holds.", "the actions it stopped itself from taking."],
-  ["Days running.", "time on the record without incident."],
-  ["Nothing self reported.", "all of it comes from the Lens and the chain."],
-];
-
-const bands = [
-  ["800 to 850", "No adverse signal. Still no pass."],
-  ["650 to 799", "Indeterminate. No action from the score alone."],
-  ["550 to 649", "Compromise patterned. Review."],
-  ["300 to 549", "Anomalous. Review."],
-];
-
-const measures = [
-  ["Track record engine, out of time Gini", "0.630", "Ethereum lending data, 21,518 wallets, July 2026 snapshot. A ranking of default risk, never a calibrated probability."],
-  ["Wallets scored", "155,634", "Ratified July 2026 snapshot, served through the Bureau and the API. Thin files served UNRATED."],
-  ["Conduct engine, AUC", "0.835", "gpt-4o agents on the AgentDojo benchmark, 726 runs. A proxy for real incidents, stated as such."],
-  ["Conduct engine, AUC, two models", "0.797", "gpt-4o and gpt-4o-mini, 1,452 runs."],
-];
-
-const tiers = [
-  ["Tier 1", "Below 650, or a new record", "Collect, convert, pay. Rebalance its own range."],
-  ["Tier 2", "650 to 799, a clean record", "Lend idle capital to allowlisted venues, capped. Sit out corporate actions and weekends."],
-  ["Tier 3", "800 and above, a sustained record", "Leverage against the position, capped by score. Multi stock baskets. Sponsor other agents."],
-];
-
 const reveal = {
   initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
@@ -63,34 +36,34 @@ const reveal = {
   transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
 };
 
-const Tari = () => (
+const Tari = () => {
+  const { language } = useLanguage();
+  const c = tariPageContent[language];
+  return (
   <main className="bg-black">
     <section className="relative min-h-screen flex items-center bg-perspective-grid pt-24 md:pt-32 py-24 md:py-40 px-4 md:px-8 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_35%,hsl(var(--cyan-accent)/0.1),transparent_55%)] pointer-events-none" />
       <div className="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         <motion.div className="lg:col-span-6" {...reveal}>
-          <SectionLabel>TARI</SectionLabel>
+           <SectionLabel>{c.heroLabel}</SectionLabel>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-normal text-white leading-[1.02]">
-            One score.<br />Two sources.
+             {c.heroTitleA}<br />{c.heroTitleB}
           </h1>
           <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-xl">
-            Humans have FICO. Businesses have D&amp;B. Agents have TARI. This page is how the number is built.
+             {c.heroBody}
           </p>
         </motion.div>
         <motion.div className="lg:col-span-6" initial={{ opacity: 0, scale: 0.88 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}>
-          <TariGauge score={812} label="TARI SCORE" />
+           <TariGauge score={812} label={c.gaugeLabel} />
         </motion.div>
       </div>
     </section>
 
     <section className="relative bg-perspective-grid py-20 md:py-28 px-4 md:px-8 overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto">
-        <motion.div {...reveal}><SectionLabel>THE TWO HALVES</SectionLabel></motion.div>
+         <motion.div {...reveal}><SectionLabel>{c.halvesLabel}</SectionLabel></motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          {[
-            ["Track record", "What a wallet did with money on chain. Borrowed, repaid, held exposure, got liquidated. Scored the way a lender scores a borrower, and backtested on real lending outcomes before a single number was published."],
-            ["Conduct", "What an agent does when it acts. Which tools it called, in what order, with what timing, and where the data went. Captured by the Lens without ever reading the content. Scored on five dimensions."],
-          ].map(([title, body], index) => (
+           {c.halves.map(([title, body], index) => (
             <motion.article key={title} className="border border-white/10 bg-black rounded-lg p-7 md:p-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.7, delay: index * 0.1 }}>
               <h2 className="text-2xl md:text-3xl font-light tracking-normal text-white">{title}</h2>
               <p className="mt-6 text-base md:text-lg font-light text-white/65 leading-relaxed">{body}</p>
@@ -98,16 +71,16 @@ const Tari = () => (
           ))}
         </div>
         <motion.p className="mt-10 md:mt-12 text-base md:text-lg font-light text-white/50 leading-relaxed max-w-4xl" {...reveal}>
-          An operator carries both halves. The record it builds on the chain is its track record. The Lens watching it work is its conduct.
+           {c.halvesNote}
         </motion.p>
       </div>
     </section>
 
     <section className="relative bg-perspective-grid py-20 md:py-28 px-4 md:px-8 overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
-        <motion.div className="lg:col-span-5" {...reveal}><SectionLabel>WHAT FEEDS AN OPERATOR&apos;S SCORE</SectionLabel></motion.div>
+         <motion.div className="lg:col-span-5" {...reveal}><SectionLabel>{c.inputsLabel}</SectionLabel></motion.div>
         <div className="lg:col-span-7 border-t border-white/10">
-          {scoreInputs.map(([lead, body], index) => (
+           {c.inputs.map(([lead, body], index) => (
             <motion.p key={lead} className="py-5 md:py-6 border-b border-white/10 text-base md:text-lg leading-relaxed" initial={{ opacity: 0, x: 14 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.6, delay: index * 0.06 }}>
               <strong className="font-medium text-white">{lead}</strong> <span className="font-light text-white/60">{body}</span>
             </motion.p>
@@ -119,12 +92,12 @@ const Tari = () => (
     <section className="relative bg-perspective-grid py-20 md:py-28 px-4 md:px-8 overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
         <motion.div className="lg:col-span-6" {...reveal}>
-          <SectionLabel>THE BANDS</SectionLabel>
-          <Headline>The score triages. It never gates on its own.</Headline>
+           <SectionLabel>{c.bandsLabel}</SectionLabel>
+           <Headline>{c.bandsTitle}</Headline>
         </motion.div>
         <div className="lg:col-span-6">
           <div className="border-t border-white/10">
-            {bands.map(([range, meaning], index) => (
+             {c.bands.map(([range, meaning], index) => (
               <motion.div key={range} className="grid grid-cols-[8.5rem_1fr] md:grid-cols-[10rem_1fr] gap-5 py-5 md:py-6 border-b border-white/10 items-baseline" initial={{ opacity: 0, x: 14 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.6, delay: index * 0.07 }}>
                 <span className="font-mono text-sm md:text-base text-white">{range}</span>
                 <span className="text-base md:text-lg font-light text-white/65 leading-relaxed">{meaning}</span>
@@ -132,7 +105,7 @@ const Tari = () => (
             ))}
           </div>
           <p className="mt-10 text-base md:text-lg font-light text-white/50 leading-relaxed">
-            A score with low confidence is served as UNRATED, never as a number. Whether a single action proceeds is decided by the operator&apos;s rules, never by the score. The score decides the tier, and the tier decides which powers an operator is granted at all.
+             {c.bandsNote}
           </p>
         </div>
       </div>
@@ -141,16 +114,16 @@ const Tari = () => (
     <section className="relative bg-perspective-grid py-20 md:py-28 px-4 md:px-8 overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto">
         <motion.div {...reveal}>
-          <SectionLabel>THE NUMBERS, WITH THEIR SCOPE</SectionLabel>
-          <Headline>Every figure carries its scope and its date.</Headline>
+           <SectionLabel>{c.numbersLabel}</SectionLabel>
+           <Headline>{c.numbersTitle}</Headline>
         </motion.div>
         <div className="mt-12 md:mt-16 overflow-x-auto border border-white/10 rounded-lg bg-black">
           <table className="w-full min-w-[760px] text-left">
             <thead><tr className="border-b border-white/10">
-              {['Measure', 'Value', 'Scope'].map((heading) => <th key={heading} className="px-5 md:px-7 py-4 text-[10px] tracking-[0.25em] font-light text-white/40 uppercase">{heading}</th>)}
+               {c.tableHeaders.map((heading) => <th key={heading} className="px-5 md:px-7 py-4 text-[10px] tracking-[0.25em] font-light text-white/40 uppercase">{heading}</th>)}
             </tr></thead>
-            <tbody>{measures.map(([measure, value, scope], index) => (
-              <tr key={measure} className={index < measures.length - 1 ? "border-b border-white/10" : ""}>
+             <tbody>{c.measures.map(([measure, value, scope], index) => (
+               <tr key={measure} className={index < c.measures.length - 1 ? "border-b border-white/10" : ""}>
                 <td className="px-5 md:px-7 py-5 text-sm md:text-base font-normal text-white/85 align-top w-[28%]">{measure}</td>
                 <td className="px-5 md:px-7 py-5 font-mono text-sm md:text-base text-white align-top w-[12%]">{value}</td>
                 <td className="px-5 md:px-7 py-5 text-sm md:text-base font-light text-white/60 leading-relaxed align-top">{scope}</td>
@@ -159,7 +132,7 @@ const Tari = () => (
           </table>
         </div>
         <p className="mt-8 text-base md:text-lg font-light text-white/50 leading-relaxed max-w-5xl">
-          The Ethereum figure and the pooled multi chain figures are different populations and are never quoted together. The method is published. The receipts are checkable offline.
+           {c.numbersNote}
         </p>
       </div>
     </section>
@@ -167,11 +140,11 @@ const Tari = () => (
     <section className="relative bg-perspective-grid py-20 md:py-28 px-4 md:px-8 overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto">
         <motion.div {...reveal}>
-          <SectionLabel>THE TIERS</SectionLabel>
-          <Headline>The credit score is the leverage limit.</Headline>
+           <SectionLabel>{c.tiersLabel}</SectionLabel>
+           <Headline>{c.tiersTitle}</Headline>
         </motion.div>
         <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          {tiers.map(([tier, range, powers], index) => (
+           {c.tiers.map(([tier, range, powers], index) => (
             <motion.article key={tier} className="rounded-lg border border-white/10 bg-black p-7 md:p-8" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.7, delay: index * 0.1 }}>
               <h3 className="text-2xl md:text-3xl font-light text-white">{tier}</h3>
               <p className="mt-3 text-sm md:text-base font-mono text-white/80">{range}</p>
@@ -180,7 +153,7 @@ const Tari = () => (
           ))}
         </div>
         <p className="mt-10 text-base md:text-lg font-light text-white/50 leading-relaxed">
-          Absence of a record is never punished. A new agent is trusted with less until it has one.
+           {c.tiersNote}
         </p>
       </div>
     </section>
@@ -189,17 +162,17 @@ const Tari = () => (
       <div className="absolute inset-0 opacity-[0.07] pointer-events-none bg-[linear-gradient(hsl(var(--trust-blue))_1px,transparent_1px),linear-gradient(90deg,hsl(var(--trust-blue))_1px,transparent_1px)] bg-[size:40px_40px]" />
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
         <motion.div className="lg:col-span-6" {...reveal}>
-          <SectionLabel light>RUN IT</SectionLabel>
-          <Headline light>Watch your own agent, in one minute.</Headline>
+           <SectionLabel light>{c.runLabel}</SectionLabel>
+           <Headline light>{c.runTitle}</Headline>
         </motion.div>
         <motion.div className="lg:col-span-6" {...reveal}>
           <pre className="rounded-lg bg-gray-900 border border-gray-700 p-6 md:p-8 font-mono text-sm md:text-base leading-loose text-gray-100 overflow-x-auto"><code>{`pip install amai-tari\ntari demo\ntari dashboard`}</code></pre>
           <p className="mt-8 text-base md:text-lg font-light text-black/70 leading-relaxed">
-            The same Lens that watches every operator runs on your own agent, locally, content off. It reads tool names, order and timing. Never your prompts, never your data, and nothing leaves your machine.
+             {c.runBody}
           </p>
           <div className="mt-8 flex flex-wrap gap-6 md:gap-10">
-            <ArrowLink href="/methodology" light>Read the methodology</ArrowLink>
-            <ArrowLink href="/docs" light>Read the docs</ArrowLink>
+             <ArrowLink href="/methodology" light>{c.runLinks[0]}</ArrowLink>
+             <ArrowLink href="/docs" light>{c.runLinks[1]}</ArrowLink>
           </div>
         </motion.div>
       </div>
@@ -207,6 +180,7 @@ const Tari = () => (
 
 
   </main>
-);
+  );
+};
 
 export default Tari;
