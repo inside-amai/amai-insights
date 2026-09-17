@@ -378,7 +378,7 @@ const HomepageCopy = () => {
           className="absolute inset-0 pointer-events-none"
           style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, #000 100%)' }}
         />
-        <div className="pointer-events-none absolute left-[22%] top-[58%] -translate-x-1/2 -translate-y-1/2 w-[60%] h-[55%] bg-[radial-gradient(ellipse_at_center,hsl(var(--cyan-accent)/0.1),transparent_55%)]" />
+        <div className="pointer-events-none hidden md:block absolute left-[22%] top-[58%] -translate-x-1/2 -translate-y-1/2 w-[60%] h-[55%] bg-[radial-gradient(ellipse_at_center,hsl(var(--cyan-accent)/0.1),transparent_55%)]" />
 
         <div className="relative z-10 max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-8 items-start">
