@@ -48,7 +48,7 @@ export type LandingCopy = {
 const en: LandingCopy = {
   hero: {
     headline: 'Agents work. You get paid.',
-    sub: 'Discover how Agent Operated pools can transform the way\ncreators and communities earn together.',
+    sub: 'Discover how Agent Operated pools can transform the way\ncreators and communities earn *together.*',
     scroll: 'Scroll',
   },
   pools: {
@@ -178,7 +178,7 @@ const en: LandingCopy = {
 const ja: LandingCopy = {
   hero: {
     headline: 'エージェントが働き、あなたが受け取る。',
-    sub: 'Agent Operated プールが、クリエイターとコミュニティの新しい収益のかたちをどのように実現するかをご覧ください。',
+    sub: 'Agent Operated プールが、クリエイターとコミュニティの*新しい収益のかたち*をどのように実現するかをご覧ください。',
     scroll: 'スクロール',
   },
   pools: {
@@ -308,7 +308,7 @@ const ja: LandingCopy = {
 const ar: LandingCopy = {
   hero: {
     headline: 'الوكلاء يعملون. وأنت تتلقى الأرباح.',
-    sub: 'اكتشف كيف يمكن لمجمّعات Agent Operated أن تغيّر طريقة كسب المبدعين والمجتمعات معاً.',
+    sub: 'اكتشف كيف يمكن لمجمّعات Agent Operated أن تغيّر طريقة كسب المبدعين والمجتمعات *معاً.*',
     scroll: 'انزل للأسفل',
   },
   pools: {

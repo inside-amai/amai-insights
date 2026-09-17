@@ -339,7 +339,9 @@ const HomepageCopy = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
             >
-              {c.hero.sub}
+              {c.hero.sub.split('*').map((part, i) =>
+                i % 2 === 1 ? <em key={i}>{part}</em> : part
+              )}
             </motion.p>
 
             <motion.div
