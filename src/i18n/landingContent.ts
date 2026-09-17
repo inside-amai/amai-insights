@@ -89,9 +89,9 @@ const en: LandingCopy = {
     zoomLabel: 'Open a larger view of the launchpad',
   },
   transition: {
-    t1: 'A share of trading fees across the launchpad ',
-    em1: 'buys and burns AMAI',
-    t2: ' and pays AMAI holders in ',
+    t1: 'Fees generated ',
+    em1: 'buy and burn AMAI',
+    t2: ', pays AMAI holders in ',
     em2: 'Stock Tokens',
     t3: '.',
   },
