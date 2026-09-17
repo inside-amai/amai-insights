@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Footer } from "@/components/Footer";
-import { operatorMarkdown } from "@/data/operatorPage";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { editorialMarkdown, editorialUi } from "@/i18n/editorialPages";
 
 type Chapter = {
   number: string;
@@ -9,23 +10,22 @@ type Chapter = {
   paragraphs: string[];
 };
 
-const lines = operatorMarkdown.split("\n");
-const title = lines.find((line) => line.startsWith("# "))?.slice(2) ?? "The Operator";
-const subtitle = lines.find((line) => line.length > 0 && !line.startsWith("#")) ?? "";
-
-const getSectionParagraphs = (heading: string, nextHeading: string) => {
+const parseMarkdown = (markdown: string) => {
+ const lines = markdown.split("\n");
+ const title = lines.find((line) => line.startsWith("# "))?.slice(2) ?? "The Operator";
+ const subtitle = lines.find((line) => line.length > 0 && !line.startsWith("#")) ?? "";
+ const getSectionParagraphs = (heading: string, nextHeading: string) => {
   const start = lines.indexOf(heading) + 1;
   const end = lines.indexOf(nextHeading);
   return lines.slice(start, end).map((line) => line.trim()).filter(Boolean);
-};
+ };
+ const tldr = getSectionParagraphs("## TL;DR", "## Summary");
+ const summary = getSectionParagraphs("## Summary", "## The deep dive");
+ const deepDiveStart = lines.indexOf("## The deep dive") + 1;
+ const chapterLines = lines.slice(deepDiveStart);
+ const chapters: Chapter[] = [];
 
-const tldr = getSectionParagraphs("## TL;DR", "## Summary");
-const summary = getSectionParagraphs("## Summary", "## The deep dive");
-const deepDiveStart = lines.indexOf("## The deep dive") + 1;
-const chapterLines = lines.slice(deepDiveStart);
-const chapters: Chapter[] = [];
-
-chapterLines.forEach((line) => {
+ chapterLines.forEach((line) => {
   if (line.startsWith("### ")) {
     const heading = line.slice(4);
     const match = heading.match(/^(\d+)\.\s(.+)$/);
@@ -42,31 +42,8 @@ chapterLines.forEach((line) => {
 
   const current = chapters[chapters.length - 1];
   if (current && line.trim()) current.paragraphs.push(line.trim());
-});
-
-const mainChapters = chapters.filter((chapter) => chapter.id !== "glossary");
-const glossary = chapters.find((chapter) => chapter.id === "glossary");
-
-const highlights = [
-  { value: "4", label: "PERMITTED ACTIONS" },
-  { value: "7", label: "OPERATING RULES" },
-  { value: "6H", label: "PUBLIC PAYOUT WAIT" },
-  { value: "7D", label: "RULE CHANGE LOCK" },
-];
-
-const chapterNotes: Record<string, string> = {
-  "1": "Wallet · Policy · Worker",
-  "2": "Fees are the only input",
-  "3": "Collect · Convert · Snapshot · Pay",
-  "4": "Commit · Wait · Verify · Settle",
-  "5": "Four permissions. Nothing more.",
-  "6": "Every change waits in public",
-  "7": "Receipts chained by hash",
-  "8": "Conduct becomes credit",
-  "9": "Set the share to zero",
-  "10": "One transaction. No capital moved.",
-  "11": "Launch · Attach · Attack · Close",
-  "12": "Live on testnet",
+ });
+ return { title, subtitle, tldr, summary, mainChapters: chapters.filter((chapter) => chapter.id !== "glossary"), glossary: chapters.find((chapter) => chapter.id === "glossary") };
 };
 
 const Paragraph = ({ children }: { children: string }) => {
@@ -86,6 +63,11 @@ const Paragraph = ({ children }: { children: string }) => {
 };
 
 const Operators = () => {
+  const { language } = useLanguage();
+  const { title, subtitle, tldr, summary, mainChapters, glossary } = parseMarkdown(editorialMarkdown[language].operators);
+  const copy = editorialUi[language].operators;
+  const highlights = ["4", "7", "6H", "7D"].map((value, index) => ({ value, label: copy.highlights[index] }));
+  const chapterNotes = Object.fromEntries(copy.notes.map((note, index) => [String(index + 1), note]));
   return (
     <main className="min-h-screen overflow-x-clip bg-perspective-grid font-roboto text-white">
       <section className="relative flex min-h-[82svh] items-end px-5 pb-14 pt-32 md:min-h-[86svh] md:px-8 md:pb-20 md:pt-40">
@@ -102,7 +84,7 @@ const Operators = () => {
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="mb-6 text-xs font-light uppercase tracking-[0.35em] text-white/50 md:mb-8">
-            AMAI Operator Protocol
+            {copy.eyebrow}
           </div>
           <h1 className="max-w-5xl text-5xl font-medium leading-[1.02] tracking-tight text-white md:text-7xl lg:text-8xl">
             {title}
@@ -140,8 +122,8 @@ const Operators = () => {
 
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-12 lg:gap-20">
           <header className="lg:col-span-4">
-            <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">00 // Summary</p>
-            <h2 className="mt-6 text-4xl font-medium leading-[1.05] tracking-tight md:text-5xl">The record is the product.</h2>
+             <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">{copy.summaryLabel}</p>
+             <h2 className="mt-6 text-4xl font-medium leading-[1.05] tracking-tight md:text-5xl">{copy.summaryTitle}</h2>
           </header>
           <div className="space-y-7 lg:col-span-7 lg:col-start-6">
             {summary.map((paragraph) => <Paragraph key={paragraph}>{paragraph}</Paragraph>)}
@@ -150,7 +132,7 @@ const Operators = () => {
       </section>
 
       <div className="bg-black px-5 py-6 lg:hidden">
-        <label htmlFor="chapter-nav" className="mb-3 block text-[10px] font-light uppercase tracking-[0.25em] text-white/45">Jump to chapter</label>
+         <label htmlFor="chapter-nav" className="mb-3 block text-[10px] font-light uppercase tracking-[0.25em] text-white/45">{copy.jump}</label>
         <select
           id="chapter-nav"
           className="w-full rounded-sm border border-white/15 bg-black px-3 py-3 text-sm font-light text-white outline-none transition-colors focus:border-white/50"
@@ -159,7 +141,7 @@ const Operators = () => {
             if (event.target.value) document.querySelector(event.target.value)?.scrollIntoView({ behavior: "smooth" });
           }}
         >
-          <option value="" disabled>Select a chapter</option>
+           <option value="" disabled>{copy.select}</option>
           {mainChapters.map((chapter) => <option key={chapter.id} value={`#${chapter.id}`}>{chapter.number}. {chapter.title}</option>)}
         </select>
       </div>
@@ -169,8 +151,8 @@ const Operators = () => {
         <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-20">
           <aside className="hidden lg:block">
             <div className="sticky top-28">
-              <p className="mb-6 text-[10px] font-light uppercase tracking-[0.3em] text-white/45">The deep dive</p>
-              <nav aria-label="Deep dive chapters" className="space-y-2.5">
+               <p className="mb-6 text-[10px] font-light uppercase tracking-[0.3em] text-white/45">{copy.deepDive}</p>
+               <nav aria-label={copy.navLabel} className="space-y-2.5">
                 {mainChapters.map((chapter) => (
                   <a
                     key={chapter.id}
@@ -219,8 +201,8 @@ const Operators = () => {
           
           <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:gap-20">
             <div className="lg:col-span-4">
-              <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">Reference</p>
-              <h2 className="mt-6 text-4xl font-medium leading-[1.05] tracking-tight md:text-5xl">Glossary</h2>
+               <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">{copy.reference}</p>
+               <h2 className="mt-6 text-4xl font-medium leading-[1.05] tracking-tight md:text-5xl">{copy.glossary}</h2>
             </div>
             <div className="lg:col-span-7 lg:col-start-6">
               {glossary.paragraphs.map((paragraph) => (
@@ -235,12 +217,12 @@ const Operators = () => {
 
         
         <div className="relative mx-auto max-w-4xl">
-          <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">Every move, on the record</p>
-          <h2 className="mt-6 text-4xl font-medium leading-[1.05] tracking-tight md:text-6xl">Check the operator before you trust it.</h2>
+           <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">{copy.closingLabel}</p>
+           <h2 className="mt-6 text-4xl font-medium leading-[1.05] tracking-tight md:text-6xl">{copy.closingTitle}</h2>
           <div className="mt-12 flex flex-col items-center justify-center gap-6 text-sm font-light sm:flex-row sm:gap-10">
-            <a href="https://bureau.amai.net" target="_blank" rel="noopener noreferrer" className="border-b border-white/40 pb-1 text-white/85 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">See the Bureau ↗</a>
-            <a href="/methodology" className="border-b border-white/20 pb-1 text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">How TARI™ is built →</a>
-            <a href="/launchpad" className="border-b border-white/20 pb-1 text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">Launch with an operator →</a>
+             <a href="https://bureau.amai.net" target="_blank" rel="noopener noreferrer" className="border-b border-white/40 pb-1 text-white/85 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">{copy.links[0]} ↗</a>
+             <a href="/methodology" className="border-b border-white/20 pb-1 text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">{copy.links[1]} →</a>
+             <a href="/launchpad" className="border-b border-white/20 pb-1 text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">{copy.links[2]} →</a>
           </div>
         </div>
       </section>
