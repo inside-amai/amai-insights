@@ -15,5 +15,5 @@ Remove the direction-change jump in Google’s iPhone in-app browser without cha
 - Scope the workaround to the `/` landing page and the Google iOS app user agent.
 - Use stable small-viewport units for in-flow mobile section heights.
 - Apply `overflow-anchor: none` only for the affected landing-page context.
-- On touch/mobile, prevent the two TARI animations from re-triggering when crossing the viewport threshold.
+- Leave the TARI panel's scroll triggered animation untouched.
 - Avoid changing data, navigation destinations, localization, or other pages.
