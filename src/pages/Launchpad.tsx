@@ -73,7 +73,10 @@ const Launchpad = () => {
   const { language } = useLanguage();
   const { title, subtitle, tldr, summary, mainChapters, glossary } = parseMarkdown(editorialMarkdown[language].launchpad);
   const copy = editorialUi[language].launchpad;
-  const highlights = ["FREE", "1.25%", "1%", "75/25"].map((value, index) => ({ value, label: copy.highlights[index] }));
+  const highlights = (["FREE", "75/25"] as const).map((value) => ({
+    value,
+    label: value === "FREE" ? copy.highlights[0] : copy.highlights[3],
+  }));
   const chapterNotes = Object.fromEntries(copy.notes.map((note, index) => [String(index + 1), note]));
   return (
     <main className="min-h-screen overflow-x-clip bg-perspective-grid font-roboto text-white">
