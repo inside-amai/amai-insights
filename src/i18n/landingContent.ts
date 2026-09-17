@@ -48,7 +48,7 @@ export type LandingCopy = {
 const en: LandingCopy = {
   hero: {
     headline: 'Agents work. You get paid.',
-    sub: 'Agent operated pools that collect trading fees and distribute a share to holders in Stock Tokens.',
+    sub: 'Agent operated pools that collect trading fees and distribute to holders in Stock Tokens.',
     scroll: 'Scroll',
   },
   pools: {
