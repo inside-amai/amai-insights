@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { ChevronRight, ChevronLeft, Download, RefreshCw, Send, TrendingUp, SlidersHorizontal, Pause } from "lucide-react";
 import amaiLogo from "@/assets/amai-logo-tm.png";
 import homeFallbackBg from "@/assets/home-fallback-bg.jpg";
-import homeSideGrid from "@/assets/home-side-grid.svg";
+import homeSideGridHd from "@/assets/home-side-grid-hd.webp.asset.json";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { pickLanding, type LandingCopy } from "@/i18n/landingContent";
 
@@ -471,7 +471,7 @@ const HomepageCopy = () => {
         {/* Rotated hero grid: converges from the sides, same slow zoom pulse as hero */}
         <div className="pointer-events-none absolute left-1/2 top-1/2 h-[105vw] w-auto -translate-x-1/2 -translate-y-1/2 rotate-90">
           <motion.img
-            src={homeSideGrid}
+            src={homeSideGridHd.url}
             alt=""
             aria-hidden="true"
             className="h-full w-auto max-w-none opacity-70 will-change-transform"
