@@ -48,10 +48,10 @@ const mainChapters = chapters.filter((chapter) => chapter.id !== "glossary");
 const glossary = chapters.find((chapter) => chapter.id === "glossary");
 
 const highlights = [
-  { value: "30%", label: "RUNS THE COMPANY" },
   { value: "40%", label: "BUYBACK AND BURN" },
   { value: "25%", label: "PAID IN STOCK" },
-  { value: "5%", label: "DAILY JACKPOT" },
+  { value: "5%", label: "DAILY JACKPOT", className: "text-yellow-400" },
+  { value: "30%", label: "TREASURY" },
 ];
 
 const chapterNotes: Record<string, string> = {
