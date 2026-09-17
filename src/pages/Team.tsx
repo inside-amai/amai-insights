@@ -64,10 +64,12 @@ const researchers = [
   },
 ];
 
-const PersonCard = ({ person, index }: { person: typeof founders[0]; index: number }) => (
+const PersonCard = ({ person, index, className = "" }: { person: typeof founders[0]; index: number; className?: string }) => (
   <motion.div
     key={person.name}
-    className="flex flex-col items-center text-center rounded-xl px-5 py-6 md:py-8 border border-white/10 bg-black"
+    className={`flex h-full flex-col items-center text-center rounded-xl px-5 py-6 md:py-8 border border-white/10 bg-black ${className}`}
+
+
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, amount: 0.3 }}
@@ -132,17 +134,21 @@ const Team = () => (
           We're building a future where the people who create and the people who believe earn together.
         </motion.p>
 
-        <div className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-6 auto-rows-fr gap-5">
           {founders.map((person, i) => (
-            <PersonCard key={person.name} person={person} index={i} />
+            <PersonCard key={person.name} person={person} index={i} className="md:col-span-2" />
+          ))}
+          {researchers.map((person, i) => (
+            <PersonCard
+              key={person.name}
+              person={person}
+              index={i + 3}
+              className={`md:col-span-2 ${i === 0 ? "md:col-start-2" : ""}`}
+            />
           ))}
         </div>
 
-        <div className="mt-5 flex flex-col md:flex-row justify-center gap-5">
-          {researchers.map((person, i) => (
-            <PersonCard key={person.name} person={person} index={i + 3} />
-          ))}
-        </div>
+
       </div>
     </section>
 
