@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1097" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="topFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.56" />
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.04" />
+    </linearGradient>
+    <linearGradient id="bottomFade" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.56" />
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.04" />
+    </linearGradient>
+    <clipPath id="topPlane">
+      <path d="M0 0H1920L1372 270H548Z" />
+    </clipPath>
+    <clipPath id="bottomPlane">
+      <path d="M0 1097H1920L1372 827H548Z" />
+    </clipPath>
+  </defs>
+
+  <rect width="1920" height="1097" fill="#000000" />
+
+  <g clip-path="url(#topPlane)" fill="none" stroke="url(#topFade)" stroke-width="1" vector-effect="non-scaling-stroke">
+    <path d="M0 0L548 270M137 0L594 270M274 0L640 270M411 0L686 270M548 0L731 270M686 0L777 270M823 0L823 270M960 0L869 270M1097 0L914 270M1234 0L960 270M1372 0L1006 270M1509 0L1052 270M1646 0L1097 270M1783 0L1143 270M1920 0L1189 270" />
+    <path d="M0 46H1920M89 91H1831M177 127H1743M256 158H1664M326 181H1594M388 201H1532M440 218H1480M483 232H1437M517 244H1403M543 254H1377M563 262H1357M578 268H1342" />
+  </g>
+
+  <g clip-path="url(#bottomPlane)" fill="none" stroke="url(#bottomFade)" stroke-width="1" vector-effect="non-scaling-stroke">
+    <path d="M0 1097L548 827M137 1097L594 827M274 1097L640 827M411 1097L686 827M548 1097L731 827M686 1097L777 827M823 1097L823 827M960 1097L869 827M1097 1097L914 827M1234 1097L960 827M1372 1097L1006 827M1509 1097L1052 827M1646 1097L1097 827M1783 1097L1143 827M1920 1097L1189 827" />
+    <path d="M0 1051H1920M89 1006H1831M177 970H1743M256 939H1664M326 916H1594M388 896H1532M440 879H1480M483 865H1437M517 853H1403M543 843H1377M563 835H1357M578 829H1342" />
+  </g>
+</svg>
