@@ -206,14 +206,4 @@ const Tari = () => (
     </section>
 
 
-    <section className="relative bg-perspective-grid min-h-[75vh] flex items-center justify-center py-32 md:py-48 px-4 md:px-8 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,hsl(var(--cyan-accent)/0.12),transparent_60%)] pointer-events-none" />
-      <motion.div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}>
-        <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-normal text-white leading-[1.08]">Check it before you trust it.</h2>
-        <div className="mt-12 md:mt-16"><ArrowLink href="https://bureau.amai.net" external>See it on the Bureau</ArrowLink></div>
-      </motion.div>
-    </section>
-  </main>
-);
-
 export default Tari;
