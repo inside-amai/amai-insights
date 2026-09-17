@@ -107,6 +107,25 @@ const Plot = ({
       aria-label={A11Y_SUMMARY}
       onMouseLeave={() => setActive(null)}
     >
+      <defs>
+        <filter id="ev-glow-aqua" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="2" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+        <filter id="ev-glow-coral" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="2" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+        <linearGradient id="ev-fill-aqua" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor={AQUA} stopOpacity={0.1} />
+          <stop offset="100%" stopColor={AQUA} stopOpacity={0} />
+        </linearGradient>
+        <linearGradient id="ev-fill-coral" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor={CORAL} stopOpacity={0.08} />
+          <stop offset="100%" stopColor={CORAL} stopOpacity={0} />
+        </linearGradient>
+      </defs>
+
       {[0, 10, 20, 30, 40].map((v) => (
         <g key={v}>
           <line
@@ -196,13 +215,16 @@ const Plot = ({
         </>
       )}
 
-      <path d={area("uncompromised", UNCOMPROMISED_TOTAL)} fill={AQUA} fillOpacity={0.14} />
-      <path d={area("compromised", COMPROMISED_TOTAL)} fill={CORAL} fillOpacity={0.16} />
+      <path d={area("uncompromised", UNCOMPROMISED_TOTAL)} fill="url(#ev-fill-aqua)" />
+      <path d={area("compromised", COMPROMISED_TOTAL)} fill="url(#ev-fill-coral)" />
       <path
         d={line("uncompromised", UNCOMPROMISED_TOTAL)}
         fill="none"
         stroke={AQUA}
         strokeWidth={1.6}
+        strokeLinejoin="round"
+        strokeLinecap="round"
+        filter="url(#ev-glow-aqua)"
         vectorEffect="non-scaling-stroke"
       />
       <path
@@ -210,7 +232,10 @@ const Plot = ({
         fill="none"
         stroke={CORAL}
         strokeWidth={1.6}
-        strokeDasharray="6 4"
+        strokeDasharray="7 5"
+        strokeLinejoin="round"
+        strokeLinecap="round"
+        filter="url(#ev-glow-coral)"
         vectorEffect="non-scaling-stroke"
       />
 
