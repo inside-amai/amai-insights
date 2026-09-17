@@ -206,4 +206,7 @@ const Tari = () => (
     </section>
 
 
+  </main>
+);
+
 export default Tari;
