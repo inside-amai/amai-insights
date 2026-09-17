@@ -48,7 +48,7 @@ export type LandingCopy = {
 const en: LandingCopy = {
   hero: {
     headline: 'Agents work. You get paid.',
-    sub: 'Agent operated pools that collect trading fees and distribute to holders in Stock Tokens.',
+    sub: 'Discover how Agent Operated pools can transform the way creators and communities earn together.',
     scroll: 'Scroll',
   },
   pools: {
@@ -178,7 +178,7 @@ const en: LandingCopy = {
 const ja: LandingCopy = {
   hero: {
     headline: 'エージェントが働き、あなたが受け取る。',
-    sub: 'エージェントが運用する流動性プールが取引手数料を回収し、株式トークンで保有者に分配します。',
+    sub: 'Agent Operated プールが、クリエイターとコミュニティの新しい収益のかたちをどのように実現するかをご覧ください。',
     scroll: 'スクロール',
   },
   pools: {
@@ -308,7 +308,7 @@ const ja: LandingCopy = {
 const ar: LandingCopy = {
   hero: {
     headline: 'الوكلاء يعملون. وأنت تتلقى الأرباح.',
-    sub: 'مجمعات سيولة يديرها وكلاء أذكياء، تجمع رسوم التداول وتوزعها على الحاملين بعملات الأسهم الرمزية.',
+    sub: 'اكتشف كيف يمكن لمجمّعات Agent Operated أن تغيّر طريقة كسب المبدعين والمجتمعات معاً.',
     scroll: 'انزل للأسفل',
   },
   pools: {
