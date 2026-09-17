@@ -54,7 +54,7 @@ const en: LandingCopy = {
   pools: {
     eyebrow: 'Agent-operated pools.',
     titleA: 'Liquidity Pools.',
-    titleB: 'Now managed by Agents.',
+    titleB: 'Now paying their communities.',
     intro: 'The world’s first Agent Operated liquidity pools that pay holders in tokenized stocks.',
     colJob: 'Job',
     colAgent: 'AMAI Operator Agent',
@@ -184,7 +184,7 @@ const ja: LandingCopy = {
   pools: {
     eyebrow: 'エージェント運用プール',
     titleA: '流動性プール。',
-    titleB: '運用はエージェントへ。',
+    titleB: 'コミュニティへ還元。',
     intro: 'トークン化された株式で保有者に分配する、世界初のエージェント運用型流動性プール。',
     colJob: '役割',
     colAgent: 'AMAI オペレーターエージェント',
@@ -314,7 +314,7 @@ const ar: LandingCopy = {
   pools: {
     eyebrow: 'مجمعات يديرها وكلاء',
     titleA: 'مجمعات السيولة.',
-    titleB: 'يديرها الآن وكلاء أذكياء.',
+    titleB: 'تدفع لمجتمعاتها الآن.',
     intro: 'أول مجمعات سيولة في العالم يديرها وكلاء أذكياء وتوزع على الحاملين أسهماً مرمزة.',
     colJob: 'المهمة',
     colAgent: 'وكيل التشغيل AMAI',
