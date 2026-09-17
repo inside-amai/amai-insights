@@ -91,7 +91,7 @@ const Tari = () => (
             ["Track record", "What a wallet did with money on chain. Borrowed, repaid, held exposure, got liquidated. Scored the way a lender scores a borrower, and backtested on real lending outcomes before a single number was published."],
             ["Conduct", "What an agent does when it acts. Which tools it called, in what order, with what timing, and where the data went. Captured by the Lens without ever reading the content. Scored on five dimensions."],
           ].map(([title, body], index) => (
-            <motion.article key={title} className="border border-white/10 bg-white/[0.03] rounded-lg p-7 md:p-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.7, delay: index * 0.1 }}>
+            <motion.article key={title} className="border border-white/10 bg-black rounded-lg p-7 md:p-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.7, delay: index * 0.1 }}>
               <h2 className="text-2xl md:text-3xl font-light tracking-normal text-white">{title}</h2>
               <p className="mt-6 text-base md:text-lg font-light text-white/65 leading-relaxed">{body}</p>
             </motion.article>
@@ -144,7 +144,7 @@ const Tari = () => (
           <SectionLabel>THE NUMBERS, WITH THEIR SCOPE</SectionLabel>
           <Headline>Every figure carries its scope and its date.</Headline>
         </motion.div>
-        <div className="mt-12 md:mt-16 overflow-x-auto border border-white/10 rounded-lg bg-white/[0.02]">
+        <div className="mt-12 md:mt-16 overflow-x-auto border border-white/10 rounded-lg bg-black">
           <table className="w-full min-w-[760px] text-left">
             <thead><tr className="border-b border-white/10">
               {['Measure', 'Value', 'Scope'].map((heading) => <th key={heading} className="px-5 md:px-7 py-4 text-[10px] tracking-[0.25em] font-light text-white/40 uppercase">{heading}</th>)}
@@ -172,7 +172,7 @@ const Tari = () => (
         </motion.div>
         <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {tiers.map(([tier, range, powers], index) => (
-            <motion.article key={tier} className="rounded-lg border border-white/10 bg-white/[0.03] p-7 md:p-8" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.7, delay: index * 0.1 }}>
+            <motion.article key={tier} className="rounded-lg border border-white/10 bg-black p-7 md:p-8" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.7, delay: index * 0.1 }}>
               <h3 className="text-2xl md:text-3xl font-light text-white">{tier}</h3>
               <p className="mt-3 text-sm md:text-base font-mono text-white/80">{range}</p>
               <p className="mt-6 text-base md:text-lg font-light text-white/65 leading-relaxed">{powers}</p>
