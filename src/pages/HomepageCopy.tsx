@@ -507,7 +507,7 @@ const HomepageCopy = () => {
             >
               {c.existing.title}
             </h2>
-            <p className="mt-4 mx-auto max-w-[52ch] text-[15px] md:text-base font-light leading-relaxed text-white/60">
+            <p className="mt-4 mx-auto w-full max-w-[52ch] text-[15px] md:text-base font-light leading-relaxed text-white/75 md:text-white/60 px-2 md:px-0">
               {c.existing.body}
             </p>
             <div className="mt-6">
