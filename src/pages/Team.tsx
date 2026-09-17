@@ -105,7 +105,7 @@ const Team = () => (
       />
       <div
         aria-hidden
-        className="absolute bottom-0 right-0 h-[68%] w-[72%] pointer-events-none bg-[radial-gradient(ellipse_at_82%_76%,hsl(var(--cyan-accent)/0.1),transparent_58%)] [mask-image:linear-gradient(to_bottom,transparent,black_28%,black_72%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_28%,black_72%,transparent)]"
+        className="absolute bottom-0 right-0 h-[68%] w-[72%] pointer-events-none bg-[radial-gradient(ellipse_at_82%_92%,hsl(var(--cyan-accent)/0.1),transparent_58%)] [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_78%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_30%,black_78%,transparent)]"
       />
       <div className="relative z-10 max-w-5xl mx-auto w-full">
         <motion.div {...reveal}>
