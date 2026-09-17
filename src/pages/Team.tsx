@@ -129,7 +129,7 @@ const Team = () => (
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         >
-          This problem needs payments, AI, and security in one room. Ex-Circle (USDC). Ex-Stability AI. Ex-FBI.
+          We're building a future where the people who create and the people who believe earn together.
         </motion.p>
 
         <div className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-5">
