@@ -91,7 +91,7 @@ const en: LandingCopy = {
   transition: {
     t1: 'Fees generated ',
     em1: 'buy and burn AMAI',
-    t2: ', pays AMAI holders in ',
+    t2: ', while paying holders in ',
     em2: 'Stock Tokens',
     t3: '.',
   },
@@ -221,7 +221,7 @@ const ja: LandingCopy = {
   transition: {
     t1: '発生した手数料は ',
     em1: 'AMAI を買い戻してバーン',
-    t2: 'し、AMAI 保有者には ',
+    t2: 'し、保有者には ',
     em2: '株式トークン',
     t3: ' が支払われます。',
   },
@@ -351,7 +351,7 @@ const ar: LandingCopy = {
   transition: {
     t1: 'الرسوم المُحقَّقة ',
     em1: 'تشتري AMAI وتحرقها',
-    t2: '، وتُدفع لحاملي AMAI على شكل ',
+    t2: '، وتُدفع للحاملي على شكل ',
     em2: 'أسهم مرمزة',
     t3: '.',
   },
