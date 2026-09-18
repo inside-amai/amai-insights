@@ -147,6 +147,8 @@ const Operators = () => {
       </div>
 
       <section className="relative px-5 py-20 md:px-8 md:py-32">
+        <div aria-hidden className="pointer-events-none absolute bottom-0 left-0 h-[68%] w-[72%] bg-[radial-gradient(ellipse_at_18%_76%,hsl(var(--cyan-accent)/0.1),transparent_58%)] [mask-image:linear-gradient(to_top,transparent,black_28%,black_72%,transparent)] [-webkit-mask-image:linear-gradient(to_top,transparent,black_28%,black_72%,transparent)]" />
+
 
         <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-20">
           <aside className="hidden lg:block">
