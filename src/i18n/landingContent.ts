@@ -162,15 +162,6 @@ const en: LandingCopy = {
         q: "Can an operator withdraw the pool's principal?",
         a: "The operator's role excludes withdrawing pool principal and changing its own permissions. These restrictions apply to the operator role. They do not eliminate market risk or every risk involving collected fees.",
       },
-      {
-        q: 'What can I use today?',
-        a: 'You can explore the Bureau, read the published methodology and benchmark results, and use the TARI SDK for local agent observation on PyPI. The integrated operator and launchpad experience is still being built and tested. The demonstrated pool payout cycle ran on a local fork of Robinhood Chain.',
-        links: [
-          { label: 'Bureau', href: 'https://bureau.amai.net/', arrow: '↗' },
-          { label: 'Methodology', to: '/methodology', arrow: '→' },
-          { label: 'PyPI', href: 'https://pypi.org/project/amai-tari/', arrow: '↗' },
-        ],
-      },
     ],
   },
 };
@@ -292,15 +283,6 @@ const ja: LandingCopy = {
         q: 'オペレーターはプールの元本を引き出せますか？',
         a: 'オペレーターの役割には、プール元本の引き出しや自身の権限の変更は含まれません。これらの制限はオペレーターの役割に適用されるものであり、市場リスクや回収済み手数料に関わるすべてのリスクを排除するものではありません。',
       },
-      {
-        q: '今日利用できるものは何ですか？',
-        a: 'Bureau を閲覧し、公開されている方法論とベンチマーク結果を読み、ローカルでのエージェント観測に TARI SDK を PyPI から利用できます。オペレーターとローンチパッドを統合した体験は現在も構築とテストの途上です。実演したプールの分配サイクルは Robinhood Chain のローカルフォーク上で実行されました。',
-        links: [
-          { label: 'Bureau', href: 'https://bureau.amai.net/', arrow: '↗' },
-          { label: '方法論', to: '/methodology', arrow: '→' },
-          { label: 'PyPI', href: 'https://pypi.org/project/amai-tari/', arrow: '↗' },
-        ],
-      },
     ],
   },
 };
@@ -421,15 +403,6 @@ const ar: LandingCopy = {
       {
         q: 'هل يمكن للوكيل سحب رأس مال المجمع؟',
         a: 'لا يشمل دور الوكيل سحب رأس مال المجمع ولا تغيير صلاحياته. وتنطبق هذه القيود على دور الوكيل، لكنها لا تلغي مخاطر السوق ولا كل المخاطر المتعلقة بالرسوم المحصلة.',
-      },
-      {
-        q: 'ما المتاح اليوم؟',
-        a: 'يمكنك استعراض Bureau، وقراءة المنهجية المنشورة ونتائج القياس المرجعي، واستخدام حزمة TARI لرصد الوكلاء محلياً من PyPI. أما التجربة المتكاملة للوكيل ومنصة الإطلاق فلا تزال قيد البناء والاختبار. وقد نُفذت دورة التوزيع المعروضة على نسخة محلية من Robinhood Chain.',
-        links: [
-          { label: 'Bureau', href: 'https://bureau.amai.net/', arrow: '↗' },
-          { label: 'المنهجية', to: '/methodology', arrow: '→' },
-          { label: 'PyPI', href: 'https://pypi.org/project/amai-tari/', arrow: '↗' },
-        ],
       },
     ],
   },
