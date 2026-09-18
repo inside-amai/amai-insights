@@ -11,7 +11,7 @@ export type TariChapter = {
 export const tariEditorial = {
   eyebrow: "AMAI LABS · TRUST & RISK INDEX",
   title: "TARI™",
-  statement: "Let the record show.",
+  statement: "The measure of an agent.",
   subtitle: "Financial history. Observed behavior. The evidence behind an agent’s reputation.",
   highlights: [
     { value: "300–850", label: "Score range" },
