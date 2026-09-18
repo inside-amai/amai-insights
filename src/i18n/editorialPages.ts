@@ -124,7 +124,6 @@ export const editorialUi = {
       ],
       "closingTitle": "Every launch comes with an AI operator to handle the payouts.",
       "links": [
-        "Follow the build",
         "How the operator works",
         "See the $AMAI page"
       ]
@@ -235,7 +234,6 @@ export const editorialUi = {
       ],
       "closingTitle": "毎回の打ち上げには、支払いを処理する AI オペレーターが付属します。",
       "links": [
-        "ビルドに従ってください",
         "オペレーターの仕組み",
         "$AMAIページを参照してください。"
       ]
@@ -346,7 +344,6 @@ export const editorialUi = {
       ],
       "closingTitle": "يأتي كل إطلاق مزودًا بمشغل يعمل بالذكاء الاصطناعي للتعامل مع الدفعات.",
       "links": [
-        "اتبع البناء",
         "كيف يعمل المشغل",
         "راجع صفحة $AMAI"
       ]

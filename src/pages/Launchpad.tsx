@@ -227,9 +227,8 @@ const Launchpad = () => {
         <div className="relative mx-auto max-w-4xl">
            <h2 className="text-4xl font-medium leading-[1.05] tracking-tight md:text-6xl">{copy.closingTitle}</h2>
           <div className="mt-12 flex flex-col items-center justify-center gap-6 text-sm font-light sm:flex-row sm:gap-10">
-             <a href="https://x.com/InsideAMAI" target="_blank" rel="noopener noreferrer" className="border-b border-white/40 pb-1 text-white/85 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">{copy.links[0]} ↗</a>
-             <a href="/operators" className="border-b border-white/20 pb-1 text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">{copy.links[1]} →</a>
-             <a href="/token" className="border-b border-white/20 pb-1 text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">{copy.links[2]} →</a>
+             <a href="/operators" className="border-b border-white/20 pb-1 text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">{copy.links[0]} →</a>
+             <a href="/token" className="border-b border-white/20 pb-1 text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">{copy.links[1]} →</a>
           </div>
         </div>
       </section>
