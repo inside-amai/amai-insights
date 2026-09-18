@@ -73,7 +73,7 @@ Creator tax: 0 to 10% if the creator sets one, all of it to the creator, fixed a
 
 Snipe tax: decaying from 99% to zero over the first three seconds, split 75 and 25 like every other fee.
 
-Graduation: 4.2 ETH of buying, about twelve times the opening price, liquidity locked, and 7% of the seeded ETH to AMAI with the pool price unchanged.
+Graduation: 4.2 ETH of buying, about twelve times the opening price and liquidity locked.
 
 Pool trades: 1% forever, split 75 and 25. The pool's own fee is zero.
 
