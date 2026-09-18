@@ -41,7 +41,7 @@ const Tari = () => {
           <motion.div className="lg:col-span-6" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}>
             <p className="mb-6 text-xs font-light uppercase tracking-[0.25em] text-white/50 md:mb-8 md:tracking-[0.35em]">{c.eyebrow}</p>
             <h1 className="text-6xl font-medium leading-none tracking-tight text-white md:text-8xl lg:text-9xl">
-              {c.title.includes("™") ? (<>{c.title.split("™")[0]}<span className="align-top text-[0.28em] font-normal tracking-normal">™</span></>) : c.title}
+              {c.title.includes("™") ? (<>{c.title.split("™")[0]}<span className="inline-block -translate-y-[1.6em] text-[0.28em] font-normal leading-none tracking-normal">™</span></>) : c.title}
             </h1>
             <p className="mt-7 text-2xl font-normal leading-tight text-white md:text-4xl">{c.statement}</p>
             <p className="mt-5 max-w-2xl text-lg font-light leading-relaxed text-white/60 md:text-xl">{c.subtitle}</p>
