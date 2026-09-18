@@ -125,7 +125,8 @@ const Launchpad = () => {
         </div>
       </section>
 
-      <section id="summary" className="px-5 py-24 md:px-8 md:py-36">
+      <section id="summary" className="relative overflow-hidden px-5 py-24 md:px-8 md:py-36">
+        <div aria-hidden className="pointer-events-none absolute bottom-0 right-0 h-[68%] w-[72%] bg-[radial-gradient(ellipse_at_82%_76%,hsl(var(--cyan-accent)/0.1),transparent_58%)] [mask-image:linear-gradient(to_top,transparent,black_28%,black_72%,transparent)] [-webkit-mask-image:linear-gradient(to_top,transparent,black_28%,black_72%,transparent)]" />
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-12 lg:gap-20">
           <header className="lg:col-span-4">
              <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">{copy.summaryLabel}</p>
