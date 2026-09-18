@@ -39,7 +39,7 @@ When the curve has taken 4.2 ETH of buying, the token graduates automatically, w
 
 At that moment the ETH from the curve and the held back supply seed a Uniswap v4 pool, and the position goes into a locker with no withdrawal path. The liquidity is gone in the sense that matters: nobody can pull it, including AMAI.
 
-AMAI takes 20.69% of the ETH that seeds the pool. The pool opens at exactly the price the curve closed at, so the chart does not jump and no holder is diluted by the take. This is stated here rather than in fine print, because every launchpad takes something at graduation and the ones that hide it are telling you what they are.
+AMAI takes 7% of the ETH that seeds the pool. The pool opens at exactly the price the curve closed at, so the chart does not jump and no holder is diluted by the take. This is stated here rather than in fine print, because every launchpad takes something at graduation and the ones that hide it are telling you what they are.
 
 ### 4. After graduation
 
@@ -75,7 +75,7 @@ Creator tax: 0 to 10% if the creator sets one, all of it to the creator, fixed a
 
 Snipe tax: decaying from 99% to zero over the first three seconds, split 75 and 25 like every other fee.
 
-Graduation: 4.2 ETH of buying, about twelve times the opening price, liquidity locked, and 20.69% of the seeded ETH to AMAI with the pool price unchanged.
+Graduation: 4.2 ETH of buying, about twelve times the opening price, liquidity locked, and 7% of the seeded ETH to AMAI with the pool price unchanged.
 
 Pool trades: 1% forever, split 75 and 25. The pool's own fee is zero.
 
