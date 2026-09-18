@@ -108,7 +108,7 @@ const en: LandingCopy = {
   },
   evidence: {
     eyebrow: 'The evidence',
-    title: 'Compromise leaves a pattern.',
+    title: 'From observation to evidence.',
     body: 'Across 726 benchmark runs, compromised agents tended to score lower. TARI measured the difference using tool-call metadata alone.',
     aucLabel: 'AUC · Benchmark discrimination',
     ci: '95% confidence interval: 0.805–0.864',
@@ -238,7 +238,7 @@ const ja: LandingCopy = {
   },
   evidence: {
     eyebrow: 'エビデンス',
-    title: '侵害はパターンを残す。',
+    title: '観察からエビデンスへ。',
     body: '726 件のベンチマーク実行において、侵害されたエージェントはスコアが低くなる傾向がありました。TARI はツール呼び出しのメタデータのみでその差を測定しています。',
     aucLabel: 'AUC · ベンチマーク判別性能',
     ci: '95% 信頼区間: 0.805–0.864',
@@ -368,7 +368,7 @@ const ar: LandingCopy = {
   },
   evidence: {
     eyebrow: 'الأدلة',
-    title: 'الاختراق يترك نمطاً.',
+    title: 'من الملاحظة إلى الدليل.',
     body: 'عبر 726 تشغيلاً مرجعياً، حصل الوكلاء المخترقون على درجات أدنى في المتوسط. وقاس TARI هذا الفرق باستخدام بيانات نداءات الأدوات وحدها.',
     aucLabel: 'AUC · قدرة التمييز المرجعية',
     ci: 'فاصل ثقة 95%: 0.805–0.864',
