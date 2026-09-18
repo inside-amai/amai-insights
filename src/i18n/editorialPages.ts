@@ -63,7 +63,7 @@ export const editorialUi = {
       "highlights": [
         "BUYBACK AND BURN",
         "PAID IN STOCK",
-        "DAILY JACKPOT",
+        "WEEKLY JACKPOT",
         "TREASURY"
       ],
       "summaryLabel": "00 // Summary",
@@ -173,7 +173,7 @@ export const editorialUi = {
       "highlights": [
         "買い戻しとバーン",
         "在庫で支払われました",
-        "毎日のジャックポット",
+        "毎週のジャックポット",
         "財務省"
       ],
       "summaryLabel": "00 // 概要",
@@ -283,7 +283,7 @@ export const editorialUi = {
       "highlights": [
         "إعادة الشراء والحرق",
         "المدفوعة في المخزون",
-        "الجائزة اليومية",
+        "الجائزة الأسبوعية",
         "الخزانة"
       ],
       "summaryLabel": "00 // ملخص",
