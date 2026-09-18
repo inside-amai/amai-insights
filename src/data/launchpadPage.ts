@@ -39,7 +39,7 @@ When the curve has taken 4.2 ETH of buying, the token graduates automatically, w
 
 At that moment the ETH from the curve and the held back supply seed a Uniswap v4 pool, and the position goes into a locker with no withdrawal path. The liquidity is gone in the sense that matters: nobody can pull it, including AMAI.
 
-AMAI takes 7% of the ETH that seeds the pool. The pool opens at exactly the price the curve closed at, so the chart does not jump and no holder is diluted by the take. This is stated here rather than in fine print, because every launchpad takes something at graduation and the ones that hide it are telling you what they are.
+### 4. After graduation
 
 The pool charges 1% on every trade, forever. The pool's own fee is set to zero, so this is the only charge, and it splits 75 to the creator and 25 to AMAI like everything else. There is no second take, and the operator itself takes nothing.
 
