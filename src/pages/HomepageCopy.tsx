@@ -513,10 +513,9 @@ const HomepageCopy = () => {
             <div className="mt-6">
               <Link
                 to="/operators"
-                className="group inline-flex items-center gap-2 text-lg md:text-xl font-light text-[#B4F6AD]/60 transition-colors duration-200 hover:text-[#B4F6AD]/85 focus:outline-none focus-visible:text-[#B4F6AD]/85 focus-visible:ring-1 focus-visible:ring-[#B4F6AD]/40 focus-visible:ring-offset-4 focus-visible:ring-offset-black"
+                className="inline-flex items-center gap-2 text-sm font-light text-[#CEFFC9] hover:text-white transition-colors duration-300 border-b border-[#CEFFC9]/40 hover:border-white/60 pb-1"
               >
-                {c.existing.cta}
-                <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+                {c.existing.cta}<span aria-hidden>→</span>
               </Link>
               <p className="mt-3 text-[11px] font-light uppercase tracking-[0.3em] text-white/40">
                 {c.existing.note}
