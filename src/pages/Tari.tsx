@@ -1,185 +1,167 @@
 import { motion } from "framer-motion";
+import { Footer } from "@/components/Footer";
 import { TariGauge } from "@/components/TariGauge";
-import { useLanguage } from "@/contexts/LanguageContext";
-import { tariPageContent } from "@/i18n/editorialPages";
+import { tariEditorial, type TariChapter } from "@/data/tariEditorial";
 
-const SectionLabel = ({ children, light = false }: { children: React.ReactNode; light?: boolean }) => (
-  <div className="flex items-center gap-3 mb-6 md:mb-8">
-    <span className={`h-px w-10 ${light ? "bg-black/30" : "bg-white/30"}`} />
-    <span className={`text-[11px] tracking-[0.35em] font-light uppercase ${light ? "text-black/70" : "text-white/50"}`}>
-      {children}
-    </span>
+const Paragraph = ({ children }: { children: string }) => (
+  <p className="text-base font-light leading-relaxed text-white/60 md:text-lg md:leading-relaxed">{children}</p>
+);
+
+const EvidenceTable = ({ table }: { table: NonNullable<TariChapter["table"]> }) => (
+  <div className="my-9 overflow-x-auto rounded-sm border border-white/[0.1] bg-black">
+    <table className="w-full min-w-[620px] text-left">
+      <thead>
+        <tr className="border-b border-white/[0.1]">
+          {table.headers.map((header) => (
+            <th key={header} className="px-5 py-4 text-[10px] font-light uppercase tracking-[0.2em] text-white/40 md:px-6">{header}</th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {table.rows.map((row, rowIndex) => (
+          <tr key={row[0]} className={rowIndex < table.rows.length - 1 ? "border-b border-white/[0.08]" : undefined}>
+            {row.map((cell, cellIndex) => (
+              <td key={cell} className={`px-5 py-5 align-top text-sm leading-relaxed md:px-6 md:text-base ${cellIndex === 0 ? "font-normal text-white/90" : "font-light text-white/60"}`}>{cell}</td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
   </div>
 );
 
-const Headline = ({ children, light = false }: { children: React.ReactNode; light?: boolean }) => (
-  <h2 className={`text-4xl md:text-6xl lg:text-7xl font-light tracking-normal leading-[1.05] ${light ? "text-black" : "text-white"}`}>
-    {children}
-  </h2>
-);
-
-const ArrowLink = ({ href, children, external = false, light = false }: { href: string; children: React.ReactNode; external?: boolean; light?: boolean }) => (
-  <a
-    href={href}
-    target={external ? "_blank" : undefined}
-    rel={external ? "noopener noreferrer" : undefined}
-    className={`inline-flex items-center gap-2 text-sm font-light transition-colors duration-300 border-b pb-1 ${light ? "text-black/60 hover:text-black border-black/20 hover:border-black/60" : "text-white/60 hover:text-white border-white/20 hover:border-white/60"}`}
-  >
-    {children}<span aria-hidden>→</span>
-  </a>
-);
-
-const reveal = {
-  initial: { opacity: 0, y: 24 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, amount: 0.25 },
-  transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
-};
-
 const Tari = () => {
-  const { language } = useLanguage();
-  const c = tariPageContent[language];
+  const c = tariEditorial;
+
   return (
-  <main className="bg-black">
-    <section className="relative min-h-screen flex items-center bg-perspective-grid pt-24 md:pt-32 py-24 md:py-40 px-4 md:px-8 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_35%,hsl(var(--cyan-accent)/0.1),transparent_55%)] pointer-events-none" />
-      <div className="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        <motion.div className="lg:col-span-6" {...reveal}>
-           <SectionLabel>{c.heroLabel}</SectionLabel>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-normal text-white leading-[1.02]">
-             {c.heroTitleA}<br />{c.heroTitleB}
-          </h1>
-          <p className="mt-10 md:mt-12 text-lg md:text-xl font-light text-white/70 leading-relaxed max-w-xl">
-             {c.heroBody}
-          </p>
-        </motion.div>
-        <motion.div className="lg:col-span-6" initial={{ opacity: 0, scale: 0.88 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}>
-           <TariGauge score={812} label={c.gaugeLabel} />
-        </motion.div>
-      </div>
-    </section>
-
-    <section className="relative bg-perspective-grid py-20 md:py-28 px-4 md:px-8 overflow-hidden">
-      <div className="relative z-10 max-w-7xl mx-auto">
-         <motion.div {...reveal}><SectionLabel>{c.halvesLabel}</SectionLabel></motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-           {c.halves.map(([title, body], index) => (
-            <motion.article key={title} className="border border-white/10 bg-black rounded-lg p-7 md:p-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.7, delay: index * 0.1 }}>
-              <h2 className="text-2xl md:text-3xl font-light tracking-normal text-white">{title}</h2>
-              <p className="mt-6 text-base md:text-lg font-light text-white/65 leading-relaxed">{body}</p>
-            </motion.article>
-          ))}
+    <main className="min-h-screen overflow-x-clip bg-perspective-grid font-roboto text-white">
+      <section className="relative flex min-h-[88svh] items-center px-5 pb-16 pt-32 md:px-8 md:pb-20 md:pt-40">
+        <div aria-hidden className="pointer-events-none absolute left-0 top-0 h-[72%] w-[78%] bg-[radial-gradient(ellipse_at_18%_24%,hsl(var(--cyan-accent)/0.1),transparent_58%)] [mask-image:linear-gradient(to_bottom,transparent,black_24%,black_72%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_24%,black_72%,transparent)]" />
+        <div className="relative mx-auto grid w-full max-w-7xl items-center gap-12 lg:grid-cols-12 lg:gap-16">
+          <motion.div className="lg:col-span-6" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}>
+            <p className="mb-6 text-xs font-light uppercase tracking-[0.25em] text-white/50 md:mb-8 md:tracking-[0.35em]">{c.eyebrow}</p>
+            <h1 className="text-6xl font-medium leading-none tracking-tight text-white md:text-8xl lg:text-9xl">{c.title}</h1>
+            <p className="mt-7 text-2xl font-normal leading-tight text-white md:text-4xl">{c.statement}</p>
+            <p className="mt-5 max-w-2xl text-lg font-light leading-relaxed text-white/60 md:text-xl">{c.subtitle}</p>
+            <div className="mt-10 grid max-w-2xl grid-cols-3 border-y border-white/[0.08] md:mt-12">
+              {c.highlights.map((item, index) => (
+                <div key={item.label} className={`px-3 py-5 md:px-4 ${index > 0 ? "border-l border-white/[0.08]" : ""}`}>
+                  <p className="font-mono text-xl font-normal text-white md:text-3xl">{item.value}</p>
+                  <p className="mt-2 text-[8px] font-light uppercase leading-relaxed tracking-[0.1em] text-white/40 md:text-[10px]">{item.label}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+          <motion.div className="lg:col-span-6" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}>
+            <TariGauge score={812} label="TARI SCORE" />
+          </motion.div>
         </div>
-        <motion.p className="mt-10 md:mt-12 text-base md:text-lg font-light text-white/50 leading-relaxed max-w-4xl" {...reveal}>
-           {c.halvesNote}
-        </motion.p>
-      </div>
-    </section>
+      </section>
 
-    <section className="relative bg-perspective-grid py-20 md:py-28 px-4 md:px-8 overflow-hidden">
-      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
-         <motion.div className="lg:col-span-5" {...reveal}><SectionLabel>{c.inputsLabel}</SectionLabel></motion.div>
-        <div className="lg:col-span-7 border-t border-white/10">
-           {c.inputs.map(([lead, body], index) => (
-            <motion.p key={lead} className="py-5 md:py-6 border-b border-white/10 text-base md:text-lg leading-relaxed" initial={{ opacity: 0, x: 14 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.6, delay: index * 0.06 }}>
-              <strong className="font-medium text-white">{lead}</strong> <span className="font-light text-white/60">{body}</span>
-            </motion.p>
-          ))}
+      <section className="px-5 py-20 md:px-8 md:py-28">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">TL;DR</p>
+          <p className="mt-6 text-xl font-normal leading-relaxed text-white/85 md:text-2xl">{c.tldr}</p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section className="relative bg-perspective-grid py-20 md:py-28 px-4 md:px-8 overflow-hidden">
-      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
-        <motion.div className="lg:col-span-6" {...reveal}>
-           <SectionLabel>{c.bandsLabel}</SectionLabel>
-           <Headline>{c.bandsTitle}</Headline>
-        </motion.div>
-        <div className="lg:col-span-6">
-          <div className="border-t border-white/10">
-             {c.bands.map(([range, meaning], index) => (
-              <motion.div key={range} className="grid grid-cols-[8.5rem_1fr] md:grid-cols-[10rem_1fr] gap-5 py-5 md:py-6 border-b border-white/10 items-baseline" initial={{ opacity: 0, x: 14 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.6, delay: index * 0.07 }}>
-                <span className="font-mono text-sm md:text-base text-white">{range}</span>
-                <span className="text-base md:text-lg font-light text-white/65 leading-relaxed">{meaning}</span>
-              </motion.div>
+      <section id="summary" className="px-5 py-24 md:px-8 md:py-36">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-12 lg:gap-20">
+          <header className="lg:col-span-4">
+            <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">{c.summaryLabel}</p>
+            <h2 className="mt-6 text-4xl font-medium leading-[1.05] tracking-tight md:text-5xl">{c.summaryTitle}</h2>
+          </header>
+          <div className="lg:col-span-7 lg:col-start-6"><Paragraph>{c.summary}</Paragraph></div>
+        </div>
+      </section>
+
+      <div className="bg-black px-5 py-6 lg:hidden">
+        <label htmlFor="tari-chapter-nav" className="mb-3 block text-[10px] font-light uppercase tracking-[0.25em] text-white/45">{c.deepDive}</label>
+        <select id="tari-chapter-nav" className="w-full rounded-sm border border-white/15 bg-black px-3 py-3 text-sm font-light text-white outline-none transition-colors focus:border-white/50" defaultValue="" onChange={(event) => { if (event.target.value) document.querySelector(event.target.value)?.scrollIntoView({ behavior: "smooth" }); }}>
+          <option value="" disabled>Select a chapter</option>
+          {c.chapters.map((chapter) => <option key={chapter.number} value={`#chapter-${chapter.number}`}>{chapter.number} {chapter.title}</option>)}
+        </select>
+      </div>
+
+      <section className="relative px-5 py-20 md:px-8 md:py-32">
+        <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-20">
+          <aside className="hidden lg:block">
+            <div className="sticky top-28">
+              <p className="mb-6 text-[10px] font-light uppercase tracking-[0.3em] text-white/45">{c.deepDive}</p>
+              <nav aria-label="TARI chapters" className="space-y-2.5">
+                {c.chapters.map((chapter) => (
+                  <a key={chapter.number} href={`#chapter-${chapter.number}`} className="group grid grid-cols-[2rem_1fr] text-xs font-light leading-snug text-white/40 transition-colors hover:text-white focus-visible:outline-none focus-visible:text-white">
+                    <span className="font-mono text-white/40 group-hover:text-white/80">{chapter.number}</span><span>{chapter.title}</span>
+                  </a>
+                ))}
+              </nav>
+            </div>
+          </aside>
+
+          <div>
+            {c.chapters.map((chapter) => (
+              <article key={chapter.number} id={`chapter-${chapter.number}`} className="scroll-mt-28 border-t border-white/[0.07] py-16 first:border-t-0 first:pt-0 md:py-24">
+                <motion.header initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }} className="mb-10 grid gap-5 md:grid-cols-[5rem_1fr] md:gap-8">
+                  <span className="font-mono text-sm text-white/60">{chapter.number}</span>
+                  <div>
+                    <h2 className="text-3xl font-medium leading-[1.08] tracking-tight text-white md:text-5xl">{chapter.title}</h2>
+                    <p className="mt-4 text-[10px] font-light uppercase tracking-[0.2em] text-white/40">{chapter.label}</p>
+                  </div>
+                </motion.header>
+                <div className="space-y-7 md:ml-[7rem]">
+                  {chapter.paragraphs.map((paragraph, index) => (
+                    <div key={paragraph}>
+                      <Paragraph>{paragraph}</Paragraph>
+                      {chapter.table && index === 0 && <EvidenceTable table={chapter.table} />}
+                      {chapter.metrics && index === 1 && (
+                        <div className="my-9 grid grid-cols-1 border-y border-white/[0.1] sm:grid-cols-2">
+                          {chapter.metrics.map((metric, metricIndex) => (
+                            <div key={metric.label} className={`bg-black px-6 py-7 ${metricIndex > 0 ? "border-t border-white/[0.08] sm:border-l sm:border-t-0" : ""}`}>
+                              <p className="font-mono text-3xl font-normal text-white md:text-4xl">{metric.value}</p>
+                              <p className="mt-2 text-[10px] font-light uppercase tracking-[0.18em] text-white/40">{metric.label}</p>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                  {chapter.link && <a href={chapter.link.href} className="inline-flex border-b border-white/20 pb-1 text-sm font-light text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">{chapter.link.label} →</a>}
+                </div>
+              </article>
             ))}
           </div>
-          <p className="mt-10 text-base md:text-lg font-light text-white/50 leading-relaxed">
-             {c.bandsNote}
-          </p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section className="relative bg-perspective-grid py-20 md:py-28 px-4 md:px-8 overflow-hidden">
-      <div className="relative z-10 max-w-7xl mx-auto">
-        <motion.div {...reveal}>
-           <SectionLabel>{c.numbersLabel}</SectionLabel>
-           <Headline>{c.numbersTitle}</Headline>
-        </motion.div>
-        <div className="mt-12 md:mt-16 overflow-x-auto border border-white/10 rounded-lg bg-black">
-          <table className="w-full min-w-[760px] text-left">
-            <thead><tr className="border-b border-white/10">
-               {c.tableHeaders.map((heading) => <th key={heading} className="px-5 md:px-7 py-4 text-[10px] tracking-[0.25em] font-light text-white/40 uppercase">{heading}</th>)}
-            </tr></thead>
-             <tbody>{c.measures.map(([measure, value, scope], index) => (
-               <tr key={measure} className={index < c.measures.length - 1 ? "border-b border-white/10" : ""}>
-                <td className="px-5 md:px-7 py-5 text-sm md:text-base font-normal text-white/85 align-top w-[28%]">{measure}</td>
-                <td className="px-5 md:px-7 py-5 font-mono text-sm md:text-base text-white align-top w-[12%]">{value}</td>
-                <td className="px-5 md:px-7 py-5 text-sm md:text-base font-light text-white/60 leading-relaxed align-top">{scope}</td>
-              </tr>
-            ))}</tbody>
-          </table>
+      <section id="glossary" className="relative px-5 py-24 md:px-8 md:py-32">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:gap-20">
+          <header className="lg:col-span-4">
+            <p className="text-xs font-light uppercase tracking-[0.35em] text-white/50">Reference</p>
+            <h2 className="mt-6 text-4xl font-medium leading-[1.05] tracking-tight md:text-5xl">Glossary</h2>
+          </header>
+          <dl className="lg:col-span-7 lg:col-start-6">
+            {c.glossary.map(([term, definition]) => (
+              <div key={term} className="grid gap-2 border-t border-white/[0.08] py-5 first:border-t-0 sm:grid-cols-[10rem_1fr] sm:gap-8">
+                <dt className="text-base font-normal text-white/90">{term}</dt>
+                <dd className="text-base font-light leading-relaxed text-white/60">{definition}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
-        <p className="mt-8 text-base md:text-lg font-light text-white/50 leading-relaxed max-w-5xl">
-           {c.numbersNote}
-        </p>
-      </div>
-    </section>
+      </section>
 
-    <section className="relative bg-perspective-grid py-20 md:py-28 px-4 md:px-8 overflow-hidden">
-      <div className="relative z-10 max-w-7xl mx-auto">
-        <motion.div {...reveal}>
-           <SectionLabel>{c.tiersLabel}</SectionLabel>
-           <Headline>{c.tiersTitle}</Headline>
-        </motion.div>
-        <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-           {c.tiers.map(([tier, range, powers], index) => (
-            <motion.article key={tier} className="rounded-lg border border-white/10 bg-black p-7 md:p-8" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.7, delay: index * 0.1 }}>
-              <h3 className="text-2xl md:text-3xl font-light text-white">{tier}</h3>
-              <p className="mt-3 text-sm md:text-base font-mono text-white/80">{range}</p>
-              <p className="mt-6 text-base md:text-lg font-light text-white/65 leading-relaxed">{powers}</p>
-            </motion.article>
-          ))}
-        </div>
-        <p className="mt-10 text-base md:text-lg font-light text-white/50 leading-relaxed">
-           {c.tiersNote}
-        </p>
-      </div>
-    </section>
-
-    <section className="relative bg-gray-50 py-24 md:py-36 px-4 md:px-8 overflow-hidden">
-      <div className="absolute inset-0 opacity-[0.07] pointer-events-none bg-[linear-gradient(hsl(var(--trust-blue))_1px,transparent_1px),linear-gradient(90deg,hsl(var(--trust-blue))_1px,transparent_1px)] bg-[size:40px_40px]" />
-      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
-        <motion.div className="lg:col-span-6" {...reveal}>
-           <SectionLabel light>{c.runLabel}</SectionLabel>
-           <Headline light>{c.runTitle}</Headline>
-        </motion.div>
-        <motion.div className="lg:col-span-6" {...reveal}>
-          <pre className="rounded-lg bg-gray-900 border border-gray-700 p-6 md:p-8 font-mono text-sm md:text-base leading-loose text-gray-100 overflow-x-auto"><code>{`pip install amai-tari\ntari demo\ntari dashboard`}</code></pre>
-          <p className="mt-8 text-base md:text-lg font-light text-black/70 leading-relaxed">
-             {c.runBody}
-          </p>
-          <div className="mt-8 flex flex-wrap gap-6 md:gap-10">
-             <ArrowLink href="/methodology" light>{c.runLinks[0]}</ArrowLink>
-             <ArrowLink href="/docs" light>{c.runLinks[1]}</ArrowLink>
+      <section className="relative px-5 py-28 text-center md:px-8 md:py-40">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-4xl font-medium leading-[1.05] tracking-tight md:text-6xl">{c.closingTitle}</h2>
+          <div className="mt-12 flex flex-col items-center justify-center gap-6 text-sm font-light sm:flex-row sm:gap-10">
+            {c.links.map((link) => (
+              <a key={link.label} href={link.href} target={link.external ? "_blank" : undefined} rel={link.external ? "noopener noreferrer" : undefined} className="border-b border-white/20 pb-1 text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60">{link.label} {link.external ? "↗" : "→"}</a>
+            ))}
           </div>
-        </motion.div>
-      </div>
-    </section>
-
-
-  </main>
+        </div>
+      </section>
+      <Footer />
+    </main>
   );
 };
 
