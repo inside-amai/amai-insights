@@ -79,7 +79,7 @@ const Tari = () => {
       </section>
 
       <div className="bg-black px-5 py-6 lg:hidden">
-        <label htmlFor="tari-chapter-nav" className="mb-3 block text-[10px] font-light uppercase tracking-[0.25em] text-white/45">{c.deepDive}</label>
+        <label htmlFor="tari-chapter-nav" className="mb-3 block text-[10px] font-light uppercase tracking-[0.25em] text-white/60">{c.deepDive}</label>
         <select id="tari-chapter-nav" className="w-full rounded-sm border border-white/15 bg-black px-3 py-3 text-sm font-light text-white outline-none transition-colors focus:border-white/50" defaultValue="" onChange={(event) => { if (event.target.value) document.querySelector(event.target.value)?.scrollIntoView({ behavior: "smooth" }); }}>
           <option value="" disabled>Select a chapter</option>
           {c.chapters.map((chapter) => <option key={chapter.number} value={`#chapter-${chapter.number}`}>{chapter.number} {chapter.title}</option>)}
@@ -92,11 +92,11 @@ const Tari = () => {
         <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-[19rem_minmax(0,1fr)] lg:gap-16">
           <aside className="hidden lg:block">
             <div className="sticky top-28">
-              <p className="mb-7 text-[11px] font-light uppercase tracking-[0.3em] text-white/45">{c.deepDive}</p>
+              <p className="mb-7 text-[11px] font-light uppercase tracking-[0.3em] text-white/60">{c.deepDive}</p>
               <nav aria-label="TARI chapters" className="space-y-3.5">
                 {c.chapters.map((chapter) => (
-                  <a key={chapter.number} href={`#chapter-${chapter.number}`} className="group grid grid-cols-[2.5rem_1fr] items-baseline text-[15px] font-light leading-snug text-white/40 transition-colors hover:text-white focus-visible:outline-none focus-visible:text-white">
-                    <span className="font-mono text-sm text-white/40 group-hover:text-white/80">{chapter.number}</span><span>{chapter.title}</span>
+                  <a key={chapter.number} href={`#chapter-${chapter.number}`} className="group grid grid-cols-[2.5rem_1fr] items-baseline text-[15px] font-light leading-snug text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:text-white">
+                    <span className="font-mono text-sm text-white/60 group-hover:text-white">{chapter.number}</span><span>{chapter.title}</span>
                   </a>
                 ))}
               </nav>
