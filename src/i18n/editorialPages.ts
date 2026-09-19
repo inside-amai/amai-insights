@@ -51,7 +51,7 @@ export const editorialUi = {
         "Live on testnet"
       ],
       "closingLabel": "Every move, on the record",
-      "closingTitle": "Infrastructure Precedes Autonomy.",
+      "closingTitle": "Infrastructure\nPrecedes Autonomy.",
       "links": [
         "See the Bureau",
         "How TARI™ is built",
