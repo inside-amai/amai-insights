@@ -142,7 +142,7 @@ const Token = () => {
         <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-[19rem_minmax(0,1fr)] lg:gap-16">
           <aside className="hidden lg:block">
             <div className="sticky top-28">
-               <p className="mb-7 text-[11px] font-semibold uppercase tracking-[0.3em] text-white/60">{copy.deepDive}</p>
+               <p className="mb-7 text-[11px] font-semibold uppercase tracking-[0.3em] text-white">{copy.deepDive}</p>
                <nav aria-label={copy.navLabel} className="space-y-3.5">
                 {mainChapters.map((chapter) => (
                   <a
