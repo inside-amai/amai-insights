@@ -457,7 +457,7 @@ const HomepageCopy = () => {
                         <span className={`block text-[17px] font-normal leading-tight transition-colors duration-300 motion-reduce:transition-none md:text-[19px] ${isActive ? "text-[#CEFFC9]" : "text-foreground/90 group-hover:text-foreground group-focus-visible:text-[#CEFFC9]"}`}>
                           {c.pools.rows[i].job}
                         </span>
-                        <span className="mt-1.5 block max-w-[46ch] text-sm font-light leading-relaxed text-foreground/55 transition-colors duration-300 group-hover:text-foreground/65 group-focus-visible:text-foreground/70 motion-reduce:transition-none md:text-[15px]">
+                        <span className="mt-1.5 block max-w-[62ch] text-sm font-light leading-relaxed text-foreground/55 transition-colors duration-300 group-hover:text-foreground/65 group-focus-visible:text-foreground/70 motion-reduce:transition-none md:text-[15px]">
                           {c.pools.rows[i].desc}
                         </span>
                       </span>
