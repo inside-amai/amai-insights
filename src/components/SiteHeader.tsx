@@ -1,8 +1,8 @@
 import { useLanguage, Language } from '@/contexts/LanguageContext';
 import { Link, useLocation } from 'react-router-dom';
 import { showEmailFallbackToast } from '@/lib/contact-toast';
-import { Globe, Menu, X, Github } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { ChevronDown, Globe, Menu, X, Github } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
 import headerIcon from '@/assets/amai-header-icon.png';
 
 const XLogo = ({ className }: { className?: string }) => (
