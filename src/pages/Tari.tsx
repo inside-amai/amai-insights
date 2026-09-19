@@ -89,14 +89,14 @@ const Tari = () => {
       <section className="relative px-5 py-20 md:px-8 md:py-32">
         <div aria-hidden className="pointer-events-none absolute bottom-0 left-0 h-[68%] w-[72%] bg-[radial-gradient(ellipse_at_18%_76%,hsl(var(--cyan-accent)/0.1),transparent_58%)] [mask-image:linear-gradient(to_top,transparent,black_28%,black_72%,transparent)] [-webkit-mask-image:linear-gradient(to_top,transparent,black_28%,black_72%,transparent)]" />
 
-        <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-20">
+        <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-[19rem_minmax(0,1fr)] lg:gap-16">
           <aside className="hidden lg:block">
             <div className="sticky top-28">
-              <p className="mb-6 text-[10px] font-light uppercase tracking-[0.3em] text-white/45">{c.deepDive}</p>
-              <nav aria-label="TARI chapters" className="space-y-2.5">
+              <p className="mb-7 text-[11px] font-light uppercase tracking-[0.3em] text-white/45">{c.deepDive}</p>
+              <nav aria-label="TARI chapters" className="space-y-3.5">
                 {c.chapters.map((chapter) => (
-                  <a key={chapter.number} href={`#chapter-${chapter.number}`} className="group grid grid-cols-[2rem_1fr] text-xs font-light leading-snug text-white/40 transition-colors hover:text-white focus-visible:outline-none focus-visible:text-white">
-                    <span className="font-mono text-white/40 group-hover:text-white/80">{chapter.number}</span><span>{chapter.title}</span>
+                  <a key={chapter.number} href={`#chapter-${chapter.number}`} className="group grid grid-cols-[2.5rem_1fr] items-baseline text-[15px] font-light leading-snug text-white/40 transition-colors hover:text-white focus-visible:outline-none focus-visible:text-white">
+                    <span className="font-mono text-sm text-white/40 group-hover:text-white/80">{chapter.number}</span><span>{chapter.title}</span>
                   </a>
                 ))}
               </nav>
