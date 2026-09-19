@@ -148,6 +148,14 @@ export const SiteHeader = () => {
             <a href="https://bureau.amai.net" target="_blank" rel="noopener noreferrer" className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Bureau ↗</a>
             <Link to="/team" className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Team</Link>
             <a href={mailto} onClick={() => { setMobileOpen(false); handleContactClick(); }} className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Contact</a>
+            <div className="py-4 border-b border-white/10 flex items-center gap-7">
+              <a href="https://github.com/inside-amai" target="_blank" rel="noopener noreferrer" aria-label="AMAI on GitHub" className="text-white/90 hover:text-white transition-colors">
+                <Github className="h-5 w-5" strokeWidth={1.5} />
+              </a>
+              <a href="https://x.com/AMAILabsHQ" target="_blank" rel="noopener noreferrer" aria-label="AMAI on X" className="text-white/90 hover:text-white transition-colors">
+                <XLogo className="h-4 w-4" />
+              </a>
+            </div>
           </nav>
 
 
