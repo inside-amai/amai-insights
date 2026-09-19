@@ -89,11 +89,29 @@ export const SiteHeader = () => {
           {/* Desktop Nav */}
           <nav className="pointer-events-auto hidden sm:flex items-center text-[11px] tracking-[0.1em] flex-shrink-0 whitespace-nowrap uppercase text-white/60">
             <div className="flex items-center gap-2">
-              <Link to="/operators" className="hover:text-white/90 transition-colors">Operators</Link><span className="text-white/20">·</span>
-              <Link to="/token" className="hover:text-white/90 transition-colors">Token</Link><span className="text-white/20">·</span>
+              <div ref={ecoRef} className="relative">
+                <button
+                  onClick={() => setEcoOpen((v) => !v)}
+                  aria-expanded={ecoOpen}
+                  aria-haspopup="true"
+                  className={`flex items-center gap-1 transition-colors ${ecoOpen ? 'text-white/90' : 'hover:text-white/90'}`}
+                >
+                  Ecosystem
+                  <ChevronDown
+                    className={`h-3 w-3 transition-transform duration-200 ${ecoOpen ? 'rotate-180' : ''}`}
+                    strokeWidth={1.5}
+                  />
+                </button>
+                {ecoOpen && (
+                  <div className="absolute left-0 top-full mt-3 min-w-[150px] border border-white/10 bg-black/95 backdrop-blur-md py-2">
+                    <Link to="/operators" className="block px-4 py-2 text-white/60 hover:text-white/90 transition-colors">Operators</Link>
+                    <Link to="/token" className="block px-4 py-2 text-white/60 hover:text-white/90 transition-colors">Token</Link>
+                    <Link to="/tari" className="block px-4 py-2 text-white/60 hover:text-white/90 transition-colors">Tari</Link>
+                    <a href="https://bureau.amai.net" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-white/60 hover:text-white/90 transition-colors">Bureau ↗</a>
+                  </div>
+                )}
+              </div><span className="text-white/20">·</span>
               <Link to="/launchpad" className="hover:text-white/90 transition-colors">Launchpad</Link><span className="text-white/20">·</span>
-              <Link to="/tari" className="hover:text-white/90 transition-colors">Tari</Link><span className="text-white/20">·</span>
-              <a href="https://bureau.amai.net" target="_blank" rel="noopener noreferrer" className="hover:text-white/90 transition-colors">Bureau ↗</a><span className="text-white/20">·</span>
               <Link to="/team" className="hover:text-white/90 transition-colors">Team</Link><span className="text-white/20">·</span>
               <a href={mailto} onClick={handleContactClick} className="hover:text-white/90 transition-colors">Contact</a><span className="text-white/20">·</span>
               <a href="https://github.com/inside-amai" target="_blank" rel="noopener noreferrer" aria-label="AMAI on GitHub" className="hover:text-white/90 transition-colors flex items-center">
