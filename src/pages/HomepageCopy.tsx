@@ -423,42 +423,49 @@ const HomepageCopy = () => {
             </motion.div>
 
             <motion.div
-              className="lg:col-span-6 lg:col-start-7 pt-10 md:pt-12"
+              className="lg:col-span-6 lg:col-start-7 pt-10 md:pt-12 lg:pl-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="grid grid-cols-[130px_1fr] md:grid-cols-[170px_1fr] gap-x-6 pb-3 border-b border-white/15">
-                <span className="text-[11px] tracking-[0.2em] font-medium text-white uppercase">{c.pools.colJob}</span>
-                <span className="text-[11px] tracking-[0.2em] font-medium text-white uppercase">{c.pools.colAgent}</span>
+              <div className="space-y-4 md:space-y-5">
+                {OPERATOR_ROWS.map((row, i) => {
+                  const Icon = row.icon;
+                  const isActive = i === activeOp;
+                  return (
+                    <button
+                      key={row.job}
+                      type="button"
+                      aria-pressed={isActive}
+                      onMouseEnter={() => { setOpPaused(true); setActiveOp(i); }}
+                      onMouseLeave={() => setOpPaused(false)}
+                      onFocus={() => { setOpPaused(true); setActiveOp(i); }}
+                      onBlur={() => setOpPaused(false)}
+                      onClick={() => setActiveOp(i)}
+                      className="group relative grid w-full grid-cols-[20px_minmax(0,1fr)] gap-x-4 py-1.5 text-left focus:outline-none"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className={`absolute -left-3 top-1.5 h-8 w-px origin-center bg-primary transition-all duration-300 motion-reduce:transition-none md:-left-4 ${isActive ? "scale-y-100 opacity-100" : "scale-y-50 opacity-0 group-focus-visible:scale-y-100 group-focus-visible:opacity-100"}`}
+                      />
+                      <Icon
+                        className={`mt-1 h-4 w-4 flex-shrink-0 transition-colors duration-300 motion-reduce:transition-none ${isActive ? "text-primary" : "text-foreground/55 group-hover:text-foreground/80 group-focus-visible:text-primary"}`}
+                        strokeWidth={1.5}
+                      />
+                      <span className="min-w-0">
+                        <span className={`block text-[17px] font-normal leading-tight transition-colors duration-300 motion-reduce:transition-none md:text-[19px] ${isActive ? "text-primary" : "text-foreground/90 group-hover:text-foreground group-focus-visible:text-primary"}`}>
+                          {c.pools.rows[i].job}
+                        </span>
+                        <span className="mt-1.5 block max-w-[46ch] text-sm font-light leading-relaxed text-foreground/55 transition-colors duration-300 group-hover:text-foreground/65 group-focus-visible:text-foreground/70 motion-reduce:transition-none md:text-[15px]">
+                          {c.pools.rows[i].desc}
+                        </span>
+                      </span>
+                    </button>
+                  );
+                })}
               </div>
-              {OPERATOR_ROWS.map((row, i) => {
-                const Icon = row.icon;
-                const isActive = i === activeOp;
-                return (
-                <button
-                  key={row.job}
-                  type="button"
-                  aria-pressed={isActive}
-                  onMouseEnter={() => { setOpPaused(true); setActiveOp(i); }}
-                  onMouseLeave={() => setOpPaused(false)}
-                  onFocus={() => { setOpPaused(true); setActiveOp(i); }}
-                  onBlur={() => setOpPaused(false)}
-                  onClick={() => setActiveOp(i)}
-                  className={`group relative w-full text-left grid grid-cols-[130px_1fr] md:grid-cols-[170px_1fr] gap-x-6 py-5 md:py-6 transition-colors duration-[250ms] focus:outline-none focus-visible:ring-1 focus-visible:ring-[#B4F6AD]/70 ${isActive ? "bg-[#157854]/[0.10]" : "hover:bg-[#157854]/[0.06]"}`}
-                >
-                  <div className={`absolute inset-x-0 top-0 h-px transition-all duration-[250ms] ${isActive ? "bg-gradient-to-r from-[#B4F6AD]/60 via-[#3D896D]/30 to-transparent" : "bg-gradient-to-r from-white/20 via-white/10 to-transparent"}`} />
-                  <div className="absolute inset-0 bg-gradient-to-b from-white/[0.05] via-white/[0.02] to-transparent pointer-events-none" />
-                  <div className="relative flex items-center gap-3 text-sm md:text-base font-normal text-white/90">
-                    <Icon className={`w-4 h-4 flex-shrink-0 transition-colors duration-[250ms] ${isActive ? "text-white" : "text-white/80"}`} strokeWidth={1.5} />
-                    {c.pools.rows[i].job}
-                  </div>
-                  <p className="relative text-sm md:text-base font-light text-white/60 leading-relaxed">{c.pools.rows[i].desc}</p>
-                </button>
-                );
-              })}
-              <div className="mt-10 md:mt-12 pl-4 md:pl-5 border-l border-[#157854]">
+              <div className="mt-14 border-l border-[#157854] pl-4 md:mt-16 md:pl-5">
                 <span className="text-[11px] tracking-[0.3em] font-light text-white/50 uppercase">{c.pools.deniedLabel}</span>
                 <p className="mt-3 text-sm md:text-base font-light text-white/70 leading-relaxed">
                   {c.pools.deniedLine1}<br />
