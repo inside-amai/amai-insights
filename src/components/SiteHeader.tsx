@@ -94,7 +94,7 @@ export const SiteHeader = () => {
                   onClick={() => setEcoOpen((v) => !v)}
                   aria-expanded={ecoOpen}
                   aria-haspopup="true"
-                  className={`flex items-center gap-1 transition-colors ${ecoOpen ? 'text-white/90' : 'hover:text-white/90'}`}
+                  className={`flex items-center gap-1 text-[11px] tracking-[0.1em] uppercase text-white/60 transition-colors ${ecoOpen ? 'text-white/90' : 'hover:text-white/90'}`}
                 >
                   Ecosystem
                   <ChevronDown
