@@ -447,14 +447,14 @@ const HomepageCopy = () => {
                     >
                       <span
                         aria-hidden="true"
-                        className={`absolute -left-3 top-1.5 h-8 w-px origin-center bg-primary transition-all duration-300 motion-reduce:transition-none md:-left-4 ${isActive ? "scale-y-100 opacity-100" : "scale-y-50 opacity-0 group-focus-visible:scale-y-100 group-focus-visible:opacity-100"}`}
+                        className={`absolute -left-3 top-1.5 h-8 w-px origin-center bg-[#CEFFC9] transition-all duration-300 motion-reduce:transition-none md:-left-4 ${isActive ? "scale-y-100 opacity-100" : "scale-y-50 opacity-0 group-focus-visible:scale-y-100 group-focus-visible:opacity-100"}`}
                       />
                       <Icon
-                        className={`mt-1 h-4 w-4 flex-shrink-0 transition-colors duration-300 motion-reduce:transition-none ${isActive ? "text-primary" : "text-foreground/55 group-hover:text-foreground/80 group-focus-visible:text-primary"}`}
+                        className={`mt-1 h-4 w-4 flex-shrink-0 transition-colors duration-300 motion-reduce:transition-none ${isActive ? "text-[#CEFFC9]" : "text-foreground/55 group-hover:text-foreground/80 group-focus-visible:text-[#CEFFC9]"}`}
                         strokeWidth={1.5}
                       />
                       <span className="min-w-0">
-                        <span className={`block text-[17px] font-normal leading-tight transition-colors duration-300 motion-reduce:transition-none md:text-[19px] ${isActive ? "text-primary" : "text-foreground/90 group-hover:text-foreground group-focus-visible:text-primary"}`}>
+                        <span className={`block text-[17px] font-normal leading-tight transition-colors duration-300 motion-reduce:transition-none md:text-[19px] ${isActive ? "text-[#CEFFC9]" : "text-foreground/90 group-hover:text-foreground group-focus-visible:text-[#CEFFC9]"}`}>
                           {c.pools.rows[i].job}
                         </span>
                         <span className="mt-1.5 block max-w-[46ch] text-sm font-light leading-relaxed text-foreground/55 transition-colors duration-300 group-hover:text-foreground/65 group-focus-visible:text-foreground/70 motion-reduce:transition-none md:text-[15px]">
@@ -465,7 +465,7 @@ const HomepageCopy = () => {
                   );
                 })}
               </div>
-              <div className="mt-14 border-l border-[#157854] pl-4 md:mt-16 md:pl-5">
+              <div className="mt-14 border-l border-[#CEFFC9]/50 pl-4 md:mt-16 md:pl-5">
                 <span className="text-[11px] tracking-[0.3em] font-light text-white/50 uppercase">{c.pools.deniedLabel}</span>
                 <p className="mt-3 text-sm md:text-base font-light text-white/70 leading-relaxed">
                   {c.pools.deniedLine1}<br />
