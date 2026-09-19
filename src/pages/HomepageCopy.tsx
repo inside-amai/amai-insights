@@ -380,7 +380,7 @@ const HomepageCopy = () => {
         />
         <div className="pointer-events-none hidden md:block absolute left-[22%] top-[58%] -translate-x-1/2 -translate-y-1/2 w-[60%] h-[55%] bg-[radial-gradient(ellipse_at_center,hsl(var(--cyan-accent)/0.1),transparent_55%)]" />
 
-        <div className="relative z-10 max-w-[1400px] mx-auto">
+        <div className="relative z-10 max-w-[1320px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-8 items-start">
             <motion.div
               className="lg:col-span-6"
@@ -443,21 +443,21 @@ const HomepageCopy = () => {
                       onFocus={() => { setOpPaused(true); setActiveOp(i); }}
                       onBlur={() => setOpPaused(false)}
                       onClick={() => setActiveOp(i)}
-                      className="group relative grid w-full grid-cols-[20px_minmax(0,1fr)] gap-x-4 py-1.5 text-left focus:outline-none"
+                      className="group relative grid w-full grid-cols-[24px_minmax(0,1fr)] gap-x-5 py-2 text-left focus:outline-none"
                     >
                       <span
                         aria-hidden="true"
-                        className={`absolute -left-3 top-1.5 h-8 w-px origin-center bg-[#CEFFC9] transition-all duration-300 motion-reduce:transition-none md:-left-4 ${isActive ? "scale-y-100 opacity-100" : "scale-y-50 opacity-0 group-focus-visible:scale-y-100 group-focus-visible:opacity-100"}`}
+                        className={`absolute -left-3 top-1.5 h-9 w-px origin-center bg-[#CEFFC9] transition-all duration-300 motion-reduce:transition-none md:-left-4 ${isActive ? "scale-y-100 opacity-100" : "scale-y-50 opacity-0 group-focus-visible:scale-y-100 group-focus-visible:opacity-100"}`}
                       />
                       <Icon
-                        className={`mt-1 h-4 w-4 flex-shrink-0 transition-colors duration-300 motion-reduce:transition-none ${isActive ? "text-[#CEFFC9]" : "text-foreground/55 group-hover:text-foreground/80 group-focus-visible:text-[#CEFFC9]"}`}
+                        className={`mt-1 h-[18px] w-[18px] md:h-5 md:w-5 flex-shrink-0 transition-colors duration-300 motion-reduce:transition-none ${isActive ? "text-[#CEFFC9]" : "text-foreground/55 group-hover:text-foreground/80 group-focus-visible:text-[#CEFFC9]"}`}
                         strokeWidth={1.5}
                       />
                       <span className="min-w-0">
-                        <span className={`block text-[17px] font-normal leading-tight transition-colors duration-300 motion-reduce:transition-none md:text-[19px] ${isActive ? "text-[#CEFFC9]" : "text-foreground/90 group-hover:text-foreground group-focus-visible:text-[#CEFFC9]"}`}>
+                        <span className={`block text-[20px] font-normal leading-tight transition-colors duration-300 motion-reduce:transition-none md:text-[23px] ${isActive ? "text-[#CEFFC9]" : "text-foreground/90 group-hover:text-foreground group-focus-visible:text-[#CEFFC9]"}`}>
                           {c.pools.rows[i].job}
                         </span>
-                        <span className="mt-1.5 block max-w-[62ch] text-sm font-light leading-relaxed text-foreground/55 transition-colors duration-300 group-hover:text-foreground/65 group-focus-visible:text-foreground/70 motion-reduce:transition-none md:text-[15px]">
+                        <span className="mt-2 block text-[15px] font-light leading-relaxed text-foreground/55 transition-colors duration-300 group-hover:text-foreground/65 group-focus-visible:text-foreground/70 motion-reduce:transition-none md:text-[17px]">
                           {c.pools.rows[i].desc}
                         </span>
                       </span>
