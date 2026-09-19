@@ -465,7 +465,7 @@ const HomepageCopy = () => {
                   );
                 })}
               </div>
-              <div className="mt-14 border-l border-[#CEFFC9]/50 pl-4 md:mt-16 md:pl-5">
+              <div className="mt-10 border-l border-[#CEFFC9]/50 pl-4 md:mt-12 md:pl-5">
                 <span className="text-[11px] tracking-[0.3em] font-light text-white/50 uppercase">{c.pools.deniedLabel}</span>
                 <p className="mt-3 text-sm md:text-base font-light text-white/70 leading-relaxed">
                   {c.pools.deniedLine1}<br />
