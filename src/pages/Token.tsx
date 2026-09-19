@@ -122,7 +122,7 @@ const Token = () => {
       </section>
 
       <div className="bg-black px-5 py-6 lg:hidden">
-         <label htmlFor="token-chapter-nav" className="mb-3 block text-[10px] font-light uppercase tracking-[0.25em] text-white/45">{copy.jump}</label>
+         <label htmlFor="token-chapter-nav" className="mb-3 block text-[10px] font-light uppercase tracking-[0.25em] text-white/60">{copy.jump}</label>
         <select
           id="token-chapter-nav"
           className="w-full rounded-sm border border-white/15 bg-black px-3 py-3 text-sm font-light text-white outline-none transition-colors focus:border-white/50"
@@ -142,15 +142,15 @@ const Token = () => {
         <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-[19rem_minmax(0,1fr)] lg:gap-16">
           <aside className="hidden lg:block">
             <div className="sticky top-28">
-               <p className="mb-7 text-[11px] font-light uppercase tracking-[0.3em] text-white/45">{copy.deepDive}</p>
+               <p className="mb-7 text-[11px] font-light uppercase tracking-[0.3em] text-white/60">{copy.deepDive}</p>
                <nav aria-label={copy.navLabel} className="space-y-3.5">
                 {mainChapters.map((chapter) => (
                   <a
                     key={chapter.id}
                     href={`#${chapter.id}`}
-                    className="group grid grid-cols-[2.5rem_1fr] items-baseline text-[15px] font-light leading-snug text-white/40 transition-colors hover:text-white focus-visible:outline-none focus-visible:text-white"
+                    className="group grid grid-cols-[2.5rem_1fr] items-baseline text-[15px] font-light leading-snug text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:text-white"
                   >
-                    <span className="font-mono text-sm text-white/40 group-hover:text-white/80">{chapter.number.padStart(2, "0")}</span>
+                    <span className="font-mono text-sm text-white/60 group-hover:text-white">{chapter.number.padStart(2, "0")}</span>
                     <span>{chapter.title}</span>
                   </a>
                 ))}
