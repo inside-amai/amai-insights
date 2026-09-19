@@ -21,11 +21,26 @@ export const SiteHeader = () => {
   const { language, setLanguage } = useLanguage();
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [ecoOpen, setEcoOpen] = useState(false);
+  const ecoRef = useRef<HTMLDivElement>(null);
 
-  // Close menu on route change
+  // Close menus on route change
   useEffect(() => {
     setMobileOpen(false);
+    setEcoOpen(false);
   }, [location.pathname]);
+
+  // Close ecosystem dropdown on outside click
+  useEffect(() => {
+    if (!ecoOpen) return;
+    const onDocClick = (e: MouseEvent) => {
+      if (ecoRef.current && !ecoRef.current.contains(e.target as Node)) {
+        setEcoOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', onDocClick);
+    return () => document.removeEventListener('mousedown', onDocClick);
+  }, [ecoOpen]);
 
   // Lock body scroll when open
   useEffect(() => {
