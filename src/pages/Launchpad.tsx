@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Footer } from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useActiveChapter } from "@/hooks/useActiveChapter";
 import { editorialMarkdown, editorialUi } from "@/i18n/editorialPages";
 
 type Chapter = {
@@ -72,6 +73,7 @@ const ScheduleRow = ({ children }: { children: string }) => {
 const Launchpad = () => {
   const { language } = useLanguage();
   const { title, subtitle, tldr, summary, mainChapters, glossary } = parseMarkdown(editorialMarkdown[language].launchpad);
+  const activeChapterId = useActiveChapter(mainChapters.map((chapter) => chapter.id));
   const copy = editorialUi[language].launchpad;
   const highlights = (["FREE", "75/25"] as const).map((value) => ({
     value,
@@ -161,16 +163,20 @@ const Launchpad = () => {
             <div className="sticky top-28">
                <p className="mb-7 text-[11px] font-semibold uppercase tracking-[0.3em] text-white">{copy.deepDive}</p>
                <nav aria-label={copy.navLabel} className="space-y-3.5">
-                {mainChapters.map((chapter) => (
-                  <a
-                    key={chapter.id}
-                    href={`#${chapter.id}`}
-                    className="group grid grid-cols-[2.5rem_1fr] items-baseline text-[15px] font-light leading-snug text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:text-white"
-                  >
-                    <span className="font-mono text-sm text-white/60 group-hover:text-white">{chapter.number.padStart(2, "0")}</span>
-                    <span>{chapter.title}</span>
-                  </a>
-                ))}
+                {mainChapters.map((chapter) => {
+                  const isActive = activeChapterId === chapter.id;
+                  return (
+                    <a
+                      key={chapter.id}
+                      href={`#${chapter.id}`}
+                      aria-current={isActive ? "true" : undefined}
+                      className={`group grid grid-cols-[2.5rem_1fr] items-baseline text-[15px] font-light leading-snug transition-colors hover:text-white focus-visible:outline-none focus-visible:text-white ${isActive ? "text-white" : "text-white/60"}`}
+                    >
+                      <span className={`font-mono text-sm transition-colors group-hover:text-white ${isActive ? "text-white" : "text-white/60"}`}>{chapter.number.padStart(2, "0")}</span>
+                      <span>{chapter.title}</span>
+                    </a>
+                  );
+                })}
               </nav>
             </div>
           </aside>
