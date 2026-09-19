@@ -1,9 +1,15 @@
 import { useLanguage, Language } from '@/contexts/LanguageContext';
 import { Link, useLocation } from 'react-router-dom';
 import { showEmailFallbackToast } from '@/lib/contact-toast';
-import { Globe, Menu, X } from 'lucide-react';
+import { Globe, Menu, X, Github } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import headerIcon from '@/assets/amai-header-icon.png';
+
+const XLogo = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644z" />
+  </svg>
+);
 
 const languages: { code: Language; label: string }[] = [
   { code: 'en', label: 'EN' },
@@ -74,7 +80,13 @@ export const SiteHeader = () => {
               <Link to="/tari" className="hover:text-white/90 transition-colors">Tari</Link><span className="text-white/20">·</span>
               <a href="https://bureau.amai.net" target="_blank" rel="noopener noreferrer" className="hover:text-white/90 transition-colors">Bureau ↗</a><span className="text-white/20">·</span>
               <Link to="/team" className="hover:text-white/90 transition-colors">Team</Link><span className="text-white/20">·</span>
-              <a href={mailto} onClick={handleContactClick} className="hover:text-white/90 transition-colors">Contact</a>
+              <a href={mailto} onClick={handleContactClick} className="hover:text-white/90 transition-colors">Contact</a><span className="text-white/20">·</span>
+              <a href="https://github.com/inside-amai" target="_blank" rel="noopener noreferrer" aria-label="AMAI on GitHub" className="hover:text-white/90 transition-colors flex items-center">
+                <Github size={13} strokeWidth={1.5} />
+              </a><span className="text-white/20">·</span>
+              <a href="https://x.com/AMAILabsHQ" target="_blank" rel="noopener noreferrer" aria-label="AMAI on X" className="hover:text-white/90 transition-colors flex items-center">
+                <XLogo className="h-[11px] w-[11px]" />
+              </a>
             </div>
             <div className="flex items-center gap-1 ml-5 pl-5 border-l border-white/10">
               {languages.map((lang, index) => (
@@ -136,6 +148,14 @@ export const SiteHeader = () => {
             <a href="https://bureau.amai.net" target="_blank" rel="noopener noreferrer" className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Bureau ↗</a>
             <Link to="/team" className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Team</Link>
             <a href={mailto} onClick={() => { setMobileOpen(false); handleContactClick(); }} className="py-3 text-xl font-light uppercase text-white/90 border-b border-white/10">Contact</a>
+            <div className="py-4 border-b border-white/10 flex items-center gap-7">
+              <a href="https://github.com/inside-amai" target="_blank" rel="noopener noreferrer" aria-label="AMAI on GitHub" className="text-white/90 hover:text-white transition-colors">
+                <Github className="h-5 w-5" strokeWidth={1.5} />
+              </a>
+              <a href="https://x.com/AMAILabsHQ" target="_blank" rel="noopener noreferrer" aria-label="AMAI on X" className="text-white/90 hover:text-white transition-colors">
+                <XLogo className="h-4 w-4" />
+              </a>
+            </div>
           </nav>
 
 
