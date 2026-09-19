@@ -429,7 +429,7 @@ const HomepageCopy = () => {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="space-y-4 md:space-y-5">
+              <div className="space-y-3.5 md:space-y-[17px]">
                 {OPERATOR_ROWS.map((row, i) => {
                   const Icon = row.icon;
                   const isActive = i === activeOp;
