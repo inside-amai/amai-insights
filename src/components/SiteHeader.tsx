@@ -89,7 +89,12 @@ export const SiteHeader = () => {
           {/* Desktop Nav */}
           <nav className="pointer-events-auto hidden sm:flex items-center text-[11px] tracking-[0.1em] flex-shrink-0 whitespace-nowrap uppercase text-white/60">
             <div className="flex items-center gap-2">
-              <div ref={ecoRef} className="relative">
+              <div
+                ref={ecoRef}
+                className="relative"
+                onMouseEnter={() => setEcoOpen(true)}
+                onMouseLeave={() => setEcoOpen(false)}
+              >
                 <button
                   onClick={() => setEcoOpen((v) => !v)}
                   aria-expanded={ecoOpen}
@@ -103,11 +108,13 @@ export const SiteHeader = () => {
                   />
                 </button>
                 {ecoOpen && (
-                  <div className="absolute left-0 top-full mt-3 min-w-[150px] border border-white/10 bg-black/95 backdrop-blur-md py-2">
-                    <Link to="/operators" className="block px-4 py-2 text-white/60 hover:text-white/90 transition-colors">Operators</Link>
-                    <Link to="/token" className="block px-4 py-2 text-white/60 hover:text-white/90 transition-colors">Token</Link>
-                    <Link to="/tari" className="block px-4 py-2 text-white/60 hover:text-white/90 transition-colors">Tari</Link>
-                    <a href="https://bureau.amai.net" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-white/60 hover:text-white/90 transition-colors">Bureau ↗</a>
+                  <div className="absolute left-0 top-full pt-3">
+                    <div className="min-w-[150px] border border-white/10 bg-black/95 backdrop-blur-md py-2">
+                      <Link to="/operators" className="block px-4 py-2 text-white/60 hover:text-white/90 transition-colors">Operators</Link>
+                      <Link to="/token" className="block px-4 py-2 text-white/60 hover:text-white/90 transition-colors">Token</Link>
+                      <Link to="/tari" className="block px-4 py-2 text-white/60 hover:text-white/90 transition-colors">Tari</Link>
+                      <a href="https://bureau.amai.net" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-white/60 hover:text-white/90 transition-colors">Bureau ↗</a>
+                    </div>
                   </div>
                 )}
               </div><span className="text-white/20">·</span>
