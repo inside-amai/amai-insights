@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Footer } from "@/components/Footer";
 import { TariGauge } from "@/components/TariGauge";
 import { tariEditorial, type TariChapter } from "@/data/tariEditorial";
+import { useActiveChapter } from "@/hooks/useActiveChapter";
 
 const Paragraph = ({ children }: { children: string }) => (
   <p className="text-base font-light leading-relaxed text-white/60 md:text-lg md:leading-relaxed">{children}</p>
@@ -32,6 +33,7 @@ const EvidenceTable = ({ table }: { table: NonNullable<TariChapter["table"]> }) 
 
 const Tari = () => {
   const c = tariEditorial;
+  const activeChapterId = useActiveChapter(c.chapters.map((chapter) => `chapter-${chapter.number}`));
 
   return (
     <main className="min-h-screen overflow-x-clip bg-perspective-grid font-roboto text-white">
@@ -94,11 +96,20 @@ const Tari = () => {
             <div className="sticky top-28">
               <p className="mb-7 text-[11px] font-semibold uppercase tracking-[0.3em] text-white">{c.deepDive}</p>
               <nav aria-label="TARI chapters" className="space-y-3.5">
-                {c.chapters.map((chapter) => (
-                  <a key={chapter.number} href={`#chapter-${chapter.number}`} className="group grid grid-cols-[2.5rem_1fr] items-baseline text-[15px] font-light leading-snug text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:text-white">
-                    <span className="font-mono text-sm text-white/60 group-hover:text-white">{chapter.number}</span><span>{chapter.title}</span>
-                  </a>
-                ))}
+                {c.chapters.map((chapter) => {
+                  const isActive = activeChapterId === `chapter-${chapter.number}`;
+                  return (
+                    <a
+                      key={chapter.number}
+                      href={`#chapter-${chapter.number}`}
+                      aria-current={isActive ? "true" : undefined}
+                      className={`group grid grid-cols-[2.5rem_1fr] items-baseline text-[15px] font-light leading-snug transition-colors hover:text-white focus-visible:outline-none focus-visible:text-white ${isActive ? "text-white" : "text-white/60"}`}
+                    >
+                      <span className={`font-mono text-sm transition-colors group-hover:text-white ${isActive ? "text-white" : "text-white/60"}`}>{chapter.number}</span>
+                      <span>{chapter.title}</span>
+                    </a>
+                  );
+                })}
               </nav>
             </div>
           </aside>
